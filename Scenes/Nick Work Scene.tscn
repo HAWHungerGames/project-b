@@ -1,0 +1,129 @@
+[gd_scene load_steps=14 format=3 uid="uid://bmqgvvy0t5bfp"]
+
+[ext_resource type="Script" uid="uid://birw8rdmwcq4v" path="res://Scripts/PlayerController.gd" id="1_0yogh"]
+[ext_resource type="Material" uid="uid://b2rgc8u5hwwcc" path="res://Materials/TestGround.tres" id="1_7g8fi"]
+[ext_resource type="Script" uid="uid://b5l31sh77qstt" path="res://Scripts/CameraController.gd" id="2_1dgrj"]
+[ext_resource type="Material" uid="uid://dekpipancsbc6" path="res://Materials/TestCubes.tres" id="2_8h0xq"]
+[ext_resource type="Script" uid="uid://bwrchpg0h1fcx" path="res://Scripts/PlayerStats.gd" id="3_e6mua"]
+
+[sub_resource type="Environment" id="Environment_1dgrj"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8h0xq"]
+size = Vector3(10, 0.1, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e6mua"]
+size = Vector3(10, 0.1, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_e6mua"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r2bbj"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r2bbj"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_r2bbj"]
+size = Vector3(0.1, 0.1, 0.3)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_k711p"]
+
+[node name="NickWorkScene" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1dgrj")
+
+[node name="World" type="Node3D" parent="WorldEnvironment"]
+
+[node name="Ground" type="MeshInstance3D" parent="WorldEnvironment/World"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0.0171719, 0, 0.0365753)
+material_override = ExtResource("1_7g8fi")
+mesh = SubResource("BoxMesh_8h0xq")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WorldEnvironment/World/Ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/World/Ground/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_e6mua")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment/World"]
+transform = Transform3D(1, 0, 0, 0, 0.743145, 0.669131, 0, -0.669131, 0.743145, 0, 3.727, 0)
+
+[node name="Cube01" type="MeshInstance3D" parent="WorldEnvironment/World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.20647, 0.51764, -5.38403)
+material_override = ExtResource("2_8h0xq")
+mesh = SubResource("BoxMesh_e6mua")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WorldEnvironment/World/Cube01"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/World/Cube01/StaticBody3D"]
+shape = SubResource("BoxShape3D_r2bbj")
+
+[node name="Cube02" type="MeshInstance3D" parent="WorldEnvironment/World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.04661, 0.51764, -5.38403)
+material_override = ExtResource("2_8h0xq")
+mesh = SubResource("BoxMesh_e6mua")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WorldEnvironment/World/Cube02"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/World/Cube02/StaticBody3D"]
+shape = SubResource("BoxShape3D_r2bbj")
+
+[node name="Cube03" type="MeshInstance3D" parent="WorldEnvironment/World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.08489, 0.51764, -5.38403)
+material_override = ExtResource("2_8h0xq")
+mesh = SubResource("BoxMesh_e6mua")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WorldEnvironment/World/Cube03"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/World/Cube03/StaticBody3D"]
+shape = SubResource("BoxShape3D_r2bbj")
+
+[node name="Cube04" type="MeshInstance3D" parent="WorldEnvironment/World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.485726, 0.51764, -10.87)
+material_override = ExtResource("2_8h0xq")
+mesh = SubResource("BoxMesh_e6mua")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WorldEnvironment/World/Cube04"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/World/Cube04/StaticBody3D"]
+shape = SubResource("BoxShape3D_r2bbj")
+
+[node name="Player" type="Node3D" parent="WorldEnvironment"]
+script = ExtResource("3_e6mua")
+
+[node name="Controller" type="CharacterBody3D" parent="WorldEnvironment/Player" node_paths=PackedStringArray("playerShape")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.06884, 0)
+script = ExtResource("1_0yogh")
+sensitivity = 0.1
+lock_active = true
+playerShape = NodePath("Model")
+
+[node name="Model" type="CollisionShape3D" parent="WorldEnvironment/Player/Controller"]
+shape = SubResource("CapsuleShape3D_r2bbj")
+
+[node name="FrontPointer" type="MeshInstance3D" parent="WorldEnvironment/Player/Controller/Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.519964, -0.60851)
+material_override = ExtResource("2_8h0xq")
+mesh = SubResource("BoxMesh_r2bbj")
+skeleton = NodePath("../../..")
+
+[node name="Mesh" type="MeshInstance3D" parent="WorldEnvironment/Player/Controller"]
+mesh = SubResource("CapsuleMesh_k711p")
+
+[node name="CameraArm" type="SpringArm3D" parent="WorldEnvironment/Player/Controller"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008, 6, 0.021)
+spring_length = 8.0
+margin = 0.1
+
+[node name="CameraTarget" type="Node3D" parent="WorldEnvironment/Player/Controller/CameraArm"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 7)
+
+[node name="Camera" type="Camera3D" parent="WorldEnvironment/Player" node_paths=PackedStringArray("CameraTarget")]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 9, 7)
+current = true
+script = ExtResource("2_1dgrj")
+CameraTarget = NodePath("../Controller/CameraArm/CameraTarget")
+speed = 0.119

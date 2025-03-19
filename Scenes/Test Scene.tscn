@@ -46,11 +46,11 @@ shape = SubResource("CapsuleShape3D_p38t7")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WorldEnvironment/Player"]
 mesh = SubResource("CapsuleMesh_p38t7")
 
-[node name="SpringArm3D" type="SpringArm3D" parent="WorldEnvironment/Player"]
+[node name="CameraArm" type="SpringArm3D" parent="WorldEnvironment/Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
 spring_length = 8.0
 margin = 0.1
 
-[node name="Camera" type="Camera3D" parent="WorldEnvironment/Player/SpringArm3D"]
-transform = Transform3D(1, 0, 0, 0, 0.724978, 0.688772, 0, -0.688772, 0.724978, 0, 0.712322, 6.89199)
+[node name="Camera" type="Camera3D" parent="WorldEnvironment/Player/CameraArm"]
+transform = Transform3D(1, 0, 0, 0, 0.724978, 0.688772, 0, -0.688772, 0.724978, -0.0314279, 0.726752, 6.90325)
 current = true
