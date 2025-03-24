@@ -41,7 +41,6 @@ skeleton = NodePath("../../..")
 [node name="StaticBody3D" type="StaticBody3D" parent="WorldEnvironment/World/Ground"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/World/Ground/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_e6mua")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment/World"]
@@ -98,7 +97,6 @@ script = ExtResource("3_e6mua")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.06884, 0)
 script = ExtResource("1_0yogh")
 sensitivity = 0.1
-lock_active = true
 playerShape = NodePath("Model")
 
 [node name="Model" type="CollisionShape3D" parent="WorldEnvironment/Player/Controller"]
@@ -126,4 +124,4 @@ transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 
 current = true
 script = ExtResource("2_1dgrj")
 CameraTarget = NodePath("../Controller/CameraArm/CameraTarget")
-speed = 0.119
+speed = 0.082
