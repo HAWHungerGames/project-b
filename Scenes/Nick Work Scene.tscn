@@ -97,6 +97,7 @@ script = ExtResource("3_e6mua")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.06884, 0)
 script = ExtResource("1_0yogh")
 sensitivity = 0.1
+dashType = "dash with stamina"
 playerShape = NodePath("Model")
 
 [node name="Model" type="CollisionShape3D" parent="WorldEnvironment/Player/Controller"]
