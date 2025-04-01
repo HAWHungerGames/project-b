@@ -1,17 +1,19 @@
 extends CharacterBody3D
 
-@export_category("Setting")
-@export var speed = 5.0
-@export var acceleration = 4.0
-@export_range(0, 1) var sensitivity: float = 1
-@export_enum("rotate based on last movement", "rotate based on relative mouse position", "rotation based on right joystick") var rotationType: String = "rotate based on last movement"
-@export var lockActive: bool = true
-@export var dashStrength: int = 200
-@export var dashMaxCooldown: float = 3
-@export var maxStamina: int = 200
-@export var staminaPerSecond: int = 10
-@export var staminaCostPerDash: int = 50
-@export_enum("dash with cooldown","dash with stamina") var dashType: String = "dash with cooldown"
+@export var settings: Node3D
+
+
+@onready var speed = settings.speed
+@onready var acceleration = settings.acceleration
+#@onready var sensitivity: float = settings.sensitivity
+@onready var rotationType: String = settings.rotationType
+@onready var lockActive: bool = settings.lockActive
+@onready var dashStrength: int = settings.dashStrength
+@onready var dashMaxCooldown: float = settings.dashMaxCooldown
+@onready var maxStamina: int = settings.maxStamina
+@onready var staminaPerSecond: int = settings.staminaPerSecond
+@onready var staminaCostPerDash: int = settings.staminaCostPerDash
+@onready var dashType: String = settings.dashType
 
 @export_category("Components")
 @export var playerShape: CollisionShape3D
@@ -19,8 +21,6 @@ extends CharacterBody3D
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var temprotation = 0
 var dashCooldown: float = 0
-var stamina: int = maxStamina
-var staminaTimer: float = 0
 
 @onready var spring_arm = $CameraArm
 
@@ -31,7 +31,6 @@ func _physics_process(delta):
 	move_and_slide()
 	rotate_player()
 	dash(delta)
-	stamina_system(delta)
 
 func dash(delta):
 	match dashType:
@@ -48,18 +47,9 @@ func dash_with_cooldown(delta):
 		dashCooldown = dashCooldown - delta
 
 func dash_with_stamina(delta):
-	if Input.is_action_just_pressed("dash") and stamina >= staminaCostPerDash:
+	if Input.is_action_just_pressed("dash") and settings.get_stamina() >= staminaCostPerDash:
 		dash_ability(delta)
-		stamina -= staminaCostPerDash
-
-func stamina_system(delta):
-	if stamina < maxStamina:
-		if staminaTimer >= 1:
-			stamina += staminaPerSecond
-			staminaTimer = 0
-			print(stamina)
-		else:
-			staminaTimer += delta
+		settings.reduce_stamina(staminaCostPerDash)
 
 func dash_ability(delta):
 	var vy = velocity.y
@@ -109,7 +99,12 @@ func get_move_input(delta):
 	velocity.y = 0
 	var input = Input.get_vector("left", "right", "forward", "backward").normalized()
 	var direction = Vector3(input.x, 0, input.y).rotated(Vector3.UP, spring_arm.rotation.y)
-	velocity = lerp(velocity, direction * speed, acceleration * delta)
+	var playerSpeed = speed
+	settings.set_sneaking(false)
+	if Input.is_action_pressed("sneak"):
+		settings.set_sneaking(true)
+		playerSpeed = playerSpeed / settings.sneakSpeedModifier
+	velocity = lerp(velocity, direction * playerSpeed, acceleration * delta)
 	velocity.y = vy
 
 func apply_gravity(delta):
