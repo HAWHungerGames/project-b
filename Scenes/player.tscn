@@ -64,7 +64,6 @@ settings = NodePath("..")
 cameraTarget = NodePath("../Controller/CameraArm/CameraTarget")
 
 [node name="DebugUI" type="Control" parent="." node_paths=PackedStringArray("settings", "controller", "input", "xyz", "speed", "sneaking", "inDetectionArea", "inHidingArea", "detected", "hidden", "health", "stamina", "mana")]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1150.0
