@@ -1,8 +1,8 @@
 [gd_scene load_steps=13 format=3 uid="uid://bmqgvvy0t5bfp"]
 
-[ext_resource type="Material" uid="uid://b2rgc8u5hwwcc" path="res://Materials/TestGround.tres" id="1_7g8fi"]
-[ext_resource type="Material" uid="uid://dekpipancsbc6" path="res://Materials/TestCubes.tres" id="2_8h0xq"]
-[ext_resource type="PackedScene" uid="uid://56tchsrpayeo" path="res://Scenes/player.tscn" id="3_7g8fi"]
+[ext_resource type="Material" uid="uid://b2rgc8u5hwwcc" path="res://Materials/TestGround.tres" id="1_nlh8j"]
+[ext_resource type="Material" uid="uid://dekpipancsbc6" path="res://Materials/TestCubes.tres" id="2_htb6l"]
+[ext_resource type="PackedScene" uid="uid://56tchsrpayeo" path="res://Scenes/Assets Scene/player.tscn" id="3_ea6ww"]
 
 [sub_resource type="Environment" id="Environment_1dgrj"]
 
@@ -38,7 +38,7 @@ transform = Transform3D(1, 0, 0, 0, 0.743145, 0.669131, 0, -0.669131, 0.743145, 
 
 [node name="Ground" type="MeshInstance3D" parent="WorldEnvironment/World"]
 transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0.0171719, 0, 0.0365753)
-material_override = ExtResource("1_7g8fi")
+material_override = ExtResource("1_nlh8j")
 mesh = SubResource("BoxMesh_8h0xq")
 skeleton = NodePath("../../..")
 
@@ -49,7 +49,7 @@ shape = SubResource("BoxShape3D_e6mua")
 
 [node name="Cube01" type="MeshInstance3D" parent="WorldEnvironment/World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.20647, 0.51764, -5.38403)
-material_override = ExtResource("2_8h0xq")
+material_override = ExtResource("2_htb6l")
 mesh = SubResource("BoxMesh_e6mua")
 skeleton = NodePath("../../..")
 
@@ -60,7 +60,7 @@ shape = SubResource("BoxShape3D_r2bbj")
 
 [node name="Cube02" type="MeshInstance3D" parent="WorldEnvironment/World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.04661, 0.51764, -5.38403)
-material_override = ExtResource("2_8h0xq")
+material_override = ExtResource("2_htb6l")
 mesh = SubResource("BoxMesh_e6mua")
 skeleton = NodePath("../../..")
 
@@ -71,7 +71,7 @@ shape = SubResource("BoxShape3D_r2bbj")
 
 [node name="Cube03" type="MeshInstance3D" parent="WorldEnvironment/World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.08489, 0.51764, -5.38403)
-material_override = ExtResource("2_8h0xq")
+material_override = ExtResource("2_htb6l")
 mesh = SubResource("BoxMesh_e6mua")
 skeleton = NodePath("../../..")
 
@@ -82,7 +82,7 @@ shape = SubResource("BoxShape3D_r2bbj")
 
 [node name="Cube04" type="MeshInstance3D" parent="WorldEnvironment/World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.485726, 0.51764, -10.87)
-material_override = ExtResource("2_8h0xq")
+material_override = ExtResource("2_htb6l")
 mesh = SubResource("BoxMesh_e6mua")
 skeleton = NodePath("../../..")
 
@@ -94,7 +94,7 @@ shape = SubResource("BoxShape3D_r2bbj")
 [node name="TestEnemy" type="MeshInstance3D" parent="WorldEnvironment/World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4614, 1.00397, 0)
 mesh = SubResource("CapsuleMesh_r2bbj")
-surface_material_override/0 = ExtResource("2_8h0xq")
+surface_material_override/0 = ExtResource("2_htb6l")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="WorldEnvironment/World/TestEnemy"]
 
@@ -116,4 +116,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.477433, 0.708099, 0.689087
 shape = SubResource("BoxShape3D_k711p")
 debug_color = Color(0, 0.648255, 0.196304, 1)
 
-[node name="Player" parent="WorldEnvironment" instance=ExtResource("3_7g8fi")]
+[node name="Player" parent="WorldEnvironment" instance=ExtResource("3_ea6ww")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19.8899)
