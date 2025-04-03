@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://6hhx67d5c316"]
+[gd_scene load_steps=6 format=3 uid="uid://6hhx67d5c316"]
 
-[ext_resource type="Script" uid="uid://birw8rdmwcq4v" path="res://Scripts/PlayerController.gd" id="1_i60f6"]
+[ext_resource type="PackedScene" uid="uid://56tchsrpayeo" path="res://Scenes/player.tscn" id="1_i60f6"]
 
 [sub_resource type="Environment" id="Environment_p38t7"]
 
@@ -11,10 +11,6 @@ size = Vector3(10, 0.1, 10)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p38t7"]
 size = Vector3(10, 0.1, 10)
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_p38t7"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_p38t7"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -36,21 +32,5 @@ shape = SubResource("BoxShape3D_p38t7")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment/World"]
 transform = Transform3D(1, 0, 0, 0, 0.743145, 0.669131, 0, -0.669131, 0.743145, 0, 3.727, 0)
 
-[node name="Player" type="CharacterBody3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.06884, 0)
-script = ExtResource("1_i60f6")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/Player"]
-shape = SubResource("CapsuleShape3D_p38t7")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="WorldEnvironment/Player"]
-mesh = SubResource("CapsuleMesh_p38t7")
-
-[node name="CameraArm" type="SpringArm3D" parent="WorldEnvironment/Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
-spring_length = 8.0
-margin = 0.1
-
-[node name="Camera" type="Camera3D" parent="WorldEnvironment/Player/CameraArm"]
-transform = Transform3D(1, 0, 0, 0, 0.724978, 0.688772, 0, -0.688772, 0.724978, -0.0314279, 0.726752, 6.90325)
-current = true
+[node name="Player" parent="." instance=ExtResource("1_i60f6")]
+rotationType = "rotate based on relative mouse position"
