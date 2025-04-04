@@ -5,6 +5,7 @@ extends CharacterBody3D
 
 @onready var speed = settings.speed
 @onready var acceleration = settings.acceleration
+@onready var friction = settings.friction
 #@onready var sensitivity: float = settings.sensitivity
 @onready var rotationType: String = settings.rotationType
 @onready var lockActive: bool = settings.lockActive
@@ -106,6 +107,10 @@ func get_move_input(delta):
 		playerSpeed = playerSpeed / settings.sneakSpeedModifier
 	velocity = lerp(velocity, direction * playerSpeed, acceleration * delta)
 	velocity.y = vy
-
+	if abs(input.x) < 0.01:
+		velocity.x -= velocity.x * friction
+	if abs(input.y) < 0.01:
+		velocity.z -= velocity.z * friction
+	
 func apply_gravity(delta):
 	velocity.y += -gravity * delta

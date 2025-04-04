@@ -3,6 +3,8 @@ extends Node
 @export_subgroup("Walking")
 @export var speed = 5.0
 @export var acceleration = 4.0
+##0 = No slowdown, 1 = Instant slowdown when the input ends
+@export_range(0, 1) var friction: float = 0
 #@export_range(0, 1) var sensitivity: float = 1 #Currently not used
 @export_subgroup("Looking")
 @export_enum("rotate based on last movement", "rotate based on relative mouse position", "rotation based on right joystick") var rotationType: String = "rotate based on last movement"

@@ -129,11 +129,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.66334, 0, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/World/Bush" groups=["Bush"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.477433, 0.708099, 0.689087)
 shape = SubResource("BoxShape3D_k711p")
-debug_color = Color(0, 0.648255, 0.196304, 1)
+debug_color = Color(0, 0.647059, 0.196078, 1)
 
 [node name="Player" type="Node3D" parent="WorldEnvironment"]
 script = ExtResource("3_e6mua")
-rotationType = "rotation based on right joystick"
+friction = 0.059
 dashType = "dash with stamina"
 cameraFollowSpeed = 0.078
 
@@ -177,7 +177,6 @@ settings = NodePath("..")
 cameraTarget = NodePath("../Controller/CameraArm/CameraTarget")
 
 [node name="DebugUI" type="Control" parent="WorldEnvironment/Player" node_paths=PackedStringArray("settings", "controller", "input", "xyz", "speed", "sneaking", "inDetectionArea", "inHidingArea", "detected", "hidden", "health", "stamina", "mana")]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1150.0
