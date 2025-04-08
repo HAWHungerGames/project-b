@@ -2,7 +2,7 @@
 
 [ext_resource type="Material" uid="uid://b2rgc8u5hwwcc" path="res://Materials/TestGround.tres" id="1_7g8fi"]
 [ext_resource type="Material" uid="uid://dekpipancsbc6" path="res://Materials/TestCubes.tres" id="2_8h0xq"]
-[ext_resource type="PackedScene" uid="uid://56tchsrpayeo" path="res://Scenes/player.tscn" id="3_7g8fi"]
+[ext_resource type="PackedScene" uid="uid://56tchsrpayeo" path="res://Scenes/player.tscn" id="3_e6mua"]
 
 [sub_resource type="Environment" id="Environment_1dgrj"]
 
@@ -116,4 +116,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.477433, 0.708099, 0.689087
 shape = SubResource("BoxShape3D_k711p")
 debug_color = Color(0, 0.648255, 0.196304, 1)
 
-[node name="Player" parent="WorldEnvironment" instance=ExtResource("3_7g8fi")]
+[node name="Player" parent="WorldEnvironment" instance=ExtResource("3_e6mua")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19.8899)
