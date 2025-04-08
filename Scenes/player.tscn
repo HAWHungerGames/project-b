@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://56tchsrpayeo"]
+[gd_scene load_steps=10 format=3 uid="uid://56tchsrpayeo"]
 
 [ext_resource type="Script" uid="uid://bwrchpg0h1fcx" path="res://Scripts/PlayerStats.gd" id="1_fkybt"]
 [ext_resource type="Script" uid="uid://birw8rdmwcq4v" path="res://Scripts/PlayerController.gd" id="2_x3wgy"]
 [ext_resource type="Material" uid="uid://dekpipancsbc6" path="res://Materials/TestCubes.tres" id="3_3smsa"]
-[ext_resource type="Script" uid="uid://b5l31sh77qstt" path="res://Scripts/CameraController.gd" id="4_8erm5"]
 [ext_resource type="Script" uid="uid://ct0q0dexxvtma" path="res://Scripts/DebugUI.gd" id="5_f1ek2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r2bbj"]
@@ -56,13 +55,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 7)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Controller/Area3D"]
 shape = SubResource("CapsuleShape3D_pbfqo")
 
-[node name="Camera" type="Camera3D" parent="." node_paths=PackedStringArray("settings", "cameraTarget")]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 9, 7)
-current = true
-script = ExtResource("4_8erm5")
-settings = NodePath("..")
-cameraTarget = NodePath("../Controller/CameraArm/CameraTarget")
-
 [node name="DebugUI" type="Control" parent="." node_paths=PackedStringArray("settings", "controller", "input", "xyz", "speed", "sneaking", "inDetectionArea", "inHidingArea", "detected", "hidden", "health", "stamina", "mana")]
 layout_mode = 3
 anchors_preset = 0
@@ -82,6 +74,7 @@ hidden = NodePath("GridContainer/Hidden2/RichTextLabel")
 health = NodePath("GridContainer/Health2/RichTextLabel")
 stamina = NodePath("GridContainer/Stamina2/RichTextLabel")
 mana = NodePath("GridContainer/Mana2/RichTextLabel")
+metadata/_edit_use_anchors_ = true
 
 [node name="GridContainer" type="GridContainer" parent="DebugUI"]
 layout_mode = 0
