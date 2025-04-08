@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bmqgvvy0t5bfp"]
+[gd_scene load_steps=22 format=3 uid="uid://bmqgvvy0t5bfp"]
 
 [ext_resource type="Script" uid="uid://birw8rdmwcq4v" path="res://Scripts/PlayerController.gd" id="1_0yogh"]
 [ext_resource type="Material" uid="uid://b2rgc8u5hwwcc" path="res://Materials/TestGround.tres" id="1_7g8fi"]
@@ -6,6 +6,7 @@
 [ext_resource type="Material" uid="uid://dekpipancsbc6" path="res://Materials/TestCubes.tres" id="2_8h0xq"]
 [ext_resource type="Script" uid="uid://bwrchpg0h1fcx" path="res://Scripts/PlayerStats.gd" id="3_e6mua"]
 [ext_resource type="Script" uid="uid://ct0q0dexxvtma" path="res://Scripts/DebugUI.gd" id="6_r2bbj"]
+[ext_resource type="Script" uid="uid://xdurcngpahts" path="res://Scripts/EnemyRanged.gd" id="7_k711p"]
 
 [sub_resource type="Environment" id="Environment_1dgrj"]
 
@@ -19,15 +20,8 @@ size = Vector3(10, 0.1, 10)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r2bbj"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_r2bbj"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k711p"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_r2bbj"]
-radius = 0.849421
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_k711p"]
-size = Vector3(4.90628, 3.10162, 6.38306)
+size = Vector3(7.39076, 3.10162, 6.38306)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r2bbj"]
 
@@ -40,6 +34,13 @@ size = Vector3(0.1, 0.1, 0.3)
 material = SubResource("StandardMaterial3D_e6mua")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pbfqo"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_r2bbj"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k711p"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_r2bbj"]
+radius = 0.849421
 
 [node name="NickWorkScene" type="Node3D"]
 
@@ -106,28 +107,11 @@ skeleton = NodePath("../../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/World/Cube04/StaticBody3D"]
 shape = SubResource("BoxShape3D_r2bbj")
 
-[node name="TestEnemy" type="MeshInstance3D" parent="WorldEnvironment/World"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4614, 1.00397, 0)
-mesh = SubResource("CapsuleMesh_r2bbj")
-surface_material_override/0 = ExtResource("2_8h0xq")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="WorldEnvironment/World/TestEnemy"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/World/TestEnemy/StaticBody3D"]
-shape = SubResource("CapsuleShape3D_k711p")
-
-[node name="Detection Area" type="Area3D" parent="WorldEnvironment/World/TestEnemy" groups=["Enemy"]]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/World/TestEnemy/Detection Area" groups=["Enemy"]]
-transform = Transform3D(8.21, 0, 0, 0, 8.21, 0, 0, 0, 8.21, 0, 0, 0)
-shape = SubResource("SphereShape3D_r2bbj")
-debug_color = Color(0.138961, 0.599429, 0.670183, 1)
-
 [node name="Bush" type="Area3D" parent="WorldEnvironment/World" groups=["Bush"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.66334, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/World/Bush" groups=["Bush"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.477433, 0.708099, 0.689087)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.764808, 0.708099, 0.689087)
 shape = SubResource("BoxShape3D_k711p")
 debug_color = Color(0, 0.647059, 0.196078, 1)
 
@@ -153,8 +137,9 @@ material_override = ExtResource("2_8h0xq")
 mesh = SubResource("BoxMesh_r2bbj")
 skeleton = NodePath("../../..")
 
-[node name="Mesh" type="MeshInstance3D" parent="WorldEnvironment/Player/Controller"]
+[node name="Mesh" type="MeshInstance3D" parent="WorldEnvironment/Player/Controller/Model"]
 mesh = SubResource("CapsuleMesh_k711p")
+skeleton = NodePath("../..")
 
 [node name="CameraArm" type="SpringArm3D" parent="WorldEnvironment/Player/Controller"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008, 6, 0.021)
@@ -166,7 +151,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 7)
 
 [node name="Area3D" type="Area3D" parent="WorldEnvironment/Player/Controller"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/Player/Controller/Area3D"]
+[node name="HirboxShape" type="CollisionShape3D" parent="WorldEnvironment/Player/Controller/Area3D"]
 shape = SubResource("CapsuleShape3D_pbfqo")
 
 [node name="Camera" type="Camera3D" parent="WorldEnvironment/Player" node_paths=PackedStringArray("settings", "cameraTarget")]
@@ -401,6 +386,26 @@ layout_mode = 0
 offset_right = 167.0
 offset_bottom = 26.0
 text = "vxycvyx"
+
+[node name="TestEnemy" type="MeshInstance3D" parent="WorldEnvironment" node_paths=PackedStringArray("player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4614, 1.00397, 0)
+mesh = SubResource("CapsuleMesh_r2bbj")
+skeleton = NodePath("../World")
+surface_material_override/0 = ExtResource("2_8h0xq")
+script = ExtResource("7_k711p")
+player = NodePath("../Player")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WorldEnvironment/TestEnemy"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/TestEnemy/StaticBody3D"]
+shape = SubResource("CapsuleShape3D_k711p")
+
+[node name="DetectionArea" type="Area3D" parent="WorldEnvironment/TestEnemy" groups=["Enemy"]]
+
+[node name="DetectionShape" type="CollisionShape3D" parent="WorldEnvironment/TestEnemy/DetectionArea" groups=["Enemy"]]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+shape = SubResource("SphereShape3D_r2bbj")
+debug_color = Color(0.138961, 0.599429, 0.670183, 1)
 
 [connection signal="area_entered" from="WorldEnvironment/Player/Controller/Area3D" to="WorldEnvironment/Player" method="_on_area_3d_area_entered"]
 [connection signal="area_exited" from="WorldEnvironment/Player/Controller/Area3D" to="WorldEnvironment/Player" method="_on_area_3d_area_exited"]

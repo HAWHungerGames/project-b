@@ -1,5 +1,5 @@
 extends Node
-@export_category("Movement")
+@export_category("Actions")
 @export_subgroup("Walking")
 @export var speed = 5.0
 @export var acceleration = 4.0
@@ -10,6 +10,7 @@ extends Node
 @export_enum("rotate based on last movement", "rotate based on relative mouse position", "rotation based on right joystick") var rotationType: String = "rotate based on last movement"
 ##If player keep rotation if lock input key is pressed
 @export var lockActive: bool = true #
+
 @export_subgroup("Dash")
 @export_enum("dash with cooldown","dash with stamina") var dashType: String = "dash with cooldown"
 @export var staminaCostPerDash: int = 50
@@ -24,9 +25,11 @@ extends Node
 @export_enum("Health regeneration", "Health from potions") var healthType: String = "Health from potions"
 @export var healthPerSecond: int = 10
 @export var healthPerPotion: int = 100
+
 @export_subgroup("Stamina")
 @export var maxStamina: int = 200
 @export var staminaPerSecond: int = 10
+
 @export_subgroup("Mana")
 @export var maxMana: int = 200
 @export_enum("Mana regeneration", "Mana from potions") var manaType: String = "Mana regeneration"
