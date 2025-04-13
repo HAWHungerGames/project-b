@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://17sawqr1a5sd"]
+[gd_scene load_steps=11 format=3 uid="uid://17sawqr1a5sd"]
 
 [ext_resource type="Material" uid="uid://b2rgc8u5hwwcc" path="res://Materials/TestGround.tres" id="1_ggd4s"]
 [ext_resource type="Material" uid="uid://vlajy1vjbcaw" path="res://Materials/TestCubes2.tres" id="2_6h0x5"]
@@ -14,8 +14,6 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_r2bbj"]
 size = Vector3(0.1, 0.1, 0.3)
-
-[sub_resource type="SphereMesh" id="SphereMesh_6h0x5"]
 
 [node name="KonradWorkScene" type="Node3D"]
 
@@ -263,6 +261,7 @@ rotationType = "rotate based on relative mouse position"
 
 [node name="RayCast3D" type="RayCast3D" parent="WorldEnvironment/Player/Controller/Model" index="0"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.043669, -0.540329)
+collision_mask = 3
 script = ExtResource("5_6h0x5")
 
 [node name="FrontPointer2" type="MeshInstance3D" parent="WorldEnvironment/Player/Controller/Model/RayCast3D"]
@@ -272,12 +271,7 @@ mesh = SubResource("BoxMesh_r2bbj")
 skeleton = NodePath("../../../..")
 
 [node name="Hand" type="Node3D" parent="WorldEnvironment/Player/Controller/Model" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.479796, 0.089469, -0.46274)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="WorldEnvironment/Player/Controller/Model/Hand"]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
-material_override = ExtResource("3_0ctdn")
-mesh = SubResource("SphereMesh_6h0x5")
+transform = Transform3D(0.66523, 0, 0.746638, 0, 1, 0, -0.746638, 0, 0.66523, 0.479796, 0.089469, -0.46274)
 
 [node name="Camera" type="Camera3D" parent="WorldEnvironment" node_paths=PackedStringArray("settings", "cameraTarget")]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 8.17838, 2.93165)
