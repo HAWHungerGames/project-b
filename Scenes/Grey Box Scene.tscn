@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://6hhx67d5c316"]
 
-[ext_resource type="PackedScene" uid="uid://56tchsrpayeo" path="res://Scenes/player.tscn" id="1_f070v"]
-[ext_resource type="Material" uid="uid://b2rgc8u5hwwcc" path="res://Materials/TestGround.tres" id="2_5oj71"]
-[ext_resource type="Material" uid="uid://dekpipancsbc6" path="res://Materials/TestCubes.tres" id="3_5oj71"]
-[ext_resource type="Material" uid="uid://vlajy1vjbcaw" path="res://Materials/TestCubes2.tres" id="3_ckix0"]
-[ext_resource type="Script" uid="uid://b5l31sh77qstt" path="res://Scripts/CameraController.gd" id="5_fenb2"]
+[ext_resource type="Material" uid="uid://b2rgc8u5hwwcc" path="res://Materials/TestGround.tres" id="1_sync2"]
+[ext_resource type="Material" uid="uid://vlajy1vjbcaw" path="res://Materials/TestCubes2.tres" id="2_nhess"]
+[ext_resource type="Material" uid="uid://dekpipancsbc6" path="res://Materials/TestCubes.tres" id="3_cdsgm"]
+[ext_resource type="PackedScene" uid="uid://56tchsrpayeo" path="res://Scenes/player.tscn" id="4_8spf6"]
+[ext_resource type="Script" uid="uid://b5l31sh77qstt" path="res://Scripts/CameraController.gd" id="5_b5gbf"]
 
 [sub_resource type="Environment" id="Environment_p38t7"]
 
@@ -28,7 +28,7 @@ transform = Transform3D(1, 0, 0, 0, 0.743145, 0.669131, 0, -0.669131, 0.743145, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -230.76)
 use_collision = true
 size = Vector3(700, 1, 500)
-material = ExtResource("2_5oj71")
+material = ExtResource("1_sync2")
 
 [node name="Tutorial Room" type="Node3D" parent="WorldEnvironment/World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15)
@@ -76,37 +76,37 @@ size = Vector3(4, 4, 8.29272)
 [node name="Waffe1" type="CSGBox3D" parent="WorldEnvironment/World/Tutorial Room/Objects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.763, 5.337)
 use_collision = true
-material = ExtResource("3_ckix0")
+material = ExtResource("2_nhess")
 
 [node name="Waffe2" type="CSGBox3D" parent="WorldEnvironment/World/Tutorial Room/Objects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.763, 5.337)
 use_collision = true
-material = ExtResource("3_ckix0")
+material = ExtResource("2_nhess")
 
 [node name="Waffe3" type="CSGBox3D" parent="WorldEnvironment/World/Tutorial Room/Objects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0.763, 5.337)
 use_collision = true
-material = ExtResource("3_ckix0")
+material = ExtResource("2_nhess")
 
 [node name="Training Dummy" type="CSGBox3D" parent="WorldEnvironment/World/Tutorial Room/Objects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 2, -6.59552)
 size = Vector3(2, 4, 2)
-material = ExtResource("3_5oj71")
+material = ExtResource("3_cdsgm")
 
 [node name="Training Dummy2" type="CSGBox3D" parent="WorldEnvironment/World/Tutorial Room/Objects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.08949, 2, -6.59552)
 size = Vector3(2, 4, 2)
-material = ExtResource("3_5oj71")
+material = ExtResource("3_cdsgm")
 
 [node name="Zielscheibe" type="CSGBox3D" parent="WorldEnvironment/World/Tutorial Room/Objects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 5.254, -19)
 size = Vector3(4, 4, 1)
-material = ExtResource("3_5oj71")
+material = ExtResource("3_cdsgm")
 
 [node name="Schild" type="CSGBox3D" parent="WorldEnvironment/World/Tutorial Room/Objects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.60344, 2, -15.2194)
 size = Vector3(3, 4, 1)
-material = ExtResource("3_5oj71")
+material = ExtResource("3_cdsgm")
 
 [node name="Room 1" type="Node3D" parent="WorldEnvironment/World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -67.7875)
@@ -184,7 +184,7 @@ size = Vector3(7.19824, 6.86816, 8.63867)
 [node name="CSGMesh3D" type="CSGMesh3D" parent="WorldEnvironment/World/Room 1/Enemies"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 4.09695)
 mesh = SubResource("CapsuleMesh_ckix0")
-material = ExtResource("3_5oj71")
+material = ExtResource("3_cdsgm")
 
 [node name="Room 2" type="Node3D" parent="WorldEnvironment/World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -66.7043)
@@ -196,19 +196,19 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.5807
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0272, 0, -1.43051e-06)
 use_collision = true
 mesh = SubResource("CapsuleMesh_fenb2")
-material = ExtResource("3_5oj71")
+material = ExtResource("3_cdsgm")
 
 [node name="CSGMesh3D3" type="CSGMesh3D" parent="WorldEnvironment/World/Room 2/Enemy"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.0724, 0, -7.329)
 use_collision = true
 mesh = SubResource("CapsuleMesh_fenb2")
-material = ExtResource("3_5oj71")
+material = ExtResource("3_cdsgm")
 
 [node name="CSGMesh3D2" type="CSGMesh3D" parent="WorldEnvironment/World/Room 2/Enemy"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.8015, 0, -12.1102)
 use_collision = true
 mesh = SubResource("CapsuleMesh_fenb2")
-material = ExtResource("3_5oj71")
+material = ExtResource("3_cdsgm")
 
 [node name="Walls" type="Node3D" parent="WorldEnvironment/World/Room 2"]
 
@@ -377,19 +377,19 @@ sides = 16
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.0921, 5.73806, -26.2341)
 use_collision = true
 mesh = SubResource("CapsuleMesh_0j0yr")
-material = ExtResource("2_5oj71")
+material = ExtResource("1_sync2")
 
 [node name="CSGMesh3D3" type="CSGMesh3D" parent="WorldEnvironment/World/Room 3/Enemies"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.0921, 5.73806, -19.0953)
 use_collision = true
 mesh = SubResource("CapsuleMesh_0j0yr")
-material = ExtResource("2_5oj71")
+material = ExtResource("1_sync2")
 
 [node name="CSGMesh3D2" type="CSGMesh3D" parent="WorldEnvironment/World/Room 3/Enemies"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.7847, 5.73806, -23.6422)
 use_collision = true
 mesh = SubResource("CapsuleMesh_0j0yr")
-material = ExtResource("3_5oj71")
+material = ExtResource("3_cdsgm")
 
 [node name="Room 4" type="Node3D" parent="WorldEnvironment/World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.3144, 0, -139.93)
@@ -480,19 +480,19 @@ size = Vector3(10.7597, 5.15882, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.88185, 1.56822, -31.9137)
 use_collision = true
 mesh = SubResource("CapsuleMesh_0j0yr")
-material = ExtResource("3_5oj71")
+material = ExtResource("3_cdsgm")
 
 [node name="CSGMesh3D5" type="CSGMesh3D" parent="WorldEnvironment/World/Room 4/Enemies"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7317, 1.56822, -27.802)
 use_collision = true
 mesh = SubResource("CapsuleMesh_0j0yr")
-material = ExtResource("3_5oj71")
+material = ExtResource("3_cdsgm")
 
 [node name="CSGMesh3D6" type="CSGMesh3D" parent="WorldEnvironment/World/Room 4/Enemies"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.25245, 1.56822, -23.7321)
 use_collision = true
 mesh = SubResource("CapsuleMesh_0j0yr")
-material = ExtResource("3_5oj71")
+material = ExtResource("3_cdsgm")
 
 [node name="Room 5" type="Node3D" parent="WorldEnvironment/World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.2327, 0, -176.003)
@@ -708,13 +708,13 @@ size = Vector3(7.19824, 6.86816, 8.63867)
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.16265, 0.999979, -5.70561)
 use_collision = true
 mesh = SubResource("CapsuleMesh_fenb2")
-material = ExtResource("3_5oj71")
+material = ExtResource("3_cdsgm")
 
 [node name="CSGMesh3D5" type="CSGMesh3D" parent="WorldEnvironment/World/Room 5/Enemies"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.65968, 0.999979, -5.70561)
 use_collision = true
 mesh = SubResource("CapsuleMesh_fenb2")
-material = ExtResource("3_5oj71")
+material = ExtResource("3_cdsgm")
 
 [node name="Room 6" type="Node3D" parent="WorldEnvironment/World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.2415, 0, -138.711)
@@ -1453,15 +1453,16 @@ sides = 32
 transform = Transform3D(0.996067, 0, 0.442994, 0, 1, 0, -0.0885988, 0, 4.98034, -44.5482, 0.923762, 6.31512)
 polygon = PackedVector2Array(-10.4771, -0.499426, -1.71498, 1.9336, 3.64565, 1.52424, 3.82291, -1.38559)
 
-[node name="Player" parent="WorldEnvironment" instance=ExtResource("1_f070v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.75402, 5.43327, -137.678)
+[node name="Player" parent="WorldEnvironment" instance=ExtResource("4_8spf6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.75402, 0.354114, -1.03027)
 speed = 20.0
 acceleration = 10.0
+rotationType = "rotate based on relative mouse position"
 
 [node name="Camera" type="Camera3D" parent="WorldEnvironment" node_paths=PackedStringArray("settings", "cameraTarget")]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -4.75402, 14.4333, -130.678)
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -4.75402, 9.35414, 5.96973)
 current = true
-script = ExtResource("5_fenb2")
+script = ExtResource("5_b5gbf")
 settings = NodePath("../Player")
 cameraTarget = NodePath("../Player/Controller/CameraArm/CameraTarget")
 

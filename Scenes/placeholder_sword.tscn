@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://3tkhtlb5b0bf"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_0yi6h"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ito7f"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0yi6h"]
+size = Vector3(0.193604, 1, 0.193115)
+
+[node name="Placeholder Sword" type="Node3D" groups=["weapons"]]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." groups=["weapons"]]
+gravity_scale = 0.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 0.2, 0, 0, 0)
+mesh = SubResource("BoxMesh_0yi6h")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.5, 0, -0.15, 0)
+mesh = SubResource("BoxMesh_ito7f")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000366211, 0, 0.00231934)
+shape = SubResource("BoxShape3D_0yi6h")
