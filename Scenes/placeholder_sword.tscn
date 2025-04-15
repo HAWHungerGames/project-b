@@ -10,6 +10,7 @@
 size = Vector3(0.193604, 1, 0.193115)
 
 [node name="Placeholder Sword" type="RigidBody3D" groups=["weapons"]]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 gravity_scale = 0.0
 script = ExtResource("1_ito7f")
 
