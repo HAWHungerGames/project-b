@@ -1,0 +1,130 @@
+[gd_scene load_steps=15 format=3 uid="uid://bmqgvvy0t5bfp"]
+
+[ext_resource type="Material" uid="uid://b2rgc8u5hwwcc" path="res://Materials/TestGround.tres" id="1_7g8fi"]
+[ext_resource type="Material" uid="uid://dekpipancsbc6" path="res://Materials/TestCubes.tres" id="2_8h0xq"]
+[ext_resource type="PackedScene" uid="uid://cpyee7rfs1efb" path="res://Prefabs/player.tscn" id="3_r2bbj"]
+[ext_resource type="Script" uid="uid://xdurcngpahts" path="res://Scripts/EnemyRanged.gd" id="7_k711p"]
+[ext_resource type="PackedScene" uid="uid://bo02tskpdgn0s" path="res://Prefabs/bullet.tscn" id="8_pbfqo"]
+
+[sub_resource type="Environment" id="Environment_1dgrj"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8h0xq"]
+size = Vector3(10, 0.1, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e6mua"]
+size = Vector3(10, 0.1, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_e6mua"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r2bbj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k711p"]
+size = Vector3(7.39076, 3.10162, 6.38306)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_r2bbj"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k711p"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_r2bbj"]
+radius = 0.849421
+
+[node name="NickWorkScene" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1dgrj")
+
+[node name="World" type="Node3D" parent="WorldEnvironment"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment/World"]
+transform = Transform3D(1, 0, 0, 0, 0.743145, 0.669131, 0, -0.669131, 0.743145, 0, 13.6917, 0)
+
+[node name="Ground" type="MeshInstance3D" parent="WorldEnvironment/World"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0.0171719, 0, 0.0365753)
+material_override = ExtResource("1_7g8fi")
+mesh = SubResource("BoxMesh_8h0xq")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WorldEnvironment/World/Ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/World/Ground/StaticBody3D"]
+shape = SubResource("BoxShape3D_e6mua")
+
+[node name="Cube01" type="MeshInstance3D" parent="WorldEnvironment/World"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 5.66, -5.88421, 0.976214, 0.562463)
+layers = 2
+material_override = ExtResource("2_8h0xq")
+mesh = SubResource("BoxMesh_e6mua")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WorldEnvironment/World/Cube01"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/World/Cube01/StaticBody3D"]
+shape = SubResource("BoxShape3D_r2bbj")
+
+[node name="Cube02" type="MeshInstance3D" parent="WorldEnvironment/World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.04661, 0.51764, -5.38403)
+material_override = ExtResource("2_8h0xq")
+mesh = SubResource("BoxMesh_e6mua")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WorldEnvironment/World/Cube02"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/World/Cube02/StaticBody3D"]
+shape = SubResource("BoxShape3D_r2bbj")
+
+[node name="Cube03" type="MeshInstance3D" parent="WorldEnvironment/World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.08489, 0.51764, -5.38403)
+material_override = ExtResource("2_8h0xq")
+mesh = SubResource("BoxMesh_e6mua")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WorldEnvironment/World/Cube03"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/World/Cube03/StaticBody3D"]
+shape = SubResource("BoxShape3D_r2bbj")
+
+[node name="Cube04" type="MeshInstance3D" parent="WorldEnvironment/World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.485726, 0.51764, -10.87)
+material_override = ExtResource("2_8h0xq")
+mesh = SubResource("BoxMesh_e6mua")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WorldEnvironment/World/Cube04"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/World/Cube04/StaticBody3D"]
+shape = SubResource("BoxShape3D_r2bbj")
+
+[node name="Bush" type="Area3D" parent="WorldEnvironment/World" groups=["Bush"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.66334, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/World/Bush" groups=["Bush"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.764808, 0.708099, 0.689087)
+shape = SubResource("BoxShape3D_k711p")
+debug_color = Color(0, 0.647059, 0.196078, 1)
+
+[node name="Player" parent="WorldEnvironment" instance=ExtResource("3_r2bbj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5101, 3.79582, -11.1184)
+cameraAngle = -35.0
+
+[node name="TestEnemy" type="MeshInstance3D" parent="WorldEnvironment" node_paths=PackedStringArray("player") groups=["Enemy"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4614, 1.00397, 0)
+mesh = SubResource("CapsuleMesh_r2bbj")
+skeleton = NodePath("../World")
+surface_material_override/0 = ExtResource("2_8h0xq")
+script = ExtResource("7_k711p")
+player = NodePath("../Player")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WorldEnvironment/TestEnemy"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/TestEnemy/StaticBody3D"]
+shape = SubResource("CapsuleShape3D_k711p")
+
+[node name="DetectionArea" type="Area3D" parent="WorldEnvironment/TestEnemy" groups=["Enemy"]]
+
+[node name="DetectionShape" type="CollisionShape3D" parent="WorldEnvironment/TestEnemy/DetectionArea" groups=["Enemy"]]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+shape = SubResource("SphereShape3D_r2bbj")
+debug_color = Color(0.138961, 0.599429, 0.670183, 1)
+
+[node name="Bullet" parent="WorldEnvironment" instance=ExtResource("8_pbfqo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.7701, 0.927863, 0)

@@ -40,6 +40,11 @@ extends Node
 @export_subgroup("Camera behaviour")
 @export_range(0, 1) var cameraFollowSpeed: float
 
+@export_subgroup("Camera Settings")
+@export_range(-90, 0) var cameraAngle: float = -45
+@export var cameraHeight: float = 6
+@export var cameraDistanceFromPlayer: float = 8
+
 var stamina: int = maxStamina
 var health: int = maxHealth
 var mana: int = maxMana
@@ -48,12 +53,19 @@ var isSneaking: bool = false
 var isInDetectionArea: bool = false
 var isInHidingArea: bool = false
 
+var enemiesDetectingPlayer: Array = []
+
 var isHidden: bool = false
 var isDetected: bool = false
 
+func _ready():
+	get_child(2).rotation.x = cameraAngle * PI / 180
+	get_child(0).get_child(1).transform.origin.y = cameraHeight
+	get_child(0).get_child(1).spring_length = cameraDistanceFromPlayer
+
 func _physics_process(delta):
 	resource_system(delta)
-	detection_system()
+	checkDetection()
 
 func resource_system(delta):
 	if timer >= 1:
@@ -73,28 +85,18 @@ func resource_system(delta):
 	else:
 		timer += delta
 
-func detection_system():
-	#If already detected stays detected but if not detected and is sneaking and in bush is hidden
-	if isSneaking and isInHidingArea and !isDetected:
-		isHidden = true
-	if isInDetectionArea and !(isSneaking and isInHidingArea):
-		isHidden = false
-		isDetected = true
-	if !isInDetectionArea:
+func checkDetection():
+	if enemiesDetectingPlayer.size() == 0:
 		isDetected = false
 
 func reduce_stamina(amount: int):
 	stamina -= amount
 
-func get_stamina():
-	return stamina
-
 func set_sneaking(value: bool):
 	isSneaking = value
 
-func debug_UI():
-	null
-
+func takeDamage(damage: int):
+	health -= damage
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.is_in_group("Bush"):

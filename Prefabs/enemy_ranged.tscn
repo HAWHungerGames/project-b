@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://durr2417rl7mr"]
+
+[ext_resource type="Material" uid="uid://dekpipancsbc6" path="res://Materials/TestCubes.tres" id="1_qsv0l"]
+[ext_resource type="Script" uid="uid://xdurcngpahts" path="res://Scripts/EnemyRanged.gd" id="2_gtfvv"]
+[ext_resource type="Material" uid="uid://41byjnpqi8jl" path="res://Materials/TestBush.tres" id="3_rrnee"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_r2bbj"]
+radius = 0.849421
+
+[sub_resource type="BoxMesh" id="BoxMesh_r2bbj"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k711p"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_dp8bq"]
+
+[node name="RangedEnemy" type="CharacterBody3D" groups=["Enemy"]]
+script = ExtResource("2_gtfvv")
+detectionRange = 16.0
+bulletSpeed = 10
+
+[node name="DetectionArea" type="Area3D" parent="." groups=["Enemy"]]
+
+[node name="DetectionShape" type="CollisionShape3D" parent="DetectionArea" groups=["Enemy"]]
+transform = Transform3D(16, 0, 0, 0, 16, 0, 0, 0, 16, 0, 0, 0)
+shape = SubResource("SphereShape3D_r2bbj")
+debug_color = Color(0.138961, 0.599429, 0.670183, 1)
+
+[node name="BulletSpawnPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.544362, 0.573799, 0)
+
+[node name="FrontMaker" type="MeshInstance3D" parent="BulletSpawnPoint" groups=["Bullet"]]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+material_override = ExtResource("3_rrnee")
+mesh = SubResource("BoxMesh_r2bbj")
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_k711p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_qsv0l")
+mesh = SubResource("CapsuleMesh_dp8bq")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]
+[connection signal="area_exited" from="DetectionArea" to="." method="_on_detection_area_area_exited"]

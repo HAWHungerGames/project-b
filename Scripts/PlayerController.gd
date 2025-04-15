@@ -48,7 +48,7 @@ func dash_with_cooldown(delta):
 		dashCooldown = dashCooldown - delta
 
 func dash_with_stamina(delta):
-	if Input.is_action_just_pressed("dash") and settings.get_stamina() >= staminaCostPerDash:
+	if Input.is_action_just_pressed("dash") and settings.stamina >= staminaCostPerDash:
 		dash_ability(delta)
 		settings.reduce_stamina(staminaCostPerDash)
 

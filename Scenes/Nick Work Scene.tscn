@@ -1,14 +1,17 @@
-[gd_scene load_steps=22 format=3 uid="uid://bmqgvvy0t5bfp"]
+[gd_scene load_steps=13 format=3 uid="uid://bmqgvvy0t5bfp"]
 
-[ext_resource type="Script" uid="uid://birw8rdmwcq4v" path="res://Scripts/PlayerController.gd" id="1_0yogh"]
 [ext_resource type="Material" uid="uid://b2rgc8u5hwwcc" path="res://Materials/TestGround.tres" id="1_7g8fi"]
-[ext_resource type="Script" uid="uid://b5l31sh77qstt" path="res://Scripts/CameraController.gd" id="2_1dgrj"]
 [ext_resource type="Material" uid="uid://dekpipancsbc6" path="res://Materials/TestCubes.tres" id="2_8h0xq"]
-[ext_resource type="Script" uid="uid://bwrchpg0h1fcx" path="res://Scripts/PlayerStats.gd" id="3_e6mua"]
-[ext_resource type="Script" uid="uid://ct0q0dexxvtma" path="res://Scripts/DebugUI.gd" id="6_r2bbj"]
-[ext_resource type="Script" uid="uid://xdurcngpahts" path="res://Scripts/EnemyRanged.gd" id="7_k711p"]
+[ext_resource type="Material" uid="uid://41byjnpqi8jl" path="res://Materials/TestBush.tres" id="2_r2bbj"]
+[ext_resource type="PackedScene" uid="uid://cpyee7rfs1efb" path="res://Prefabs/player.tscn" id="3_r2bbj"]
+[ext_resource type="PackedScene" uid="uid://durr2417rl7mr" path="res://Prefabs/enemy_ranged.tscn" id="5_e6mua"]
 
 [sub_resource type="Environment" id="Environment_1dgrj"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_e6mua"]
+vertices = PackedVector3Array(-1.73283, 0.45, -1.21342, 6.01717, 0.45, -4.71342, 6.01717, 0.45, -6.21342, -3.48283, 0.45, -0.963425, 7.51717, 0.45, -24.4634, -24.4828, 0.45, -24.4634, -24.4828, 0.45, 0.786575, 7.51717, 0.45, -6.46342, -3.48283, 0.45, 0.786575, 9.01717, 0.45, -6.46342, 9.26717, 0.45, -5.21342, 24.5172, 0.45, -5.21342, 24.5172, 0.45, -24.4634, -1.23283, 0.45, -0.963425, 6.26717, 0.45, -4.21342, -1.23283, 0.45, 2.78658, -2.23283, 0.45, 3.03658, -2.23283, 0.45, 24.5366, 9.01717, 0.45, -4.21342, 24.5172, 0.45, 24.5366, -3.48283, 0.45, 2.78658, -24.4828, 0.45, 24.5366)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(0, 3, 2), PackedInt32Array(2, 3, 4), PackedInt32Array(4, 3, 6), PackedInt32Array(4, 6, 5), PackedInt32Array(4, 7, 2), PackedInt32Array(3, 8, 6), PackedInt32Array(10, 9, 11), PackedInt32Array(11, 9, 12), PackedInt32Array(12, 9, 4), PackedInt32Array(9, 7, 4), PackedInt32Array(14, 13, 1), PackedInt32Array(1, 13, 0), PackedInt32Array(17, 16, 15), PackedInt32Array(14, 18, 13), PackedInt32Array(13, 18, 15), PackedInt32Array(18, 11, 15), PackedInt32Array(15, 11, 17), PackedInt32Array(17, 11, 19), PackedInt32Array(18, 10, 11), PackedInt32Array(6, 8, 20), PackedInt32Array(16, 17, 20), PackedInt32Array(20, 17, 21), PackedInt32Array(20, 21, 6)]
+agent_height = 2.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_8h0xq"]
 size = Vector3(10, 0.1, 10)
@@ -21,391 +24,109 @@ size = Vector3(10, 0.1, 10)
 [sub_resource type="BoxShape3D" id="BoxShape3D_r2bbj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k711p"]
-size = Vector3(7.39076, 3.10162, 6.38306)
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r2bbj"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_r2bbj"]
-size = Vector3(0.1, 0.1, 0.3)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e6mua"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_k711p"]
-material = SubResource("StandardMaterial3D_e6mua")
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pbfqo"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_r2bbj"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k711p"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_r2bbj"]
-radius = 0.849421
 
 [node name="NickWorkScene" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_1dgrj")
 
-[node name="World" type="Node3D" parent="WorldEnvironment"]
+[node name="Player" parent="." instance=ExtResource("3_r2bbj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13582, 3.79582, 2.45626)
+cameraAngle = -35.0
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment/World"]
-transform = Transform3D(1, 0, 0, 0, 0.743145, 0.669131, 0, -0.669131, 0.743145, 0, 3.727, 0)
+[node name="RangedEnemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_e6mua")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4614, 1.00397, 0)
+player = NodePath("../Player")
+movementType = "keep set distance from player"
+keepDistance = 10.0
+homingStrength = 0.631
 
-[node name="Ground" type="MeshInstance3D" parent="WorldEnvironment/World"]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_e6mua")
+
+[node name="Ground" type="MeshInstance3D" parent="NavigationRegion3D" groups=["World"]]
 transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0.0171719, 0, 0.0365753)
 material_override = ExtResource("1_7g8fi")
 mesh = SubResource("BoxMesh_8h0xq")
-skeleton = NodePath("../../..")
+skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="WorldEnvironment/World/Ground"]
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Ground" groups=["World"]]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/World/Ground/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Ground/StaticBody3D" groups=["World"]]
 shape = SubResource("BoxShape3D_e6mua")
 
-[node name="Cube01" type="MeshInstance3D" parent="WorldEnvironment/World"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.20647, 0.51764, -5.38403)
-material_override = ExtResource("2_8h0xq")
-mesh = SubResource("BoxMesh_e6mua")
-skeleton = NodePath("../../..")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="WorldEnvironment/World/Cube01"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/World/Cube01/StaticBody3D"]
-shape = SubResource("BoxShape3D_r2bbj")
-
-[node name="Cube02" type="MeshInstance3D" parent="WorldEnvironment/World"]
+[node name="Cube02" type="MeshInstance3D" parent="NavigationRegion3D" groups=["World"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.04661, 0.51764, -5.38403)
 material_override = ExtResource("2_8h0xq")
 mesh = SubResource("BoxMesh_e6mua")
-skeleton = NodePath("../../..")
+skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="WorldEnvironment/World/Cube02"]
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Cube02" groups=["World"]]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/World/Cube02/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Cube02/StaticBody3D" groups=["World"]]
 shape = SubResource("BoxShape3D_r2bbj")
 
-[node name="Cube03" type="MeshInstance3D" parent="WorldEnvironment/World"]
+[node name="Cube03" type="MeshInstance3D" parent="NavigationRegion3D" groups=["World"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.08489, 0.51764, -5.38403)
 material_override = ExtResource("2_8h0xq")
 mesh = SubResource("BoxMesh_e6mua")
-skeleton = NodePath("../../..")
+skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="WorldEnvironment/World/Cube03"]
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Cube03" groups=["World"]]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/World/Cube03/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Cube03/StaticBody3D"]
 shape = SubResource("BoxShape3D_r2bbj")
 
-[node name="Cube04" type="MeshInstance3D" parent="WorldEnvironment/World"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.485726, 0.51764, -10.87)
+[node name="Cube04" type="MeshInstance3D" parent="NavigationRegion3D" groups=["World"]]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 3, -2.34658, 1.01413, 0.827631)
 material_override = ExtResource("2_8h0xq")
 mesh = SubResource("BoxMesh_e6mua")
-skeleton = NodePath("../../..")
+skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="WorldEnvironment/World/Cube04"]
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Cube04" groups=["World"]]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/World/Cube04/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Cube04/StaticBody3D" groups=["World"]]
 shape = SubResource("BoxShape3D_r2bbj")
 
-[node name="Bush" type="Area3D" parent="WorldEnvironment/World" groups=["Bush"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.66334, 0, 0)
+[node name="World" type="Node3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/World/Bush" groups=["Bush"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.764808, 0.708099, 0.689087)
+[node name="Bush" type="MeshInstance3D" parent="World" groups=["World"]]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 6, -5.88421, 0.976214, 0.562463)
+layers = 2
+material_override = ExtResource("2_r2bbj")
+mesh = SubResource("BoxMesh_e6mua")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Bush" groups=["World"]]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Bush/StaticBody3D" groups=["World"]]
+shape = SubResource("BoxShape3D_r2bbj")
+
+[node name="Bush" type="Area3D" parent="World/Bush" groups=["Bush"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Bush/Bush" groups=["Bush"]]
 shape = SubResource("BoxShape3D_k711p")
 debug_color = Color(0, 0.647059, 0.196078, 1)
 
-[node name="Player" type="Node3D" parent="WorldEnvironment"]
-script = ExtResource("3_e6mua")
-friction = 0.059
-dashType = "dash with stamina"
-cameraFollowSpeed = 0.078
+[node name="Bush2" type="MeshInstance3D" parent="World" groups=["World"]]
+transform = Transform3D(4.31604, 0, -1.38932, 0, 2, 0, 4.16795, 0, 1.43868, -7.73918, 1, -3.87657)
+layers = 2
+material_override = ExtResource("2_r2bbj")
+mesh = SubResource("BoxMesh_e6mua")
+skeleton = NodePath("../../WorldEnvironment")
 
-[node name="Controller" type="CharacterBody3D" parent="WorldEnvironment/Player" node_paths=PackedStringArray("settings", "playerShape")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.06884, 0)
-script = ExtResource("1_0yogh")
-settings = NodePath("..")
-playerShape = NodePath("Model")
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Bush2"]
+collision_layer = 2
 
-[node name="Model" type="CollisionShape3D" parent="WorldEnvironment/Player/Controller"]
-shape = SubResource("CapsuleShape3D_r2bbj")
-debug_color = Color(0.106384, 0.585944, 0.754824, 0.42)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Bush2/StaticBody3D" groups=["World"]]
+shape = SubResource("BoxShape3D_r2bbj")
 
-[node name="FrontPointer" type="MeshInstance3D" parent="WorldEnvironment/Player/Controller/Model"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.519964, -0.60851)
-material_override = ExtResource("2_8h0xq")
-mesh = SubResource("BoxMesh_r2bbj")
-skeleton = NodePath("../../..")
+[node name="Bush" type="Area3D" parent="World/Bush2" groups=["Bush"]]
 
-[node name="Mesh" type="MeshInstance3D" parent="WorldEnvironment/Player/Controller/Model"]
-mesh = SubResource("CapsuleMesh_k711p")
-skeleton = NodePath("../..")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Bush2/Bush" groups=["Bush", "World"]]
+shape = SubResource("BoxShape3D_k711p")
+debug_color = Color(0, 0.647059, 0.196078, 1)
 
-[node name="CameraArm" type="SpringArm3D" parent="WorldEnvironment/Player/Controller"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008, 6, 0.021)
-spring_length = 8.0
-margin = 0.1
-
-[node name="CameraTarget" type="Node3D" parent="WorldEnvironment/Player/Controller/CameraArm"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 7)
-
-[node name="Area3D" type="Area3D" parent="WorldEnvironment/Player/Controller"]
-
-[node name="HirboxShape" type="CollisionShape3D" parent="WorldEnvironment/Player/Controller/Area3D"]
-shape = SubResource("CapsuleShape3D_pbfqo")
-
-[node name="Camera" type="Camera3D" parent="WorldEnvironment/Player" node_paths=PackedStringArray("settings", "cameraTarget")]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 9, 7)
-current = true
-script = ExtResource("2_1dgrj")
-settings = NodePath("..")
-cameraTarget = NodePath("../Controller/CameraArm/CameraTarget")
-
-[node name="DebugUI" type="Control" parent="WorldEnvironment/Player" node_paths=PackedStringArray("settings", "controller", "input", "xyz", "speed", "sneaking", "inDetectionArea", "inHidingArea", "detected", "hidden", "health", "stamina", "mana")]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 1150.0
-offset_bottom = 646.0
-script = ExtResource("6_r2bbj")
-settings = NodePath("..")
-controller = NodePath("../Controller")
-input = NodePath("GridContainer/Input2/RichTextLabel")
-xyz = NodePath("GridContainer/XYZ2/RichTextLabel")
-speed = NodePath("GridContainer/Speed2/RichTextLabel")
-sneaking = NodePath("GridContainer/Sneaking2/RichTextLabel")
-inDetectionArea = NodePath("GridContainer/InDetectionArea2/RichTextLabel")
-inHidingArea = NodePath("GridContainer/InHidingArea2/RichTextLabel")
-detected = NodePath("GridContainer/Detected2/RichTextLabel")
-hidden = NodePath("GridContainer/Hidden2/RichTextLabel")
-health = NodePath("GridContainer/Health2/RichTextLabel")
-stamina = NodePath("GridContainer/Stamina2/RichTextLabel")
-mana = NodePath("GridContainer/Mana2/RichTextLabel")
-
-[node name="GridContainer" type="GridContainer" parent="WorldEnvironment/Player/DebugUI"]
-layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 647.0
-theme_override_constants/h_separation = 150
-theme_override_constants/v_separation = 25
-columns = 2
-
-[node name="Input" type="Panel" parent="WorldEnvironment/Player/DebugUI/GridContainer"]
-layout_mode = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="WorldEnvironment/Player/DebugUI/GridContainer/Input"]
-layout_mode = 0
-offset_right = 167.0
-offset_bottom = 26.0
-text = "Input:"
-
-[node name="Input2" type="Panel" parent="WorldEnvironment/Player/DebugUI/GridContainer"]
-layout_mode = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="WorldEnvironment/Player/DebugUI/GridContainer/Input2"]
-layout_mode = 0
-offset_right = 167.0
-offset_bottom = 26.0
-text = "vxycvyx"
-
-[node name="XYZ" type="Panel" parent="WorldEnvironment/Player/DebugUI/GridContainer"]
-layout_mode = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="WorldEnvironment/Player/DebugUI/GridContainer/XYZ"]
-layout_mode = 0
-offset_right = 167.0
-offset_bottom = 26.0
-text = "XYZ:"
-
-[node name="XYZ2" type="Panel" parent="WorldEnvironment/Player/DebugUI/GridContainer"]
-layout_mode = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="WorldEnvironment/Player/DebugUI/GridContainer/XYZ2"]
-layout_mode = 0
-offset_right = 520.0
-offset_bottom = 26.0
-text = "vxycvyx"
-
-[node name="Speed" type="Panel" parent="WorldEnvironment/Player/DebugUI/GridContainer"]
-layout_mode = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="WorldEnvironment/Player/DebugUI/GridContainer/Speed"]
-layout_mode = 0
-offset_right = 167.0
-offset_bottom = 26.0
-text = "Speed:"
-
-[node name="Speed2" type="Panel" parent="WorldEnvironment/Player/DebugUI/GridContainer"]
-layout_mode = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="WorldEnvironment/Player/DebugUI/GridContainer/Speed2"]
-layout_mode = 0
-offset_right = 515.0
-offset_bottom = 26.0
-text = "vxycvyx"
-
-[node name="Sneaking" type="Panel" parent="WorldEnvironment/Player/DebugUI/GridContainer"]
-layout_mode = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="WorldEnvironment/Player/DebugUI/GridContainer/Sneaking"]
-layout_mode = 0
-offset_right = 167.0
-offset_bottom = 26.0
-text = "Sneaking:"
-
-[node name="Sneaking2" type="Panel" parent="WorldEnvironment/Player/DebugUI/GridContainer"]
-layout_mode = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="WorldEnvironment/Player/DebugUI/GridContainer/Sneaking2"]
-layout_mode = 0
-offset_right = 167.0
-offset_bottom = 26.0
-text = "vxycvyx"
-
-[node name="InDetectionArea" type="Panel" parent="WorldEnvironment/Player/DebugUI/GridContainer"]
-layout_mode = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="WorldEnvironment/Player/DebugUI/GridContainer/InDetectionArea"]
-layout_mode = 0
-offset_right = 167.0
-offset_bottom = 26.0
-text = "InDetectionArea:"
-
-[node name="InDetectionArea2" type="Panel" parent="WorldEnvironment/Player/DebugUI/GridContainer"]
-layout_mode = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="WorldEnvironment/Player/DebugUI/GridContainer/InDetectionArea2"]
-layout_mode = 0
-offset_right = 167.0
-offset_bottom = 26.0
-text = "vxycvyx"
-
-[node name="InHidingArea" type="Panel" parent="WorldEnvironment/Player/DebugUI/GridContainer"]
-layout_mode = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="WorldEnvironment/Player/DebugUI/GridContainer/InHidingArea"]
-layout_mode = 0
-offset_right = 167.0
-offset_bottom = 26.0
-text = "InHidingArea:"
-
-[node name="InHidingArea2" type="Panel" parent="WorldEnvironment/Player/DebugUI/GridContainer"]
-layout_mode = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="WorldEnvironment/Player/DebugUI/GridContainer/InHidingArea2"]
-layout_mode = 0
-offset_right = 167.0
-offset_bottom = 26.0
-text = "vxycvyx"
-
-[node name="Detected" type="Panel" parent="WorldEnvironment/Player/DebugUI/GridContainer"]
-layout_mode = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="WorldEnvironment/Player/DebugUI/GridContainer/Detected"]
-layout_mode = 0
-offset_right = 167.0
-offset_bottom = 26.0
-text = "Detected:"
-
-[node name="Detected2" type="Panel" parent="WorldEnvironment/Player/DebugUI/GridContainer"]
-layout_mode = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="WorldEnvironment/Player/DebugUI/GridContainer/Detected2"]
-layout_mode = 0
-offset_right = 167.0
-offset_bottom = 26.0
-text = "vxycvyx"
-
-[node name="Hidden" type="Panel" parent="WorldEnvironment/Player/DebugUI/GridContainer"]
-layout_mode = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="WorldEnvironment/Player/DebugUI/GridContainer/Hidden"]
-layout_mode = 0
-offset_right = 167.0
-offset_bottom = 26.0
-text = "Hidden:"
-
-[node name="Hidden2" type="Panel" parent="WorldEnvironment/Player/DebugUI/GridContainer"]
-layout_mode = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="WorldEnvironment/Player/DebugUI/GridContainer/Hidden2"]
-layout_mode = 0
-offset_right = 167.0
-offset_bottom = 26.0
-text = "vxycvyx"
-
-[node name="Health" type="Panel" parent="WorldEnvironment/Player/DebugUI/GridContainer"]
-layout_mode = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="WorldEnvironment/Player/DebugUI/GridContainer/Health"]
-layout_mode = 0
-offset_right = 167.0
-offset_bottom = 26.0
-text = "Health:"
-
-[node name="Health2" type="Panel" parent="WorldEnvironment/Player/DebugUI/GridContainer"]
-layout_mode = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="WorldEnvironment/Player/DebugUI/GridContainer/Health2"]
-layout_mode = 0
-offset_right = 167.0
-offset_bottom = 26.0
-text = "vxycvyx"
-
-[node name="Stamina" type="Panel" parent="WorldEnvironment/Player/DebugUI/GridContainer"]
-layout_mode = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="WorldEnvironment/Player/DebugUI/GridContainer/Stamina"]
-layout_mode = 0
-offset_right = 167.0
-offset_bottom = 26.0
-text = "Stamina:"
-
-[node name="Stamina2" type="Panel" parent="WorldEnvironment/Player/DebugUI/GridContainer"]
-layout_mode = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="WorldEnvironment/Player/DebugUI/GridContainer/Stamina2"]
-layout_mode = 0
-offset_right = 167.0
-offset_bottom = 26.0
-text = "vxycvyx"
-
-[node name="Mana" type="Panel" parent="WorldEnvironment/Player/DebugUI/GridContainer"]
-layout_mode = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="WorldEnvironment/Player/DebugUI/GridContainer/Mana"]
-layout_mode = 0
-offset_right = 167.0
-offset_bottom = 26.0
-text = "Mana:"
-
-[node name="Mana2" type="Panel" parent="WorldEnvironment/Player/DebugUI/GridContainer"]
-layout_mode = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="WorldEnvironment/Player/DebugUI/GridContainer/Mana2"]
-layout_mode = 0
-offset_right = 167.0
-offset_bottom = 26.0
-text = "vxycvyx"
-
-[node name="TestEnemy" type="MeshInstance3D" parent="WorldEnvironment" node_paths=PackedStringArray("player")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4614, 1.00397, 0)
-mesh = SubResource("CapsuleMesh_r2bbj")
-skeleton = NodePath("../World")
-surface_material_override/0 = ExtResource("2_8h0xq")
-script = ExtResource("7_k711p")
-player = NodePath("../Player")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="WorldEnvironment/TestEnemy"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/TestEnemy/StaticBody3D"]
-shape = SubResource("CapsuleShape3D_k711p")
-
-[node name="DetectionArea" type="Area3D" parent="WorldEnvironment/TestEnemy" groups=["Enemy"]]
-
-[node name="DetectionShape" type="CollisionShape3D" parent="WorldEnvironment/TestEnemy/DetectionArea" groups=["Enemy"]]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
-shape = SubResource("SphereShape3D_r2bbj")
-debug_color = Color(0.138961, 0.599429, 0.670183, 1)
-
-[connection signal="area_entered" from="WorldEnvironment/Player/Controller/Area3D" to="WorldEnvironment/Player" method="_on_area_3d_area_entered"]
-[connection signal="area_exited" from="WorldEnvironment/Player/Controller/Area3D" to="WorldEnvironment/Player" method="_on_area_3d_area_exited"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.743145, 0.669131, 0, -0.669131, 0.743145, 0, 13.6917, 0)
