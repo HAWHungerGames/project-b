@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2vimce48pd1b"]
+
+[ext_resource type="Script" uid="uid://djx018rdq3itv" path="res://Scripts/PickUp.gd" id="1_48y6r"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_khfe3"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_bvi5a"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x1y42"]
+size = Vector3(0.15918, 1.06989, 0.168945)
+
+[node name="Placeholder Staff" type="RigidBody3D"]
+gravity_scale = 0.0
+script = ExtResource("1_48y6r")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.5, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_khfe3")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.547866, 0)
+mesh = SubResource("SphereMesh_bvi5a")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00244141, 0.049408, -0.00244141)
+shape = SubResource("BoxShape3D_x1y42")

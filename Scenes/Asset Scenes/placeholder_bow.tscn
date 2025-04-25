@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://p76fs3r1jt21"]
 
-[ext_resource type="Script" uid="uid://djx018rdq3itv" path="res://Scripts/PickUp.gd" id="1_y8y7k"]
+[ext_resource type="Script" uid="uid://djx018rdq3itv" path="res://Scripts/PickUp.gd" id="1_5ieoo"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_6pjgy"]
 
@@ -9,7 +9,7 @@ size = Vector3(0.416016, 1.20905, 0.110901)
 
 [node name="Placeholder Bow" type="RigidBody3D"]
 gravity_scale = 0.0
-script = ExtResource("1_y8y7k")
+script = ExtResource("1_5ieoo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.0866025, -0.35, 0, 0.05, 0.606218, 0, 0, 0, 0.1, 0, 0, 0)

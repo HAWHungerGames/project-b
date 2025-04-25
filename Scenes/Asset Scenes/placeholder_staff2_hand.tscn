@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmge3oraldwdl"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_s4y1p"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_rp816"]
+
+[node name="Placeholder Staff Hand" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.5, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_s4y1p")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.547866, 0)
+mesh = SubResource("SphereMesh_rp816")

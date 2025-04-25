@@ -5,9 +5,10 @@ extends RigidBody3D
 @export_enum("sword", "staff", "bow") var weapon: String = "sword"
 
 @onready var attachment = $"Weapon Slot"
-@onready var sword = preload("res://Scenes/placeholder_sword.tscn")
-@onready var staff = preload("res://Scenes/placeholder_staff.tscn")
-@onready var bow = preload("res://Scenes/placeholder_bow.tscn")
+@onready var sword = preload("res://Scenes/Asset Scenes/placeholder_sword2.tscn")
+@onready var staff = preload("res://Scenes/Asset Scenes/placeholder_staff2.tscn")
+@onready var bow = preload("res://Scenes/Asset Scenes/placeholder_bow.tscn")
+
 
 func _ready() -> void:
 	match weapon:

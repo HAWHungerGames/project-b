@@ -1,22 +1,21 @@
-[gd_scene load_steps=14 format=3 uid="uid://17sawqr1a5sd"]
+[gd_scene load_steps=15 format=3 uid="uid://17sawqr1a5sd"]
 
 [ext_resource type="Material" uid="uid://b2rgc8u5hwwcc" path="res://Materials/TestGround.tres" id="1_ggd4s"]
 [ext_resource type="Material" uid="uid://vlajy1vjbcaw" path="res://Materials/TestCubes2.tres" id="2_6h0x5"]
 [ext_resource type="Material" uid="uid://dekpipancsbc6" path="res://Materials/TestCubes.tres" id="3_0ctdn"]
+[ext_resource type="PackedScene" uid="uid://i40hh252nalo" path="res://Scenes/Asset Scenes/InteractRayCast.tscn" id="4_1ee8w"]
 [ext_resource type="PackedScene" uid="uid://56tchsrpayeo" path="res://Scenes/player.tscn" id="4_rb0yp"]
-[ext_resource type="Script" uid="uid://cq6vo7hp0vcly" path="res://Scripts/PlayerInteract.gd" id="5_6h0x5"]
 [ext_resource type="Script" uid="uid://b5l31sh77qstt" path="res://Scripts/CameraController.gd" id="5_24xrm"]
-[ext_resource type="PackedScene" uid="uid://3tkhtlb5b0bf" path="res://Scenes/placeholder_sword.tscn" id="7_0ctdn"]
-[ext_resource type="PackedScene" uid="uid://p76fs3r1jt21" path="res://Scenes/placeholder_bow.tscn" id="8_1ee8w"]
-[ext_resource type="PackedScene" uid="uid://bfa0ev2swqwxu" path="res://Scenes/socket.tscn" id="8_rb0yp"]
-[ext_resource type="PackedScene" uid="uid://b2vimce48pd1b" path="res://Scenes/placeholder_staff.tscn" id="9_24xrm"]
+[ext_resource type="PackedScene" uid="uid://3tkhtlb5b0bf" path="res://Scenes/Asset Scenes/placeholder_sword.tscn" id="7_0ctdn"]
+[ext_resource type="PackedScene" uid="uid://p76fs3r1jt21" path="res://Scenes/Asset Scenes/placeholder_bow.tscn" id="8_1ee8w"]
+[ext_resource type="PackedScene" uid="uid://bfa0ev2swqwxu" path="res://Scenes/Asset Scenes/Socket.tscn" id="8_rb0yp"]
+[ext_resource type="PackedScene" uid="uid://b2vimce48pd1b" path="res://Scenes/Asset Scenes/placeholder_staff.tscn" id="9_24xrm"]
+[ext_resource type="PackedScene" uid="uid://vj7to5njslw6" path="res://Scenes/Asset Scenes/Socket2.tscn" id="11_1bu8d"]
+[ext_resource type="PackedScene" uid="uid://dkq4iwxhux6s2" path="res://Scenes/Asset Scenes/TestSphere.tscn" id="11_oxcgu"]
 
 [sub_resource type="Environment" id="Environment_1ee8w"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_oxcgu"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_r2bbj"]
-size = Vector3(0.1, 0.1, 0.3)
 
 [node name="KonradWorkScene" type="Node3D"]
 
@@ -245,21 +244,12 @@ polygon = PackedVector2Array(-10.4771, -0.499426, -1.71498, 1.9336, 3.64565, 1.5
 [node name="Player" parent="WorldEnvironment" instance=ExtResource("4_rb0yp")]
 speed = 20.0
 acceleration = 10.0
-rotationType = "rotate based on relative mouse position"
 
-[node name="RayCast3D" type="RayCast3D" parent="WorldEnvironment/Player/Controller/Model" index="0"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.043669, -0.540329)
-collision_mask = 3
-script = ExtResource("5_6h0x5")
-
-[node name="FrontPointer2" type="MeshInstance3D" parent="WorldEnvironment/Player/Controller/Model/RayCast3D"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.85974, -0.0104816)
-material_override = ExtResource("3_0ctdn")
-mesh = SubResource("BoxMesh_r2bbj")
-skeleton = NodePath("../../../..")
+[node name="InteractRayCast" parent="WorldEnvironment/Player/Controller/Model" index="0" instance=ExtResource("4_1ee8w")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.292097, -0.540329)
 
 [node name="Hand" type="Node3D" parent="WorldEnvironment/Player/Controller/Model" index="1"]
-transform = Transform3D(0.66523, 0, 0.746638, 0, 1, 0, -0.746638, 0, 0.66523, 0.479796, 0.089469, -0.46274)
+transform = Transform3D(0.676503, 0, -0.736439, 0, 1, 0, 0.736439, 0, 0.676503, 0.479796, 0.089469, -0.46274)
 
 [node name="Camera" type="Camera3D" parent="WorldEnvironment" node_paths=PackedStringArray("settings", "cameraTarget")]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 8.17838, 2.93165)
@@ -271,7 +261,7 @@ cameraTarget = NodePath("../Player/Controller/CameraArm/CameraTarget")
 [node name="Test Stuff" type="Node3D" parent="WorldEnvironment"]
 
 [node name="Placeholder Sword" parent="WorldEnvironment/Test Stuff" instance=ExtResource("7_0ctdn")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1.81203, -13.3588)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.81203, -13.3588)
 
 [node name="Placeholder Staff" parent="WorldEnvironment/Test Stuff" instance=ExtResource("9_24xrm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0008, 1.84404, -13.3867)
@@ -296,6 +286,15 @@ material = ExtResource("2_6h0x5")
 
 [node name="Socket" parent="WorldEnvironment/Test Stuff" instance=ExtResource("8_rb0yp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.763015, -10.4661)
-weapon = "bow"
+
+[node name="Socket2" parent="WorldEnvironment/Test Stuff" instance=ExtResource("11_1bu8d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.73555, 0.996558, -10.4893)
+
+[node name="TestSphere" parent="WorldEnvironment/Test Stuff" instance=ExtResource("11_oxcgu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.19897, 1.53205, -4.63357)
+prompt_message = "I am a SPHERE!"
+
+[node name="TestSphere2" parent="WorldEnvironment/Test Stuff" instance=ExtResource("11_oxcgu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.28914, 1.57856, -4.75525)
 
 [editable path="WorldEnvironment/Player"]

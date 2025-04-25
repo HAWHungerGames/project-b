@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bfa0ev2swqwxu"]
 
 [ext_resource type="Material" uid="uid://vlajy1vjbcaw" path="res://Materials/TestCubes2.tres" id="1_3donx"]
-[ext_resource type="Script" uid="uid://de65bmo7onepk" path="res://Scripts/socket.gd" id="1_ln7qy"]
+[ext_resource type="Script" uid="uid://de65bmo7onepk" path="res://Scripts/Socket.gd" id="1_ln7qy"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_m2ivx"]
 
