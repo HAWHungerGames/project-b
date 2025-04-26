@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://7n0dxdf43jki"]
 
-[ext_resource type="Script" uid="uid://ckxe41r5558le" path="res://Scripts/EnemyBullet.gd" id="1_8jqip"]
+[ext_resource type="Script" uid="uid://ckxe41r5558le" path="res://Scripts/Enemy Scripts/EnemyBullet.gd" id="1_8jqip"]
 [ext_resource type="Material" uid="uid://dekpipancsbc6" path="res://Materials/TestCubes.tres" id="2_ycfru"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_k711p"]

@@ -22,16 +22,23 @@ extends CharacterBody3D
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var temprotation = 0
 var dashCooldown: float = 0
+var mouseMode: bool = false
+var mouseTimer: float = 0
 
 @onready var spring_arm = $CameraArm
 
-
 func _physics_process(delta):
+	
 	apply_gravity(delta)
 	get_move_input(delta)
 	move_and_slide()
 	rotate_player()
 	dash(delta)
+
+func _input(event):
+	if event is InputEventMouseMotion:
+		if event.velocity.x > 0 or event.velocity.y > 0:
+			mouseMode = true
 
 func dash(delta):
 	match dashType:
@@ -64,10 +71,8 @@ func rotate_player():
 	match rotationType:
 		"rotate based on last movement":
 			rotate_based_on_last_movement()
-		"rotate based on relative mouse position":
-			rotate_based_on_relative_mouse_position()
-		"rotation based on right joystick":
-			rotation_based_on_right_joystick()
+		"rotate based on second input":
+			rotate_based_on_second_input()
 
 func rotate_based_on_last_movement():
 	var input = Input.get_vector("left", "right", "forward", "backward")
@@ -78,21 +83,22 @@ func rotate_based_on_last_movement():
 		temprotation = atan2(-input.x, -input.y)
 	playerShape.rotation.y = temprotation
 
-func rotate_based_on_relative_mouse_position():
-	var mousePosition = get_viewport().get_mouse_position()
-	var screenSize = get_viewport().get_visible_rect().size
-	var screenCenter = Vector2(screenSize.x/2,screenSize.y/2 - 20)
-	var normalizedRelativeMousePosition = Vector2(mousePosition.x - screenCenter.x, mousePosition.y - screenCenter.y).normalized()
-	var mouseAngle = atan2(normalizedRelativeMousePosition.x, normalizedRelativeMousePosition.y) + PI
-	playerShape.rotation.y = mouseAngle
-
-func rotation_based_on_right_joystick():
-	var input = Input.get_vector("left", "right", "forward", "backward")
-	if (input.x != 0 or input.y != 0):
-		temprotation = atan2(-input.x, -input.y)
+func rotate_based_on_second_input():
 	var look_input = Input.get_vector("look_left", "look_right", "look_forward", "look_backward")
 	if (look_input.x != 0 or look_input.y != 0):
-		temprotation = atan2(-look_input.x, -look_input.y)
+		mouseMode = false
+	if !mouseMode:
+		var input = Input.get_vector("left", "right", "forward", "backward")
+		if (input.x != 0 or input.y != 0):
+			temprotation = atan2(-input.x, -input.y)
+		if (look_input.x != 0 or look_input.y != 0):
+			temprotation = atan2(-look_input.x, -look_input.y)
+	else:
+		var mousePosition = get_viewport().get_mouse_position()
+		var screenSize = get_viewport().get_visible_rect().size
+		var screenCenter = Vector2(screenSize.x/2,screenSize.y/2 - 20)
+		var normalizedRelativeMousePosition = Vector2(mousePosition.x - screenCenter.x, mousePosition.y - screenCenter.y).normalized()
+		temprotation = atan2(normalizedRelativeMousePosition.x, normalizedRelativeMousePosition.y) + PI
 	playerShape.rotation.y = temprotation
 
 func get_move_input(delta):

@@ -21,6 +21,7 @@ material = SubResource("StandardMaterial3D_e6mua")
 [node name="Player" type="Node3D" groups=["Player"]]
 script = ExtResource("1_2nftw")
 friction = 0.1
+rotationType = "rotate based on second input"
 dashType = "dash with stamina"
 cameraFollowSpeed = 0.078
 

@@ -9,9 +9,10 @@
 [sub_resource type="Environment" id="Environment_1dgrj"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_e6mua"]
-vertices = PackedVector3Array(-1.73283, 0.45, -1.21342, 6.01717, 0.45, -4.71342, 6.01717, 0.45, -6.21342, -3.48283, 0.45, -0.963425, 7.51717, 0.45, -24.4634, -24.4828, 0.45, -24.4634, -24.4828, 0.45, 0.786575, 7.51717, 0.45, -6.46342, -3.48283, 0.45, 0.786575, 9.01717, 0.45, -6.46342, 9.26717, 0.45, -5.21342, 24.5172, 0.45, -5.21342, 24.5172, 0.45, -24.4634, -1.23283, 0.45, -0.963425, 6.26717, 0.45, -4.21342, -1.23283, 0.45, 2.78658, -2.23283, 0.45, 3.03658, -2.23283, 0.45, 24.5366, 9.01717, 0.45, -4.21342, 24.5172, 0.45, 24.5366, -3.48283, 0.45, 2.78658, -24.4828, 0.45, 24.5366)
-polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(0, 3, 2), PackedInt32Array(2, 3, 4), PackedInt32Array(4, 3, 6), PackedInt32Array(4, 6, 5), PackedInt32Array(4, 7, 2), PackedInt32Array(3, 8, 6), PackedInt32Array(10, 9, 11), PackedInt32Array(11, 9, 12), PackedInt32Array(12, 9, 4), PackedInt32Array(9, 7, 4), PackedInt32Array(14, 13, 1), PackedInt32Array(1, 13, 0), PackedInt32Array(17, 16, 15), PackedInt32Array(14, 18, 13), PackedInt32Array(13, 18, 15), PackedInt32Array(18, 11, 15), PackedInt32Array(15, 11, 17), PackedInt32Array(17, 11, 19), PackedInt32Array(18, 10, 11), PackedInt32Array(6, 8, 20), PackedInt32Array(16, 17, 20), PackedInt32Array(20, 17, 21), PackedInt32Array(20, 21, 6)]
+vertices = PackedVector3Array(-1.48283, 0.45, -1.71342, -0.982828, 0.45, -1.21342, 5.51717, 0.45, -4.71342, 5.51717, 0.45, -6.21342, -23.9828, 0.45, 0.786575, -3.98283, 0.45, -0.963425, -3.23283, 0.45, -1.71342, 6.26717, 0.45, -6.96342, 7.51717, 0.45, -23.9634, -23.9828, 0.45, -23.9634, 7.51717, 0.45, -6.96342, -3.98283, 0.45, 0.786575, 9.76717, 0.45, -6.21342, 9.76717, 0.45, -5.21342, 24.0172, 0.45, -5.21342, 9.01717, 0.45, -6.96342, 24.0172, 0.45, -23.9634, 6.26717, 0.45, -3.71342, -0.732828, 0.45, 2.78658, -1.48283, 0.45, 3.53658, -2.23283, 0.45, 3.53658, -2.23283, 0.45, 24.0366, 9.01717, 0.45, -3.71342, 24.0172, 0.45, 24.0366, 9.76717, 0.45, -4.46342, -3.98283, 0.45, 2.78658, -3.23283, 0.45, 3.53658, -23.9828, 0.45, 24.0366)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(6, 5, 4), PackedInt32Array(3, 0, 7), PackedInt32Array(7, 0, 6), PackedInt32Array(7, 6, 8), PackedInt32Array(8, 6, 4), PackedInt32Array(8, 4, 9), PackedInt32Array(8, 10, 7), PackedInt32Array(5, 11, 4), PackedInt32Array(14, 13, 12), PackedInt32Array(12, 15, 14), PackedInt32Array(14, 15, 16), PackedInt32Array(16, 15, 8), PackedInt32Array(15, 10, 8), PackedInt32Array(2, 17, 1), PackedInt32Array(1, 17, 18), PackedInt32Array(21, 20, 19), PackedInt32Array(18, 17, 19), PackedInt32Array(19, 17, 22), PackedInt32Array(22, 14, 19), PackedInt32Array(19, 14, 21), PackedInt32Array(21, 14, 23), PackedInt32Array(24, 13, 14), PackedInt32Array(14, 22, 24), PackedInt32Array(4, 11, 25), PackedInt32Array(26, 20, 21), PackedInt32Array(25, 26, 4), PackedInt32Array(4, 26, 21), PackedInt32Array(4, 21, 27)]
 agent_height = 2.0
+agent_radius = 1.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_8h0xq"]
 size = Vector3(10, 0.1, 10)
@@ -31,15 +32,16 @@ size = Vector3(10, 0.1, 10)
 environment = SubResource("Environment_1dgrj")
 
 [node name="Player" parent="." instance=ExtResource("3_r2bbj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13582, 3.79582, 2.45626)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13582, 1.83959, 2.45626)
 cameraAngle = -35.0
 
 [node name="RangedEnemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_e6mua")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4614, 1.00397, 0)
 player = NodePath("../Player")
+hearingRange = 400.0
+visionRange = 40.0
 movementType = "keep set distance from player"
 keepDistance = 10.0
-homingStrength = 0.631
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_e6mua")

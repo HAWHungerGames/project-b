@@ -1,8 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://durr2417rl7mr"]
+[gd_scene load_steps=10 format=3 uid="uid://ddb5qsl2pw4p2"]
 
-[ext_resource type="Material" uid="uid://dekpipancsbc6" path="res://Materials/TestCubes.tres" id="1_qsv0l"]
-[ext_resource type="Script" uid="uid://xdurcngpahts" path="res://Scripts/Enemy Scripts/EnemyRanged.gd" id="2_gtfvv"]
-[ext_resource type="Material" uid="uid://41byjnpqi8jl" path="res://Materials/TestBush.tres" id="3_rrnee"]
+[ext_resource type="Script" uid="uid://xdurcngpahts" path="res://Scripts/Enemy Scripts/EnemyRanged.gd" id="1_lksty"]
+[ext_resource type="Material" uid="uid://41byjnpqi8jl" path="res://Materials/TestBush.tres" id="2_0h6ff"]
+[ext_resource type="Material" uid="uid://dekpipancsbc6" path="res://Materials/TestCubes.tres" id="3_jmuxb"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dp8bq"]
 
@@ -15,8 +15,10 @@ points = PackedVector3Array(-0.387079, -0.952867, -0.893173, 0.0286088, 0.919081
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_dp8bq"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_lksty"]
+
 [node name="RangedEnemy" type="CharacterBody3D" groups=["Enemy"]]
-script = ExtResource("2_gtfvv")
+script = ExtResource("1_lksty")
 bulletSpeed = 10
 
 [node name="HearingArea" type="Area3D" parent="." groups=["Enemy"]]
@@ -38,7 +40,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.544362, 0.573799, 0)
 
 [node name="FrontMaker" type="MeshInstance3D" parent="BulletSpawnPoint" groups=["Bullet"]]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
-material_override = ExtResource("3_rrnee")
+material_override = ExtResource("2_0h6ff")
 mesh = SubResource("BoxMesh_r2bbj")
 skeleton = NodePath("../../../..")
 
@@ -46,12 +48,20 @@ skeleton = NodePath("../../../..")
 shape = SubResource("CapsuleShape3D_k711p")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-material_override = ExtResource("1_qsv0l")
+material_override = ExtResource("3_jmuxb")
 mesh = SubResource("CapsuleMesh_dp8bq")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="SporeRange" type="Area3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SporeRange"]
+shape = SubResource("SphereShape3D_lksty")
 
 [connection signal="area_entered" from="HearingArea" to="." method="_on_hearing_area_entered"]
 [connection signal="area_exited" from="HearingArea" to="." method="_on_hearing_area_exited"]
 [connection signal="area_entered" from="VisionArea" to="." method="_on_vision_area_entered"]
 [connection signal="area_exited" from="VisionArea" to="." method="_on_vision_area_exited"]
+[connection signal="area_entered" from="SporeRange" to="." method="_on_spore_range_entered"]
+[connection signal="area_exited" from="SporeRange" to="." method="_on_spore_range_exited"]

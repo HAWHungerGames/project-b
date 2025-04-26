@@ -7,7 +7,7 @@ extends Node
 @export_range(0, 1) var friction: float = 0
 #@export_range(0, 1) var sensitivity: float = 1 #Currently not used
 @export_subgroup("Looking")
-@export_enum("rotate based on last movement", "rotate based on relative mouse position", "rotation based on right joystick") var rotationType: String = "rotate based on last movement"
+@export_enum("rotate based on last movement", "rotate based on second input") var rotationType: String = "rotate based on last movement"
 ##If player keep rotation if lock input key is pressed
 @export var lockActive: bool = true #
 

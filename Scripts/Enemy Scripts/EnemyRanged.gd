@@ -2,16 +2,12 @@ extends CharacterBody3D
 @export var player: Node3D
 @export_category("Behaviour")
 @export_subgroup("DetectionBehaviour")
-@export_enum("detect within own detection-area", "detect within any detection-area", "detect within arena") var detectionType: String = "detect within detection-area"
-@export var detectHiddenPlayer: bool = false
-@export var detectionRange: float = 8
+@export var hearingRange: float = 8
+@export var visionRange: float = 10
 
 @export_subgroup("MovementBehaviour")
-@export_enum("stand still", "move towards player", "flee from player", "keep set distance from player") var movementType: String = "stand still"
+@export_enum("stand still", "move towards player", "keep set distance from player") var movementType: String = "stand still"
 @export var keepDistance: float = 5
-
-@export_subgroup("AttackBehaviour")
-@export var onlyShotWithClearLineOfSight: bool = true
 
 @export_category("Stats")
 @export_subgroup("Enemy Stats")
@@ -27,54 +23,55 @@ extends CharacterBody3D
 @export_range(0, 1) var homingStrength: float = 0
 @export var homingRange: float = 50
 
-@onready var detectionRangeNode = $DetectionArea/DetectionShape
+@onready var hearingNode = $HearingArea
+@onready var visionNode = $VisionArea
 @onready var world = $"../.."
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
 
-var playerInDetectionRadius: bool = false
+var playerIsInHearingArea: bool = false
+var playerIsInVisionArea: bool = false
 var attackCooldown: float
 var bulletScene: PackedScene = preload("res://Prefabs/enemy_bullet.tscn")
 var isMoving: bool = false 
+#To track the delay between stop moving and attacking 
+var moveDelay: float = 0
+#Tracks the time the enemy is not moving
+var moveTime: float = 0
 
 func _ready():
-	detectionRangeNode.scale = Vector3(detectionRange, detectionRange, detectionRange)
+	hearingNode.scale = Vector3(hearingRange, hearingRange, hearingRange)
+	visionNode.scale = Vector3(visionRange, visionRange, visionRange)
 
 func _physics_process(delta):
 	if detect_player():
 		rotateToPlayer()
 		attack(delta)
-	if player.isDetected:
+	if detect_player():
 		navigation(delta)
-
 
 func navigation(delta):
 	match movementType:
-		"stand still":
-			null
 		"move towards player":
 			move_towards_player(delta)
-		"flee from player":
-			flee_from_player(delta)
 		"keep set distance from player":
 			keep_set_distance_from_player(delta)
 
-func flee_from_player(delta): #Not Implemented yet
-	null
-
 func move_towards_player(delta):
-	if playerInDetectionRadius:
-		var direction = Vector3()
-		
-		nav.target_position = player.get_child(0).global_position
-		
-		direction = (nav.get_next_path_position() - global_position).normalized()
-		velocity = velocity.lerp(direction * speed, acceleration * delta)
-		move_and_slide()
+	var direction = Vector3()
+	
+	nav.target_position = player.get_child(0).global_position
+	
+	direction = (nav.get_next_path_position() - global_position).normalized()
+	velocity = velocity.lerp(direction * speed, acceleration * delta)
+	move_and_slide()
 
 func keep_set_distance_from_player(delta):
 	var distance = global_position.distance_to(player.get_child(0).global_position)
 	isMoving = false
-	if playerInDetectionRadius and (!detect_player_raycast() or distance >= keepDistance):
+	moveTime += delta
+	if moveDelay > 0:
+		moveDelay -= delta
+	if distance >= keepDistance or !detect_player_raycast():
 		var direction = Vector3()
 		
 		nav.target_position = player.get_child(0).global_position
@@ -83,18 +80,29 @@ func keep_set_distance_from_player(delta):
 		velocity = velocity.lerp(direction * speed, acceleration * delta)
 		move_and_slide()
 		isMoving = true
+		moveDelay = 0.2
+		moveTime = 0
 
 func detect_player():
-	if playerInDetectionRadius and player.isSneaking:
+	if playerIsInHearingArea and !playerIsInVisionArea:
+		if player.isSneaking and !player.isDetected:
+			player.enemiesDetectingPlayer.erase([self])
+			return false
+		else:
+			player.enemiesDetectingPlayer.append([self])
+			return true
+	if  playerIsInVisionArea and !playerIsInHearingArea:
 		if detect_player_raycast() or player.isDetected:
-			player.isDetected = true
+			player.enemiesDetectingPlayer.append([self])
 			return true
 		else:
-			player.isDetected = false
+			player.enemiesDetectingPlayer.erase([self])
 			return false
-	elif playerInDetectionRadius and !player.isSneaking:
-		player.isDetected = true
-		return true
+	if playerIsInHearingArea and playerIsInVisionArea:
+		if player.isDetected or detect_player_raycast() or !player.isSneaking:
+			player.enemiesDetectingPlayer.append([self])
+			return true
+	player.enemiesDetectingPlayer.erase([self])
 	return false
 
 func detect_player_raycast():
@@ -117,8 +125,13 @@ func rotateToPlayer():
 	var angle = atan2(angleVector.x, angleVector.z)
 	rotation.y = angle - PI/2
 
+func takeDamage(damage: int):
+	health -= damage
+	if health <= 0:
+		queue_free()
+
 func attack(delta):
-	if attackCooldown <= 0 and detect_player_raycast() and !isMoving:
+	if attackCooldown <= 0 and detect_player_raycast() and !isMoving and moveDelay <= 0:
 		var pos: Vector3 = get_child(2).global_transform.origin
 		var vel: Vector3 = player.get_child(0).global_transform.origin - global_transform.origin
 		var bullet = bulletScene.instantiate()
@@ -129,17 +142,24 @@ func attack(delta):
 	elif(attackCooldown >= 0): 
 		attackCooldown -= delta
 
-func takeDamage(damage: int):
-	health -= damage
-	if health <= 0:
-		queue_free()
-
-func _on_detection_area_area_entered(area: Area3D) -> void:
+func _on_hearing_area_entered(area: Area3D) -> void:
 	if area.is_in_group("Player"):
-		playerInDetectionRadius = true
-		player.enemiesDetectingPlayer.append([self])
+		playerIsInHearingArea = true
 
-func _on_detection_area_area_exited(area: Area3D) -> void:
+func _on_hearing_area_exited(area: Area3D) -> void:
 	if area.is_in_group("Player"):
-		playerInDetectionRadius = false
-		player.enemiesDetectingPlayer.erase([self])
+		playerIsInHearingArea = false
+
+func _on_vision_area_entered(area: Area3D) -> void:
+	if area.is_in_group("Player"):
+		playerIsInVisionArea = true
+
+func _on_vision_area_exited(area: Area3D) -> void:
+	if area.is_in_group("Player"):
+		playerIsInVisionArea = false
+
+func _on_spore_range_entered(area: Area3D) -> void:
+	pass # Replace with function body.
+
+func _on_spore_range_exited(area: Area3D) -> void:
+	pass # Replace with function body.
