@@ -1,8 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://uafprr7riwjm"]
+[gd_scene load_steps=10 format=3 uid="uid://uafprr7riwjm"]
 
-[ext_resource type="Script" uid="uid://xdurcngpahts" path="res://Scripts/Enemy Scripts/EnemyRanged.gd" id="1_a0bld"]
+[ext_resource type="Script" uid="uid://fxahdnlqqgci" path="res://Scripts/Enemy Scripts/EnemyMelee.gd" id="1_a0bld"]
 [ext_resource type="Material" uid="uid://41byjnpqi8jl" path="res://Materials/TestBush.tres" id="2_x0lkj"]
-[ext_resource type="Material" uid="uid://dekpipancsbc6" path="res://Materials/TestCubes.tres" id="3_0qxmv"]
+[ext_resource type="Material" uid="uid://coyp2b7pigfla" path="res://Materials/enemy2.tres" id="3_a0bld"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dp8bq"]
 
@@ -15,9 +15,13 @@ points = PackedVector3Array(-0.387079, -0.952867, -0.893173, 0.0286088, 0.919081
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_dp8bq"]
 
-[node name="RangedEnemy" type="CharacterBody3D" groups=["Enemy"]]
+[sub_resource type="BoxShape3D" id="BoxShape3D_a0bld"]
+
+[node name="MeleeEnemy" type="CharacterBody3D" groups=["Enemy"]]
 script = ExtResource("1_a0bld")
-bulletSpeed = 10
+health = 100
+attackHeight = 2.0
+attackWidth = 3.0
 
 [node name="HearingArea" type="Area3D" parent="." groups=["Enemy"]]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
@@ -46,12 +50,20 @@ skeleton = NodePath("../../../..")
 shape = SubResource("CapsuleShape3D_k711p")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-material_override = ExtResource("3_0qxmv")
+material_override = ExtResource("3_a0bld")
 mesh = SubResource("CapsuleMesh_dp8bq")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="AttackArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.911974, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AttackArea"]
+shape = SubResource("BoxShape3D_a0bld")
 
 [connection signal="area_entered" from="HearingArea" to="." method="_on_hearing_area_entered"]
 [connection signal="area_exited" from="HearingArea" to="." method="_on_hearing_area_exited"]
 [connection signal="area_entered" from="VisionArea" to="." method="_on_vision_area_entered"]
 [connection signal="area_exited" from="VisionArea" to="." method="_on_vision_area_exited"]
+[connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_entered"]
+[connection signal="area_exited" from="AttackArea" to="." method="_on_attack_area_exited"]

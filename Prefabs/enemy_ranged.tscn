@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://durr2417rl7mr"]
 
-[ext_resource type="Material" uid="uid://dekpipancsbc6" path="res://Materials/TestCubes.tres" id="1_qsv0l"]
 [ext_resource type="Script" uid="uid://xdurcngpahts" path="res://Scripts/Enemy Scripts/EnemyRanged.gd" id="2_gtfvv"]
+[ext_resource type="Material" uid="uid://bfkikr4b3287w" path="res://Materials/enemy1.tres" id="3_dp8bq"]
 [ext_resource type="Material" uid="uid://41byjnpqi8jl" path="res://Materials/TestBush.tres" id="3_rrnee"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dp8bq"]
@@ -46,7 +46,7 @@ skeleton = NodePath("../../../..")
 shape = SubResource("CapsuleShape3D_k711p")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-material_override = ExtResource("1_qsv0l")
+material_override = ExtResource("3_dp8bq")
 mesh = SubResource("CapsuleMesh_dp8bq")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

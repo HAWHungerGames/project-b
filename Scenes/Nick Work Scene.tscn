@@ -1,10 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://bmqgvvy0t5bfp"]
+[gd_scene load_steps=15 format=3 uid="uid://bmqgvvy0t5bfp"]
 
 [ext_resource type="Material" uid="uid://b2rgc8u5hwwcc" path="res://Materials/TestGround.tres" id="1_7g8fi"]
 [ext_resource type="Material" uid="uid://dekpipancsbc6" path="res://Materials/TestCubes.tres" id="2_8h0xq"]
 [ext_resource type="Material" uid="uid://41byjnpqi8jl" path="res://Materials/TestBush.tres" id="2_r2bbj"]
 [ext_resource type="PackedScene" uid="uid://cpyee7rfs1efb" path="res://Prefabs/player.tscn" id="3_r2bbj"]
 [ext_resource type="PackedScene" uid="uid://durr2417rl7mr" path="res://Prefabs/enemy_ranged.tscn" id="5_e6mua"]
+[ext_resource type="PackedScene" uid="uid://ddb5qsl2pw4p2" path="res://Prefabs/enemy_spores.tscn" id="6_r2bbj"]
+[ext_resource type="PackedScene" uid="uid://uafprr7riwjm" path="res://Prefabs/enemy_melee.tscn" id="7_k711p"]
 
 [sub_resource type="Environment" id="Environment_1dgrj"]
 
@@ -34,14 +36,6 @@ environment = SubResource("Environment_1dgrj")
 [node name="Player" parent="." instance=ExtResource("3_r2bbj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13582, 1.83959, 2.45626)
 cameraAngle = -35.0
-
-[node name="RangedEnemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_e6mua")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4614, 1.00397, 0)
-player = NodePath("../Player")
-hearingRange = 400.0
-visionRange = 40.0
-movementType = "keep set distance from player"
-keepDistance = 10.0
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_e6mua")
@@ -92,33 +86,33 @@ shape = SubResource("BoxShape3D_r2bbj")
 
 [node name="World" type="Node3D" parent="."]
 
-[node name="Bush" type="MeshInstance3D" parent="World" groups=["World"]]
+[node name="Bush1" type="MeshInstance3D" parent="World" groups=["Bush", "World"]]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 6, -5.88421, 0.976214, 0.562463)
 layers = 2
 material_override = ExtResource("2_r2bbj")
 mesh = SubResource("BoxMesh_e6mua")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="World/Bush" groups=["World"]]
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Bush1" groups=["Bush", "World"]]
 collision_layer = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Bush/StaticBody3D" groups=["World"]]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Bush1/StaticBody3D" groups=["World"]]
 shape = SubResource("BoxShape3D_r2bbj")
 
-[node name="Bush" type="Area3D" parent="World/Bush" groups=["Bush"]]
+[node name="Bush" type="Area3D" parent="World/Bush1" groups=["Bush"]]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Bush/Bush" groups=["Bush"]]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Bush1/Bush" groups=["Bush"]]
 shape = SubResource("BoxShape3D_k711p")
 debug_color = Color(0, 0.647059, 0.196078, 1)
 
-[node name="Bush2" type="MeshInstance3D" parent="World" groups=["World"]]
+[node name="Bush2" type="MeshInstance3D" parent="World" groups=["Bush", "World"]]
 transform = Transform3D(4.31604, 0, -1.38932, 0, 2, 0, 4.16795, 0, 1.43868, -7.73918, 1, -3.87657)
 layers = 2
 material_override = ExtResource("2_r2bbj")
 mesh = SubResource("BoxMesh_e6mua")
 skeleton = NodePath("../../WorldEnvironment")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="World/Bush2"]
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Bush2" groups=["Bush"]]
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Bush2/StaticBody3D" groups=["World"]]
@@ -130,5 +124,43 @@ shape = SubResource("BoxShape3D_r2bbj")
 shape = SubResource("BoxShape3D_k711p")
 debug_color = Color(0, 0.647059, 0.196078, 1)
 
+[node name="Bush3" type="MeshInstance3D" parent="World" groups=["Bush", "World"]]
+transform = Transform3D(1.512, 0, -5.23655, 0, 2, 0, 1.30914, 0, 6.04802, 5.65369, 1.32126, 6.95595)
+layers = 2
+material_override = ExtResource("2_r2bbj")
+mesh = SubResource("BoxMesh_e6mua")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Bush3" groups=["Bush", "World"]]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Bush3/StaticBody3D" groups=["World"]]
+shape = SubResource("BoxShape3D_r2bbj")
+
+[node name="Bush" type="Area3D" parent="World/Bush3" groups=["Bush"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Bush3/Bush" groups=["Bush"]]
+shape = SubResource("BoxShape3D_k711p")
+debug_color = Color(0, 0.647059, 0.196078, 1)
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.743145, 0.669131, 0, -0.669131, 0.743145, 0, 13.6917, 0)
+
+[node name="RangedEnemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_e6mua")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4614, 1.00397, 0)
+player = NodePath("../Player")
+hearingRange = 30.0
+visionRange = 50.0
+movementType = "keep set distance from player"
+keepDistance = 10.0
+
+[node name="SporeEnemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_r2bbj")]
+transform = Transform3D(-0.721241, 0, 0.692685, 0, 1, 0, -0.692685, 0, -0.721241, 16.0525, 1.05, 14.5557)
+player = NodePath("../Player")
+hearingRange = 20.0
+visionRange = 50.0
+
+[node name="MeleeEnemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_k711p")]
+transform = Transform3D(-0.999998, 0, 0.00209435, 0, 1, 0, -0.00209435, 0, -0.999998, 19.8914, 1.05, -17.2058)
+player = NodePath("../Player")
+hearingRange = 30.0
+visionRange = 30.0

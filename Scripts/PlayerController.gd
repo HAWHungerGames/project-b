@@ -66,6 +66,8 @@ func dash_ability(delta):
 	var direction = Vector3(input.x, 0, input.y).rotated(Vector3.UP, spring_arm.rotation.y)
 	velocity = lerp(velocity, direction * dashStrength, acceleration * delta)
 	velocity.y = vy
+	if settings.isDetected:
+		PlayerActionTracker.timesDodgedInCombat += 1
 
 func rotate_player():
 	match rotationType:

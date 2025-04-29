@@ -88,6 +88,8 @@ func resource_system(delta):
 func checkDetection():
 	if enemiesDetectingPlayer.size() == 0:
 		isDetected = false
+	else:
+		isDetected = true
 
 func reduce_stamina(amount: int):
 	stamina -= amount

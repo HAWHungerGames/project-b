@@ -15,6 +15,10 @@ run/main_scene="uid://bmqgvvy0t5bfp"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+PlayerActionTracker="*res://Scripts/PlayerActionTracker.gd"
+
 [global_group]
 
 Bullet=""

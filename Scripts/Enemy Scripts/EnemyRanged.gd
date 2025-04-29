@@ -19,7 +19,7 @@ extends CharacterBody3D
 @export var bulletSpeed: int = 1
 @export var bulletDamage: int = 10
 @export var bulletLifetime: float = 5
-@export var attackSpeed: int = 1
+@export var attackSpeed: float = 1
 @export_range(0, 1) var homingStrength: float = 0
 @export var homingRange: float = 50
 
@@ -30,7 +30,7 @@ extends CharacterBody3D
 
 var playerIsInHearingArea: bool = false
 var playerIsInVisionArea: bool = false
-var attackCooldown: float
+var attackCooldown: float = 0
 var bulletScene: PackedScene = preload("res://Prefabs/enemy_bullet.tscn")
 var isMoving: bool = false 
 #To track the delay between stop moving and attacking 
@@ -138,7 +138,7 @@ func attack(delta):
 		bullet.setParameter(player, bulletDamage, bulletSpeed, homingRange, homingStrength, vel, bulletLifetime)
 		world.add_child(bullet)
 		bullet.global_transform.origin = pos
-		attackCooldown = 1/attackSpeed
+		attackCooldown = 1.0/attackSpeed
 	elif(attackCooldown >= 0): 
 		attackCooldown -= delta
 
@@ -157,9 +157,3 @@ func _on_vision_area_entered(area: Area3D) -> void:
 func _on_vision_area_exited(area: Area3D) -> void:
 	if area.is_in_group("Player"):
 		playerIsInVisionArea = false
-
-func _on_spore_range_entered(area: Area3D) -> void:
-	pass # Replace with function body.
-
-func _on_spore_range_exited(area: Area3D) -> void:
-	pass # Replace with function body.
