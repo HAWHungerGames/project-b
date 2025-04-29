@@ -1,20 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://i40hh252nalo"]
+[gd_scene load_steps=2 format=3 uid="uid://i40hh252nalo"]
 
 [ext_resource type="Script" uid="uid://cq6vo7hp0vcly" path="res://Scripts/PlayerInteract.gd" id="1_35kea"]
-[ext_resource type="Material" uid="uid://dekpipancsbc6" path="res://Materials/TestCubes.tres" id="2_u4xc1"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_r2bbj"]
-size = Vector3(0.1, 0.1, 0.8)
 
 [node name="InteractRayCast" type="RayCast3D"]
 collision_mask = 3
 script = ExtResource("1_35kea")
-
-[node name="FrontPointer2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.410703, -0.0104816)
-material_override = ExtResource("2_u4xc1")
-mesh = SubResource("BoxMesh_r2bbj")
-skeleton = NodePath("../../../..")
 
 [node name="Prompt" type="Label" parent="."]
 anchors_preset = 14
