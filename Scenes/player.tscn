@@ -1,0 +1,286 @@
+[gd_scene load_steps=10 format=3 uid="uid://56tchsrpayeo"]
+
+[ext_resource type="Script" uid="uid://bwrchpg0h1fcx" path="res://Scripts/PlayerStats.gd" id="1_fkybt"]
+[ext_resource type="Script" uid="uid://birw8rdmwcq4v" path="res://Scripts/PlayerController.gd" id="2_x3wgy"]
+[ext_resource type="Material" uid="uid://dekpipancsbc6" path="res://Materials/TestCubes.tres" id="3_3smsa"]
+[ext_resource type="Script" uid="uid://ct0q0dexxvtma" path="res://Scripts/DebugUI.gd" id="5_f1ek2"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r2bbj"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_r2bbj"]
+size = Vector3(0.1, 0.1, 0.3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e6mua"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_k711p"]
+material = SubResource("StandardMaterial3D_e6mua")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pbfqo"]
+
+[node name="Player" type="Node3D"]
+script = ExtResource("1_fkybt")
+rotationType = "rotation based on right joystick"
+dashType = "dash with stamina"
+cameraFollowSpeed = 0.078
+
+[node name="Controller" type="CharacterBody3D" parent="." node_paths=PackedStringArray("settings", "playerShape")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.06884, 0)
+script = ExtResource("2_x3wgy")
+settings = NodePath("..")
+playerShape = NodePath("Model")
+
+[node name="Model" type="CollisionShape3D" parent="Controller"]
+shape = SubResource("CapsuleShape3D_r2bbj")
+debug_color = Color(0.106384, 0.585944, 0.754824, 0.42)
+
+[node name="FrontPointer" type="MeshInstance3D" parent="Controller/Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.519964, -0.60851)
+material_override = ExtResource("3_3smsa")
+mesh = SubResource("BoxMesh_r2bbj")
+skeleton = NodePath("../../..")
+
+[node name="Mesh" type="MeshInstance3D" parent="Controller"]
+mesh = SubResource("CapsuleMesh_k711p")
+
+[node name="CameraArm" type="SpringArm3D" parent="Controller"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008, 6, 0.021)
+spring_length = 8.0
+margin = 0.1
+
+[node name="CameraTarget" type="Node3D" parent="Controller/CameraArm"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 7)
+
+[node name="Area3D" type="Area3D" parent="Controller"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Controller/Area3D"]
+shape = SubResource("CapsuleShape3D_pbfqo")
+
+[node name="DebugUI" type="Control" parent="." node_paths=PackedStringArray("settings", "controller", "input", "xyz", "speed", "sneaking", "inDetectionArea", "inHidingArea", "detected", "hidden", "health", "stamina", "mana")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1150.0
+offset_bottom = 646.0
+script = ExtResource("5_f1ek2")
+settings = NodePath("..")
+controller = NodePath("../Controller")
+input = NodePath("GridContainer/Input2/RichTextLabel")
+xyz = NodePath("GridContainer/XYZ2/RichTextLabel")
+speed = NodePath("GridContainer/Speed2/RichTextLabel")
+sneaking = NodePath("GridContainer/Sneaking2/RichTextLabel")
+inDetectionArea = NodePath("GridContainer/InDetectionArea2/RichTextLabel")
+inHidingArea = NodePath("GridContainer/InHidingArea2/RichTextLabel")
+detected = NodePath("GridContainer/Detected2/RichTextLabel")
+hidden = NodePath("GridContainer/Hidden2/RichTextLabel")
+health = NodePath("GridContainer/Health2/RichTextLabel")
+stamina = NodePath("GridContainer/Stamina2/RichTextLabel")
+mana = NodePath("GridContainer/Mana2/RichTextLabel")
+metadata/_edit_use_anchors_ = true
+
+[node name="GridContainer" type="GridContainer" parent="DebugUI"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 647.0
+theme_override_constants/h_separation = 150
+theme_override_constants/v_separation = 25
+columns = 2
+
+[node name="Input" type="Panel" parent="DebugUI/GridContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DebugUI/GridContainer/Input"]
+layout_mode = 0
+offset_right = 167.0
+offset_bottom = 26.0
+text = "Input:"
+
+[node name="Input2" type="Panel" parent="DebugUI/GridContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DebugUI/GridContainer/Input2"]
+layout_mode = 0
+offset_right = 167.0
+offset_bottom = 26.0
+text = "vxycvyx"
+
+[node name="XYZ" type="Panel" parent="DebugUI/GridContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DebugUI/GridContainer/XYZ"]
+layout_mode = 0
+offset_right = 167.0
+offset_bottom = 26.0
+text = "XYZ:"
+
+[node name="XYZ2" type="Panel" parent="DebugUI/GridContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DebugUI/GridContainer/XYZ2"]
+layout_mode = 0
+offset_right = 520.0
+offset_bottom = 26.0
+text = "vxycvyx"
+
+[node name="Speed" type="Panel" parent="DebugUI/GridContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DebugUI/GridContainer/Speed"]
+layout_mode = 0
+offset_right = 167.0
+offset_bottom = 26.0
+text = "Speed:"
+
+[node name="Speed2" type="Panel" parent="DebugUI/GridContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DebugUI/GridContainer/Speed2"]
+layout_mode = 0
+offset_right = 515.0
+offset_bottom = 26.0
+text = "vxycvyx"
+
+[node name="Sneaking" type="Panel" parent="DebugUI/GridContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DebugUI/GridContainer/Sneaking"]
+layout_mode = 0
+offset_right = 167.0
+offset_bottom = 26.0
+text = "Sneaking:"
+
+[node name="Sneaking2" type="Panel" parent="DebugUI/GridContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DebugUI/GridContainer/Sneaking2"]
+layout_mode = 0
+offset_right = 167.0
+offset_bottom = 26.0
+text = "vxycvyx"
+
+[node name="InDetectionArea" type="Panel" parent="DebugUI/GridContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DebugUI/GridContainer/InDetectionArea"]
+layout_mode = 0
+offset_right = 167.0
+offset_bottom = 26.0
+text = "InDetectionArea:"
+
+[node name="InDetectionArea2" type="Panel" parent="DebugUI/GridContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DebugUI/GridContainer/InDetectionArea2"]
+layout_mode = 0
+offset_right = 167.0
+offset_bottom = 26.0
+text = "vxycvyx"
+
+[node name="InHidingArea" type="Panel" parent="DebugUI/GridContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DebugUI/GridContainer/InHidingArea"]
+layout_mode = 0
+offset_right = 167.0
+offset_bottom = 26.0
+text = "InHidingArea:"
+
+[node name="InHidingArea2" type="Panel" parent="DebugUI/GridContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DebugUI/GridContainer/InHidingArea2"]
+layout_mode = 0
+offset_right = 167.0
+offset_bottom = 26.0
+text = "vxycvyx"
+
+[node name="Detected" type="Panel" parent="DebugUI/GridContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DebugUI/GridContainer/Detected"]
+layout_mode = 0
+offset_right = 167.0
+offset_bottom = 26.0
+text = "Detected:"
+
+[node name="Detected2" type="Panel" parent="DebugUI/GridContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DebugUI/GridContainer/Detected2"]
+layout_mode = 0
+offset_right = 167.0
+offset_bottom = 26.0
+text = "vxycvyx"
+
+[node name="Hidden" type="Panel" parent="DebugUI/GridContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DebugUI/GridContainer/Hidden"]
+layout_mode = 0
+offset_right = 167.0
+offset_bottom = 26.0
+text = "Hidden:"
+
+[node name="Hidden2" type="Panel" parent="DebugUI/GridContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DebugUI/GridContainer/Hidden2"]
+layout_mode = 0
+offset_right = 167.0
+offset_bottom = 26.0
+text = "vxycvyx"
+
+[node name="Health" type="Panel" parent="DebugUI/GridContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DebugUI/GridContainer/Health"]
+layout_mode = 0
+offset_right = 167.0
+offset_bottom = 26.0
+text = "Health:"
+
+[node name="Health2" type="Panel" parent="DebugUI/GridContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DebugUI/GridContainer/Health2"]
+layout_mode = 0
+offset_right = 167.0
+offset_bottom = 26.0
+text = "vxycvyx"
+
+[node name="Stamina" type="Panel" parent="DebugUI/GridContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DebugUI/GridContainer/Stamina"]
+layout_mode = 0
+offset_right = 167.0
+offset_bottom = 26.0
+text = "Stamina:"
+
+[node name="Stamina2" type="Panel" parent="DebugUI/GridContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DebugUI/GridContainer/Stamina2"]
+layout_mode = 0
+offset_right = 167.0
+offset_bottom = 26.0
+text = "vxycvyx"
+
+[node name="Mana" type="Panel" parent="DebugUI/GridContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DebugUI/GridContainer/Mana"]
+layout_mode = 0
+offset_right = 167.0
+offset_bottom = 26.0
+text = "Mana:"
+
+[node name="Mana2" type="Panel" parent="DebugUI/GridContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DebugUI/GridContainer/Mana2"]
+layout_mode = 0
+offset_right = 167.0
+offset_bottom = 26.0
+text = "vxycvyx"
+
+[connection signal="area_entered" from="Controller/Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Controller/Area3D" to="." method="_on_area_3d_area_exited"]
