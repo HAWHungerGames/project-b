@@ -21,16 +21,19 @@ extends Node
 
 @export_category("Resources")
 @export_subgroup("Health")
+signal healthChanged
 @export var maxHealth: int = 200
 @export_enum("Health regeneration", "Health from potions") var healthType: String = "Health from potions"
 @export var healthPerSecond: int = 10
 @export var healthPerPotion: int = 100
 
 @export_subgroup("Stamina")
+signal staminaChanged
 @export var maxStamina: int = 200
 @export var staminaPerSecond: int = 10
 
 @export_subgroup("Mana")
+signal manaChanged
 @export var maxMana: int = 200
 @export_enum("Mana regeneration", "Mana from potions") var manaType: String = "Mana regeneration"
 @export var manaPerSecond: int = 10
@@ -71,14 +74,17 @@ func resource_system(delta):
 	if timer >= 1:
 		if health < maxHealth and healthType == "Health regeneration":
 			health += healthPerSecond
+			healthChanged.emit()
 			if health > maxHealth:
 				health = maxHealth
 		if stamina < maxStamina:
 			stamina += staminaPerSecond
+			staminaChanged.emit()
 			if stamina > maxStamina:
 				stamina = maxStamina
 		if mana < maxMana and manaType == "Mana regeneration":
 			mana += manaPerSecond
+			manaChanged.emit()
 			if mana > maxMana:
 				mana = maxMana
 		timer = 0
@@ -93,12 +99,14 @@ func checkDetection():
 
 func reduce_stamina(amount: int):
 	stamina -= amount
+	staminaChanged.emit()
 
 func set_sneaking(value: bool):
 	isSneaking = value
 
 func takeDamage(damage: int):
 	health -= damage
+	healthChanged.emit()
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.is_in_group("Bush"):
