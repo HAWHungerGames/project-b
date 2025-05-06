@@ -1459,11 +1459,10 @@ speed = 20.0
 acceleration = 10.0
 rotationType = "rotate based on relative mouse position"
 
-[node name="Camera" type="Camera3D" parent="WorldEnvironment" node_paths=PackedStringArray("settings", "cameraTarget")]
+[node name="Camera" type="Camera3D" parent="WorldEnvironment" node_paths=PackedStringArray("settings")]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -4.75402, 9.35414, 5.96973)
 current = true
 script = ExtResource("5_b5gbf")
 settings = NodePath("../Player")
-cameraTarget = NodePath("../Player/Controller/CameraArm/CameraTarget")
 
 [editable path="WorldEnvironment/Player"]

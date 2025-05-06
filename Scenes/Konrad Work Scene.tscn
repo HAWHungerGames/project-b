@@ -3,8 +3,8 @@
 [ext_resource type="Material" uid="uid://b2rgc8u5hwwcc" path="res://Materials/TestGround.tres" id="1_ggd4s"]
 [ext_resource type="Material" uid="uid://dekpipancsbc6" path="res://Materials/TestCubes.tres" id="3_0ctdn"]
 [ext_resource type="PackedScene" uid="uid://i40hh252nalo" path="res://Scenes/Asset Scenes/InteractRayCast.tscn" id="4_1ee8w"]
-[ext_resource type="PackedScene" uid="uid://56tchsrpayeo" path="res://Scenes/player.tscn" id="4_rb0yp"]
 [ext_resource type="Script" uid="uid://b5l31sh77qstt" path="res://Scripts/CameraController.gd" id="5_24xrm"]
+[ext_resource type="PackedScene" uid="uid://cpyee7rfs1efb" path="res://Prefabs/player.tscn" id="6_0ctdn"]
 [ext_resource type="PackedScene" uid="uid://vj7to5njslw6" path="res://Scenes/Asset Scenes/Socket.tscn" id="11_1bu8d"]
 [ext_resource type="PackedScene" uid="uid://dkq4iwxhux6s2" path="res://Scenes/Asset Scenes/TestSphere.tscn" id="11_oxcgu"]
 
@@ -236,29 +236,11 @@ sides = 32
 transform = Transform3D(0.996067, 0, 0.442994, 0, 1, 0, -0.0885988, 0, 4.98034, -44.5482, 0.923762, 6.31512)
 polygon = PackedVector2Array(-10.4771, -0.499426, -1.71498, 1.9336, 3.64565, 1.52424, 3.82291, -1.38559)
 
-[node name="Player" parent="WorldEnvironment" instance=ExtResource("4_rb0yp")]
-speed = 20.0
-acceleration = 10.0
-rotationType = "rotate based on relative mouse position"
-
-[node name="InteractRayCast" parent="WorldEnvironment/Player/Controller/Model" index="0" instance=ExtResource("4_1ee8w")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.292097, -0.375234)
-
-[node name="Hand" type="Node3D" parent="WorldEnvironment/Player/Controller/Model" index="1"]
-transform = Transform3D(0.676503, 0, -0.736439, 0, 1, 0, 0.736439, 0, 0.676503, 0.479796, 0.089469, -0.46274)
-
-[node name="Hand2" type="Node3D" parent="WorldEnvironment/Player/Controller/Model" index="2"]
-transform = Transform3D(0.676876, 0, 0.736097, 0, 1, 0, -0.736097, 0, 0.676876, -0.48, 0.089, -0.463)
-
-[node name="Back" type="Node3D" parent="WorldEnvironment/Player/Controller/Model" index="3"]
-transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0.089, 0.623094)
-
-[node name="Camera" type="Camera3D" parent="WorldEnvironment" node_paths=PackedStringArray("settings", "cameraTarget")]
+[node name="Camera" type="Camera3D" parent="WorldEnvironment" node_paths=PackedStringArray("settings")]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 8.17838, 2.93165)
 current = true
 script = ExtResource("5_24xrm")
 settings = NodePath("../Player")
-cameraTarget = NodePath("../Player/Controller/CameraArm/CameraTarget")
 
 [node name="Test Stuff" type="Node3D" parent="WorldEnvironment"]
 
@@ -287,5 +269,20 @@ prompt_message = "I am a SPHERE!"
 
 [node name="TestSphere2" parent="WorldEnvironment/Test Stuff" instance=ExtResource("11_oxcgu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.28914, 1.57856, -4.75525)
+
+[node name="Player" parent="WorldEnvironment" instance=ExtResource("6_0ctdn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.79046, 0)
+
+[node name="InteractRayCast" parent="WorldEnvironment/Player/Controller/Model" index="2" instance=ExtResource("4_1ee8w")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.292097, -0.375234)
+
+[node name="Hand" type="Node3D" parent="WorldEnvironment/Player/Controller/Model" index="3"]
+transform = Transform3D(0.676503, 0, -0.736439, 0, 1, 0, 0.736439, 0, 0.676503, 0.479796, 0.089469, -0.46274)
+
+[node name="Hand2" type="Node3D" parent="WorldEnvironment/Player/Controller/Model" index="4"]
+transform = Transform3D(0.676876, 0, 0.736097, 0, 1, 0, -0.736097, 0, 0.676876, -0.48, 0.089, -0.463)
+
+[node name="Back" type="Node3D" parent="WorldEnvironment/Player/Controller/Model" index="5"]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0.089, 0.623094)
 
 [editable path="WorldEnvironment/Player"]
