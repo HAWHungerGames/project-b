@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dwh1hvl3kgobd"]
 
-[ext_resource type="Script" path="res://Scripts/UI/menus/main_menu.gd" id="1_8l4an"]
-[ext_resource type="Texture2D" path="res://UITextures/Mycofall_Title.png" id="2_n15yj"]
-[ext_resource type="FontFile" path="res://UITextures/Fonts/DidactGothic-Regular.ttf" id="3_emot1"]
+[ext_resource type="Script" uid="uid://b5vtbmi5nafbd" path="res://Scripts/UI/menus/main_menu.gd" id="1_8l4an"]
+[ext_resource type="Texture2D" uid="uid://cbf3s5aqaee54" path="res://UITextures/Mycofall_Title.png" id="2_n15yj"]
+[ext_resource type="FontFile" uid="uid://4l406r67702d" path="res://UITextures/Fonts/DidactGothic-Regular.ttf" id="3_emot1"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3

@@ -2,13 +2,16 @@ extends MarginContainer
 
 @onready var pause_menu = $pauseMenuContainer
 func _input(event):
-	if Input.is_key_pressed(KEY_ESCAPE) || Input.is_joy_button_pressed(1, JOY_BUTTON_START):
+	if Input.is_key_pressed(KEY_ESCAPE) || Input.action_press():
 		if pause_menu.process_mode == Node.PROCESS_MODE_INHERIT:
 			pause_menu.visible = false
 			pause_menu.process_mode =  Node.PROCESS_MODE_DISABLED
+			get_tree().paused = false
+			get_tree().
 		else:
 			pause_menu.visible = true
 			pause_menu.process_mode = Node.PROCESS_MODE_INHERIT
+			get_tree().paused = true
 
 
 func _on_button_3_pressed() -> void:
