@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0gg62jf2rwis"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6ypqr"]
+size = Vector3(1, 1, 0.2)
+
+[node name="Placeholder Shield Hand" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_6ypqr")
