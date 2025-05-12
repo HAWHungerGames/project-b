@@ -5,10 +5,10 @@ extends RayCast3D
 @onready var offhand = $"../Hand2"
 @onready var back = $"../Back"
 
-@onready var sword = preload("res://Scenes/Asset Scenes/placeholder_sword2_hand.tscn")
-@onready var staff = preload("res://Scenes/Asset Scenes/placeholder_staff2_hand.tscn")
-@onready var bow = preload("res://Scenes/Asset Scenes/placeholder_bow2_hand.tscn")
-@onready var shield = preload("res://Scenes/Asset Scenes/placeholder_shield_hand.tscn")
+@onready var sword = preload("res://Prefabs/Asset Scenes/placeholder_sword2_hand.tscn")
+@onready var staff = preload("res://Prefabs/Asset Scenes/placeholder_staff2_hand.tscn")
+@onready var bow = preload("res://Prefabs/Asset Scenes/placeholder_bow2_hand.tscn")
+@onready var shield = preload("res://Prefabs/Asset Scenes/placeholder_shield_hand.tscn")
 
 var controller_input_device = false
 var weapon

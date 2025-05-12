@@ -1,13 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://17sawqr1a5sd"]
+[gd_scene load_steps=11 format=3 uid="uid://17sawqr1a5sd"]
 
 [ext_resource type="Material" uid="uid://b2rgc8u5hwwcc" path="res://Materials/TestGround.tres" id="1_ggd4s"]
-[ext_resource type="PackedScene" uid="uid://6j2eqyw3n43k" path="res://Prefabs/Asset Scenes/training_dummy.tscn" id="2_24xrm"]
 [ext_resource type="Material" uid="uid://dekpipancsbc6" path="res://Materials/TestCubes.tres" id="3_0ctdn"]
 [ext_resource type="PackedScene" uid="uid://i40hh252nalo" path="res://Prefabs/Asset Scenes/InteractRayCast.tscn" id="4_1ee8w"]
 [ext_resource type="Script" uid="uid://b5l31sh77qstt" path="res://Scripts/CameraController.gd" id="5_24xrm"]
 [ext_resource type="PackedScene" uid="uid://cpyee7rfs1efb" path="res://Prefabs/player.tscn" id="6_0ctdn"]
 [ext_resource type="PackedScene" uid="uid://dwtwg5j2gx5qd" path="res://Prefabs/Asset Scenes/hand.tscn" id="6_rb0yp"]
-[ext_resource type="PackedScene" uid="uid://uafprr7riwjm" path="res://Prefabs/enemy_melee.tscn" id="10_1ee8w"]
 [ext_resource type="PackedScene" uid="uid://vj7to5njslw6" path="res://Prefabs/Asset Scenes/Socket.tscn" id="11_1bu8d"]
 [ext_resource type="PackedScene" uid="uid://dkq4iwxhux6s2" path="res://Prefabs/Asset Scenes/TestSphere.tscn" id="11_oxcgu"]
 
@@ -68,6 +66,11 @@ polygon = PackedVector2Array(-3.92837, 0.163654, 1.66039, 3.60656, 5.79976, 3.61
 
 [node name="Objects" type="Node3D" parent="WorldEnvironment/Grey Box World/Tutorial Room"]
 
+[node name="Training Dummy" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.7465, 2, -13.2898)
+size = Vector3(2, 4, 2)
+material = ExtResource("3_0ctdn")
+
 [node name="Training Dummy2" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.83603, 2, -13.2898)
 size = Vector3(2, 4, 2)
@@ -79,7 +82,7 @@ size = Vector3(4, 4, 1)
 material = ExtResource("3_0ctdn")
 
 [node name="Schild" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.25358, 2, -4.65281)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.25358, 2, 7.93262)
 size = Vector3(3, 4, 1)
 material = ExtResource("3_0ctdn")
 
@@ -259,9 +262,6 @@ transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0.089, 0.623
 
 [node name="Test Stuff" type="Node3D" parent="WorldEnvironment"]
 
-[node name="training_dummy" parent="WorldEnvironment/Test Stuff" instance=ExtResource("2_24xrm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.09446, 2.5, -9.32767)
-
 [node name="Socket2" parent="WorldEnvironment/Test Stuff" instance=ExtResource("11_1bu8d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.73555, 0.996558, -10.4893)
 weapon = "shield"
@@ -287,9 +287,5 @@ prompt_message = "I am a SPHERE!"
 
 [node name="TestSphere2" parent="WorldEnvironment/Test Stuff" instance=ExtResource("11_oxcgu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.28914, 1.57856, -4.75525)
-
-[node name="MeleeEnemy" parent="WorldEnvironment/Test Stuff" node_paths=PackedStringArray("player") groups=["enemy"] instance=ExtResource("10_1ee8w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -23.799)
-player = NodePath("../../Player")
 
 [editable path="WorldEnvironment/Player"]

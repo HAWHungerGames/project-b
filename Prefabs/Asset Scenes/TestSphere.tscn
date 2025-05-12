@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dkq4iwxhux6s2"]
+[gd_scene load_steps=6 format=3 uid="uid://dkq4iwxhux6s2"]
 
 [ext_resource type="Script" uid="uid://dpy30lm3s2djd" path="res://Scripts/InteractableSignal.gd" id="1_r0kyh"]
+[ext_resource type="Material" uid="uid://dekpipancsbc6" path="res://Materials/TestCubes.tres" id="2_k8byc"]
 [ext_resource type="AudioStream" uid="uid://dg30u3n0a7tv0" path="res://Assets/Sound/mixkit-sweet-kitty-meow-93.wav" id="2_m88u0"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_3us7n"]
@@ -11,6 +12,7 @@
 script = ExtResource("1_r0kyh")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("2_k8byc")
 mesh = SubResource("SphereMesh_3us7n")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
