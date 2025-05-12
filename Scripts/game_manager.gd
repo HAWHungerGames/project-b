@@ -5,6 +5,8 @@ var weapon_on_back = false
 var first_weapon = ""
 var second_weapon = ""
 
+signal weapons_changed
+
 func get_weapon_in_hand():
 	return weapon_in_hand
 
@@ -28,9 +30,11 @@ func get_first_weapon():
 	
 func set_first_weapon(weapon):
 	first_weapon = weapon
+	weapons_changed.emit()
 
 func get_second_weapon():
 	return second_weapon
 	
 func set_second_weapon(weapon):
 	second_weapon = weapon
+	weapons_changed.emit()

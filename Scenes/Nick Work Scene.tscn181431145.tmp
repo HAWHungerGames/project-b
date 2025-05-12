@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dmuil4tlckvro" path="res://UITextures/BarFrameTop.png" id="8_ylp0i"]
 [ext_resource type="Texture2D" uid="uid://dc4hcr4p2xbna" path="res://UITextures/UnderneathTop.png" id="10_mvfnk"]
 [ext_resource type="Texture2D" uid="uid://cvmgiuevaosab" path="res://UITextures/DamageTop.png" id="11_55p3g"]
-[ext_resource type="Script" uid="uid://bnww4st6veejn" path="res://Scripts/UI/health_bar.gd" id="11_tjhwy"]
+[ext_resource type="Script" uid="uid://bnww4st6veejn" path="res://health_bar.gd" id="11_tjhwy"]
 [ext_resource type="Texture2D" uid="uid://crd1yijlsjxdv" path="res://UITextures/BarFrameBottom.png" id="12_frwl5"]
 [ext_resource type="Texture2D" uid="uid://idv5h3wy02ok" path="res://UITextures/StaminaBottom.png" id="13_k85tf"]
 [ext_resource type="Script" uid="uid://cuwb4uj35aarf" path="res://Scripts/UI/stamina_middle.gd" id="13_tjhwy"]
@@ -30,7 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://bwilv5e18pgi3" path="res://UITextures/Sword.png" id="27_afpbi"]
 [ext_resource type="Texture2D" uid="uid://drtpxaxwusxws" path="res://UITextures/MagicAttack.png" id="29_gx6sf"]
 [ext_resource type="Texture2D" uid="uid://b56g56co15oce" path="res://UITextures/WeaponSlotFrame2.png" id="30_afpbi"]
-[ext_resource type="Script" uid="uid://cr2dkifmawgcm" path="res://Scripts/UI/weapon_slots.gd" id="31_afpbi"]
+[ext_resource type="Script" uid="uid://cr2dkifmawgcm" path="res://weapon_slots.gd" id="31_afpbi"]
 [ext_resource type="Script" uid="uid://isgt2htj3fmm" path="res://Scripts/UI/menus/pause_menu.gd" id="32_k421a"]
 [ext_resource type="FontFile" uid="uid://4l406r67702d" path="res://UITextures/Fonts/DidactGothic-Regular.ttf" id="33_s368x"]
 
@@ -788,7 +788,7 @@ size_flags_vertical = 4
 layout_mode = 2
 theme_override_fonts/font = ExtResource("33_s368x")
 theme_override_font_sizes/font_size = 50
-text = "Resume"
+text = "Continue"
 
 [node name="options" type="Button" parent="CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -800,7 +800,7 @@ text = "Options"
 layout_mode = 2
 theme_override_fonts/font = ExtResource("33_s368x")
 theme_override_font_sizes/font_size = 50
-text = "Exit"
+text = "Quit"
 
 [connection signal="timeout" from="CanvasLayer/FullUI/VBoxContainer/MarginContainer2/UITopLeft/Bars/health/timer" to="CanvasLayer/FullUI/VBoxContainer/MarginContainer2/UITopLeft/Bars/health" method="_on_timer_timeout"]
 [connection signal="timeout" from="CanvasLayer/FullUI/VBoxContainer/MarginContainer2/UITopLeft/Bars/stamina/timer" to="CanvasLayer/FullUI/VBoxContainer/MarginContainer2/UITopLeft/Bars/stamina" method="_on_timer_timeout"]
