@@ -30,11 +30,12 @@ func get_first_weapon():
 	
 func set_first_weapon(weapon):
 	first_weapon = weapon
-	weapons_changed.emit()
 
 func get_second_weapon():
 	return second_weapon
 	
 func set_second_weapon(weapon):
 	second_weapon = weapon
+	
+func weapons_updated():
 	weapons_changed.emit()

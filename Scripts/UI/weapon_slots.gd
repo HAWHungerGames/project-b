@@ -8,58 +8,92 @@ extends VBoxContainer
 @onready var first_weapon = GameManager.get_first_weapon()
 @onready var second_weapon = GameManager.get_second_weapon()
 
-var active_slot = 0
+var weapon_in_slot1 = ""
+var weapon_in_slot2 = ""
+
+var slot_one_active = true
 
 var weapon_textures = [{"idle": "res://UITextures/Sword.png", "active": "res://UITextures/SwordAttack.png"},
 {"idle": "res://UITextures/Shield.png", "active": "res://UITextures/ShieldBlock.png"},
 {"idle": "res://UITextures/Bow.png", "active": "res://UITextures/BowTensioned.png"},
 {"idle": "res://UITextures/Magic.png", "active": "res://UITextures/MagicAttack.png"}]
 
-func _ready():
+func _ready() -> void:
 	GameManager.weapons_changed.connect(update_weapons)
-
 func update_weapons():
-	print("Updating weapons")
-	print("init1 ", first_weapon)
-	print("init2 ", second_weapon)
-	print("wep 1 ", GameManager.get_first_weapon())
-	print("wep 2 ", GameManager.get_second_weapon())
-	var slot_changed = false
-
-	if active_slot == 0 && first_weapon == GameManager.get_second_weapon() && second_weapon == GameManager.get_first_weapon():
-		print("weapons changed to 1")
-		active_slot = 1
-		slot_changed = true
-	elif active_slot == 1 && first_weapon == GameManager.get_first_weapon() && second_weapon == GameManager.get_second_weapon():
-		print("weapons changed to 0")
-		active_slot = 0
-		slot_changed = true
-	elif first_weapon != GameManager.get_first_weapon() && first_weapon != GameManager.get_second_weapon() && !GameManager.get_second_weapon().is_empty():
-		print("updatin first weapon")
-		first_weapon = GameManager.get_first_weapon()
-	elif second_weapon != GameManager.get_first_weapon() && second_weapon != GameManager.get_second_weapon() && !GameManager.get_second_weapon().is_empty():
-		print("updatin second weapon")
-		second_weapon = GameManager.get_first_weapon()
+	var new_first_weapon = GameManager.get_first_weapon()
+	var new_second_weapon = GameManager.get_second_weapon()
 	
-	if first_weapon.is_empty() && second_weapon.is_empty() && !GameManager.get_first_weapon().is_empty():
-		print("init first")
+	print("Current UI state:")
+	print("- first_weapon: ", first_weapon)
+	print("- weapon_in_slot1: ", weapon_in_slot1)
+	print("- weapon_in_slot2: ", weapon_in_slot2)
+	print("- second_weapon: ", second_weapon)
+	print("New GameManager state:")
+	print("- new_first: ", new_first_weapon)
+	print("- new_second: ", new_second_weapon)
+
+	if Input.is_action_just_pressed("weapon_swap"):
+		print("swapped")
+		var slot_changed = true
+		slot_one_active = !slot_one_active
+		switch_active_texture()
 		first_weapon = GameManager.get_first_weapon()
-	elif !first_weapon.is_empty() && second_weapon.is_empty() && !GameManager.get_first_weapon().is_empty():
-		print("init second")
-		second_weapon = GameManager.get_first_weapon()
-		active_slot = 1
-	switch_weapon_texture(GameManager.get_first_weapon(), slot_changed)
+		second_weapon = GameManager.get_second_weapon()
+	if Input.is_action_just_pressed("interact") && (first_weapon != GameManager.get_first_weapon() || second_weapon != GameManager.get_second_weapon()):
+		# Case 1: Second weapon was removed and first weapon changed
+		# This means the second weapon became the first weapon
+		if second_weapon != "" && new_second_weapon == "":
+			slot_one_active = false
+			switch_weapon_texture(GameManager.get_second_weapon())
+			if first_weapon != new_first_weapon && new_first_weapon == second_weapon:
+				print("Moving second weapon to first slot")
+				weapon_in_slot1 = weapon_in_slot2
+				weapon_in_slot2 = ""
+				slot_one_active = true
+				switch_weapon_texture(GameManager.get_first_weapon())
+		 # Case 2: New weapon picked up for first slot
+		elif first_weapon != new_first_weapon && new_first_weapon != second_weapon:
+			print("New first weapon picked up")
+			weapon_in_slot1 = new_first_weapon
+			switch_weapon_texture(GameManager.get_first_weapon())
+		# Case 3: New weapon picked up for second slot
+		elif second_weapon != new_second_weapon && new_second_weapon != "":
+			print("Second weapon changed")
+			weapon_in_slot2 = new_second_weapon
+			slot_one_active = false
+			switch_weapon_texture(new_second_weapon)
+			slot_one_active = true
+			# Case 4: First weapon was put back (and no second weapon to move)
+		elif first_weapon != "" && new_first_weapon == "" && second_weapon == "":
+			print("first weapon put back")
+			weapon_in_slot1 = ""
+			slot_one_active = true
+			switch_weapon_texture(GameManager.get_first_weapon())
+		first_weapon = new_first_weapon
+		second_weapon = new_second_weapon
+		#var current_weapon = GameManager.get_first_weapon()
+		#if !GameManager.get_weapon_on_back() && !weapon_in_slot2.is_empty():
+				#weapon_in_slot1 = weapon_in_slot2
+				#weapon_in_slot2 = ""
+				#current_weapon = GameManager.get_second_weapon()
+				#slot_one_active = false
+				#print("first change")
+		#elif first_weapon != GameManager.get_first_weapon():
+			#print("first changed")
+			#weapon_in_slot1 = GameManager.get_first_weapon()
+			#first_weapon = GameManager.get_first_weapon()
+			#print(!GameManager.get_weapon_on_back())
+		#elif second_weapon != GameManager.get_second_weapon():
+			#print("second changed")
+			#if second_weapon.is_empty():
+				#current_weapon = GameManager.get_second_weapon()
+				#slot_one_active = false
+			#weapon_in_slot2 = GameManager.get_second_weapon()
+			#second_weapon = GameManager.get_second_weapon()
+		#switch_weapon_texture(current_weapon)
 		
-func switch_weapon_texture(weapon, slot_change):
-	if slot_change:
-		if active_slot == 1:
-			weapon2.move_to_front()
-			weapon1.z_index = -1
-			return
-		else:
-			weapon1.move_to_front()
-			weapon2.z_index = -1
-			return
+func switch_weapon_texture(weapon):
 	var weapon_index = 0
 	print("weapon: ", weapon)
 	if !weapon.is_empty():
@@ -71,12 +105,24 @@ func switch_weapon_texture(weapon, slot_change):
 			weapon_index = 3
 		print("index: ", weapon_index)
 	
-		if active_slot == 1:
+		if !slot_one_active && weapon2.texture != null:
+			weapon2.texture = load(weapon_textures[weapon_index]["idle"])
+			slot_one_active = !slot_one_active
+		elif !slot_one_active:
 			weapon2.texture = load(weapon_textures[weapon_index]["idle"])
 		else:
 			weapon1.texture = load(weapon_textures[weapon_index]["idle"])
+			switch_active_texture()
 	else:
-		if active_slot == 1:
+		if !slot_one_active:
 			weapon2.texture = null
 		else:
 			weapon1.texture = null
+
+func switch_active_texture():
+	if slot_one_active:
+		weapon1.z_index = 1
+		weapon2.z_index = -1
+	else:
+		weapon2.z_index = 1
+		weapon1.z_index = -1
