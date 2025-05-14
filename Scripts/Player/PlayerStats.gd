@@ -1,4 +1,4 @@
-extends Node
+extends Node3D
 @export_category("Actions")
 @export_subgroup("Walking")
 @export var speed = 5.0
@@ -18,6 +18,10 @@ extends Node
 @export var dashMaxCooldown: float = 3
 @export_subgroup("Sneak")
 @export var sneakSpeedModifier: float = 2
+@export_subgroup("Blocking")
+@export var shieldRadiusProtection: float = PI/2
+@export var blockingStaminaCost: int = 10
+@export var brokenBlockDuration: float = 5
 
 @export_category("Resources")
 @export_subgroup("Health")
@@ -52,11 +56,16 @@ var timer: float = 0
 var isSneaking: bool = false
 var isInDetectionArea: bool = false
 var isInHidingArea: bool = false
+var isBlocking: bool = false
+var blockBroken: float = 0
 
 var enemiesDetectingPlayer: Array = []
 
 var isHidden: bool = false
 var isDetected: bool = false
+
+func _enter_tree():
+	GlobalPlayer.setPlayer(self)
 
 func _ready():
 	get_child(2).rotation.x = cameraAngle * PI / 180
@@ -66,19 +75,24 @@ func _ready():
 func _physics_process(delta):
 	resource_system(delta)
 	checkDetection()
+	brokenBlockTracker(delta)
+
+func brokenBlockTracker(delta):
+	if blockBroken > 0:
+		blockBroken -= delta
 
 func resource_system(delta):
-	if timer >= 1:
+	if timer >= 0.1:
 		if health < maxHealth and healthType == "Health regeneration":
-			health += healthPerSecond
+			health += healthPerSecond/10
 			if health > maxHealth:
 				health = maxHealth
-		if stamina < maxStamina:
-			stamina += staminaPerSecond
+		if stamina < maxStamina and !isBlocking:
+			stamina += staminaPerSecond/10
 			if stamina > maxStamina:
 				stamina = maxStamina
 		if mana < maxMana and manaType == "Mana regeneration":
-			mana += manaPerSecond
+			mana += manaPerSecond/10
 			if mana > maxMana:
 				mana = maxMana
 		timer = 0
@@ -97,8 +111,26 @@ func reduce_stamina(amount: int):
 func set_sneaking(value: bool):
 	isSneaking = value
 
-func takeDamage(damage: int):
-	health -= damage
+func check_if_attack_was_blocked(attacker: Node3D):
+	var diffVector = self.get_child(0).global_transform.origin - attacker.global_transform.origin
+	var attackAngle = atan2(diffVector.x, diffVector.z) + PI
+	var playerAngle = self.get_child(0).get_child(0).rotation.y + PI
+	if !(attackAngle >= playerAngle - shieldRadiusProtection/2) or !(attackAngle <= playerAngle + shieldRadiusProtection/2) or !isBlocking or blockBroken > 0:
+		return false
+	if stamina < blockingStaminaCost: 
+		blockBroken = brokenBlockDuration
+		print("Block was broken, stamina too low")
+		return false
+	stamina -= blockingStaminaCost
+	return true
+
+func breakBlock():
+	blockBroken = brokenBlockDuration
+	print("Block was broken from attack")
+
+func takeDamage(damage: int, attacker: Node3D):
+	if !check_if_attack_was_blocked(attacker):
+		health -= damage
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.is_in_group("Bush"):

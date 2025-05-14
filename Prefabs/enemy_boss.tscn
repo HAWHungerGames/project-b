@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://dqu4ynl3lwx2t"]
+
+[ext_resource type="Script" uid="uid://emldon8urap5" path="res://Scripts/Enemy Scripts/BossBehaviour.gd" id="1_1bxol"]
+[ext_resource type="Material" uid="uid://41byjnpqi8jl" path="res://Materials/TestBush.tres" id="2_2ws8c"]
+[ext_resource type="Material" uid="uid://vlajy1vjbcaw" path="res://Materials/TestCubes2.tres" id="2_dlba6"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dp8bq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_r2bbj"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k711p"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_dp8bq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a0bld"]
+
+[node name="BossEnemy" type="CharacterBody3D" groups=["Enemy"]]
+script = ExtResource("1_1bxol")
+
+[node name="DetectionArea" type="Area3D" parent="." groups=["Enemy"]]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea" groups=["Enemy"]]
+shape = SubResource("SphereShape3D_dp8bq")
+debug_color = Color(0.138961, 0.599429, 0.670183, 1)
+
+[node name="BulletSpawnPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.544362, 0.573799, 0)
+
+[node name="FrontMaker" type="MeshInstance3D" parent="BulletSpawnPoint" groups=["Bullet"]]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+material_override = ExtResource("2_2ws8c")
+mesh = SubResource("BoxMesh_r2bbj")
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_k711p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("2_dlba6")
+mesh = SubResource("CapsuleMesh_dp8bq")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="AttackArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.911974, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AttackArea"]
+shape = SubResource("BoxShape3D_a0bld")
+
+[connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_entered"]
+[connection signal="area_exited" from="DetectionArea" to="." method="_on_detection_area_exited"]
+[connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_entered"]
+[connection signal="area_exited" from="AttackArea" to="." method="_on_attack_area_exited"]

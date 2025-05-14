@@ -1,5 +1,4 @@
 extends CharacterBody3D
-@export var player: Node3D
 @export_category("Behaviour")
 @export_subgroup("DetectionBehaviour")
 @export var hearingRange: float = 8
@@ -33,8 +32,10 @@ var tempAttackDelay: float = 0
 var isMoving: bool = false 
 var isInSporeRange: bool = false
 var isAttacking: bool = false
+var player: Node3D
 
 func _ready():
+	player = GlobalPlayer.getPlayer()
 	hearingNode.scale = Vector3(hearingRange, hearingRange, hearingRange)
 	visionNode.scale = Vector3(visionRange, visionRange, visionRange)
 	sporeNode.scale = Vector3(sporeRange, sporeRange, sporeRange)
@@ -139,8 +140,7 @@ func attack(delta):
 				attackCooldown = 1/attackSpeed
 				isAttacking = false
 				if isInSporeRange:
-					player.takeDamage(attackDamage)
-				
+					player.takeDamage(attackDamage, self)
 
 func _on_hearing_area_entered(area: Area3D) -> void:
 	if area.is_in_group("Player"):

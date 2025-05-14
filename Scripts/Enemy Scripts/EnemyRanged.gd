@@ -1,5 +1,4 @@
 extends CharacterBody3D
-@export var player: Node3D
 @export_category("Behaviour")
 @export_subgroup("DetectionBehaviour")
 @export var hearingRange: float = 8
@@ -37,8 +36,10 @@ var isMoving: bool = false
 var moveDelay: float = 0
 #Tracks the time the enemy is not moving
 var moveTime: float = 0
+var player: Node3D
 
 func _ready():
+	player = GlobalPlayer.getPlayer()
 	hearingNode.scale = Vector3(hearingRange, hearingRange, hearingRange)
 	visionNode.scale = Vector3(visionRange, visionRange, visionRange)
 

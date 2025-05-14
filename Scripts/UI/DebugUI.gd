@@ -1,6 +1,5 @@
 extends Node
 
-@export var settings: Node3D
 @export var controller: Node3D
 
 
@@ -16,19 +15,23 @@ extends Node
 @export var stamina: RichTextLabel
 @export var mana: RichTextLabel
 
+var player: Node3D
+
+func _ready():
+	player = GlobalPlayer.getPlayer()
 
 func _physics_process(delta):
 	input.text = str(Input.get_vector("left", "right", "forward", "backward"))
 	xyz.text = "(" + str(round_to_2(controller.transform.origin.x)) + ", " + str(round_to_2(controller.transform.origin.y)) + ", " + str(round_to_2(controller.transform.origin.z)) + ")"
 	speed.text = "(" + str(round_to_2(controller.velocity.x)) + ", " + str(round_to_2(controller.velocity.y)) + ", " + str(round_to_2(controller.velocity.z)) + ")"
-	sneaking.text = str(settings.isSneaking)
-	inDetectionArea.text = str(settings.isInDetectionArea)
-	inHidingArea.text = str(settings.isInHidingArea)
-	detected.text = str(settings.isDetected)
-	hidden.text = str(settings.isHidden)
-	health.text = str(settings.health)
-	stamina.text = str(settings.stamina)
-	mana.text = str(settings.mana)
+	sneaking.text = str(player.isSneaking)
+	inDetectionArea.text = str(player.isInDetectionArea)
+	inHidingArea.text = str(player.isInHidingArea)
+	detected.text = str(player.isDetected)
+	hidden.text = str(player.isHidden)
+	health.text = str(player.health)
+	stamina.text = str(player.stamina)
+	mana.text = str(player.mana)
 
 func round_to_2(num):
 	return round(num * pow(10.0, 2)) / pow(10.0, 2)
