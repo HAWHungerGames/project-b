@@ -1,8 +1,13 @@
 extends Node3D
 
+@export var settings: Node3D
+
 @export var maxAttackCooldown: float = 1
 @export var maxInputCooldown: float = 0.2
+@export var maxStaffInputCooldown: float = 0.7
 @export var maxResetComboStepCooldown: float = 1
+@export var manaCostPerAttack: int = 60
+
 
 var weapon
 var animation_player
@@ -90,10 +95,32 @@ func meleeAttack(delta):
 	playAttack2Animation()
 	resetComboStep(delta)
 	calcAttackCooldown(delta)
+	
+func staffAttack(delta):
+	playStaffAttackAnimation()
+	calcInputCooldown(delta)
+	queueStaffAttackAnimation()
+	
+func playStaffAttackAnimation():
+	if animation_player.current_animation == "Idle":
+		if Input.is_action_just_pressed("attack") and GameManager.get_weapon_in_hand() == true and animation_player != null and settings.mana >= manaCostPerAttack and inputCooldown <= 0:
+			print("staffAttack")
+			animation_player.play("Attack1")
+			inputCooldown = maxStaffInputCooldown
+
+		
+func queueStaffAttackAnimation():
+	if animation_player.current_animation == "Attack1":
+		if Input.is_action_pressed("attack") and GameManager.get_weapon_in_hand() == true and animation_player != null and settings.mana >= manaCostPerAttack and inputCooldown <= 0:
+			print("queued staffAttack")
+			animation_player.queue("Attack1")
+			inputCooldown = maxStaffInputCooldown
+			
 
 func Attacks(delta):
 	weapon_name = GameManager.get_first_weapon()
 	match weapon_name:
 		"Placeholder Sword Hand":
 			meleeAttack(delta)
-	
+		"Placeholder Staff Hand":
+			staffAttack(delta)

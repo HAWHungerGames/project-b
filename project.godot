@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 PlayerActionTracker="*res://Scripts/PlayerActionTracker.gd"
-GameManager="*res://Scripts/game_manager.gd"
+GameManager="*res://Scripts/GameManager.gd"
 
 [global_group]
 
