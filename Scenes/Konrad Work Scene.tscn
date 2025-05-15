@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://17sawqr1a5sd"]
+[gd_scene load_steps=42 format=3 uid="uid://17sawqr1a5sd"]
 
 [ext_resource type="Material" uid="uid://b2rgc8u5hwwcc" path="res://Materials/TestGround.tres" id="1_ggd4s"]
 [ext_resource type="Material" uid="uid://dekpipancsbc6" path="res://Materials/TestCubes.tres" id="3_0ctdn"]
@@ -24,10 +24,11 @@
 [ext_resource type="Texture2D" uid="uid://dgvicbxum24vi" path="res://UITextures/WeaponSlotPressed.png" id="26_ar3t4"]
 [ext_resource type="Script" uid="uid://c7616ek8c2kfe" path="res://Scenes/low_health.gd" id="26_vkbj3"]
 [ext_resource type="Texture2D" uid="uid://baxq1j20y701x" path="res://UITextures/redTint.png" id="26_vkim1"]
-[ext_resource type="Texture2D" uid="uid://brky4cyup1f68" path="res://UITextures/myceliumFrame.png" id="27_vkbj3"]
 [ext_resource type="Texture2D" uid="uid://b0gb728e1n47w" path="res://UITextures/WeaponSlot.png" id="27_vs2el"]
+[ext_resource type="Texture2D" uid="uid://dwoof1omyr8bt" path="res://UITextures/mycelium.png" id="28_vkbj3"]
 [ext_resource type="Texture2D" uid="uid://b56g56co15oce" path="res://UITextures/WeaponSlotFrame2.png" id="30_1tgbn"]
 [ext_resource type="Script" uid="uid://cr2dkifmawgcm" path="res://Scripts/UI/weapon_slots.gd" id="31_5i7v7"]
+[ext_resource type="Shader" uid="uid://cel17p0kqic21" path="res://Scripts/Shaders/spores.gdshader" id="31_fwfwu"]
 [ext_resource type="Script" uid="uid://isgt2htj3fmm" path="res://Scripts/UI/menus/pause_menu.gd" id="32_3qkpg"]
 [ext_resource type="FontFile" uid="uid://4l406r67702d" path="res://UITextures/Fonts/DidactGothic-Regular.ttf" id="33_6roa5"]
 
@@ -37,6 +38,52 @@
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_i63v0"]
 load_path = "res://.godot/imported/Health.png-a734aa25cedf1d4e582dab6f275fa483.ctex"
+
+[sub_resource type="Gradient" id="Gradient_fwfwu"]
+colors = PackedColorArray(0.624, 0.72, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hq7hx"]
+gradient = SubResource("Gradient_fwfwu")
+
+[sub_resource type="Curve" id="Curve_efexv"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_fgmgr"]
+curve = SubResource("Curve_efexv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_65wlj"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 0.5
+direction = Vector3(0, 0, 0)
+flatness = 1.0
+initial_velocity_min = -2.0
+initial_velocity_max = 2.0
+angular_velocity_min = 30.0
+angular_velocity_max = 60.0
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 9.49949e-08
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -2.23517e-06
+radial_accel_max = -2.23517e-06
+tangential_accel_min = -2.23517e-06
+tangential_accel_max = -2.23517e-06
+damping_min = 0.2
+damping_max = 0.2
+scale_min = 0.3
+scale_max = 1.2
+scale_curve = SubResource("CurveTexture_fgmgr")
+color = Color(0.623529, 0.721569, 0, 1)
+color_ramp = SubResource("GradientTexture1D_hq7hx")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fwfwu"]
+render_priority = 0
+shader = ExtResource("31_fwfwu")
+
+[sub_resource type="QuadMesh" id="QuadMesh_hq7hx"]
+material = SubResource("ShaderMaterial_fwfwu")
 
 [node name="KonradWorkScene" type="Node3D"]
 
@@ -583,7 +630,7 @@ expand_mode = 1
 [node name="mycelium" type="TextureRect" parent="WorldEnvironment/CanvasLayer/FullUI/lowHealth"]
 visible = false
 layout_mode = 2
-texture = ExtResource("27_vkbj3")
+texture = ExtResource("28_vkbj3")
 
 [node name="pauseMenu" type="MarginContainer" parent="WorldEnvironment/CanvasLayer"]
 process_mode = 3
@@ -642,6 +689,26 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("33_6roa5")
 theme_override_font_sizes/font_size = 50
 text = "Exit"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WorldEnvironment/CanvasLayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.85693, 0)
+skeleton = NodePath("../../GPUParticles3D")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.85693, 0)
+emitting = false
+amount = 100
+lifetime = 4.0
+one_shot = true
+explosiveness = 1.0
+randomness = 0.5
+fixed_fps = 60
+local_coords = true
+draw_order = 3
+transform_align = 1
+trail_enabled = true
+process_material = SubResource("ParticleProcessMaterial_65wlj")
+draw_pass_1 = SubResource("QuadMesh_hq7hx")
 
 [connection signal="timeout" from="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/health/timer" to="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_health_timer_timeout"]
 [connection signal="timeout" from="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina/timer" to="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_stamina_timer_timeout"]

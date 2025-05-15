@@ -443,6 +443,7 @@ custom_minimum_size = Vector2(380, 1)
 layout_mode = 2
 value = 64.0
 nine_patch_stretch = true
+texture_over = ExtResource("8_ylp0i")
 texture_progress = SubResource("CompressedTexture2D_rxuu3")
 
 [node name="damageBar" type="TextureProgressBar" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/health"]
@@ -451,7 +452,6 @@ layout_mode = 2
 value = 74.0
 nine_patch_stretch = true
 texture_under = ExtResource("10_mvfnk")
-texture_over = ExtResource("8_ylp0i")
 texture_progress = ExtResource("11_55p3g")
 
 [node name="timer" type="Timer" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/health"]

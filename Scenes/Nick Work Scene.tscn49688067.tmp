@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://bmqgvvy0t5bfp"]
+[gd_scene load_steps=41 format=3 uid="uid://bmqgvvy0t5bfp"]
 
 [ext_resource type="Material" uid="uid://b2rgc8u5hwwcc" path="res://Materials/TestGround.tres" id="1_7g8fi"]
 [ext_resource type="Material" uid="uid://dekpipancsbc6" path="res://Materials/TestCubes.tres" id="2_8h0xq"]
@@ -15,7 +15,6 @@
 [ext_resource type="Script" uid="uid://l471dqs5cmuc" path="res://Scripts/UI/bars.gd" id="15_k85tf"]
 [ext_resource type="Texture2D" uid="uid://c8eq20nuh4yxx" path="res://UITextures/UnderneathBottom.png" id="15_rxuu3"]
 [ext_resource type="Texture2D" uid="uid://cur1fsy614172" path="res://UITextures/DamageBottom.png" id="16_qdvau"]
-[ext_resource type="Shader" uid="uid://bru2whrhk4mlo" path="res://Scripts/Shaders/low_health.gdshader" id="16_v0cvy"]
 [ext_resource type="Texture2D" uid="uid://booeplbhoubjy" path="res://UITextures/BarFrameMiddle.png" id="17_gx6sf"]
 [ext_resource type="Texture2D" uid="uid://b7ms4tj2ov82j" path="res://UITextures/StaminaMiddle.png" id="18_afpbi"]
 [ext_resource type="Texture2D" uid="uid://cjvmlsiwqy7rj" path="res://UITextures/UnderneathMiddle.png" id="20_v0cvy"]
@@ -27,9 +26,8 @@
 [ext_resource type="Script" uid="uid://c7616ek8c2kfe" path="res://Scenes/low_health.gd" id="28_gx6sf"]
 [ext_resource type="Texture2D" uid="uid://baxq1j20y701x" path="res://UITextures/redTint.png" id="29_afpbi"]
 [ext_resource type="Texture2D" uid="uid://b56g56co15oce" path="res://UITextures/WeaponSlotFrame2.png" id="30_afpbi"]
-[ext_resource type="Shader" uid="uid://bjy5d3x36hbdt" path="res://Scripts/Shaders/pulsating.gdshader" id="30_v0cvy"]
+[ext_resource type="Texture2D" uid="uid://dwoof1omyr8bt" path="res://UITextures/mycelium.png" id="30_gx6sf"]
 [ext_resource type="Script" uid="uid://cr2dkifmawgcm" path="res://Scripts/UI/weapon_slots.gd" id="31_afpbi"]
-[ext_resource type="Texture2D" uid="uid://bbyy738mgamqi" path="res://Scripts/mycelium.png" id="31_v0cvy"]
 [ext_resource type="Script" uid="uid://isgt2htj3fmm" path="res://Scripts/UI/menus/pause_menu.gd" id="32_k421a"]
 [ext_resource type="FontFile" uid="uid://4l406r67702d" path="res://UITextures/Fonts/DidactGothic-Regular.ttf" id="33_s368x"]
 
@@ -53,18 +51,8 @@ size = Vector3(10, 0.1, 10)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k711p"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_s368x"]
-shader = ExtResource("16_v0cvy")
-shader_parameter/low_health = false
-
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rxuu3"]
 load_path = "res://.godot/imported/Health.png-a734aa25cedf1d4e582dab6f275fa483.ctex"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_k421a"]
-shader = ExtResource("30_v0cvy")
-shader_parameter/pulse_color = Color(1, 0, 0, 1)
-shader_parameter/pulse_speed = 2.0
-shader_parameter/intensity = 0.5
 
 [sub_resource type="Animation" id="Animation_gx6sf"]
 resource_name = "pulse_mycel"
@@ -438,11 +426,11 @@ alignment_vertical = 0
 
 [node name="healthBar" type="TextureProgressBar" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/health"]
 z_index = 1
-material = SubResource("ShaderMaterial_s368x")
 custom_minimum_size = Vector2(380, 1)
 layout_mode = 2
 value = 64.0
 nine_patch_stretch = true
+texture_over = ExtResource("8_ylp0i")
 texture_progress = SubResource("CompressedTexture2D_rxuu3")
 
 [node name="damageBar" type="TextureProgressBar" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/health"]
@@ -451,7 +439,6 @@ layout_mode = 2
 value = 74.0
 nine_patch_stretch = true
 texture_under = ExtResource("10_mvfnk")
-texture_over = ExtResource("8_ylp0i")
 texture_progress = ExtResource("11_55p3g")
 
 [node name="timer" type="Timer" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/health"]
@@ -540,7 +527,6 @@ texture_progress = ExtResource("16_qdvau")
 [node name="timer" type="Timer" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/mana"]
 
 [node name="lowHealth" type="MarginContainer" parent="CanvasLayer/FullUI" node_paths=PackedStringArray("player")]
-modulate = Color(1, 1, 1, 0)
 self_modulate = Color(1, 1, 1, 0)
 z_index = 2
 layout_mode = 2
@@ -556,9 +542,8 @@ texture = ExtResource("29_afpbi")
 expand_mode = 1
 
 [node name="mycelium" type="TextureRect" parent="CanvasLayer/FullUI/lowHealth"]
-material = SubResource("ShaderMaterial_k421a")
 layout_mode = 2
-texture = ExtResource("31_v0cvy")
+texture = ExtResource("30_gx6sf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/FullUI/lowHealth"]
 libraries = {

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1jbc5ypnde4b"
-path="res://.godot/imported/Mycelium_Select0001.png-d82745c3bccd53858999dd5278cbaa16.ctex"
+uid="uid://c28qedrsi6afa"
+path="res://.godot/imported/ButtonAnim0023.png-d47094fadee21e2e77d97b1c75fdb808.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UITextures/Mycelium_Select0001.png"
-dest_files=["res://.godot/imported/Mycelium_Select0001.png-d82745c3bccd53858999dd5278cbaa16.ctex"]
+source_file="res://UITextures/Anim/ButtonAnim0023.png"
+dest_files=["res://.godot/imported/ButtonAnim0023.png-d47094fadee21e2e77d97b1c75fdb808.ctex"]
 
 [params]
 
