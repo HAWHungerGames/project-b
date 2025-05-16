@@ -7,6 +7,7 @@ class_name Socket
 
 @onready var attachment = $"Weapon Slot"
 @onready var sword = preload("res://Prefabs/Asset Scenes/placeholder_sword2_hand.tscn")
+#@onready var sword = preload("res://Prefabs/Asset Scenes/sword.tscn")
 @onready var staff = preload("res://Prefabs/Asset Scenes/placeholder_staff2_hand.tscn")
 @onready var bow = preload("res://Prefabs/Asset Scenes/placeholder_bow2_hand.tscn")
 @onready var shield = preload("res://Prefabs/Asset Scenes/placeholder_shield_hand.tscn")
