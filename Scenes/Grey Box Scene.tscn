@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://6hhx67d5c316"]
+[gd_scene load_steps=10 format=3 uid="uid://6hhx67d5c316"]
 
-[ext_resource type="PackedScene" uid="uid://56tchsrpayeo" path="res://Scenes/player.tscn" id="1_f070v"]
-[ext_resource type="Material" uid="uid://b2rgc8u5hwwcc" path="res://Materials/TestGround.tres" id="2_5oj71"]
-[ext_resource type="Material" uid="uid://dekpipancsbc6" path="res://Materials/TestCubes.tres" id="3_5oj71"]
-[ext_resource type="Material" uid="uid://vlajy1vjbcaw" path="res://Materials/TestCubes2.tres" id="3_ckix0"]
+[ext_resource type="Material" uid="uid://b2rgc8u5hwwcc" path="res://Materials/TestGround.tres" id="1_sync2"]
+[ext_resource type="Material" uid="uid://vlajy1vjbcaw" path="res://Materials/TestCubes2.tres" id="2_nhess"]
+[ext_resource type="Material" uid="uid://dekpipancsbc6" path="res://Materials/TestCubes.tres" id="3_cdsgm"]
+[ext_resource type="PackedScene" uid="uid://56tchsrpayeo" path="res://Scenes/player.tscn" id="4_8spf6"]
+[ext_resource type="Script" uid="uid://b5l31sh77qstt" path="res://Scripts/CameraController.gd" id="5_b5gbf"]
 
 [sub_resource type="Environment" id="Environment_p38t7"]
 
@@ -15,10 +16,6 @@
 
 [node name="Node3D" type="Node3D"]
 
-[node name="Player" parent="." instance=ExtResource("1_f070v")]
-speed = 10.0
-rotationType = "rotate based on relative mouse position"
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_p38t7")
 
@@ -28,10 +25,10 @@ environment = SubResource("Environment_p38t7")
 transform = Transform3D(1, 0, 0, 0, 0.743145, 0.669131, 0, -0.669131, 0.743145, 0, 3.727, 0)
 
 [node name="Ground" type="CSGBox3D" parent="WorldEnvironment/World"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7432, -0.171297, -230.299)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -230.76)
 use_collision = true
-size = Vector3(600, 1, 500)
-material = ExtResource("2_5oj71")
+size = Vector3(700, 1, 500)
+material = ExtResource("1_sync2")
 
 [node name="Tutorial Room" type="Node3D" parent="WorldEnvironment/World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15)
@@ -79,37 +76,37 @@ size = Vector3(4, 4, 8.29272)
 [node name="Waffe1" type="CSGBox3D" parent="WorldEnvironment/World/Tutorial Room/Objects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.763, 5.337)
 use_collision = true
-material = ExtResource("3_ckix0")
+material = ExtResource("2_nhess")
 
 [node name="Waffe2" type="CSGBox3D" parent="WorldEnvironment/World/Tutorial Room/Objects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.763, 5.337)
 use_collision = true
-material = ExtResource("3_ckix0")
+material = ExtResource("2_nhess")
 
 [node name="Waffe3" type="CSGBox3D" parent="WorldEnvironment/World/Tutorial Room/Objects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0.763, 5.337)
 use_collision = true
-material = ExtResource("3_ckix0")
+material = ExtResource("2_nhess")
 
 [node name="Training Dummy" type="CSGBox3D" parent="WorldEnvironment/World/Tutorial Room/Objects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 2, -6.59552)
 size = Vector3(2, 4, 2)
-material = ExtResource("3_5oj71")
+material = ExtResource("3_cdsgm")
 
 [node name="Training Dummy2" type="CSGBox3D" parent="WorldEnvironment/World/Tutorial Room/Objects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.08949, 2, -6.59552)
 size = Vector3(2, 4, 2)
-material = ExtResource("3_5oj71")
+material = ExtResource("3_cdsgm")
 
 [node name="Zielscheibe" type="CSGBox3D" parent="WorldEnvironment/World/Tutorial Room/Objects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 5.254, -19)
 size = Vector3(4, 4, 1)
-material = ExtResource("3_5oj71")
+material = ExtResource("3_cdsgm")
 
 [node name="Schild" type="CSGBox3D" parent="WorldEnvironment/World/Tutorial Room/Objects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.60344, 2, -15.2194)
 size = Vector3(3, 4, 1)
-material = ExtResource("3_5oj71")
+material = ExtResource("3_cdsgm")
 
 [node name="Room 1" type="Node3D" parent="WorldEnvironment/World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -67.7875)
@@ -187,7 +184,7 @@ size = Vector3(7.19824, 6.86816, 8.63867)
 [node name="CSGMesh3D" type="CSGMesh3D" parent="WorldEnvironment/World/Room 1/Enemies"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 4.09695)
 mesh = SubResource("CapsuleMesh_ckix0")
-material = ExtResource("3_5oj71")
+material = ExtResource("3_cdsgm")
 
 [node name="Room 2" type="Node3D" parent="WorldEnvironment/World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -66.7043)
@@ -199,19 +196,19 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.5807
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0272, 0, -1.43051e-06)
 use_collision = true
 mesh = SubResource("CapsuleMesh_fenb2")
-material = ExtResource("3_5oj71")
+material = ExtResource("3_cdsgm")
 
 [node name="CSGMesh3D3" type="CSGMesh3D" parent="WorldEnvironment/World/Room 2/Enemy"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.0724, 0, -7.329)
 use_collision = true
 mesh = SubResource("CapsuleMesh_fenb2")
-material = ExtResource("3_5oj71")
+material = ExtResource("3_cdsgm")
 
 [node name="CSGMesh3D2" type="CSGMesh3D" parent="WorldEnvironment/World/Room 2/Enemy"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.8015, 0, -12.1102)
 use_collision = true
 mesh = SubResource("CapsuleMesh_fenb2")
-material = ExtResource("3_5oj71")
+material = ExtResource("3_cdsgm")
 
 [node name="Walls" type="Node3D" parent="WorldEnvironment/World/Room 2"]
 
@@ -220,12 +217,12 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.266
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="WorldEnvironment/World/Room 2/Walls/CSGCombiner3D"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.12935, 2.11768, -21.2025)
-size = Vector3(1, 5.23535, 14.004)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.12935, 3.94239, -21.2025)
+size = Vector3(1, 8.88476, 14.004)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="WorldEnvironment/World/Room 2/Walls/CSGCombiner3D"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.61183, 2.11768, 21.0584)
-size = Vector3(1, 5.23535, 13.0391)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.61183, 3.79004, 21.0584)
+size = Vector3(1, 8.58008, 13.0391)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="WorldEnvironment/World/Room 2/Walls/CSGCombiner3D"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12.0193, 4.03809, 0.094143)
@@ -238,20 +235,20 @@ radius = 4.43701
 height = 2.71191
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="WorldEnvironment/World/Room 2/Walls/CSGCombiner3D"]
-transform = Transform3D(0.960648, 0, -0.277767, 0, 1, 0, 0.277767, 0, 0.960648, 14.6473, 2.11499, -17.5177)
-size = Vector3(27.7325, 5.22998, 1)
+transform = Transform3D(0.960648, 0, -0.277767, 0, 1, 0, 0.277767, 0, 0.960648, 14.6473, 3.93988, -17.5177)
+size = Vector3(27.7325, 8.87976, 1)
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="WorldEnvironment/World/Room 2/Walls/CSGCombiner3D"]
-transform = Transform3D(-0.97083, 0, -0.239771, 0, 1, 0, 0.239771, 0, -0.97083, 14.6473, 2.11499, 17.7659)
-size = Vector3(27.7325, 5.22998, 1)
+transform = Transform3D(-0.97083, 0, -0.239771, 0, 1, 0, 0.239771, 0, -0.97083, 14.4233, 3.83038, 17.8212)
+size = Vector3(28.1939, 8.66077, 1)
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="WorldEnvironment/World/Room 2/Walls/CSGCombiner3D"]
-transform = Transform3D(0.41448, 0, 0, 0, 1, 0, 0, 0, 1, 30.7637, 2.11273, 14.4217)
-size = Vector3(16.5888, 5.22546, 1)
+transform = Transform3D(0.41448, 0, 0, 0, 1, 0, 0, 0, 1, 30.7637, 3.86325, 14.4217)
+size = Vector3(16.5888, 8.7265, 1)
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="WorldEnvironment/World/Room 2/Walls/CSGCombiner3D"]
-transform = Transform3D(0.41448, 0, 0, 0, 1, 0, 0, 0, 1, 30.7637, 2.11273, -13.4293)
-size = Vector3(16.5888, 5.22546, 1)
+transform = Transform3D(0.41448, 0, 0, 0, 1, 0, 0, 0, 1, 30.7453, 3.97867, -13.4293)
+size = Vector3(16.5888, 8.95733, 1)
 
 [node name="Objects" type="Node3D" parent="WorldEnvironment/World/Room 2"]
 
@@ -330,14 +327,15 @@ polygon = PackedVector2Array(0, 0, 22.0785, 6.08202, 28.7608, 6.30238, 28.8332, 
 [node name="Walls" type="Node3D" parent="WorldEnvironment/World/Room 3"]
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="WorldEnvironment/World/Room 3/Walls"]
+use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="WorldEnvironment/World/Room 3/Walls/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 0.717826, 0, 0, 0, 0.587373, 14.1509, 2.56414, -7.54527)
-size = Vector3(1, 8.80908, 26.3958)
+transform = Transform3D(1, 0, 0, 0, 0.717826, 0, 0, 0, 0.587373, 14.1509, 3.85407, -7.35879)
+size = Vector3(1, 12.4031, 27.0308)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="WorldEnvironment/World/Room 3/Walls/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 0.717826, 0, 0, 0, 0.587373, -13.732, 2.56414, -7.20247)
-size = Vector3(1, 8.80908, 27.563)
+transform = Transform3D(1, 0, 0, 0, 0.717826, 0, 0, 0, 0.587373, -13.732, 3.95199, -7.20247)
+size = Vector3(1, 12.6759, 27.563)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="WorldEnvironment/World/Room 3/Walls/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1.49064, 0, 0, 0, 1, -0.546982, 6.15048, -29.8486)
@@ -379,19 +377,19 @@ sides = 16
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.0921, 5.73806, -26.2341)
 use_collision = true
 mesh = SubResource("CapsuleMesh_0j0yr")
-material = ExtResource("2_5oj71")
+material = ExtResource("1_sync2")
 
 [node name="CSGMesh3D3" type="CSGMesh3D" parent="WorldEnvironment/World/Room 3/Enemies"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.0921, 5.73806, -19.0953)
 use_collision = true
 mesh = SubResource("CapsuleMesh_0j0yr")
-material = ExtResource("2_5oj71")
+material = ExtResource("1_sync2")
 
 [node name="CSGMesh3D2" type="CSGMesh3D" parent="WorldEnvironment/World/Room 3/Enemies"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.7847, 5.73806, -23.6422)
 use_collision = true
 mesh = SubResource("CapsuleMesh_0j0yr")
-material = ExtResource("3_5oj71")
+material = ExtResource("3_cdsgm")
 
 [node name="Room 4" type="Node3D" parent="WorldEnvironment/World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.3144, 0, -139.93)
@@ -419,8 +417,8 @@ transform = Transform3D(0.228996, 0, -0.973427, 0, 1, 0, 0.973427, 0, 0.228996, 
 size = Vector3(3.95313, 1, 9.45215)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="WorldEnvironment/World/Room 4/Walls/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.15158, 4.43077, 7.00343)
-size = Vector3(15.6332, 8.08039, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.15158, 4.43679, 7.00343)
+size = Vector3(15.6332, 8.09242, 1)
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="WorldEnvironment/World/Room 4/Walls/CSGCombiner3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14.6581, 1.12943, 0.230713)
@@ -431,16 +429,16 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14.65
 size = Vector3(30.4389, 9.91837, 1)
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="WorldEnvironment/World/Room 4/Walls/CSGCombiner3D"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.45731, 3.5092, -23.8649)
-size = Vector3(28.701, 9.91837, 1)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.45731, 3.5092, -23.8339)
+size = Vector3(28.639, 9.91837, 1)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="WorldEnvironment/World/Room 4/Walls/CSGCombiner3D"]
-transform = Transform3D(0.348081, 0, 0.937464, 0, 1, 0, -0.937464, 0, 0.348081, 2.34356, 4.34019, 1.59071)
-size = Vector3(12.5739, 8.26154, 1)
+transform = Transform3D(0.348081, 0, 0.937464, 0, 1, 0, -0.937464, 0, 0.348081, 2.34356, 4.32903, 1.59071)
+size = Vector3(12.5739, 8.23921, 1)
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="WorldEnvironment/World/Room 4/Walls/CSGCombiner3D"]
-transform = Transform3D(0.49174, 0, 0.870742, 0, 1, 0, -0.870742, 0, 0.49174, 9.90876, 4.36146, -13.78)
-size = Vector3(22.7198, 8.21152, 1)
+transform = Transform3D(0.49174, 0, 0.870742, 0, 1, 0, -0.870742, 0, 0.49174, 9.90876, 4.44498, -13.78)
+size = Vector3(22.7198, 8.37856, 1)
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="WorldEnvironment/World/Room 4/Walls/CSGCombiner3D"]
 transform = Transform3D(0.524357, 0, 0.851498, 0, 1, 0, -0.851498, 0, 0.524357, 2.06536, 4.54812, -19.5058)
@@ -482,19 +480,19 @@ size = Vector3(10.7597, 5.15882, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.88185, 1.56822, -31.9137)
 use_collision = true
 mesh = SubResource("CapsuleMesh_0j0yr")
-material = ExtResource("3_5oj71")
+material = ExtResource("3_cdsgm")
 
 [node name="CSGMesh3D5" type="CSGMesh3D" parent="WorldEnvironment/World/Room 4/Enemies"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7317, 1.56822, -27.802)
 use_collision = true
 mesh = SubResource("CapsuleMesh_0j0yr")
-material = ExtResource("3_5oj71")
+material = ExtResource("3_cdsgm")
 
 [node name="CSGMesh3D6" type="CSGMesh3D" parent="WorldEnvironment/World/Room 4/Enemies"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.25245, 1.56822, -23.7321)
 use_collision = true
 mesh = SubResource("CapsuleMesh_0j0yr")
-material = ExtResource("3_5oj71")
+material = ExtResource("3_cdsgm")
 
 [node name="Room 5" type="Node3D" parent="WorldEnvironment/World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.2327, 0, -176.003)
@@ -710,13 +708,13 @@ size = Vector3(7.19824, 6.86816, 8.63867)
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.16265, 0.999979, -5.70561)
 use_collision = true
 mesh = SubResource("CapsuleMesh_fenb2")
-material = ExtResource("3_5oj71")
+material = ExtResource("3_cdsgm")
 
 [node name="CSGMesh3D5" type="CSGMesh3D" parent="WorldEnvironment/World/Room 5/Enemies"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.65968, 0.999979, -5.70561)
 use_collision = true
 mesh = SubResource("CapsuleMesh_fenb2")
-material = ExtResource("3_5oj71")
+material = ExtResource("3_cdsgm")
 
 [node name="Room 6" type="Node3D" parent="WorldEnvironment/World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.2415, 0, -138.711)
@@ -835,12 +833,17 @@ radius = 3.0
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -13.47, 4.5, 40)
 size = Vector3(1, 9, 100)
 
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="WorldEnvironment/World/Room 7/Walls/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 6, 32.3911, 1.98726, -24.1893)
+polygon = PackedVector2Array(-5.00172, -1.86684, 3.51381, 3.06508, 5.52878, 3.00739, 5.39989, -2.37794)
+
 [node name="Room 8" type="Node3D" parent="WorldEnvironment/World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 256.758, 0, -144.718)
 
 [node name="Walls" type="Node3D" parent="WorldEnvironment/World/Room 8"]
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="WorldEnvironment/World/Room 8/Walls"]
+use_collision = true
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="WorldEnvironment/World/Room 8/Walls/CSGCombiner3D"]
 transform = Transform3D(0.965418, 0, -0.260707, 0, 1, 0, 0.260707, 0, 0.965418, 27.926, 17, -65.6053)
@@ -863,24 +866,24 @@ transform = Transform3D(0.708487, 0, 0.705723, 0, 1, 0, -0.705723, 0, 0.708487, 
 size = Vector3(1, 9, 35)
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="WorldEnvironment/World/Room 8/Walls/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5494, 9, 8.2659)
-size = Vector3(1, 9, 42.4902)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5494, 9.96167, 8.2659)
+size = Vector3(1, 10.9233, 42.4902)
 
 [node name="CSGBox3D15" type="CSGBox3D" parent="WorldEnvironment/World/Room 8/Walls/CSGCombiner3D"]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -13.67, 11, -27.007)
 size = Vector3(1, 9, 23.459)
 
 [node name="CSGBox3D20" type="CSGBox3D" parent="WorldEnvironment/World/Room 8/Walls/CSGCombiner3D"]
-transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -16.373, 13.2773, -40.5221)
-size = Vector3(1, 12, 15.979)
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -16.373, 14.4536, -40.5221)
+size = Vector3(1, 14.3527, 15.979)
 
 [node name="CSGBox3D21" type="CSGBox3D" parent="WorldEnvironment/World/Room 8/Walls/CSGCombiner3D"]
-transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -34.13, 13.277, -58.65)
-size = Vector3(1, 12, 15.979)
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -34.13, 14.4206, -58.65)
+size = Vector3(1, 14.2872, 15.979)
 
 [node name="CSGBox3D19" type="CSGBox3D" parent="WorldEnvironment/World/Room 8/Walls/CSGCombiner3D"]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -49.6477, 11, -63.4995)
-size = Vector3(1, 9, 29.791)
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -49.6477, 12.5862, -63.4995)
+size = Vector3(1, 12.1724, 29.791)
 
 [node name="CSGBox3D16" type="CSGBox3D" parent="WorldEnvironment/World/Room 8/Walls/CSGCombiner3D"]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -45.239, 11, -37.562)
@@ -913,6 +916,7 @@ size = Vector3(1, 9, 69.554)
 [node name="Floor" type="Node3D" parent="WorldEnvironment/World/Room 8"]
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="WorldEnvironment/World/Room 8/Floor"]
+use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="WorldEnvironment/World/Room 8/Floor/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.718, 4.5, 25.8)
@@ -946,104 +950,6 @@ polygon = PackedVector2Array(0, 0, 8.30862, 4.00887, 11.6286, 3.9644, 3.35484, -
 transform = Transform3D(0.707107, 0, 17.6777, 0, 1, 0, -0.707107, 0, 17.6777, -22.8325, 7.41079, -34.3865)
 polygon = PackedVector2Array(0, 0, 14.5371, 5.84474, 18.7018, 5.59222, 4.68845, -0.0242734)
 
-[node name="Level 3" type="Node3D" parent="WorldEnvironment/World"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.974, 5.95826, -140.959)
-
-[node name="Floor" type="Node3D" parent="WorldEnvironment/World/Level 3"]
-
-[node name="CSGBox3D17" type="CSGBox3D" parent="WorldEnvironment/World/Level 3/Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0749, -1.9014, 1.32559)
-use_collision = true
-size = Vector3(18.8607, 0.62793, 13.8741)
-
-[node name="Walls" type="Node3D" parent="WorldEnvironment/World/Level 3"]
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="WorldEnvironment/World/Level 3/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.46949, -2.19029, 0.961884)
-use_collision = true
-
-[node name="CSGBox3D9" type="CSGBox3D" parent="WorldEnvironment/World/Level 3/Walls/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60489, 2.22262, -1.05067)
-size = Vector3(1, 3.85754, 11.8563)
-
-[node name="CSGPolygon3D3" type="CSGPolygon3D" parent="WorldEnvironment/World/Level 3/Walls/CSGCombiner3D"]
-transform = Transform3D(-4.37114e-08, 0, -2.10967, 0, 1, 0, 1, 0, -9.22165e-08, -1.0327, 0.55799, 5.29827)
-polygon = PackedVector2Array(-11.8996, -0.0002985, -11.9782, 1.94355, -10.3699, 1.96514, -0.426476, -0.0198922)
-
-[node name="CSGPolygon3D5" type="CSGPolygon3D" parent="WorldEnvironment/World/Level 3/Walls/CSGCombiner3D"]
-transform = Transform3D(-4.37114e-08, 0, -2.10967, 0, 1, 0, 1, 0, -9.22165e-08, -5.02962, 0.55799, 5.32356)
-polygon = PackedVector2Array(-11.8996, -0.0002985, -11.9782, 1.94355, -10.3699, 1.96514, -3.51204, 0.108101)
-
-[node name="CSGPolygon3D4" type="CSGPolygon3D" parent="WorldEnvironment/World/Level 3/Walls/CSGCombiner3D"]
-transform = Transform3D(1.31134e-07, 0, 2.10967, 0, 1, 0, -1, 0, 2.7665e-07, -1.03822, 2.45564, -5.90767)
-polygon = PackedVector2Array(-12.6424, 0.0419674, -12.4753, 2.24459, -10.9734, 2.2456, -0.426476, -0.0198922)
-
-[node name="CSGBox3D10" type="CSGBox3D" parent="WorldEnvironment/World/Level 3/Walls/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.12686, 1.25556, 0.283936)
-size = Vector3(2.18408, 2.50006, 14.3989)
-
-[node name="CSGBox3D11" type="CSGBox3D" parent="WorldEnvironment/World/Level 3/Walls/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.23079, 2.34062, 6.3082)
-size = Vector3(10.8261, 4.71864, 2.4879)
-
-[node name="CSGBox3D22" type="CSGBox3D" parent="WorldEnvironment/World/Level 3/Walls/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6346, 3.01174, 3.62659)
-size = Vector3(0.407661, 4.43321, 7.94861)
-
-[node name="CSGBox3D23" type="CSGBox3D" parent="WorldEnvironment/World/Level 3/Walls/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.57228, 3.01174, -2.42982)
-size = Vector3(0.407661, 4.43321, 8.33417)
-
-[node name="CSGBox3D12" type="CSGBox3D" parent="WorldEnvironment/World/Level 3/Walls/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.243, 2.34062, 4.0895)
-size = Vector3(2.8017, 4.71864, 6.92532)
-
-[node name="CSGBox3D13" type="CSGBox3D" parent="WorldEnvironment/World/Level 3/Walls/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9143, 2.34062, 0.677368)
-size = Vector3(5.45905, 4.71864, 2.09718)
-
-[node name="CSGBox3D14" type="CSGBox3D" parent="WorldEnvironment/World/Level 3/Walls/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.58276, 2.34062, -2.59137)
-size = Vector3(2.3917, 4.71864, 8.63465)
-
-[node name="CSGBox3D15" type="CSGBox3D" parent="WorldEnvironment/World/Level 3/Walls/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.59078, 2.34062, -5.36448)
-size = Vector3(2.86187, 4.71864, 2.40418)
-
-[node name="CSGBox3D16" type="CSGBox3D" parent="WorldEnvironment/World/Level 3/Walls/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.2303, 2.34062, -5.36448)
-size = Vector3(2.86187, 4.71864, 2.40418)
-
-[node name="CSGBox3D18" type="CSGBox3D" parent="WorldEnvironment/World/Level 3/Walls/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.2548, 2.34062, -5.3232)
-size = Vector3(2.86187, 4.71864, 1.25363)
-
-[node name="CSGBox3D19" type="CSGBox3D" parent="WorldEnvironment/World/Level 3/Walls/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.1969, 2.34062, -3.05591)
-size = Vector3(0.977808, 4.71864, 3.48705)
-
-[node name="CSGBox3D20" type="CSGBox3D" parent="WorldEnvironment/World/Level 3/Walls/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.4022, 2.34062, -0.920547)
-size = Vector3(3.38849, 4.71864, 1.14587)
-
-[node name="CSGBox3D21" type="CSGBox3D" parent="WorldEnvironment/World/Level 3/Walls/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.44, 2.34062, 0.0845032)
-size = Vector3(0.823154, 4.71864, 14.9456)
-
-[node name="CSGPolygon3D" type="CSGPolygon3D" parent="WorldEnvironment/World/Level 3/Walls/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.4164, 4.59093, -0.478554)
-polygon = PackedVector2Array(-2.84789, 0.146683, -2.9433, 1.09846, -1.76114, 1.13769, 1, 0)
-
-[node name="CSGBox3D7" type="CSGBox3D" parent="WorldEnvironment/World/Level 3/Walls/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.33531, 0.502975, 7.08186)
-use_collision = true
-size = Vector3(34.7383, 8.39087, 1)
-
-[node name="CSGBox3D8" type="CSGBox3D" parent="WorldEnvironment/World/Level 3/Walls/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.33531, 0.502975, -7.06189)
-use_collision = true
-size = Vector3(34.7383, 8.39087, 1)
-
 [node name="Room 9" type="Node3D" parent="WorldEnvironment/World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 130.154, 0, -330.149)
 
@@ -1051,11 +957,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 130.154, 0, -330.149)
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="WorldEnvironment/World/Room 9/Floor"]
 transform = Transform3D(-4.37114e-08, 0, 17, 0, 1, 0, -1, 0, -7.43094e-07, 8.00771, 3.25188, 51.1145)
+use_collision = true
 polygon = PackedVector2Array(-5.38425, -2.96392, -5.35019, 4.70875, -2.98776, 4.76452, 7.06311, -2.93733)
 
 [node name="Walls" type="Node3D" parent="WorldEnvironment/World/Room 9"]
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="WorldEnvironment/World/Room 9/Walls"]
+use_collision = true
 
 [node name="CSGBox3D24" type="CSGBox3D" parent="WorldEnvironment/World/Room 9/Walls/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.09099, 7.80078, 50.5632)
@@ -1065,212 +973,496 @@ size = Vector3(1, 15.3984, 11.8611)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.93832, 7.80078, 50.5632)
 size = Vector3(1, 15.3984, 11.8611)
 
-[node name="Level 4" type="Node3D" parent="WorldEnvironment/World"]
+[node name="CSGBox3D26" type="CSGBox3D" parent="WorldEnvironment/World/Room 9/Walls/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -27.483, 4.5, 44.3017)
+size = Vector3(1, 9, 40)
+
+[node name="CSGBox3D27" type="CSGBox3D" parent="WorldEnvironment/World/Room 9/Walls/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 26.6115, 4.5, 44.3017)
+size = Vector3(1, 9, 40)
+
+[node name="CSGBox3D28" type="CSGBox3D" parent="WorldEnvironment/World/Room 9/Walls/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.6158, 4.5, -15.7243)
+size = Vector3(1, 9, 120)
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="WorldEnvironment/World/Room 9/Walls/CSGCombiner3D/CSGBox3D28"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.0438232, -3.59713, -48.66)
+operation = 2
+radius = 3.0
+
+[node name="CSGBox3D29" type="CSGBox3D" parent="WorldEnvironment/World/Room 9/Walls/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.993, 4.5, -15.7243)
+size = Vector3(1, 9, 120)
+
+[node name="CSGBox3D30" type="CSGBox3D" parent="WorldEnvironment/World/Room 9/Walls/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0945282, 4.5, -76.2367)
+size = Vector3(1, 9, 94)
+
+[node name="Room 10" type="Node3D" parent="WorldEnvironment/World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.974, 5.95826, -140.959)
+
+[node name="Floor" type="Node3D" parent="WorldEnvironment/World/Room 10"]
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="WorldEnvironment/World/Room 10/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0749, -1.9014, 1.32559)
+use_collision = true
+size = Vector3(18.8607, 0.62793, 13.8741)
+
+[node name="Walls" type="Node3D" parent="WorldEnvironment/World/Room 10"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="WorldEnvironment/World/Room 10/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.46949, -2.19029, 0.961884)
+use_collision = true
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="WorldEnvironment/World/Room 10/Walls/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60489, 2.22262, -1.05067)
+size = Vector3(1, 3.85754, 11.8563)
+
+[node name="CSGPolygon3D3" type="CSGPolygon3D" parent="WorldEnvironment/World/Room 10/Walls/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, -2.10967, 0, 1, 0, 1, 0, -9.22165e-08, -1.0327, 0.55799, 5.29827)
+polygon = PackedVector2Array(-11.8996, -0.0002985, -11.9782, 1.94355, -10.3699, 1.96514, -0.426476, -0.0198922)
+
+[node name="CSGPolygon3D5" type="CSGPolygon3D" parent="WorldEnvironment/World/Room 10/Walls/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, -2.10967, 0, 1, 0, 1, 0, -9.22165e-08, -5.02962, 0.55799, 5.32356)
+polygon = PackedVector2Array(-11.8996, -0.0002985, -11.9782, 1.94355, -10.3699, 1.96514, -3.51204, 0.108101)
+
+[node name="CSGPolygon3D4" type="CSGPolygon3D" parent="WorldEnvironment/World/Room 10/Walls/CSGCombiner3D"]
+transform = Transform3D(1.31134e-07, 0, 2.10967, 0, 1, 0, -1, 0, 2.7665e-07, -1.03822, 2.45564, -5.90767)
+polygon = PackedVector2Array(-12.6424, 0.0419674, -12.4753, 2.24459, -10.9734, 2.2456, -0.426476, -0.0198922)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="WorldEnvironment/World/Room 10/Walls/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.12686, 1.25556, 0.283936)
+size = Vector3(2.18408, 2.50006, 14.3989)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="WorldEnvironment/World/Room 10/Walls/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.23079, 2.34062, 6.3082)
+size = Vector3(10.8261, 4.71864, 2.4879)
+
+[node name="CSGBox3D22" type="CSGBox3D" parent="WorldEnvironment/World/Room 10/Walls/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6346, 3.01174, 3.62659)
+size = Vector3(0.407661, 4.43321, 7.94861)
+
+[node name="CSGBox3D23" type="CSGBox3D" parent="WorldEnvironment/World/Room 10/Walls/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.57228, 3.01174, -2.42982)
+size = Vector3(0.407661, 4.43321, 8.33417)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="WorldEnvironment/World/Room 10/Walls/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.243, 2.34062, 4.0895)
+size = Vector3(2.8017, 4.71864, 6.92532)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="WorldEnvironment/World/Room 10/Walls/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9143, 2.34062, 0.677368)
+size = Vector3(5.45905, 4.71864, 2.09718)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="WorldEnvironment/World/Room 10/Walls/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.58276, 2.34062, -2.59137)
+size = Vector3(2.3917, 4.71864, 8.63465)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="WorldEnvironment/World/Room 10/Walls/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.59078, 2.34062, -5.36448)
+size = Vector3(2.86187, 4.71864, 2.40418)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="WorldEnvironment/World/Room 10/Walls/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.2303, 2.34062, -5.36448)
+size = Vector3(2.86187, 4.71864, 2.40418)
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="WorldEnvironment/World/Room 10/Walls/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.2548, 2.34062, -4.59497)
+size = Vector3(2.86187, 4.71864, 1.25363)
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="WorldEnvironment/World/Room 10/Walls/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.1969, 2.34062, -3.05591)
+size = Vector3(0.977808, 4.71864, 3.48705)
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="WorldEnvironment/World/Room 10/Walls/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.4022, 2.34062, -0.920547)
+size = Vector3(3.38849, 4.71864, 1.14587)
+
+[node name="CSGBox3D21" type="CSGBox3D" parent="WorldEnvironment/World/Room 10/Walls/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.44, 2.34062, 0.0845032)
+size = Vector3(0.823154, 4.71864, 14.9456)
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="WorldEnvironment/World/Room 10/Walls/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.4164, 4.59093, -0.478554)
+polygon = PackedVector2Array(-2.84789, 0.146683, -2.9433, 1.09846, -1.76114, 1.13769, 1, 0)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="WorldEnvironment/World/Room 10/Walls/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.33531, 0.502975, 7.08186)
+use_collision = true
+size = Vector3(34.7383, 8.39087, 1)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="WorldEnvironment/World/Room 10/Walls/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.33531, 0.502975, -7.06607)
+use_collision = true
+size = Vector3(34.7383, 8.39087, 1)
+
+[node name="Room 11" type="Node3D" parent="WorldEnvironment/World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.0763, 8.97335, -140.693)
 
-[node name="Wall" type="Node3D" parent="WorldEnvironment/World/Level 4"]
+[node name="Wall" type="Node3D" parent="WorldEnvironment/World/Room 11"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.0053, 2.44659, -13.0286)
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="WorldEnvironment/World/Level 4/Wall"]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="WorldEnvironment/World/Room 11/Wall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.0053, -2.44659, 13.0286)
 use_collision = true
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="WorldEnvironment/World/Level 4/Wall/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.0053, 2.44659, -13.0286)
-size = Vector3(43.9377, 4.14899, 0.271179)
+[node name="CSGBox3D3" type="CSGBox3D" parent="WorldEnvironment/World/Room 11/Wall/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.0053, 5.08415, -13.0286)
+size = Vector3(43.9377, 9.4241, 0.271179)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="WorldEnvironment/World/Level 4/Wall/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.854, 2.44659, 14.4574)
-size = Vector3(43.6349, 4.14899, 0.271179)
+[node name="CSGBox3D4" type="CSGBox3D" parent="WorldEnvironment/World/Room 11/Wall/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.854, 4.98508, 14.4574)
+size = Vector3(43.6349, 9.22597, 0.271179)
 
-[node name="CSGBox3D6" type="CSGBox3D" parent="WorldEnvironment/World/Level 4/Wall/CSGCombiner3D"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.94445, 2.44659, 7.99046)
-size = Vector3(13.2909, 4.14899, 0.271179)
+[node name="CSGBox3D6" type="CSGBox3D" parent="WorldEnvironment/World/Room 11/Wall/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.94445, 4.97599, 7.99046)
+size = Vector3(13.2909, 9.2078, 0.271179)
 
-[node name="CSGBox3D7" type="CSGBox3D" parent="WorldEnvironment/World/Level 4/Wall/CSGCombiner3D"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.94445, 2.44659, -7.49859)
-size = Vector3(11.1835, 4.14899, 0.271179)
+[node name="CSGBox3D7" type="CSGBox3D" parent="WorldEnvironment/World/Room 11/Wall/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.94445, 5.06712, -7.4986)
+size = Vector3(11.1835, 9.39005, 0.271179)
 
-[node name="CSGBox3D10" type="CSGBox3D" parent="WorldEnvironment/World/Level 4/Wall/CSGCombiner3D"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -49.2176, 2.44659, 0.846527)
-size = Vector3(8.80078, 4.14899, 0.271179)
+[node name="CSGBox3D10" type="CSGBox3D" parent="WorldEnvironment/World/Room 11/Wall/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -49.2176, 5.03574, 0.846527)
+size = Vector3(8.80078, 9.32729, 0.271179)
 
-[node name="CSGBox3D8" type="CSGBox3D" parent="WorldEnvironment/World/Level 4/Wall/CSGCombiner3D"]
-transform = Transform3D(0.81651, 0, -0.57733, 0, 1, 0, 0.57733, 0, 0.81651, -60.223, 2.44659, -12.3415)
-size = Vector3(29.4199, 4.14899, 0.271179)
+[node name="CSGBox3D8" type="CSGBox3D" parent="WorldEnvironment/World/Room 11/Wall/CSGCombiner3D"]
+transform = Transform3D(0.81651, 0, -0.57733, 0, 1, 0, 0.57733, 0, 0.81651, -62.4927, 5.14982, -12.6518)
+size = Vector3(33.5623, 9.55545, 0.271179)
 
-[node name="CSGBox3D11" type="CSGBox3D" parent="WorldEnvironment/World/Level 4/Wall/CSGCombiner3D"]
-transform = Transform3D(0.840406, 0, -0.541957, 0, 1, 0, 0.541957, 0, 0.840406, -54.9646, 2.44659, -19.9642)
-size = Vector3(29.4565, 4.14899, 0.271179)
+[node name="CSGBox3D11" type="CSGBox3D" parent="WorldEnvironment/World/Room 11/Wall/CSGCombiner3D"]
+transform = Transform3D(0.840406, 0, -0.541957, 0, 1, 0, 0.541957, 0, 0.840406, -56.5258, 5.33177, -22.4649)
+size = Vector3(35.2139, 9.91934, 0.271179)
 
-[node name="CSGBox3D12" type="CSGBox3D" parent="WorldEnvironment/World/Level 4/Wall/CSGCombiner3D"]
-transform = Transform3D(0.648811, 0, -0.76095, 0, 1, 0, 0.76095, 0, 0.648811, -45.2904, 2.44659, 9.86469)
-size = Vector3(13.2909, 4.14899, 0.271179)
+[node name="CSGBox3D12" type="CSGBox3D" parent="WorldEnvironment/World/Room 11/Wall/CSGCombiner3D"]
+transform = Transform3D(0.648811, 0, -0.76095, 0, 1, 0, 0.76095, 0, 0.648811, -45.2904, 5.00206, 9.86469)
+size = Vector3(13.2909, 9.25992, 0.271179)
 
-[node name="CSGBox3D9" type="CSGBox3D" parent="WorldEnvironment/World/Level 4/Wall/CSGCombiner3D"]
-transform = Transform3D(0.582123, 0, 0.813101, 0, 1, 0, -0.813101, 0, 0.582123, -45.441, 2.44659, -7.7912)
-size = Vector3(13.2909, 4.14899, 0.271179)
+[node name="CSGBox3D9" type="CSGBox3D" parent="WorldEnvironment/World/Room 11/Wall/CSGCombiner3D"]
+transform = Transform3D(0.582123, 0, 0.813101, 0, 1, 0, -0.813101, 0, 0.582123, -45.441, 5.0764, -7.7912)
+size = Vector3(13.2909, 9.4086, 0.271179)
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="WorldEnvironment/World/Level 4/Wall/CSGCombiner3D/CSGBox3D9"]
-transform = Transform3D(0.812301, -0.0443344, -0.581551, -0.582123, -1.19944e-09, -0.813101, 0.0360483, 0.999017, -0.025808, -0.0103531, -0.875981, 0.23317)
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="WorldEnvironment/World/Room 11/Wall/CSGCombiner3D/CSGBox3D9"]
+transform = Transform3D(0.812301, -0.0443344, -0.581551, -0.582123, -1.19944e-09, -0.813101, 0.0360483, 0.999017, -0.025808, -0.0103455, -3.6944, 0.233154)
 operation = 2
 radius = 2.2583
 height = 1.5332
 
-[node name="Floor" type="Node3D" parent="WorldEnvironment/World/Level 4"]
+[node name="Floor" type="Node3D" parent="WorldEnvironment/World/Room 11"]
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="WorldEnvironment/World/Level 4/Floor"]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="WorldEnvironment/World/Room 11/Floor"]
 use_collision = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="WorldEnvironment/World/Level 4/Floor/CSGCombiner3D"]
+[node name="CSGBox3D" type="CSGBox3D" parent="WorldEnvironment/World/Room 11/Floor/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.9975, -1.57449, 0.7146)
 size = Vector3(53.922, 4.14899, 34.1487)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="WorldEnvironment/World/Level 4/Floor/CSGCombiner3D/CSGBox3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.9313, 1.772, -0.998489)
+[node name="CSGBox3D2" type="CSGBox3D" parent="WorldEnvironment/World/Room 11/Floor/CSGCombiner3D/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.205, 1.85604, -0.998489)
 operation = 2
-size = Vector3(2.05939, 1.56473, 3.24258)
+size = Vector3(2.95081, 1.56473, 3.24258)
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="WorldEnvironment/World/Level 4/Floor/CSGCombiner3D"]
-transform = Transform3D(0.825941, 0, -0.563757, 0, 1, 0, 0.563757, 0, 0.825941, -57.9263, 0.152306, -16.9694)
-size = Vector3(28.3189, 0.695389, 13.4346)
+[node name="CSGBox3D5" type="CSGBox3D" parent="WorldEnvironment/World/Room 11/Floor/CSGCombiner3D"]
+transform = Transform3D(0.825941, 0, -0.563757, 0, 1, 0, 0.563757, 0, 0.825941, -57.945, 0.152306, -16.942)
+size = Vector3(28.3189, 0.695389, 19.667)
 
-[node name="level 5" type="Node3D" parent="WorldEnvironment/World"]
+[node name="Room 12" type="Node3D" parent="WorldEnvironment/World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -207.319, 0, -204.116)
 
-[node name="Wall" type="Node3D" parent="WorldEnvironment/World/level 5"]
+[node name="Wall" type="Node3D" parent="WorldEnvironment/World/Room 12"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.3197, 9.62037, 29.4941)
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="WorldEnvironment/World/level 5/Wall"]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="WorldEnvironment/World/Room 12/Wall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.7967, 1.62103, 9.81601)
 use_collision = true
 
-[node name="CSGBox3D17" type="CSGBox3D" parent="WorldEnvironment/World/level 5/Wall/CSGCombiner3D"]
-transform = Transform3D(0.960386, 0, -0.278673, 0, 1, 0, 0.278673, 0, 0.960386, -93.9397, -0.145979, -3.5359)
-size = Vector3(111.879, 4.63493, 0.586365)
+[node name="CSGBox3D17" type="CSGBox3D" parent="WorldEnvironment/World/Room 12/Wall/CSGCombiner3D"]
+transform = Transform3D(0.960386, 0, -0.278673, 0, 1, 0, 0.278673, 0, 0.960386, -93.9397, 2.66607, -3.5359)
+size = Vector3(111.879, 10.259, 0.586365)
 
-[node name="CSGBox3D18" type="CSGBox3D" parent="WorldEnvironment/World/level 5/Wall/CSGCombiner3D"]
-transform = Transform3D(0.960386, 0, -0.278673, 0, 1, 0, 0.278673, 0, 0.960386, -72.0221, -0.145979, -78.8547)
-size = Vector3(111.879, 4.63493, 0.586365)
+[node name="CSGBox3D18" type="CSGBox3D" parent="WorldEnvironment/World/Room 12/Wall/CSGCombiner3D"]
+transform = Transform3D(0.960386, 0, -0.278673, 0, 1, 0, 0.278673, 0, 0.960386, -72.0221, 2.77776, -78.8547)
+size = Vector3(111.879, 10.4824, 0.586365)
 
-[node name="CSGBox3D19" type="CSGBox3D" parent="WorldEnvironment/World/level 5/Wall/CSGCombiner3D"]
-transform = Transform3D(-0.28353, 0, -0.958963, 0, 1, 0, 0.958963, 0, -0.28353, -136.506, -0.145971, -56.7793)
-size = Vector3(79.1066, 4.63493, 0.586365)
-
-[node name="CSGBox3D20" type="CSGBox3D" parent="WorldEnvironment/World/level 5/Wall/CSGCombiner3D"]
-transform = Transform3D(-0.28353, 0, -0.958963, 0, 1, 0, 0.958963, 0, -0.28353, -29.7233, -0.145971, -25.0737)
-size = Vector3(79.1066, 4.63493, 0.586365)
-
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="WorldEnvironment/World/level 5/Wall/CSGCombiner3D/CSGBox3D20"]
-transform = Transform3D(0.688297, 0.0612631, -0.722839, 0.724887, -0.0195639, 0.68859, 0.0280438, -0.997931, -0.0578754, 15.2996, -0.864039, -0.041626)
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="WorldEnvironment/World/Room 12/Wall/CSGCombiner3D/CSGBox3D18"]
+transform = Transform3D(0.688754, 0.00247723, -0.724991, 0.724887, -0.0195639, 0.68859, -0.0124774, -0.999806, -0.0152712, 6.64917, -2.54348, -0.162033)
 operation = 2
 radius = 3.01416
 height = 1.40381
 
-[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="WorldEnvironment/World/level 5/Wall/CSGCombiner3D/CSGBox3D20"]
-transform = Transform3D(2, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -21.4981, -0.929326, -0.272949)
+[node name="CSGBox3D19" type="CSGBox3D" parent="WorldEnvironment/World/Room 12/Wall/CSGCombiner3D"]
+transform = Transform3D(-0.28353, 0, -0.958963, 0, 1, 0, 0.958963, 0, -0.28353, -136.506, 2.62631, -56.7793)
+size = Vector3(79.1066, 10.1795, 0.586365)
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="WorldEnvironment/World/Room 12/Wall/CSGCombiner3D"]
+transform = Transform3D(-0.28353, 0, -0.958963, 0, 1, 0, 0.958963, 0, -0.28353, -29.7233, 2.66351, -25.0737)
+size = Vector3(79.1066, 10.2539, 0.586365)
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="WorldEnvironment/World/Room 12/Wall/CSGCombiner3D/CSGBox3D20"]
+transform = Transform3D(0.688297, 0.0612631, -0.722839, 0.724887, -0.0195639, 0.68859, 0.0280438, -0.997931, -0.0578754, 15.2996, -3.7441, -0.0416718)
 operation = 2
-radius = 2.92139
+radius = 3.01416
 height = 1.40381
 
-[node name="CSGBox3D13" type="CSGBox3D" parent="WorldEnvironment/World/level 5/Wall/CSGCombiner3D"]
-transform = Transform3D(0.96237, 0, -0.271743, 0, 1, 0, 0.271743, 0, 0.96237, -15.1404, 0.144148, -8.91151)
-size = Vector3(37.5414, 3.90164, 0.271179)
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="WorldEnvironment/World/Room 12/Wall/CSGCombiner3D/CSGBox3D20"]
+transform = Transform3D(0.688297, 0.0612629, -0.722839, 0.724887, -0.0195639, 0.68859, 0.0280438, -0.997931, -0.0578753, -21.6815, -3.7441, -0.186752)
+operation = 2
+radius = 3.01416
+height = 1.40381
 
-[node name="CSGBox3D15" type="CSGBox3D" parent="WorldEnvironment/World/level 5/Wall/CSGCombiner3D"]
-transform = Transform3D(0.954099, 0, -0.29949, 0, 1, 0, 0.29949, 0, 0.954099, -18.4845, 0.193258, -1.78984)
-size = Vector3(35.467, 3.90164, 0.271179)
+[node name="CSGBox3D13" type="CSGBox3D" parent="WorldEnvironment/World/Room 12/Wall/CSGCombiner3D"]
+transform = Transform3D(0.96237, 0, -0.271743, 0, 1, 0, 0.271743, 0, 0.96237, -14.7075, 3.05326, -10.9617)
+size = Vector3(36.6418, 9.71986, 0.271179)
 
-[node name="Floor" type="Node3D" parent="WorldEnvironment/World/level 5"]
+[node name="CSGBox3D15" type="CSGBox3D" parent="WorldEnvironment/World/Room 12/Wall/CSGCombiner3D"]
+transform = Transform3D(0.984241, 0, -0.176827, 0, 1, 0, 0.176827, 0, 0.984241, -21.0831, 2.20902, -0.715836)
+size = Vector3(30.6298, 9.56947, 0.271179)
+
+[node name="Floor" type="Node3D" parent="WorldEnvironment/World/Room 12"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.3197, 9.62037, 29.4941)
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="WorldEnvironment/World/level 5/Floor"]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="WorldEnvironment/World/Room 12/Floor"]
 use_collision = true
 
-[node name="CSGBox3D14" type="CSGBox3D" parent="WorldEnvironment/World/level 5/Floor/CSGCombiner3D"]
-transform = Transform3D(0.960386, 0, -0.278673, 0, 1, 0, 0.278673, 0, 0.960386, 20.9075, -0.494715, 4.15796)
-size = Vector3(38.3748, 0.695389, 13.4346)
+[node name="CSGBox3D14" type="CSGBox3D" parent="WorldEnvironment/World/Room 12/Floor/CSGCombiner3D"]
+transform = Transform3D(0.960386, 0, -0.278673, 0, 1, 0, 0.278673, 0, 0.960386, 20.5656, -0.494715, 5.33643)
+size = Vector3(38.3748, 0.695389, 18.5651)
 
-[node name="CSGBox3D16" type="CSGBox3D" parent="WorldEnvironment/World/level 5/Floor/CSGCombiner3D"]
+[node name="CSGBox3D16" type="CSGBox3D" parent="WorldEnvironment/World/Room 12/Floor/CSGCombiner3D"]
 transform = Transform3D(0.960386, 0, -0.278673, 0, 1, 0, 0.278673, 0, 0.960386, -46.1982, -0.494715, -31.4385)
 size = Vector3(111.879, 0.695389, 79.1353)
 
-[node name="Verbindung" type="Node3D" parent="WorldEnvironment/World"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.4245, 0, -185.361)
+[node name="Verbindung" type="Node3D" parent="WorldEnvironment/World/Room 12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 228.743, 0.605736, 18.755)
 
-[node name="Wall" type="Node3D" parent="WorldEnvironment/World/Verbindung"]
+[node name="Wall" type="Node3D" parent="WorldEnvironment/World/Room 12/Verbindung"]
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="WorldEnvironment/World/Verbindung/Wall"]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="WorldEnvironment/World/Room 12/Verbindung/Wall"]
+use_collision = true
 
-[node name="CSGBox3D9" type="CSGBox3D" parent="WorldEnvironment/World/Verbindung/Wall/CSGCombiner3D"]
+[node name="CSGBox3D9" type="CSGBox3D" parent="WorldEnvironment/World/Room 12/Verbindung/Wall/CSGCombiner3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.1018, 3.5092, 7.89476)
 size = Vector3(1.01427, 9.91837, 21.667)
 
-[node name="CSGBox3D11" type="CSGBox3D" parent="WorldEnvironment/World/Verbindung/Wall/CSGCombiner3D"]
-transform = Transform3D(0.389703, 0, 0.920941, 0, 1, 0, -0.920941, 0, 0.389703, -19.1828, 3.74817, -14.3837)
-size = Vector3(1.01427, 9.91837, 54.6848)
+[node name="CSGBox3D11" type="CSGBox3D" parent="WorldEnvironment/World/Room 12/Verbindung/Wall/CSGCombiner3D"]
+transform = Transform3D(0.389703, 0, 0.920941, 0, 1, 0, -0.920941, 0, 0.389703, -19.1828, 4.6841, -14.3837)
+size = Vector3(1.01427, 11.7902, 54.6848)
 
-[node name="CSGBox3D19" type="CSGBox3D" parent="WorldEnvironment/World/Verbindung/Wall/CSGCombiner3D"]
-transform = Transform3D(0.956819, 0, -0.290685, 0, 1, 0, 0.290685, 0, 0.956819, -161.043, 11.7425, -12.3149)
-size = Vector3(27.3418, 5.77498, 1.20081)
+[node name="CSGBox3D19" type="CSGBox3D" parent="WorldEnvironment/World/Room 12/Verbindung/Wall/CSGCombiner3D"]
+transform = Transform3D(0.956819, 0, -0.290685, 0, 1, 0, 0.290685, 0, 0.956819, -160.137, 13.5532, -12.0397)
+size = Vector3(26.9659, 9.39628, 1.20081)
 
-[node name="CSGBox3D20" type="CSGBox3D" parent="WorldEnvironment/World/Verbindung/Wall/CSGCombiner3D"]
-transform = Transform3D(0.956819, 0, -0.290685, 0, 1, 0, 0.290685, 0, 0.956819, -152.271, 11.7425, -28.1642)
-size = Vector3(27.3418, 5.77498, 1.20081)
+[node name="CSGBox3D20" type="CSGBox3D" parent="WorldEnvironment/World/Room 12/Verbindung/Wall/CSGCombiner3D"]
+transform = Transform3D(0.956819, 0, -0.290685, 0, 1, 0, 0.290685, 0, 0.956819, -153.192, 14.0188, -28.4439)
+size = Vector3(30.9995, 10.3277, 1.20081)
 
-[node name="CSGBox3D13" type="CSGBox3D" parent="WorldEnvironment/World/Verbindung/Wall/CSGCombiner3D"]
-transform = Transform3D(-0.254264, 0, 0.967135, 0, 1, 0, -0.967135, 0, -0.254264, -54.8107, 3.74817, -22.1273)
-size = Vector3(1.01427, 9.91837, 21.4805)
+[node name="CSGBox3D13" type="CSGBox3D" parent="WorldEnvironment/World/Room 12/Verbindung/Wall/CSGCombiner3D"]
+transform = Transform3D(-0.254264, 0, 0.967135, 0, 1, 0, -0.967135, 0, -0.254264, -54.8107, 5.61874, -22.1273)
+size = Vector3(1.01427, 13.6595, 21.4805)
 
-[node name="CSGBox3D16" type="CSGBox3D" parent="WorldEnvironment/World/Verbindung/Wall/CSGCombiner3D"]
-transform = Transform3D(-0.254166, 0.0278169, 0.966761, 0.00707286, 0.999613, -0.0269027, -0.967135, 0, -0.254264, -87.4273, 5.73354, -13.8295)
-size = Vector3(1.01427, 9.91837, 47.7722)
+[node name="CSGBox3D16" type="CSGBox3D" parent="WorldEnvironment/World/Room 12/Verbindung/Wall/CSGCombiner3D"]
+transform = Transform3D(-0.254166, 0.0278169, 0.966761, 0.00707286, 0.999613, -0.0269027, -0.967135, 0, -0.254264, -87.3918, 7.00925, -13.8295)
+size = Vector3(1.01427, 12.4708, 47.7722)
 
-[node name="CSGBox3D14" type="CSGBox3D" parent="WorldEnvironment/World/Verbindung/Wall/CSGCombiner3D"]
-transform = Transform3D(-0.00911046, 0, 0.999959, 0, 1, 0, -0.999959, 0, -0.00911046, -57.829, 3.74817, -4.70195)
-size = Vector3(1.01427, 9.91837, 21.2667)
+[node name="CSGBox3D14" type="CSGBox3D" parent="WorldEnvironment/World/Room 12/Verbindung/Wall/CSGCombiner3D"]
+transform = Transform3D(-0.00911046, 0, 0.999959, 0, 1, 0, -0.999959, 0, -0.00911046, -57.829, 5.30074, -4.70195)
+size = Vector3(1.01427, 13.0235, 21.2667)
 
-[node name="CSGBox3D17" type="CSGBox3D" parent="WorldEnvironment/World/Verbindung/Wall/CSGCombiner3D"]
-transform = Transform3D(0.442808, 0.173953, 0.87958, -0.0874434, 0.984702, -0.15072, -0.892342, -0.0101732, 0.451245, -130.584, 4.8937, 0.912735)
-size = Vector3(1.01427, 13.0941, 41.9702)
+[node name="CSGBox3D17" type="CSGBox3D" parent="WorldEnvironment/World/Room 12/Verbindung/Wall/CSGCombiner3D"]
+transform = Transform3D(0.442808, 0.173953, 0.87958, -0.0874434, 0.984702, -0.15072, -0.892342, -0.0101732, 0.451245, -130.263, 6.71308, 0.893951)
+size = Vector3(1.01427, 16.7894, 41.9702)
 
-[node name="CSGBox3D18" type="CSGBox3D" parent="WorldEnvironment/World/Verbindung/Wall/CSGCombiner3D"]
-transform = Transform3D(0.494151, 0.17425, 0.851735, -0.0874434, 0.984702, -0.15072, -0.864968, 0, 0.501828, -125.453, 7.35426, -15.8436)
-size = Vector3(1.01427, 13.0941, 34.5298)
+[node name="CSGBox3D18" type="CSGBox3D" parent="WorldEnvironment/World/Room 12/Verbindung/Wall/CSGCombiner3D"]
+transform = Transform3D(0.494151, 0.17425, 0.851735, -0.0874434, 0.984702, -0.15072, -0.864968, 0, 0.501828, -125.221, 8.66432, -15.8436)
+size = Vector3(1.01427, 15.7549, 34.5298)
 
-[node name="CSGBox3D15" type="CSGBox3D" parent="WorldEnvironment/World/Verbindung/Wall/CSGCombiner3D"]
-transform = Transform3D(-0.315069, 0, 0.949069, 0, 1, 0, -0.949069, 0, -0.315069, -90.326, 3.74817, 2.78603)
-size = Vector3(1.01427, 9.91837, 48.3096)
+[node name="CSGBox3D15" type="CSGBox3D" parent="WorldEnvironment/World/Room 12/Verbindung/Wall/CSGCombiner3D"]
+transform = Transform3D(-0.315069, 0, 0.949069, 0, 1, 0, -0.949069, 0, -0.315069, -90.326, 5.48171, 2.78603)
+size = Vector3(1.01427, 13.3855, 48.3096)
 
-[node name="CSGBox3D12" type="CSGBox3D" parent="WorldEnvironment/World/Verbindung/Wall/CSGCombiner3D"]
-transform = Transform3D(0.389703, 0, 0.920941, 0, 1, 0, -0.920941, 0, 0.389703, -32.3897, 3.74817, 1.53888)
-size = Vector3(1.01427, 9.91837, 33.6743)
+[node name="CSGBox3D12" type="CSGBox3D" parent="WorldEnvironment/World/Room 12/Verbindung/Wall/CSGCombiner3D"]
+transform = Transform3D(0.389703, 0, 0.920941, 0, 1, 0, -0.920941, 0, 0.389703, -32.3897, 5.15389, 1.53888)
+size = Vector3(1.01427, 12.7298, 33.6743)
 
-[node name="CSGBox3D10" type="CSGBox3D" parent="WorldEnvironment/World/Verbindung/Wall/CSGCombiner3D"]
+[node name="CSGBox3D10" type="CSGBox3D" parent="WorldEnvironment/World/Room 12/Verbindung/Wall/CSGCombiner3D"]
 transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 5.50925, 3.5092, 3.40704)
 size = Vector3(1.01427, 9.91837, 8.27246)
 
-[node name="Floor" type="Node3D" parent="WorldEnvironment/World/Verbindung"]
+[node name="Floor" type="Node3D" parent="WorldEnvironment/World/Room 12/Verbindung"]
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="WorldEnvironment/World/Verbindung/Floor"]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="WorldEnvironment/World/Room 12/Verbindung/Floor"]
+use_collision = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="WorldEnvironment/World/Verbindung/Floor/CSGCombiner3D"]
-transform = Transform3D(0.949696, 0.149007, 0.275453, -0.155003, 0.987914, 0, -0.272124, -0.0426961, 0.961315, -53.1027, 1.52186, -14.535)
-size = Vector3(21.0679, 1, 20.9468)
+[node name="CSGBox3D" type="CSGBox3D" parent="WorldEnvironment/World/Room 12/Verbindung/Floor/CSGCombiner3D"]
+transform = Transform3D(0.949696, 0.149007, 0.275453, -0.155003, 0.987914, 0, -0.272124, -0.0426961, 0.961315, -51.0984, 1.10712, -15.1093)
+size = Vector3(25.2888, 1, 20.9468)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="WorldEnvironment/World/Verbindung/Floor/CSGCombiner3D"]
+[node name="CSGBox3D3" type="CSGBox3D" parent="WorldEnvironment/World/Room 12/Verbindung/Floor/CSGCombiner3D"]
 transform = Transform3D(0.862077, 0.13526, -0.488393, -0.155003, 0.987914, 0, 0.48249, 0.0757026, 0.872624, -127.663, 5.86559, -5.96851)
 size = Vector3(42.1142, 1, 21.0907)
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="WorldEnvironment/World/Verbindung/Floor/CSGCombiner3D/CSGBox3D3"]
+[node name="CSGBox3D5" type="CSGBox3D" parent="WorldEnvironment/World/Room 12/Verbindung/Floor/CSGCombiner3D/CSGBox3D3"]
 transform = Transform3D(0.971703, -0.155004, 0.178236, 0.15246, 0.987916, 0.0279651, -0.180416, 1.9668e-08, 0.98359, -20.6526, 0.453115, -0.898163)
 operation = 2
 size = Vector3(9.07292, 1, 18.1757)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="WorldEnvironment/World/Verbindung/Floor/CSGCombiner3D"]
+[node name="CSGBox3D2" type="CSGBox3D" parent="WorldEnvironment/World/Room 12/Verbindung/Floor/CSGCombiner3D"]
 transform = Transform3D(0.961315, 0, 0.275453, 0, 1, 0, -0.275453, 0, 0.961315, -90.1802, 3.05195, -4.10922)
 size = Vector3(56.4032, 1, 20.0281)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="WorldEnvironment/World/Verbindung/Floor/CSGCombiner3D"]
+[node name="CSGBox3D4" type="CSGBox3D" parent="WorldEnvironment/World/Room 12/Verbindung/Floor/CSGCombiner3D"]
 transform = Transform3D(0.946418, 0, -0.322943, 0, 1, 0, 0.322943, 0, 0.946418, -168.189, 8.44559, -23.1753)
 size = Vector3(51.1093, 1, 20.8848)
+
+[node name="Room 13" type="Node3D" parent="WorldEnvironment/World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -129.453, 8.84718, -298.901)
+
+[node name="Floor" type="Node3D" parent="WorldEnvironment/World/Room 13"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="WorldEnvironment/World/Room 13/Floor"]
+use_collision = true
+
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="WorldEnvironment/World/Room 13/Floor/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 17, 218.211, -4.09918, -32.0023)
+use_collision = true
+polygon = PackedVector2Array(-5.37031, -4.58778, -5.36801, 4.72491, -2.98776, 4.76452, 8.59249, -4.46503)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="WorldEnvironment/World/Room 13/Floor/CSGCombiner3D"]
+transform = Transform3D(0.951229, 0, -0.308486, 0, 1, 0, 0.308486, 0, 0.951229, -58.1206, 0.431726, 46.6594)
+size = Vector3(13.5176, 0.381836, 24.8582)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="WorldEnvironment/World/Room 13/Floor/CSGCombiner3D"]
+transform = Transform3D(0.888617, 0, 0.45865, 0, 1, 0, -0.45865, 0, 0.888617, 27.9249, 0.431726, 0.0164185)
+size = Vector3(184.046, 0.381836, 12.4114)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="WorldEnvironment/World/Room 13/Floor/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 118.68, 0.431726, -38.4969)
+size = Vector3(29.4631, 0.381836, 21.6833)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="WorldEnvironment/World/Room 13/Floor/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 173.283, 0.431726, -38.4969)
+size = Vector3(79.7434, 0.381836, 73.4338)
+
+[node name="Wall" type="Node3D" parent="WorldEnvironment/World/Room 13"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="WorldEnvironment/World/Room 13/Wall"]
+use_collision = true
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="WorldEnvironment/World/Room 13/Wall/CSGCombiner3D"]
+transform = Transform3D(0.951229, 0, -0.308486, 0, 1, 0, 0.308486, 0, 0.951229, -52.6764, 5.25014, 52.3923)
+size = Vector3(1, 10.1437, 13.6942)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="WorldEnvironment/World/Room 13/Wall/CSGCombiner3D"]
+transform = Transform3D(0.888729, 0, 0.458432, 0, 1, 0, -0.458432, 0, 0.888729, 26.6907, 5.18013, 6.35248)
+size = Vector3(174.328, 10.0037, 1.12228)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="WorldEnvironment/World/Room 13/Wall/CSGCombiner3D"]
+transform = Transform3D(0.888729, 0, 0.458432, 0, 1, 0, -0.458432, 0, 0.888729, 20.3632, 5.2029, -1.31262)
+size = Vector3(188.487, 10.0492, 1.12228)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="WorldEnvironment/World/Room 13/Wall/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104.004, 4.77974, -46.6536)
+size = Vector3(0.683477, 9.20291, 5.37628)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="WorldEnvironment/World/Room 13/Wall/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104.004, 5.15523, -30.8865)
+size = Vector3(0.683477, 9.95389, 6.23663)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="WorldEnvironment/World/Room 13/Wall/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 118.578, 5.30016, -27.8838)
+size = Vector3(29.832, 9.50391, 0.732)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="WorldEnvironment/World/Room 13/Wall/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 118.578, 5.02686, -49.0248)
+size = Vector3(29.832, 8.69617, 0.732)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="WorldEnvironment/World/Room 13/Wall/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 173.276, 4.67762, -75.1419)
+size = Vector3(27.3936, 9.06934, 0.732)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="WorldEnvironment/World/Room 13/Wall/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 212.41, 4.68519, -39.6082)
+size = Vector3(27.3936, 9.08447, 0.732)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="WorldEnvironment/World/Room 13/Wall/CSGCombiner3D/CSGBox3D16"]
+transform = Transform3D(1, 4.37114e-08, -4.37114e-08, -4.37114e-08, 0, -1, -4.37114e-08, 1, 1.91069e-15, 0, -3.20919, 0)
+operation = 2
+radius = 2.12842
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="WorldEnvironment/World/Room 13/Wall/CSGCombiner3D"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 146.477, 4.72864, -62.0847)
+size = Vector3(37.4695, 9.17139, 0.732)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="WorldEnvironment/World/Room 13/Wall/CSGCombiner3D"]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 199.426, 4.67518, -62.3857)
+size = Vector3(36.6699, 9.06445, 0.732)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="WorldEnvironment/World/Room 13/Wall/CSGCombiner3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 172.806, 4.73694, -2.03516)
+size = Vector3(27.3936, 9.18799, 0.732)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="WorldEnvironment/World/Room 13/Wall/CSGCombiner3D"]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 199.476, 4.74088, -14.9636)
+size = Vector3(37.1925, 9.19586, 0.732)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="WorldEnvironment/World/Room 13/Wall/CSGCombiner3D"]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 146.656, 4.81922, -14.7914)
+size = Vector3(36.6699, 9.35254, 0.732)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="WorldEnvironment/World/Room 13/Wall/CSGCombiner3D"]
+transform = Transform3D(0.951229, 0, -0.308486, 0, 1, 0, 0.308486, 0, 0.951229, -64.8169, 5.26021, 46.3858)
+size = Vector3(1, 10.1638, 18.5274)
+
+[node name="Boss Room" type="Node3D" parent="WorldEnvironment/World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 253.1, 0, -400.273)
+
+[node name="Walls" type="Node3D" parent="WorldEnvironment/World/Boss Room"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="WorldEnvironment/World/Boss Room/Walls"]
+use_collision = true
+
+[node name="CSGBox3D31" type="CSGBox3D" parent="WorldEnvironment/World/Boss Room/Walls/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -60.5313, 4.5, -1.34149)
+size = Vector3(1, 9, 31.8779)
+
+[node name="CSGBox3D32" type="CSGBox3D" parent="WorldEnvironment/World/Boss Room/Walls/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -59.7805, 4.5, 13.6428)
+size = Vector3(1, 9, 33.3794)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="WorldEnvironment/World/Boss Room/Walls/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.062, 5, 0)
+radius = 40.0
+height = 10.0
+sides = 32
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="WorldEnvironment/World/Boss Room/Walls/CSGCombiner3D/CSGCylinder3D"]
+transform = Transform3D(-4.35005e-08, -0.995174, 0.0981214, 1, -4.37114e-08, 0, 4.28902e-09, 0.0981214, 0.995174, -37.1847, -1.07329, 3.81067)
+operation = 2
+radius = 2.64453
+height = 5.38379
+sides = 16
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="WorldEnvironment/World/Boss Room/Walls/CSGCombiner3D/CSGCylinder3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4782, 0)
+operation = 2
+radius = 35.0
+height = 10.0
+sides = 32
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="WorldEnvironment/World/Boss Room/Walls/CSGCombiner3D"]
+transform = Transform3D(0.996067, 0, 0.442994, 0, 1, 0, -0.0885988, 0, 4.98034, -44.5482, 0.923762, 6.31512)
+polygon = PackedVector2Array(-10.4771, -0.499426, -1.71498, 1.9336, 3.64565, 1.52424, 3.82291, -1.38559)
+
+[node name="Player" parent="WorldEnvironment" instance=ExtResource("4_8spf6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.75402, 0.354114, -1.03027)
+speed = 20.0
+acceleration = 10.0
+rotationType = "rotate based on relative mouse position"
+
+[node name="Camera" type="Camera3D" parent="WorldEnvironment" node_paths=PackedStringArray("settings")]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -4.75402, 9.35414, 5.96973)
+current = true
+script = ExtResource("5_b5gbf")
+settings = NodePath("../Player")
+
+[editable path="WorldEnvironment/Player"]

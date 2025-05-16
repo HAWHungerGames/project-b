@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://56tchsrpayeo"]
+[gd_scene load_steps=11 format=3 uid="uid://cpyee7rfs1efb"]
 
-[ext_resource type="Script" uid="uid://bwrchpg0h1fcx" path="res://Scripts/PlayerStats.gd" id="1_fkybt"]
-[ext_resource type="Script" uid="uid://birw8rdmwcq4v" path="res://Scripts/PlayerController.gd" id="2_x3wgy"]
-[ext_resource type="Material" uid="uid://dekpipancsbc6" path="res://Materials/TestCubes.tres" id="3_3smsa"]
-[ext_resource type="Script" uid="uid://ct0q0dexxvtma" path="res://Scripts/DebugUI.gd" id="5_f1ek2"]
+[ext_resource type="Script" uid="uid://bwrchpg0h1fcx" path="res://Scripts/PlayerStats.gd" id="1_2nftw"]
+[ext_resource type="Script" uid="uid://birw8rdmwcq4v" path="res://Scripts/PlayerController.gd" id="2_knrd4"]
+[ext_resource type="Material" uid="uid://dekpipancsbc6" path="res://Materials/TestCubes.tres" id="3_hck1p"]
+[ext_resource type="Script" uid="uid://ct0q0dexxvtma" path="res://Scripts/DebugUI.gd" id="4_juxdh"]
+[ext_resource type="Script" uid="uid://b5l31sh77qstt" path="res://Scripts/CameraController.gd" id="5_knrd4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r2bbj"]
 
@@ -17,30 +18,31 @@ material = SubResource("StandardMaterial3D_e6mua")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pbfqo"]
 
-[node name="Player" type="Node3D"]
-script = ExtResource("1_fkybt")
-rotationType = "rotation based on right joystick"
+[node name="Player" type="Node3D" groups=["Player"]]
+script = ExtResource("1_2nftw")
+friction = 0.1
+rotationType = "rotate based on second input"
 dashType = "dash with stamina"
 cameraFollowSpeed = 0.078
 
-[node name="Controller" type="CharacterBody3D" parent="." node_paths=PackedStringArray("settings", "playerShape")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.06884, 0)
-script = ExtResource("2_x3wgy")
+[node name="Controller" type="CharacterBody3D" parent="." node_paths=PackedStringArray("settings", "playerShape") groups=["Player"]]
+script = ExtResource("2_knrd4")
 settings = NodePath("..")
 playerShape = NodePath("Model")
 
-[node name="Model" type="CollisionShape3D" parent="Controller"]
+[node name="Model" type="CollisionShape3D" parent="Controller" groups=["Player"]]
 shape = SubResource("CapsuleShape3D_r2bbj")
 debug_color = Color(0.106384, 0.585944, 0.754824, 0.42)
 
 [node name="FrontPointer" type="MeshInstance3D" parent="Controller/Model"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.519964, -0.60851)
-material_override = ExtResource("3_3smsa")
+material_override = ExtResource("3_hck1p")
 mesh = SubResource("BoxMesh_r2bbj")
 skeleton = NodePath("../../..")
 
-[node name="Mesh" type="MeshInstance3D" parent="Controller"]
+[node name="Mesh" type="MeshInstance3D" parent="Controller/Model" groups=["Player"]]
 mesh = SubResource("CapsuleMesh_k711p")
+skeleton = NodePath("../..")
 
 [node name="CameraArm" type="SpringArm3D" parent="Controller"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008, 6, 0.021)
@@ -50,9 +52,9 @@ margin = 0.1
 [node name="CameraTarget" type="Node3D" parent="Controller/CameraArm"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 7)
 
-[node name="Area3D" type="Area3D" parent="Controller"]
+[node name="Area3D" type="Area3D" parent="Controller" groups=["Player"]]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Controller/Area3D"]
+[node name="HirboxShape" type="CollisionShape3D" parent="Controller/Area3D" groups=["Player"]]
 shape = SubResource("CapsuleShape3D_pbfqo")
 
 [node name="DebugUI" type="Control" parent="." node_paths=PackedStringArray("settings", "controller", "input", "xyz", "speed", "sneaking", "inDetectionArea", "inHidingArea", "detected", "hidden", "health", "stamina", "mana")]
@@ -60,7 +62,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1150.0
 offset_bottom = 646.0
-script = ExtResource("5_f1ek2")
+script = ExtResource("4_juxdh")
 settings = NodePath("..")
 controller = NodePath("../Controller")
 input = NodePath("GridContainer/Input2/RichTextLabel")
@@ -74,7 +76,6 @@ hidden = NodePath("GridContainer/Hidden2/RichTextLabel")
 health = NodePath("GridContainer/Health2/RichTextLabel")
 stamina = NodePath("GridContainer/Stamina2/RichTextLabel")
 mana = NodePath("GridContainer/Mana2/RichTextLabel")
-metadata/_edit_use_anchors_ = true
 
 [node name="GridContainer" type="GridContainer" parent="DebugUI"]
 layout_mode = 0
@@ -281,6 +282,12 @@ layout_mode = 0
 offset_right = 167.0
 offset_bottom = 26.0
 text = "vxycvyx"
+
+[node name="Camera" type="Camera3D" parent="." node_paths=PackedStringArray("settings")]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 9, 7)
+current = true
+script = ExtResource("5_knrd4")
+settings = NodePath("..")
 
 [connection signal="area_entered" from="Controller/Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="area_exited" from="Controller/Area3D" to="." method="_on_area_3d_area_exited"]

@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://vj7to5njslw6"]
+
+[ext_resource type="Script" uid="uid://dmu20hjcmp5q" path="res://Scripts/Socket.gd" id="1_ln7qy"]
+[ext_resource type="Material" uid="uid://vlajy1vjbcaw" path="res://Materials/TestCubes2.tres" id="2_vo460"]
+[ext_resource type="AudioStream" uid="uid://dg30u3n0a7tv0" path="res://Assets/Sound/mixkit-sweet-kitty-meow-93.wav" id="3_vo460"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_m2ivx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3donx"]
+size = Vector3(1, 1.78308, 1)
+
+[node name="Socket" type="StaticBody3D"]
+script = ExtResource("1_ln7qy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("2_vo460")
+mesh = SubResource("BoxMesh_m2ivx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.391541, 0)
+shape = SubResource("BoxShape3D_3donx")
+
+[node name="Weapon Slot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10056, 0)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_vo460")
+
+[connection signal="interacted" from="." to="." method="_on_interacted"]
