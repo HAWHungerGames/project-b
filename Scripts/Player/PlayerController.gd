@@ -12,6 +12,7 @@ var maxStamina: int
 var staminaPerSecond: int
 var staminaCostPerDash: int
 var dashType: String
+var noStaminaAfterDashTime: float
 
 @export_category("Components")
 @export var playerShape: CollisionShape3D
@@ -39,6 +40,7 @@ func _ready():
 	staminaPerSecond = player.staminaPerSecond
 	staminaCostPerDash = player.staminaCostPerDash
 	dashType = player.dashType
+	noStaminaAfterDashTime = player.noStaminaAfterDashTime
 
 func _physics_process(delta):	
 	apply_gravity(delta)
@@ -79,6 +81,7 @@ func dash_ability(delta):
 	var direction = Vector3(input.x, 0, input.y).rotated(Vector3.UP, spring_arm.rotation.y)
 	velocity = lerp(velocity, direction * dashStrength, acceleration * delta)
 	velocity.y = vy
+	player.set_stamina_regen_cooldown(noStaminaAfterDashTime)
 	if player.isDetected:
 		PlayerActionTracker.timesDodgedInCombat += 1
 

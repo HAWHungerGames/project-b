@@ -16,6 +16,7 @@ extends Node3D
 @export var staminaCostPerDash: int = 50
 @export var dashStrength: int = 200
 @export var dashMaxCooldown: float = 3
+@export var noStaminaAfterDashTime: float = 1
 @export_subgroup("Sneak")
 @export var sneakSpeedModifier: float = 2
 @export_subgroup("Blocking")
@@ -25,20 +26,20 @@ extends Node3D
 
 @export_category("Resources")
 @export_subgroup("Health")
-@export var maxHealth: int = 200
+@export var maxHealth: float = 200
 @export_enum("Health regeneration", "Health from potions") var healthType: String = "Health from potions"
-@export var healthPerSecond: int = 10
-@export var healthPerPotion: int = 100
+@export var healthPerSecond: float = 10
+@export var healthPerPotion: float = 100
 
 @export_subgroup("Stamina")
-@export var maxStamina: int = 200
-@export var staminaPerSecond: int = 10
+@export var maxStamina: float = 200
+@export var staminaPerSecond: float = 10
 
 @export_subgroup("Mana")
-@export var maxMana: int = 200
+@export var maxMana: float = 200
 @export_enum("Mana regeneration", "Mana from potions") var manaType: String = "Mana regeneration"
-@export var manaPerSecond: int = 10
-@export var manaPerPotion: int = 100
+@export var manaPerSecond: float = 10
+@export var manaPerPotion: float = 100
 
 @export_category("Camera")
 @export_subgroup("Camera behaviour")
@@ -49,9 +50,10 @@ extends Node3D
 @export var cameraHeight: float = 6
 @export var cameraDistanceFromPlayer: float = 8
 
-var stamina: int = maxStamina
-var health: int = maxHealth
-var mana: int = maxMana
+var stamina: float = maxStamina
+var staminaRegenCooldown: float = 0
+var health: float = maxHealth
+var mana: float = maxMana
 var timer: float = 0
 var isSneaking: bool = false
 var isInDetectionArea: bool = false
@@ -76,28 +78,39 @@ func _physics_process(delta):
 	resource_system(delta)
 	checkDetection()
 	brokenBlockTracker(delta)
+	print(GameManager.get_first_weapon())
 
 func brokenBlockTracker(delta):
 	if blockBroken > 0:
 		blockBroken -= delta
 
 func resource_system(delta):
-	if timer >= 0.1:
-		if health < maxHealth and healthType == "Health regeneration":
-			health += healthPerSecond/10
+	if staminaRegenCooldown > 0:
+		staminaRegenCooldown -= delta
+	if timer >= 0.02:
+		if health < maxHealth and healthType == "Health regeneration" and !isDetected:
+			health += healthPerSecond/50
 			if health > maxHealth:
 				health = maxHealth
-		if stamina < maxStamina and !isBlocking:
-			stamina += staminaPerSecond/10
+		if stamina < maxStamina and !isBlocking and staminaRegenCooldown <= 0:
+			stamina += staminaPerSecond/50
 			if stamina > maxStamina:
 				stamina = maxStamina
 		if mana < maxMana and manaType == "Mana regeneration":
-			mana += manaPerSecond/10
+			mana += manaPerSecond/50
 			if mana > maxMana:
 				mana = maxMana
 		timer = 0
 	else:
 		timer += delta
+
+func addDetectingEnemy(enemy):
+	if !enemiesDetectingPlayer.has(enemy):
+		enemiesDetectingPlayer.append(enemy)
+
+func removeDetectingEnemy(enemy):
+	if enemiesDetectingPlayer.has(enemy):
+		enemiesDetectingPlayer.erase(enemy)
 
 func checkDetection():
 	if enemiesDetectingPlayer.size() == 0:
@@ -108,8 +121,19 @@ func checkDetection():
 func reduce_stamina(amount: int):
 	stamina -= amount
 
+##Reduces mana by set amount and returns true if player  had enough mana, and false if they did not
+func reduce_mana(amount: int):
+	if mana >= amount:
+		mana -= amount
+		return true
+	else:
+		return false
+
 func set_sneaking(value: bool):
 	isSneaking = value
+
+func set_stamina_regen_cooldown(value: float):
+	staminaRegenCooldown = value
 
 func check_if_attack_was_blocked(attacker: Node3D):
 	var diffVector = self.get_child(0).global_transform.origin - attacker.global_transform.origin
@@ -129,8 +153,23 @@ func breakBlock():
 	print("Block was broken from attack")
 
 func takeDamage(damage: int, attacker: Node3D):
-	if !check_if_attack_was_blocked(attacker):
+	if check_if_attack_was_blocked(attacker):
+		health -= damage*getBlockingDamageReduction()
+	else:
 		health -= damage
+
+func getBlockingDamageReduction():
+	if GameManager.get_first_weapon() == "Bow":
+		return 0.2
+	if GameManager.get_first_weapon() == "Staff":
+		return 0.3
+	if GameManager.get_first_weapon() == "Sword":
+		if GameManager.get_second_weapon() == "Shield":
+			return 1
+		return 0.5
+	if GameManager.get_first_weapon() == "Shield":
+		return 1.0
+	return 0.0
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.is_in_group("Bush"):

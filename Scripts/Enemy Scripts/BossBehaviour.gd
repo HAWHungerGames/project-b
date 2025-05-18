@@ -14,6 +14,8 @@ extends CharacterBody3D
 
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
 
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+
 var aggression
 var player
 var detectedPlayer: bool = false
@@ -23,6 +25,7 @@ func _ready():
 	player = GlobalPlayer.getPlayer()
 
 func _physics_process(delta: float):
+	apply_gravity(delta)
 	move_to_furthest_point_from_player(delta)
 
 func calculateAggression():
@@ -62,11 +65,12 @@ func move_towards_target(delta, target):
 	velocity = velocity.lerp(direction * speed, acceleration * delta)
 	move_and_slide()
 
+func apply_gravity(delta):
+	velocity.y += -gravity * delta
 
 func _on_detection_area_entered(area: Area3D) -> void:
 	if area.is_in_group("Player"):
 		detectedPlayer = true
-
 
 func _on_detection_area_exited(area: Area3D) -> void:
 	if area.is_in_group("Player"):

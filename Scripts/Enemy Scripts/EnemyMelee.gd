@@ -27,6 +27,8 @@ extends CharacterBody3D
 @onready var attackNode = $AttackArea
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
 
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+
 var playerIsInHearingArea: bool = false
 var playerIsInVisionArea: bool = false
 var attackCooldown: float = 0
@@ -43,12 +45,18 @@ func _ready():
 	attackNode.scale = Vector3(attackLength, attackHeight, attackWidth)
 
 func _physics_process(delta):
+	apply_gravity(delta)
 	if detect_player():
 		rotateToPlayer()
 		attack(delta)
 	if detect_player():
 		if !isAttacking:
 			navigation(delta)
+		else:
+			velocity = Vector3(0, velocity.y, 0)
+	else:
+		velocity = Vector3(0, velocity.y, 0)
+	move_and_slide()
 
 func navigation(delta):
 	match movementType:
@@ -64,7 +72,6 @@ func move_towards_player(delta):
 	
 	direction = (nav.get_next_path_position() - global_position).normalized()
 	velocity = velocity.lerp(direction * speed, acceleration * delta)
-	move_and_slide()
 
 func keep_set_distance_from_player(delta):
 	var distance = global_position.distance_to(player.get_child(0).global_position)
@@ -76,29 +83,30 @@ func keep_set_distance_from_player(delta):
 		
 		direction = (nav.get_next_path_position() - global_position).normalized()
 		velocity = velocity.lerp(direction * speed, acceleration * delta)
-		move_and_slide()
 		isMoving = true
+	else:
+		velocity = Vector3(0, velocity.y, 0)
 
 func detect_player():
 	if playerIsInHearingArea and !playerIsInVisionArea:
 		if player.isSneaking and !player.isDetected:
-			player.enemiesDetectingPlayer.erase([self])
+			player.removeDetectingEnemy([self])
 			return false
 		else:
-			player.enemiesDetectingPlayer.append([self])
+			player.addDetectingEnemy([self])
 			return true
 	if  playerIsInVisionArea and !playerIsInHearingArea:
 		if detect_player_raycast() or player.isDetected:
-			player.enemiesDetectingPlayer.append([self])
+			player.addDetectingEnemy([self])
 			return true
 		else:
-			player.enemiesDetectingPlayer.erase([self])
+			player.removeDetectingEnemy([self])
 			return false
 	if playerIsInHearingArea and playerIsInVisionArea:
 		if player.isDetected or detect_player_raycast() or !player.isSneaking:
-			player.enemiesDetectingPlayer.append([self])
+			player.addDetectingEnemy([self])
 			return true
-	player.enemiesDetectingPlayer.erase([self])
+	player.removeDetectingEnemy([self])
 	return false
 
 func detect_player_raycast():
@@ -143,6 +151,9 @@ func attack(delta):
 				isAttacking = false
 				if isInAttackArea:
 					player.takeDamage(attackDamage, self)
+
+func apply_gravity(delta):
+	velocity.y += -gravity * delta
 
 func _on_hearing_area_entered(area: Area3D) -> void:
 	if area.is_in_group("Player"):

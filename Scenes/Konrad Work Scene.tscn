@@ -236,11 +236,10 @@ sides = 32
 transform = Transform3D(0.996067, 0, 0.442994, 0, 1, 0, -0.0885988, 0, 4.98034, -44.5482, 0.923762, 6.31512)
 polygon = PackedVector2Array(-10.4771, -0.499426, -1.71498, 1.9336, 3.64565, 1.52424, 3.82291, -1.38559)
 
-[node name="Camera" type="Camera3D" parent="WorldEnvironment" node_paths=PackedStringArray("settings")]
+[node name="Camera" type="Camera3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 8.17838, 2.93165)
 current = true
 script = ExtResource("5_24xrm")
-settings = NodePath("../Player")
 
 [node name="Test Stuff" type="Node3D" parent="WorldEnvironment"]
 
