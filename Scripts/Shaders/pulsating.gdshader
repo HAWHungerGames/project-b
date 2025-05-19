@@ -4,9 +4,6 @@ uniform vec4 pulse_color : source_color = vec4(1.0, 0.0, 0.0,0.5); // Red
 uniform float pulse_speed : hint_range(0.0, 10.0, 0.1) = 2.0; // Pulse speed
 uniform float intensity : hint_range(0.0, 0.5, 0.01) = 0.5; // Max blend amount
 
-void vertex() {
-	// Called for every vertex the material is visible on.
-}
 
 void fragment() {
 	vec4 tex_color = texture(TEXTURE, UV);

@@ -74,7 +74,6 @@ func update_value(bar, damage_bar, current_val, max_val):
 		damage_bar.value = current_val * 100 / max_val
 
 func damage_tween(bar, val):
-	print("hello")
 	var tween = get_tree().create_tween()
 	tween.tween_property(bar, "value", val, 1).set_trans(Tween.TRANS_LINEAR)
 

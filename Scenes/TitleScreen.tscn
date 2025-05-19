@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwh1hvl3kgobd"]
+[gd_scene load_steps=5 format=3 uid="uid://dwh1hvl3kgobd"]
 
 [ext_resource type="Script" uid="uid://b5vtbmi5nafbd" path="res://Scripts/UI/menus/main_menu.gd" id="1_8l4an"]
-[ext_resource type="VideoStream" uid="uid://do33e743sbrbq" path="res://UITextures/MycAnimafter (1).ogv" id="2_8l4an"]
+[ext_resource type="Texture2D" uid="uid://bbcidp2tk4fkv" path="res://UITextures/MycAnimafter.png" id="2_n15yj"]
 [ext_resource type="FontFile" uid="uid://4l406r67702d" path="res://UITextures/Fonts/DidactGothic-Regular.ttf" id="3_emot1"]
+[ext_resource type="VideoStream" path="res://UITextures/TitleAnim.ogv" id="3_n15yj"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -21,21 +22,28 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+[node name="titleBackground" type="TextureRect" parent="MarginContainer"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 2
+texture = ExtResource("2_n15yj")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="MarginContainer"]
 layout_mode = 2
-stream = ExtResource("2_8l4an")
+stream = ExtResource("3_n15yj")
 autoplay = true
 
+[node name="Timer" type="Timer" parent="MarginContainer/VideoStreamPlayer"]
+wait_time = 5.0
+autostart = true
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-visible = false
+modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_vertical = 8
-
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -79,5 +87,7 @@ theme_override_fonts/font = ExtResource("3_emot1")
 theme_override_font_sizes/font_size = 50
 text = "Quit"
 
+[connection signal="finished" from="MarginContainer/VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
+[connection signal="timeout" from="MarginContainer/VideoStreamPlayer/Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/start" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/quit" to="." method="_on_button_3_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://17sawqr1a5sd"]
+[gd_scene load_steps=66 format=3 uid="uid://17sawqr1a5sd"]
 
 [ext_resource type="Material" uid="uid://b2rgc8u5hwwcc" path="res://Materials/TestGround.tres" id="1_ggd4s"]
 [ext_resource type="PackedScene" uid="uid://6j2eqyw3n43k" path="res://Prefabs/Asset Scenes/training_dummy.tscn" id="2_24xrm"]
@@ -28,17 +28,17 @@
 [ext_resource type="Texture2D" uid="uid://dxxqrbfkg137x" path="res://UITextures/Mana.png" id="23_e0tq6"]
 [ext_resource type="Texture2D" uid="uid://6m5jcd5pvxrn" path="res://UITextures/WeaponSlotInactive.png" id="25_qcrt0"]
 [ext_resource type="Texture2D" uid="uid://dgvicbxum24vi" path="res://UITextures/WeaponSlotPressed.png" id="26_ar3t4"]
-[ext_resource type="Script" uid="uid://c7616ek8c2kfe" path="res://Scripts/low_health.gd" id="26_vkbj3"]
+[ext_resource type="Script" uid="uid://c7616ek8c2kfe" path="res://Scripts/UI/low_health.gd" id="26_vkbj3"]
 [ext_resource type="Texture2D" uid="uid://baxq1j20y701x" path="res://UITextures/redTint.png" id="26_vkim1"]
 [ext_resource type="Texture2D" uid="uid://b0gb728e1n47w" path="res://UITextures/WeaponSlot.png" id="27_vs2el"]
 [ext_resource type="Texture2D" uid="uid://dwoof1omyr8bt" path="res://UITextures/mycelium.png" id="28_vkbj3"]
 [ext_resource type="Texture2D" uid="uid://b56g56co15oce" path="res://UITextures/WeaponSlotFrame2.png" id="30_1tgbn"]
 [ext_resource type="Script" uid="uid://cr2dkifmawgcm" path="res://Scripts/UI/weapon_slots.gd" id="31_5i7v7"]
-[ext_resource type="Shader" uid="uid://cel17p0kqic21" path="res://Scripts/Shaders/spores.gdshader" id="31_fwfwu"]
 [ext_resource type="Script" uid="uid://isgt2htj3fmm" path="res://Scripts/UI/menus/pause_menu.gd" id="32_3qkpg"]
 [ext_resource type="FontFile" uid="uid://4l406r67702d" path="res://UITextures/Fonts/DidactGothic-Regular.ttf" id="33_6roa5"]
 [ext_resource type="Script" uid="uid://cjfyqbv33333n" path="res://Scripts/boss_attack_spores.gd" id="33_efexv"]
 [ext_resource type="Shader" uid="uid://bjy5d3x36hbdt" path="res://Scripts/Shaders/pulsating.gdshader" id="34_5oe8d"]
+[ext_resource type="Texture2D" uid="uid://co6wmanklpgl3" path="res://UITextures/ParticleDust.png" id="39_5oe8d"]
 
 [sub_resource type="Environment" id="Environment_1ee8w"]
 
@@ -142,8 +142,22 @@ turbulence_initial_displacement_min = 1.49012e-06
 turbulence_initial_displacement_max = 1.49012e-06
 turbulence_influence_over_life = SubResource("CurveTexture_hq7hx")
 
+[sub_resource type="Shader" id="Shader_jp8xc"]
+code = "shader_type particles;
+
+uniform vec3 player_pos;
+uniform float attract_strength = 2.0;
+
+void particle() {
+    // Calculate direction to player
+    vec3 dir = normalize(player_pos - );
+    
+    // Adjust velocity (homing force)
+    VELOCITY += dir * attract_strength * DELTA;
+}"
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fwfwu"]
-shader = ExtResource("31_fwfwu")
+shader = SubResource("Shader_jp8xc")
 
 [sub_resource type="SphereMesh" id="SphereMesh_hq7hx"]
 material = SubResource("ShaderMaterial_fwfwu")
@@ -173,6 +187,7 @@ hue_variation_max = 0.05
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fgmgr"]
 transparency = 1
 vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("39_5oe8d")
 billboard_mode = 3
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
@@ -944,9 +959,7 @@ draw_pass_1 = SubResource("SphereMesh_hq7hx")
 
 [node name="WalkingDust" type="GPUParticles3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.616489, 0.413133)
-emitting = false
 lifetime = 0.2
-one_shot = true
 explosiveness = 0.7
 process_material = SubResource("ParticleProcessMaterial_efexv")
 draw_pass_1 = SubResource("QuadMesh_65wlj")
