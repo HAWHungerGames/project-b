@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 PlayerActionTracker="*res://Scripts/PlayerActionTracker.gd"
 GameManager="*res://Scripts/GameManager.gd"
+DamageNumbers="*res://Scripts/DamageNumbers.gd"
 
 [global_group]
 
@@ -26,6 +27,7 @@ Bullet=""
 World=""
 GameManager="*res://Scenes/game_manager.tscn"
 enemy=""
+TargetDummy=""
 
 [input]
 

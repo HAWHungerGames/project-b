@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://uwo1kmloxop4"]
 
-[ext_resource type="PackedScene" uid="uid://c3rclvxsw2532" path="res://Models/Bow.blend" id="1_fi01p"]
+[ext_resource type="PackedScene" uid="uid://hr3lbcpnbhr3" path="res://Models/Bow2.blend" id="2_jcypo"]
 
 [node name="Placeholder Bow Hand" type="Node3D"]
 
-[node name="Bow" parent="." instance=ExtResource("1_fi01p")]
+[node name="Bow2" parent="." instance=ExtResource("2_jcypo")]
 transform = Transform3D(0.4, 0, 0, 0, -1.74846e-08, -0.4, 0, 0.4, -1.74846e-08, 0, 0, 0)

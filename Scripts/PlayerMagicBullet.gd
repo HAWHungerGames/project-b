@@ -27,6 +27,11 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		body.takeDamage(dmg)
 		queue_free()
 		print("hit")
+	elif body.is_in_group("TargetDummy"):
+		print("dummy hit")
+		var dmg_position = body.get_child(2)
+		DamageNumbers.display_number(dmg, dmg_position.global_position)
+		queue_free()
 	else:
 		queue_free()
 		print("bullet despawned")

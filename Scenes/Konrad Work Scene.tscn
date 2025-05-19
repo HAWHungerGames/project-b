@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://17sawqr1a5sd"]
+[gd_scene load_steps=15 format=3 uid="uid://17sawqr1a5sd"]
 
 [ext_resource type="Material" uid="uid://b2rgc8u5hwwcc" path="res://Materials/TestGround.tres" id="1_ggd4s"]
 [ext_resource type="PackedScene" uid="uid://6j2eqyw3n43k" path="res://Prefabs/Asset Scenes/training_dummy.tscn" id="2_24xrm"]
@@ -7,13 +7,17 @@
 [ext_resource type="Script" uid="uid://b5l31sh77qstt" path="res://Scripts/CameraController.gd" id="5_24xrm"]
 [ext_resource type="PackedScene" uid="uid://cpyee7rfs1efb" path="res://Prefabs/player.tscn" id="6_0ctdn"]
 [ext_resource type="PackedScene" uid="uid://dwtwg5j2gx5qd" path="res://Prefabs/Asset Scenes/hand.tscn" id="6_rb0yp"]
+[ext_resource type="PackedScene" uid="uid://bkb84hjpc3lba" path="res://Prefabs/Asset Scenes/training_dummy2.tscn" id="8_oxcgu"]
 [ext_resource type="PackedScene" uid="uid://uafprr7riwjm" path="res://Prefabs/enemy_melee.tscn" id="10_1ee8w"]
 [ext_resource type="PackedScene" uid="uid://vj7to5njslw6" path="res://Prefabs/Asset Scenes/Socket.tscn" id="11_1bu8d"]
-[ext_resource type="PackedScene" uid="uid://dkq4iwxhux6s2" path="res://Prefabs/Asset Scenes/TestSphere.tscn" id="11_oxcgu"]
+[ext_resource type="PackedScene" uid="uid://dcsqxh8ksn77m" path="res://Prefabs/Asset Scenes/door.tscn" id="12_1bu8d"]
+[ext_resource type="PackedScene" uid="uid://durr2417rl7mr" path="res://Prefabs/enemy_ranged.tscn" id="12_q6ig3"]
 
 [sub_resource type="Environment" id="Environment_1ee8w"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_oxcgu"]
+[sub_resource type="NavigationMesh" id="NavigationMesh_oxcgu"]
+vertices = PackedVector3Array(11.25, 1, 46.893, 11.25, 1.25, -18.607, 10.75, 1, -18.607, -159.5, 1, 46.893, 10.75, 1, -27.357, 13, 1, -252.107, -159.5, 1, -252.107, 13, 1, -27.607, 14.75, 1, -27.607, 14.75, 1, -252.107, 16.75, 1, -27.607, 17, 1, -25.357, 159.5, 1, -25.357, 159.5, 1, -252.107, 11.75, 2.25, -20.357, 16, 2.25, -20.357, 16, 3.75, -26.607, 11.75, 3.75, -26.607, 11.75, 3.75, -22.857, 16, 3.75, -22.857, 12, 1, -26.357, 12, 1, -21.607, 15.75, 1, -21.607, 15.75, 1, -26.357, 17, 1, -18.607, 16.5, 1.25, -18.607, 16.5, 1, 46.893, 159.5, 1, 46.893, 16, 1.25, -18.607, 11.75, 1.25, -18.607)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 3), PackedInt32Array(4, 2, 3), PackedInt32Array(4, 5, 7), PackedInt32Array(5, 9, 7), PackedInt32Array(7, 9, 8), PackedInt32Array(11, 10, 12), PackedInt32Array(12, 10, 13), PackedInt32Array(13, 10, 9), PackedInt32Array(10, 8, 9), PackedInt32Array(14, 18, 15), PackedInt32Array(15, 18, 19), PackedInt32Array(19, 18, 17), PackedInt32Array(19, 17, 16), PackedInt32Array(23, 22, 20), PackedInt32Array(20, 22, 21), PackedInt32Array(26, 25, 24), PackedInt32Array(24, 11, 12), PackedInt32Array(26, 24, 27), PackedInt32Array(27, 24, 12), PackedInt32Array(29, 14, 28), PackedInt32Array(28, 14, 15), PackedInt32Array(28, 26, 29), PackedInt32Array(29, 26, 0), PackedInt32Array(0, 1, 29), PackedInt32Array(28, 25, 26)]
 
 [node name="KonradWorkScene" type="Node3D"]
 
@@ -25,7 +29,15 @@ environment = SubResource("Environment_1ee8w")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment/Grey Box World"]
 transform = Transform3D(1, 0, 0, 0, 0.743145, 0.669131, 0, -0.669131, 0.743145, 0, 13.9007, 0)
 
-[node name="Ground" type="CSGBox3D" parent="WorldEnvironment/Grey Box World"]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="WorldEnvironment/Grey Box World"]
+navigation_mesh = SubResource("NavigationMesh_oxcgu")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="WorldEnvironment/Grey Box World/NavigationRegion3D"]
+transform = Transform3D(-4.37114e-08, 0, 5, 0, 1, 0, -1, 0, -2.18557e-07, 16.4628, -0.262059, -21.1764)
+use_collision = true
+polygon = PackedVector2Array(-3.92837, 0.163654, 1.66039, 3.60656, 5.79976, 3.61472, 5.80412, 0.180376)
+
+[node name="Ground" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -102.607)
 use_collision = true
 size = Vector3(320, 1, 300)
@@ -62,26 +74,116 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 25, 5,
 use_collision = true
 size = Vector3(40, 10, 1)
 
-[node name="CSGPolygon3D" type="CSGPolygon3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Walls etc"]
-transform = Transform3D(-4.37114e-08, 0, 5, 0, 1, 0, -1, 0, -2.18557e-07, 16.4628, -0.262059, -6.17639)
-polygon = PackedVector2Array(-3.92837, 0.163654, 1.66039, 3.60656, 5.79976, 3.61472, 5.80412, 0.180376)
-
 [node name="Objects" type="Node3D" parent="WorldEnvironment/Grey Box World/Tutorial Room"]
 
-[node name="Training Dummy2" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.83603, 2, -13.2898)
-size = Vector3(2, 4, 2)
-material = ExtResource("3_0ctdn")
-
-[node name="Zielscheibe" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 5.254, -19)
-size = Vector3(4, 4, 1)
-material = ExtResource("3_0ctdn")
-
 [node name="Schild" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.25358, 2, -4.65281)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5656, 2, 5.94278)
 size = Vector3(3, 4, 1)
 material = ExtResource("3_0ctdn")
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.30376, 2.935, -17.7447)
+use_collision = true
+size = Vector3(3.17871, 12.656, 3.10767)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects/CSGBox3D17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.46811, 0)
+use_collision = true
+size = Vector3(7.19824, 6.86816, 8.63867)
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.34655, 2.935, -17.7447)
+use_collision = true
+size = Vector3(3.17871, 12.656, 3.10767)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects/CSGBox3D18"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.46811, 0)
+use_collision = true
+size = Vector3(7.19824, 6.86816, 8.63867)
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4224, 2.935, -14.9885)
+use_collision = true
+size = Vector3(3.17871, 12.656, 3.10767)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects/CSGBox3D19"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.46811, 0)
+use_collision = true
+size = Vector3(7.19824, 6.86816, 8.63867)
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.9385, 2.935, -17.2811)
+use_collision = true
+size = Vector3(3.17871, 12.656, 3.10767)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects/CSGBox3D20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.46811, 0)
+use_collision = true
+size = Vector3(7.19824, 6.86816, 8.63867)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.21302, 1.45692, -15.0291)
+radius = 1.0
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects/CSGSphere3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.897053, -0.436752, 0)
+radius = 1.0
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects/CSGSphere3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.324017, -0.436752, 0)
+radius = 1.0
+
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects/CSGSphere3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.216106, -0.436752, 0.50145)
+radius = 1.0
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9015, 1.45692, -13.8518)
+radius = 1.0
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects/CSGSphere3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.897053, -0.436752, 0)
+radius = 1.0
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects/CSGSphere3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.324017, -0.436752, 0)
+radius = 1.0
+
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects/CSGSphere3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.216106, -0.436752, 0.50145)
+radius = 1.0
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -19.1591, 2.14794, -12.9312)
+radius = 1.0
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects/CSGSphere3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.897053, -0.436752, 0)
+radius = 1.0
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects/CSGSphere3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.324017, -0.436752, 0)
+radius = 1.0
+
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects/CSGSphere3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.216106, -0.436752, 0.50145)
+radius = 1.0
+
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects"]
+transform = Transform3D(1.33483, 0, 1.48937, 0, 2, 0, -1.48937, 0, 1.33483, -6.49191, 2.14794, -19.8937)
+radius = 1.0
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects/CSGSphere3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.897053, -0.436752, 0)
+radius = 1.0
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects/CSGSphere3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.324017, -0.436752, 0)
+radius = 1.0
+
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects/CSGSphere3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.216106, -0.436752, 0.50145)
+radius = 1.0
 
 [node name="Room 1" type="Node3D" parent="WorldEnvironment/Grey Box World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -67.7875)
@@ -155,11 +257,6 @@ use_collision = true
 size = Vector3(7.19824, 6.86816, 8.63867)
 
 [node name="Enemies" type="Node3D" parent="WorldEnvironment/Grey Box World/Room 1"]
-
-[node name="CSGMesh3D" type="CSGMesh3D" parent="WorldEnvironment/Grey Box World/Room 1/Enemies"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 4.09695)
-mesh = SubResource("CapsuleMesh_oxcgu")
-material = ExtResource("3_0ctdn")
 
 [node name="Room 9" type="Node3D" parent="WorldEnvironment/Grey Box World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.283234, 0, -114.72)
@@ -262,44 +359,55 @@ transform = Transform3D(-0.999999, 0, -8.74227e-08, 0, 1, 0, 8.74227e-08, 0, -0.
 [node name="Test Stuff" type="Node3D" parent="WorldEnvironment"]
 
 [node name="training_dummy" parent="WorldEnvironment/Test Stuff" instance=ExtResource("2_24xrm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.09446, 2.5, -9.32767)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.08592, 2.03202, -19.6113)
+
+[node name="training_dummy2" parent="WorldEnvironment/Test Stuff" instance=ExtResource("2_24xrm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.961, 2.03202, -19.6113)
+
+[node name="training_dummy3" parent="WorldEnvironment/Test Stuff" instance=ExtResource("2_24xrm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5321, 2.03202, -19.6113)
+
+[node name="training_dummy4" parent="WorldEnvironment/Test Stuff" instance=ExtResource("8_oxcgu")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 14.0223, 4.43699, -34.4936)
 
 [node name="Socket2" parent="WorldEnvironment/Test Stuff" instance=ExtResource("11_1bu8d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.73555, 0.996558, -10.4893)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.26652, 0.996558, -13.8294)
 weapon = "shield"
 
 [node name="Socket3" parent="WorldEnvironment/Test Stuff" instance=ExtResource("11_1bu8d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.60227, 0.996558, -10.4893)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3998, 0.996558, -13.8294)
 
 [node name="Socket4" parent="WorldEnvironment/Test Stuff" instance=ExtResource("11_1bu8d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.39425, 0.996558, -10.4893)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.392177, 0.996558, -13.8294)
 weapon = "staff"
 
 [node name="Socket5" parent="WorldEnvironment/Test Stuff" instance=ExtResource("11_1bu8d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.94855, 0.996558, -10.4893)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.94648, 0.996558, -13.8294)
 weapon = "bow"
 
 [node name="Socket6" parent="WorldEnvironment/Test Stuff" instance=ExtResource("11_1bu8d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.55591, 0.996558, -10.4893)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.55384, 0.996558, -13.8294)
 weapon = "nothing"
 
-[node name="TestSphere" parent="WorldEnvironment/Test Stuff" instance=ExtResource("11_oxcgu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.19897, 1.53205, -4.63357)
-prompt_message = "I am a SPHERE!"
-
-[node name="TestSphere2" parent="WorldEnvironment/Test Stuff" instance=ExtResource("11_oxcgu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.28914, 1.57856, -4.75525)
-
 [node name="MeleeEnemy" parent="WorldEnvironment/Test Stuff" node_paths=PackedStringArray("player") groups=["enemy"] instance=ExtResource("10_1ee8w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -23.799)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -60.1661)
 player = NodePath("../../Player")
 
 [node name="MeleeEnemy2" parent="WorldEnvironment/Test Stuff" node_paths=PackedStringArray("player") groups=["enemy"] instance=ExtResource("10_1ee8w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.55148, 1.5, -23.799)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7261, 4.37732, -25.1636)
 player = NodePath("../../Player")
+visionRange = 20.0
 
 [node name="MeleeEnemy3" parent="WorldEnvironment/Test Stuff" node_paths=PackedStringArray("player") groups=["enemy"] instance=ExtResource("10_1ee8w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.31843, 1.5, -28.7224)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.77517, 1.5, -65.0895)
 player = NodePath("../../Player")
+
+[node name="RangedEnemy" parent="WorldEnvironment/Test Stuff" node_paths=PackedStringArray("player") groups=["enemy"] instance=ExtResource("12_q6ig3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.45755, 1.57494, -64.5633)
+player = NodePath("../../Player")
+homingStrength = 1.0
+
+[node name="Door" parent="WorldEnvironment/Test Stuff" instance=ExtResource("12_1bu8d")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, -34.3258)
 
 [editable path="WorldEnvironment/Player"]

@@ -1,21 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://6j2eqyw3n43k"]
+[gd_scene load_steps=4 format=3 uid="uid://bkb84hjpc3lba"]
 
-[ext_resource type="Material" uid="uid://dekpipancsbc6" path="res://Materials/TestCubes.tres" id="1_agbbn"]
+[ext_resource type="Material" uid="uid://dekpipancsbc6" path="res://Materials/TestCubes.tres" id="1_h1rvm"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_7rg6w"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_agbbn"]
-size = Vector3(1.50098, 3.03125, 1.55273)
+size = Vector3(2.01953, 2.01074, 1.03613)
 
 [node name="training_dummy" type="StaticBody3D" groups=["TargetDummy"]]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.5, 0, 0, 0, 3, 0, 0, 0, 1.5, 0, 0, 0)
-material_override = ExtResource("1_agbbn")
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
+material_override = ExtResource("1_h1rvm")
 mesh = SubResource("BoxMesh_7rg6w")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_agbbn")
 
 [node name="DamageNumbersPosition" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.48822, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07043, 0.384031)

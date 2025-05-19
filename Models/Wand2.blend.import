@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b74dtnjfyyvin"
-path="res://.godot/imported/Wand.blend-f2936067e510906bacbab4bb9df8c397.scn"
+uid="uid://1c1g75645vwu"
+path="res://.godot/imported/Wand2.blend-a12d65e5a31c25f9ffb717fb48ae0bab.scn"
 
 [deps]
 
-source_file="res://Models/Wand.blend"
-dest_files=["res://.godot/imported/Wand.blend-f2936067e510906bacbab4bb9df8c397.scn"]
+source_file="res://Models/Wand2.blend"
+dest_files=["res://.godot/imported/Wand2.blend-a12d65e5a31c25f9ffb717fb48ae0bab.scn"]
 
 [params]
 

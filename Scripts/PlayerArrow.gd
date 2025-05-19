@@ -46,6 +46,19 @@ func attack(body):
 			body.takeDamage(dmg)
 			print("hit")
 			dmg /= 4
+			
+	elif body.is_in_group("TargetDummy"):
+		if extraDmg < 3:
+			dmg *= extraDmg
+			print(dmg)
+		elif extraDmg >= 3:
+			dmg *= 4
+			print(dmg)
+		print("dummy hit")
+		var dmg_position = body.get_child(2)
+		DamageNumbers.display_number(dmg, dmg_position.global_position)
+		queue_free()
+		
 	else:
 		queue_free()
 		print("bullet despawned")

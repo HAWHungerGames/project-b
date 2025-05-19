@@ -1,13 +1,17 @@
 extends Area3D
 
 
-func _on_area_entered(area: Area3D) -> void:
-	if area.is_in_group("enemy"):
-		print("enemy hit")
-
-
-
 func _on_body_entered(body: Node3D) -> void:
+	hitting_enemy(body)
+	hitting_target_dummy(body)
+		
+func hitting_enemy(body):
 	if body.is_in_group("enemy"):
 		body.takeDamage(50)
 		print("enemy hit")
+
+func hitting_target_dummy(body):
+	if body.is_in_group("TargetDummy"):
+		print("dummy hit")
+		var dmg_position = body.get_child(2)
+		DamageNumbers.display_number(50, dmg_position.global_position)
