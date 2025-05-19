@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://17sawqr1a5sd"]
+[gd_scene load_steps=58 format=3 uid="uid://17sawqr1a5sd"]
 
 [ext_resource type="Material" uid="uid://b2rgc8u5hwwcc" path="res://Materials/TestGround.tres" id="1_ggd4s"]
 [ext_resource type="Material" uid="uid://dekpipancsbc6" path="res://Materials/TestCubes.tres" id="3_0ctdn"]
@@ -30,7 +30,10 @@
 [ext_resource type="Script" uid="uid://cr2dkifmawgcm" path="res://Scripts/UI/weapon_slots.gd" id="31_5i7v7"]
 [ext_resource type="Shader" uid="uid://cel17p0kqic21" path="res://Scripts/Shaders/spores.gdshader" id="31_fwfwu"]
 [ext_resource type="Script" uid="uid://isgt2htj3fmm" path="res://Scripts/UI/menus/pause_menu.gd" id="32_3qkpg"]
+[ext_resource type="Texture2D" path="res://UITextures/ParticleDust.png" id="32_hq7hx"]
 [ext_resource type="FontFile" uid="uid://4l406r67702d" path="res://UITextures/Fonts/DidactGothic-Regular.ttf" id="33_6roa5"]
+[ext_resource type="Script" uid="uid://cjfyqbv33333n" path="res://Scenes/boss_attack_spores.gd" id="33_efexv"]
+[ext_resource type="Script" uid="uid://cy4vtymhlpnuo" path="res://Scenes/particle_manager.gd" id="34_fgmgr"]
 
 [sub_resource type="Environment" id="Environment_1ee8w"]
 
@@ -40,10 +43,27 @@
 load_path = "res://.godot/imported/Health.png-a734aa25cedf1d4e582dab6f275fa483.ctex"
 
 [sub_resource type="Gradient" id="Gradient_fwfwu"]
-colors = PackedColorArray(0.624, 0.72, 0, 1, 1, 1, 1, 0)
+offsets = PackedFloat32Array(0, 0.489451, 0.767932, 1)
+colors = PackedColorArray(0.624, 0.72, 0, 0.537255, 0.857336, 0.841146, 0.221142, 0.890196, 0.911952, 0.9542, 0.360503, 0.94902, 1, 1, 1, 0.596078)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_hq7hx"]
 gradient = SubResource("Gradient_fwfwu")
+
+[sub_resource type="Curve" id="Curve_hq7hx"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 13.0573), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_efexv"]
+curve = SubResource("Curve_hq7hx")
+
+[sub_resource type="Curve" id="Curve_65wlj"]
+_limits = [-10.0, 10.0, 0.0, 1.0]
+_data = [Vector2(0, 5.85987), 0.0, 0.0, 0, 0, Vector2(0.707224, -0.143312), -4.41427, -4.41427, 0, 0, Vector2(1, -1.17834), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_toju0"]
+curve = SubResource("Curve_65wlj")
 
 [sub_resource type="Curve" id="Curve_efexv"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -52,38 +72,99 @@ point_count = 2
 [sub_resource type="CurveTexture" id="CurveTexture_fgmgr"]
 curve = SubResource("Curve_efexv")
 
+[sub_resource type="Curve" id="Curve_fwfwu"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.500753), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_hq7hx"]
+curve = SubResource("Curve_fwfwu")
+
+[sub_resource type="Curve" id="Curve_fgmgr"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_65wlj"]
+curve = SubResource("Curve_fgmgr")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_65wlj"]
 lifetime_randomness = 0.5
-particle_flag_disable_z = true
 emission_shape = 1
-emission_sphere_radius = 0.5
-direction = Vector3(0, 0, 0)
+emission_sphere_radius = 0.25
+angle_min = 1.07288e-05
+angle_max = 45.0
+spread = 12.945
 flatness = 1.0
-initial_velocity_min = -2.0
-initial_velocity_max = 2.0
+initial_velocity_min = 0.1
+initial_velocity_max = 1.0
 angular_velocity_min = 30.0
 angular_velocity_max = 60.0
-orbit_velocity_min = 9.49949e-08
-orbit_velocity_max = 9.49949e-08
-gravity = Vector3(0, 0, 0)
-radial_accel_min = -2.23517e-06
-radial_accel_max = -2.23517e-06
-tangential_accel_min = -2.23517e-06
-tangential_accel_max = -2.23517e-06
+orbit_velocity_min = 0.1
+orbit_velocity_max = 0.3
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = -2.23517e-05
+velocity_limit_curve = SubResource("CurveTexture_65wlj")
+gravity = Vector3(0, -0.2, 0)
+radial_accel_min = 0.0999978
+radial_accel_max = 0.199998
+radial_accel_curve = SubResource("CurveTexture_toju0")
+tangential_accel_min = 0.399998
+tangential_accel_max = 0.999998
 damping_min = 0.2
-damping_max = 0.2
+damping_max = 1.0
+damping_curve = SubResource("CurveTexture_efexv")
 scale_min = 0.3
 scale_max = 1.2
 scale_curve = SubResource("CurveTexture_fgmgr")
 color = Color(0.623529, 0.721569, 0, 1)
 color_ramp = SubResource("GradientTexture1D_hq7hx")
+turbulence_enabled = true
+turbulence_noise_strength = 12.88
+turbulence_noise_speed = Vector3(1, 1, 1)
+turbulence_noise_speed_random = 1.04
+turbulence_initial_displacement_min = 1.49012e-06
+turbulence_initial_displacement_max = 1.49012e-06
+turbulence_influence_over_life = SubResource("CurveTexture_hq7hx")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fwfwu"]
-render_priority = 0
 shader = ExtResource("31_fwfwu")
 
-[sub_resource type="QuadMesh" id="QuadMesh_hq7hx"]
+[sub_resource type="SphereMesh" id="SphereMesh_hq7hx"]
 material = SubResource("ShaderMaterial_fwfwu")
+radius = 0.04
+height = 0.08
+
+[sub_resource type="Curve" id="Curve_toju0"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 2.28583), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_g5dpn"]
+curve = SubResource("Curve_toju0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_efexv"]
+lifetime_randomness = 0.2
+particle_flag_align_y = true
+direction = Vector3(0, 1, 0)
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0.5, 0)
+scale_min = 0.2
+scale_curve = SubResource("CurveTexture_g5dpn")
+color = Color(1, 0.808, 0.68, 1)
+hue_variation_min = -2.23517e-08
+hue_variation_max = 0.05
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fgmgr"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("32_hq7hx")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_65wlj"]
+material = SubResource("StandardMaterial3D_fgmgr")
+size = Vector2(0.4, 0.4)
 
 [node name="KonradWorkScene" type="Node3D"]
 
@@ -692,23 +773,53 @@ text = "Exit"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WorldEnvironment/CanvasLayer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.85693, 0)
-skeleton = NodePath("../../GPUParticles3D")
+skeleton = NodePath("../../DeathSpores")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.85693, 0)
+[node name="DeathSpores" type="GPUParticles3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00802851, 1.77447, 0)
 emitting = false
-amount = 100
-lifetime = 4.0
-one_shot = true
+amount = 5000
+lifetime = 3.5
 explosiveness = 1.0
-randomness = 0.5
+randomness = 1.0
 fixed_fps = 60
 local_coords = true
 draw_order = 3
 transform_align = 1
 trail_enabled = true
 process_material = SubResource("ParticleProcessMaterial_65wlj")
-draw_pass_1 = SubResource("QuadMesh_hq7hx")
+draw_pass_1 = SubResource("SphereMesh_hq7hx")
+
+[node name="DeathSpores2" type="GPUParticles3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.27317, 1.77447, 0)
+emitting = false
+amount = 1000
+lifetime = 3.5
+explosiveness = 1.0
+randomness = 1.0
+fixed_fps = 60
+local_coords = true
+draw_order = 3
+transform_align = 1
+trail_enabled = true
+process_material = SubResource("ParticleProcessMaterial_65wlj")
+draw_pass_1 = SubResource("SphereMesh_hq7hx")
+
+[node name="WalkingDust" type="GPUParticles3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.616489, 0.413133)
+emitting = false
+lifetime = 0.2
+one_shot = true
+explosiveness = 0.7
+process_material = SubResource("ParticleProcessMaterial_efexv")
+draw_pass_1 = SubResource("QuadMesh_65wlj")
+
+[node name="BossAttack" type="MultiMeshInstance3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.21544, 2.24366, 1.41814)
+script = ExtResource("33_efexv")
+
+[node name="ParticleManager" type="Node3D" parent="."]
+script = ExtResource("34_fgmgr")
 
 [connection signal="timeout" from="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/health/timer" to="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_health_timer_timeout"]
 [connection signal="timeout" from="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina/timer" to="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_stamina_timer_timeout"]

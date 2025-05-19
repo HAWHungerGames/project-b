@@ -1,11 +1,12 @@
-shader_type spatial;
-render_mode unshaded, cull_back, blend_mix;
+shader_type particles;
 
-void fragment() {
-    // Calculate distance from center of quad (UVs go from 0 to 1)
-    float dist = distance(UV, vec2(0.5));
-    float circle = smoothstep(0.5, 0.48, dist); // Soft edge, adjust as needed
+uniform vec3 player_pos;
+uniform float attract_strength = 2.0;
 
-    ALBEDO = COLOR.rgb;          // Use particle color
-    ALPHA = COLOR.a * circle;    // Fully transparent outside the circle
+void particle() {
+    // Calculate direction to player
+    vec3 dir = normalize(player_pos - );
+    
+    // Adjust velocity (homing force)
+    VELOCITY += dir * attract_strength * DELTA;
 }

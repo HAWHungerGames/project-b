@@ -1,30 +1,30 @@
 [gd_scene load_steps=25 format=3 uid="uid://cytkpf563uyiu"]
 
+[ext_resource type="Script" uid="uid://cr2dkifmawgcm" path="res://Scripts/UI/weapon_slots.gd" id="2_b8rtp"]
 [ext_resource type="Texture2D" uid="uid://dmuil4tlckvro" path="res://UITextures/BarFrameTop.png" id="2_iufls"]
 [ext_resource type="Texture2D" uid="uid://dc4hcr4p2xbna" path="res://UITextures/UnderneathTop.png" id="3_b8rtp"]
 [ext_resource type="Texture2D" uid="uid://cvmgiuevaosab" path="res://UITextures/DamageTop.png" id="4_612k1"]
-[ext_resource type="Script" uid="uid://bnww4st6veejn" path="res://Scripts/UI/health_bar.gd" id="4_n04ve"]
-[ext_resource type="Script" uid="uid://dbguuygjr5i8j" path="res://Scripts/UI/stamina.gd" id="5_us6mg"]
 [ext_resource type="Texture2D" uid="uid://crd1yijlsjxdv" path="res://UITextures/BarFrameBottom.png" id="6_8blbl"]
+[ext_resource type="Script" uid="uid://l471dqs5cmuc" path="res://Scripts/UI/bars.gd" id="6_612k1"]
 [ext_resource type="Texture2D" uid="uid://idv5h3wy02ok" path="res://UITextures/StaminaBottom.png" id="7_bb0on"]
 [ext_resource type="Texture2D" uid="uid://c8eq20nuh4yxx" path="res://UITextures/UnderneathBottom.png" id="8_wijgc"]
 [ext_resource type="Texture2D" uid="uid://cur1fsy614172" path="res://UITextures/DamageBottom.png" id="9_yhvps"]
 [ext_resource type="Texture2D" uid="uid://dxxqrbfkg137x" path="res://UITextures/Mana.png" id="10_r71lk"]
-[ext_resource type="Script" uid="uid://cuwb4uj35aarf" path="res://Scripts/UI/stamina_middle.gd" id="10_tb15e"]
 [ext_resource type="Texture2D" uid="uid://booeplbhoubjy" path="res://UITextures/BarFrameMiddle.png" id="11_qvwwb"]
 [ext_resource type="Texture2D" uid="uid://b7ms4tj2ov82j" path="res://UITextures/StaminaMiddle.png" id="12_qqo6a"]
 [ext_resource type="Texture2D" uid="uid://cjvmlsiwqy7rj" path="res://UITextures/UnderneathMiddle.png" id="13_8ekee"]
 [ext_resource type="Texture2D" uid="uid://dncs81uxppe3f" path="res://UITextures/DamageMiddle.png" id="14_j0pu8"]
-[ext_resource type="Script" uid="uid://b57sqr6u10aoi" path="res://Scripts/UI/mana.gd" id="15_6maro"]
-[ext_resource type="Texture2D" uid="uid://bo0ff6usbdnki" path="res://UITextures/WeaponSlotFrame.png" id="17_45jp6"]
 [ext_resource type="Texture2D" uid="uid://6m5jcd5pvxrn" path="res://UITextures/WeaponSlotInactive.png" id="18_q6a8d"]
 [ext_resource type="Texture2D" uid="uid://dgvicbxum24vi" path="res://UITextures/WeaponSlotPressed.png" id="19_6lb63"]
+[ext_resource type="Script" uid="uid://c7616ek8c2kfe" path="res://Scenes/low_health.gd" id="19_us6mg"]
+[ext_resource type="Texture2D" uid="uid://baxq1j20y701x" path="res://UITextures/redTint.png" id="20_8blbl"]
 [ext_resource type="Texture2D" uid="uid://b0gb728e1n47w" path="res://UITextures/WeaponSlot.png" id="20_dgrhb"]
-[ext_resource type="Texture2D" uid="uid://bwilv5e18pgi3" path="res://UITextures/Sword.png" id="21_wypb4"]
-[ext_resource type="Texture2D" uid="uid://drtpxaxwusxws" path="res://UITextures/MagicAttack.png" id="22_y1m5i"]
+[ext_resource type="Texture2D" uid="uid://dwoof1omyr8bt" path="res://UITextures/mycelium.png" id="21_bb0on"]
+[ext_resource type="Script" uid="uid://isgt2htj3fmm" path="res://Scripts/UI/menus/pause_menu.gd" id="22_wijgc"]
 [ext_resource type="Texture2D" uid="uid://b56g56co15oce" path="res://UITextures/WeaponSlotFrame2.png" id="23_dm5gj"]
+[ext_resource type="FontFile" uid="uid://4l406r67702d" path="res://UITextures/Fonts/DidactGothic-Regular.ttf" id="23_yhvps"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qoydj"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tb15e"]
 load_path = "res://.godot/imported/Health.png-a734aa25cedf1d4e582dab6f275fa483.ctex"
 
 [node name="SörenUI" type="Control"]
@@ -35,278 +35,48 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="FullUI" type="MarginContainer" parent="."]
-layout_mode = 1
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="FullUI" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="FullUI"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/FullUI"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="MarginContainer2" type="MarginContainer" parent="FullUI/VBoxContainer"]
-visible = false
+[node name="stats" type="MarginContainer" parent="CanvasLayer/FullUI/VBoxContainer"]
 layout_mode = 2
-
-[node name="UITopLeft" type="VBoxContainer" parent="FullUI/VBoxContainer/MarginContainer2"]
-visible = false
-layout_mode = 2
-theme_override_constants/separation = -99
-
-[node name="Bars" type="VBoxContainer" parent="FullUI/VBoxContainer/MarginContainer2/UITopLeft"]
-custom_minimum_size = Vector2(300, 350)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_constants/separation = -160
-
-[node name="health" type="AspectRatioContainer" parent="FullUI/VBoxContainer/MarginContainer2/UITopLeft/Bars"]
-custom_minimum_size = Vector2(384, 216)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-alignment_horizontal = 0
-alignment_vertical = 0
-script = ExtResource("4_n04ve")
-
-[node name="healthBar" type="TextureProgressBar" parent="FullUI/VBoxContainer/MarginContainer2/UITopLeft/Bars/health"]
-z_index = 1
-custom_minimum_size = Vector2(384, 216)
-layout_mode = 2
-value = 64.0
-nine_patch_stretch = true
-texture_over = ExtResource("2_iufls")
-texture_progress = SubResource("CompressedTexture2D_qoydj")
-
-[node name="damageBar" type="TextureProgressBar" parent="FullUI/VBoxContainer/MarginContainer2/UITopLeft/Bars/health"]
-custom_minimum_size = Vector2(384, 216)
-layout_mode = 2
-value = 74.0
-nine_patch_stretch = true
-texture_under = ExtResource("3_b8rtp")
-texture_progress = ExtResource("4_612k1")
-
-[node name="timer" type="Timer" parent="FullUI/VBoxContainer/MarginContainer2/UITopLeft/Bars/health"]
-wait_time = 0.4
-one_shot = true
-
-[node name="stamina" type="AspectRatioContainer" parent="FullUI/VBoxContainer/MarginContainer2/UITopLeft/Bars"]
-process_mode = 4
-visible = false
-custom_minimum_size = Vector2(192, 108)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-alignment_horizontal = 0
-alignment_vertical = 0
-script = ExtResource("5_us6mg")
-
-[node name="staminaBar" type="TextureProgressBar" parent="FullUI/VBoxContainer/MarginContainer2/UITopLeft/Bars/stamina"]
-z_index = 1
-custom_minimum_size = Vector2(384, 216)
-layout_mode = 2
-value = 66.0
-nine_patch_stretch = true
-texture_over = ExtResource("6_8blbl")
-texture_progress = ExtResource("7_bb0on")
-
-[node name="damageBar" type="TextureProgressBar" parent="FullUI/VBoxContainer/MarginContainer2/UITopLeft/Bars/stamina"]
-custom_minimum_size = Vector2(384, 216)
-layout_mode = 2
-value = 66.0
-nine_patch_stretch = true
-texture_under = ExtResource("8_wijgc")
-texture_progress = ExtResource("9_yhvps")
-
-[node name="timer" type="Timer" parent="FullUI/VBoxContainer/MarginContainer2/UITopLeft/Bars/stamina"]
-
-[node name="staminaMiddle" type="AspectRatioContainer" parent="FullUI/VBoxContainer/MarginContainer2/UITopLeft/Bars"]
-custom_minimum_size = Vector2(192, 108)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-alignment_horizontal = 0
-alignment_vertical = 0
-script = ExtResource("10_tb15e")
-
-[node name="staminaBarMiddle" type="TextureProgressBar" parent="FullUI/VBoxContainer/MarginContainer2/UITopLeft/Bars/staminaMiddle"]
-z_index = 1
-custom_minimum_size = Vector2(384, 216)
-layout_mode = 2
-value = 66.0
-nine_patch_stretch = true
-texture_over = ExtResource("11_qvwwb")
-texture_progress = ExtResource("12_qqo6a")
-
-[node name="damageBar" type="TextureProgressBar" parent="FullUI/VBoxContainer/MarginContainer2/UITopLeft/Bars/staminaMiddle"]
-custom_minimum_size = Vector2(384, 216)
-layout_mode = 2
-value = 66.0
-nine_patch_stretch = true
-texture_under = ExtResource("13_8ekee")
-texture_progress = ExtResource("14_j0pu8")
-
-[node name="timer" type="Timer" parent="FullUI/VBoxContainer/MarginContainer2/UITopLeft/Bars/staminaMiddle"]
-
-[node name="mana" type="AspectRatioContainer" parent="FullUI/VBoxContainer/MarginContainer2/UITopLeft/Bars"]
-custom_minimum_size = Vector2(192, 108)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-alignment_horizontal = 0
-alignment_vertical = 0
-script = ExtResource("15_6maro")
-
-[node name="manaBar" type="TextureProgressBar" parent="FullUI/VBoxContainer/MarginContainer2/UITopLeft/Bars/mana"]
-z_index = 1
-texture_filter = 6
-texture_repeat = 2
-custom_minimum_size = Vector2(384, 216)
-layout_mode = 2
-value = 66.0
-nine_patch_stretch = true
-texture_over = ExtResource("6_8blbl")
-texture_progress = ExtResource("10_r71lk")
-
-[node name="damageBar" type="TextureProgressBar" parent="FullUI/VBoxContainer/MarginContainer2/UITopLeft/Bars/mana"]
-texture_filter = 6
-texture_repeat = 2
-custom_minimum_size = Vector2(384, 216)
-layout_mode = 2
-value = 66.0
-nine_patch_stretch = true
-texture_under = ExtResource("8_wijgc")
-texture_progress = ExtResource("9_yhvps")
-
-[node name="timer" type="Timer" parent="FullUI/VBoxContainer/MarginContainer2/UITopLeft/Bars/mana"]
-
-[node name="WeaponSLots" type="VBoxContainer" parent="FullUI/VBoxContainer/MarginContainer2/UITopLeft"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 8
-
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="FullUI/VBoxContainer/MarginContainer2/UITopLeft/WeaponSLots"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-
-[node name="TextureButton" type="TextureButton" parent="FullUI/VBoxContainer/MarginContainer2/UITopLeft/WeaponSLots/AspectRatioContainer"]
-custom_minimum_size = Vector2(200, 100)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("17_45jp6")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="FullUI/VBoxContainer/MarginContainer2/UITopLeft/WeaponSLots/AspectRatioContainer/TextureButton"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-
-[node name="HBoxContainer" type="HBoxContainer" parent="FullUI/VBoxContainer/MarginContainer2/UITopLeft/WeaponSLots/AspectRatioContainer/TextureButton/AspectRatioContainer2"]
-layout_mode = 2
-
-[node name="TextureButton" type="TextureButton" parent="FullUI/VBoxContainer/MarginContainer2/UITopLeft/WeaponSLots/AspectRatioContainer/TextureButton/AspectRatioContainer2/HBoxContainer"]
-custom_minimum_size = Vector2(90, 90)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("18_q6a8d")
-texture_pressed = ExtResource("19_6lb63")
-texture_focused = ExtResource("20_dgrhb")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="MarginContainer" type="MarginContainer" parent="FullUI/VBoxContainer/MarginContainer2/UITopLeft/WeaponSLots/AspectRatioContainer/TextureButton/AspectRatioContainer2/HBoxContainer/TextureButton"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="FullUI/VBoxContainer/MarginContainer2/UITopLeft/WeaponSLots/AspectRatioContainer/TextureButton/AspectRatioContainer2/HBoxContainer/TextureButton/MarginContainer"]
-z_index = -1
-custom_minimum_size = Vector2(60, 60)
-layout_mode = 2
-texture = ExtResource("21_wypb4")
-expand_mode = 1
-
-[node name="TextureButton2" type="TextureButton" parent="FullUI/VBoxContainer/MarginContainer2/UITopLeft/WeaponSLots/AspectRatioContainer/TextureButton/AspectRatioContainer2/HBoxContainer"]
-custom_minimum_size = Vector2(90, 90)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("18_q6a8d")
-texture_pressed = ExtResource("19_6lb63")
-texture_focused = ExtResource("20_dgrhb")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="MarginContainer" type="MarginContainer" parent="FullUI/VBoxContainer/MarginContainer2/UITopLeft/WeaponSLots/AspectRatioContainer/TextureButton/AspectRatioContainer2/HBoxContainer/TextureButton2"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_right = 0
-
-[node name="TextureRect" type="TextureRect" parent="FullUI/VBoxContainer/MarginContainer2/UITopLeft/WeaponSLots/AspectRatioContainer/TextureButton/AspectRatioContainer2/HBoxContainer/TextureButton2/MarginContainer"]
-z_index = -1
-custom_minimum_size = Vector2(60, 60)
-layout_mode = 2
-texture = ExtResource("22_y1m5i")
-expand_mode = 1
-
-[node name="stats" type="MarginContainer" parent="FullUI/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
+theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 10
 
-[node name="UITopLeft2" type="HBoxContainer" parent="FullUI/VBoxContainer/stats"]
+[node name="horizontal" type="HBoxContainer" parent="CanvasLayer/FullUI/VBoxContainer/stats"]
 layout_mode = 2
-theme_override_constants/separation = 50
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 25
 
-[node name="MarginContainer2" type="MarginContainer" parent="FullUI/VBoxContainer/stats/UITopLeft2"]
+[node name="weaponSlotMargin" type="MarginContainer" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="WeaponSLots" type="VBoxContainer" parent="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer2"]
+[node name="weaponSlotFrameBox" type="VBoxContainer" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/weaponSlotMargin"]
 custom_minimum_size = Vector2(100, 200)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer2/WeaponSLots"]
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/weaponSlotMargin/weaponSlotFrameBox"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="TextureButton" type="TextureButton" parent="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer2/WeaponSLots/AspectRatioContainer"]
+[node name="weaponSlotFrame" type="TextureButton" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/weaponSlotMargin/weaponSlotFrameBox/AspectRatioContainer"]
 custom_minimum_size = Vector2(110, 220)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -315,7 +85,7 @@ texture_normal = ExtResource("23_dm5gj")
 ignore_texture_size = true
 stretch_mode = 4
 
-[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer2/WeaponSLots/AspectRatioContainer/TextureButton"]
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/weaponSlotMargin/weaponSlotFrameBox/AspectRatioContainer/weaponSlotFrame"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -325,12 +95,13 @@ grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 
-[node name="HBoxContainer" type="VBoxContainer" parent="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer2/WeaponSLots/AspectRatioContainer/TextureButton/AspectRatioContainer2"]
+[node name="weaponSlots" type="VBoxContainer" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/weaponSlotMargin/weaponSlotFrameBox/AspectRatioContainer/weaponSlotFrame/AspectRatioContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+script = ExtResource("2_b8rtp")
 
-[node name="TextureButton" type="TextureButton" parent="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer2/WeaponSLots/AspectRatioContainer/TextureButton/AspectRatioContainer2/HBoxContainer"]
+[node name="weaponSlot1" type="TextureButton" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/weaponSlotMargin/weaponSlotFrameBox/AspectRatioContainer/weaponSlotFrame/AspectRatioContainer2/weaponSlots"]
 custom_minimum_size = Vector2(99, 99)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -341,7 +112,7 @@ texture_focused = ExtResource("20_dgrhb")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer2/WeaponSLots/AspectRatioContainer/TextureButton/AspectRatioContainer2/HBoxContainer/TextureButton"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/weaponSlotMargin/weaponSlotFrameBox/AspectRatioContainer/weaponSlotFrame/AspectRatioContainer2/weaponSlots/weaponSlot1"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -355,14 +126,13 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer2/WeaponSLots/AspectRatioContainer/TextureButton/AspectRatioContainer2/HBoxContainer/TextureButton/MarginContainer"]
+[node name="weapon1" type="TextureRect" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/weaponSlotMargin/weaponSlotFrameBox/AspectRatioContainer/weaponSlotFrame/AspectRatioContainer2/weaponSlots/weaponSlot1/MarginContainer"]
 z_index = -1
 custom_minimum_size = Vector2(77, 77)
 layout_mode = 2
-texture = ExtResource("21_wypb4")
 expand_mode = 1
 
-[node name="TextureButton2" type="TextureButton" parent="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer2/WeaponSLots/AspectRatioContainer/TextureButton/AspectRatioContainer2/HBoxContainer"]
+[node name="weaponSlot2" type="TextureButton" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/weaponSlotMargin/weaponSlotFrameBox/AspectRatioContainer/weaponSlotFrame/AspectRatioContainer2/weaponSlots"]
 custom_minimum_size = Vector2(99, 99)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -373,7 +143,7 @@ texture_focused = ExtResource("20_dgrhb")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer2/WeaponSLots/AspectRatioContainer/TextureButton/AspectRatioContainer2/HBoxContainer/TextureButton2"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/weaponSlotMargin/weaponSlotFrameBox/AspectRatioContainer/weaponSlotFrame/AspectRatioContainer2/weaponSlots/weaponSlot2"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -388,94 +158,107 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_right = 0
 
-[node name="TextureRect" type="TextureRect" parent="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer2/WeaponSLots/AspectRatioContainer/TextureButton/AspectRatioContainer2/HBoxContainer/TextureButton2/MarginContainer"]
+[node name="weapon2" type="TextureRect" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/weaponSlotMargin/weaponSlotFrameBox/AspectRatioContainer/weaponSlotFrame/AspectRatioContainer2/weaponSlots/weaponSlot2/MarginContainer"]
 z_index = -1
 custom_minimum_size = Vector2(77, 77)
 layout_mode = 2
-texture = ExtResource("22_y1m5i")
 expand_mode = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="FullUI/VBoxContainer/stats/UITopLeft2"]
+[node name="statBarsMargin" type="MarginContainer" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_top = -80
+theme_override_constants/margin_bottom = -80
 
-[node name="Bars" type="VBoxContainer" parent="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer"]
+[node name="bars" type="VBoxContainer" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin" node_paths=PackedStringArray("player")]
 custom_minimum_size = Vector2(300, 220)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = -160
 alignment = 1
+script = ExtResource("6_612k1")
+player = NodePath("")
 
-[node name="MarginContainer" type="MarginContainer" parent="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer/Bars"]
-layout_mode = 2
-theme_override_constants/margin_top = -112
-
-[node name="health" type="AspectRatioContainer" parent="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer/Bars/MarginContainer"]
+[node name="health" type="AspectRatioContainer" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars"]
 custom_minimum_size = Vector2(384, 216)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 alignment_horizontal = 0
 alignment_vertical = 0
-script = ExtResource("4_n04ve")
 
-[node name="healthBar" type="TextureProgressBar" parent="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer/Bars/MarginContainer/health"]
+[node name="healthBar" type="TextureProgressBar" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/health"]
 z_index = 1
-custom_minimum_size = Vector2(384, 216)
+custom_minimum_size = Vector2(380, 1)
 layout_mode = 2
 value = 64.0
 nine_patch_stretch = true
 texture_over = ExtResource("2_iufls")
-texture_progress = SubResource("CompressedTexture2D_qoydj")
+texture_progress = SubResource("CompressedTexture2D_tb15e")
 
-[node name="damageBar" type="TextureProgressBar" parent="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer/Bars/MarginContainer/health"]
-custom_minimum_size = Vector2(384, 216)
+[node name="damageBar" type="TextureProgressBar" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/health"]
+custom_minimum_size = Vector2(380, 100)
 layout_mode = 2
 value = 74.0
 nine_patch_stretch = true
 texture_under = ExtResource("3_b8rtp")
 texture_progress = ExtResource("4_612k1")
 
-[node name="timer" type="Timer" parent="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer/Bars/MarginContainer/health"]
+[node name="timer" type="Timer" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/health"]
 wait_time = 0.4
 one_shot = true
 
-[node name="MarginContainer2" type="MarginContainer" parent="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer/Bars"]
+[node name="stamina" type="AspectRatioContainer" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars"]
+custom_minimum_size = Vector2(192, 108)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment_horizontal = 0
+alignment_vertical = 0
+
+[node name="staminaBarMiddle" type="TextureProgressBar" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina"]
+process_mode = 4
 visible = false
-layout_mode = 2
-theme_override_constants/margin_top = 0
-
-[node name="health" type="AspectRatioContainer" parent="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer/Bars/MarginContainer2"]
-custom_minimum_size = Vector2(384, 216)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-alignment_horizontal = 0
-alignment_vertical = 0
-script = ExtResource("4_n04ve")
-
-[node name="healthBar" type="TextureProgressBar" parent="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer/Bars/MarginContainer2/health"]
 z_index = 1
-custom_minimum_size = Vector2(384, 216)
+custom_minimum_size = Vector2(380, 216)
 layout_mode = 2
-value = 64.0
+value = 66.0
 nine_patch_stretch = true
-texture_over = ExtResource("2_iufls")
-texture_progress = SubResource("CompressedTexture2D_qoydj")
+texture_over = ExtResource("11_qvwwb")
+texture_progress = ExtResource("12_qqo6a")
 
-[node name="damageBar" type="TextureProgressBar" parent="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer/Bars/MarginContainer2/health"]
-custom_minimum_size = Vector2(384, 216)
+[node name="staminaBar" type="TextureProgressBar" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina"]
+z_index = 1
+custom_minimum_size = Vector2(380, 216)
 layout_mode = 2
-value = 74.0
+value = 66.0
 nine_patch_stretch = true
-texture_under = ExtResource("3_b8rtp")
-texture_progress = ExtResource("4_612k1")
+texture_over = ExtResource("6_8blbl")
+texture_progress = ExtResource("7_bb0on")
 
-[node name="timer" type="Timer" parent="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer/Bars/MarginContainer2/health"]
-wait_time = 0.4
-one_shot = true
+[node name="damageBar" type="TextureProgressBar" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina"]
+custom_minimum_size = Vector2(380, 216)
+layout_mode = 2
+value = 66.0
+nine_patch_stretch = true
+texture_under = ExtResource("8_wijgc")
+texture_progress = ExtResource("9_yhvps")
 
-[node name="stamina" type="AspectRatioContainer" parent="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer/Bars"]
+[node name="damageBarMiddle" type="TextureProgressBar" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina"]
+process_mode = 4
+visible = false
+custom_minimum_size = Vector2(380, 216)
+layout_mode = 2
+value = 66.0
+nine_patch_stretch = true
+texture_under = ExtResource("13_8ekee")
+texture_progress = ExtResource("14_j0pu8")
+
+[node name="timer" type="Timer" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina"]
+
+[node name="mana" type="AspectRatioContainer" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars"]
 process_mode = 4
 visible = false
 custom_minimum_size = Vector2(192, 108)
@@ -484,95 +267,112 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 alignment_horizontal = 0
 alignment_vertical = 0
-script = ExtResource("5_us6mg")
 
-[node name="staminaBar" type="TextureProgressBar" parent="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer/Bars/stamina"]
-z_index = 1
-custom_minimum_size = Vector2(384, 216)
-layout_mode = 2
-value = 66.0
-nine_patch_stretch = true
-texture_over = ExtResource("6_8blbl")
-texture_progress = ExtResource("7_bb0on")
-
-[node name="damageBar" type="TextureProgressBar" parent="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer/Bars/stamina"]
-custom_minimum_size = Vector2(384, 216)
-layout_mode = 2
-value = 66.0
-nine_patch_stretch = true
-texture_under = ExtResource("8_wijgc")
-texture_progress = ExtResource("9_yhvps")
-
-[node name="timer" type="Timer" parent="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer/Bars/stamina"]
-
-[node name="staminaMiddle" type="AspectRatioContainer" parent="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer/Bars"]
-visible = false
-custom_minimum_size = Vector2(192, 108)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-alignment_horizontal = 0
-alignment_vertical = 0
-script = ExtResource("10_tb15e")
-
-[node name="staminaBarMiddle" type="TextureProgressBar" parent="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer/Bars/staminaMiddle"]
-z_index = 1
-custom_minimum_size = Vector2(384, 216)
-layout_mode = 2
-value = 66.0
-nine_patch_stretch = true
-texture_over = ExtResource("11_qvwwb")
-texture_progress = ExtResource("12_qqo6a")
-
-[node name="damageBar" type="TextureProgressBar" parent="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer/Bars/staminaMiddle"]
-custom_minimum_size = Vector2(384, 216)
-layout_mode = 2
-value = 66.0
-nine_patch_stretch = true
-texture_under = ExtResource("13_8ekee")
-texture_progress = ExtResource("14_j0pu8")
-
-[node name="timer" type="Timer" parent="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer/Bars/staminaMiddle"]
-
-[node name="mana" type="AspectRatioContainer" parent="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer/Bars"]
-visible = false
-custom_minimum_size = Vector2(192, 108)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-alignment_horizontal = 0
-alignment_vertical = 0
-script = ExtResource("15_6maro")
-
-[node name="manaBar" type="TextureProgressBar" parent="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer/Bars/mana"]
+[node name="manaBar" type="TextureProgressBar" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/mana"]
 z_index = 1
 texture_filter = 6
 texture_repeat = 2
-custom_minimum_size = Vector2(384, 216)
+custom_minimum_size = Vector2(380, 216)
 layout_mode = 2
 value = 66.0
 nine_patch_stretch = true
 texture_over = ExtResource("6_8blbl")
 texture_progress = ExtResource("10_r71lk")
 
-[node name="damageBar" type="TextureProgressBar" parent="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer/Bars/mana"]
+[node name="damageBar" type="TextureProgressBar" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/mana"]
 texture_filter = 6
 texture_repeat = 2
-custom_minimum_size = Vector2(384, 216)
+custom_minimum_size = Vector2(380, 216)
 layout_mode = 2
 value = 66.0
 nine_patch_stretch = true
 texture_under = ExtResource("8_wijgc")
 texture_progress = ExtResource("9_yhvps")
 
-[node name="timer" type="Timer" parent="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer/Bars/mana"]
+[node name="timer" type="Timer" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/mana"]
 
-[connection signal="timeout" from="FullUI/VBoxContainer/MarginContainer2/UITopLeft/Bars/health/timer" to="FullUI/VBoxContainer/MarginContainer2/UITopLeft/Bars/health" method="_on_timer_timeout"]
-[connection signal="timeout" from="FullUI/VBoxContainer/MarginContainer2/UITopLeft/Bars/stamina/timer" to="FullUI/VBoxContainer/MarginContainer2/UITopLeft/Bars/stamina" method="_on_timer_timeout"]
-[connection signal="timeout" from="FullUI/VBoxContainer/MarginContainer2/UITopLeft/Bars/staminaMiddle/timer" to="FullUI/VBoxContainer/MarginContainer2/UITopLeft/Bars/staminaMiddle" method="_on_timer_timeout"]
-[connection signal="timeout" from="FullUI/VBoxContainer/MarginContainer2/UITopLeft/Bars/mana/timer" to="FullUI/VBoxContainer/MarginContainer2/UITopLeft/Bars/mana" method="_on_timer_timeout"]
-[connection signal="timeout" from="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer/Bars/MarginContainer/health/timer" to="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer/Bars/MarginContainer/health" method="_on_timer_timeout"]
-[connection signal="timeout" from="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer/Bars/MarginContainer2/health/timer" to="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer/Bars/MarginContainer2/health" method="_on_timer_timeout"]
-[connection signal="timeout" from="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer/Bars/stamina/timer" to="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer/Bars/stamina" method="_on_timer_timeout"]
-[connection signal="timeout" from="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer/Bars/staminaMiddle/timer" to="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer/Bars/staminaMiddle" method="_on_timer_timeout"]
-[connection signal="timeout" from="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer/Bars/mana/timer" to="FullUI/VBoxContainer/stats/UITopLeft2/MarginContainer/Bars/mana" method="_on_timer_timeout"]
+[node name="lowHealth" type="MarginContainer" parent="CanvasLayer/FullUI"]
+layout_mode = 2
+script = ExtResource("19_us6mg")
+
+[node name="redTint" type="TextureRect" parent="CanvasLayer/FullUI/lowHealth"]
+visible = false
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("20_8blbl")
+expand_mode = 1
+
+[node name="mycelium" type="TextureRect" parent="CanvasLayer/FullUI/lowHealth"]
+visible = false
+layout_mode = 2
+texture = ExtResource("21_bb0on")
+
+[node name="pauseMenu" type="MarginContainer" parent="CanvasLayer"]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("22_wijgc")
+
+[node name="pauseMenuContainer" type="VBoxContainer" parent="CanvasLayer/pauseMenu"]
+process_mode = 4
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/pauseMenu/pauseMenuContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer"]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="continue" type="Button" parent="CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("23_yhvps")
+theme_override_font_sizes/font_size = 50
+text = "Resume"
+
+[node name="options" type="Button" parent="CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("23_yhvps")
+theme_override_font_sizes/font_size = 50
+text = "Options"
+
+[node name="quit" type="Button" parent="CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("23_yhvps")
+theme_override_font_sizes/font_size = 50
+text = "Exit"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CanvasLayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.85693, 0)
+skeleton = NodePath("../../DeathSpores")
+
+[connection signal="timeout" from="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/health/timer" to="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_health_timer_timeout"]
+[connection signal="timeout" from="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina/timer" to="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_stamina_timer_timeout"]
+[connection signal="timeout" from="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/mana/timer" to="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_mana_timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/continue" to="CanvasLayer/pauseMenu" method="_on_continue_pressed"]
+[connection signal="pressed" from="CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/quit" to="CanvasLayer/pauseMenu" method="_on_button_3_pressed"]

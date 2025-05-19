@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://bmqgvvy0t5bfp"]
+[gd_scene load_steps=44 format=3 uid="uid://bmqgvvy0t5bfp"]
 
 [ext_resource type="Material" uid="uid://b2rgc8u5hwwcc" path="res://Materials/TestGround.tres" id="1_7g8fi"]
 [ext_resource type="Material" uid="uid://dekpipancsbc6" path="res://Materials/TestCubes.tres" id="2_8h0xq"]
@@ -29,7 +29,6 @@
 [ext_resource type="Texture2D" uid="uid://b56g56co15oce" path="res://UITextures/WeaponSlotFrame2.png" id="30_afpbi"]
 [ext_resource type="Shader" uid="uid://bjy5d3x36hbdt" path="res://Scripts/Shaders/pulsating.gdshader" id="30_v0cvy"]
 [ext_resource type="Script" uid="uid://cr2dkifmawgcm" path="res://Scripts/UI/weapon_slots.gd" id="31_afpbi"]
-[ext_resource type="Texture2D" uid="uid://bbyy738mgamqi" path="res://Scripts/mycelium.png" id="31_v0cvy"]
 [ext_resource type="Script" uid="uid://isgt2htj3fmm" path="res://Scripts/UI/menus/pause_menu.gd" id="32_k421a"]
 [ext_resource type="FontFile" uid="uid://4l406r67702d" path="res://UITextures/Fonts/DidactGothic-Regular.ttf" id="33_s368x"]
 
@@ -558,7 +557,6 @@ expand_mode = 1
 [node name="mycelium" type="TextureRect" parent="CanvasLayer/FullUI/lowHealth"]
 material = SubResource("ShaderMaterial_k421a")
 layout_mode = 2
-texture = ExtResource("31_v0cvy")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/FullUI/lowHealth"]
 libraries = {
