@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bx1yxprog4dh3"]
+
+[ext_resource type="PackedScene" uid="uid://cswl2vw185lm0" path="res://Models/Shild2.blend" id="1_k0l8b"]
+
+[node name="Shield" type="Node3D"]
+
+[node name="Shild2" parent="." instance=ExtResource("1_k0l8b")]
+transform = Transform3D(-0.3, -2.62268e-08, 1.14641e-15, 0, -1.31134e-08, -0.3, 2.62268e-08, -0.3, 1.31134e-08, 0, 0, 0)

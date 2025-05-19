@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c3rclvxsw2532"
-path="res://.godot/imported/Bow.blend-cdfa6361bc9a09a174fd05fd40fd2774.scn"
+uid="uid://cswl2vw185lm0"
+path="res://.godot/imported/Shild2.blend-79c45a281b3fa04ee524ca8bafd1a147.scn"
 
 [deps]
 
-source_file="res://Models/Bow.blend"
-dest_files=["res://.godot/imported/Bow.blend-cdfa6361bc9a09a174fd05fd40fd2774.scn"]
+source_file="res://Models/Shild2.blend"
+dest_files=["res://.godot/imported/Shild2.blend-79c45a281b3fa04ee524ca8bafd1a147.scn"]
 
 [params]
 
@@ -32,13 +32,7 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"nodes": {
-"PATH:Arrow": {
-"import/skip_import": true
-}
-}
-}
+_subresources={}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true

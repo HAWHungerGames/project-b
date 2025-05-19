@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c3rclvxsw2532"
-path="res://.godot/imported/Bow.blend-cdfa6361bc9a09a174fd05fd40fd2774.scn"
+uid="uid://rga2xgcxswyh"
+path="res://.godot/imported/Arrow.blend-3e0c43c8350cbae651a2da3b3b099e3a.scn"
 
 [deps]
 
-source_file="res://Models/Bow.blend"
-dest_files=["res://.godot/imported/Bow.blend-cdfa6361bc9a09a174fd05fd40fd2774.scn"]
+source_file="res://Models/Arrow.blend"
+dest_files=["res://.godot/imported/Arrow.blend-3e0c43c8350cbae651a2da3b3b099e3a.scn"]
 
 [params]
 
@@ -34,7 +34,16 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:Arrow": {
+"PATH:Empty": {
+"import/skip_import": true
+},
+"PATH:bow": {
+"import/skip_import": true
+},
+"PATH:griff": {
+"import/skip_import": true
+},
+"PATH:striung": {
 "import/skip_import": true
 }
 }

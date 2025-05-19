@@ -6,11 +6,28 @@ class_name Socket
 @export_enum("sword", "staff", "bow", "shield", "nothing") var weapon: String = "sword"
 
 @onready var attachment = $"Weapon Slot"
-@onready var sword = preload("res://Prefabs/Asset Scenes/placeholder_sword2_hand.tscn")
-#@onready var sword = preload("res://Prefabs/Asset Scenes/sword.tscn")
-@onready var staff = preload("res://Prefabs/Asset Scenes/placeholder_staff2_hand.tscn")
-@onready var bow = preload("res://Prefabs/Asset Scenes/placeholder_bow2_hand.tscn")
-@onready var shield = preload("res://Prefabs/Asset Scenes/placeholder_shield_hand.tscn")
+
+# Placeholders
+#@onready var sword = preload("res://Prefabs/Asset Scenes/placeholder_sword2_hand.tscn")
+#@onready var staff = preload("res://Prefabs/Asset Scenes/placeholder_staff2_hand.tscn")
+#@onready var bow = preload("res://Prefabs/Asset Scenes/placeholder_bow2_hand.tscn")
+#@onready var shield = preload("res://Prefabs/Asset Scenes/placeholder_shield_hand.tscn")
+
+#var sword_name = "Placeholder Sword Hand"
+#var shield_name = "Placeholder Shield Hand"
+var staff_name = "Placeholder Staff Hand"
+var bow_name = "Placeholder Bow Hand"
+
+# Models
+@onready var sword = preload("res://Prefabs/Asset Scenes/sword.tscn")
+@onready var shield = preload("res://Prefabs/Asset Scenes/shield.tscn")
+@onready var staff = preload("res://Prefabs/Asset Scenes/staff.tscn")
+@onready var bow = preload("res://Prefabs/Asset Scenes/bow.tscn")
+
+var sword_name = "Sword"
+var shield_name = "Shield"
+#var staff_name = "Staff"
+#var bow_name = "Bow"
 
 var sword_intance
 var staff_intance
@@ -56,16 +73,16 @@ func _on_interacted(body: Variant) -> void:
 	elif empty_socket == true and GameManager.get_weapon_in_hand() == true:
 		var player_weapon = GameManager.get_first_weapon()
 		match player_weapon:
-			"Placeholder Sword Hand":
+			sword_name:
 				attachment.add_child(sword_intance)
 				current_weapon_in_socket = sword_intance.get_name()
-			"Placeholder Staff Hand":
+			staff_name:
 				attachment.add_child(staff_intance)
 				current_weapon_in_socket = staff_intance.get_name()
-			"Placeholder Bow Hand":
+			bow_name:
 				attachment.add_child(bow_intance)
 				current_weapon_in_socket = bow_intance.get_name()
-			"Placeholder Shield Hand":
+			shield_name:
 				attachment.add_child(shield_intance)
 				current_weapon_in_socket = shield_intance.get_name()
 		empty_socket = false
@@ -83,16 +100,16 @@ func _on_interacted(body: Variant) -> void:
 		attachment.remove_child(attachment_weapon)
 		var player_weapon = GameManager.get_first_weapon()
 		match player_weapon:
-			"Placeholder Sword Hand":
+			sword_name:
 				attachment.add_child(sword_intance)
 				current_weapon_in_socket = sword_intance.get_name()
-			"Placeholder Staff Hand":
+			staff_name:
 				attachment.add_child(staff_intance)
 				current_weapon_in_socket = staff_intance.get_name()
-			"Placeholder Bow Hand":
+			bow_name:
 				attachment.add_child(bow_intance)
 				current_weapon_in_socket = bow_intance.get_name()
-			"Placeholder Shield Hand":
+			shield_name:
 				attachment.add_child(shield_intance)
 				current_weapon_in_socket = shield_intance.get_name()
 		empty_socket = false

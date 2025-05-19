@@ -1,16 +1,16 @@
 [gd_scene load_steps=4 format=3 uid="uid://chu0gv1cp633e"]
 
 [ext_resource type="Script" uid="uid://ddkwundh1pwu0" path="res://Scripts/PlayerArrow.gd" id="1_apqjk"]
-[ext_resource type="PackedScene" uid="uid://rga2xgcxswyh" path="res://Models/Bow.blend" id="1_vr03v"]
+[ext_resource type="PackedScene" uid="uid://rga2xgcxswyh" path="res://Models/Arrow.blend" id="1_vr03v"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_apqjk"]
-size = Vector3(1.58209, 0.131592, 0.37207)
+size = Vector3(1.58209, 0.131592, 0.607422)
 
 [node name="Arrow" type="Node3D"]
 script = ExtResource("1_apqjk")
 
 [node name="ArrowMesh" parent="." instance=ExtResource("1_vr03v")]
-transform = Transform3D(-2.62268e-08, 0, -1.4, 0, 1.4, 0, 0.6, 0, -6.11959e-08, -0.0352437, 0, 0.0184599)
+transform = Transform3D(-2.62268e-08, 0, -3, 0, 1.4, 0, 0.6, 0, -1.31134e-07, -0.0352437, 0, 0.0184599)
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)

@@ -1,13 +1,13 @@
 extends Node3D
 
-@export var speed = 20.0
+@export var speed = 40.0
 @export var dmg = 60
 @export var lifetime = 5
 
 #@onready var mesh = $MeshInstance3D
 #@onready var hitbox = $Hitbox
 
-var drawing_bow_time
+var extraDmg
 
 func _physics_process(delta: float) -> void:
 	moving(delta)
@@ -30,7 +30,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 			
 
 func attack(body):
-	var extraDmg = GameManager.get_bow_attack_timer()
+	extraDmg = GameManager.get_bow_attack_timer()
 	if body.is_in_group("enemy"):
 		# Normal or somewhat charged Bow Attack
 		if extraDmg < 3:

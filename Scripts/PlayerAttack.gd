@@ -24,6 +24,9 @@ var resetComboStepCooldown: float = 1
 var comboStep = 0
 var holdingBowAttack = false
 var holdingBowAttackTimer: float = 0
+var isAttacking = false
+
+var swordName = "Sword"
 
 
 func _physics_process(delta: float) -> void:
@@ -31,15 +34,22 @@ func _physics_process(delta: float) -> void:
 	playIdleAnimation()
 	attacks(delta)
 
-
 func playIdleAnimation():
 	if GameManager.get_weapon_in_hand() == true and animation_player != null:
 		if animation_player.is_playing() and animation_player.current_animation != "Idle":
+			isAttacking = true
 			pass
 		else:
 			animation_player.play("Idle")
+			isAttacking = false
 	elif GameManager.get_weapon_in_hand() == false and animation_player != null:
 		animation_player.stop()
+
+func usingAttack():
+	if isAttacking:
+		GameManager.set_is_attacking(isAttacking)
+	elif !isAttacking:
+		GameManager.set_is_attacking(isAttacking)
 
 func getWeapon():
 	return get_child(0)
@@ -158,9 +168,10 @@ func finishingBowAttackAnimation():
 
 func attacks(delta):
 	if GameManager.get_weapon_in_hand() == true and animation_player != null:
+		usingAttack()
 		weapon_name = GameManager.get_first_weapon()
 		match weapon_name:
-			"Placeholder Sword Hand":
+			swordName:
 				meleeAttack(delta)
 			"Placeholder Staff Hand":
 				staffAttack(delta)
