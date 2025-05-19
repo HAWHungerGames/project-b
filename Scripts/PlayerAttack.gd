@@ -54,8 +54,8 @@ func usingAttack():
 func getWeapon():
 	return get_child(0)
 
-func getAnimationPlayer(weapon):
-	return weapon.get_node_or_null("AnimationPlayer")
+func getAnimationPlayer(weapon_animation_player):
+	return weapon_animation_player.get_node_or_null("AnimationPlayer")
 
 func getAccessToChild():
 	if GameManager.get_weapon_in_hand() == true:

@@ -264,8 +264,8 @@ func swapping_weapons():
 				var second_weapon_game_manager = GameManager.get_second_weapon()
 				GameManager.set_first_weapon(second_weapon_game_manager)
 				GameManager.set_second_weapon(first_weapon_game_manager)
+				GameManager.weapons_updated()
 
 func stop_playing_animation_on_back():
 	if back.get_child(0).get_node_or_null("AnimationPlayer") != null:
 		back.get_child(0).get_node_or_null("AnimationPlayer").stop() #stop playing the Idle Animation
-				GameManager.weapons_updated()

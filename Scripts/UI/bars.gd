@@ -25,12 +25,12 @@ func _ready() -> void:
 	init_bars()
 
 func update_health():
-	update_value(health_bar, health_timer, health_damage_bar, player.health, player.maxHealth)
+	update_value(health_bar, health_damage_bar, player.health, player.maxHealth)
 func update_stamina():
-	update_value(stamina_bar_middle, stamina_timer, stamina_damage_bar_middle, player.stamina, player.maxStamina)
-	update_value(stamina_bar_bottom, stamina_timer, stamina_damage_bar, player.stamina, player.maxStamina)
+	update_value(stamina_bar_middle, stamina_damage_bar_middle, player.stamina, player.maxStamina)
+	update_value(stamina_bar_bottom, stamina_damage_bar, player.stamina, player.maxStamina)
 func update_mana():
-	update_value(mana_bar, mana_timer, mana_damage_bar, player.mana, player.maxMana)
+	update_value(mana_bar, mana_damage_bar, player.mana, player.maxMana)
 	
 func update_bars():
 	if "staff" in GameManager.get_first_weapon().to_lower() || "staff" in GameManager.get_second_weapon().to_lower():
@@ -65,7 +65,7 @@ func init_bars():
 	mana_bar.value = player.mana * 100 / player.maxMana
 	mana_damage_bar.value = player.mana * 100 / player.maxMana
 	
-func update_value(bar, timer, damage_bar, current_val, max_val):
+func update_value(bar, damage_bar, current_val, max_val):
 	bar.value = current_val * 100 / max_val
 	if bar.value < damage_bar.value:
 		var tween = get_tree().create_tween()

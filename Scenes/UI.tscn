@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dncs81uxppe3f" path="res://UITextures/DamageMiddle.png" id="14_j0pu8"]
 [ext_resource type="Texture2D" uid="uid://6m5jcd5pvxrn" path="res://UITextures/WeaponSlotInactive.png" id="18_q6a8d"]
 [ext_resource type="Texture2D" uid="uid://dgvicbxum24vi" path="res://UITextures/WeaponSlotPressed.png" id="19_6lb63"]
-[ext_resource type="Script" uid="uid://c7616ek8c2kfe" path="res://Scenes/low_health.gd" id="19_us6mg"]
+[ext_resource type="Script" uid="uid://c7616ek8c2kfe" path="res://Scripts/low_health.gd" id="19_us6mg"]
 [ext_resource type="Texture2D" uid="uid://baxq1j20y701x" path="res://UITextures/redTint.png" id="20_8blbl"]
 [ext_resource type="Texture2D" uid="uid://b0gb728e1n47w" path="res://UITextures/WeaponSlot.png" id="20_dgrhb"]
 [ext_resource type="Texture2D" uid="uid://dwoof1omyr8bt" path="res://UITextures/mycelium.png" id="21_bb0on"]
@@ -171,7 +171,7 @@ size_flags_vertical = 4
 theme_override_constants/margin_top = -80
 theme_override_constants/margin_bottom = -80
 
-[node name="bars" type="VBoxContainer" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin" node_paths=PackedStringArray("player")]
+[node name="bars" type="VBoxContainer" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin"]
 custom_minimum_size = Vector2(300, 220)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -179,7 +179,6 @@ size_flags_vertical = 4
 theme_override_constants/separation = -160
 alignment = 1
 script = ExtResource("6_612k1")
-player = NodePath("")
 
 [node name="health" type="AspectRatioContainer" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars"]
 custom_minimum_size = Vector2(384, 216)

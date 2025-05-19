@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwh1hvl3kgobd"]
+[gd_scene load_steps=4 format=3 uid="uid://dwh1hvl3kgobd"]
 
 [ext_resource type="Script" uid="uid://b5vtbmi5nafbd" path="res://Scripts/UI/menus/main_menu.gd" id="1_8l4an"]
-[ext_resource type="VideoStream" uid="uid://bknv8v5nr8dld" path="res://UITextures/MycAnimafter (1).ogv" id="2_8l4an"]
-[ext_resource type="Texture2D" path="res://UITextures/TitleScreen.png" id="2_n15yj"]
+[ext_resource type="VideoStream" uid="uid://do33e743sbrbq" path="res://UITextures/MycAnimafter (1).ogv" id="2_8l4an"]
 [ext_resource type="FontFile" uid="uid://4l406r67702d" path="res://UITextures/Fonts/DidactGothic-Regular.ttf" id="3_emot1"]
 
 [node name="TitleScreen" type="Control"]
@@ -24,7 +23,6 @@ grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
 layout_mode = 2
-texture = ExtResource("2_n15yj")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="MarginContainer"]
 layout_mode = 2
