@@ -8,6 +8,7 @@ var second_weapon = ""
 var bow_attack_timer
 
 var is_attacking = false
+signal weapons_changed
 
 func get_weapon_in_hand():
 	return weapon_in_hand
@@ -51,3 +52,5 @@ func get_is_attacking():
 
 func set_is_attacking(check):
 	is_attacking = check
+func weapons_updated():
+	weapons_changed.emit()

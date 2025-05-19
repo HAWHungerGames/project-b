@@ -72,6 +72,7 @@ func _physics_process(delta: float) -> void:
 							hitObj.interact(owner)
 							GameManager.set_weapon_in_hand()
 							GameManager.set_first_weapon(weapon_name)
+							GameManager.weapons_updated()
 							#print(GameManager.get_first_weapon())
 							#print(GameManager.get_weapon_in_hand())
 							#print(1)
@@ -93,6 +94,7 @@ func _physics_process(delta: float) -> void:
 								GameManager.set_weapon_on_back()
 								GameManager.set_second_weapon(GameManager.get_first_weapon())
 								GameManager.set_first_weapon(weapon_name)
+								GameManager.weapons_updated()
 								#print(GameManager.get_first_weapon())
 								#print(GameManager.get_second_weapon())
 								#print(GameManager.get_weapon_in_hand())
@@ -124,6 +126,7 @@ func _physics_process(delta: float) -> void:
 								hitObj.interact(owner)
 								GameManager.set_weapon_on_back()
 								GameManager.set_second_weapon(weapon_name)
+								GameManager.weapons_updated()
 								#print(GameManager.get_first_weapon())
 								#print(GameManager.get_weapon_in_hand())
 								#print(GameManager.get_second_weapon())
@@ -137,6 +140,7 @@ func _physics_process(delta: float) -> void:
 							hitObj.interact(owner)
 							GameManager.set_first_weapon("")
 							GameManager.set_weapon_in_hand()
+							GameManager.weapons_updated()
 							#print(GameManager.get_first_weapon())
 							#print(GameManager.get_weapon_in_hand())
 							#print(4)
@@ -173,8 +177,9 @@ func _physics_process(delta: float) -> void:
 							#print(GameManager.get_first_weapon())
 							#print(GameManager.get_second_weapon())
 							GameManager.set_first_weapon(GameManager.get_second_weapon())
-							GameManager.set_weapon_on_back()
 							GameManager.set_second_weapon("")
+							GameManager.set_weapon_on_back()
+							GameManager.weapons_updated()
 							#print(GameManager.get_first_weapon())
 							#print(GameManager.get_weapon_in_hand())
 							#print(GameManager.get_second_weapon())
@@ -194,6 +199,7 @@ func _physics_process(delta: float) -> void:
 								hitObj.interact(owner)
 								GameManager.set_first_weapon(GameManager.get_second_weapon())
 								GameManager.set_second_weapon(weapon_name)
+								GameManager.weapons_updated()
 							
 							else:
 								if GameManager.get_first_weapon() == sword_name and GameManager.get_second_weapon() == shield_name:
@@ -232,6 +238,7 @@ func _physics_process(delta: float) -> void:
 											
 								hitObj.interact(owner)
 								GameManager.set_first_weapon(weapon_name)
+								GameManager.weapons_updated()
 								#print(GameManager.get_first_weapon())
 								#print(GameManager.get_weapon_in_hand())
 								#print(GameManager.get_second_weapon())
@@ -261,3 +268,4 @@ func swapping_weapons():
 func stop_playing_animation_on_back():
 	if back.get_child(0).get_node_or_null("AnimationPlayer") != null:
 		back.get_child(0).get_node_or_null("AnimationPlayer").stop() #stop playing the Idle Animation
+				GameManager.weapons_updated()

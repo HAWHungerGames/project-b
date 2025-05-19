@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bmqgvvy0t5bfp"]
+[gd_scene load_steps=44 format=3 uid="uid://bmqgvvy0t5bfp"]
 
 [ext_resource type="Material" uid="uid://b2rgc8u5hwwcc" path="res://Materials/TestGround.tres" id="1_7g8fi"]
 [ext_resource type="Material" uid="uid://dekpipancsbc6" path="res://Materials/TestCubes.tres" id="2_8h0xq"]
@@ -7,6 +7,30 @@
 [ext_resource type="PackedScene" uid="uid://durr2417rl7mr" path="res://Prefabs/enemy_ranged.tscn" id="5_e6mua"]
 [ext_resource type="PackedScene" uid="uid://ddb5qsl2pw4p2" path="res://Prefabs/enemy_spores.tscn" id="6_r2bbj"]
 [ext_resource type="PackedScene" uid="uid://uafprr7riwjm" path="res://Prefabs/enemy_melee.tscn" id="7_k711p"]
+[ext_resource type="Texture2D" uid="uid://dmuil4tlckvro" path="res://UITextures/BarFrameTop.png" id="8_ylp0i"]
+[ext_resource type="Texture2D" uid="uid://dc4hcr4p2xbna" path="res://UITextures/UnderneathTop.png" id="10_mvfnk"]
+[ext_resource type="Texture2D" uid="uid://cvmgiuevaosab" path="res://UITextures/DamageTop.png" id="11_55p3g"]
+[ext_resource type="Texture2D" uid="uid://crd1yijlsjxdv" path="res://UITextures/BarFrameBottom.png" id="12_frwl5"]
+[ext_resource type="Texture2D" uid="uid://idv5h3wy02ok" path="res://UITextures/StaminaBottom.png" id="13_k85tf"]
+[ext_resource type="Script" uid="uid://l471dqs5cmuc" path="res://Scripts/UI/bars.gd" id="15_k85tf"]
+[ext_resource type="Texture2D" uid="uid://c8eq20nuh4yxx" path="res://UITextures/UnderneathBottom.png" id="15_rxuu3"]
+[ext_resource type="Texture2D" uid="uid://cur1fsy614172" path="res://UITextures/DamageBottom.png" id="16_qdvau"]
+[ext_resource type="Shader" uid="uid://bru2whrhk4mlo" path="res://Scripts/Shaders/low_health.gdshader" id="16_v0cvy"]
+[ext_resource type="Texture2D" uid="uid://booeplbhoubjy" path="res://UITextures/BarFrameMiddle.png" id="17_gx6sf"]
+[ext_resource type="Texture2D" uid="uid://b7ms4tj2ov82j" path="res://UITextures/StaminaMiddle.png" id="18_afpbi"]
+[ext_resource type="Texture2D" uid="uid://cjvmlsiwqy7rj" path="res://UITextures/UnderneathMiddle.png" id="20_v0cvy"]
+[ext_resource type="Texture2D" uid="uid://dncs81uxppe3f" path="res://UITextures/DamageMiddle.png" id="21_k421a"]
+[ext_resource type="Texture2D" uid="uid://dxxqrbfkg137x" path="res://UITextures/Mana.png" id="22_s368x"]
+[ext_resource type="Texture2D" uid="uid://6m5jcd5pvxrn" path="res://UITextures/WeaponSlotInactive.png" id="25_gx6sf"]
+[ext_resource type="Texture2D" uid="uid://b0gb728e1n47w" path="res://UITextures/WeaponSlot.png" id="25_qdvau"]
+[ext_resource type="Texture2D" uid="uid://dgvicbxum24vi" path="res://UITextures/WeaponSlotPressed.png" id="26_gx6sf"]
+[ext_resource type="Script" uid="uid://c7616ek8c2kfe" path="res://Scenes/low_health.gd" id="28_gx6sf"]
+[ext_resource type="Texture2D" uid="uid://baxq1j20y701x" path="res://UITextures/redTint.png" id="29_afpbi"]
+[ext_resource type="Texture2D" uid="uid://b56g56co15oce" path="res://UITextures/WeaponSlotFrame2.png" id="30_afpbi"]
+[ext_resource type="Shader" uid="uid://bjy5d3x36hbdt" path="res://Scripts/Shaders/pulsating.gdshader" id="30_v0cvy"]
+[ext_resource type="Script" uid="uid://cr2dkifmawgcm" path="res://Scripts/UI/weapon_slots.gd" id="31_afpbi"]
+[ext_resource type="Script" uid="uid://isgt2htj3fmm" path="res://Scripts/UI/menus/pause_menu.gd" id="32_k421a"]
+[ext_resource type="FontFile" uid="uid://4l406r67702d" path="res://UITextures/Fonts/DidactGothic-Regular.ttf" id="33_s368x"]
 
 [sub_resource type="Environment" id="Environment_1dgrj"]
 
@@ -27,6 +51,40 @@ size = Vector3(10, 0.1, 10)
 [sub_resource type="BoxShape3D" id="BoxShape3D_r2bbj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k711p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s368x"]
+shader = ExtResource("16_v0cvy")
+shader_parameter/low_health = false
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rxuu3"]
+load_path = "res://.godot/imported/Health.png-a734aa25cedf1d4e582dab6f275fa483.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k421a"]
+shader = ExtResource("30_v0cvy")
+shader_parameter/pulse_color = Color(1, 0, 0, 1)
+shader_parameter/pulse_speed = 2.0
+shader_parameter/intensity = 0.5
+
+[sub_resource type="Animation" id="Animation_gx6sf"]
+resource_name = "pulse_mycel"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("mycelium:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_afpbi"]
+_data = {
+&"pulse_mycel": SubResource("Animation_gx6sf")
+}
 
 [node name="NickWorkScene" type="Node3D"]
 
@@ -164,3 +222,349 @@ transform = Transform3D(-0.999998, 0, 0.00209435, 0, 1, 0, -0.00209435, 0, -0.99
 player = NodePath("../Player")
 hearingRange = 30.0
 visionRange = 30.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="pauseMenu" type="MarginContainer" parent="CanvasLayer"]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("32_k421a")
+
+[node name="pauseMenuContainer" type="VBoxContainer" parent="CanvasLayer/pauseMenu"]
+process_mode = 4
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/pauseMenu/pauseMenuContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer"]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="continue" type="Button" parent="CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("33_s368x")
+theme_override_font_sizes/font_size = 50
+text = "Resume"
+
+[node name="options" type="Button" parent="CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("33_s368x")
+theme_override_font_sizes/font_size = 50
+text = "Options"
+
+[node name="quit" type="Button" parent="CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("33_s368x")
+theme_override_font_sizes/font_size = 50
+text = "Exit"
+
+[node name="FullUI" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/FullUI"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="stats" type="MarginContainer" parent="CanvasLayer/FullUI/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+
+[node name="horizontal" type="HBoxContainer" parent="CanvasLayer/FullUI/VBoxContainer/stats"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 25
+
+[node name="weaponSlotMargin" type="MarginContainer" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="weaponSlotFrameBox" type="VBoxContainer" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/weaponSlotMargin"]
+custom_minimum_size = Vector2(100, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/weaponSlotMargin/weaponSlotFrameBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="weaponSlotFrame" type="TextureButton" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/weaponSlotMargin/weaponSlotFrameBox/AspectRatioContainer"]
+custom_minimum_size = Vector2(110, 220)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("30_afpbi")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/weaponSlotMargin/weaponSlotFrameBox/AspectRatioContainer/weaponSlotFrame"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="weaponSlots" type="VBoxContainer" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/weaponSlotMargin/weaponSlotFrameBox/AspectRatioContainer/weaponSlotFrame/AspectRatioContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("31_afpbi")
+
+[node name="weaponSlot1" type="TextureButton" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/weaponSlotMargin/weaponSlotFrameBox/AspectRatioContainer/weaponSlotFrame/AspectRatioContainer2/weaponSlots"]
+custom_minimum_size = Vector2(99, 99)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("25_gx6sf")
+texture_pressed = ExtResource("26_gx6sf")
+texture_focused = ExtResource("25_qdvau")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/weaponSlotMargin/weaponSlotFrameBox/AspectRatioContainer/weaponSlotFrame/AspectRatioContainer2/weaponSlots/weaponSlot1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="weapon1" type="TextureRect" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/weaponSlotMargin/weaponSlotFrameBox/AspectRatioContainer/weaponSlotFrame/AspectRatioContainer2/weaponSlots/weaponSlot1/MarginContainer"]
+z_index = -1
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+expand_mode = 1
+
+[node name="weaponSlot2" type="TextureButton" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/weaponSlotMargin/weaponSlotFrameBox/AspectRatioContainer/weaponSlotFrame/AspectRatioContainer2/weaponSlots"]
+custom_minimum_size = Vector2(99, 99)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("25_gx6sf")
+texture_pressed = ExtResource("26_gx6sf")
+texture_focused = ExtResource("25_qdvau")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/weaponSlotMargin/weaponSlotFrameBox/AspectRatioContainer/weaponSlotFrame/AspectRatioContainer2/weaponSlots/weaponSlot2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_right = 0
+
+[node name="weapon2" type="TextureRect" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/weaponSlotMargin/weaponSlotFrameBox/AspectRatioContainer/weaponSlotFrame/AspectRatioContainer2/weaponSlots/weaponSlot2/MarginContainer"]
+z_index = -1
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+expand_mode = 1
+
+[node name="statBarsMargin" type="MarginContainer" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_top = -80
+theme_override_constants/margin_bottom = -80
+
+[node name="bars" type="VBoxContainer" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin" node_paths=PackedStringArray("player")]
+custom_minimum_size = Vector2(300, 220)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = -160
+alignment = 1
+script = ExtResource("15_k85tf")
+player = NodePath("../../../../../../../Player")
+
+[node name="health" type="AspectRatioContainer" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars"]
+custom_minimum_size = Vector2(384, 216)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment_horizontal = 0
+alignment_vertical = 0
+
+[node name="healthBar" type="TextureProgressBar" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/health"]
+z_index = 1
+material = SubResource("ShaderMaterial_s368x")
+custom_minimum_size = Vector2(380, 1)
+layout_mode = 2
+value = 64.0
+nine_patch_stretch = true
+texture_progress = SubResource("CompressedTexture2D_rxuu3")
+
+[node name="damageBar" type="TextureProgressBar" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/health"]
+custom_minimum_size = Vector2(380, 100)
+layout_mode = 2
+value = 74.0
+nine_patch_stretch = true
+texture_under = ExtResource("10_mvfnk")
+texture_over = ExtResource("8_ylp0i")
+texture_progress = ExtResource("11_55p3g")
+
+[node name="timer" type="Timer" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/health"]
+wait_time = 0.4
+one_shot = true
+
+[node name="stamina" type="AspectRatioContainer" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars"]
+custom_minimum_size = Vector2(192, 108)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment_horizontal = 0
+alignment_vertical = 0
+
+[node name="staminaBarMiddle" type="TextureProgressBar" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina"]
+process_mode = 4
+visible = false
+z_index = 1
+custom_minimum_size = Vector2(380, 216)
+layout_mode = 2
+value = 66.0
+nine_patch_stretch = true
+texture_over = ExtResource("17_gx6sf")
+texture_progress = ExtResource("18_afpbi")
+
+[node name="staminaBar" type="TextureProgressBar" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina"]
+z_index = 1
+custom_minimum_size = Vector2(380, 216)
+layout_mode = 2
+value = 66.0
+nine_patch_stretch = true
+texture_over = ExtResource("12_frwl5")
+texture_progress = ExtResource("13_k85tf")
+
+[node name="damageBar" type="TextureProgressBar" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina"]
+custom_minimum_size = Vector2(380, 216)
+layout_mode = 2
+value = 66.0
+nine_patch_stretch = true
+texture_under = ExtResource("15_rxuu3")
+texture_progress = ExtResource("16_qdvau")
+
+[node name="damageBarMiddle" type="TextureProgressBar" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina"]
+process_mode = 4
+visible = false
+custom_minimum_size = Vector2(380, 216)
+layout_mode = 2
+value = 66.0
+nine_patch_stretch = true
+texture_under = ExtResource("20_v0cvy")
+texture_progress = ExtResource("21_k421a")
+
+[node name="timer" type="Timer" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina"]
+
+[node name="mana" type="AspectRatioContainer" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars"]
+process_mode = 4
+visible = false
+custom_minimum_size = Vector2(192, 108)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment_horizontal = 0
+alignment_vertical = 0
+
+[node name="manaBar" type="TextureProgressBar" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/mana"]
+z_index = 1
+texture_filter = 6
+texture_repeat = 2
+custom_minimum_size = Vector2(380, 216)
+layout_mode = 2
+value = 66.0
+nine_patch_stretch = true
+texture_over = ExtResource("12_frwl5")
+texture_progress = ExtResource("22_s368x")
+
+[node name="damageBar" type="TextureProgressBar" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/mana"]
+texture_filter = 6
+texture_repeat = 2
+custom_minimum_size = Vector2(380, 216)
+layout_mode = 2
+value = 66.0
+nine_patch_stretch = true
+texture_under = ExtResource("15_rxuu3")
+texture_progress = ExtResource("16_qdvau")
+
+[node name="timer" type="Timer" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/mana"]
+
+[node name="lowHealth" type="MarginContainer" parent="CanvasLayer/FullUI" node_paths=PackedStringArray("player")]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+z_index = 2
+layout_mode = 2
+script = ExtResource("28_gx6sf")
+player = NodePath("../../../Player")
+
+[node name="redTint" type="TextureRect" parent="CanvasLayer/FullUI/lowHealth"]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("29_afpbi")
+expand_mode = 1
+
+[node name="mycelium" type="TextureRect" parent="CanvasLayer/FullUI/lowHealth"]
+material = SubResource("ShaderMaterial_k421a")
+layout_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/FullUI/lowHealth"]
+libraries = {
+&"": SubResource("AnimationLibrary_afpbi")
+}
+
+[connection signal="pressed" from="CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/continue" to="CanvasLayer/pauseMenu" method="_on_continue_pressed"]
+[connection signal="pressed" from="CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/quit" to="CanvasLayer/pauseMenu" method="_on_button_3_pressed"]
+[connection signal="timeout" from="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/health/timer" to="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_health_timer_timeout"]
+[connection signal="timeout" from="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina/timer" to="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_stamina_timer_timeout"]
+[connection signal="timeout" from="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/mana/timer" to="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_mana_timer_timeout"]

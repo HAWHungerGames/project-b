@@ -1,0 +1,85 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwh1hvl3kgobd"]
+
+[ext_resource type="Script" uid="uid://b5vtbmi5nafbd" path="res://Scripts/UI/menus/main_menu.gd" id="1_8l4an"]
+[ext_resource type="VideoStream" uid="uid://bknv8v5nr8dld" path="res://UITextures/MycAnimafter (1).ogv" id="2_8l4an"]
+[ext_resource type="Texture2D" path="res://UITextures/TitleScreen.png" id="2_n15yj"]
+[ext_resource type="FontFile" uid="uid://4l406r67702d" path="res://UITextures/Fonts/DidactGothic-Regular.ttf" id="3_emot1"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8l4an")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_n15yj")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="MarginContainer"]
+layout_mode = 2
+stream = ExtResource("2_8l4an")
+autoplay = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="start" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_emot1")
+theme_override_font_sizes/font_size = 50
+text = "Start"
+
+[node name="options" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_emot1")
+theme_override_font_sizes/font_size = 50
+text = "Options"
+
+[node name="quit" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_emot1")
+theme_override_font_sizes/font_size = 50
+text = "Quit"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/start" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/quit" to="." method="_on_button_3_pressed"]
