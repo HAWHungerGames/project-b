@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://mw40xdu5xguc"]
 
-[ext_resource type="Script" uid="uid://8e4pwqphb8ab" path="res://Scripts/swordLogic.gd" id="1_6syh3"]
+[ext_resource type="Script" uid="uid://8e4pwqphb8ab" path="res://Scripts/SwordLogic.gd" id="1_6syh3"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_0yi6h"]
 

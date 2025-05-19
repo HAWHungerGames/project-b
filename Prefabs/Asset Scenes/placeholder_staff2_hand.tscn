@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://dmge3oraldwdl"]
 
-[ext_resource type="Script" uid="uid://c3bb0q135vw5e" path="res://Scripts/staffLogic.gd" id="1_sonoc"]
+[ext_resource type="Script" uid="uid://c3bb0q135vw5e" path="res://Scripts/StaffLogic.gd" id="1_sonoc"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_s4y1p"]
 
@@ -35,6 +35,20 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"magicAttack"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_avg1m"]

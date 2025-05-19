@@ -5,6 +5,8 @@ var weapon_on_back = false
 var first_weapon = ""
 var second_weapon = ""
 
+var bow_attack_timer
+
 func get_weapon_in_hand():
 	return weapon_in_hand
 
@@ -34,3 +36,10 @@ func get_second_weapon():
 	
 func set_second_weapon(weapon):
 	second_weapon = weapon
+	
+func get_bow_attack_timer():
+	return bow_attack_timer
+	
+func set_bow_attack_timer(timer):
+	bow_attack_timer = round(timer*10)/10
+	print(bow_attack_timer)

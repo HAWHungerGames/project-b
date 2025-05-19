@@ -7,23 +7,29 @@ extends Node3D
 @export var maxStaffInputCooldown: float = 0.7
 @export var maxResetComboStepCooldown: float = 1
 @export var manaCostPerAttack: int = 60
+@export var bowCooldown: float = 1
+@export var bowMaxCooldown: float = 3
 
 
 var weapon
 var animation_player
 var weapon_name
+var reductionSpeed
+var originalSpeed
 
 var finishedCombo = false
 var attackCooldown: float = 0
 var inputCooldown: float = 0
 var resetComboStepCooldown: float = 1
 var comboStep = 0
+var holdingBowAttack = false
+var holdingBowAttackTimer: float = 0
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _physics_process(delta: float) -> void:
 	getAccessToChild()
 	playIdleAnimation()
-	Attacks(delta)
+	attacks(delta)
 
 
 func playIdleAnimation():
@@ -37,26 +43,26 @@ func playIdleAnimation():
 
 func getWeapon():
 	return get_child(0)
-	
+
 func getAnimationPlayer(weapon):
 	return weapon.get_node_or_null("AnimationPlayer")
-	
+
 func getAccessToChild():
 	if GameManager.get_weapon_in_hand() == true:
 		weapon = getWeapon()
 		animation_player = getAnimationPlayer(weapon)
-		
+
 func playAttack1Animation():
-	if Input.is_action_just_pressed("attack") and GameManager.get_weapon_in_hand() == true and animation_player != null and attackCooldown <= 0 and comboStep == 0:
+	if Input.is_action_just_pressed("attack") and attackCooldown <= 0 and comboStep == 0:
 		comboStep = 1
 		inputCooldown = maxInputCooldown
 		animation_player.play("Attack1")
 		print("attack1")
 		print(comboStep)
-		
+
 func playAttack2Animation():
-	if animation_player != null and inputCooldown <= 0 and comboStep == 1:
-		if animation_player.current_animation == "Attack1" and Input.is_action_just_pressed("attack") and GameManager.get_weapon_in_hand() == true:
+	if inputCooldown <= 0 and comboStep == 1:
+		if animation_player.current_animation == "Attack1" and Input.is_action_just_pressed("attack"):
 			animation_player.stop()
 			animation_player.play("Attack2")
 			finishedCombo = true
@@ -64,7 +70,6 @@ func playAttack2Animation():
 			resetComboStepCooldown = maxResetComboStepCooldown
 			print("attack2")
 			print(comboStep)
-
 
 func calcAttackCooldown(delta):
 	if finishedCombo == true:
@@ -79,7 +84,7 @@ func calcAttackCooldown(delta):
 func calcInputCooldown(delta):
 	if inputCooldown >= 0:
 		inputCooldown = inputCooldown - delta
-		
+
 func resetComboStep(delta):
 	if comboStep == 1:
 		if resetComboStepCooldown > 0:
@@ -95,32 +100,69 @@ func meleeAttack(delta):
 	playAttack2Animation()
 	resetComboStep(delta)
 	calcAttackCooldown(delta)
-	
+
 func staffAttack(delta):
 	playStaffAttackAnimation()
 	calcInputCooldown(delta)
 	queueStaffAttackAnimation()
-	
+
 func playStaffAttackAnimation():
 	if animation_player.current_animation == "Idle":
-		if Input.is_action_just_pressed("attack") and GameManager.get_weapon_in_hand() == true and animation_player != null and settings.mana >= manaCostPerAttack and inputCooldown <= 0:
+		if Input.is_action_just_pressed("attack") and settings.mana >= manaCostPerAttack and inputCooldown <= 0:
 			print("staffAttack")
 			animation_player.play("Attack1")
 			inputCooldown = maxStaffInputCooldown
 
-		
 func queueStaffAttackAnimation():
 	if animation_player.current_animation == "Attack1":
-		if Input.is_action_pressed("attack") and GameManager.get_weapon_in_hand() == true and animation_player != null and settings.mana >= manaCostPerAttack and inputCooldown <= 0:
+		if Input.is_action_pressed("attack") and settings.mana >= manaCostPerAttack and inputCooldown <= 0:
 			print("queued staffAttack")
 			animation_player.queue("Attack1")
 			inputCooldown = maxStaffInputCooldown
-			
 
-func Attacks(delta):
-	weapon_name = GameManager.get_first_weapon()
-	match weapon_name:
-		"Placeholder Sword Hand":
-			meleeAttack(delta)
-		"Placeholder Staff Hand":
-			staffAttack(delta)
+func bowAttack(delta):
+	startHoldBowAttackAnimation()
+	holdingBowAttackCooldown(delta)
+	finishingBowAttackAnimation()
+
+# Press Input for Bow Attack
+func startHoldBowAttackAnimation():
+	if Input.is_action_pressed("attack") and !holdingBowAttack:
+		animation_player.play("Attack1")
+		animation_player.queue("HoldingAttack")
+		holdingBowAttack = true
+		# Reducing Speed while drwaing the Bow
+		originalSpeed = settings.speed
+		reductionSpeed = settings.speed * (1.0 - 80.0/100.0)
+
+# Press Input once for Quick Bow Attack, hold Input for Long Bow Attack
+func holdingBowAttackCooldown(delta):
+	if holdingBowAttack:
+		settings.speed = reductionSpeed
+		if  holdingBowAttackTimer <= bowCooldown:
+			holdingBowAttackTimer += delta
+			print(holdingBowAttackTimer)
+		elif Input.is_action_pressed("attack") and holdingBowAttackTimer <= bowMaxCooldown:
+			holdingBowAttackTimer += delta
+			print(holdingBowAttackTimer)
+
+# Release Input to finish Attack
+func finishingBowAttackAnimation():
+	if holdingBowAttackTimer >= bowCooldown and !Input.is_action_pressed("attack"):
+		GameManager.set_bow_attack_timer(holdingBowAttackTimer)
+		holdingBowAttack = false
+		holdingBowAttackTimer = 0
+		animation_player.stop()
+		animation_player.play("FinishedAttack")
+		settings.speed = originalSpeed
+
+func attacks(delta):
+	if GameManager.get_weapon_in_hand() == true and animation_player != null:
+		weapon_name = GameManager.get_first_weapon()
+		match weapon_name:
+			"Placeholder Sword Hand":
+				meleeAttack(delta)
+			"Placeholder Staff Hand":
+				staffAttack(delta)
+			"Placeholder Bow Hand":
+				bowAttack(delta)

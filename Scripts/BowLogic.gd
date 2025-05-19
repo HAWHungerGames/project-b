@@ -1,12 +1,14 @@
-extends Area3D
-
-@export var mana_cost_per_attack: int = 60
+extends Node3D
 
 @onready var ray_position = $RayCast3D
 
-var bullet_scene: PackedScene = preload("res://Prefabs/Asset Scenes/player_bullet.tscn")
+var bullet_scene: PackedScene = preload("res://Prefabs/Asset Scenes/arrow.tscn")
 var bullet_intance
 
+func _on_animation_player_animation_started(anim_name: StringName) -> void:
+	if anim_name == "FinishedAttack":
+		spawn_bullet()
+		print("bow attack")
 
 func spawn_bullet():
 	bullet_intance = bullet_scene.instantiate()
@@ -15,10 +17,3 @@ func spawn_bullet():
 	bullet_intance.transform.basis = direction.transform.basis
 	var world = get_node("/root/KonradWorkScene/WorldEnvironment/Player")
 	world.get_parent().add_child(bullet_intance)
-
-func magicAttack():
-	var stats = get_node("/root/KonradWorkScene/WorldEnvironment/Player") #very shit solution but it is what it is
-	if stats.mana >= mana_cost_per_attack:
-		stats.mana -= mana_cost_per_attack
-		print("-" + str(mana_cost_per_attack))
-		spawn_bullet()
