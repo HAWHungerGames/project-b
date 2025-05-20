@@ -3,6 +3,9 @@ extends Control
 @onready var color_rect = $MarginContainer/ColorRect
 @onready var vbox = $MarginContainer/VBoxContainer
 @onready var background = $MarginContainer/titleBackground
+
+@onready var buttonSelectLeftStart = $MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/buttonSelectLeft
+@onready var buttonSelectRightStart = $MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/buttonSelectRight
 func _ready():
 	fadeSceneIn()
 
@@ -37,3 +40,13 @@ func fadeIn():
 
 func _on_timer_timeout() -> void:
 	fadeIn()
+
+
+func _on_start_mouse_entered() -> void:
+	buttonSelectLeftStart.visible = true
+	buttonSelectRightStart.visible = true
+
+
+func _on_start_mouse_exited() -> void:
+	buttonSelectLeftStart.visible = false
+	buttonSelectRightStart.visible = false

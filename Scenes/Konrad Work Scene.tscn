@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://17sawqr1a5sd"]
+[gd_scene load_steps=65 format=3 uid="uid://17sawqr1a5sd"]
 
 [ext_resource type="Material" uid="uid://b2rgc8u5hwwcc" path="res://Materials/TestGround.tres" id="1_ggd4s"]
 [ext_resource type="PackedScene" uid="uid://6j2eqyw3n43k" path="res://Prefabs/Asset Scenes/training_dummy.tscn" id="2_24xrm"]
@@ -36,7 +36,6 @@
 [ext_resource type="Script" uid="uid://cr2dkifmawgcm" path="res://Scripts/UI/weapon_slots.gd" id="31_5i7v7"]
 [ext_resource type="Script" uid="uid://isgt2htj3fmm" path="res://Scripts/UI/menus/pause_menu.gd" id="32_3qkpg"]
 [ext_resource type="FontFile" uid="uid://4l406r67702d" path="res://UITextures/Fonts/DidactGothic-Regular.ttf" id="33_6roa5"]
-[ext_resource type="Script" uid="uid://cjfyqbv33333n" path="res://Scripts/boss_attack_spores.gd" id="33_efexv"]
 [ext_resource type="Shader" uid="uid://bjy5d3x36hbdt" path="res://Scripts/Shaders/pulsating.gdshader" id="34_5oe8d"]
 [ext_resource type="Texture2D" uid="uid://co6wmanklpgl3" path="res://UITextures/ParticleDust.png" id="39_5oe8d"]
 
@@ -923,10 +922,6 @@ theme_override_fonts/font = ExtResource("33_6roa5")
 theme_override_font_sizes/font_size = 50
 text = "Exit"
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="WorldEnvironment/CanvasLayer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.85693, 0)
-skeleton = NodePath("../../DeathSpores")
-
 [node name="DeathSpores" type="GPUParticles3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00802851, 1.77447, 0)
 emitting = false
@@ -963,10 +958,6 @@ lifetime = 0.2
 explosiveness = 0.7
 process_material = SubResource("ParticleProcessMaterial_efexv")
 draw_pass_1 = SubResource("QuadMesh_65wlj")
-
-[node name="BossAttack" type="MultiMeshInstance3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.21544, 2.24366, 1.41814)
-script = ExtResource("33_efexv")
 
 [connection signal="timeout" from="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/health/timer" to="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_health_timer_timeout"]
 [connection signal="timeout" from="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina/timer" to="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_stamina_timer_timeout"]
