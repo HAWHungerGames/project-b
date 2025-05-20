@@ -1,26 +1,21 @@
-[gd_scene load_steps=77 format=3 uid="uid://17sawqr1a5sd"]
+[gd_scene load_steps=69 format=3 uid="uid://17sawqr1a5sd"]
 
-[ext_resource type="Material" uid="uid://41byjnpqi8jl" path="res://Materials/TestBush.tres" id="1_3f6q6"]
+[ext_resource type="Material" uid="uid://b2rgc8u5hwwcc" path="res://Materials/TestGround.tres" id="1_ggd4s"]
 [ext_resource type="PackedScene" uid="uid://6j2eqyw3n43k" path="res://Prefabs/Asset Scenes/Game Objects/training_dummy.tscn" id="2_24xrm"]
+[ext_resource type="Material" uid="uid://dekpipancsbc6" path="res://Materials/TestCubes.tres" id="3_0ctdn"]
 [ext_resource type="PackedScene" uid="uid://bohnf5vipujed" path="res://Prefabs/Asset Scenes/World Objects/bonfire.tscn" id="3_5oe8d"]
 [ext_resource type="PackedScene" uid="uid://i40hh252nalo" path="res://Prefabs/Asset Scenes/Player Objects/InteractRayCast.tscn" id="4_1ee8w"]
 [ext_resource type="PackedScene" uid="uid://b2yj7ykigia5t" path="res://Prefabs/Asset Scenes/World Objects/Nature/bush_sphere.tscn" id="4_ga1i8"]
 [ext_resource type="PackedScene" uid="uid://cw0yxku6p8fo1" path="res://Prefabs/Asset Scenes/World Objects/Nature/mushroom_purple.tscn" id="5_2xhpb"]
-[ext_resource type="PackedScene" uid="uid://c4pocta6ava2v" path="res://Prefabs/Asset Scenes/Game Objects/training_dummy_ranged_with_stand.tscn" id="5_3f6q6"]
 [ext_resource type="Script" uid="uid://b5l31sh77qstt" path="res://Scripts/CameraController.gd" id="5_24xrm"]
 [ext_resource type="PackedScene" uid="uid://cpyee7rfs1efb" path="res://Prefabs/player.tscn" id="6_0ctdn"]
 [ext_resource type="PackedScene" uid="uid://bwwem0bl1hx05" path="res://Prefabs/Asset Scenes/World Objects/Nature/plant_with_purple.tscn" id="6_3f6q6"]
-[ext_resource type="PackedScene" uid="uid://ck4rfnlyd0qgp" path="res://Prefabs/Asset Scenes/World Objects/Walls/tree_wall_with_5_trees.tscn" id="6_lfy4s"]
 [ext_resource type="PackedScene" uid="uid://dwtwg5j2gx5qd" path="res://Prefabs/Asset Scenes/Player Objects/hand.tscn" id="6_rb0yp"]
-[ext_resource type="PackedScene" uid="uid://4u43ho0i5epx" path="res://Prefabs/Asset Scenes/World Objects/Nature/mushroom_many.tscn" id="7_2xhpb"]
-[ext_resource type="PackedScene" uid="uid://dcwv501p00np7" path="res://Prefabs/Asset Scenes/World Objects/Nature/monstera_bush.tscn" id="8_2uoa5"]
-[ext_resource type="PackedScene" uid="uid://bkb84hjpc3lba" path="res://Prefabs/Asset Scenes/Game Objects/training_dummy_ranged.tscn" id="8_oxcgu"]
-[ext_resource type="PackedScene" uid="uid://cls0f2j5gkklh" path="res://Prefabs/Asset Scenes/World Objects/Walls/broken_wall_with_2_trees.tscn" id="8_qcrt0"]
+[ext_resource type="PackedScene" uid="uid://bkb84hjpc3lba" path="res://Prefabs/Asset Scenes/Game Objects/training_dummy2.tscn" id="8_oxcgu"]
 [ext_resource type="Texture2D" uid="uid://dmuil4tlckvro" path="res://UITextures/BarFrameTop.png" id="9_fgmgr"]
 [ext_resource type="PackedScene" uid="uid://uafprr7riwjm" path="res://Prefabs/enemy_melee.tscn" id="10_1ee8w"]
 [ext_resource type="Texture2D" uid="uid://dc4hcr4p2xbna" path="res://UITextures/UnderneathTop.png" id="10_65wlj"]
 [ext_resource type="PackedScene" uid="uid://vj7to5njslw6" path="res://Prefabs/Asset Scenes/Game Objects/Socket.tscn" id="11_1bu8d"]
-[ext_resource type="PackedScene" uid="uid://bbunaqymstlo4" path="res://Prefabs/Asset Scenes/World Objects/Nature/rock_one.tscn" id="11_ccm0r"]
 [ext_resource type="Texture2D" uid="uid://cvmgiuevaosab" path="res://UITextures/DamageTop.png" id="11_toju0"]
 [ext_resource type="PackedScene" uid="uid://dcsqxh8ksn77m" path="res://Prefabs/Asset Scenes/Game Objects/door.tscn" id="12_1bu8d"]
 [ext_resource type="PackedScene" uid="uid://durr2417rl7mr" path="res://Prefabs/enemy_ranged.tscn" id="12_q6ig3"]
@@ -34,7 +29,6 @@
 [ext_resource type="Shader" uid="uid://bru2whrhk4mlo" path="res://Scripts/Shaders/low_health.gdshader" id="19_jp8xc"]
 [ext_resource type="Texture2D" uid="uid://cjvmlsiwqy7rj" path="res://UITextures/UnderneathMiddle.png" id="20_3f6q6"]
 [ext_resource type="Texture2D" uid="uid://dncs81uxppe3f" path="res://UITextures/DamageMiddle.png" id="21_2uoa5"]
-[ext_resource type="PackedScene" uid="uid://nc40df5rc7fy" path="res://Prefabs/Asset Scenes/World Objects/Walls/broke_wall_with_stuff.tscn" id="22_lfy4s"]
 [ext_resource type="Texture2D" uid="uid://dxxqrbfkg137x" path="res://UITextures/Mana.png" id="23_e0tq6"]
 [ext_resource type="Texture2D" uid="uid://6m5jcd5pvxrn" path="res://UITextures/WeaponSlotInactive.png" id="25_qcrt0"]
 [ext_resource type="Texture2D" uid="uid://dgvicbxum24vi" path="res://UITextures/WeaponSlotPressed.png" id="26_ar3t4"]
@@ -50,21 +44,10 @@
 [ext_resource type="Script" uid="uid://cjfyqbv33333n" path="res://Scripts/boss_attack_spores.gd" id="33_efexv"]
 [ext_resource type="Shader" uid="uid://bjy5d3x36hbdt" path="res://Scripts/Shaders/pulsating.gdshader" id="34_5oe8d"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lfy4s"]
-sky_top_color = Color(0.102228, 0.307553, 0.295863, 1)
-sky_horizon_color = Color(3.17663e-06, 0.490848, 0.322927, 1)
-ground_bottom_color = Color(0.0672642, 0.231192, 0.221726, 1)
-ground_horizon_color = Color(0.0771361, 0.510991, 0.33122, 1)
-
-[sub_resource type="Sky" id="Sky_qcrt0"]
-sky_material = SubResource("ProceduralSkyMaterial_lfy4s")
-
 [sub_resource type="Environment" id="Environment_1ee8w"]
-background_mode = 2
-sky = SubResource("Sky_qcrt0")
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_oxcgu"]
-vertices = PackedVector3Array(19.5, 1, 46.893, 19.5, 1.25, -18.607, 19, 1, -18.607, -159.5, 1, 46.893, 19, 1, -27.357, 21.25, 1, -252.107, -159.5, 1, -252.107, 21.25, 1, -27.607, 23, 1, -27.607, 23, 1, -252.107, 25, 1, -27.607, 25.25, 1, -25.857, 159.5, 1, -26.107, 159.5, 1, -252.107, 20, 2.25, -20.357, 24.25, 2.25, -20.357, 24.25, 3.75, -26.607, 20, 3.75, -26.607, 20, 3.75, -22.857, 24.25, 3.75, -22.857, 20.25, 1, -26.357, 20.25, 1, -21.607, 24, 1, -21.607, 24, 1, -26.357, 25.25, 1, -18.607, 24.75, 1.25, -18.607, 24.75, 1, 46.893, 159.5, 1, 46.893, 24.25, 1.25, -18.607, 20, 1.25, -18.607)
+vertices = PackedVector3Array(11.25, 1, 46.893, 11.25, 1.25, -18.607, 10.75, 1, -18.607, -159.5, 1, 46.893, 10.75, 1, -27.357, 13, 1, -252.107, -159.5, 1, -252.107, 13, 1, -27.607, 14.75, 1, -27.607, 14.75, 1, -252.107, 16.75, 1, -27.607, 17, 1, -25.357, 159.5, 1, -25.357, 159.5, 1, -252.107, 11.75, 2.25, -20.357, 16, 2.25, -20.357, 16, 3.75, -26.607, 11.75, 3.75, -26.607, 11.75, 3.75, -22.857, 16, 3.75, -22.857, 12, 1, -26.357, 12, 1, -21.607, 15.75, 1, -21.607, 15.75, 1, -26.357, 17, 1, -18.607, 16.5, 1.25, -18.607, 16.5, 1, 46.893, 159.5, 1, 46.893, 16, 1.25, -18.607, 11.75, 1.25, -18.607)
 polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 3), PackedInt32Array(4, 2, 3), PackedInt32Array(4, 5, 7), PackedInt32Array(5, 9, 7), PackedInt32Array(7, 9, 8), PackedInt32Array(11, 10, 12), PackedInt32Array(12, 10, 13), PackedInt32Array(13, 10, 9), PackedInt32Array(10, 8, 9), PackedInt32Array(14, 18, 15), PackedInt32Array(15, 18, 19), PackedInt32Array(19, 18, 17), PackedInt32Array(19, 17, 16), PackedInt32Array(23, 22, 20), PackedInt32Array(20, 22, 21), PackedInt32Array(26, 25, 24), PackedInt32Array(24, 11, 12), PackedInt32Array(26, 24, 27), PackedInt32Array(27, 24, 12), PackedInt32Array(29, 14, 28), PackedInt32Array(28, 14, 15), PackedInt32Array(28, 26, 29), PackedInt32Array(29, 26, 0), PackedInt32Array(0, 1, 29), PackedInt32Array(28, 25, 26)]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qsm0h"]
@@ -205,11 +188,6 @@ size = Vector2(0.4, 0.4)
 
 [node name="KonradWorkScene" type="Node3D"]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.962739, -0.180955, 0.20097, 0, 0.743145, 0.669131, -0.270432, -0.644198, 0.715454, 0, 13.9007, 0)
-light_color = Color(0.356781, 0.611273, 0.583666, 1)
-shadow_enabled = true
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_1ee8w")
 
@@ -224,12 +202,12 @@ navigation_mesh = SubResource("NavigationMesh_oxcgu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -102.607)
 use_collision = true
 size = Vector3(320, 1, 300)
-material = ExtResource("1_3f6q6")
+material = ExtResource("1_ggd4s")
 
 [node name="Tutorial Room" type="Node3D" parent="WorldEnvironment/World/Ground/NavigationRegion3D"]
 
 [node name="Rampe" type="CSGPolygon3D" parent="WorldEnvironment/World/Ground/NavigationRegion3D/Tutorial Room"]
-transform = Transform3D(-4.37114e-08, 0, 5, 0, 1, 0, -1, 0, -2.18557e-07, 24.5646, -0.262059, -21.1764)
+transform = Transform3D(-4.37114e-08, 0, 5, 0, 1, 0, -1, 0, -2.18557e-07, 16.4628, -0.262059, -21.1764)
 use_collision = true
 polygon = PackedVector2Array(-3.92837, 0.163654, 1.66039, 3.60656, 5.79976, 3.61472, 5.80412, 0.180376)
 
@@ -237,242 +215,50 @@ polygon = PackedVector2Array(-3.92837, 0.163654, 1.66039, 3.60656, 5.79976, 3.61
 
 [node name="Objects" type="Node3D" parent="WorldEnvironment/World/Tutorial Room"]
 
-[node name="Socket1" parent="WorldEnvironment/World/Tutorial Room/Objects" instance=ExtResource("11_1bu8d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.34555, 0.499114, -13.8294)
-
-[node name="Socket2" parent="WorldEnvironment/World/Tutorial Room/Objects" instance=ExtResource("11_1bu8d")]
-transform = Transform3D(0.703035, 0, -0.711155, 0, 1, 0, 0.711155, 0, 0.703035, 0.245904, 0.499114, -13.8294)
-weapon = "staff"
-
-[node name="Socket3" parent="WorldEnvironment/World/Tutorial Room/Objects" instance=ExtResource("11_1bu8d")]
-transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 2.76444, 0.499114, -13.8294)
-weapon = "bow"
-
-[node name="Socket4" parent="WorldEnvironment/World/Tutorial Room/Objects" instance=ExtResource("11_1bu8d")]
+[node name="Socket" parent="WorldEnvironment/World/Tutorial Room/Objects" instance=ExtResource("11_1bu8d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.19662, 0.499114, -13.8294)
 weapon = "shield"
 
+[node name="Socket2" parent="WorldEnvironment/World/Tutorial Room/Objects" instance=ExtResource("11_1bu8d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.34555, 0.499114, -13.8294)
+
+[node name="Socket3" parent="WorldEnvironment/World/Tutorial Room/Objects" instance=ExtResource("11_1bu8d")]
+transform = Transform3D(0.703035, 0, -0.711155, 0, 1, 0, 0.711155, 0, 0.703035, 0.245904, 0.499114, -13.8294)
+weapon = "staff"
+
+[node name="Socket4" parent="WorldEnvironment/World/Tutorial Room/Objects" instance=ExtResource("11_1bu8d")]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 2.76444, 0.499114, -13.8294)
+weapon = "bow"
+
 [node name="Bonfire" parent="WorldEnvironment/World/Tutorial Room/Objects" instance=ExtResource("3_5oe8d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.0384, 0.581336, -26.3646)
-
-[node name="training_dummy_ranged" parent="WorldEnvironment/World/Tutorial Room/Objects" instance=ExtResource("8_oxcgu")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 22.0584, 2.50303, -34.3666)
-
-[node name="trainingDummyRangedStand" parent="WorldEnvironment/World/Tutorial Room/Objects" instance=ExtResource("5_3f6q6")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 14.2698, 0.504087, -29.2343)
-
-[node name="training_dummy" parent="WorldEnvironment/World/Tutorial Room/Objects" instance=ExtResource("2_24xrm")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12.513, 0.522169, -18.9932)
-
-[node name="training_dummy2" parent="WorldEnvironment/World/Tutorial Room/Objects" instance=ExtResource("2_24xrm")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.4182, 0.522169, -18.9932)
-
-[node name="training_dummy3" parent="WorldEnvironment/World/Tutorial Room/Objects" instance=ExtResource("2_24xrm")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.6793, 0.522169, -18.9932)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.98248, 0.581336, -6.03306)
 
 [node name="Walls" type="Node3D" parent="WorldEnvironment/World/Tutorial Room"]
 
-[node name="North" type="Node3D" parent="WorldEnvironment/World/Tutorial Room/Walls"]
-
-[node name="TreeWallWith5Trees2" parent="WorldEnvironment/World/Tutorial Room/Walls/North" instance=ExtResource("6_lfy4s")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -17.6828, 1.17827, -35.771)
-
-[node name="Door" parent="WorldEnvironment/World/Tutorial Room/Walls/North" instance=ExtResource("12_1bu8d")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.472297, -34.3258)
-
-[node name="brokenWallWith2Trees" parent="WorldEnvironment/World/Tutorial Room/Walls/North" instance=ExtResource("8_qcrt0")]
-transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, 12.0899, 0.8, -34.9749)
-
-[node name="West" type="Node3D" parent="WorldEnvironment/World/Tutorial Room/Walls"]
-
-[node name="BrokeWallWithStuff" parent="WorldEnvironment/World/Tutorial Room/Walls/West" instance=ExtResource("22_lfy4s")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -24.2752, 0.503667, -18.917)
-
-[node name="East" type="Node3D" parent="WorldEnvironment/World/Tutorial Room/Walls"]
-
-[node name="TreeWallWith5Trees" parent="WorldEnvironment/World/Tutorial Room/Walls/East" instance=ExtResource("6_lfy4s")]
-transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 29.9089, 0.721044, -11.5182)
-
-[node name="South" type="Node3D" parent="WorldEnvironment/World/Tutorial Room/Walls"]
-
 [node name="Nature" type="Node3D" parent="WorldEnvironment/World/Tutorial Room"]
 
-[node name="Socket Deco" type="Node3D" parent="WorldEnvironment/World/Tutorial Room/Nature"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.61921, 0, -13.8269)
+[node name="BushSphere" parent="WorldEnvironment/World/Tutorial Room/Nature" instance=ExtResource("4_ga1i8")]
+transform = Transform3D(0.0762759, 0, -0.0646683, 0, 0.1, 0, 0.0646683, 0, 0.0762759, 4.67833, 0.446093, -13.3717)
 
-[node name="Socket1" type="Node3D" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.96476, 0.499114, -0.00246525)
-
-[node name="MushroomMany3" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco/Socket1" instance=ExtResource("7_2xhpb")]
-transform = Transform3D(-0.398734, 0, -0.0317943, 0, 0.4, 0, 0.0317943, 0, -0.398734, -0.58032, -0.00628, -0.338799)
-
-[node name="MushroomMany4" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco/Socket1" instance=ExtResource("7_2xhpb")]
-transform = Transform3D(0.237154, 0, 0.322115, 0, 0.4, 0, -0.322115, 0, 0.237154, -0.79183, -0.00628, -0.1383)
-
-[node name="MushroomPurple3" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco/Socket1" instance=ExtResource("5_2xhpb")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.7249, -0.00939, -0.5728)
-
-[node name="MushroomPurple4" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco/Socket1" instance=ExtResource("5_2xhpb")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.60333, 0.056774, -0.7137)
-
-[node name="Monstera_bush" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco/Socket1" instance=ExtResource("8_2uoa5")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.0453777, -0.0354514, 0.646766)
-
-[node name="Socket2" type="Node3D" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.37331, 0.499114, -0.00246525)
-
-[node name="PlantWithPurple4" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco/Socket2" instance=ExtResource("6_3f6q6")]
-transform = Transform3D(-0.272846, 0, -0.418993, 0, 0.5, 0, 0.418993, 0, -0.272846, -0.62411, -0.00817502, 0.2116)
-
-[node name="PlantWithPurple5" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco/Socket2" instance=ExtResource("6_3f6q6")]
-transform = Transform3D(-0.399696, 0, -0.0155783, 0, 0.4, 0, 0.0155783, 0, -0.399696, -0.768384, -0.00817502, 0.3781)
-
-[node name="PlantWithPurple6" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco/Socket2" instance=ExtResource("6_3f6q6")]
-transform = Transform3D(-0.399696, 0, -0.0155783, 0, 0.4, 0, 0.0155783, 0, -0.399696, -0.555903, -0.00817502, 0.513)
-
-[node name="PlantWithPurple7" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco/Socket2" instance=ExtResource("6_3f6q6")]
-transform = Transform3D(-0.599545, 0, -0.0233674, 0, 0.6, 0, 0.0233674, 0, -0.599545, -0.799394, -0.00817502, -0.0523996)
-
-[node name="PlantWithPurple3" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco/Socket2" instance=ExtResource("6_3f6q6")]
-transform = Transform3D(-0.327415, 0, -0.502791, 0, 0.6, 0, 0.502791, 0, -0.327415, 0.741983, 0.249267, -0.0946999)
-
-[node name="BushSphere2" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco/Socket2" instance=ExtResource("4_ga1i8")]
-transform = Transform3D(-0.124284, 0, -0.235043, 0, 0.2, 0, 0.156695, 0, -0.186426, 0.555621, -0.121802, -0.4573)
-
-[node name="BushSphere2" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco/Socket2/BushSphere2" instance=ExtResource("4_ga1i8")]
+[node name="BushSphere2" parent="WorldEnvironment/World/Tutorial Room/Nature/BushSphere" instance=ExtResource("4_ga1i8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.980488, -0.424162, 0)
 
-[node name="BushSphere3" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco/Socket2/BushSphere2" instance=ExtResource("4_ga1i8")]
+[node name="BushSphere3" parent="WorldEnvironment/World/Tutorial Room/Nature/BushSphere" instance=ExtResource("4_ga1i8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.980488, 0.189917, -1.1736)
 
-[node name="Socket3" type="Node3D" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.14523, 0.499114, -0.00246525)
+[node name="MushroomPurple" parent="WorldEnvironment/World/Tutorial Room/Nature" instance=ExtResource("5_2xhpb")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 4.88069, 0.489724, -13.2723)
 
-[node name="MushroomMany" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco/Socket3" instance=ExtResource("7_2xhpb")]
-transform = Transform3D(0.300206, 0, -0.264341, 0, 0.4, 0, 0.264341, 0, 0.300206, 0.42955, -0.00628, 0.5517)
-
-[node name="MushroomMany2" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco/Socket3" instance=ExtResource("7_2xhpb")]
-transform = Transform3D(-0.398734, 0, -0.0317943, 0, 0.4, 0, 0.0317943, 0, -0.398734, 0.13172, -0.00628, 0.5688)
-
-[node name="MushroomPurple2" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco/Socket3" instance=ExtResource("5_2xhpb")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.66018, -0.00939, 0.1339)
-
-[node name="Socket4" type="Node3D" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.57741, 0.499114, -0.00246525)
-
-[node name="MushroomPurple" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco/Socket4" instance=ExtResource("5_2xhpb")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.10375, -0.00939, 0.637)
-
-[node name="PlantWithPurple" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco/Socket4" instance=ExtResource("6_3f6q6")]
-transform = Transform3D(-0.0310774, 0, -0.599195, 0, 0.6, 0, 0.599195, 0, -0.0310774, 0.66571, 0.000885993, 0.4598)
-
-[node name="PlantWithPurple2" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco/Socket4" instance=ExtResource("6_3f6q6")]
-transform = Transform3D(-0.363643, 0, -0.477246, 0, 0.6, 0, 0.477246, 0, -0.363643, -0.65775, 0.000885993, -0.2282)
-
-[node name="Target Dummy Ranged with Stand" type="Node3D" parent="WorldEnvironment/World/Tutorial Room/Nature"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2839, 0, -29.3539)
-
-[node name="Monstera_bush" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged with Stand" instance=ExtResource("8_2uoa5")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 1.67715, 0.46122, 0.674261)
-
-[node name="Monstera_bush2" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged with Stand" instance=ExtResource("8_2uoa5")]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.650665, 0.46122, -1.20074)
-
-[node name="Monstera_bush3" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged with Stand" instance=ExtResource("8_2uoa5")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.165224, 0.46122, 1.11246)
-
-[node name="Target Dummy Ranged" type="Node3D" parent="WorldEnvironment/World/Tutorial Room/Nature"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.0275, 2.39599, -24.6675)
-
-[node name="Rock Chain" type="Node3D" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged"]
-
-[node name="RockOne" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged/Rock Chain" instance=ExtResource("11_ccm0r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01606, 0.929657, -1.97324)
-
-[node name="RockOne2" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged/Rock Chain" instance=ExtResource("11_ccm0r")]
-transform = Transform3D(0.864126, 0, -0.503276, 0, 1, 0, 0.503276, 0, 0.864126, -1.19741, 0.929657, -1.97324)
-
-[node name="RockOne3" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged/Rock Chain" instance=ExtResource("11_ccm0r")]
-transform = Transform3D(0.44715, 0, 0.894459, 0, 1, 0, -0.894459, 0, 0.44715, -0.359497, 0.929657, -1.97324)
-
-[node name="RockOne4" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged/Rock Chain" instance=ExtResource("11_ccm0r")]
-transform = Transform3D(0.983559, 0, -0.180588, 0, 1, 0, 0.180588, 0, 0.983559, 0.444635, 0.791451, -1.97324)
-
-[node name="RockOne5" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged/Rock Chain" instance=ExtResource("11_ccm0r")]
-transform = Transform3D(0.0536083, 0, -0.998562, 0, 1, 0, 0.998562, 0, 0.0536083, 1.30277, 0.723868, -1.97324)
-
-[node name="RockOne6" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged/Rock Chain" instance=ExtResource("11_ccm0r")]
-transform = Transform3D(-0.916272, 0, -0.400557, 0, 1, 0, 0.400557, 0, -0.916272, 2.04401, 0.885882, -1.83858)
-
-[node name="RockOne7" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged/Rock Chain" instance=ExtResource("11_ccm0r")]
-transform = Transform3D(-0.01918, 0, -0.999816, 0, 1, 0, 0.999816, 0, -0.01918, 2.59431, 0.929657, -1.87316)
-
-[node name="RockOne8" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged/Rock Chain" instance=ExtResource("11_ccm0r")]
-transform = Transform3D(-0.519758, 0, -0.854314, 0, 1, 0, 0.854314, 0, -0.519758, 2.57861, 0.929657, -1.05466)
-
-[node name="RockOne9" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged/Rock Chain" instance=ExtResource("11_ccm0r")]
-transform = Transform3D(0.885718, 0, -0.464224, 0, 1, 0, 0.464224, 0, 0.885718, 2.56254, 0.929657, -0.216898)
-
-[node name="RockOne10" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged/Rock Chain" instance=ExtResource("11_ccm0r")]
-transform = Transform3D(-0.199419, 0, -0.979914, 0, 1, 0, 0.979914, 0, -0.199419, 2.54712, 0.791451, 0.587086)
-
-[node name="RockOne11" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged/Rock Chain" instance=ExtResource("11_ccm0r")]
-transform = Transform3D(-0.999407, 0, -0.034446, 0, 1, 0, 0.034446, 0, -0.999407, 2.53066, 0.723868, 1.44507)
-
-[node name="Monstera_bush4" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged" instance=ExtResource("8_2uoa5")]
-transform = Transform3D(0.255819, 0, -0.307501, 0, 0.4, 0, 0.307501, 0, 0.255819, -0.332493, -1.93477, -4.65814)
-
-[node name="Monstera_bush5" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged" instance=ExtResource("8_2uoa5")]
-transform = Transform3D(0.383728, 0, -0.461252, 0, 0.6, 0, 0.461252, 0, 0.383728, 0.452427, -1.93477, -6.6464)
-
-[node name="Monstera_bush6" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged" instance=ExtResource("8_2uoa5")]
-transform = Transform3D(0.255819, 0, -0.307501, 0, 0.4, 0, 0.307501, 0, 0.255819, -1.63631, -1.93477, -5.54019)
-
-[node name="Monstera_bush7" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged" instance=ExtResource("8_2uoa5")]
-transform = Transform3D(0.255819, 0, -0.307501, 0, 0.4, 0, 0.307501, 0, 0.255819, -3.08394, -1.93477, -8.38924)
-
-[node name="BushSphere" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged" instance=ExtResource("4_ga1i8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.98527, -2.97, -7.90136)
-
-[node name="BushSphere2" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged" instance=ExtResource("4_ga1i8")]
-transform = Transform3D(2, 0, 0, 0, 0.5, 0, 0, 0, 2, -2.33461, -2.64302, -6.88577)
-
-[node name="BushSphere3" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged" instance=ExtResource("4_ga1i8")]
-transform = Transform3D(2, 0, 0, 0, 0.5, 0, 0, 0, 2, 2.34599, -2.28555, -4.88101)
-
-[node name="PlantWithPurple" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged" instance=ExtResource("6_3f6q6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63901, -1.38774, -4.55322)
-
-[node name="PlantWithPurple2" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged" instance=ExtResource("6_3f6q6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.24167, -1.38774, -5.46396)
-
-[node name="PlantWithPurple3" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged" instance=ExtResource("6_3f6q6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.37299, -1.5917, -4.59401)
-
-[node name="PlantWithPurple4" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged" instance=ExtResource("6_3f6q6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.55883, -1.77431, -6.79955)
-
-[node name="RockOne" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged" instance=ExtResource("11_ccm0r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52478, -1.81933, -7.88181)
-
-[node name="RockOne2" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged" instance=ExtResource("11_ccm0r")]
-transform = Transform3D(0.43473, 0, -1.11849, 0, 1.2, 0, 1.11849, 0, 0.43473, -2.60013, -1.81933, -5.19194)
+[node name="PlantWithPurple" parent="WorldEnvironment/World/Tutorial Room/Nature" instance=ExtResource("6_3f6q6")]
+transform = Transform3D(0.200454, 0, -0.458059, 0, 0.5, 0, 0.458059, 0, 0.200454, 5.71483, 0.5, -13.4243)
 
 [node name="Grey Box World" type="Node3D" parent="WorldEnvironment"]
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment/Grey Box World"]
+transform = Transform3D(1, 0, 0, 0, 0.743145, 0.669131, 0, -0.669131, 0.743145, 0, 13.9007, 0)
+
 [node name="Tutorial Room" type="Node3D" parent="WorldEnvironment/Grey Box World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15)
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Tutorial Room"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 25, 5, 0)
-visible = false
-size = Vector3(40, 10, 1)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Tutorial Room"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -25, 5, 0)
-visible = false
-use_collision = true
-size = Vector3(40, 10, 1)
 
 [node name="Walls etc" type="CSGCombiner3D" parent="WorldEnvironment/Grey Box World/Tutorial Room"]
 use_collision = true
@@ -484,7 +270,6 @@ size = Vector3(50, 10, 1)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Walls etc"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -20)
-visible = false
 use_collision = true
 size = Vector3(50, 10, 1)
 
@@ -493,7 +278,126 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -4.
 operation = 2
 radius = 6.0
 
+[node name="CSGBox3D3" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Walls etc"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -25, 5, 0)
+use_collision = true
+size = Vector3(40, 10, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Walls etc"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 25, 5, 0)
+use_collision = true
+size = Vector3(40, 10, 1)
+
 [node name="Objects" type="Node3D" parent="WorldEnvironment/Grey Box World/Tutorial Room"]
+
+[node name="Schild" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5656, 2, 5.94278)
+size = Vector3(3, 4, 1)
+material = ExtResource("3_0ctdn")
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.30376, 2.935, -17.7447)
+use_collision = true
+size = Vector3(3.17871, 12.656, 3.10767)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects/CSGBox3D17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.46811, 0)
+use_collision = true
+size = Vector3(7.19824, 6.86816, 8.63867)
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.34655, 2.935, -17.7447)
+use_collision = true
+size = Vector3(3.17871, 12.656, 3.10767)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects/CSGBox3D18"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.46811, 0)
+use_collision = true
+size = Vector3(7.19824, 6.86816, 8.63867)
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4224, 2.935, -14.9885)
+use_collision = true
+size = Vector3(3.17871, 12.656, 3.10767)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects/CSGBox3D19"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.46811, 0)
+use_collision = true
+size = Vector3(7.19824, 6.86816, 8.63867)
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.9385, 2.935, -17.2811)
+use_collision = true
+size = Vector3(3.17871, 12.656, 3.10767)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects/CSGBox3D20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.46811, 0)
+use_collision = true
+size = Vector3(7.19824, 6.86816, 8.63867)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.21302, 1.45692, -15.0291)
+radius = 1.0
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects/CSGSphere3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.897053, -0.436752, 0)
+radius = 1.0
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects/CSGSphere3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.324017, -0.436752, 0)
+radius = 1.0
+
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects/CSGSphere3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.216106, -0.436752, 0.50145)
+radius = 1.0
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9015, 1.45692, -13.8518)
+radius = 1.0
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects/CSGSphere3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.897053, -0.436752, 0)
+radius = 1.0
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects/CSGSphere3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.324017, -0.436752, 0)
+radius = 1.0
+
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects/CSGSphere3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.216106, -0.436752, 0.50145)
+radius = 1.0
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -19.1591, 2.14794, -12.9312)
+radius = 1.0
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects/CSGSphere3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.897053, -0.436752, 0)
+radius = 1.0
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects/CSGSphere3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.324017, -0.436752, 0)
+radius = 1.0
+
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects/CSGSphere3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.216106, -0.436752, 0.50145)
+radius = 1.0
+
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects"]
+transform = Transform3D(1.33483, 0, 1.48937, 0, 2, 0, -1.48937, 0, 1.33483, -6.49191, 2.14794, -19.8937)
+radius = 1.0
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects/CSGSphere3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.897053, -0.436752, 0)
+radius = 1.0
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects/CSGSphere3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.324017, -0.436752, 0)
+radius = 1.0
+
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Objects/CSGSphere3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.216106, -0.436752, 0.50145)
+radius = 1.0
 
 [node name="Room 1" type="Node3D" parent="WorldEnvironment/Grey Box World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -67.7875)
@@ -668,9 +572,26 @@ transform = Transform3D(-0.999999, 0, -8.74227e-08, 0, 1, 0, 8.74227e-08, 0, -0.
 
 [node name="Test Stuff" type="Node3D" parent="WorldEnvironment"]
 
+[node name="training_dummy" parent="WorldEnvironment/Test Stuff" instance=ExtResource("2_24xrm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.08592, 2.03202, -19.6113)
+
+[node name="training_dummy2" parent="WorldEnvironment/Test Stuff" instance=ExtResource("2_24xrm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.961, 2.03202, -19.6113)
+
+[node name="training_dummy3" parent="WorldEnvironment/Test Stuff" instance=ExtResource("2_24xrm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5321, 2.03202, -19.6113)
+
+[node name="training_dummy4" parent="WorldEnvironment/Test Stuff" instance=ExtResource("8_oxcgu")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 14.0223, 4.43699, -34.4936)
+
 [node name="MeleeEnemy" parent="WorldEnvironment/Test Stuff" node_paths=PackedStringArray("player") groups=["enemy"] instance=ExtResource("10_1ee8w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -60.1661)
 player = NodePath("../../Player")
+
+[node name="MeleeEnemy2" parent="WorldEnvironment/Test Stuff" node_paths=PackedStringArray("player") groups=["enemy"] instance=ExtResource("10_1ee8w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7261, 4.37732, -25.1636)
+player = NodePath("../../Player")
+visionRange = 20.0
 
 [node name="MeleeEnemy3" parent="WorldEnvironment/Test Stuff" node_paths=PackedStringArray("player") groups=["enemy"] instance=ExtResource("10_1ee8w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.77517, 1.5, -65.0895)
@@ -680,6 +601,9 @@ player = NodePath("../../Player")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.45755, 1.57494, -64.5633)
 player = NodePath("../../Player")
 homingStrength = 1.0
+
+[node name="Door" parent="WorldEnvironment/Test Stuff" instance=ExtResource("12_1bu8d")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, -34.3258)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="WorldEnvironment"]
 

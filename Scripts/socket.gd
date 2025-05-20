@@ -19,10 +19,10 @@ var staff_name = "Placeholder Staff Hand"
 var bow_name = "Placeholder Bow Hand"
 
 # Models
-@onready var sword = preload("res://Prefabs/Asset Scenes/sword.tscn")
-@onready var shield = preload("res://Prefabs/Asset Scenes/shield.tscn")
-@onready var staff = preload("res://Prefabs/Asset Scenes/staff.tscn")
-@onready var bow = preload("res://Prefabs/Asset Scenes/bow.tscn")
+@onready var sword = preload("res://Prefabs/Asset Scenes/Weapons/sword.tscn")
+@onready var shield = preload("res://Prefabs/Asset Scenes/Weapons/shield.tscn")
+@onready var staff = preload("res://Prefabs/Asset Scenes/Weapons/staff.tscn")
+@onready var bow = preload("res://Prefabs/Asset Scenes/Weapons/bow.tscn")
 
 var sword_name = "Sword"
 var shield_name = "Shield"

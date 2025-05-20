@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://ck4rfnlyd0qgp"]
+
+[ext_resource type="PackedScene" uid="uid://dpk5yryax4sqk" path="res://Models/Nature/Baum.blend" id="1_6dkop"]
+[ext_resource type="PackedScene" uid="uid://b2yj7ykigia5t" path="res://Prefabs/Asset Scenes/World Objects/Nature/bush_sphere.tscn" id="2_bsgvw"]
+[ext_resource type="PackedScene" uid="uid://6638cx8kjoqg" path="res://Models/Nature/RockTwo.blend" id="3_1jb35"]
+[ext_resource type="PackedScene" uid="uid://bbunaqymstlo4" path="res://Prefabs/Asset Scenes/World Objects/Nature/rock_one.tscn" id="4_bsgvw"]
+[ext_resource type="PackedScene" uid="uid://dcwv501p00np7" path="res://Prefabs/Asset Scenes/World Objects/Nature/monstera_bush.tscn" id="5_7uixu"]
+[ext_resource type="PackedScene" uid="uid://4u43ho0i5epx" path="res://Prefabs/Asset Scenes/World Objects/Nature/mushroom_many.tscn" id="6_d78m5"]
+[ext_resource type="PackedScene" uid="uid://bwwem0bl1hx05" path="res://Prefabs/Asset Scenes/World Objects/Nature/plant_with_purple.tscn" id="7_ah25c"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bcokc"]
+size = Vector3(5.2926, 4.22798, 2.62524)
+
+[node name="TreeWallWith5Trees" type="StaticBody3D"]
+
+[node name="Baum" parent="." instance=ExtResource("1_6dkop")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, -0.28244, 0)
+
+[node name="Baum2" parent="." instance=ExtResource("1_6dkop")]
+transform = Transform3D(-0.0308177, 0, -0.999525, 0, 1, 0, 0.999525, 0, -0.0308177, 0.8068, -0.454787, -0.760313)
+
+[node name="Baum3" parent="." instance=ExtResource("1_6dkop")]
+transform = Transform3D(-0.505356, 0, 0.862911, 0, 1, 0, -0.862911, 0, -0.505356, 1.72908, 0, 0.362683)
+
+[node name="Baum4" parent="." instance=ExtResource("1_6dkop")]
+transform = Transform3D(1.13561, 0, -0.387789, 0, 1.2, 0, 0.387789, 0, 1.13561, -1.10096, -0.170615, 0.295182)
+
+[node name="Baum5" parent="." instance=ExtResource("1_6dkop")]
+transform = Transform3D(0.820531, 0, -0.571602, 0, 1, 0, 0.571602, 0, 0.820531, -2.10915, -0.415591, 0.591073)
+
+[node name="BushSphere" parent="." instance=ExtResource("2_bsgvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.4811, 0.538585)
+
+[node name="BushSphere2" parent="." instance=ExtResource("2_bsgvw")]
+transform = Transform3D(0.5, 0, 0, 0, 0.25, 0, 0, 0, 0.5, -0.856033, -0.198223, 1.15144)
+
+[node name="RockTwo" parent="." instance=ExtResource("3_1jb35")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.06779, -0.274765, 0.955278)
+
+[node name="RockOne" parent="." instance=ExtResource("4_bsgvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.27094, 0, 0.849738)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0827026, 1.61399, -0.0403152)
+shape = SubResource("BoxShape3D_bcokc")
+
+[node name="Monstera_bush" parent="." instance=ExtResource("5_7uixu")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.730345, -0.271044, 1.30293)
+
+[node name="MushroomMany" parent="." instance=ExtResource("6_d78m5")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -1.86204, -0.0292315, 1.00594)
+
+[node name="PlantWithPurple" parent="." instance=ExtResource("7_ah25c")]
+transform = Transform3D(-0.289904, 0, 0.407377, 0, 0.5, 0, -0.407377, 0, -0.289904, 0.0614207, 0.35135, 0.680792)
+
+[editable path="RockOne"]

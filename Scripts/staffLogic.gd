@@ -4,7 +4,7 @@ extends Area3D
 
 @onready var ray_position = $RayCast3D
 
-var bullet_scene: PackedScene = preload("res://Prefabs/Asset Scenes/player_bullet.tscn")
+var bullet_scene: PackedScene = preload("res://Prefabs/Asset Scenes/Weapons/player_bullet.tscn")
 var bullet_intance
 
 

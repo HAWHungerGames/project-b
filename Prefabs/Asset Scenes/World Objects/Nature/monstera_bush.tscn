@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcwv501p00np7"]
+
+[ext_resource type="PackedScene" uid="uid://c816l18oc16gi" path="res://Models/Nature/Monstera_bush.blend" id="1_pq0oa"]
+
+[node name="Monstera_bush" type="Node3D"]
+
+[node name="Monstera_bush" parent="." instance=ExtResource("1_pq0oa")]

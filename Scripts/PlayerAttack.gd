@@ -143,7 +143,7 @@ func startHoldBowAttackAnimation():
 		holdingBowAttack = true
 		# Reducing Speed while drwaing the Bow
 		originalSpeed = settings.speed
-		reductionSpeed = settings.speed * (1.0 - 80.0/100.0)
+		reductionSpeed = settings.speed * 0.2
 
 # Press Input once for Quick Bow Attack, hold Input for Long Bow Attack
 func holdingBowAttackCooldown(delta):

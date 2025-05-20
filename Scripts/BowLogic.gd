@@ -2,7 +2,7 @@ extends Node3D
 
 @onready var ray_position = $RayCast3D
 
-var bullet_scene: PackedScene = preload("res://Prefabs/Asset Scenes/arrow.tscn")
+var bullet_scene: PackedScene = preload("res://Prefabs/Asset Scenes/Weapons/arrow.tscn")
 var bullet_intance
 
 func _on_animation_player_animation_started(anim_name: StringName) -> void:

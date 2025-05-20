@@ -1,0 +1,68 @@
+[gd_scene load_steps=12 format=3 uid="uid://cls0f2j5gkklh"]
+
+[ext_resource type="PackedScene" uid="uid://brt0oycfe6ah" path="res://Prefabs/Asset Scenes/World Objects/Walls/wall_middle_part.tscn" id="1_6idf2"]
+[ext_resource type="PackedScene" uid="uid://y6ehg3r5suf5" path="res://Models/Objects/Baumstumpf.blend" id="2_iumdh"]
+[ext_resource type="PackedScene" uid="uid://dpk5yryax4sqk" path="res://Models/Nature/Baum.blend" id="3_p0h80"]
+[ext_resource type="PackedScene" uid="uid://dcwv501p00np7" path="res://Prefabs/Asset Scenes/World Objects/Nature/monstera_bush.tscn" id="4_ageed"]
+[ext_resource type="PackedScene" uid="uid://4u43ho0i5epx" path="res://Prefabs/Asset Scenes/World Objects/Nature/mushroom_many.tscn" id="5_w6bee"]
+[ext_resource type="PackedScene" uid="uid://cw0yxku6p8fo1" path="res://Prefabs/Asset Scenes/World Objects/Nature/mushroom_purple.tscn" id="6_3wopx"]
+[ext_resource type="PackedScene" uid="uid://bwwem0bl1hx05" path="res://Prefabs/Asset Scenes/World Objects/Nature/plant_with_purple.tscn" id="7_atuqx"]
+[ext_resource type="PackedScene" uid="uid://uis0puhqo5yl" path="res://Prefabs/Asset Scenes/World Objects/Nature/tree_round.tscn" id="8_ecc5k"]
+[ext_resource type="PackedScene" uid="uid://bflrqla1nvy53" path="res://Prefabs/Asset Scenes/World Objects/Nature/bush_tear_drop.tscn" id="9_0nw2v"]
+[ext_resource type="PackedScene" uid="uid://b2yj7ykigia5t" path="res://Prefabs/Asset Scenes/World Objects/Nature/bush_sphere.tscn" id="10_4l341"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dctpm"]
+size = Vector3(3.45036, 10.4729, 11.5)
+
+[node name="brokenWallWith2Trees" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.42782, 4.73643, -4.65)
+shape = SubResource("BoxShape3D_dctpm")
+
+[node name="WallMiddlePart" parent="." instance=ExtResource("1_6idf2")]
+
+[node name="Baumstumpf" parent="." instance=ExtResource("2_iumdh")]
+transform = Transform3D(0.354666, 0, -0.934993, 0, 1, 0, 0.934993, 0, 0.354666, -1.46667, 0, -4.07151)
+
+[node name="Baumstumpf2" parent="." instance=ExtResource("2_iumdh")]
+transform = Transform3D(0.163952, 0, -0.78302, 0, 0.8, 0, 0.78302, 0, 0.163952, -3.68284, 0, -5.54199)
+
+[node name="Baum" parent="." instance=ExtResource("3_p0h80")]
+transform = Transform3D(1.95383, 0, -0.427254, 0, 2, 0, 0.427254, 0, 1.95383, -1.86007, 0, -6.71359)
+
+[node name="Monstera_bush" parent="." instance=ExtResource("4_ageed")]
+transform = Transform3D(0.940869, 0, -0.338771, 0, 1, 0, 0.338771, 0, 0.940869, -2.72352, 0, -10.2882)
+
+[node name="MushroomMany" parent="." instance=ExtResource("5_w6bee")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.17394, 0.92731, -3.64432)
+
+[node name="MushroomMany2" parent="." instance=ExtResource("5_w6bee")]
+transform = Transform3D(-0.478548, 0, -0.641087, 0, 0.8, 0, 0.641087, 0, -0.478548, -1.6537, 0.92731, -3.64432)
+
+[node name="MushroomMany3" parent="." instance=ExtResource("5_w6bee")]
+transform = Transform3D(-0.34358, 0, 0.204823, 0, 0.4, 0, -0.204823, 0, -0.34358, -1.6537, 1.00953, -4.47985)
+
+[node name="MushroomMany4" parent="." instance=ExtResource("5_w6bee")]
+transform = Transform3D(-1.03074, -8.76095e-08, 0.61447, -0.267291, 1.08052, -0.448368, -0.553288, -0.521994, -0.928113, -1.07144, 0.768182, -4.81421)
+
+[node name="MushroomPurple" parent="." instance=ExtResource("6_3wopx")]
+transform = Transform3D(0.8, 0, 0, 0, 1.5, 0, 0, 0, 0.8, -3.86896, 0.597551, -5.76256)
+
+[node name="PlantWithPurple" parent="." instance=ExtResource("7_atuqx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0452691, 2.58098, -8.65228)
+
+[node name="PlantWithPurple2" parent="." instance=ExtResource("7_atuqx")]
+transform = Transform3D(0.298474, 0.954418, 0, -0.954418, 0.298474, 0, 0, 0, 1, 0.292139, 2.26278, -9.05099)
+
+[node name="PlantWithPurple3" parent="." instance=ExtResource("7_atuqx")]
+transform = Transform3D(-0.00164398, 0.672064, -0.195773, -0.464767, 0.145346, 0.502858, 0.52344, 0.131165, 0.445877, 0.292139, 2.26278, -8.43888)
+
+[node name="TreeRound" parent="." instance=ExtResource("8_ecc5k")]
+transform = Transform3D(2.94258, 0, -0.584141, 0, 3, 0, 0.584141, 0, 2.94258, -0.838102, -0.15082, -1.27284)
+
+[node name="BushTearDrop" parent="." instance=ExtResource("9_0nw2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.524288, -0.253331, 0.515986)
+
+[node name="BushSphere" parent="." instance=ExtResource("10_4l341")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.525038, 0, 1.21538)

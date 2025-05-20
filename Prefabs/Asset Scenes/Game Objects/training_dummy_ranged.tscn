@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkb84hjpc3lba"]
+
+[ext_resource type="PackedScene" uid="uid://dp6ux0i73txnx" path="res://Models/Objects/zielscheibe.blend" id="1_vpelb"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_54gqj"]
+height = 0.260742
+radius = 0.988281
+
+[node name="trainingDummyRanged" type="StaticBody3D" groups=["TargetDummy"]]
+
+[node name="zielscheibe" parent="." instance=ExtResource("1_vpelb")]
+
+[node name="Cylinder" parent="zielscheibe" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.997425, 0)
+
+[node name="Cylinder_001" parent="zielscheibe" index="1"]
+visible = false
+
+[node name="Cylinder_002" parent="zielscheibe" index="2"]
+visible = false
+
+[node name="Cylinder_003" parent="zielscheibe" index="3"]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.995923, 0)
+shape = SubResource("CylinderShape3D_54gqj")
+
+[node name="DamageNumbersPosition" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07043, 0.384031)
+
+[editable path="zielscheibe"]

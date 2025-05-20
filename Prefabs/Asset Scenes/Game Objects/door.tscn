@@ -1,0 +1,288 @@
+[gd_scene load_steps=17 format=3 uid="uid://dcsqxh8ksn77m"]
+
+[ext_resource type="Script" uid="uid://bqwde0hhdtnbd" path="res://Scripts/Door.gd" id="1_urwcp"]
+[ext_resource type="PackedScene" uid="uid://uis0puhqo5yl" path="res://Prefabs/Asset Scenes/World Objects/Nature/tree_round.tscn" id="2_vets3"]
+[ext_resource type="Material" uid="uid://hf4mn7b5tp5w" path="res://Materials/enemy3.tres" id="2_ymewj"]
+[ext_resource type="PackedScene" uid="uid://dpk5yryax4sqk" path="res://Models/Nature/Baum.blend" id="3_xyauw"]
+[ext_resource type="PackedScene" uid="uid://bwwem0bl1hx05" path="res://Prefabs/Asset Scenes/World Objects/Nature/plant_with_purple.tscn" id="5_q4agj"]
+[ext_resource type="PackedScene" uid="uid://cw0yxku6p8fo1" path="res://Prefabs/Asset Scenes/World Objects/Nature/mushroom_purple.tscn" id="6_k1u7l"]
+[ext_resource type="PackedScene" uid="uid://4u43ho0i5epx" path="res://Prefabs/Asset Scenes/World Objects/Nature/mushroom_many.tscn" id="7_0kpld"]
+[ext_resource type="PackedScene" uid="uid://m5m2wps3p316" path="res://Prefabs/Asset Scenes/World Objects/Nature/rock_two.tscn" id="8_0kpld"]
+[ext_resource type="PackedScene" uid="uid://bbunaqymstlo4" path="res://Prefabs/Asset Scenes/World Objects/Nature/rock_one.tscn" id="9_351bd"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dy4fv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_urwcp"]
+size = Vector3(6.04712, 4.02368, 1)
+
+[sub_resource type="Animation" id="Animation_1lgia"]
+resource_name = "Closing"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshDoor:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -3, 0), Vector3(0, 2, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -3, 0), Vector3(0, 2, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshDoor:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape3D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dy4fv"]
+resource_name = "Opening"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshDoor:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 2, 0), Vector3(0, -3, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 2, 0), Vector3(0, -3, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshDoor:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape3D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_urwcp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshDoor:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 2, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 2, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshDoor:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape3D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d0pxa"]
+_data = {
+&"Closing": SubResource("Animation_1lgia"),
+&"Opening": SubResource("Animation_dy4fv"),
+&"RESET": SubResource("Animation_urwcp")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ymewj"]
+size = Vector3(12.2891, 4.06975, 4.61963)
+
+[node name="Door" type="StaticBody3D"]
+script = ExtResource("1_urwcp")
+
+[node name="MeshDoor" type="MeshInstance3D" parent="."]
+transform = Transform3D(6, 0, 0, 0, 4, 0, 0, 0, 1, 0, 2, 0)
+material_override = ExtResource("2_ymewj")
+mesh = SubResource("BoxMesh_dy4fv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_urwcp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_d0pxa")
+}
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.69832, -0.62085)
+shape = SubResource("BoxShape3D_ymewj")
+
+[node name="TreeRound" parent="." instance=ExtResource("2_vets3")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -3.38477, 0, 0)
+
+[node name="TreeRound2" parent="." instance=ExtResource("2_vets3")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3.49354, 0, 0)
+
+[node name="TreeRound3" parent="." instance=ExtResource("2_vets3")]
+transform = Transform3D(1.26756, 0, -1.278, 0, 1.8, 0, 1.278, 0, 1.26756, 4.30062, -0.270611, -0.980687)
+
+[node name="TreeRound4" parent="." instance=ExtResource("2_vets3")]
+transform = Transform3D(-0.115004, 0, -1.69611, 0, 1.7, 0, 1.69611, 0, -0.115004, -4.26967, -0.270611, -0.980687)
+
+[node name="Baum" parent="." instance=ExtResource("3_xyauw")]
+transform = Transform3D(2, 0, 0, 0, 1.31193, -1.50958, 0, 1.50958, 1.31193, 0.0934048, 1.80748, -2.65999)
+
+[node name="Icosphere_001" parent="Baum" index="0"]
+visible = false
+
+[node name="Baum2" parent="." instance=ExtResource("3_xyauw")]
+transform = Transform3D(0.6, 0, 0, 0, 0.39358, -0.452874, 0, 0.452874, 0.39358, 2.77102, 2.09023, -0.462069)
+
+[node name="Icosphere_001" parent="Baum2" index="0"]
+visible = false
+
+[node name="Baum4" parent="." instance=ExtResource("3_xyauw")]
+transform = Transform3D(0.5, 0, 0, 0, 0.327983, -0.377395, 0, 0.377395, 0.327983, 2.02344, 2.53475, -0.178809)
+
+[node name="Icosphere_001" parent="Baum4" index="0"]
+visible = false
+
+[node name="Baum3" parent="." instance=ExtResource("3_xyauw")]
+transform = Transform3D(0.75, 0, 0, 0, 0.491975, -0.566092, 0, 0.566092, 0.491975, -2.33195, 1.89345, -1.03344)
+
+[node name="Icosphere_001" parent="Baum3" index="0"]
+visible = false
+
+[node name="PlantWithPurple" parent="." instance=ExtResource("5_q4agj")]
+transform = Transform3D(1, 0, 0, 0, -0.315831, -0.948815, 0, 0.948815, -0.315831, 0.283159, 4.01532, 2.82706)
+
+[node name="PlantWithPurple2" parent="." instance=ExtResource("5_q4agj")]
+transform = Transform3D(0.941188, -0.320589, 0.106714, 0, -0.315831, -0.948815, 0.337884, 0.893013, -0.297256, -0.633102, 4.50047, 2.77867)
+
+[node name="MushroomPurple" parent="." instance=ExtResource("6_k1u7l")]
+transform = Transform3D(0.472771, 0.162751, 0, -0.162751, 0.472771, 0, 0, 0, 0.5, 4.98, -0.15867, -0.478625)
+
+[node name="MushroomPurple2" parent="." instance=ExtResource("6_k1u7l")]
+transform = Transform3D(0.362769, 0.218545, 0.113151, -0.130201, 0.661879, 0, -0.106989, -0.064454, 0.383662, 4.58899, 0.161295, 0.440549)
+
+[node name="MushroomPurple3" parent="." instance=ExtResource("6_k1u7l")]
+transform = Transform3D(-0.369696, -0.127268, -0.311653, -0.162751, 0.472771, 0, 0.294681, 0.101444, -0.390989, -4.17201, -0.15867, 0.462206)
+
+[node name="MushroomPurple4" parent="." instance=ExtResource("6_k1u7l")]
+transform = Transform3D(-0.21699, -0.130723, -0.327621, -0.130201, 0.661879, 0, 0.309779, 0.186622, -0.229488, -4.43918, 0.161295, -0.500282)
+
+[node name="MushroomPurple5" parent="." instance=ExtResource("6_k1u7l")]
+transform = Transform3D(0.3, 0, 0, 0, 1, 0, 0, 0, 0.3, -4.10822, -0.00515068, 0.0864893)
+
+[node name="MushroomPurple6" parent="." instance=ExtResource("6_k1u7l")]
+transform = Transform3D(0.281605, 0.0654886, -0.0323834, -0.102483, 0.168195, -0.125881, -0.0139853, 0.08615, 0.27038, -3.24927, -0.00515068, 0.608328)
+
+[node name="MushroomMany" parent="." instance=ExtResource("7_0kpld")]
+transform = Transform3D(0.315622, 0, -0.387792, 0, 0.5, 0, 0.387792, 0, 0.315622, 3.75782, 0, 0.843256)
+
+[node name="MushroomMany2" parent="." instance=ExtResource("7_0kpld")]
+transform = Transform3D(0.315622, 0, -0.387792, 0, 0.5, 0, 0.387792, 0, 0.315622, 5.07143, 0, 0.337984)
+
+[node name="MushroomMany3" parent="." instance=ExtResource("7_0kpld")]
+transform = Transform3D(0.315622, 0, -0.387792, 0, 0.5, 0, 0.387792, 0, 0.315622, -3.88815, 0, 1.7137)
+
+[node name="MushroomMany4" parent="." instance=ExtResource("7_0kpld")]
+transform = Transform3D(-0.226333, -0.442855, -0.0515048, -0.431815, 0.23212, -0.0982646, 0.110944, 0, -0.487536, -3.74753, 0.388837, 0.804099)
+
+[node name="MushroomMany5" parent="." instance=ExtResource("7_0kpld")]
+transform = Transform3D(-0.0657176, -0.291855, -0.400627, -0.479991, 0.13829, -0.0220073, 0.123651, 0.381702, -0.298352, -3.64349, 1.37472, 0.224567)
+
+[node name="RockTwo" parent="." instance=ExtResource("8_0kpld")]
+transform = Transform3D(-0.079036, -1.49012e-08, -0.493714, -0.436951, 0.232769, 0.0699491, 0.229842, 0.442514, -0.0367942, -5.19125, 0, -0.288021)
+
+[node name="RockOne" parent="." instance=ExtResource("9_351bd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.08491, -0.415699, 0)
+
+[editable path="Baum"]
+[editable path="Baum2"]
+[editable path="Baum4"]
+[editable path="Baum3"]

@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://brt0oycfe6ah"]
+
+[ext_resource type="PackedScene" uid="uid://c4veooe0eol5v" path="res://Models/Objects/Mauer3.blend" id="1_vtp2l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aj4t6"]
+size = Vector3(0.652344, 4.04858, 7.30859)
+
+[node name="WallMiddlePart" type="StaticBody3D"]
+
+[node name="Mauer3" parent="." instance=ExtResource("1_vtp2l")]
+
+[node name="Cube" parent="Mauer3" index="0"]
+visible = false
+
+[node name="Cube_002" parent="Mauer3" index="2"]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.70198, -6.90118)
+shape = SubResource("BoxShape3D_aj4t6")
+
+[editable path="Mauer3"]
