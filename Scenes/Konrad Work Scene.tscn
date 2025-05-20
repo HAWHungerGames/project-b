@@ -16,38 +16,37 @@
 [ext_resource type="PackedScene" uid="uid://dcwv501p00np7" path="res://Prefabs/Asset Scenes/World Objects/Nature/monstera_bush.tscn" id="8_2uoa5"]
 [ext_resource type="PackedScene" uid="uid://bkb84hjpc3lba" path="res://Prefabs/Asset Scenes/Game Objects/training_dummy_ranged.tscn" id="8_oxcgu"]
 [ext_resource type="PackedScene" uid="uid://cls0f2j5gkklh" path="res://Prefabs/Asset Scenes/World Objects/Walls/broken_wall_with_2_trees.tscn" id="8_qcrt0"]
-[ext_resource type="Texture2D" uid="uid://dmuil4tlckvro" path="res://UITextures/BarFrameTop.png" id="9_fgmgr"]
+[ext_resource type="Texture2D" uid="uid://dmuil4tlckvro" path="res://UITextures/Stats/BarFrameTop.png" id="9_fgmgr"]
 [ext_resource type="PackedScene" uid="uid://uafprr7riwjm" path="res://Prefabs/enemy_melee.tscn" id="10_1ee8w"]
-[ext_resource type="Texture2D" uid="uid://dc4hcr4p2xbna" path="res://UITextures/UnderneathTop.png" id="10_65wlj"]
+[ext_resource type="Texture2D" uid="uid://dc4hcr4p2xbna" path="res://UITextures/Stats/UnderneathTop.png" id="10_65wlj"]
 [ext_resource type="PackedScene" uid="uid://vj7to5njslw6" path="res://Prefabs/Asset Scenes/Game Objects/Socket.tscn" id="11_1bu8d"]
 [ext_resource type="PackedScene" uid="uid://bbunaqymstlo4" path="res://Prefabs/Asset Scenes/World Objects/Nature/rock_one.tscn" id="11_ccm0r"]
-[ext_resource type="Texture2D" uid="uid://cvmgiuevaosab" path="res://UITextures/DamageTop.png" id="11_toju0"]
+[ext_resource type="Texture2D" uid="uid://cvmgiuevaosab" path="res://UITextures/Stats/DamageTop.png" id="11_toju0"]
 [ext_resource type="PackedScene" uid="uid://dcsqxh8ksn77m" path="res://Prefabs/Asset Scenes/Game Objects/door.tscn" id="12_1bu8d"]
 [ext_resource type="PackedScene" uid="uid://durr2417rl7mr" path="res://Prefabs/enemy_ranged.tscn" id="12_q6ig3"]
-[ext_resource type="Texture2D" uid="uid://crd1yijlsjxdv" path="res://UITextures/BarFrameBottom.png" id="13_8rmxw"]
+[ext_resource type="Texture2D" uid="uid://crd1yijlsjxdv" path="res://UITextures/Stats/BarFrameBottom.png" id="13_8rmxw"]
 [ext_resource type="Script" uid="uid://l471dqs5cmuc" path="res://Scripts/UI/bars.gd" id="13_fwfwu"]
-[ext_resource type="Texture2D" uid="uid://idv5h3wy02ok" path="res://UITextures/StaminaBottom.png" id="14_jp8xc"]
-[ext_resource type="Texture2D" uid="uid://c8eq20nuh4yxx" path="res://UITextures/UnderneathBottom.png" id="15_5oe8d"]
-[ext_resource type="Texture2D" uid="uid://cur1fsy614172" path="res://UITextures/DamageBottom.png" id="16_qsm0h"]
-[ext_resource type="Texture2D" uid="uid://booeplbhoubjy" path="res://UITextures/BarFrameMiddle.png" id="18_ga1i8"]
-[ext_resource type="Texture2D" uid="uid://b7ms4tj2ov82j" path="res://UITextures/StaminaMiddle.png" id="19_2xhpb"]
+[ext_resource type="Texture2D" uid="uid://idv5h3wy02ok" path="res://UITextures/Stats/StaminaBottom.png" id="14_jp8xc"]
+[ext_resource type="Texture2D" uid="uid://c8eq20nuh4yxx" path="res://UITextures/Stats/UnderneathBottom.png" id="15_5oe8d"]
+[ext_resource type="Texture2D" uid="uid://cur1fsy614172" path="res://UITextures/Stats/DamageBottom.png" id="16_qsm0h"]
+[ext_resource type="Texture2D" uid="uid://booeplbhoubjy" path="res://UITextures/Stats/BarFrameMiddle.png" id="18_ga1i8"]
+[ext_resource type="Texture2D" uid="uid://b7ms4tj2ov82j" path="res://UITextures/Stats/StaminaMiddle.png" id="19_2xhpb"]
 [ext_resource type="Shader" uid="uid://bru2whrhk4mlo" path="res://Scripts/Shaders/low_health.gdshader" id="19_jp8xc"]
-[ext_resource type="Texture2D" uid="uid://cjvmlsiwqy7rj" path="res://UITextures/UnderneathMiddle.png" id="20_3f6q6"]
-[ext_resource type="Texture2D" uid="uid://dncs81uxppe3f" path="res://UITextures/DamageMiddle.png" id="21_2uoa5"]
+[ext_resource type="Texture2D" uid="uid://cjvmlsiwqy7rj" path="res://UITextures/Stats/UnderneathMiddle.png" id="20_3f6q6"]
+[ext_resource type="Texture2D" uid="uid://dncs81uxppe3f" path="res://UITextures/Stats/DamageMiddle.png" id="21_2uoa5"]
 [ext_resource type="PackedScene" uid="uid://nc40df5rc7fy" path="res://Prefabs/Asset Scenes/World Objects/Walls/broke_wall_with_stuff.tscn" id="22_lfy4s"]
-[ext_resource type="Texture2D" uid="uid://dxxqrbfkg137x" path="res://UITextures/Mana.png" id="23_e0tq6"]
-[ext_resource type="Texture2D" uid="uid://6m5jcd5pvxrn" path="res://UITextures/WeaponSlotInactive.png" id="25_qcrt0"]
-[ext_resource type="Texture2D" uid="uid://dgvicbxum24vi" path="res://UITextures/WeaponSlotPressed.png" id="26_ar3t4"]
+[ext_resource type="Texture2D" uid="uid://dxxqrbfkg137x" path="res://UITextures/Stats/Mana.png" id="23_e0tq6"]
+[ext_resource type="Texture2D" uid="uid://6m5jcd5pvxrn" path="res://UITextures/Weapons/WeaponSlotInactive.png" id="25_qcrt0"]
+[ext_resource type="Texture2D" uid="uid://dgvicbxum24vi" path="res://UITextures/Weapons/WeaponSlotPressed.png" id="26_ar3t4"]
 [ext_resource type="Script" uid="uid://c7616ek8c2kfe" path="res://Scripts/UI/low_health.gd" id="26_vkbj3"]
-[ext_resource type="Texture2D" uid="uid://baxq1j20y701x" path="res://UITextures/redTint.png" id="26_vkim1"]
-[ext_resource type="Texture2D" uid="uid://b0gb728e1n47w" path="res://UITextures/WeaponSlot.png" id="27_vs2el"]
-[ext_resource type="Texture2D" uid="uid://dwoof1omyr8bt" path="res://UITextures/mycelium.png" id="28_vkbj3"]
-[ext_resource type="Texture2D" uid="uid://b56g56co15oce" path="res://UITextures/WeaponSlotFrame2.png" id="30_1tgbn"]
+[ext_resource type="Texture2D" uid="uid://baxq1j20y701x" path="res://UITextures/Menus/redTint.png" id="26_vkim1"]
+[ext_resource type="Texture2D" uid="uid://b0gb728e1n47w" path="res://UITextures/Weapons/WeaponSlot.png" id="27_vs2el"]
+[ext_resource type="Texture2D" uid="uid://b56g56co15oce" path="res://UITextures/Weapons/WeaponSlotFrame2.png" id="30_1tgbn"]
 [ext_resource type="Script" uid="uid://cr2dkifmawgcm" path="res://Scripts/UI/weapon_slots.gd" id="31_5i7v7"]
 [ext_resource type="Script" uid="uid://isgt2htj3fmm" path="res://Scripts/UI/menus/pause_menu.gd" id="32_3qkpg"]
 [ext_resource type="FontFile" uid="uid://4l406r67702d" path="res://UITextures/Fonts/DidactGothic-Regular.ttf" id="33_6roa5"]
 [ext_resource type="Shader" uid="uid://bjy5d3x36hbdt" path="res://Scripts/Shaders/pulsating.gdshader" id="34_5oe8d"]
-[ext_resource type="Texture2D" uid="uid://co6wmanklpgl3" path="res://UITextures/ParticleDust.png" id="39_5oe8d"]
+[ext_resource type="Texture2D" uid="uid://co6wmanklpgl3" path="res://UITextures/Particles/ParticleDust.png" id="39_5oe8d"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lfy4s"]
 sky_top_color = Color(0.102228, 0.307553, 0.295863, 1)
@@ -78,6 +77,9 @@ shader = ExtResource("34_5oe8d")
 shader_parameter/pulse_color = Color(1, 0, 0, 0.5)
 shader_parameter/pulse_speed = 2.0
 shader_parameter/intensity = 0.5
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_68ajo"]
+load_path = "res://.godot/imported/mycelium.png-54eb085362b88405bd06f69383fb162e.ctex"
 
 [sub_resource type="Gradient" id="Gradient_fwfwu"]
 offsets = PackedFloat32Array(0, 0.489451, 0.767932, 1)
@@ -964,7 +966,7 @@ expand_mode = 1
 visible = false
 material = SubResource("ShaderMaterial_ga1i8")
 layout_mode = 2
-texture = ExtResource("28_vkbj3")
+texture = SubResource("CompressedTexture2D_68ajo")
 
 [node name="pauseMenu" type="MarginContainer" parent="WorldEnvironment/CanvasLayer"]
 process_mode = 3

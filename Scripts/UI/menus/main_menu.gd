@@ -7,9 +7,9 @@ extends Control
 @onready var buttonSelectRightStart = $MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/buttonSelectRight
 @onready var buttonSelectLeftStart = $MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/buttonSelectLeft
 @onready var buttonSelectRightOptions = $MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer3/buttonSelectRight
-@onready var buttonSelectLeftOptions = $MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer3/buttonSelectRight
+@onready var buttonSelectLeftOptions = $MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer3/buttonSelectLeft
 @onready var buttonSelectRightExit = $MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer2/buttonSelectRight
-@onready var buttonSelectLeftExit = $MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer2/buttonSelectRight
+@onready var buttonSelectLeftExit = $MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer2/buttonSelectLeft
 
 
 
@@ -50,29 +50,29 @@ func _on_timer_timeout() -> void:
 	fadeIn()
 
 func _on_hover_start_enter() -> void:
-	buttonSelectLeftStart.visible = true
-	buttonSelectRightStart.visible = true
+	buttonSelectLeftStart.modulate.a = 1.0
+	buttonSelectRightStart.modulate.a = 1.0
 
 func _on_hover_start_exit() -> void:
-	buttonSelectLeftStart.visible = false
-	buttonSelectRightStart.visible = false
+	buttonSelectLeftStart.modulate.a = 0.0
+	buttonSelectRightStart.modulate.a = 0.0
 
 
 func _on_hover_options_enter() -> void:
-	buttonSelectLeftOptions.visible = false
-	buttonSelectRightOptions.visible = false
+	buttonSelectLeftOptions.modulate.a = 1.0
+	buttonSelectRightOptions.modulate.a = 1.0
 
 
 func _on_hover_options_exit() -> void:
-	buttonSelectLeftOptions.visible = false
-	buttonSelectRightOptions.visible = false
+	buttonSelectLeftOptions.modulate.a = 0.0
+	buttonSelectRightOptions.modulate.a = 0.0
 
 
 func _on_hover_exit_enter() -> void:
-	buttonSelectLeftExit.visible = false
-	buttonSelectRightExit.visible = false
+	buttonSelectLeftExit.modulate.a = 1.0
+	buttonSelectRightExit.modulate.a = 1.0
 
 
 func _on_hover_exit_exit() -> void:
-	buttonSelectLeftExit.visible = false
-	buttonSelectRightExit.visible = false
+	buttonSelectLeftExit.modulate.a = 0.0
+	buttonSelectRightExit.modulate.a = 0.0
