@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dmge3oraldwdl"]
 
-[ext_resource type="Script" uid="uid://c3bb0q135vw5e" path="res://Scripts/StaffLogic.gd" id="1_unfdd"]
+[ext_resource type="Script" uid="uid://c3bb0q135vw5e" path="res://Scripts/Weapons/staffLogic.gd" id="1_unfdd"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_s4y1p"]
 

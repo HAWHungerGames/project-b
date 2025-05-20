@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://dcsqxh8ksn77m"]
 
-[ext_resource type="Script" uid="uid://bqwde0hhdtnbd" path="res://Scripts/Door.gd" id="1_urwcp"]
+[ext_resource type="Script" uid="uid://bqwde0hhdtnbd" path="res://Scripts/Assets/Door.gd" id="1_urwcp"]
 [ext_resource type="PackedScene" uid="uid://uis0puhqo5yl" path="res://Prefabs/Asset Scenes/World Objects/Nature/tree_round.tscn" id="2_vets3"]
 [ext_resource type="Material" uid="uid://hf4mn7b5tp5w" path="res://Materials/enemy3.tres" id="2_ymewj"]
 [ext_resource type="PackedScene" uid="uid://dpk5yryax4sqk" path="res://Models/Nature/Baum.blend" id="3_xyauw"]

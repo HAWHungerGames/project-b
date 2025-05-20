@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://c5uan1ibvvbyy"]
 
-[ext_resource type="Script" uid="uid://8e4pwqphb8ab" path="res://Scripts/SwordLogic.gd" id="1_p82o6"]
+[ext_resource type="Script" uid="uid://8e4pwqphb8ab" path="res://Scripts/Weapons/swordLogic.gd" id="1_p82o6"]
 [ext_resource type="PackedScene" uid="uid://dxt04ddtceulm" path="res://Models/Weapons/Sword.blend" id="2_5e3sv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vidav"]

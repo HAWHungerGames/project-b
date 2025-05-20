@@ -666,7 +666,6 @@ script = ExtResource("5_24xrm")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.79046, 0)
 speed = 10.0
 dashMaxCooldown = 0.5
-manaPerSecond = 40
 
 [node name="InteractRayCast" parent="WorldEnvironment/Player/Controller/Model" index="2" instance=ExtResource("4_1ee8w")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.292097, -0.375234)

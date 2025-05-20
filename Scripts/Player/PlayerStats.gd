@@ -168,6 +168,7 @@ func takeDamage(damage: int, attacker: Node3D, isBlockable):
 		if isBlockable:
 			health -= damage* (1-getBlockingDamageReduction())
 			stamina -= blockingStaminaCost
+			staminaChanged.emit()
 			healthChanged.emit()
 		else: 
 			breakBlock()
@@ -182,7 +183,7 @@ func getBlockingDamageReduction():
 		return 0.3
 	if GameManager.get_first_weapon() == "Sword":
 		if GameManager.get_second_weapon() == "Shield":
-			return 1
+			return 1.0
 		return 0.5
 	if GameManager.get_first_weapon() == "Shield":
 		return 1.0

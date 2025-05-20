@@ -123,8 +123,9 @@ func chargeAttack():
 
 func explosionMiniEnemiesAttack():
 	var tempExplosionEnemy = explosionEnemy.instantiate()
-	tempExplosionEnemy.global_position = ExplosionEnemySpawnPoint.global_position
 	world.add_child(tempExplosionEnemy)
+	tempExplosionEnemy.global_position = ExplosionEnemySpawnPoint.global_position
+	
 	
 
 func spearMeleeAttack():
