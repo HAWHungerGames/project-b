@@ -664,7 +664,6 @@ script = ExtResource("5_24xrm")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.79046, 0)
 speed = 10.0
 dashMaxCooldown = 0.5
-manaPerSecond = 40
 
 [node name="InteractRayCast" parent="WorldEnvironment/Player/Controller/Model" index="2" instance=ExtResource("4_1ee8w")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.292097, -0.375234)
@@ -680,13 +679,11 @@ transform = Transform3D(-0.999999, 0, -8.74227e-08, 0, 1, 0, 8.74227e-08, 0, -0.
 
 [node name="Test Stuff" type="Node3D" parent="WorldEnvironment"]
 
-[node name="MeleeEnemy" parent="WorldEnvironment/Test Stuff" node_paths=PackedStringArray("player") groups=["enemy"] instance=ExtResource("10_1ee8w")]
+[node name="MeleeEnemy" parent="WorldEnvironment/Test Stuff" groups=["enemy"] instance=ExtResource("10_1ee8w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -60.1661)
-player = NodePath("../../Player")
 
-[node name="MeleeEnemy3" parent="WorldEnvironment/Test Stuff" node_paths=PackedStringArray("player") groups=["enemy"] instance=ExtResource("10_1ee8w")]
+[node name="MeleeEnemy3" parent="WorldEnvironment/Test Stuff" groups=["enemy"] instance=ExtResource("10_1ee8w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.77517, 1.5, -65.0895)
-player = NodePath("../../Player")
 
 [node name="RangedEnemy" parent="WorldEnvironment/Test Stuff" groups=["enemy"] instance=ExtResource("12_q6ig3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.45755, 1.57494, -64.5633)

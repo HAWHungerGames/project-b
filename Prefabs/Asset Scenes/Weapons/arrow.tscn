@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://chu0gv1cp633e"]
 
-[ext_resource type="Script" uid="uid://ddkwundh1pwu0" path="res://Scripts/PlayerArrow.gd" id="1_jalla"]
+[ext_resource type="Script" uid="uid://ddkwundh1pwu0" path="res://Scripts/Weapons/PlayerArrow.gd" id="1_jalla"]
 [ext_resource type="PackedScene" uid="uid://rga2xgcxswyh" path="res://Models/Weapons/Arrow.blend" id="2_vvk11"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_apqjk"]

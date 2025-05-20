@@ -2,7 +2,7 @@ extends Node3D
 
 @onready var ray_position = $RayCast3D
 @onready var player: Node3D = GlobalPlayer.getPlayer()
-@onready var world = $"../.."
+@onready var world = $"../../../../.."
 
 var bullet_scene: PackedScene = preload("res://Prefabs/Asset Scenes/Weapons/arrow.tscn")
 var bullet_intance

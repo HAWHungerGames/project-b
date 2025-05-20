@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://vj7to5njslw6"]
 
-[ext_resource type="Script" uid="uid://dmu20hjcmp5q" path="res://Scripts/Socket.gd" id="1_ln7qy"]
+[ext_resource type="Script" uid="uid://dmu20hjcmp5q" path="res://Scripts/Assets/socket.gd" id="1_ln7qy"]
 [ext_resource type="PackedScene" uid="uid://y6ehg3r5suf5" path="res://Models/Objects/Baumstumpf.blend" id="2_thl2v"]
 [ext_resource type="AudioStream" uid="uid://dg30u3n0a7tv0" path="res://Assets/Sound/mixkit-sweet-kitty-meow-93.wav" id="3_vo460"]
 
