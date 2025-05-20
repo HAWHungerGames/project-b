@@ -4,8 +4,16 @@ extends Control
 @onready var vbox = $MarginContainer/VBoxContainer
 @onready var background = $MarginContainer/titleBackground
 
-@onready var buttonSelectLeftStart = $MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/buttonSelectLeft
 @onready var buttonSelectRightStart = $MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/buttonSelectRight
+@onready var buttonSelectLeftStart = $MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/buttonSelectLeft
+@onready var buttonSelectRightOptions = $MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer3/buttonSelectRight
+@onready var buttonSelectLeftOptions = $MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer3/buttonSelectRight
+@onready var buttonSelectRightExit = $MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer2/buttonSelectRight
+@onready var buttonSelectLeftExit = $MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer2/buttonSelectRight
+
+
+
+
 func _ready():
 	fadeSceneIn()
 
@@ -41,12 +49,30 @@ func fadeIn():
 func _on_timer_timeout() -> void:
 	fadeIn()
 
-
-func _on_start_mouse_entered() -> void:
+func _on_hover_start_enter() -> void:
 	buttonSelectLeftStart.visible = true
 	buttonSelectRightStart.visible = true
 
-
-func _on_start_mouse_exited() -> void:
+func _on_hover_start_exit() -> void:
 	buttonSelectLeftStart.visible = false
 	buttonSelectRightStart.visible = false
+
+
+func _on_hover_options_enter() -> void:
+	buttonSelectLeftOptions.visible = false
+	buttonSelectRightOptions.visible = false
+
+
+func _on_hover_options_exit() -> void:
+	buttonSelectLeftOptions.visible = false
+	buttonSelectRightOptions.visible = false
+
+
+func _on_hover_exit_enter() -> void:
+	buttonSelectLeftExit.visible = false
+	buttonSelectRightExit.visible = false
+
+
+func _on_hover_exit_exit() -> void:
+	buttonSelectLeftExit.visible = false
+	buttonSelectRightExit.visible = false
