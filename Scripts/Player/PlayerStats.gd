@@ -67,6 +67,10 @@ var enemiesDetectingPlayer: Array = []
 var isHidden: bool = false
 var isDetected: bool = false
 
+signal healthChanged
+signal staminaChanged
+signal manaChanged
+
 func _enter_tree():
 	GlobalPlayer.setPlayer(self)
 
@@ -94,14 +98,17 @@ func resource_system(delta):
 			health += healthPerSecond/50
 			if health > maxHealth:
 				health = maxHealth
+			healthChanged.emit()
 		if stamina < maxStamina and !isBlocking and staminaRegenCooldown <= 0:
 			stamina += staminaPerSecond/50
 			if stamina > maxStamina:
 				stamina = maxStamina
+			staminaChanged.emit()
 		if mana < maxMana and manaType == "Mana regeneration":
 			mana += manaPerSecond/50
 			if mana > maxMana:
 				mana = maxMana
+			manaChanged.emit()
 		timer = 0
 	else:
 		timer += delta
@@ -122,11 +129,13 @@ func checkDetection():
 
 func reduce_stamina(amount: int):
 	stamina -= amount
+	staminaChanged.emit()
 
 ##Reduces mana by set amount and returns true if player has enough mana, and false if they do not
 func reduce_mana(amount: int):
 	if mana >= amount:
 		mana -= amount
+		manaChanged.emit()
 		return true
 	else:
 		return false
@@ -159,10 +168,12 @@ func takeDamage(damage: int, attacker: Node3D, isBlockable):
 		if isBlockable:
 			health -= damage* (1-getBlockingDamageReduction())
 			stamina -= blockingStaminaCost
+			healthChanged.emit()
 		else: 
 			breakBlock()
 	else:
 		health -= damage
+		healthChanged.emit()
 
 func getBlockingDamageReduction():
 	if GameManager.get_first_weapon() == "Bow":

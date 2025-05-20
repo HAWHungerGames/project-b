@@ -134,7 +134,7 @@ func get_move_input(delta):
 	velocity.y = 0
 	var input = Input.get_vector("left", "right", "forward", "backward").normalized()
 	var direction = Vector3(input.x, 0, input.y).rotated(Vector3.UP, spring_arm.rotation.y)
-	var playerSpeed = speed
+	var playerSpeed = player.speed
 	player.set_sneaking(false)
 	if Input.is_action_pressed("sneak"):
 		player.set_sneaking(true)

@@ -215,9 +215,8 @@ transform = Transform3D(-0.999998, 0, 0.00209435, 0, 1, 0, -0.00209435, 0, -0.99
 hearingRange = 30.0
 visionRange = 30.0
 
-[node name="BossEnemy" parent="." node_paths=PackedStringArray("movePoints") instance=ExtResource("8_pbfqo")]
+[node name="BossEnemy" parent="." instance=ExtResource("8_pbfqo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.2562, 3.38342, 9.12667)
-movePoints = [NodePath("../Boss Target Points/Node3D"), NodePath("../Boss Target Points/Node3D2"), NodePath("../Boss Target Points/Node3D3"), NodePath("../Boss Target Points/Node3D4")]
 
 [node name="Boss Target Points" type="Node3D" parent="."]
 

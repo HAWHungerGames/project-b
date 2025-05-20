@@ -1,7 +1,6 @@
 extends VBoxContainer
 
-#@onready var player: Node3D
-@export var player: Node3D
+@onready var player: Node3D = GlobalPlayer.getPlayer()
 
 @onready var health_bar = $health/healthBar
 @onready var health_timer = $health/timer

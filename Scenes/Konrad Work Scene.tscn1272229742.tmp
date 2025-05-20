@@ -688,9 +688,10 @@ player = NodePath("../../Player")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.77517, 1.5, -65.0895)
 player = NodePath("../../Player")
 
-[node name="RangedEnemy" parent="WorldEnvironment/Test Stuff" groups=["enemy"] instance=ExtResource("12_q6ig3")]
+[node name="RangedEnemy" parent="WorldEnvironment/Test Stuff" node_paths=PackedStringArray("player") groups=["enemy"] instance=ExtResource("12_q6ig3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.45755, 1.57494, -64.5633)
 homingStrength = 1.0
+player = NodePath("../../Player")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="WorldEnvironment"]
 

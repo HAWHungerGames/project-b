@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var settings: Node3D
+@onready var settings: Node3D = GlobalPlayer.getPlayer()
 
 @export var maxAttackCooldown: float = 1
 @export var maxInputCooldown: float = 0.2
