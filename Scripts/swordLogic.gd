@@ -13,5 +13,5 @@ func hitting_enemy(body):
 func hitting_target_dummy(body):
 	if body.is_in_group("TargetDummy"):
 		print("dummy hit")
-		var dmg_position = body.get_child(2)
+		var dmg_position = body.get_node_or_null("DamageNumbersPosition")
 		DamageNumbers.display_number(50, dmg_position.global_position)

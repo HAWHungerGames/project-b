@@ -29,7 +29,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		print("hit")
 	elif body.is_in_group("TargetDummy"):
 		print("dummy hit")
-		var dmg_position = body.get_child(2)
+		var dmg_position = body.get_node_or_null("DamageNumbersPosition")
 		DamageNumbers.display_number(dmg, dmg_position.global_position)
 		queue_free()
 	else:

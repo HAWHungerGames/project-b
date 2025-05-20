@@ -55,7 +55,7 @@ func attack(body):
 			dmg *= 4
 			print(dmg)
 		print("dummy hit")
-		var dmg_position = body.get_child(2)
+		var dmg_position = body.get_node_or_null("DamageNumbersPosition")
 		DamageNumbers.display_number(dmg, dmg_position.global_position)
 		queue_free()
 		
