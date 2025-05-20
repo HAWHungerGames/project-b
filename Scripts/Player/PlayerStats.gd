@@ -60,6 +60,7 @@ var isInDetectionArea: bool = false
 var isInHidingArea: bool = false
 var isBlocking: bool = false
 var blockBroken: float = 0
+var healthRegenDelay: float = 0
 
 var enemiesDetectingPlayer: Array = []
 
@@ -87,8 +88,10 @@ func brokenBlockTracker(delta):
 func resource_system(delta):
 	if staminaRegenCooldown > 0:
 		staminaRegenCooldown -= delta
+	if healthRegenDelay >= 0:
+		healthRegenDelay -= delta
 	if timer >= 0.02:
-		if health < maxHealth and healthType == "Health regeneration" and !isDetected:
+		if health < maxHealth and healthType == "Health regeneration" and !isDetected and healthRegenDelay <= 0:
 			health += healthPerSecond/50
 			if health > maxHealth:
 				health = maxHealth
@@ -145,16 +148,20 @@ func check_if_attack_was_blocked(attacker: Node3D):
 		blockBroken = brokenBlockDuration
 		print("Block was broken, stamina too low")
 		return false
-	stamina -= blockingStaminaCost
 	return true
 
 func breakBlock():
 	blockBroken = brokenBlockDuration
 	print("Block was broken from attack")
 
-func takeDamage(damage: int, attacker: Node3D):
+func takeDamage(damage: int, attacker: Node3D, isBlockable):
+	healthRegenDelay = 2
 	if check_if_attack_was_blocked(attacker):
-		health -= damage*getBlockingDamageReduction()
+		if isBlockable:
+			health -= damage* (1-getBlockingDamageReduction())
+			stamina -= blockingStaminaCost
+		else: 
+			breakBlock()
 	else:
 		health -= damage
 
@@ -169,7 +176,7 @@ func getBlockingDamageReduction():
 		return 0.5
 	if GameManager.get_first_weapon() == "Shield":
 		return 1.0
-	return 0.0
+	return 1.0
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.is_in_group("Bush"):

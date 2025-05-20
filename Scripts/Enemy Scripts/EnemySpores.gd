@@ -5,36 +5,36 @@ extends CharacterBody3D
 @export var visionRange: float = 10
 
 @export_subgroup("MovementBehaviour")
-@export_enum("stand still", "move towards player", "keep set distance from player") var movementType: String = "move towards player"
 @export var keepDistance: float = 5
 
 @export_category("Stats")
 @export_subgroup("Enemy Stats")
 @export var health: int = 500
-@export var speed: int = 2
+@export var speed: int = 1
 @export var acceleration: int = 3
 
 @export_subgroup("Attack Stats")
-@export var attackDamage: int = 5
-@export var attackSpeed: float = 3
-@export var attackDelay: float = 2
+@export var attackDamage: int = 50
+@export var attackDelay: float = 3.333
 @export var sporeRange: float = 5
 
 @onready var hearingNode = $HearingArea
 @onready var visionNode = $VisionArea
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
 @onready var sporeNode = $SporeRange
+@onready var particles = $GPUParticles3D
+@onready var animationPlayer = $Mesh/AnimationPlayer
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var playerIsInHearingArea: bool = false
 var playerIsInVisionArea: bool = false
-var attackCooldown: float = 0
 var tempAttackDelay: float = 0
 var isMoving: bool = false 
 var isInSporeRange: bool = false
 var isAttacking: bool = false
 var player: Node3D
+var attacked: bool = false
 
 func _ready():
 	player = GlobalPlayer.getPlayer()
@@ -44,24 +44,20 @@ func _ready():
 
 func _physics_process(delta):
 	apply_gravity(delta)
+	if !isAttacking:
+		particles.emitting = false
 	if detect_player():
 		rotateToPlayer()
 		attack(delta)
-	if detect_player():
 		if !isAttacking:
-			navigation(delta)
+			move_towards_player(delta)
+			animationPlayer.play("Walk")
 		else:
 			velocity = Vector3(0, velocity.y, 0)
 	else:
-			velocity = Vector3(0, velocity.y, 0)
+		animationPlayer.play("Idle")
+		velocity = Vector3(0, velocity.y, 0)
 	move_and_slide()
-
-func navigation(delta):
-	match movementType:
-		"move towards player":
-			move_towards_player(delta)
-		"keep set distance from player":
-			keep_set_distance_from_player(delta)
 
 func move_towards_player(delta):
 	var direction = Vector3()
@@ -70,18 +66,6 @@ func move_towards_player(delta):
 	
 	direction = (nav.get_next_path_position() - global_position).normalized()
 	velocity = velocity.lerp(direction * speed, acceleration * delta)
-
-func keep_set_distance_from_player(delta):
-	var distance = global_position.distance_to(player.get_child(0).global_position)
-	isMoving = false
-	if distance >= keepDistance:
-		var direction = Vector3()
-		
-		nav.target_position = player.get_child(0).global_position
-		
-		direction = (nav.get_next_path_position() - global_position).normalized()
-		velocity = velocity.lerp(direction * speed, acceleration * delta)
-		isMoving = true
 
 func detect_player():
 	if playerIsInHearingArea and !playerIsInVisionArea:
@@ -135,18 +119,21 @@ func attack(delta):
 		isAttacking = true
 	if !isAttacking:
 		tempAttackDelay = attackDelay
-		attackCooldown = 1/attackSpeed
 	if isAttacking:
 		if tempAttackDelay > 0:
+			particles.emitting = false
+			animationPlayer.play("attack")
 			tempAttackDelay -= delta
-		else:
-			if attackCooldown > 0:
-				attackCooldown -= delta
-			else:
-				attackCooldown = 1/attackSpeed
-				isAttacking = false
-				if isInSporeRange:
-					player.takeDamage(attackDamage, self)
+		if tempAttackDelay <= 1.333 and !attacked:
+			attacked = true
+			particles.restart()
+			particles.emitting = true
+			player.takeDamage(attackDamage, self, false)
+		if tempAttackDelay <= 0:
+			attacked = false
+			tempAttackDelay = attackDelay
+			isAttacking = false
+
 
 func apply_gravity(delta):
 	velocity.y += -gravity * delta

@@ -5,7 +5,6 @@ extends CharacterBody3D
 @export var visionRange: float = 10
 
 @export_subgroup("MovementBehaviour")
-@export_enum("stand still", "move towards player", "keep set distance from player") var movementType: String = "move towards player"
 @export var keepDistance: float = 5
 
 @export_category("Stats")
@@ -51,19 +50,12 @@ func _physics_process(delta):
 		attack(delta)
 	if detect_player():
 		if !isAttacking:
-			navigation(delta)
+			move_towards_player(delta)
 		else:
 			velocity = Vector3(0, velocity.y, 0)
 	else:
 		velocity = Vector3(0, velocity.y, 0)
 	move_and_slide()
-
-func navigation(delta):
-	match movementType:
-		"move towards player":
-			move_towards_player(delta)
-		"keep set distance from player":
-			keep_set_distance_from_player(delta)
 
 func move_towards_player(delta):
 	var direction = Vector3()
@@ -72,20 +64,6 @@ func move_towards_player(delta):
 	
 	direction = (nav.get_next_path_position() - global_position).normalized()
 	velocity = velocity.lerp(direction * speed, acceleration * delta)
-
-func keep_set_distance_from_player(delta):
-	var distance = global_position.distance_to(player.get_child(0).global_position)
-	isMoving = false
-	if distance >= keepDistance:
-		var direction = Vector3()
-		
-		nav.target_position = player.get_child(0).global_position
-		
-		direction = (nav.get_next_path_position() - global_position).normalized()
-		velocity = velocity.lerp(direction * speed, acceleration * delta)
-		isMoving = true
-	else:
-		velocity = Vector3(0, velocity.y, 0)
 
 func detect_player():
 	if playerIsInHearingArea and !playerIsInVisionArea:
@@ -150,7 +128,7 @@ func attack(delta):
 				attackCooldown = 1/attackSpeed
 				isAttacking = false
 				if isInAttackArea:
-					player.takeDamage(attackDamage, self)
+					player.takeDamage(attackDamage, self, true)
 
 func apply_gravity(delta):
 	velocity.y += -gravity * delta
