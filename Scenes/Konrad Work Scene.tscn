@@ -38,17 +38,16 @@
 [ext_resource type="Texture2D" uid="uid://dxxqrbfkg137x" path="res://UITextures/Mana.png" id="23_e0tq6"]
 [ext_resource type="Texture2D" uid="uid://6m5jcd5pvxrn" path="res://UITextures/WeaponSlotInactive.png" id="25_qcrt0"]
 [ext_resource type="Texture2D" uid="uid://dgvicbxum24vi" path="res://UITextures/WeaponSlotPressed.png" id="26_ar3t4"]
-[ext_resource type="Script" uid="uid://c7616ek8c2kfe" path="res://Scripts/low_health.gd" id="26_vkbj3"]
+[ext_resource type="Script" uid="uid://c7616ek8c2kfe" path="res://Scripts/UI/low_health.gd" id="26_vkbj3"]
 [ext_resource type="Texture2D" uid="uid://baxq1j20y701x" path="res://UITextures/redTint.png" id="26_vkim1"]
 [ext_resource type="Texture2D" uid="uid://b0gb728e1n47w" path="res://UITextures/WeaponSlot.png" id="27_vs2el"]
 [ext_resource type="Texture2D" uid="uid://dwoof1omyr8bt" path="res://UITextures/mycelium.png" id="28_vkbj3"]
 [ext_resource type="Texture2D" uid="uid://b56g56co15oce" path="res://UITextures/WeaponSlotFrame2.png" id="30_1tgbn"]
 [ext_resource type="Script" uid="uid://cr2dkifmawgcm" path="res://Scripts/UI/weapon_slots.gd" id="31_5i7v7"]
-[ext_resource type="Shader" uid="uid://cel17p0kqic21" path="res://Scripts/Shaders/spores.gdshader" id="31_fwfwu"]
 [ext_resource type="Script" uid="uid://isgt2htj3fmm" path="res://Scripts/UI/menus/pause_menu.gd" id="32_3qkpg"]
 [ext_resource type="FontFile" uid="uid://4l406r67702d" path="res://UITextures/Fonts/DidactGothic-Regular.ttf" id="33_6roa5"]
-[ext_resource type="Script" uid="uid://cjfyqbv33333n" path="res://Scripts/boss_attack_spores.gd" id="33_efexv"]
 [ext_resource type="Shader" uid="uid://bjy5d3x36hbdt" path="res://Scripts/Shaders/pulsating.gdshader" id="34_5oe8d"]
+[ext_resource type="Texture2D" uid="uid://co6wmanklpgl3" path="res://UITextures/ParticleDust.png" id="39_5oe8d"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lfy4s"]
 sky_top_color = Color(0.102228, 0.307553, 0.295863, 1)
@@ -163,8 +162,22 @@ turbulence_initial_displacement_min = 1.49012e-06
 turbulence_initial_displacement_max = 1.49012e-06
 turbulence_influence_over_life = SubResource("CurveTexture_hq7hx")
 
+[sub_resource type="Shader" id="Shader_jp8xc"]
+code = "shader_type particles;
+
+uniform vec3 player_pos;
+uniform float attract_strength = 2.0;
+
+void particle() {
+    // Calculate direction to player
+    vec3 dir = normalize(player_pos - );
+    
+    // Adjust velocity (homing force)
+    VELOCITY += dir * attract_strength * DELTA;
+}"
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fwfwu"]
-shader = ExtResource("31_fwfwu")
+shader = SubResource("Shader_jp8xc")
 
 [sub_resource type="SphereMesh" id="SphereMesh_hq7hx"]
 material = SubResource("ShaderMaterial_fwfwu")
@@ -194,6 +207,7 @@ hue_variation_max = 0.05
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fgmgr"]
 transparency = 1
 vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("39_5oe8d")
 billboard_mode = 3
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
@@ -1016,10 +1030,6 @@ theme_override_fonts/font = ExtResource("33_6roa5")
 theme_override_font_sizes/font_size = 50
 text = "Exit"
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="WorldEnvironment/CanvasLayer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.85693, 0)
-skeleton = NodePath("../../DeathSpores")
-
 [node name="DeathSpores" type="GPUParticles3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00802851, 1.77447, 0)
 emitting = false
@@ -1052,16 +1062,10 @@ draw_pass_1 = SubResource("SphereMesh_hq7hx")
 
 [node name="WalkingDust" type="GPUParticles3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.616489, 0.413133)
-emitting = false
 lifetime = 0.2
-one_shot = true
 explosiveness = 0.7
 process_material = SubResource("ParticleProcessMaterial_efexv")
 draw_pass_1 = SubResource("QuadMesh_65wlj")
-
-[node name="BossAttack" type="MultiMeshInstance3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.21544, 2.24366, 1.41814)
-script = ExtResource("33_efexv")
 
 [connection signal="timeout" from="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/health/timer" to="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_health_timer_timeout"]
 [connection signal="timeout" from="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina/timer" to="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_stamina_timer_timeout"]
