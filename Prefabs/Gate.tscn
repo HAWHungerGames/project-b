@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://corlostoc0dwj"]
+
+[ext_resource type="Texture2D" uid="uid://cfuxi6d678l45" path="res://Assets/Kenney Particles Transparent Background/smoke_04.png" id="1_pgtvq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bah23"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_pgtvq")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l0xtj"]
+emission_shape = 3
+emission_box_extents = Vector3(5, 0.1, 0.2)
+angle_min = -125.7
+angle_max = 11.4
+direction = Vector3(0, 0, 0)
+gravity = Vector3(0, -1, 0)
+color = Color(0.788672, 0.795313, 0.822636, 1)
+turbulence_noise_strength = 0.1
+turbulence_noise_scale = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_f00pm"]
+
+[node name="Gate" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.81999, 0)
+material_override = SubResource("StandardMaterial3D_bah23")
+amount = 500
+lifetime = 3.0
+randomness = 0.1
+process_material = SubResource("ParticleProcessMaterial_l0xtj")
+draw_pass_1 = SubResource("QuadMesh_f00pm")

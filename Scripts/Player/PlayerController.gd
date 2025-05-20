@@ -1,20 +1,18 @@
 extends CharacterBody3D
 
-@export var settings: Node3D
-
-
-@onready var speed = settings.speed
-@onready var acceleration = settings.acceleration
-@onready var friction = settings.friction
+var speed
+var acceleration 
+var friction 
 #@onready var sensitivity: float = settings.sensitivity
-@onready var rotationType: String = settings.rotationType
-@onready var lockActive: bool = settings.lockActive
-@onready var dashStrength: int = settings.dashStrength
-@onready var dashMaxCooldown: float = settings.dashMaxCooldown
-@onready var maxStamina: int = settings.maxStamina
-@onready var staminaPerSecond: int = settings.staminaPerSecond
-@onready var staminaCostPerDash: int = settings.staminaCostPerDash
-@onready var dashType: String = settings.dashType
+var rotationType: String 
+var lockActive: bool
+var dashStrength: int 
+var dashMaxCooldown: float 
+var maxStamina: int 
+var staminaPerSecond: int
+var staminaCostPerDash: int
+var dashType: String
+var noStaminaAfterDashTime: float
 
 @export_category("Components")
 @export var playerShape: CollisionShape3D
@@ -24,16 +22,33 @@ var temprotation = 0
 var dashCooldown: float = 0
 var mouseMode: bool = false
 var mouseTimer: float = 0
+var player: Node3D
 
 @onready var spring_arm = $CameraArm
 
-func _physics_process(delta):
-	
+func _ready():
+	player = GlobalPlayer.getPlayer()
+	speed = player.speed
+	acceleration = player.acceleration
+	friction = player.friction
+	#@onready var sensitivity: float = settings.sensitivity
+	rotationType = player.rotationType
+	lockActive = player.lockActive
+	dashStrength = player.dashStrength
+	dashMaxCooldown = player.dashMaxCooldown
+	maxStamina = player.maxStamina
+	staminaPerSecond = player.staminaPerSecond
+	staminaCostPerDash = player.staminaCostPerDash
+	dashType = player.dashType
+	noStaminaAfterDashTime = player.noStaminaAfterDashTime
+
+func _physics_process(delta):	
 	apply_gravity(delta)
 	get_move_input(delta)
 	move_and_slide()
 	rotate_player()
 	dash(delta)
+	block()
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -55,9 +70,9 @@ func dash_with_cooldown(delta):
 		dashCooldown = dashCooldown - delta
 
 func dash_with_stamina(delta):
-	if Input.is_action_just_pressed("dash") and settings.stamina >= staminaCostPerDash:
+	if Input.is_action_just_pressed("dash") and player.stamina >= staminaCostPerDash:
 		dash_ability(delta)
-		settings.reduce_stamina(staminaCostPerDash)
+		player.reduce_stamina(staminaCostPerDash)
 
 func dash_ability(delta):
 	var vy = velocity.y
@@ -66,8 +81,19 @@ func dash_ability(delta):
 	var direction = Vector3(input.x, 0, input.y).rotated(Vector3.UP, spring_arm.rotation.y)
 	velocity = lerp(velocity, direction * dashStrength, acceleration * delta)
 	velocity.y = vy
-	if settings.isDetected:
+	player.set_stamina_regen_cooldown(noStaminaAfterDashTime)
+	if player.isDetected:
 		PlayerActionTracker.timesDodgedInCombat += 1
+
+func block():
+	if Input.is_action_just_pressed("block"):
+		if check_for_equipped_shield():
+			player.isBlocking = true
+	if Input.is_action_just_released("block"):
+		player.isBlocking = false
+
+func check_for_equipped_shield():
+	return true
 
 func rotate_player():
 	match rotationType:
@@ -108,11 +134,11 @@ func get_move_input(delta):
 	velocity.y = 0
 	var input = Input.get_vector("left", "right", "forward", "backward").normalized()
 	var direction = Vector3(input.x, 0, input.y).rotated(Vector3.UP, spring_arm.rotation.y)
-	var playerSpeed = settings.speed #changed line
-	settings.set_sneaking(false)
+	var playerSpeed = speed
+	player.set_sneaking(false)
 	if Input.is_action_pressed("sneak"):
-		settings.set_sneaking(true)
-		playerSpeed = playerSpeed / settings.sneakSpeedModifier
+		player.set_sneaking(true)
+		playerSpeed = playerSpeed / player.sneakSpeedModifier
 	velocity = lerp(velocity, direction * playerSpeed, acceleration * delta)
 	velocity.y = vy
 	if abs(input.x) < 0.01:

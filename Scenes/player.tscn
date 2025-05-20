@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://56tchsrpayeo"]
 
-[ext_resource type="Script" uid="uid://bwrchpg0h1fcx" path="res://Scripts/PlayerStats.gd" id="1_fkybt"]
-[ext_resource type="Script" uid="uid://birw8rdmwcq4v" path="res://Scripts/PlayerController.gd" id="2_x3wgy"]
+[ext_resource type="Script" uid="uid://bwrchpg0h1fcx" path="res://Scripts/Player/PlayerStats.gd" id="1_fkybt"]
+[ext_resource type="Script" uid="uid://birw8rdmwcq4v" path="res://Scripts/Player/PlayerController.gd" id="2_x3wgy"]
 [ext_resource type="Material" uid="uid://dekpipancsbc6" path="res://Materials/TestCubes.tres" id="3_3smsa"]
-[ext_resource type="Script" uid="uid://ct0q0dexxvtma" path="res://Scripts/DebugUI.gd" id="5_f1ek2"]
+[ext_resource type="Script" uid="uid://ct0q0dexxvtma" path="res://Scripts/UI/DebugUI.gd" id="5_f1ek2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r2bbj"]
 
