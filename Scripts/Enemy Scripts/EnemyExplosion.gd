@@ -3,19 +3,16 @@ extends CharacterBody3D
 @export_subgroup("DetectionBehaviour")
 @export var detectionRange: float = 8
 
-@export_subgroup("MovementBehaviour")
-@export_enum("stand still", "move towards player", "keep set distance from player") var movementType: String = "move towards player"
-@export var keepDistance: float = 5
-
 @export_category("Stats")
 @export_subgroup("Enemy Stats")
-@export var health: int = 300
+@export var health: int = 20
 @export var speed: int = 6
 @export var acceleration: int = 6
 
 @export_subgroup("Attack Stats")
 @export var attackDamage: int = 25
 @export var attackDelay: float = 2
+@export var timeBeforePathfinding: float = 20
 
 @onready var detectionRangeNode = $DetectionRange
 @onready var attackNode = $AttackArea
@@ -26,8 +23,6 @@ extends CharacterBody3D
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-var playerIsInHearingArea: bool = false
-var playerIsInVisionArea: bool = false
 var attackCooldown: float = 0
 var tempAttackDelay: float = 0
 var isInAttackArea: bool = false
@@ -35,18 +30,47 @@ var isInDamageArea: bool = false
 var isMoving: bool = false 
 var isAttacking = false
 var player: Node3D
+var pathfinding: bool = false
+var justSpawned: bool = true
+var fallPosition: Vector3
+var rng = RandomNumberGenerator.new()
+
 
 func _ready():
 	player = GlobalPlayer.getPlayer()
 	detectionRangeNode.scale = Vector3(detectionRange, detectionRange, detectionRange)
 
 func _physics_process(delta):
-	apply_gravity(delta)
-	rotateToPlayer()
+	timeBeforePathfinding -= delta
+	if timeBeforePathfinding <= 0:
+		pathfinding = true
+	if !justSpawned:
+		apply_gravity(delta)
+	else:
+		velocity.y = 20
+	if global_position.y >= 20:
+		justSpawned = false
+		global_position = calculateFallPosition()
+	movement(delta)
 	attack(delta)
+	move_and_slide()
+
+func movement(delta):
+	rotateToPlayer()
 	if !isInAttackArea:
-		move_towards_player(delta)
-		move_and_slide()
+		if pathfinding:
+			move_towards_player(delta)
+	else:
+		velocity = Vector3(0, velocity.y, 0)
+
+func calculateFallPosition():
+	var randomXOffset = rng.randf_range(-5.0, 5.0)
+	var randomZOffset = rng.randf_range(-5.0, 5.0)
+	var positionDifference = player.global_position - global_position
+	var fallX = player.global_position.x - positionDifference.x*0.1 - randomXOffset
+	var fallZ = player.global_position.z - positionDifference.z*0.1 - randomZOffset
+	fallPosition = Vector3(fallX, global_position.y, fallZ)
+	return fallPosition
 
 func move_towards_player(delta):
 	var direction = Vector3()
@@ -92,3 +116,7 @@ func _on_damage_area_entered(area: Area3D) -> void:
 func _on_damage_area_exited(area: Area3D) -> void:
 	if area.is_in_group("Player"):
 		isInDamageArea = false
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body.is_in_group("World"):
+		timeBeforePathfinding = 2

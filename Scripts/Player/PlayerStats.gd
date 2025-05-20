@@ -79,7 +79,6 @@ func _physics_process(delta):
 	resource_system(delta)
 	checkDetection()
 	brokenBlockTracker(delta)
-	print(GameManager.get_first_weapon())
 
 func brokenBlockTracker(delta):
 	if blockBroken > 0:
@@ -124,7 +123,7 @@ func checkDetection():
 func reduce_stamina(amount: int):
 	stamina -= amount
 
-##Reduces mana by set amount and returns true if player  had enough mana, and false if they did not
+##Reduces mana by set amount and returns true if player has enough mana, and false if they do not
 func reduce_mana(amount: int):
 	if mana >= amount:
 		mana -= amount

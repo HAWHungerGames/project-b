@@ -57,7 +57,7 @@ func _physics_process(delta: float):
 	move_to_furthest_point_from_player(delta)
 	sporeAreaAttack(delta)
 	if Input.is_action_just_pressed("block"):
-		sporeRangedAttack()
+		explosionMiniEnemiesAttack()
 
 func calculateAggression():
 	aggression = baseAggressionLevel
@@ -123,7 +123,9 @@ func chargeAttack():
 
 func explosionMiniEnemiesAttack():
 	var tempExplosionEnemy = explosionEnemy.instantiate()
+	tempExplosionEnemy.global_position = ExplosionEnemySpawnPoint.global_position
 	world.add_child(tempExplosionEnemy)
+	
 
 func spearMeleeAttack():
 	null
@@ -135,7 +137,6 @@ func sporeAreaAttack(delta):
 		if playerInSporeArea:
 			player.takeDamage(sporeAreaDamage, self, false)
 		areaAttackCooldown = damageInterval
-
 
 func apply_gravity(delta):
 	velocity.y += -gravity * delta

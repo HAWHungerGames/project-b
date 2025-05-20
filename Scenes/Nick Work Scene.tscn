@@ -35,12 +35,12 @@ size = Vector3(10, 0.1, 10)
 environment = SubResource("Environment_1dgrj")
 
 [node name="Player" parent="." instance=ExtResource("3_r2bbj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.0082, 6.25274, 31.418)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.1086, 6.25274, 25.4444)
 rotationType = "rotate based on last movement"
 healthType = "Health regeneration"
 cameraAngle = -35.0
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." groups=["World"]]
 navigation_mesh = SubResource("NavigationMesh_e6mua")
 
 [node name="Ground" type="MeshInstance3D" parent="NavigationRegion3D" groups=["World"]]
@@ -102,38 +102,38 @@ transform = Transform3D(0.999809, 0, 0.019529, 0, 1, 0, -0.019529, 0, 0.999809, 
 
 [node name="Walls" type="Node3D" parent="NavigationRegion3D/Boss Room"]
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/Boss Room/Walls"]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/Boss Room/Walls" groups=["World"]]
 use_collision = true
 
-[node name="CSGBox3D31" type="CSGBox3D" parent="NavigationRegion3D/Boss Room/Walls/CSGCombiner3D"]
+[node name="CSGBox3D31" type="CSGBox3D" parent="NavigationRegion3D/Boss Room/Walls/CSGCombiner3D" groups=["World"]]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -60.5313, 4.5, -1.34149)
 size = Vector3(1, 9, 31.8779)
 
-[node name="CSGBox3D32" type="CSGBox3D" parent="NavigationRegion3D/Boss Room/Walls/CSGCombiner3D"]
+[node name="CSGBox3D32" type="CSGBox3D" parent="NavigationRegion3D/Boss Room/Walls/CSGCombiner3D" groups=["World"]]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -59.7805, 4.5, 13.6428)
 size = Vector3(1, 9, 33.3794)
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="NavigationRegion3D/Boss Room/Walls/CSGCombiner3D"]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="NavigationRegion3D/Boss Room/Walls/CSGCombiner3D" groups=["World"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.062, 5, 0)
 radius = 40.0
 height = 10.0
 sides = 32
 
-[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="NavigationRegion3D/Boss Room/Walls/CSGCombiner3D/CSGCylinder3D"]
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="NavigationRegion3D/Boss Room/Walls/CSGCombiner3D/CSGCylinder3D" groups=["World"]]
 transform = Transform3D(-4.35005e-08, -0.995174, 0.0981214, 1, -4.37114e-08, 0, 4.28902e-09, 0.0981214, 0.995174, -37.1847, -1.07329, 3.81067)
 operation = 2
 radius = 2.64453
 height = 5.38379
 sides = 16
 
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="NavigationRegion3D/Boss Room/Walls/CSGCombiner3D/CSGCylinder3D"]
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="NavigationRegion3D/Boss Room/Walls/CSGCombiner3D/CSGCylinder3D" groups=["World"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4782, 0)
 operation = 2
 radius = 35.0
 height = 10.0
 sides = 32
 
-[node name="CSGPolygon3D" type="CSGPolygon3D" parent="NavigationRegion3D/Boss Room/Walls/CSGCombiner3D"]
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="NavigationRegion3D/Boss Room/Walls/CSGCombiner3D" groups=["World"]]
 transform = Transform3D(0.996067, 0, 0.442994, 0, 1, 0, -0.0885988, 0, 4.98034, -44.5482, 0.923762, 6.31512)
 polygon = PackedVector2Array(-10.4771, -0.499426, -1.71498, 1.9336, 3.64565, 1.52424, 3.82291, -1.38559)
 
@@ -206,7 +206,7 @@ movementType = "keep set distance from player"
 keepDistance = 10.0
 
 [node name="SporeEnemy" parent="." instance=ExtResource("6_r2bbj")]
-transform = Transform3D(-0.721241, 0, 0.692685, 0, 1, 0, -0.692685, 0, -0.721241, 61.9233, 4.82643, 28.3315)
+transform = Transform3D(-0.721241, 0, 0.692685, 0, 1, 0, -0.692685, 0, -0.721241, 16.3382, 2.79195, -11.8325)
 hearingRange = 20.0
 visionRange = 50.0
 

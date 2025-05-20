@@ -102,55 +102,55 @@ draw_pass_1 = SubResource("QuadMesh_7ub5t")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.221784, -1.02134, 0)
 
 [node name="Skeleton3D" parent="Mesh/Armature" index="0"]
-bones/0/position = Vector3(-0.0766945, -0.135894, -0.00248177)
+bones/0/position = Vector3(-0.0766945, -0.000165205, -0.00248177)
 bones/0/rotation = Quaternion(-5.62728e-17, 1, 1.11803e-09, -7.54979e-08)
-bones/1/position = Vector3(-7.49473e-10, 1.35017, 2.81006e-11)
+bones/1/position = Vector3(-7.49473e-10, 1.37376, 6.32677e-11)
 bones/1/rotation = Quaternion(7.45355e-10, -8.38864e-26, 1.12546e-16, 1)
-bones/6/position = Vector3(-3.25117e-08, 0.0107203, 0.449915)
-bones/6/rotation = Quaternion(0.99765, -0.01108, -0.0597558, 0.0316297)
-bones/8/position = Vector3(2.34353e-08, 0.0107203, -0.426152)
-bones/8/rotation = Quaternion(0.99675, 0.0351766, 0.0121129, -0.0714489)
-bones/11/rotation = Quaternion(-0.92876, 0.00416229, 0.116018, 0.352033)
-bones/14/rotation = Quaternion(0.934929, -0.0906556, -0.137937, 0.314106)
+bones/6/position = Vector3(-0.00129047, -0.127555, 0.449915)
+bones/6/rotation = Quaternion(0.997721, -0.00246297, -0.058777, 0.0330302)
+bones/8/position = Vector3(0.00264881, -0.127487, -0.426152)
+bones/8/rotation = Quaternion(0.997233, 0.0115953, 0.0133954, -0.0721972)
+bones/11/rotation = Quaternion(-0.964045, 0.00538643, -0.00134476, 0.265682)
+bones/14/rotation = Quaternion(0.963827, 0.00310415, 0.000919186, 0.26651)
 
 [node name="Burt_head" parent="Mesh/Armature/Skeleton3D" index="0"]
-transform = Transform3D(1, 5.62728e-17, 0, -5.62728e-17, 1, -7.45356e-10, 0, 7.45356e-10, 1, 0.0270495, 1.39748, 7.4273e-08)
+transform = Transform3D(1, 5.62728e-17, 0, -5.62728e-17, 1, -7.45356e-10, 0, 7.45356e-10, 1, 0.0270495, 1.5568, 7.45058e-08)
 
 [node name="Eys" parent="Mesh/Armature/Skeleton3D" index="1"]
-transform = Transform3D(1, 5.62728e-17, 0, -5.62728e-17, 1, -7.45356e-10, 0, 7.45356e-10, 1, 0.650254, 1.64405, 0.00731646)
+transform = Transform3D(1, 5.62728e-17, 0, -5.62728e-17, 1, -7.45356e-10, 0, 7.45356e-10, 1, 0.650254, 1.80337, 0.00731646)
 
 [node name="Hat" parent="Mesh/Armature/Skeleton3D" index="2"]
-transform = Transform3D(1, 5.62728e-17, 0, -5.62728e-17, 1, -7.45356e-10, 0, 7.45356e-10, 1, 0.130813, 1.39245, 7.42692e-08)
+transform = Transform3D(1, 5.62728e-17, 0, -5.62728e-17, 1, -7.45356e-10, 0, 7.45356e-10, 1, 0.130813, 1.55177, 7.45021e-08)
 
 [node name="BafallHut" parent="Mesh/Armature/Skeleton3D" index="3"]
-transform = Transform3D(1, 5.62728e-17, 0, -5.62728e-17, 1, -7.45356e-10, 0, 7.45356e-10, 1, -0.0107317, 1.90675, 0.109385)
+transform = Transform3D(1, 5.62728e-17, 0, -5.62728e-17, 1, -7.45356e-10, 0, 7.45356e-10, 1, -0.0107317, 2.06607, 0.109385)
 
 [node name="Burt_Leg_R" parent="Mesh/Armature/Skeleton3D" index="4"]
-transform = Transform3D(0.999722, -0.0234888, 0.00188181, 0.0234841, 0.999721, 0.00247403, -0.0019394, -0.00242916, 0.999995, -0.0641587, -0.0306354, -0.413401)
+transform = Transform3D(0.999982, -0.00606415, 0.000523873, 0.0060638, 0.999982, 0.000671342, -0.000527948, -0.000668168, 1, -0.0612777, -0.0334842, -0.413215)
 
 [node name="Burt_Leg_L" parent="Mesh/Armature/Skeleton3D" index="5"]
-transform = Transform3D(0.997921, 0.0644352, -0.0013019, -0.0644387, 0.997918, -0.00281784, 0.00111763, 0.00289588, 0.999995, -0.0594107, -0.0309591, 0.405711)
+transform = Transform3D(0.999851, 0.017268, -0.000339551, -0.0172682, 0.999851, -0.000771761, 0.000326173, 0.000777513, 1, -0.0665402, -0.0327654, 0.405501)
 
 [node name="Burt_Leg_L_Beffal" parent="Mesh/Armature/Skeleton3D" index="6"]
-transform = Transform3D(0.997921, 0.0644352, -0.0013019, -0.0644387, 0.997918, -0.00281784, 0.00111763, 0.00289588, 0.999995, 0.109719, -0.318493, 0.576225)
+transform = Transform3D(0.999851, 0.017268, -0.000339551, -0.0172682, 0.999851, -0.000771761, 0.000326173, 0.000777513, 1, 0.116113, -0.311637, 0.57645)
 
 [node name="Burt_Arm_L" parent="Mesh/Armature/Skeleton3D" index="7"]
-transform = Transform3D(0.973045, 0.212741, 0.089022, -0.0739529, 0.653479, -0.753323, -0.218437, 0.726434, 0.651597, -0.15379, 1.12232, 0.569175)
+transform = Transform3D(0.999938, -0.00543692, 0.00968097, 0.0110999, 0.510652, -0.859716, -0.000269398, 0.85977, 0.510681, -0.128983, 1.27919, 0.57108)
 
 [node name="Burt_Beffal_Arm_L" parent="Mesh/Armature/Skeleton3D" index="8"]
-transform = Transform3D(0.973045, 0.212741, 0.089022, -0.0739529, 0.653479, -0.753323, -0.218437, 0.726434, 0.651597, -0.0034292, 0.602442, 1.12567)
+transform = Transform3D(0.999938, -0.00543692, 0.00968097, 0.0110999, 0.510652, -0.859716, -0.000269398, 0.85977, 0.510681, -0.0588853, 0.669235, 1.04606)
 
 [node name="Burt_Arm_R" parent="Mesh/Armature/Skeleton3D" index="9"]
-transform = Transform3D(0.94551, -0.314719, -0.0834429, 0.256167, 0.560867, 0.787279, -0.200971, -0.765755, 0.610925, -0.117663, 1.11659, -0.551438)
+transform = Transform3D(0.999979, 0.00341614, 0.00550005, -0.00647355, 0.512144, 0.858875, 0.00011722, -0.858893, 0.512155, -0.127224, 1.27987, -0.570903)
 
 [node name="Burt_Beffal_Arm_R" parent="Mesh/Armature/Skeleton3D" index="10"]
-transform = Transform3D(0.94551, -0.314719, -0.0834429, 0.256167, 0.560867, 0.787279, -0.200971, -0.765755, 0.610925, -0.148404, 0.479006, -1.12652)
+transform = Transform3D(0.999979, 0.00341614, 0.00550005, -0.00647355, 0.512144, 0.858875, 0.00011722, -0.858893, 0.512155, -0.208403, 0.597047, -1.08602)
 
 [node name="Burt_Body" parent="Mesh/Armature/Skeleton3D" index="11"]
-transform = Transform3D(1, -1.12546e-16, 0, 1.12546e-16, 1, 0, 0, 0, 1, -7.45058e-09, 0.405961, 9.0804e-09)
+transform = Transform3D(1, -1.12546e-16, 0, 1.12546e-16, 1, 0, 0, 0, 1, -7.45058e-09, 0.541689, 9.31323e-09)
 
 [node name="BeffalKörper" parent="Mesh/Armature/Skeleton3D" index="12"]
-transform = Transform3D(1, -1.12546e-16, 0, 1.12546e-16, 1, 0, 0, 0, 1, -0.202008, 0.351167, 0.195547)
+transform = Transform3D(1, -1.12546e-16, 0, 1.12546e-16, 1, 0, 0, 0, 1, -0.202008, 0.486896, 0.195547)
 
 [connection signal="area_entered" from="HearingArea" to="." method="_on_hearing_area_entered"]
 [connection signal="area_exited" from="HearingArea" to="." method="_on_hearing_area_exited"]

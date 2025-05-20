@@ -10,7 +10,7 @@ extends CharacterBody3D
 @export_category("Stats")
 @export_subgroup("Enemy Stats")
 @export var health: int = 500
-@export var speed: int = 1
+@export var speed: int = 2
 @export var acceleration: int = 3
 
 @export_subgroup("Attack Stats")
@@ -52,9 +52,11 @@ func _physics_process(delta):
 		if !isAttacking:
 			move_towards_player(delta)
 			animationPlayer.play("Walk")
+			animationPlayer.speed_scale = 2
 		else:
 			velocity = Vector3(0, velocity.y, 0)
 	else:
+		animationPlayer.speed_scale = 1
 		animationPlayer.play("Idle")
 		velocity = Vector3(0, velocity.y, 0)
 	move_and_slide()
@@ -122,13 +124,15 @@ func attack(delta):
 	if isAttacking:
 		if tempAttackDelay > 0:
 			particles.emitting = false
+			animationPlayer.speed_scale = 1
 			animationPlayer.play("attack")
 			tempAttackDelay -= delta
 		if tempAttackDelay <= 1.333 and !attacked:
 			attacked = true
 			particles.restart()
 			particles.emitting = true
-			player.takeDamage(attackDamage, self, false)
+			if isInSporeRange:
+				player.takeDamage(attackDamage, self, false)
 		if tempAttackDelay <= 0:
 			attacked = false
 			tempAttackDelay = attackDelay

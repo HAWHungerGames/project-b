@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://do1xe3tqii0no"]
+[gd_scene load_steps=19 format=3 uid="uid://do1xe3tqii0no"]
 
 [ext_resource type="Script" uid="uid://ch7v656g1dis3" path="res://Scripts/Enemy Scripts/EnemyExplosion.gd" id="1_xuh6v"]
 [ext_resource type="Material" uid="uid://dekpipancsbc6" path="res://Materials/TestCubes.tres" id="3_pu3ww"]
@@ -23,7 +23,11 @@ transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("4_pu3ww")
-billboard_mode = 1
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
 [sub_resource type="Curve" id="Curve_3kmyd"]
 _data = [Vector2(0.305344, 0.685393), 0.0, 0.0, 0, 0]
@@ -54,6 +58,8 @@ inherit_velocity_ratio = 5.0
 spread = 180.0
 initial_velocity_max = 5.0
 gravity = Vector3(0, 0, 0)
+damping_min = 4.0
+damping_max = 5.0
 color = Color(0.601631, 0.0603955, 0.635184, 1)
 color_ramp = SubResource("GradientTexture1D_n1xrl")
 alpha_curve = SubResource("CurveTexture_ksv8p")
@@ -62,6 +68,9 @@ hue_variation_max = 0.1
 hue_variation_curve = SubResource("CurveTexture_52x3p")
 
 [sub_resource type="QuadMesh" id="QuadMesh_3kmyd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xuh6v"]
+size = Vector3(0.272949, 0.581909, 0.394104)
 
 [node name="MeleeEnemy" type="CharacterBody3D" groups=["Enemy"]]
 script = ExtResource("1_xuh6v")
@@ -103,6 +112,13 @@ randomness = 0.05
 process_material = SubResource("ParticleProcessMaterial_pu3ww")
 draw_pass_1 = SubResource("QuadMesh_3kmyd")
 
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.29, 0)
+shape = SubResource("BoxShape3D_xuh6v")
+
 [connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_entered"]
 [connection signal="area_entered" from="DamageArea" to="." method="_on_damage_area_entered"]
 [connection signal="area_exited" from="DamageArea" to="." method="_on_damage_area_exited"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
