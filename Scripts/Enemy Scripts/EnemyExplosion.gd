@@ -6,20 +6,22 @@ extends CharacterBody3D
 @export_category("Stats")
 @export_subgroup("Enemy Stats")
 @export var health: int = 20
-@export var speed: int = 6
-@export var acceleration: int = 6
+@export var speed: int = 7
+@export var acceleration: int = 4
 
 @export_subgroup("Attack Stats")
 @export var attackDamage: int = 25
-@export var attackDelay: float = 2
+@export var attackDelay: float = 1
 @export var timeBeforePathfinding: float = 20
+@export var lifetime: float = 3
 
 @onready var detectionRangeNode = $DetectionRange
 @onready var attackNode = $AttackArea
 @onready var damageNode = $DamageArea
 @onready var paricles = $GPUParticles3D
-@onready var mesh = $MeshInstance3D
+@onready var mesh = $Mesh
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
+@onready var animationPlayer = $Mesh/AnimationPlayer
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -41,16 +43,11 @@ func _ready():
 	detectionRangeNode.scale = Vector3(detectionRange, detectionRange, detectionRange)
 
 func _physics_process(delta):
-	timeBeforePathfinding -= delta
-	if timeBeforePathfinding <= 0:
-		pathfinding = true
-	if !justSpawned:
-		apply_gravity(delta)
-	else:
-		velocity.y = 20
-	if global_position.y >= 20:
-		justSpawned = false
-		global_position = calculateFallPosition()
+	rollController(delta)
+	if lifetime <= 1:
+		explode()
+	if lifetime <= 0:
+		queue_free()
 	movement(delta)
 	attack(delta)
 	move_and_slide()
@@ -63,12 +60,26 @@ func movement(delta):
 	else:
 		velocity = Vector3(0, velocity.y, 0)
 
+func rollController(delta):
+	timeBeforePathfinding -= delta
+	if timeBeforePathfinding <= 0:
+		pathfinding = true
+		animationPlayer.play("Ball roll")
+		lifetime -= delta
+	if !justSpawned:
+		apply_gravity(delta)
+	else:
+		velocity.y = 20
+	if global_position.y >= 20:
+		justSpawned = false
+		global_position = calculateFallPosition()
+
 func calculateFallPosition():
 	var randomXOffset = rng.randf_range(-5.0, 5.0)
 	var randomZOffset = rng.randf_range(-5.0, 5.0)
 	var positionDifference = player.global_position - global_position
-	var fallX = player.global_position.x - positionDifference.x*0.1 - randomXOffset
-	var fallZ = player.global_position.z - positionDifference.z*0.1 - randomZOffset
+	var fallX = player.get_child(0).global_position.x - positionDifference.x*0.1 - randomXOffset
+	var fallZ = player.get_child(0).global_position.z - positionDifference.z*0.1 - randomZOffset
 	fallPosition = Vector3(fallX, global_position.y, fallZ)
 	return fallPosition
 
@@ -94,13 +105,17 @@ func attack(delta):
 	if isInAttackArea:
 		attackDelay -= delta
 		if attackDelay <= 1:
-			paricles.emitting = true
-			mesh.visible = false
-			if isInDamageArea:
-				player.takeDamage(attackDamage, self, false)
-				isInDamageArea = false
+			explode()
 		if attackDelay <= 0:
 			queue_free()
+
+func explode():
+	paricles.emitting = true
+	mesh.visible = false
+	if isInDamageArea:
+		player.takeDamage(attackDamage, self, false)
+		isInDamageArea = false
+
 
 func apply_gravity(delta):
 	velocity.y += -gravity * delta
@@ -119,4 +134,5 @@ func _on_damage_area_exited(area: Area3D) -> void:
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("World"):
-		timeBeforePathfinding = 2
+		animationPlayer.play("Transform2ball")
+		timeBeforePathfinding = 0.3

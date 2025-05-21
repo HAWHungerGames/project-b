@@ -8,12 +8,12 @@ extends CharacterBody3D
 
 @export_subgroup("Enemy Stats")
 @export var health: float = 300
-@export var speed: float = 6
-@export var acceleration: float = 6
+@export var speed: float = 4
+@export var acceleration: float = 3
 
 @export_category("Attacks")
 @export_subgroup("Ranged Spore Attack")
-@export var bulletSpeed: float = 4
+@export var bulletSpeed: float = 7
 @export var bulletDamage: float = 5
 @export var bulletLifetime: float = 120
 @export var attackSpeed: float = 1
@@ -33,18 +33,21 @@ extends CharacterBody3D
 @onready var ExplosionEnemySpawnPoint = $ExplosionEnemySpawnPoint
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-var bulletScene: PackedScene = preload("res://Prefabs/enemy_bullet.tscn")
-var explosionEnemy: PackedScene = preload("res://Prefabs/enemy_explosion.tscn")
+var bulletScene: PackedScene = preload("res://Prefabs/enemies/enemy_bullet.tscn")
+var explosionEnemy: PackedScene = preload("res://Prefabs/enemies/enemy_explosion.tscn")
 
 var aggression
+var attacksBlockedPercentage: float
+var attacksDodgedPercentage: float
 var player
 var detectedPlayer: bool = false
 var playerInSporeArea: bool = false
 var rng = RandomNumberGenerator.new()
 var areaAttackCooldown: float = 0
 var isAttacking: bool = false
+var active = false
 
-enum actionType {NONE}
+enum actionType {NONE, EXPLOSION_ATTACK, RANGED_ATTACK, CHARGE_ATTACK, POISON_CLOUD_ATTACK, SPEAR_ATTACK}
 var actionTIme: float = 0
 
 func _ready():
@@ -53,11 +56,11 @@ func _ready():
 	sporeDamageArea.scale = Vector3(sporeArea, sporeArea, sporeArea)
 
 func _physics_process(delta: float):
-	apply_gravity(delta)
-	move_to_furthest_point_from_player(delta)
-	sporeAreaAttack(delta)
+	actionManager(delta)
 	if Input.is_action_just_pressed("block"):
-		explosionMiniEnemiesAttack()
+		calculateBlocksAndDashes()
+		sporeRangedAttack()
+	
 
 func calculateAggression():
 	aggression = baseAggressionLevel
@@ -68,8 +71,22 @@ func calculateAggression():
 	if false: #Sword Equipped
 		aggression -= 0.3
 
-func actionManager():
-	null
+func calculateBlocksAndDashes():
+	var attacksBlocked: float = PlayerActionTracker.attacksBlocked
+	var attacksDodged: float = PlayerActionTracker.timesDodgedInCombat
+	var totalDodgedAndBlocked: float = attacksBlocked + attacksDodged
+	attacksBlockedPercentage = attacksBlocked / totalDodgedAndBlocked
+	attacksDodgedPercentage = attacksDodged / totalDodgedAndBlocked
+
+func activateBoss():
+	calculateAggression()
+	calculateBlocksAndDashes()
+	active = true
+
+func actionManager(delta):
+	apply_gravity(delta)
+	
+	move_and_slide()
 
 #Boss Actions
 #Movement
@@ -96,10 +113,9 @@ func move_towards_target(delta, target):
 	
 	direction = (nav.get_next_path_position() - global_position).normalized()
 	velocity = velocity.lerp(direction * speed, acceleration * delta)
-	rotateToPlayer(target)
-	move_and_slide()
+	rotateToTarget(target)
 
-func rotateToPlayer(target):
+func rotateToTarget(target):
 	var angleVector = target - global_transform.origin
 	var angle = atan2(angleVector.x, angleVector.z)
 	rotation.y = angle - PI/2
@@ -118,15 +134,17 @@ func sporeRangedAttack():
 
 
 func chargeAttack():
-	null
+	var playerPosition: Vector3 = player.get_child(0).global_position
+	var directionToPlayer: Vector3 = (playerPosition - global_position).normalized()
+	rotateToTarget(playerPosition)
+	velocity = directionToPlayer * 10
 
 
 func explosionMiniEnemiesAttack():
 	var tempExplosionEnemy = explosionEnemy.instantiate()
 	world.add_child(tempExplosionEnemy)
 	tempExplosionEnemy.global_position = ExplosionEnemySpawnPoint.global_position
-	
-	
+
 
 func spearMeleeAttack():
 	null

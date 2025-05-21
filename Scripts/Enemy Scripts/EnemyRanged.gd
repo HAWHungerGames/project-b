@@ -31,7 +31,7 @@ var playerIsInHearingArea: bool = false
 var playerIsInVisionArea: bool = false
 var attackCooldown: float = 0
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-var bulletScene: PackedScene = preload("res://Prefabs/enemy_bullet.tscn")
+var bulletScene: PackedScene = preload("res://Prefabs/Enemies/enemy_bullet.tscn")
 var isMoving: bool = false 
 #To track the delay between stop moving and attacking 
 var moveDelay: float = 0

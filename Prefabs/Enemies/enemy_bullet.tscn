@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://7n0dxdf43jki"]
 
-[ext_resource type="Script" uid="uid://ckxe41r5558le" path="res://Scripts/Enemy Scripts/EnemyBullet.gd" id="1_8jqip"]
-[ext_resource type="Texture2D" uid="uid://cbu02u0njv72o" path="res://Assets/Kenney Particles Transparent Background/smoke_07.png" id="2_8jqip"]
+[ext_resource type="Script" uid="uid://ckxe41r5558le" path="res://Scripts/Enemy Scripts/EnemyBullet.gd" id="1_26jo2"]
+[ext_resource type="Texture2D" uid="uid://cbu02u0njv72o" path="res://Assets/Kenney Particles Transparent Background/smoke_07.png" id="2_l2msq"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_k711p"]
 radius = 0.2
@@ -15,7 +15,7 @@ radius = 0.2
 transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("2_8jqip")
+albedo_texture = ExtResource("2_l2msq")
 billboard_mode = 3
 billboard_keep_scale = true
 particles_anim_h_frames = 1
@@ -48,7 +48,7 @@ hue_variation_max = -2.23517e-08
 [node name="Bullet" type="CharacterBody3D" groups=["Bullet"]]
 collision_layer = 0
 collision_mask = 0
-script = ExtResource("1_8jqip")
+script = ExtResource("1_26jo2")
 trackingStrength = 0.5
 
 [node name="BulletShape" type="CollisionShape3D" parent="."]

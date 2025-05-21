@@ -1,16 +1,15 @@
-[gd_scene load_steps=19 format=3 uid="uid://do1xe3tqii0no"]
+[gd_scene load_steps=18 format=3 uid="uid://do1xe3tqii0no"]
 
-[ext_resource type="Script" uid="uid://ch7v656g1dis3" path="res://Scripts/Enemy Scripts/EnemyExplosion.gd" id="1_xuh6v"]
-[ext_resource type="Material" uid="uid://dekpipancsbc6" path="res://Materials/TestCubes.tres" id="3_pu3ww"]
-[ext_resource type="Texture2D" uid="uid://8coueektucvq" path="res://Assets/Kenney Particles Transparent Background/fire_01.png" id="4_pu3ww"]
+[ext_resource type="Script" uid="uid://ch7v656g1dis3" path="res://Scripts/Enemy Scripts/EnemyExplosion.gd" id="1_cx1pd"]
+[ext_resource type="PackedScene" uid="uid://bffmge8min5bm" path="res://Models/Roller2.blend" id="2_aj5v4"]
+[ext_resource type="Texture2D" uid="uid://8coueektucvq" path="res://Assets/Kenney Particles Transparent Background/fire_01.png" id="3_8iw1i"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dp8bq"]
 radius = 1.60604
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k711p"]
-height = 1.0
-
-[sub_resource type="SphereMesh" id="SphereMesh_xuh6v"]
+radius = 0.449084
+height = 0.898169
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_pu3ww"]
 radius = 1.70299
@@ -22,7 +21,7 @@ radius = 5.20359
 transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("4_pu3ww")
+albedo_texture = ExtResource("3_8iw1i")
 billboard_mode = 3
 billboard_keep_scale = true
 particles_anim_h_frames = 1
@@ -73,7 +72,7 @@ hue_variation_curve = SubResource("CurveTexture_52x3p")
 size = Vector3(0.272949, 0.581909, 0.394104)
 
 [node name="MeleeEnemy" type="CharacterBody3D" groups=["Enemy"]]
-script = ExtResource("1_xuh6v")
+script = ExtResource("1_cx1pd")
 health = 100
 
 [node name="DetectionRange" type="Area3D" parent="." groups=["Enemy"]]
@@ -86,11 +85,46 @@ debug_color = Color(0.138961, 0.599429, 0.670183, 1)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_k711p")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-material_override = ExtResource("3_pu3ww")
-mesh = SubResource("SphereMesh_xuh6v")
-
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="Mesh" parent="." instance=ExtResource("2_aj5v4")]
+
+[node name="Skeleton3D" parent="Mesh/Armature" index="0"]
+bones/0/rotation = Quaternion(-7.06651e-09, 3.38417e-08, 0.300996, 0.953626)
+bones/1/position = Vector3(2.00366e-09, -0.269841, -0.142753)
+bones/1/rotation = Quaternion(-0.707107, -5.26836e-09, 0.707107, -5.26836e-09)
+bones/3/position = Vector3(1.23645e-08, -0.27435, 0.147254)
+bones/3/rotation = Quaternion(-0.707107, -5.26836e-09, 0.707107, -5.26836e-09)
+bones/5/position = Vector3(1.54714e-09, -0.025236, 0.21961)
+bones/5/rotation = Quaternion(0.302937, -0.638928, -0.302937, 0.638928)
+bones/7/position = Vector3(1.97648e-09, -0.025236, -0.215732)
+bones/7/rotation = Quaternion(-0.0716816, 0.897109, -0.406196, 0.158313)
+bones/10/position = Vector3(-0.000245689, 0.000394933, -2.24236e-07)
+bones/10/rotation = Quaternion(8.06622e-09, -1.89425e-09, -0.0909777, 0.995853)
+
+[node name="BeinR" parent="Mesh/Armature/Skeleton3D" index="0"]
+transform = Transform3D(0.818803, -0.574074, -9.54457e-08, 0.574074, 0.818803, -5.55051e-08, 5.04107e-08, -9.34516e-09, 1, -0.0236346, 0.0306313, -0.00346245)
+
+[node name="BeinL" parent="Mesh/Armature/Skeleton3D" index="1"]
+transform = Transform3D(0.818803, -0.574074, -9.54457e-08, 0.574074, 0.818803, -5.55051e-08, 5.04107e-08, -9.34516e-09, 1, -0.0210461, 0.0269394, 1.04308e-07)
+
+[node name="ArmL" parent="Mesh/Armature/Skeleton3D" index="2"]
+transform = Transform3D(0.818803, -0.44446, -0.363341, 0.574074, 0.633934, 0.518234, 1.87623e-09, -0.632916, 0.774221, 0.0573382, -0.0848603, -0.000962451)
+
+[node name="ArmR" parent="Mesh/Armature/Skeleton3D" index="3"]
+transform = Transform3D(0.818803, -0.431416, 0.378736, 0.574074, 0.61533, -0.540192, -2.98023e-07, 0.659734, 0.751499, 0.0602919, -0.0890733, -0.000921726)
+
+[node name="Hutshell" parent="Mesh/Armature/Skeleton3D" index="4"]
+transform = Transform3D(0.909272, -0.416203, 6.56292e-08, 0.416203, 0.909272, 1.88862e-08, -6.75353e-08, 1.01424e-08, 1, -0.000427887, 0.000182314, -2.24022e-07)
+
+[node name="Körper" parent="Mesh/Armature/Skeleton3D" index="5"]
+transform = Transform3D(0.905571, -0.423776, -0.0188538, 0.423862, 0.905727, 0.000616998, 0.0168149, -0.00855013, 0.999822, 0.00501396, -0.0107162, 0.000101157)
+
+[node name="Hut" parent="Mesh/Armature/Skeleton3D" index="6"]
+transform = Transform3D(0.905571, -0.423776, -0.0188538, 0.423862, 0.905727, 0.000616998, 0.0168149, -0.00855013, 0.999822, -1.11759e-08, 1.11759e-08, -4.9331e-09)
+
+[node name="Sphere_002" parent="Mesh/Armature/Skeleton3D" index="7"]
+transform = Transform3D(0.905571, -0.423776, -0.0188538, 0.423862, 0.905727, 0.000616998, 0.0168149, -0.00855013, 0.999822, -0.129447, -0.000277355, -0.00244082)
 
 [node name="AttackArea" type="Area3D" parent="."]
 
@@ -122,3 +156,5 @@ shape = SubResource("BoxShape3D_xuh6v")
 [connection signal="area_entered" from="DamageArea" to="." method="_on_damage_area_entered"]
 [connection signal="area_exited" from="DamageArea" to="." method="_on_damage_area_exited"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+
+[editable path="Mesh"]

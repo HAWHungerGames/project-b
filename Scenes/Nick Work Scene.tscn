@@ -1,13 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://bmqgvvy0t5bfp"]
+[gd_scene load_steps=17 format=3 uid="uid://bmqgvvy0t5bfp"]
 
 [ext_resource type="Material" uid="uid://b2rgc8u5hwwcc" path="res://Materials/TestGround.tres" id="1_7g8fi"]
 [ext_resource type="Material" uid="uid://dekpipancsbc6" path="res://Materials/TestCubes.tres" id="2_8h0xq"]
 [ext_resource type="Material" uid="uid://41byjnpqi8jl" path="res://Materials/TestBush.tres" id="2_r2bbj"]
 [ext_resource type="PackedScene" uid="uid://cpyee7rfs1efb" path="res://Prefabs/player.tscn" id="3_r2bbj"]
-[ext_resource type="PackedScene" uid="uid://durr2417rl7mr" path="res://Prefabs/enemy_ranged.tscn" id="5_e6mua"]
-[ext_resource type="PackedScene" uid="uid://ddb5qsl2pw4p2" path="res://Prefabs/enemy_spores.tscn" id="6_r2bbj"]
-[ext_resource type="PackedScene" uid="uid://uafprr7riwjm" path="res://Prefabs/enemy_melee.tscn" id="7_k711p"]
-[ext_resource type="PackedScene" uid="uid://dqu4ynl3lwx2t" path="res://Prefabs/enemy_boss.tscn" id="8_pbfqo"]
+[ext_resource type="PackedScene" uid="uid://durr2417rl7mr" path="res://Prefabs/Enemies/enemy_ranged.tscn" id="5_e6mua"]
+[ext_resource type="PackedScene" uid="uid://c2nm628fvvm5" path="res://Prefabs/HealingOrb.tscn" id="5_yyohc"]
+[ext_resource type="PackedScene" uid="uid://ddb5qsl2pw4p2" path="res://Prefabs/Enemies/enemy_spores.tscn" id="6_r2bbj"]
+[ext_resource type="PackedScene" uid="uid://uafprr7riwjm" path="res://Prefabs/Enemies/enemy_melee.tscn" id="7_k711p"]
+[ext_resource type="PackedScene" uid="uid://dqu4ynl3lwx2t" path="res://Prefabs/Enemies/enemy_boss.tscn" id="8_pbfqo"]
 
 [sub_resource type="Environment" id="Environment_1dgrj"]
 
@@ -36,7 +37,6 @@ environment = SubResource("Environment_1dgrj")
 
 [node name="Player" parent="." instance=ExtResource("3_r2bbj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.1086, 6.25274, 25.4444)
-rotationType = "rotate based on last movement"
 healthType = "Health regeneration"
 cameraAngle = -35.0
 
@@ -158,6 +158,9 @@ shape = SubResource("BoxShape3D_r2bbj")
 shape = SubResource("BoxShape3D_k711p")
 debug_color = Color(0, 0.647059, 0.196078, 1)
 
+[node name="HealingOrb" parent="World/Bush1" instance=ExtResource("5_yyohc")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.166667, 28.8516, 0.653268, 3.23015)
+
 [node name="Bush2" type="MeshInstance3D" parent="World" groups=["Bush", "World"]]
 transform = Transform3D(4.31604, 0, -1.38932, 0, 2, 0, 4.16795, 0, 1.43868, -7.73918, 1, -3.87657)
 layers = 2
@@ -215,9 +218,8 @@ transform = Transform3D(-0.999998, 0, 0.00209435, 0, 1, 0, -0.00209435, 0, -0.99
 hearingRange = 30.0
 visionRange = 30.0
 
-[node name="BossEnemy" parent="." node_paths=PackedStringArray("movePoints") instance=ExtResource("8_pbfqo")]
+[node name="BossEnemy" parent="." instance=ExtResource("8_pbfqo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.2562, 3.38342, 9.12667)
-movePoints = [NodePath("../Boss Target Points/Node3D"), NodePath("../Boss Target Points/Node3D2"), NodePath("../Boss Target Points/Node3D3"), NodePath("../Boss Target Points/Node3D4")]
 
 [node name="Boss Target Points" type="Node3D" parent="."]
 

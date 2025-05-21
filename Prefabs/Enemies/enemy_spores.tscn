@@ -114,43 +114,46 @@ bones/11/rotation = Quaternion(-0.964045, 0.00538643, -0.00134476, 0.265682)
 bones/14/rotation = Quaternion(0.963827, 0.00310415, 0.000919186, 0.26651)
 
 [node name="Burt_head" parent="Mesh/Armature/Skeleton3D" index="0"]
-transform = Transform3D(1, 5.62728e-17, 0, -5.62728e-17, 1, -7.45356e-10, 0, 7.45356e-10, 1, 0.0270495, 1.5568, 7.45058e-08)
+transform = Transform3D(1, 5.62733e-17, 0, -5.62733e-17, 1, -7.4535e-10, 0, 7.4535e-10, 1, 0.0270495, 1.5568, 7.31088e-08)
 
 [node name="Eys" parent="Mesh/Armature/Skeleton3D" index="1"]
-transform = Transform3D(1, 5.62728e-17, 0, -5.62728e-17, 1, -7.45356e-10, 0, 7.45356e-10, 1, 0.650254, 1.80337, 0.00731646)
+transform = Transform3D(1, 5.62733e-17, 0, -5.62733e-17, 1, -7.4535e-10, 0, 7.4535e-10, 1, 0.650254, 1.80337, 0.00731646)
 
 [node name="Hat" parent="Mesh/Armature/Skeleton3D" index="2"]
-transform = Transform3D(1, 5.62728e-17, 0, -5.62728e-17, 1, -7.45356e-10, 0, 7.45356e-10, 1, 0.130813, 1.55177, 7.45021e-08)
+transform = Transform3D(1, 5.62733e-17, 0, -5.62733e-17, 1, -7.4535e-10, 0, 7.4535e-10, 1, 0.130813, 1.55177, 7.31051e-08)
 
 [node name="BafallHut" parent="Mesh/Armature/Skeleton3D" index="3"]
-transform = Transform3D(1, 5.62728e-17, 0, -5.62728e-17, 1, -7.45356e-10, 0, 7.45356e-10, 1, -0.0107317, 2.06607, 0.109385)
+transform = Transform3D(1, 5.62733e-17, 0, -5.62733e-17, 1, -7.4535e-10, 0, 7.4535e-10, 1, -0.0107317, 2.06607, 0.109385)
 
 [node name="Burt_Leg_R" parent="Mesh/Armature/Skeleton3D" index="4"]
-transform = Transform3D(0.999982, -0.00606415, 0.000523873, 0.0060638, 0.999982, 0.000671342, -0.000527948, -0.000668168, 1, -0.0612777, -0.0334842, -0.413215)
+transform = Transform3D(0.999982, -0.00606416, 0.000523902, 0.0060638, 0.999982, 0.00067129, -0.000527978, -0.000668116, 1, -0.0612777, -0.0334842, -0.413214)
 
 [node name="Burt_Leg_L" parent="Mesh/Armature/Skeleton3D" index="5"]
-transform = Transform3D(0.999851, 0.017268, -0.000339551, -0.0172682, 0.999851, -0.000771761, 0.000326173, 0.000777513, 1, -0.0665402, -0.0327654, 0.405501)
+transform = Transform3D(0.999851, 0.017268, -0.000339573, -0.0172683, 0.999851, -0.000771761, 0.000326196, 0.000777513, 1, -0.0665402, -0.0327653, 0.405501)
 
 [node name="Burt_Leg_L_Beffal" parent="Mesh/Armature/Skeleton3D" index="6"]
-transform = Transform3D(0.999851, 0.017268, -0.000339551, -0.0172682, 0.999851, -0.000771761, 0.000326173, 0.000777513, 1, 0.116113, -0.311637, 0.57645)
+transform = Transform3D(0.999851, 0.017268, -0.000339573, -0.0172683, 0.999851, -0.000771761, 0.000326196, 0.000777513, 1, 0.116113, -0.311637, 0.576451)
 
 [node name="Burt_Arm_L" parent="Mesh/Armature/Skeleton3D" index="7"]
-transform = Transform3D(0.999938, -0.00543692, 0.00968097, 0.0110999, 0.510652, -0.859716, -0.000269398, 0.85977, 0.510681, -0.128983, 1.27919, 0.57108)
+transform = Transform3D(0.999938, -0.00543692, 0.00968097, 0.0110999, 0.510653, -0.859715, -0.000269411, 0.85977, 0.510682, -0.128983, 1.27919, 0.57108)
 
 [node name="Burt_Beffal_Arm_L" parent="Mesh/Armature/Skeleton3D" index="8"]
-transform = Transform3D(0.999938, -0.00543692, 0.00968097, 0.0110999, 0.510652, -0.859716, -0.000269398, 0.85977, 0.510681, -0.0588853, 0.669235, 1.04606)
+transform = Transform3D(0.999938, -0.00543692, 0.00968097, 0.0110999, 0.510653, -0.859715, -0.000269411, 0.85977, 0.510682, -0.0588853, 0.669235, 1.04606)
 
 [node name="Burt_Arm_R" parent="Mesh/Armature/Skeleton3D" index="9"]
-transform = Transform3D(0.999979, 0.00341614, 0.00550005, -0.00647355, 0.512144, 0.858875, 0.00011722, -0.858893, 0.512155, -0.127224, 1.27987, -0.570903)
+transform = Transform3D(0.999979, 0.00341613, 0.00550004, -0.00647354, 0.512143, 0.858876, 0.000117225, -0.858893, 0.512155, -0.127224, 1.27987, -0.570903)
 
 [node name="Burt_Beffal_Arm_R" parent="Mesh/Armature/Skeleton3D" index="10"]
-transform = Transform3D(0.999979, 0.00341614, 0.00550005, -0.00647355, 0.512144, 0.858875, 0.00011722, -0.858893, 0.512155, -0.208403, 0.597047, -1.08602)
+transform = Transform3D(0.999979, 0.00341613, 0.00550004, -0.00647354, 0.512143, 0.858876, 0.000117225, -0.858893, 0.512155, -0.208403, 0.597047, -1.08602)
 
 [node name="Burt_Body" parent="Mesh/Armature/Skeleton3D" index="11"]
-transform = Transform3D(1, -1.12546e-16, 0, 1.12546e-16, 1, 0, 0, 0, 1, -7.45058e-09, 0.541689, 9.31323e-09)
+transform = Transform3D(1, -1.12546e-16, 0, 1.12546e-16, 1, 6.21725e-15, 0, -6.21725e-15, 1, 7.45058e-09, 0.541689, 7.91624e-09)
 
 [node name="BeffalKörper" parent="Mesh/Armature/Skeleton3D" index="12"]
-transform = Transform3D(1, -1.12546e-16, 0, 1.12546e-16, 1, 0, 0, 0, 1, -0.202008, 0.486896, 0.195547)
+transform = Transform3D(1, -1.12546e-16, 0, 1.12546e-16, 1, 6.21725e-15, 0, -6.21725e-15, 1, -0.202008, 0.486896, 0.195547)
+
+[node name="DamageNumbersPosition" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.815669, 1.95654, 0)
 
 [connection signal="area_entered" from="HearingArea" to="." method="_on_hearing_area_entered"]
 [connection signal="area_exited" from="HearingArea" to="." method="_on_hearing_area_exited"]

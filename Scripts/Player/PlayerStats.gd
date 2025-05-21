@@ -20,7 +20,7 @@ extends Node3D
 @export_subgroup("Sneak")
 @export var sneakSpeedModifier: float = 2
 @export_subgroup("Blocking")
-@export var shieldRadiusProtection: float = PI/2
+@export var shieldRadiusProtection: float = 90
 @export var blockingStaminaCost: int = 10
 @export var brokenBlockDuration: float = 5
 
@@ -148,15 +148,26 @@ func set_stamina_regen_cooldown(value: float):
 
 func check_if_attack_was_blocked(attacker: Node3D):
 	var diffVector = self.get_child(0).global_transform.origin - attacker.global_transform.origin
-	var attackAngle = atan2(diffVector.x, diffVector.z) + PI
-	var playerAngle = self.get_child(0).get_child(0).rotation.y + PI
+	var attackAngle = normalizeAngle(atan2(diffVector.x, diffVector.z) / PI * 180)
+	var playerAngle = normalizeAngle(self.get_child(0).get_child(0).rotation.y / PI * 180)
+	if abs(attackAngle - playerAngle) > 180:
+		if attackAngle < playerAngle:
+			attackAngle += 360
+		else:
+			playerAngle += 360
 	if !(attackAngle >= playerAngle - shieldRadiusProtection/2) or !(attackAngle <= playerAngle + shieldRadiusProtection/2) or !isBlocking or blockBroken > 0:
 		return false
 	if stamina < blockingStaminaCost: 
 		blockBroken = brokenBlockDuration
 		print("Block was broken, stamina too low")
 		return false
+	PlayerActionTracker.attacksBlocked += 1
 	return true
+
+func normalizeAngle(angle: float):
+	if angle <= 0:
+		return (angle + 360)
+	return angle
 
 func breakBlock():
 	blockBroken = brokenBlockDuration
@@ -188,6 +199,11 @@ func getBlockingDamageReduction():
 	if GameManager.get_first_weapon() == "Shield":
 		return 1.0
 	return 1.0
+
+func heal(amount):
+	if health <= maxHealth:
+		health += amount
+	health = clamp(health, 0, maxHealth)
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.is_in_group("Bush"):

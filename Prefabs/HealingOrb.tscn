@@ -1,0 +1,85 @@
+[gd_scene load_steps=11 format=3 uid="uid://c2nm628fvvm5"]
+
+[ext_resource type="Texture2D" uid="uid://1x0ootc34yvs" path="res://Assets/Kenney Particles Transparent Background/circle_04.png" id="1_84oi5"]
+[ext_resource type="Script" uid="uid://x5nt2jr8r7na" path="res://Scripts/Assets/HealingOrb.gd" id="1_i3gfe"]
+[ext_resource type="Texture2D" uid="uid://4bgdgkws3bqb" path="res://Assets/Kenney Particles Transparent Background/light_01.png" id="2_i3gfe"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xmr5"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_84oi5")
+emission_enabled = true
+emission = Color(0.2556, 0.71, 0.2556, 1)
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lnq7i"]
+gravity = Vector3(0, 0, 0)
+scale_min = 1.2
+scale_max = 1.4
+color = Color(0, 0.971637, 0.186295, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_7cey6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cwy6o"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_i3gfe")
+emission_enabled = true
+emission = Color(0.333333, 1, 0, 1)
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2un3c"]
+emission_shape = 1
+emission_sphere_radius = 0.1
+angle_min = -46.5
+angle_max = 45.7
+gravity = Vector3(0, 0, 0)
+scale_min = 0.0
+scale_max = 1.1
+color = Color(0.580392, 1, 0.227451, 1)
+hue_variation_min = -0.1
+hue_variation_max = 0.1
+turbulence_enabled = true
+turbulence_noise_strength = 0.77
+turbulence_noise_speed = Vector3(1, 1, 1)
+turbulence_initial_displacement_min = -0.0999985
+turbulence_initial_displacement_max = 0.100001
+
+[sub_resource type="QuadMesh" id="QuadMesh_4pxt1"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0xmr5"]
+radius = 0.45288
+
+[node name="HealingOrb" type="Node3D"]
+script = ExtResource("1_i3gfe")
+
+[node name="Outer Ring" type="GPUParticles3D" parent="."]
+material_override = SubResource("StandardMaterial3D_0xmr5")
+process_material = SubResource("ParticleProcessMaterial_lnq7i")
+draw_pass_1 = SubResource("QuadMesh_7cey6")
+
+[node name="Particles" type="GPUParticles3D" parent="."]
+material_override = SubResource("StandardMaterial3D_cwy6o")
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_2un3c")
+draw_pass_1 = SubResource("QuadMesh_4pxt1")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+light_color = Color(0.599957, 0.908096, 0.948452, 1)
+light_energy = 2.0
+spot_angle = 180.0
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_0xmr5")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_entered"]
