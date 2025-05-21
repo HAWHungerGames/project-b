@@ -1,0 +1,127 @@
+[gd_scene load_steps=12 format=3 uid="uid://6j2eqyw3n43k"]
+
+[ext_resource type="Script" uid="uid://d126mr2i2jxrk" path="res://Scripts/Assets/training_dummy.gd" id="1_dacpj"]
+[ext_resource type="PackedScene" uid="uid://cjwhnt4r6k3dj" path="res://Models/Objects/TrainingDummy.blend" id="1_rye1t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pq71n"]
+size = Vector3(0.546875, 2.19949, 0.575928)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s5rpl"]
+size = Vector3(0.3125, 0.377197, 0.575928)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4bt0y"]
+size = Vector3(0.3125, 0.377197, 0.575928)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dacpj"]
+size = Vector3(0.546875, 2.5611, 0.575928)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nylhb"]
+size = Vector3(0.3125, 0.377197, 0.575928)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uoyef"]
+size = Vector3(0.3125, 0.377197, 0.575928)
+
+[sub_resource type="Animation" id="Animation_dacpj"]
+resource_name = "GettingHit"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TrainingDummy:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.025, 0.05, 0.075, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.261799, 0, 0), Vector3(0, 0, 0), Vector3(0.261799, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TrainingDummy:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.025, 0.05, 0.075, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.0445378, 0), Vector3(0, 0.0445378, 0), Vector3(0, 0.0445378, 0), Vector3(0, 0.0445378, 0), Vector3(0, 0.0445378, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nylhb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TrainingDummy:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TrainingDummy:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.0445378, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nylhb"]
+_data = {
+&"GettingHit": SubResource("Animation_dacpj"),
+&"RESET": SubResource("Animation_nylhb")
+}
+
+[node name="training_dummy" type="StaticBody3D" groups=["TargetDummy"]]
+script = ExtResource("1_dacpj")
+
+[node name="TrainingDummy" parent="." instance=ExtResource("1_rye1t")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.0445378, 0)
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.41323, 0.00933838)
+shape = SubResource("BoxShape3D_pq71n")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.73191, 0.435247)
+shape = SubResource("BoxShape3D_s5rpl")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.73191, -0.438896)
+shape = SubResource("BoxShape3D_4bt0y")
+
+[node name="Area3D" type="Area3D" parent="." groups=["Weapon"]]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.0445378, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.593946, 0.00466919)
+shape = SubResource("BoxShape3D_dacpj")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.843686, 0.217624)
+shape = SubResource("BoxShape3D_nylhb")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.843686, -0.219448)
+shape = SubResource("BoxShape3D_uoyef")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_nylhb")
+}
+speed_scale = 0.6
+
+[node name="DamageNumbersPosition" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.61803, 0)
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

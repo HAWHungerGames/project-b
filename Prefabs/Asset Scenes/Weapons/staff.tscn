@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbod5c6l72spi"]
+
+[ext_resource type="PackedScene" uid="uid://1c1g75645vwu" path="res://Models/Weapons/Wand2.blend" id="1_n5ytd"]
+
+[node name="Placeholder Staff Hand" type="Node3D"]
+
+[node name="Wand2" parent="." instance=ExtResource("1_n5ytd")]
+transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 0, 0)

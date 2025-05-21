@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bohnf5vipujed"]
+
+[ext_resource type="PackedScene" uid="uid://dtw2u4oyuabae" path="res://Models/Objects/bonfier.blend" id="1_xpi4y"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xpi4y"]
+size = Vector3(2.35571, 1.1463, 2.29785)
+
+[node name="Bonfire" type="StaticBody3D"]
+
+[node name="bonfier" parent="." instance=ExtResource("1_xpi4y")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0620117, 0.40567, -0.0546875)
+shape = SubResource("BoxShape3D_xpi4y")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.390405, 0)
+light_color = Color(1, 0.603922, 0.341176, 1)
+light_energy = 3.0
+light_volumetric_fog_energy = 10.0
+omni_range = 15.0
+omni_attenuation = 2.0

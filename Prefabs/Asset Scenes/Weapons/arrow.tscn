@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://chu0gv1cp633e"]
+
+[ext_resource type="Script" uid="uid://ddkwundh1pwu0" path="res://Scripts/Weapons/PlayerArrow.gd" id="1_jalla"]
+[ext_resource type="PackedScene" uid="uid://rga2xgcxswyh" path="res://Models/Weapons/Arrow.blend" id="2_vvk11"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_apqjk"]
+size = Vector3(1.58209, 0.131592, 0.607422)
+
+[node name="Arrow" type="Node3D" groups=["Weapon"]]
+script = ExtResource("1_jalla")
+
+[node name="ArrowMesh" parent="." instance=ExtResource("2_vvk11")]
+transform = Transform3D(-2.62268e-08, 0, -3, 0, 1.4, 0, 0.6, 0, -1.31134e-07, -0.0352437, 0, 0.0184599)
+
+[node name="Area3D" type="Area3D" parent="." groups=["Weapon"]]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0606384, -0.0118408, -0.00012207)
+shape = SubResource("BoxShape3D_apqjk")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

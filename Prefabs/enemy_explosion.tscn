@@ -1,0 +1,124 @@
+[gd_scene load_steps=19 format=3 uid="uid://do1xe3tqii0no"]
+
+[ext_resource type="Script" uid="uid://ch7v656g1dis3" path="res://Scripts/Enemy Scripts/EnemyExplosion.gd" id="1_xuh6v"]
+[ext_resource type="Material" uid="uid://dekpipancsbc6" path="res://Materials/TestCubes.tres" id="3_pu3ww"]
+[ext_resource type="Texture2D" uid="uid://8coueektucvq" path="res://Assets/Kenney Particles Transparent Background/fire_01.png" id="4_pu3ww"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dp8bq"]
+radius = 1.60604
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k711p"]
+height = 1.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_xuh6v"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_pu3ww"]
+radius = 1.70299
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3kmyd"]
+radius = 5.20359
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xuh6v"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("4_pu3ww")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_3kmyd"]
+_data = [Vector2(0.305344, 0.685393), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_ksv8p"]
+curve = SubResource("Curve_3kmyd")
+
+[sub_resource type="Gradient" id="Gradient_0ftip"]
+offsets = PackedFloat32Array(0, 0.0190476, 0.390476, 0.87619)
+colors = PackedColorArray(0.0804598, 0.0804598, 0.0804598, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_n1xrl"]
+gradient = SubResource("Gradient_0ftip")
+
+[sub_resource type="Curve" id="Curve_ekuxq"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, -1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_52x3p"]
+curve = SubResource("Curve_ekuxq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pu3ww"]
+angle_min = -162.6
+angle_max = 320.0
+inherit_velocity_ratio = 5.0
+spread = 180.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 0, 0)
+damping_min = 4.0
+damping_max = 5.0
+color = Color(0.601631, 0.0603955, 0.635184, 1)
+color_ramp = SubResource("GradientTexture1D_n1xrl")
+alpha_curve = SubResource("CurveTexture_ksv8p")
+hue_variation_min = -0.1
+hue_variation_max = 0.1
+hue_variation_curve = SubResource("CurveTexture_52x3p")
+
+[sub_resource type="QuadMesh" id="QuadMesh_3kmyd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xuh6v"]
+size = Vector3(0.272949, 0.581909, 0.394104)
+
+[node name="MeleeEnemy" type="CharacterBody3D" groups=["Enemy"]]
+script = ExtResource("1_xuh6v")
+health = 100
+
+[node name="DetectionRange" type="Area3D" parent="." groups=["Enemy"]]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionRange" groups=["Enemy"]]
+shape = SubResource("SphereShape3D_dp8bq")
+debug_color = Color(0.138961, 0.599429, 0.670183, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_k711p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("3_pu3ww")
+mesh = SubResource("SphereMesh_xuh6v")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="AttackArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AttackArea"]
+shape = SubResource("SphereShape3D_pu3ww")
+
+[node name="DamageArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DamageArea"]
+shape = SubResource("SphereShape3D_3kmyd")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+material_override = SubResource("StandardMaterial3D_xuh6v")
+emitting = false
+amount = 1000
+one_shot = true
+explosiveness = 1.0
+randomness = 0.05
+process_material = SubResource("ParticleProcessMaterial_pu3ww")
+draw_pass_1 = SubResource("QuadMesh_3kmyd")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.29, 0)
+shape = SubResource("BoxShape3D_xuh6v")
+
+[connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_entered"]
+[connection signal="area_entered" from="DamageArea" to="." method="_on_damage_area_entered"]
+[connection signal="area_exited" from="DamageArea" to="." method="_on_damage_area_exited"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

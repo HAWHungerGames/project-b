@@ -1,0 +1,1073 @@
+[gd_scene load_steps=77 format=3 uid="uid://17sawqr1a5sd"]
+
+[ext_resource type="Material" uid="uid://41byjnpqi8jl" path="res://Materials/TestBush.tres" id="1_3f6q6"]
+[ext_resource type="PackedScene" uid="uid://6j2eqyw3n43k" path="res://Prefabs/Asset Scenes/Game Objects/training_dummy.tscn" id="2_24xrm"]
+[ext_resource type="PackedScene" uid="uid://bohnf5vipujed" path="res://Prefabs/Asset Scenes/World Objects/bonfire.tscn" id="3_5oe8d"]
+[ext_resource type="PackedScene" uid="uid://i40hh252nalo" path="res://Prefabs/Asset Scenes/Player Objects/InteractRayCast.tscn" id="4_1ee8w"]
+[ext_resource type="PackedScene" uid="uid://b2yj7ykigia5t" path="res://Prefabs/Asset Scenes/World Objects/Nature/bush_sphere.tscn" id="4_ga1i8"]
+[ext_resource type="PackedScene" uid="uid://cw0yxku6p8fo1" path="res://Prefabs/Asset Scenes/World Objects/Nature/mushroom_purple.tscn" id="5_2xhpb"]
+[ext_resource type="PackedScene" uid="uid://c4pocta6ava2v" path="res://Prefabs/Asset Scenes/Game Objects/training_dummy_ranged_with_stand.tscn" id="5_3f6q6"]
+[ext_resource type="Script" uid="uid://b5l31sh77qstt" path="res://Scripts/CameraController.gd" id="5_24xrm"]
+[ext_resource type="PackedScene" uid="uid://cpyee7rfs1efb" path="res://Prefabs/player.tscn" id="6_0ctdn"]
+[ext_resource type="PackedScene" uid="uid://bwwem0bl1hx05" path="res://Prefabs/Asset Scenes/World Objects/Nature/plant_with_purple.tscn" id="6_3f6q6"]
+[ext_resource type="PackedScene" uid="uid://ck4rfnlyd0qgp" path="res://Prefabs/Asset Scenes/World Objects/Walls/tree_wall_with_5_trees.tscn" id="6_lfy4s"]
+[ext_resource type="PackedScene" uid="uid://dwtwg5j2gx5qd" path="res://Prefabs/Asset Scenes/Player Objects/hand.tscn" id="6_rb0yp"]
+[ext_resource type="PackedScene" uid="uid://4u43ho0i5epx" path="res://Prefabs/Asset Scenes/World Objects/Nature/mushroom_many.tscn" id="7_2xhpb"]
+[ext_resource type="PackedScene" uid="uid://dcwv501p00np7" path="res://Prefabs/Asset Scenes/World Objects/Nature/monstera_bush.tscn" id="8_2uoa5"]
+[ext_resource type="PackedScene" uid="uid://bkb84hjpc3lba" path="res://Prefabs/Asset Scenes/Game Objects/training_dummy_ranged.tscn" id="8_oxcgu"]
+[ext_resource type="PackedScene" uid="uid://cls0f2j5gkklh" path="res://Prefabs/Asset Scenes/World Objects/Walls/broken_wall_with_2_trees.tscn" id="8_qcrt0"]
+[ext_resource type="Texture2D" uid="uid://dmuil4tlckvro" path="res://UITextures/BarFrameTop.png" id="9_fgmgr"]
+[ext_resource type="PackedScene" uid="uid://uafprr7riwjm" path="res://Prefabs/enemy_melee.tscn" id="10_1ee8w"]
+[ext_resource type="Texture2D" uid="uid://dc4hcr4p2xbna" path="res://UITextures/UnderneathTop.png" id="10_65wlj"]
+[ext_resource type="PackedScene" uid="uid://vj7to5njslw6" path="res://Prefabs/Asset Scenes/Game Objects/Socket.tscn" id="11_1bu8d"]
+[ext_resource type="PackedScene" uid="uid://bbunaqymstlo4" path="res://Prefabs/Asset Scenes/World Objects/Nature/rock_one.tscn" id="11_ccm0r"]
+[ext_resource type="Texture2D" uid="uid://cvmgiuevaosab" path="res://UITextures/DamageTop.png" id="11_toju0"]
+[ext_resource type="PackedScene" uid="uid://dcsqxh8ksn77m" path="res://Prefabs/Asset Scenes/Game Objects/door.tscn" id="12_1bu8d"]
+[ext_resource type="PackedScene" uid="uid://durr2417rl7mr" path="res://Prefabs/enemy_ranged.tscn" id="12_q6ig3"]
+[ext_resource type="Texture2D" uid="uid://crd1yijlsjxdv" path="res://UITextures/BarFrameBottom.png" id="13_8rmxw"]
+[ext_resource type="Script" uid="uid://l471dqs5cmuc" path="res://Scripts/UI/bars.gd" id="13_fwfwu"]
+[ext_resource type="Texture2D" uid="uid://idv5h3wy02ok" path="res://UITextures/StaminaBottom.png" id="14_jp8xc"]
+[ext_resource type="Texture2D" uid="uid://c8eq20nuh4yxx" path="res://UITextures/UnderneathBottom.png" id="15_5oe8d"]
+[ext_resource type="Texture2D" uid="uid://cur1fsy614172" path="res://UITextures/DamageBottom.png" id="16_qsm0h"]
+[ext_resource type="Texture2D" uid="uid://booeplbhoubjy" path="res://UITextures/BarFrameMiddle.png" id="18_ga1i8"]
+[ext_resource type="Texture2D" uid="uid://b7ms4tj2ov82j" path="res://UITextures/StaminaMiddle.png" id="19_2xhpb"]
+[ext_resource type="Shader" uid="uid://bru2whrhk4mlo" path="res://Scripts/Shaders/low_health.gdshader" id="19_jp8xc"]
+[ext_resource type="Texture2D" uid="uid://cjvmlsiwqy7rj" path="res://UITextures/UnderneathMiddle.png" id="20_3f6q6"]
+[ext_resource type="Texture2D" uid="uid://dncs81uxppe3f" path="res://UITextures/DamageMiddle.png" id="21_2uoa5"]
+[ext_resource type="PackedScene" uid="uid://nc40df5rc7fy" path="res://Prefabs/Asset Scenes/World Objects/Walls/broke_wall_with_stuff.tscn" id="22_lfy4s"]
+[ext_resource type="Texture2D" uid="uid://dxxqrbfkg137x" path="res://UITextures/Mana.png" id="23_e0tq6"]
+[ext_resource type="Texture2D" uid="uid://6m5jcd5pvxrn" path="res://UITextures/WeaponSlotInactive.png" id="25_qcrt0"]
+[ext_resource type="Texture2D" uid="uid://dgvicbxum24vi" path="res://UITextures/WeaponSlotPressed.png" id="26_ar3t4"]
+[ext_resource type="Script" uid="uid://c7616ek8c2kfe" path="res://Scripts/UI/low_health.gd" id="26_vkbj3"]
+[ext_resource type="Texture2D" uid="uid://baxq1j20y701x" path="res://UITextures/redTint.png" id="26_vkim1"]
+[ext_resource type="Texture2D" uid="uid://b0gb728e1n47w" path="res://UITextures/WeaponSlot.png" id="27_vs2el"]
+[ext_resource type="Texture2D" uid="uid://dwoof1omyr8bt" path="res://UITextures/mycelium.png" id="28_vkbj3"]
+[ext_resource type="Texture2D" uid="uid://b56g56co15oce" path="res://UITextures/WeaponSlotFrame2.png" id="30_1tgbn"]
+[ext_resource type="Script" uid="uid://cr2dkifmawgcm" path="res://Scripts/UI/weapon_slots.gd" id="31_5i7v7"]
+[ext_resource type="Script" uid="uid://isgt2htj3fmm" path="res://Scripts/UI/menus/pause_menu.gd" id="32_3qkpg"]
+[ext_resource type="FontFile" uid="uid://4l406r67702d" path="res://UITextures/Fonts/DidactGothic-Regular.ttf" id="33_6roa5"]
+[ext_resource type="Shader" uid="uid://bjy5d3x36hbdt" path="res://Scripts/Shaders/pulsating.gdshader" id="34_5oe8d"]
+[ext_resource type="Texture2D" uid="uid://co6wmanklpgl3" path="res://UITextures/ParticleDust.png" id="39_5oe8d"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lfy4s"]
+sky_top_color = Color(0.102228, 0.307553, 0.295863, 1)
+sky_horizon_color = Color(3.17663e-06, 0.490848, 0.322927, 1)
+ground_bottom_color = Color(0.0672642, 0.231192, 0.221726, 1)
+ground_horizon_color = Color(0.0771361, 0.510991, 0.33122, 1)
+
+[sub_resource type="Sky" id="Sky_qcrt0"]
+sky_material = SubResource("ProceduralSkyMaterial_lfy4s")
+
+[sub_resource type="Environment" id="Environment_1ee8w"]
+background_mode = 2
+sky = SubResource("Sky_qcrt0")
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_oxcgu"]
+vertices = PackedVector3Array(19.5, 1, 46.893, 19.5, 1.25, -18.607, 19, 1, -18.607, -159.5, 1, 46.893, 19, 1, -27.357, 21.25, 1, -252.107, -159.5, 1, -252.107, 21.25, 1, -27.607, 23, 1, -27.607, 23, 1, -252.107, 25, 1, -27.607, 25.25, 1, -25.857, 159.5, 1, -26.107, 159.5, 1, -252.107, 20, 2.25, -20.357, 24.25, 2.25, -20.357, 24.25, 3.75, -26.607, 20, 3.75, -26.607, 20, 3.75, -22.857, 24.25, 3.75, -22.857, 20.25, 1, -26.357, 20.25, 1, -21.607, 24, 1, -21.607, 24, 1, -26.357, 25.25, 1, -18.607, 24.75, 1.25, -18.607, 24.75, 1, 46.893, 159.5, 1, 46.893, 24.25, 1.25, -18.607, 20, 1.25, -18.607)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 3), PackedInt32Array(4, 2, 3), PackedInt32Array(4, 5, 7), PackedInt32Array(5, 9, 7), PackedInt32Array(7, 9, 8), PackedInt32Array(11, 10, 12), PackedInt32Array(12, 10, 13), PackedInt32Array(13, 10, 9), PackedInt32Array(10, 8, 9), PackedInt32Array(14, 18, 15), PackedInt32Array(15, 18, 19), PackedInt32Array(19, 18, 17), PackedInt32Array(19, 17, 16), PackedInt32Array(23, 22, 20), PackedInt32Array(20, 22, 21), PackedInt32Array(26, 25, 24), PackedInt32Array(24, 11, 12), PackedInt32Array(26, 24, 27), PackedInt32Array(27, 24, 12), PackedInt32Array(29, 14, 28), PackedInt32Array(28, 14, 15), PackedInt32Array(28, 26, 29), PackedInt32Array(29, 26, 0), PackedInt32Array(0, 1, 29), PackedInt32Array(28, 25, 26)]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qsm0h"]
+shader = ExtResource("19_jp8xc")
+shader_parameter/low_health = false
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_i63v0"]
+load_path = "res://.godot/imported/Health.png-a734aa25cedf1d4e582dab6f275fa483.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ga1i8"]
+shader = ExtResource("34_5oe8d")
+shader_parameter/pulse_color = Color(1, 0, 0, 0.5)
+shader_parameter/pulse_speed = 2.0
+shader_parameter/intensity = 0.5
+
+[sub_resource type="Gradient" id="Gradient_fwfwu"]
+offsets = PackedFloat32Array(0, 0.489451, 0.767932, 1)
+colors = PackedColorArray(0.624, 0.72, 0, 0.537255, 0.857336, 0.841146, 0.221142, 0.890196, 0.911952, 0.9542, 0.360503, 0.94902, 1, 1, 1, 0.596078)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hq7hx"]
+gradient = SubResource("Gradient_fwfwu")
+
+[sub_resource type="Curve" id="Curve_hq7hx"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 13.0573), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_efexv"]
+curve = SubResource("Curve_hq7hx")
+
+[sub_resource type="Curve" id="Curve_65wlj"]
+_limits = [-10.0, 10.0, 0.0, 1.0]
+_data = [Vector2(0, 5.85987), 0.0, 0.0, 0, 0, Vector2(0.707224, -0.143312), -4.41427, -4.41427, 0, 0, Vector2(1, -1.17834), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_toju0"]
+curve = SubResource("Curve_65wlj")
+
+[sub_resource type="Curve" id="Curve_efexv"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_fgmgr"]
+curve = SubResource("Curve_efexv")
+
+[sub_resource type="Curve" id="Curve_fwfwu"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.500753), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_hq7hx"]
+curve = SubResource("Curve_fwfwu")
+
+[sub_resource type="Curve" id="Curve_fgmgr"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_65wlj"]
+curve = SubResource("Curve_fgmgr")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_65wlj"]
+lifetime_randomness = 0.5
+emission_shape = 1
+emission_sphere_radius = 0.25
+angle_min = 1.07288e-05
+angle_max = 45.0
+spread = 12.945
+flatness = 1.0
+initial_velocity_min = 0.1
+initial_velocity_max = 1.0
+angular_velocity_min = 30.0
+angular_velocity_max = 60.0
+orbit_velocity_min = 0.1
+orbit_velocity_max = 0.3
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = -2.23517e-05
+velocity_limit_curve = SubResource("CurveTexture_65wlj")
+gravity = Vector3(0, -0.2, 0)
+radial_accel_min = 0.0999978
+radial_accel_max = 0.199998
+radial_accel_curve = SubResource("CurveTexture_toju0")
+tangential_accel_min = 0.399998
+tangential_accel_max = 0.999998
+damping_min = 0.2
+damping_max = 1.0
+damping_curve = SubResource("CurveTexture_efexv")
+scale_min = 0.3
+scale_max = 1.2
+scale_curve = SubResource("CurveTexture_fgmgr")
+color = Color(0.623529, 0.721569, 0, 1)
+color_ramp = SubResource("GradientTexture1D_hq7hx")
+turbulence_enabled = true
+turbulence_noise_strength = 12.88
+turbulence_noise_speed = Vector3(1, 1, 1)
+turbulence_noise_speed_random = 1.04
+turbulence_initial_displacement_min = 1.49012e-06
+turbulence_initial_displacement_max = 1.49012e-06
+turbulence_influence_over_life = SubResource("CurveTexture_hq7hx")
+
+[sub_resource type="Shader" id="Shader_jp8xc"]
+code = "shader_type particles;
+
+uniform vec3 player_pos;
+uniform float attract_strength = 2.0;
+
+void particle() {
+    // Calculate direction to player
+    vec3 dir = normalize(player_pos - );
+    
+    // Adjust velocity (homing force)
+    VELOCITY += dir * attract_strength * DELTA;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fwfwu"]
+shader = SubResource("Shader_jp8xc")
+
+[sub_resource type="SphereMesh" id="SphereMesh_hq7hx"]
+material = SubResource("ShaderMaterial_fwfwu")
+radius = 0.04
+height = 0.08
+
+[sub_resource type="Curve" id="Curve_toju0"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 2.28583), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_g5dpn"]
+curve = SubResource("Curve_toju0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_efexv"]
+lifetime_randomness = 0.2
+particle_flag_align_y = true
+direction = Vector3(0, 1, 0)
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0.5, 0)
+scale_min = 0.2
+scale_curve = SubResource("CurveTexture_g5dpn")
+color = Color(1, 0.808, 0.68, 1)
+hue_variation_min = -2.23517e-08
+hue_variation_max = 0.05
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fgmgr"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("39_5oe8d")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_65wlj"]
+material = SubResource("StandardMaterial3D_fgmgr")
+size = Vector2(0.4, 0.4)
+
+[node name="KonradWorkScene" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.962739, -0.180955, 0.20097, 0, 0.743145, 0.669131, -0.270432, -0.644198, 0.715454, 0, 13.9007, 0)
+light_color = Color(0.356781, 0.611273, 0.583666, 1)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1ee8w")
+
+[node name="World" type="Node3D" parent="WorldEnvironment"]
+
+[node name="Ground" type="Node3D" parent="WorldEnvironment/World"]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="WorldEnvironment/World/Ground"]
+navigation_mesh = SubResource("NavigationMesh_oxcgu")
+
+[node name="Ground" type="CSGBox3D" parent="WorldEnvironment/World/Ground/NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -102.607)
+use_collision = true
+size = Vector3(320, 1, 300)
+material = ExtResource("1_3f6q6")
+
+[node name="Tutorial Room" type="Node3D" parent="WorldEnvironment/World/Ground/NavigationRegion3D"]
+
+[node name="Rampe" type="CSGPolygon3D" parent="WorldEnvironment/World/Ground/NavigationRegion3D/Tutorial Room"]
+transform = Transform3D(-4.37114e-08, 0, 5, 0, 1, 0, -1, 0, -2.18557e-07, 24.5646, -0.262059, -21.1764)
+use_collision = true
+polygon = PackedVector2Array(-3.92837, 0.163654, 1.66039, 3.60656, 5.79976, 3.61472, 5.80412, 0.180376)
+
+[node name="Tutorial Room" type="Node3D" parent="WorldEnvironment/World"]
+
+[node name="Objects" type="Node3D" parent="WorldEnvironment/World/Tutorial Room"]
+
+[node name="Socket1" parent="WorldEnvironment/World/Tutorial Room/Objects" instance=ExtResource("11_1bu8d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.34555, 0.499114, -13.8294)
+
+[node name="Socket2" parent="WorldEnvironment/World/Tutorial Room/Objects" instance=ExtResource("11_1bu8d")]
+transform = Transform3D(0.703035, 0, -0.711155, 0, 1, 0, 0.711155, 0, 0.703035, 0.245904, 0.499114, -13.8294)
+weapon = "staff"
+
+[node name="Socket3" parent="WorldEnvironment/World/Tutorial Room/Objects" instance=ExtResource("11_1bu8d")]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 2.76444, 0.499114, -13.8294)
+weapon = "bow"
+
+[node name="Socket4" parent="WorldEnvironment/World/Tutorial Room/Objects" instance=ExtResource("11_1bu8d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.19662, 0.499114, -13.8294)
+weapon = "shield"
+
+[node name="Bonfire" parent="WorldEnvironment/World/Tutorial Room/Objects" instance=ExtResource("3_5oe8d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.0384, 0.581336, -26.3646)
+
+[node name="training_dummy_ranged" parent="WorldEnvironment/World/Tutorial Room/Objects" instance=ExtResource("8_oxcgu")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 22.0584, 2.50303, -34.3666)
+
+[node name="trainingDummyRangedStand" parent="WorldEnvironment/World/Tutorial Room/Objects" instance=ExtResource("5_3f6q6")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 14.2698, 0.504087, -29.2343)
+
+[node name="training_dummy" parent="WorldEnvironment/World/Tutorial Room/Objects" instance=ExtResource("2_24xrm")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12.513, 0.522169, -18.9932)
+
+[node name="training_dummy2" parent="WorldEnvironment/World/Tutorial Room/Objects" instance=ExtResource("2_24xrm")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.4182, 0.522169, -18.9932)
+
+[node name="training_dummy3" parent="WorldEnvironment/World/Tutorial Room/Objects" instance=ExtResource("2_24xrm")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.6793, 0.522169, -18.9932)
+
+[node name="Walls" type="Node3D" parent="WorldEnvironment/World/Tutorial Room"]
+
+[node name="North" type="Node3D" parent="WorldEnvironment/World/Tutorial Room/Walls"]
+
+[node name="TreeWallWith5Trees2" parent="WorldEnvironment/World/Tutorial Room/Walls/North" instance=ExtResource("6_lfy4s")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -17.6828, 1.17827, -35.771)
+
+[node name="Door" parent="WorldEnvironment/World/Tutorial Room/Walls/North" instance=ExtResource("12_1bu8d")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.472297, -34.3258)
+
+[node name="brokenWallWith2Trees" parent="WorldEnvironment/World/Tutorial Room/Walls/North" instance=ExtResource("8_qcrt0")]
+transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, 12.0899, 0.8, -34.9749)
+
+[node name="West" type="Node3D" parent="WorldEnvironment/World/Tutorial Room/Walls"]
+
+[node name="BrokeWallWithStuff" parent="WorldEnvironment/World/Tutorial Room/Walls/West" instance=ExtResource("22_lfy4s")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -24.2752, 0.503667, -18.917)
+
+[node name="East" type="Node3D" parent="WorldEnvironment/World/Tutorial Room/Walls"]
+
+[node name="TreeWallWith5Trees" parent="WorldEnvironment/World/Tutorial Room/Walls/East" instance=ExtResource("6_lfy4s")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 29.9089, 0.721044, -11.5182)
+
+[node name="South" type="Node3D" parent="WorldEnvironment/World/Tutorial Room/Walls"]
+
+[node name="Nature" type="Node3D" parent="WorldEnvironment/World/Tutorial Room"]
+
+[node name="Socket Deco" type="Node3D" parent="WorldEnvironment/World/Tutorial Room/Nature"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.61921, 0, -13.8269)
+
+[node name="Socket1" type="Node3D" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.96476, 0.499114, -0.00246525)
+
+[node name="MushroomMany3" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco/Socket1" instance=ExtResource("7_2xhpb")]
+transform = Transform3D(-0.398734, 0, -0.0317943, 0, 0.4, 0, 0.0317943, 0, -0.398734, -0.58032, -0.00628, -0.338799)
+
+[node name="MushroomMany4" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco/Socket1" instance=ExtResource("7_2xhpb")]
+transform = Transform3D(0.237154, 0, 0.322115, 0, 0.4, 0, -0.322115, 0, 0.237154, -0.79183, -0.00628, -0.1383)
+
+[node name="MushroomPurple3" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco/Socket1" instance=ExtResource("5_2xhpb")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.7249, -0.00939, -0.5728)
+
+[node name="MushroomPurple4" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco/Socket1" instance=ExtResource("5_2xhpb")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.60333, 0.056774, -0.7137)
+
+[node name="Monstera_bush" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco/Socket1" instance=ExtResource("8_2uoa5")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.0453777, -0.0354514, 0.646766)
+
+[node name="Socket2" type="Node3D" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.37331, 0.499114, -0.00246525)
+
+[node name="PlantWithPurple4" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco/Socket2" instance=ExtResource("6_3f6q6")]
+transform = Transform3D(-0.272846, 0, -0.418993, 0, 0.5, 0, 0.418993, 0, -0.272846, -0.62411, -0.00817502, 0.2116)
+
+[node name="PlantWithPurple5" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco/Socket2" instance=ExtResource("6_3f6q6")]
+transform = Transform3D(-0.399696, 0, -0.0155783, 0, 0.4, 0, 0.0155783, 0, -0.399696, -0.768384, -0.00817502, 0.3781)
+
+[node name="PlantWithPurple6" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco/Socket2" instance=ExtResource("6_3f6q6")]
+transform = Transform3D(-0.399696, 0, -0.0155783, 0, 0.4, 0, 0.0155783, 0, -0.399696, -0.555903, -0.00817502, 0.513)
+
+[node name="PlantWithPurple7" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco/Socket2" instance=ExtResource("6_3f6q6")]
+transform = Transform3D(-0.599545, 0, -0.0233674, 0, 0.6, 0, 0.0233674, 0, -0.599545, -0.799394, -0.00817502, -0.0523996)
+
+[node name="PlantWithPurple3" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco/Socket2" instance=ExtResource("6_3f6q6")]
+transform = Transform3D(-0.327415, 0, -0.502791, 0, 0.6, 0, 0.502791, 0, -0.327415, 0.741983, 0.249267, -0.0946999)
+
+[node name="BushSphere2" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco/Socket2" instance=ExtResource("4_ga1i8")]
+transform = Transform3D(-0.124284, 0, -0.235043, 0, 0.2, 0, 0.156695, 0, -0.186426, 0.555621, -0.121802, -0.4573)
+
+[node name="BushSphere2" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco/Socket2/BushSphere2" instance=ExtResource("4_ga1i8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.980488, -0.424162, 0)
+
+[node name="BushSphere3" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco/Socket2/BushSphere2" instance=ExtResource("4_ga1i8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.980488, 0.189917, -1.1736)
+
+[node name="Socket3" type="Node3D" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.14523, 0.499114, -0.00246525)
+
+[node name="MushroomMany" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco/Socket3" instance=ExtResource("7_2xhpb")]
+transform = Transform3D(0.300206, 0, -0.264341, 0, 0.4, 0, 0.264341, 0, 0.300206, 0.42955, -0.00628, 0.5517)
+
+[node name="MushroomMany2" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco/Socket3" instance=ExtResource("7_2xhpb")]
+transform = Transform3D(-0.398734, 0, -0.0317943, 0, 0.4, 0, 0.0317943, 0, -0.398734, 0.13172, -0.00628, 0.5688)
+
+[node name="MushroomPurple2" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco/Socket3" instance=ExtResource("5_2xhpb")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.66018, -0.00939, 0.1339)
+
+[node name="Socket4" type="Node3D" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.57741, 0.499114, -0.00246525)
+
+[node name="MushroomPurple" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco/Socket4" instance=ExtResource("5_2xhpb")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.10375, -0.00939, 0.637)
+
+[node name="PlantWithPurple" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco/Socket4" instance=ExtResource("6_3f6q6")]
+transform = Transform3D(-0.0310774, 0, -0.599195, 0, 0.6, 0, 0.599195, 0, -0.0310774, 0.66571, 0.000885993, 0.4598)
+
+[node name="PlantWithPurple2" parent="WorldEnvironment/World/Tutorial Room/Nature/Socket Deco/Socket4" instance=ExtResource("6_3f6q6")]
+transform = Transform3D(-0.363643, 0, -0.477246, 0, 0.6, 0, 0.477246, 0, -0.363643, -0.65775, 0.000885993, -0.2282)
+
+[node name="Target Dummy Ranged with Stand" type="Node3D" parent="WorldEnvironment/World/Tutorial Room/Nature"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2839, 0, -29.3539)
+
+[node name="Monstera_bush" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged with Stand" instance=ExtResource("8_2uoa5")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 1.67715, 0.46122, 0.674261)
+
+[node name="Monstera_bush2" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged with Stand" instance=ExtResource("8_2uoa5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.650665, 0.46122, -1.20074)
+
+[node name="Monstera_bush3" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged with Stand" instance=ExtResource("8_2uoa5")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.165224, 0.46122, 1.11246)
+
+[node name="Target Dummy Ranged" type="Node3D" parent="WorldEnvironment/World/Tutorial Room/Nature"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.0275, 2.39599, -24.6675)
+
+[node name="Rock Chain" type="Node3D" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged"]
+
+[node name="RockOne" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged/Rock Chain" instance=ExtResource("11_ccm0r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01606, 0.929657, -1.97324)
+
+[node name="RockOne2" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged/Rock Chain" instance=ExtResource("11_ccm0r")]
+transform = Transform3D(0.864126, 0, -0.503276, 0, 1, 0, 0.503276, 0, 0.864126, -1.19741, 0.929657, -1.97324)
+
+[node name="RockOne3" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged/Rock Chain" instance=ExtResource("11_ccm0r")]
+transform = Transform3D(0.44715, 0, 0.894459, 0, 1, 0, -0.894459, 0, 0.44715, -0.359497, 0.929657, -1.97324)
+
+[node name="RockOne4" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged/Rock Chain" instance=ExtResource("11_ccm0r")]
+transform = Transform3D(0.983559, 0, -0.180588, 0, 1, 0, 0.180588, 0, 0.983559, 0.444635, 0.791451, -1.97324)
+
+[node name="RockOne5" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged/Rock Chain" instance=ExtResource("11_ccm0r")]
+transform = Transform3D(0.0536083, 0, -0.998562, 0, 1, 0, 0.998562, 0, 0.0536083, 1.30277, 0.723868, -1.97324)
+
+[node name="RockOne6" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged/Rock Chain" instance=ExtResource("11_ccm0r")]
+transform = Transform3D(-0.916272, 0, -0.400557, 0, 1, 0, 0.400557, 0, -0.916272, 2.04401, 0.885882, -1.83858)
+
+[node name="RockOne7" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged/Rock Chain" instance=ExtResource("11_ccm0r")]
+transform = Transform3D(-0.01918, 0, -0.999816, 0, 1, 0, 0.999816, 0, -0.01918, 2.59431, 0.929657, -1.87316)
+
+[node name="RockOne8" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged/Rock Chain" instance=ExtResource("11_ccm0r")]
+transform = Transform3D(-0.519758, 0, -0.854314, 0, 1, 0, 0.854314, 0, -0.519758, 2.57861, 0.929657, -1.05466)
+
+[node name="RockOne9" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged/Rock Chain" instance=ExtResource("11_ccm0r")]
+transform = Transform3D(0.885718, 0, -0.464224, 0, 1, 0, 0.464224, 0, 0.885718, 2.56254, 0.929657, -0.216898)
+
+[node name="RockOne10" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged/Rock Chain" instance=ExtResource("11_ccm0r")]
+transform = Transform3D(-0.199419, 0, -0.979914, 0, 1, 0, 0.979914, 0, -0.199419, 2.54712, 0.791451, 0.587086)
+
+[node name="RockOne11" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged/Rock Chain" instance=ExtResource("11_ccm0r")]
+transform = Transform3D(-0.999407, 0, -0.034446, 0, 1, 0, 0.034446, 0, -0.999407, 2.53066, 0.723868, 1.44507)
+
+[node name="Monstera_bush4" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged" instance=ExtResource("8_2uoa5")]
+transform = Transform3D(0.255819, 0, -0.307501, 0, 0.4, 0, 0.307501, 0, 0.255819, -0.332493, -1.93477, -4.65814)
+
+[node name="Monstera_bush5" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged" instance=ExtResource("8_2uoa5")]
+transform = Transform3D(0.383728, 0, -0.461252, 0, 0.6, 0, 0.461252, 0, 0.383728, 0.452427, -1.93477, -6.6464)
+
+[node name="Monstera_bush6" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged" instance=ExtResource("8_2uoa5")]
+transform = Transform3D(0.255819, 0, -0.307501, 0, 0.4, 0, 0.307501, 0, 0.255819, -1.63631, -1.93477, -5.54019)
+
+[node name="Monstera_bush7" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged" instance=ExtResource("8_2uoa5")]
+transform = Transform3D(0.255819, 0, -0.307501, 0, 0.4, 0, 0.307501, 0, 0.255819, -3.08394, -1.93477, -8.38924)
+
+[node name="BushSphere" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged" instance=ExtResource("4_ga1i8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.98527, -2.97, -7.90136)
+
+[node name="BushSphere2" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged" instance=ExtResource("4_ga1i8")]
+transform = Transform3D(2, 0, 0, 0, 0.5, 0, 0, 0, 2, -2.33461, -2.64302, -6.88577)
+
+[node name="BushSphere3" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged" instance=ExtResource("4_ga1i8")]
+transform = Transform3D(2, 0, 0, 0, 0.5, 0, 0, 0, 2, 2.34599, -2.28555, -4.88101)
+
+[node name="PlantWithPurple" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged" instance=ExtResource("6_3f6q6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63901, -1.38774, -4.55322)
+
+[node name="PlantWithPurple2" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged" instance=ExtResource("6_3f6q6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.24167, -1.38774, -5.46396)
+
+[node name="PlantWithPurple3" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged" instance=ExtResource("6_3f6q6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.37299, -1.5917, -4.59401)
+
+[node name="PlantWithPurple4" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged" instance=ExtResource("6_3f6q6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.55883, -1.77431, -6.79955)
+
+[node name="RockOne" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged" instance=ExtResource("11_ccm0r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52478, -1.81933, -7.88181)
+
+[node name="RockOne2" parent="WorldEnvironment/World/Tutorial Room/Nature/Target Dummy Ranged" instance=ExtResource("11_ccm0r")]
+transform = Transform3D(0.43473, 0, -1.11849, 0, 1.2, 0, 1.11849, 0, 0.43473, -2.60013, -1.81933, -5.19194)
+
+[node name="Grey Box World" type="Node3D" parent="WorldEnvironment"]
+
+[node name="Tutorial Room" type="Node3D" parent="WorldEnvironment/Grey Box World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Tutorial Room"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 25, 5, 0)
+visible = false
+size = Vector3(40, 10, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Tutorial Room"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -25, 5, 0)
+visible = false
+use_collision = true
+size = Vector3(40, 10, 1)
+
+[node name="Walls etc" type="CSGCombiner3D" parent="WorldEnvironment/Grey Box World/Tutorial Room"]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Walls etc"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 20)
+use_collision = true
+size = Vector3(50, 10, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Walls etc"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -20)
+visible = false
+use_collision = true
+size = Vector3(50, 10, 1)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="WorldEnvironment/Grey Box World/Tutorial Room/Walls etc/CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -4.48817, 0)
+operation = 2
+radius = 6.0
+
+[node name="Objects" type="Node3D" parent="WorldEnvironment/Grey Box World/Tutorial Room"]
+
+[node name="Room 1" type="Node3D" parent="WorldEnvironment/Grey Box World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -67.7875)
+
+[node name="Walls etc" type="CSGCombiner3D" parent="WorldEnvironment/Grey Box World/Room 1"]
+use_collision = true
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Room 1/Walls etc"]
+transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 25, 5, 15)
+use_collision = true
+size = Vector3(40, 10, 1)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Room 1/Walls etc"]
+transform = Transform3D(-0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, -25, 5, 15)
+use_collision = true
+size = Vector3(40, 10, 1)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Room 1/Walls etc"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.4869, 3.88009, 3.95689)
+use_collision = true
+size = Vector3(10.8848, 8.95996, 11.5896)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Room 1/Walls etc"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.3825, 2.935, 12.5368)
+use_collision = true
+size = Vector3(6.88672, 4.47095, 5.82031)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Room 1/Walls etc"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.3878, 2.935, 6.18911)
+use_collision = true
+size = Vector3(1.20508, 4.47095, 17.2053)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Room 1/Walls etc"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.078, 2.935, 5.70761)
+use_collision = true
+size = Vector3(3.17871, 12.656, 3.10767)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Room 1/Walls etc/CSGBox3D12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.46811, 0)
+use_collision = true
+size = Vector3(7.19824, 6.86816, 8.63867)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Room 1/Walls etc"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.4489, 2.935, 1.64544)
+use_collision = true
+size = Vector3(3.17871, 12.656, 3.10767)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Room 1/Walls etc/CSGBox3D13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.46811, 0)
+use_collision = true
+size = Vector3(7.19824, 6.86816, 8.63867)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Room 1/Walls etc"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5162, 2.935, 12.5827)
+use_collision = true
+size = Vector3(3.17871, 12.656, 3.10767)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Room 1/Walls etc/CSGBox3D14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.46811, 0)
+use_collision = true
+size = Vector3(7.19824, 6.86816, 8.63867)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Room 1/Walls etc"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.2298, 2.935, 16.9678)
+use_collision = true
+size = Vector3(3.17871, 12.656, 3.10767)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Room 1/Walls etc/CSGBox3D15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.46811, 0)
+use_collision = true
+size = Vector3(7.19824, 6.86816, 8.63867)
+
+[node name="Enemies" type="Node3D" parent="WorldEnvironment/Grey Box World/Room 1"]
+
+[node name="Room 9" type="Node3D" parent="WorldEnvironment/Grey Box World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.283234, 0, -114.72)
+
+[node name="Walls" type="Node3D" parent="WorldEnvironment/Grey Box World/Room 9"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="WorldEnvironment/Grey Box World/Room 9/Walls"]
+use_collision = true
+
+[node name="CSGBox3D26" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Room 9/Walls/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -27.483, 4.5, 44.3017)
+size = Vector3(1, 9, 40)
+
+[node name="CSGBox3D27" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Room 9/Walls/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 26.6115, 4.5, 44.3017)
+size = Vector3(1, 9, 40)
+
+[node name="CSGBox3D28" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Room 9/Walls/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.6158, 4.5, -15.7243)
+size = Vector3(1, 9, 120)
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="WorldEnvironment/Grey Box World/Room 9/Walls/CSGCombiner3D/CSGBox3D28"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.0438232, -3.59713, -48.66)
+operation = 2
+radius = 3.0
+
+[node name="CSGBox3D29" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Room 9/Walls/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.993, 4.5, -15.7243)
+size = Vector3(1, 9, 120)
+
+[node name="CSGBox3D30" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Room 9/Walls/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0945282, 4.5, -76.2367)
+size = Vector3(1, 9, 94)
+
+[node name="Boss Room" type="Node3D" parent="WorldEnvironment/Grey Box World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 123.229, 0, -184.844)
+
+[node name="Walls" type="Node3D" parent="WorldEnvironment/Grey Box World/Boss Room"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="WorldEnvironment/Grey Box World/Boss Room/Walls"]
+use_collision = true
+
+[node name="CSGBox3D31" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Boss Room/Walls/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -60.5313, 4.5, -1.34149)
+size = Vector3(1, 9, 31.8779)
+
+[node name="CSGBox3D32" type="CSGBox3D" parent="WorldEnvironment/Grey Box World/Boss Room/Walls/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -59.7805, 4.5, 13.6428)
+size = Vector3(1, 9, 33.3794)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="WorldEnvironment/Grey Box World/Boss Room/Walls/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.062, 5, 0)
+radius = 40.0
+height = 10.0
+sides = 32
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="WorldEnvironment/Grey Box World/Boss Room/Walls/CSGCombiner3D/CSGCylinder3D"]
+transform = Transform3D(-4.35005e-08, -0.995174, 0.0981214, 1, -4.37114e-08, 0, 4.28902e-09, 0.0981214, 0.995174, -37.1847, -1.07329, 3.81067)
+operation = 2
+radius = 2.64453
+height = 5.38379
+sides = 16
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="WorldEnvironment/Grey Box World/Boss Room/Walls/CSGCombiner3D/CSGCylinder3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4782, 0)
+operation = 2
+radius = 35.0
+height = 10.0
+sides = 32
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="WorldEnvironment/Grey Box World/Boss Room/Walls/CSGCombiner3D"]
+transform = Transform3D(0.996067, 0, 0.442994, 0, 1, 0, -0.0885988, 0, 4.98034, -44.5482, 0.923762, 6.31512)
+polygon = PackedVector2Array(-10.4771, -0.499426, -1.71498, 1.9336, 3.64565, 1.52424, 3.82291, -1.38559)
+
+[node name="Camera" type="Camera3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 8.17838, 2.93165)
+current = true
+script = ExtResource("5_24xrm")
+
+[node name="Player" parent="WorldEnvironment" instance=ExtResource("6_0ctdn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.79046, 0)
+speed = 10.0
+dashMaxCooldown = 0.5
+manaPerSecond = 40
+
+[node name="InteractRayCast" parent="WorldEnvironment/Player/Controller/Model" index="2" instance=ExtResource("4_1ee8w")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.292097, -0.375234)
+
+[node name="Hand" parent="WorldEnvironment/Player/Controller/Model" index="3" instance=ExtResource("6_rb0yp")]
+transform = Transform3D(0.676503, 0, -0.736439, 0, 1, 0, 0.736439, 0, 0.676503, 0.479796, 0.089469, -0.46274)
+
+[node name="Hand2" type="Node3D" parent="WorldEnvironment/Player/Controller/Model" index="4"]
+transform = Transform3D(0.676876, 0, 0.736097, 0, 1, 0, -0.736097, 0, 0.676876, -0.48, 0.089, -0.463)
+
+[node name="Back" type="Node3D" parent="WorldEnvironment/Player/Controller/Model" index="5"]
+transform = Transform3D(-0.999999, 0, -8.74227e-08, 0, 1, 0, 8.74227e-08, 0, -0.999999, 0, 0.089, 0.623094)
+
+[node name="Test Stuff" type="Node3D" parent="WorldEnvironment"]
+
+[node name="MeleeEnemy" parent="WorldEnvironment/Test Stuff" node_paths=PackedStringArray("player") groups=["enemy"] instance=ExtResource("10_1ee8w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -60.1661)
+player = NodePath("../../Player")
+
+[node name="MeleeEnemy3" parent="WorldEnvironment/Test Stuff" node_paths=PackedStringArray("player") groups=["enemy"] instance=ExtResource("10_1ee8w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.77517, 1.5, -65.0895)
+player = NodePath("../../Player")
+
+[node name="RangedEnemy" parent="WorldEnvironment/Test Stuff" node_paths=PackedStringArray("player") groups=["enemy"] instance=ExtResource("12_q6ig3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.45755, 1.57494, -64.5633)
+homingStrength = 1.0
+player = NodePath("../../Player")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="WorldEnvironment"]
+
+[node name="FullUI" type="MarginContainer" parent="WorldEnvironment/CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WorldEnvironment/CanvasLayer/FullUI"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="stats" type="MarginContainer" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+
+[node name="horizontal" type="HBoxContainer" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 25
+
+[node name="weaponSlotMargin" type="MarginContainer" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="weaponSlotFrameBox" type="VBoxContainer" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/weaponSlotMargin"]
+custom_minimum_size = Vector2(100, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/weaponSlotMargin/weaponSlotFrameBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="weaponSlotFrame" type="TextureButton" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/weaponSlotMargin/weaponSlotFrameBox/AspectRatioContainer"]
+custom_minimum_size = Vector2(110, 220)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("30_1tgbn")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/weaponSlotMargin/weaponSlotFrameBox/AspectRatioContainer/weaponSlotFrame"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="weaponSlots" type="VBoxContainer" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/weaponSlotMargin/weaponSlotFrameBox/AspectRatioContainer/weaponSlotFrame/AspectRatioContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("31_5i7v7")
+
+[node name="weaponSlot1" type="TextureButton" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/weaponSlotMargin/weaponSlotFrameBox/AspectRatioContainer/weaponSlotFrame/AspectRatioContainer2/weaponSlots"]
+custom_minimum_size = Vector2(99, 99)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("25_qcrt0")
+texture_pressed = ExtResource("26_ar3t4")
+texture_focused = ExtResource("27_vs2el")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/weaponSlotMargin/weaponSlotFrameBox/AspectRatioContainer/weaponSlotFrame/AspectRatioContainer2/weaponSlots/weaponSlot1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="weapon1" type="TextureRect" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/weaponSlotMargin/weaponSlotFrameBox/AspectRatioContainer/weaponSlotFrame/AspectRatioContainer2/weaponSlots/weaponSlot1/MarginContainer"]
+z_index = -1
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+expand_mode = 1
+
+[node name="weaponSlot2" type="TextureButton" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/weaponSlotMargin/weaponSlotFrameBox/AspectRatioContainer/weaponSlotFrame/AspectRatioContainer2/weaponSlots"]
+custom_minimum_size = Vector2(99, 99)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("25_qcrt0")
+texture_pressed = ExtResource("26_ar3t4")
+texture_focused = ExtResource("27_vs2el")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/weaponSlotMargin/weaponSlotFrameBox/AspectRatioContainer/weaponSlotFrame/AspectRatioContainer2/weaponSlots/weaponSlot2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_right = 0
+
+[node name="weapon2" type="TextureRect" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/weaponSlotMargin/weaponSlotFrameBox/AspectRatioContainer/weaponSlotFrame/AspectRatioContainer2/weaponSlots/weaponSlot2/MarginContainer"]
+z_index = -1
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+expand_mode = 1
+
+[node name="statBarsMargin" type="MarginContainer" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_top = -80
+theme_override_constants/margin_bottom = -80
+
+[node name="bars" type="VBoxContainer" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin"]
+custom_minimum_size = Vector2(300, 220)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = -160
+alignment = 1
+script = ExtResource("13_fwfwu")
+
+[node name="health" type="AspectRatioContainer" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars"]
+custom_minimum_size = Vector2(384, 216)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment_horizontal = 0
+alignment_vertical = 0
+
+[node name="healthBar" type="TextureProgressBar" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/health"]
+z_index = 1
+material = SubResource("ShaderMaterial_qsm0h")
+custom_minimum_size = Vector2(380, 1)
+layout_mode = 2
+value = 64.0
+nine_patch_stretch = true
+texture_progress = SubResource("CompressedTexture2D_i63v0")
+
+[node name="damageBar" type="TextureProgressBar" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/health"]
+custom_minimum_size = Vector2(380, 100)
+layout_mode = 2
+value = 74.0
+nine_patch_stretch = true
+texture_under = ExtResource("10_65wlj")
+texture_over = ExtResource("9_fgmgr")
+texture_progress = ExtResource("11_toju0")
+
+[node name="timer" type="Timer" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/health"]
+wait_time = 0.4
+one_shot = true
+
+[node name="stamina" type="AspectRatioContainer" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars"]
+custom_minimum_size = Vector2(192, 108)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment_horizontal = 0
+alignment_vertical = 0
+
+[node name="staminaBarMiddle" type="TextureProgressBar" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina"]
+process_mode = 4
+visible = false
+z_index = 1
+custom_minimum_size = Vector2(380, 216)
+layout_mode = 2
+value = 66.0
+nine_patch_stretch = true
+texture_over = ExtResource("18_ga1i8")
+texture_progress = ExtResource("19_2xhpb")
+
+[node name="staminaBar" type="TextureProgressBar" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina"]
+z_index = 1
+custom_minimum_size = Vector2(380, 216)
+layout_mode = 2
+value = 66.0
+nine_patch_stretch = true
+texture_over = ExtResource("13_8rmxw")
+texture_progress = ExtResource("14_jp8xc")
+
+[node name="damageBar" type="TextureProgressBar" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina"]
+custom_minimum_size = Vector2(380, 216)
+layout_mode = 2
+value = 66.0
+nine_patch_stretch = true
+texture_under = ExtResource("15_5oe8d")
+texture_progress = ExtResource("16_qsm0h")
+
+[node name="damageBarMiddle" type="TextureProgressBar" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina"]
+process_mode = 4
+visible = false
+custom_minimum_size = Vector2(380, 216)
+layout_mode = 2
+value = 66.0
+nine_patch_stretch = true
+texture_under = ExtResource("20_3f6q6")
+texture_progress = ExtResource("21_2uoa5")
+
+[node name="timer" type="Timer" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina"]
+
+[node name="mana" type="AspectRatioContainer" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars"]
+process_mode = 4
+visible = false
+custom_minimum_size = Vector2(192, 108)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment_horizontal = 0
+alignment_vertical = 0
+
+[node name="manaBar" type="TextureProgressBar" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/mana"]
+z_index = 1
+texture_filter = 6
+texture_repeat = 2
+custom_minimum_size = Vector2(380, 216)
+layout_mode = 2
+value = 66.0
+nine_patch_stretch = true
+texture_over = ExtResource("13_8rmxw")
+texture_progress = ExtResource("23_e0tq6")
+
+[node name="damageBar" type="TextureProgressBar" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/mana"]
+texture_filter = 6
+texture_repeat = 2
+custom_minimum_size = Vector2(380, 216)
+layout_mode = 2
+value = 66.0
+nine_patch_stretch = true
+texture_under = ExtResource("15_5oe8d")
+texture_progress = ExtResource("16_qsm0h")
+
+[node name="timer" type="Timer" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/mana"]
+
+[node name="lowHealth" type="MarginContainer" parent="WorldEnvironment/CanvasLayer/FullUI" node_paths=PackedStringArray("player")]
+layout_mode = 2
+script = ExtResource("26_vkbj3")
+player = NodePath("../../../Player")
+
+[node name="redTint" type="TextureRect" parent="WorldEnvironment/CanvasLayer/FullUI/lowHealth"]
+visible = false
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("26_vkim1")
+expand_mode = 1
+
+[node name="mycelium" type="TextureRect" parent="WorldEnvironment/CanvasLayer/FullUI/lowHealth"]
+visible = false
+material = SubResource("ShaderMaterial_ga1i8")
+layout_mode = 2
+texture = ExtResource("28_vkbj3")
+
+[node name="pauseMenu" type="MarginContainer" parent="WorldEnvironment/CanvasLayer"]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("32_3qkpg")
+
+[node name="pauseMenuContainer" type="VBoxContainer" parent="WorldEnvironment/CanvasLayer/pauseMenu"]
+process_mode = 4
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer"]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="continue" type="Button" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("33_6roa5")
+theme_override_font_sizes/font_size = 50
+text = "Resume"
+
+[node name="options" type="Button" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("33_6roa5")
+theme_override_font_sizes/font_size = 50
+text = "Options"
+
+[node name="quit" type="Button" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("33_6roa5")
+theme_override_font_sizes/font_size = 50
+text = "Exit"
+
+[node name="DeathSpores" type="GPUParticles3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00802851, 1.77447, 0)
+emitting = false
+amount = 5000
+lifetime = 3.5
+explosiveness = 1.0
+randomness = 1.0
+fixed_fps = 60
+local_coords = true
+draw_order = 3
+transform_align = 1
+trail_enabled = true
+process_material = SubResource("ParticleProcessMaterial_65wlj")
+draw_pass_1 = SubResource("SphereMesh_hq7hx")
+
+[node name="DeathSpores2" type="GPUParticles3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.27317, 1.77447, 0)
+emitting = false
+amount = 1000
+lifetime = 3.5
+explosiveness = 1.0
+randomness = 1.0
+fixed_fps = 60
+local_coords = true
+draw_order = 3
+transform_align = 1
+trail_enabled = true
+process_material = SubResource("ParticleProcessMaterial_65wlj")
+draw_pass_1 = SubResource("SphereMesh_hq7hx")
+
+[node name="WalkingDust" type="GPUParticles3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.616489, 0.413133)
+lifetime = 0.2
+explosiveness = 0.7
+process_material = SubResource("ParticleProcessMaterial_efexv")
+draw_pass_1 = SubResource("QuadMesh_65wlj")
+
+[connection signal="timeout" from="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/health/timer" to="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_health_timer_timeout"]
+[connection signal="timeout" from="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina/timer" to="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_stamina_timer_timeout"]
+[connection signal="timeout" from="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/mana/timer" to="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_mana_timer_timeout"]
+[connection signal="pressed" from="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/continue" to="WorldEnvironment/CanvasLayer/pauseMenu" method="_on_continue_pressed"]
+[connection signal="pressed" from="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/quit" to="WorldEnvironment/CanvasLayer/pauseMenu" method="_on_button_3_pressed"]
+
+[editable path="WorldEnvironment/Player"]

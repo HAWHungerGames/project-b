@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwtwg5j2gx5qd"]
+
+[ext_resource type="Script" uid="uid://btb8tc1k3wn34" path="res://Scripts/Player/PlayerAttack.gd" id="1_1oyln"]
+
+[node name="Hand" type="Node3D"]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
+script = ExtResource("1_1oyln")

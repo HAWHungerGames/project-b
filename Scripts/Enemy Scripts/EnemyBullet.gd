@@ -9,6 +9,8 @@ extends CharacterBody3D
 @export var lifetime: float = 5
 
 var isTracking: bool = false
+var trackingDelay: float = 0
+var delayValue: float = 0
 
 func setParameter(playerInput: Node3D, damageInput: float, speedInput: float, trackingRadiusInput: float, trackingStrengthInput: float, velInput: Vector3, lifetimeInput: float):
 	player = playerInput
@@ -18,6 +20,9 @@ func setParameter(playerInput: Node3D, damageInput: float, speedInput: float, tr
 	trackingStrength = trackingStrengthInput
 	vel = velInput
 	lifetime = lifetimeInput
+
+func setTrackingDelay(delay):
+	trackingDelay = delay
 
 func _physics_process(delta):
 	move(delta)
@@ -30,8 +35,11 @@ func move(delta):
 	var tempTrackingStrength = trackingStrength/10
 	if !isTracking:
 		tempTrackingStrength = 0 
-	var directionToPlayer = -Vector3(global_transform.origin.x - player.get_child(0).global_transform.origin.x, 0, global_transform.origin.z - player.get_child(0).global_transform.origin.z).normalized()
-	vel = (vel * (1 - tempTrackingStrength) + directionToPlayer * tempTrackingStrength).normalized()
+	var directionToPlayer = -Vector3(global_transform.origin.x - player.get_child(0).global_transform.origin.x, global_transform.origin.y - player.get_child(0).global_transform.origin.y, global_transform.origin.z - player.get_child(0).global_transform.origin.z).normalized()
+	if trackingDelay <= 0:
+		vel = (vel * (1 - tempTrackingStrength) + directionToPlayer * tempTrackingStrength).normalized()
+	if trackingDelay > 0:
+		trackingDelay -= delta
 	velocity = vel * speed * delta * 50
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
@@ -44,7 +52,7 @@ func _on_area_3d_area_exited(area: Area3D) -> void:
 
 func _on_hit_area_area_entered(area: Area3D) -> void:
 	if area.is_in_group("Player"):
-		player.takeDamage(damage)
+		player.takeDamage(damage, self, true)
 		queue_free()
 
 func _on_hit_area_body_entered(body: Node3D) -> void:

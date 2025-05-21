@@ -1,27 +1,67 @@
-[gd_scene load_steps=10 format=3 uid="uid://ddb5qsl2pw4p2"]
+[gd_scene load_steps=15 format=3 uid="uid://ddb5qsl2pw4p2"]
 
 [ext_resource type="Script" uid="uid://47g0nj26vged" path="res://Scripts/Enemy Scripts/EnemySpores.gd" id="1_lksty"]
-[ext_resource type="Material" uid="uid://41byjnpqi8jl" path="res://Materials/TestBush.tres" id="2_0h6ff"]
-[ext_resource type="Material" uid="uid://hf4mn7b5tp5w" path="res://Materials/enemy3.tres" id="3_lksty"]
+[ext_resource type="PackedScene" uid="uid://k88cb4g5rk3c" path="res://Models/Burt3.blend" id="3_lksty"]
+[ext_resource type="Texture2D" uid="uid://cbu02u0njv72o" path="res://Assets/Kenney Particles Transparent Background/smoke_07.png" id="4_0h6ff"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dp8bq"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_yu556"]
 points = PackedVector3Array(-0.387079, -0.952867, -0.893173, 0.0286088, 0.919081, 0.0286088, 0.0286088, 0.919081, -0.0286088, 0.964119, -0.964119, 0.090221, -0.69589, -0.968294, 0.69589, 0.387079, -0.952867, 0.893173, 0.654605, -0.952357, -0.714081, -0.964119, -0.964119, -0.090221, 0.090221, -0.964119, -0.964119, -0.090221, -0.964119, 0.964119, -0.69589, -0.968294, -0.69589, 0.714081, -0.952357, 0.654605, 0.893173, -0.952867, -0.387079, -0.0286088, 0.919081, 0.0286088, -0.893173, -0.952867, 0.387079, -0.893173, -0.952867, -0.387079, -0.387079, -0.952867, 0.893173, 0.387079, -0.952867, -0.893173, 0.893173, -0.952867, 0.387079, -0.0286088, 0.919081, -0.0286088, 0.964119, -0.964119, -0.090221, 0.090221, -0.964119, 0.964119, -0.919554, -0.861947, 0.0574271, -0.0574271, -0.861947, -0.919554, 0.656224, -0.855898, -0.656046, 0.656224, -0.855898, 0.656046, 0.0572615, 0.689839, -0.143694, -0.143684, 0.68979, -0.0574375, 0.143694, 0.689839, 0.0572615, 0.0572615, 0.689839, 0.143694, -0.241132, -0.964526, -0.934314, 0.143694, 0.689839, -0.0572615)
 
-[sub_resource type="BoxMesh" id="BoxMesh_r2bbj"]
-
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k711p"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_dp8bq"]
+radius = 0.803724
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_lksty"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jmuxb"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("4_0h6ff")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="Curve" id="Curve_0h6ff"]
+_data = [Vector2(0.625954, 0.41573), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_0h6ff"]
+curve = SubResource("Curve_0h6ff")
+
+[sub_resource type="Curve" id="Curve_jmuxb"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 100), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_lo5pd"]
+curve = SubResource("Curve_jmuxb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5lmhk"]
+lifetime_randomness = 0.09
+angle_min = -92.9
+angle_max = 45.7
+spread = 180.0
+initial_velocity_min = 3.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 0, 0)
+damping_max = 1.0
+damping_curve = SubResource("CurveTexture_lo5pd")
+scale_min = 5.0
+scale_max = 6.0
+color = Color(0.500111, 0.0539229, 0.539499, 1)
+alpha_curve = SubResource("CurveTexture_0h6ff")
+hue_variation_min = -0.17
+hue_variation_max = 0.03
+
+[sub_resource type="QuadMesh" id="QuadMesh_7ub5t"]
 
 [node name="SporeEnemy" type="CharacterBody3D" groups=["Enemy"]]
 script = ExtResource("1_lksty")
 
 [node name="HearingArea" type="Area3D" parent="." groups=["Enemy"]]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HearingArea" groups=["Enemy"]]
 shape = SubResource("SphereShape3D_dp8bq")
@@ -29,34 +69,88 @@ debug_color = Color(0.138961, 0.599429, 0.670183, 1)
 
 [node name="VisionArea" type="Area3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0.2, 0.581, 0)
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="VisionArea"]
 transform = Transform3D(-1.09278e-08, -0.25, 0, 0.25, -1.09278e-08, 0, 0, 0, 0.25, 0.232, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_yu556")
 
-[node name="BulletSpawnPoint" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.544362, 0.573799, 0)
-
-[node name="FrontMaker" type="MeshInstance3D" parent="BulletSpawnPoint" groups=["Bullet"]]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
-material_override = ExtResource("2_0h6ff")
-mesh = SubResource("BoxMesh_r2bbj")
-skeleton = NodePath("../../../..")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_k711p")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-material_override = ExtResource("3_lksty")
-mesh = SubResource("CapsuleMesh_dp8bq")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
 [node name="SporeRange" type="Area3D" parent="."]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SporeRange"]
 shape = SubResource("SphereShape3D_lksty")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.682657, -0.0140603, -0.0190515)
+material_override = SubResource("StandardMaterial3D_jmuxb")
+emitting = false
+amount = 100
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_5lmhk")
+draw_pass_1 = SubResource("QuadMesh_7ub5t")
+
+[node name="Mesh" parent="." instance=ExtResource("3_lksty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.221784, -1.02134, 0)
+
+[node name="Skeleton3D" parent="Mesh/Armature" index="0"]
+bones/0/position = Vector3(-0.0766945, -0.000165205, -0.00248177)
+bones/0/rotation = Quaternion(-5.62728e-17, 1, 1.11803e-09, -7.54979e-08)
+bones/1/position = Vector3(-7.49473e-10, 1.37376, 6.32677e-11)
+bones/1/rotation = Quaternion(7.45355e-10, -8.38864e-26, 1.12546e-16, 1)
+bones/6/position = Vector3(-0.00129047, -0.127555, 0.449915)
+bones/6/rotation = Quaternion(0.997721, -0.00246297, -0.058777, 0.0330302)
+bones/8/position = Vector3(0.00264881, -0.127487, -0.426152)
+bones/8/rotation = Quaternion(0.997233, 0.0115953, 0.0133954, -0.0721972)
+bones/11/rotation = Quaternion(-0.964045, 0.00538643, -0.00134476, 0.265682)
+bones/14/rotation = Quaternion(0.963827, 0.00310415, 0.000919186, 0.26651)
+
+[node name="Burt_head" parent="Mesh/Armature/Skeleton3D" index="0"]
+transform = Transform3D(1, 5.62728e-17, 0, -5.62728e-17, 1, -7.45356e-10, 0, 7.45356e-10, 1, 0.0270495, 1.5568, 7.45058e-08)
+
+[node name="Eys" parent="Mesh/Armature/Skeleton3D" index="1"]
+transform = Transform3D(1, 5.62728e-17, 0, -5.62728e-17, 1, -7.45356e-10, 0, 7.45356e-10, 1, 0.650254, 1.80337, 0.00731646)
+
+[node name="Hat" parent="Mesh/Armature/Skeleton3D" index="2"]
+transform = Transform3D(1, 5.62728e-17, 0, -5.62728e-17, 1, -7.45356e-10, 0, 7.45356e-10, 1, 0.130813, 1.55177, 7.45021e-08)
+
+[node name="BafallHut" parent="Mesh/Armature/Skeleton3D" index="3"]
+transform = Transform3D(1, 5.62728e-17, 0, -5.62728e-17, 1, -7.45356e-10, 0, 7.45356e-10, 1, -0.0107317, 2.06607, 0.109385)
+
+[node name="Burt_Leg_R" parent="Mesh/Armature/Skeleton3D" index="4"]
+transform = Transform3D(0.999982, -0.00606415, 0.000523873, 0.0060638, 0.999982, 0.000671342, -0.000527948, -0.000668168, 1, -0.0612777, -0.0334842, -0.413215)
+
+[node name="Burt_Leg_L" parent="Mesh/Armature/Skeleton3D" index="5"]
+transform = Transform3D(0.999851, 0.017268, -0.000339551, -0.0172682, 0.999851, -0.000771761, 0.000326173, 0.000777513, 1, -0.0665402, -0.0327654, 0.405501)
+
+[node name="Burt_Leg_L_Beffal" parent="Mesh/Armature/Skeleton3D" index="6"]
+transform = Transform3D(0.999851, 0.017268, -0.000339551, -0.0172682, 0.999851, -0.000771761, 0.000326173, 0.000777513, 1, 0.116113, -0.311637, 0.57645)
+
+[node name="Burt_Arm_L" parent="Mesh/Armature/Skeleton3D" index="7"]
+transform = Transform3D(0.999938, -0.00543692, 0.00968097, 0.0110999, 0.510652, -0.859716, -0.000269398, 0.85977, 0.510681, -0.128983, 1.27919, 0.57108)
+
+[node name="Burt_Beffal_Arm_L" parent="Mesh/Armature/Skeleton3D" index="8"]
+transform = Transform3D(0.999938, -0.00543692, 0.00968097, 0.0110999, 0.510652, -0.859716, -0.000269398, 0.85977, 0.510681, -0.0588853, 0.669235, 1.04606)
+
+[node name="Burt_Arm_R" parent="Mesh/Armature/Skeleton3D" index="9"]
+transform = Transform3D(0.999979, 0.00341614, 0.00550005, -0.00647355, 0.512144, 0.858875, 0.00011722, -0.858893, 0.512155, -0.127224, 1.27987, -0.570903)
+
+[node name="Burt_Beffal_Arm_R" parent="Mesh/Armature/Skeleton3D" index="10"]
+transform = Transform3D(0.999979, 0.00341614, 0.00550005, -0.00647355, 0.512144, 0.858875, 0.00011722, -0.858893, 0.512155, -0.208403, 0.597047, -1.08602)
+
+[node name="Burt_Body" parent="Mesh/Armature/Skeleton3D" index="11"]
+transform = Transform3D(1, -1.12546e-16, 0, 1.12546e-16, 1, 0, 0, 0, 1, -7.45058e-09, 0.541689, 9.31323e-09)
+
+[node name="BeffalKörper" parent="Mesh/Armature/Skeleton3D" index="12"]
+transform = Transform3D(1, -1.12546e-16, 0, 1.12546e-16, 1, 0, 0, 0, 1, -0.202008, 0.486896, 0.195547)
 
 [connection signal="area_entered" from="HearingArea" to="." method="_on_hearing_area_entered"]
 [connection signal="area_exited" from="HearingArea" to="." method="_on_hearing_area_exited"]
@@ -64,3 +158,5 @@ shape = SubResource("SphereShape3D_lksty")
 [connection signal="area_exited" from="VisionArea" to="." method="_on_vision_area_exited"]
 [connection signal="area_entered" from="SporeRange" to="." method="_on_spore_area_entered"]
 [connection signal="area_exited" from="SporeRange" to="." method="_on_spore_area_exited"]
+
+[editable path="Mesh"]
