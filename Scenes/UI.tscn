@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=3 uid="uid://cytkpf563uyiu"]
 
-[ext_resource type="Script" uid="uid://cr2dkifmawgcm" path="res://Scripts/UI/weapon_slots.gd" id="2_b8rtp"]
+[ext_resource type="Script" uid="uid://cen4vnqx3eje4" path="res://Scripts/UI/weapon_swap.gd" id="2_68ajo"]
 [ext_resource type="Texture2D" uid="uid://dmuil4tlckvro" path="res://UITextures/Stats/BarFrameTop.png" id="2_iufls"]
 [ext_resource type="Texture2D" uid="uid://dc4hcr4p2xbna" path="res://UITextures/Stats/UnderneathTop.png" id="3_b8rtp"]
 [ext_resource type="Texture2D" uid="uid://cvmgiuevaosab" path="res://UITextures/Stats/DamageTop.png" id="4_612k1"]
@@ -100,7 +100,7 @@ size_flags_vertical = 4
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("2_b8rtp")
+script = ExtResource("2_68ajo")
 
 [node name="weaponSlot1" type="TextureButton" parent="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/weaponSlotMargin/weaponSlotFrameBox/AspectRatioContainer/weaponSlotFrame/AspectRatioContainer2/weaponSlots"]
 custom_minimum_size = Vector2(99, 99)
