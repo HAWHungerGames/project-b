@@ -69,7 +69,6 @@ autoplay = true
 
 [node name="Timer" type="Timer" parent="MarginContainer/VideoStreamPlayer"]
 wait_time = 2.0
-one_shot = true
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer"]
 layout_mode = 2

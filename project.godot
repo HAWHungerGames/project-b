@@ -21,6 +21,7 @@ GameManager="*res://Scripts/GameManager.gd"
 DamageNumbers="*res://Scripts/DamageNumbers.gd"
 GlobalPlayer="*res://Scripts/Player/GlobalPlayer.gd"
 PlayerActionTracker="*res://Scripts/Player/PlayerActionTracker.gd"
+SceneManager="*res://Scripts/scene_manager.gd"
 
 [display]
 

@@ -4,6 +4,7 @@ extends Control
 @onready var vbox = $MarginContainer/VBoxContainer
 @onready var background = $MarginContainer/titleBackground
 
+@onready var timer = $MarginContainer/VideoStreamPlayer/Timer
 @onready var buttonSelectRightStart = $MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/buttonSelectRight
 @onready var buttonSelectLeftStart = $MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/buttonSelectLeft
 @onready var buttonSelectRightOptions = $MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer3/buttonSelectRight
@@ -11,40 +12,47 @@ extends Control
 @onready var buttonSelectRightExit = $MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer2/buttonSelectRight
 @onready var buttonSelectLeftExit = $MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer2/buttonSelectLeft
 
-
-
-
 func _ready():
+	SceneManager.main_scene.connect(fadeSceneIn)
 	fadeSceneIn()
 
 func _on_button_pressed() -> void:
+	fadeSceneOut()
+	await get_tree().create_timer(2).timeout
 	get_tree().change_scene_to_file("res://Scenes/Nick Work Scene.tscn")
 
 
 func _on_button_3_pressed() -> void:
+	fadeSceneOut()
+	await get_tree().create_timer(2).timeout
 	get_tree().quit()
 
 func fadeSceneIn():
+	print("scene")
+	timer.start()
+	print("timer")
 	var tween = create_tween()
-	tween.tween_property(color_rect, "modulate:a", 0, 6.0)
+	tween.tween_property(color_rect, "modulate:a", 0, 4.0)
 	tween.play()
 	
 func fadeSceneOut():
-	var tween = create_tween()
-	tween.tween_property(color_rect, "modulate:a", 1.0, 6.0)
-	tween.play()
 	color_rect.process_mode = Node.PROCESS_MODE_INHERIT
+	var tween = create_tween()
+	tween.set_parallel()
+	tween.tween_property(vbox, "modulate:a", 0.0, 1.0)
+	tween.tween_property(color_rect, "modulate:a", 1.0, 1.0)
+	tween.play()
+	
 func fadeIn():
 	# Start with the container invisible
 	# Create a tween
 	var tween = create_tween()
-	var tween2 = create_tween()
+	tween.set_parallel()
 	tween.tween_property(vbox, "modulate:a", 1.0, 1.0)
-	tween2.tween_property(background, "modulate:a", 1.0, 1.0)
+	print("out?")
+	tween.tween_property(background, "modulate:a", 1.0, 1.0)
 	tween.play()
-	tween2.play()
 	color_rect.process_mode = Node.PROCESS_MODE_DISABLED
-
 
 func _on_timer_timeout() -> void:
 	fadeIn()

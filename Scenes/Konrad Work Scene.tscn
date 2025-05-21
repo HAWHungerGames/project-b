@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://17sawqr1a5sd"]
+[gd_scene load_steps=90 format=3 uid="uid://17sawqr1a5sd"]
 
 [ext_resource type="Material" uid="uid://41byjnpqi8jl" path="res://Materials/TestBush.tres" id="1_3f6q6"]
 [ext_resource type="PackedScene" uid="uid://6j2eqyw3n43k" path="res://Prefabs/Asset Scenes/Game Objects/training_dummy.tscn" id="2_24xrm"]
@@ -42,11 +42,12 @@
 [ext_resource type="Texture2D" uid="uid://baxq1j20y701x" path="res://UITextures/Menus/redTint.png" id="26_vkim1"]
 [ext_resource type="Texture2D" uid="uid://b0gb728e1n47w" path="res://UITextures/Weapons/WeaponSlot.png" id="27_vs2el"]
 [ext_resource type="Texture2D" uid="uid://b56g56co15oce" path="res://UITextures/Weapons/WeaponSlotFrame2.png" id="30_1tgbn"]
-[ext_resource type="Script" uid="uid://cr2dkifmawgcm" path="res://Scripts/UI/weapon_slots.gd" id="31_5i7v7"]
 [ext_resource type="Script" uid="uid://isgt2htj3fmm" path="res://Scripts/UI/menus/pause_menu.gd" id="32_3qkpg"]
 [ext_resource type="FontFile" uid="uid://4l406r67702d" path="res://UITextures/Fonts/DidactGothic-Regular.ttf" id="33_6roa5"]
 [ext_resource type="Shader" uid="uid://bjy5d3x36hbdt" path="res://Scripts/Shaders/pulsating.gdshader" id="34_5oe8d"]
 [ext_resource type="Texture2D" uid="uid://co6wmanklpgl3" path="res://UITextures/Particles/ParticleDust.png" id="39_5oe8d"]
+[ext_resource type="Texture2D" uid="uid://t8xpfim77iam" path="res://UITextures/Menus/ButtonTexture.png" id="46_lfy4s"]
+[ext_resource type="Texture2D" uid="uid://ci8xqo4vdx5av" path="res://UITextures/Menus/ButtonTexture2.png" id="47_qcrt0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lfy4s"]
 sky_top_color = Color(0.102228, 0.307553, 0.295863, 1)
@@ -65,6 +66,101 @@ sky = SubResource("Sky_qcrt0")
 vertices = PackedVector3Array(19.5, 1, 46.893, 19.5, 1.25, -18.607, 19, 1, -18.607, -159.5, 1, 46.893, 19, 1, -27.357, 21.25, 1, -252.107, -159.5, 1, -252.107, 21.25, 1, -27.607, 23, 1, -27.607, 23, 1, -252.107, 25, 1, -27.607, 25.25, 1, -25.857, 159.5, 1, -26.107, 159.5, 1, -252.107, 20, 2.25, -20.357, 24.25, 2.25, -20.357, 24.25, 3.75, -26.607, 20, 3.75, -26.607, 20, 3.75, -22.857, 24.25, 3.75, -22.857, 20.25, 1, -26.357, 20.25, 1, -21.607, 24, 1, -21.607, 24, 1, -26.357, 25.25, 1, -18.607, 24.75, 1.25, -18.607, 24.75, 1, 46.893, 159.5, 1, 46.893, 24.25, 1.25, -18.607, 20, 1.25, -18.607)
 polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 3), PackedInt32Array(4, 2, 3), PackedInt32Array(4, 5, 7), PackedInt32Array(5, 9, 7), PackedInt32Array(7, 9, 8), PackedInt32Array(11, 10, 12), PackedInt32Array(12, 10, 13), PackedInt32Array(13, 10, 9), PackedInt32Array(10, 8, 9), PackedInt32Array(14, 18, 15), PackedInt32Array(15, 18, 19), PackedInt32Array(19, 18, 17), PackedInt32Array(19, 17, 16), PackedInt32Array(23, 22, 20), PackedInt32Array(20, 22, 21), PackedInt32Array(26, 25, 24), PackedInt32Array(24, 11, 12), PackedInt32Array(26, 24, 27), PackedInt32Array(27, 24, 12), PackedInt32Array(29, 14, 28), PackedInt32Array(28, 14, 15), PackedInt32Array(28, 26, 29), PackedInt32Array(29, 26, 0), PackedInt32Array(0, 1, 29), PackedInt32Array(28, 25, 26)]
 
+[sub_resource type="GDScript" id="GDScript_e0tq6"]
+script/source = "extends VBoxContainer
+
+@onready var weaponSlot1 = $weaponSlot1
+@onready var weaponSlot2 = $weaponSlot2
+@onready var weapon1 = $weaponSlot1/MarginContainer/weapon1
+@onready var weapon2 = $weaponSlot2/MarginContainer/weapon2
+
+@onready var first_weapon = GameManager.get_first_weapon()
+@onready var second_weapon = GameManager.get_second_weapon()
+
+var weapon_in_slot1 = \"\"
+var weapon_in_slot2 = \"\"
+
+var slot_one_active = true
+
+var weapon_textures = [{\"idle\": \"res://UITextures/Sword.png\", \"active\": \"res://UITextures/SwordAttack.png\"},
+{\"idle\": \"res://UITextures/Shield.png\", \"active\": \"res://UITextures/ShieldBlock.png\"},
+{\"idle\": \"res://UITextures/Bow.png\", \"active\": \"res://UITextures/BowTensioned.png\"},
+{\"idle\": \"res://UITextures/Magic.png\", \"active\": \"res://UITextures/MagicAttack.png\"}]
+
+func _ready() -> void:
+	GameManager.weapons_changed.connect(update_weapons)
+func update_weapons():
+	var new_first_weapon = GameManager.get_first_weapon()
+	var new_second_weapon = GameManager.get_second_weapon()
+	
+	if Input.is_action_just_pressed(\"weapon_swap\"):
+		var slot_changed = true
+		slot_one_active = !slot_one_active
+		switch_active_texture()
+		first_weapon = GameManager.get_first_weapon()
+		second_weapon = GameManager.get_second_weapon()
+	if Input.is_action_just_pressed(\"interact\") && (first_weapon != GameManager.get_first_weapon() || second_weapon != GameManager.get_second_weapon()):
+		# Case 1: Second weapon was removed and first weapon changed
+		# This means the second weapon became the first weapon
+		if second_weapon != \"\" && new_second_weapon == \"\":
+			slot_one_active = false
+			switch_weapon_texture(GameManager.get_second_weapon())
+			if first_weapon != new_first_weapon && new_first_weapon == second_weapon:
+				weapon_in_slot1 = weapon_in_slot2
+				weapon_in_slot2 = \"\"
+				slot_one_active = true
+				switch_weapon_texture(GameManager.get_first_weapon())
+		 # Case 2: New weapon picked up for first slot
+		elif first_weapon != new_first_weapon && new_first_weapon != second_weapon:
+			weapon_in_slot1 = new_first_weapon
+			switch_weapon_texture(GameManager.get_first_weapon())
+		# Case 3: New weapon picked up for second slot
+		elif second_weapon != new_second_weapon && new_second_weapon != \"\":
+			weapon_in_slot2 = new_second_weapon
+			slot_one_active = false
+			switch_weapon_texture(new_second_weapon)
+			slot_one_active = true
+			# Case 4: First weapon was put back (and no second weapon to move)
+		elif first_weapon != \"\" && new_first_weapon == \"\" && second_weapon == \"\":
+			weapon_in_slot1 = \"\"
+			slot_one_active = true
+			switch_weapon_texture(GameManager.get_first_weapon())
+		first_weapon = new_first_weapon
+		second_weapon = new_second_weapon
+		
+func switch_weapon_texture(weapon):
+	var weapon_index = 0
+	if !weapon.is_empty():
+		if \"shield\" in weapon.to_lower():
+			weapon_index = 1
+		elif \"bow\" in weapon.to_lower():
+			weapon_index = 2
+		elif \"staff\" in weapon.to_lower():
+			weapon_index = 3
+		
+		if !slot_one_active && weapon2.texture != null:
+			weapon2.texture = load(weapon_textures[weapon_index][\"idle\"])
+			slot_one_active = !slot_one_active
+		elif !slot_one_active:
+			weapon2.texture = load(weapon_textures[weapon_index][\"idle\"])
+		else:
+			weapon1.texture = load(weapon_textures[weapon_index][\"idle\"])
+			switch_active_texture()
+	else:
+		if !slot_one_active:
+			weapon2.texture = null
+		else:
+			weapon1.texture = null
+
+func switch_active_texture():
+	if slot_one_active:
+		weapon1.z_index = 1
+		weapon2.z_index = -1
+	else:
+		weapon2.z_index = 1
+		weapon1.z_index = -1
+"
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qsm0h"]
 shader = ExtResource("19_jp8xc")
 shader_parameter/low_health = false
@@ -79,7 +175,39 @@ shader_parameter/pulse_speed = 2.0
 shader_parameter/intensity = 0.5
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_68ajo"]
-load_path = "res://.godot/imported/mycelium.png-54eb085362b88405bd06f69383fb162e.ctex"
+
+[sub_resource type="FontFile" id="FontFile_i5sur"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/50/0/ascent = 0.0
+cache/0/50/0/descent = 0.0
+cache/0/50/0/underline_position = 0.0
+cache/0/50/0/underline_thickness = 0.0
+cache/0/50/0/scale = 1.0
+
+[sub_resource type="FontVariation" id="FontVariation_ar3t4"]
+base_font = SubResource("FontFile_i5sur")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vs2el"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_auvgr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qi01s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1tgbn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5i7v7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3qkpg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6roa5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i63v0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_507y0"]
 
 [sub_resource type="Gradient" id="Gradient_fwfwu"]
 offsets = PackedFloat32Array(0, 0.489451, 0.767932, 1)
@@ -693,6 +821,13 @@ homingStrength = 1.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="WorldEnvironment"]
 
+[node name="ColorRect" type="ColorRect" parent="WorldEnvironment/CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+z_index = 2
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
 [node name="FullUI" type="MarginContainer" parent="WorldEnvironment/CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
@@ -755,7 +890,7 @@ size_flags_vertical = 4
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("31_5i7v7")
+script = SubResource("GDScript_e0tq6")
 
 [node name="weaponSlot1" type="TextureButton" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/weaponSlotMargin/weaponSlotFrameBox/AspectRatioContainer/weaponSlotFrame/AspectRatioContainer2/weaponSlots"]
 custom_minimum_size = Vector2(99, 99)
@@ -994,7 +1129,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="MarginContainer" type="MarginContainer" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect"]
+[node name="buttonMargin" type="MarginContainer" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1002,28 +1137,113 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/MarginContainer"]
+[node name="buttons" type="VBoxContainer" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="continue" type="Button" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+[node name="buttonsResume" type="HBoxContainer" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("33_6roa5")
-theme_override_font_sizes/font_size = 50
-text = "Resume"
+size_flags_horizontal = 4
+size_flags_vertical = 8
 
-[node name="options" type="Button" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+[node name="buttonSelectLeft" type="TextureRect" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsResume"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("33_6roa5")
-theme_override_font_sizes/font_size = 50
-text = "Options"
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("46_lfy4s")
+expand_mode = 1
 
-[node name="quit" type="Button" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+[node name="resume" type="Button" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsResume"]
+custom_minimum_size = Vector2(180, 60)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = SubResource("FontVariation_ar3t4")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vs2el")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_auvgr")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qi01s")
+text = "RESUME"
+
+[node name="buttonSelectRight" type="TextureRect" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsResume"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("47_qcrt0")
+expand_mode = 1
+
+[node name="buttonsOptions" type="HBoxContainer" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="buttonSelectLeft" type="TextureRect" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsOptions"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("46_lfy4s")
+expand_mode = 1
+
+[node name="options" type="Button" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsOptions"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("33_6roa5")
 theme_override_font_sizes/font_size = 50
-text = "Exit"
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1tgbn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5i7v7")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3qkpg")
+text = "OPTIONS"
+
+[node name="buttonSelectRight" type="TextureRect" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsOptions"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("47_qcrt0")
+expand_mode = 1
+
+[node name="buttonsExit" type="HBoxContainer" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="buttonSelectLeft" type="TextureRect" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("46_lfy4s")
+expand_mode = 1
+
+[node name="exit" type="Button" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("33_6roa5")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6roa5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_i63v0")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_507y0")
+text = "EXIT TO MENU"
+
+[node name="buttonSelectRight" type="TextureRect" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("47_qcrt0")
+expand_mode = 1
 
 [node name="DeathSpores" type="GPUParticles3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00802851, 1.77447, 0)
@@ -1065,7 +1285,13 @@ draw_pass_1 = SubResource("QuadMesh_65wlj")
 [connection signal="timeout" from="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/health/timer" to="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_health_timer_timeout"]
 [connection signal="timeout" from="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina/timer" to="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_stamina_timer_timeout"]
 [connection signal="timeout" from="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/mana/timer" to="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_mana_timer_timeout"]
-[connection signal="pressed" from="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/continue" to="WorldEnvironment/CanvasLayer/pauseMenu" method="_on_continue_pressed"]
-[connection signal="pressed" from="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/quit" to="WorldEnvironment/CanvasLayer/pauseMenu" method="_on_button_3_pressed"]
+[connection signal="mouse_entered" from="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsResume/resume" to="WorldEnvironment/CanvasLayer/pauseMenu" method="_on_resume_hover_enter"]
+[connection signal="mouse_exited" from="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsResume/resume" to="WorldEnvironment/CanvasLayer/pauseMenu" method="_on_resume_hover_exit"]
+[connection signal="pressed" from="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsResume/resume" to="WorldEnvironment/CanvasLayer/pauseMenu" method="_on_resume_pressed"]
+[connection signal="mouse_entered" from="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsOptions/options" to="WorldEnvironment/CanvasLayer/pauseMenu" method="_on_options_hover_enter"]
+[connection signal="mouse_exited" from="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsOptions/options" to="WorldEnvironment/CanvasLayer/pauseMenu" method="_on_options_hover_exit"]
+[connection signal="mouse_entered" from="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit/exit" to="WorldEnvironment/CanvasLayer/pauseMenu" method="_on_exit_hover_enter"]
+[connection signal="mouse_exited" from="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit/exit" to="WorldEnvironment/CanvasLayer/pauseMenu" method="_on_exit_hover_exit"]
+[connection signal="pressed" from="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit/exit" to="WorldEnvironment/CanvasLayer/pauseMenu" method="_on_exit_pressed"]
 
 [editable path="WorldEnvironment/Player"]
