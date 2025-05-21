@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://17sawqr1a5sd"]
+[gd_scene load_steps=93 format=3 uid="uid://17sawqr1a5sd"]
 
 [ext_resource type="Material" uid="uid://41byjnpqi8jl" path="res://Materials/TestBush.tres" id="1_3f6q6"]
 [ext_resource type="PackedScene" uid="uid://6j2eqyw3n43k" path="res://Prefabs/Asset Scenes/Game Objects/training_dummy.tscn" id="2_24xrm"]
@@ -36,7 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://dncs81uxppe3f" path="res://UITextures/Stats/DamageMiddle.png" id="21_2uoa5"]
 [ext_resource type="PackedScene" uid="uid://nc40df5rc7fy" path="res://Prefabs/Asset Scenes/World Objects/Walls/broke_wall_with_stuff.tscn" id="22_lfy4s"]
 [ext_resource type="Texture2D" uid="uid://dxxqrbfkg137x" path="res://UITextures/Stats/Mana.png" id="23_e0tq6"]
-[ext_resource type="Script" uid="uid://jrwxn4jas2ej" path="res://Scenes/weapon_slots.gd" id="24_lfy4s"]
+[ext_resource type="Script" uid="uid://jrwxn4jas2ej" path="res://Scripts/UI/weapon_slots.gd" id="24_lfy4s"]
 [ext_resource type="Texture2D" uid="uid://6m5jcd5pvxrn" path="res://UITextures/Weapons/WeaponSlotInactive.png" id="25_qcrt0"]
 [ext_resource type="Texture2D" uid="uid://dgvicbxum24vi" path="res://UITextures/Weapons/WeaponSlotPressed.png" id="26_ar3t4"]
 [ext_resource type="Script" uid="uid://c7616ek8c2kfe" path="res://Scripts/UI/low_health.gd" id="26_vkbj3"]
@@ -49,6 +49,7 @@
 [ext_resource type="Texture2D" uid="uid://co6wmanklpgl3" path="res://UITextures/Particles/ParticleDust.png" id="39_5oe8d"]
 [ext_resource type="Texture2D" uid="uid://t8xpfim77iam" path="res://UITextures/Menus/ButtonTexture.png" id="46_lfy4s"]
 [ext_resource type="Texture2D" uid="uid://ci8xqo4vdx5av" path="res://UITextures/Menus/ButtonTexture2.png" id="47_qcrt0"]
+[ext_resource type="Material" uid="uid://dk88pgvvxre74" path="res://UITextures/Particles/fallImpact.tres" id="50_qcrt0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lfy4s"]
 sky_top_color = Color(0.102228, 0.307553, 0.295863, 1)
@@ -83,6 +84,9 @@ shader_parameter/intensity = 0.5
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_68ajo"]
 
 [sub_resource type="FontFile" id="FontFile_i5sur"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -114,6 +118,11 @@ base_font = SubResource("FontFile_i5sur")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i63v0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_507y0"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lfy4s"]
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_qcrt0"]
 
 [sub_resource type="Gradient" id="Gradient_fwfwu"]
 offsets = PackedFloat32Array(0, 0.489451, 0.767932, 1)
@@ -161,14 +170,16 @@ curve = SubResource("Curve_fgmgr")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_65wlj"]
 lifetime_randomness = 0.5
+emission_shape_scale = Vector3(2, 6, 2)
 emission_shape = 1
 emission_sphere_radius = 0.25
 angle_min = 1.07288e-05
 angle_max = 45.0
-spread = 12.945
+direction = Vector3(0, 0, 0)
+spread = 180.0
 flatness = 1.0
-initial_velocity_min = 0.1
-initial_velocity_max = 1.0
+initial_velocity_min = -2.0
+initial_velocity_max = 2.0
 angular_velocity_min = 30.0
 angular_velocity_max = 60.0
 orbit_velocity_min = 0.1
@@ -198,49 +209,7 @@ turbulence_initial_displacement_min = 1.49012e-06
 turbulence_initial_displacement_max = 1.49012e-06
 turbulence_influence_over_life = SubResource("CurveTexture_hq7hx")
 
-[sub_resource type="Shader" id="Shader_jp8xc"]
-code = "shader_type particles;
-
-uniform vec3 player_pos;
-uniform float attract_strength = 2.0;
-
-void particle() {
-    // Calculate direction to player
-    vec3 dir = normalize(player_pos - );
-    
-    // Adjust velocity (homing force)
-    VELOCITY += dir * attract_strength * DELTA;
-}"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_fwfwu"]
-shader = SubResource("Shader_jp8xc")
-
-[sub_resource type="SphereMesh" id="SphereMesh_hq7hx"]
-material = SubResource("ShaderMaterial_fwfwu")
-radius = 0.04
-height = 0.08
-
-[sub_resource type="Curve" id="Curve_toju0"]
-_limits = [0.0, 3.0, 0.0, 1.0]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 2.28583), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_g5dpn"]
-curve = SubResource("Curve_toju0")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_efexv"]
-lifetime_randomness = 0.2
-particle_flag_align_y = true
-direction = Vector3(0, 1, 0)
-initial_velocity_max = 1.0
-gravity = Vector3(0, 0.5, 0)
-scale_min = 0.2
-scale_curve = SubResource("CurveTexture_g5dpn")
-color = Color(1, 0.808, 0.68, 1)
-hue_variation_min = -2.23517e-08
-hue_variation_max = 0.05
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fgmgr"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vs2el"]
 transparency = 1
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("39_5oe8d")
@@ -249,9 +218,47 @@ particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
+[sub_resource type="QuadMesh" id="QuadMesh_auvgr"]
+material = SubResource("StandardMaterial3D_vs2el")
+size = Vector2(1.5, 1.5)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ar3t4"]
+direction = Vector3(0, 1, 0)
+spread = 90.0
+flatness = 1.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+color = Color(1, 0.866667, 0.780392, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ar3t4"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.866667, 0.780392, 1)
+albedo_texture = ExtResource("39_5oe8d")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
 [sub_resource type="QuadMesh" id="QuadMesh_65wlj"]
-material = SubResource("StandardMaterial3D_fgmgr")
+material = SubResource("StandardMaterial3D_ar3t4")
 size = Vector2(0.4, 0.4)
+
+[sub_resource type="Curve" id="Curve_vs2el"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 14.6067), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_auvgr"]
+curve = SubResource("Curve_vs2el")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qi01s"]
+spread = 15.0
+initial_velocity_min = 0.5
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+damping_max = 1.0
+damping_curve = SubResource("CurveTexture_auvgr")
 
 [node name="KonradWorkScene" type="Node3D"]
 
@@ -718,6 +725,8 @@ transform = Transform3D(-0.999999, 0, -8.74227e-08, 0, 1, 0, 8.74227e-08, 0, -0.
 [node name="MeleeEnemy" parent="WorldEnvironment/Test Stuff" groups=["enemy"] instance=ExtResource("10_1ee8w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -60.1661)
 
+[node name="AttackIndicator" type="Node2D" parent="WorldEnvironment/Test Stuff/MeleeEnemy"]
+
 [node name="MeleeEnemy3" parent="WorldEnvironment/Test Stuff" groups=["enemy"] instance=ExtResource("10_1ee8w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.77517, 1.5, -65.0895)
 
@@ -1151,41 +1160,49 @@ size_flags_vertical = 4
 texture = ExtResource("47_qcrt0")
 expand_mode = 1
 
-[node name="DeathSpores" type="GPUParticles3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00802851, 1.77447, 0)
-emitting = false
-amount = 5000
-lifetime = 3.5
-explosiveness = 1.0
-randomness = 1.0
-fixed_fps = 60
-local_coords = true
-draw_order = 3
-transform_align = 1
-trail_enabled = true
-process_material = SubResource("ParticleProcessMaterial_65wlj")
-draw_pass_1 = SubResource("SphereMesh_hq7hx")
+[node name="EnemyDeath" type="GPUParticles3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.739091, 1.77447, 0)
+process_material = SubResource("ParticleProcessMaterial_lfy4s")
+draw_pass_1 = SubResource("QuadMesh_qcrt0")
 
-[node name="DeathSpores2" type="GPUParticles3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.27317, 1.77447, 0)
+[node name="DeathSpores" type="GPUParticles3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0423254, 1.77447, -0.00547743)
 emitting = false
 amount = 1000
-lifetime = 3.5
+lifetime = 5.0
+speed_scale = 3.0
 explosiveness = 1.0
 randomness = 1.0
 fixed_fps = 60
 local_coords = true
 draw_order = 3
 transform_align = 1
-trail_enabled = true
 process_material = SubResource("ParticleProcessMaterial_65wlj")
-draw_pass_1 = SubResource("SphereMesh_hq7hx")
+draw_pass_1 = SubResource("QuadMesh_auvgr")
 
 [node name="WalkingDust" type="GPUParticles3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.616489, 0.413133)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.06771, 1.08313, 0.413133)
 lifetime = 0.2
 explosiveness = 0.7
-process_material = SubResource("ParticleProcessMaterial_efexv")
+process_material = SubResource("ParticleProcessMaterial_ar3t4")
+draw_pass_1 = SubResource("QuadMesh_65wlj")
+
+[node name="Dash" type="GPUParticles3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38423, 1.64021)
+emitting = false
+amount = 50
+lifetime = 1.5
+speed_scale = 1.5
+explosiveness = 0.91
+process_material = SubResource("ParticleProcessMaterial_qi01s")
+draw_pass_1 = SubResource("QuadMesh_65wlj")
+
+[node name="FallImpact" type="GPUParticles3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.39728, 1.64021)
+amount = 50
+lifetime = 0.5
+explosiveness = 0.7
+process_material = ExtResource("50_qcrt0")
 draw_pass_1 = SubResource("QuadMesh_65wlj")
 
 [connection signal="timeout" from="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/health/timer" to="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_health_timer_timeout"]

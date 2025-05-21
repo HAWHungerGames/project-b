@@ -1,0 +1,24 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=3 format=3 uid="uid://dk88pgvvxre74"]
+
+[sub_resource type="Curve" id="Curve_toju0"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 2.28583), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_qcrt0"]
+curve = SubResource("Curve_toju0")
+
+[resource]
+lifetime_randomness = 0.2
+particle_flag_align_y = true
+direction = Vector3(1, 0, 1)
+spread = 180.0
+flatness = 0.879
+initial_velocity_min = -0.5
+initial_velocity_max = 0.5
+gravity = Vector3(0, 0.5, 0)
+scale_min = 0.2
+scale_curve = SubResource("CurveTexture_qcrt0")
+color = Color(1, 0.868, 0.78, 1)
+hue_variation_min = -2.23517e-08
+hue_variation_max = 0.05

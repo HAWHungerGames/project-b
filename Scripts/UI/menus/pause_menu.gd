@@ -8,7 +8,7 @@ extends MarginContainer
 @onready var buttonSelectLeftOptions = $pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsOptions/buttonSelectLeftOptions
 @onready var buttonSelectRightExit = $pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit/buttonSelectRightExit
 @onready var buttonSelectLeftExit = $pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit/buttonSelectLeftExit
-@onready var blendScreen = $"../ColorRect"
+@onready var blendScreen = $"../blendScreen"
 
 @onready var resume = $pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsResume/resume
 @onready var options = $pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsOptions/options

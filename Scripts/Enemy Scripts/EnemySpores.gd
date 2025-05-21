@@ -24,6 +24,8 @@ extends CharacterBody3D
 @onready var sporeNode = $SporeRange
 @onready var particles = $GPUParticles3D
 @onready var animationPlayer = $Mesh/AnimationPlayer
+@onready var attackIndicator = $AttackIndicatorBottom
+@onready var attackIndicator2 = $AttackIndicatorBottom2
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 

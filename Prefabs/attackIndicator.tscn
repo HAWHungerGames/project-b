@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://dolvksty41xqx"]
+
+[node name="AttackIndicator" type="Node3D"]
