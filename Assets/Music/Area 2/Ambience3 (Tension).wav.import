@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dhosty3vgvjqr"
+path="res://.godot/imported/Ambience3 (Tension).wav-de1407908b3e2c3b7206f9a46ca79f13.sample"
+
+[deps]
+
+source_file="res://Assets/Music/Area 2/Ambience3 (Tension).wav"
+dest_files=["res://.godot/imported/Ambience3 (Tension).wav-de1407908b3e2c3b7206f9a46ca79f13.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
