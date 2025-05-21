@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://bv7bn85ey3wrk"]
 
-[ext_resource type="PackedScene" uid="uid://b3ngd7bq53bhx" path="res://Prefabs/Asset Scenes/World Objects/Nature/tree_dead.tscn" id="1_vn40p"]
-[ext_resource type="PackedScene" uid="uid://cje3404hqh7mc" path="res://Prefabs/Asset Scenes/World Objects/Nature/tree_dead_with_mushrooms.tscn" id="2_yqr00"]
-[ext_resource type="PackedScene" uid="uid://bpog55qglxd8s" path="res://Prefabs/Asset Scenes/World Objects/Nature/mushroom_red.tscn" id="3_la8ow"]
-[ext_resource type="PackedScene" uid="uid://m5m2wps3p316" path="res://Prefabs/Asset Scenes/World Objects/Nature/rock_two.tscn" id="4_c5has"]
-[ext_resource type="PackedScene" uid="uid://bbunaqymstlo4" path="res://Prefabs/Asset Scenes/World Objects/Nature/rock_one.tscn" id="5_viap2"]
+[ext_resource type="PackedScene" uid="uid://b3ngd7bq53bhx" path="res://Prefabs/Asset Scenes/World Objects/Nature/Trees/tree_dead.tscn" id="1_vn40p"]
+[ext_resource type="PackedScene" uid="uid://cje3404hqh7mc" path="res://Prefabs/Asset Scenes/World Objects/Nature/Trees/tree_dead_with_mushrooms.tscn" id="2_yqr00"]
+[ext_resource type="PackedScene" uid="uid://bpog55qglxd8s" path="res://Prefabs/Asset Scenes/World Objects/Nature/Mushrooms/mushroom_red.tscn" id="3_la8ow"]
+[ext_resource type="PackedScene" uid="uid://m5m2wps3p316" path="res://Prefabs/Asset Scenes/World Objects/Nature/Rocks/rock_two.tscn" id="4_c5has"]
+[ext_resource type="PackedScene" uid="uid://bbunaqymstlo4" path="res://Prefabs/Asset Scenes/World Objects/Nature/Rocks/rock_one.tscn" id="5_viap2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vn40p"]
 size = Vector3(8.66626, 5.67095, 2.62524)

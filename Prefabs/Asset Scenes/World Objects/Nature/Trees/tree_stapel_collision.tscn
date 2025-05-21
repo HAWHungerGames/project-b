@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://wnycorje8dkh"]
+
+[ext_resource type="PackedScene" uid="uid://badybmc5288d" path="res://Models/Nature/Baum/baumstammStapel.blend" id="1_nb67g"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tlqdk"]
+size = Vector3(5.07532, 1, 2.81445)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yadyn"]
+size = Vector3(4.88544, 0.917358, 2.01367)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lr80k"]
+size = Vector3(3.60059, 0.917358, 1.08008)
+
+[node name="TreeStapelCollision" type="StaticBody3D"]
+
+[node name="baumstammStapel" parent="." instance=ExtResource("1_nb67g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.449807)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0669556, 0, 0)
+shape = SubResource("BoxShape3D_tlqdk")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0279846, 0.892186, 0)
+shape = SubResource("BoxShape3D_yadyn")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.247131, 1.59699, 0.0383048)
+shape = SubResource("BoxShape3D_lr80k")

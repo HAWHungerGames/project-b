@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgj38b5ej6tbj"]
+
+[ext_resource type="PackedScene" uid="uid://badybmc5288d" path="res://Models/Nature/Baum/baumstammStapel.blend" id="1_6hp3b"]
+
+[node name="TreeStapel" type="Node3D"]
+
+[node name="baumstammStapel" parent="." instance=ExtResource("1_6hp3b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.449807)

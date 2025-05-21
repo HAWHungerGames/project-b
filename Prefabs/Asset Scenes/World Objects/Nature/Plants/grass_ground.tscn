@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://be4b3d1g5njg4" path="res://Models/Nature/Grass/grass_01_normal_gl_2k.png" id="4_3h57g"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_oaacp"]
-size = Vector2(320, 300)
+size = Vector2(300, 320)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a3fy4"]
 albedo_texture = ExtResource("1_fd16c")

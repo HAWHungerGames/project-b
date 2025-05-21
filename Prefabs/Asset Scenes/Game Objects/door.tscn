@@ -1,15 +1,15 @@
 [gd_scene load_steps=18 format=3 uid="uid://dcsqxh8ksn77m"]
 
 [ext_resource type="Script" uid="uid://bqwde0hhdtnbd" path="res://Scripts/Assets/Door.gd" id="1_urwcp"]
-[ext_resource type="PackedScene" uid="uid://uis0puhqo5yl" path="res://Prefabs/Asset Scenes/World Objects/Nature/tree_round.tscn" id="2_vets3"]
+[ext_resource type="PackedScene" uid="uid://uis0puhqo5yl" path="res://Prefabs/Asset Scenes/World Objects/Nature/Trees/tree_round.tscn" id="2_vets3"]
 [ext_resource type="Material" uid="uid://hf4mn7b5tp5w" path="res://Materials/enemy3.tres" id="2_ymewj"]
 [ext_resource type="PackedScene" uid="uid://dpk5yryax4sqk" path="res://Models/Nature/Baum/Baum.blend" id="3_xyauw"]
-[ext_resource type="PackedScene" uid="uid://bwwem0bl1hx05" path="res://Prefabs/Asset Scenes/World Objects/Nature/plant_with_purple.tscn" id="5_q4agj"]
-[ext_resource type="PackedScene" uid="uid://cw0yxku6p8fo1" path="res://Prefabs/Asset Scenes/World Objects/Nature/mushroom_purple.tscn" id="6_k1u7l"]
-[ext_resource type="PackedScene" uid="uid://4u43ho0i5epx" path="res://Prefabs/Asset Scenes/World Objects/Nature/mushroom_many.tscn" id="7_0kpld"]
-[ext_resource type="PackedScene" uid="uid://m5m2wps3p316" path="res://Prefabs/Asset Scenes/World Objects/Nature/rock_two.tscn" id="8_0kpld"]
-[ext_resource type="PackedScene" uid="uid://bbunaqymstlo4" path="res://Prefabs/Asset Scenes/World Objects/Nature/rock_one.tscn" id="9_351bd"]
-[ext_resource type="PackedScene" uid="uid://bpog55qglxd8s" path="res://Prefabs/Asset Scenes/World Objects/Nature/mushroom_red.tscn" id="10_351bd"]
+[ext_resource type="PackedScene" uid="uid://bwwem0bl1hx05" path="res://Prefabs/Asset Scenes/World Objects/Nature/Plants/plant_with_purple.tscn" id="5_q4agj"]
+[ext_resource type="PackedScene" uid="uid://cw0yxku6p8fo1" path="res://Prefabs/Asset Scenes/World Objects/Nature/Mushrooms/mushroom_purple.tscn" id="6_k1u7l"]
+[ext_resource type="PackedScene" uid="uid://4u43ho0i5epx" path="res://Prefabs/Asset Scenes/World Objects/Nature/Mushrooms/mushroom_many.tscn" id="7_0kpld"]
+[ext_resource type="PackedScene" uid="uid://m5m2wps3p316" path="res://Prefabs/Asset Scenes/World Objects/Nature/Rocks/rock_two.tscn" id="8_0kpld"]
+[ext_resource type="PackedScene" uid="uid://bbunaqymstlo4" path="res://Prefabs/Asset Scenes/World Objects/Nature/Rocks/rock_one.tscn" id="9_351bd"]
+[ext_resource type="PackedScene" uid="uid://bpog55qglxd8s" path="res://Prefabs/Asset Scenes/World Objects/Nature/Mushrooms/mushroom_red.tscn" id="10_351bd"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_dy4fv"]
 

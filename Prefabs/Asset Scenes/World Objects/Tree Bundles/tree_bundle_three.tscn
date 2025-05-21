@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://db3ndiywdtl3x" path="res://Models/Nature/Baum/baumstamm1.blend" id="2_hr815"]
 [ext_resource type="PackedScene" uid="uid://cxviwc5p4xfp4" path="res://Models/Nature/Plants/piltz.blend" id="3_qlw68"]
 [ext_resource type="PackedScene" uid="uid://bkeeak7jos355" path="res://Models/Nature/Baum/baumast.blend" id="4_85cp5"]
-[ext_resource type="PackedScene" uid="uid://4u43ho0i5epx" path="res://Prefabs/Asset Scenes/World Objects/Nature/mushroom_many.tscn" id="5_y73rb"]
+[ext_resource type="PackedScene" uid="uid://4u43ho0i5epx" path="res://Prefabs/Asset Scenes/World Objects/Nature/Mushrooms/mushroom_many.tscn" id="5_y73rb"]
 [ext_resource type="PackedScene" uid="uid://csnk7g6sii6ps" path="res://Models/Nature/Rocks/RockOne.blend" id="6_tf521"]
 [ext_resource type="PackedScene" uid="uid://6638cx8kjoqg" path="res://Models/Nature/Rocks/RockTwo.blend" id="7_2q1yw"]
 

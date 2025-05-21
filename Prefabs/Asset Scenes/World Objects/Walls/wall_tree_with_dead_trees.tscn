@@ -1,14 +1,14 @@
 [gd_scene load_steps=11 format=3 uid="uid://nc40df5rc7fy"]
 
-[ext_resource type="PackedScene" uid="uid://uis0puhqo5yl" path="res://Prefabs/Asset Scenes/World Objects/Nature/tree_round.tscn" id="2_674lk"]
-[ext_resource type="PackedScene" uid="uid://m5m2wps3p316" path="res://Prefabs/Asset Scenes/World Objects/Nature/rock_two.tscn" id="3_vejpl"]
-[ext_resource type="PackedScene" uid="uid://bwwem0bl1hx05" path="res://Prefabs/Asset Scenes/World Objects/Nature/plant_with_purple.tscn" id="4_dpnbi"]
-[ext_resource type="PackedScene" uid="uid://4u43ho0i5epx" path="res://Prefabs/Asset Scenes/World Objects/Nature/mushroom_many.tscn" id="5_w1hqf"]
-[ext_resource type="PackedScene" uid="uid://b3ngd7bq53bhx" path="res://Prefabs/Asset Scenes/World Objects/Nature/tree_dead.tscn" id="7_cjm80"]
-[ext_resource type="PackedScene" uid="uid://bflrqla1nvy53" path="res://Prefabs/Asset Scenes/World Objects/Nature/bush_tear_drop.tscn" id="7_klx1s"]
-[ext_resource type="PackedScene" uid="uid://b2yj7ykigia5t" path="res://Prefabs/Asset Scenes/World Objects/Nature/bush_sphere.tscn" id="8_5chju"]
-[ext_resource type="PackedScene" uid="uid://cje3404hqh7mc" path="res://Prefabs/Asset Scenes/World Objects/Nature/tree_dead_with_mushrooms.tscn" id="8_xbepg"]
-[ext_resource type="PackedScene" uid="uid://bbunaqymstlo4" path="res://Prefabs/Asset Scenes/World Objects/Nature/rock_one.tscn" id="9_60wye"]
+[ext_resource type="PackedScene" uid="uid://uis0puhqo5yl" path="res://Prefabs/Asset Scenes/World Objects/Nature/Trees/tree_round.tscn" id="2_674lk"]
+[ext_resource type="PackedScene" uid="uid://m5m2wps3p316" path="res://Prefabs/Asset Scenes/World Objects/Nature/Rocks/rock_two.tscn" id="3_vejpl"]
+[ext_resource type="PackedScene" uid="uid://bwwem0bl1hx05" path="res://Prefabs/Asset Scenes/World Objects/Nature/Plants/plant_with_purple.tscn" id="4_dpnbi"]
+[ext_resource type="PackedScene" uid="uid://4u43ho0i5epx" path="res://Prefabs/Asset Scenes/World Objects/Nature/Mushrooms/mushroom_many.tscn" id="5_w1hqf"]
+[ext_resource type="PackedScene" uid="uid://b3ngd7bq53bhx" path="res://Prefabs/Asset Scenes/World Objects/Nature/Trees/tree_dead.tscn" id="7_cjm80"]
+[ext_resource type="PackedScene" uid="uid://bflrqla1nvy53" path="res://Prefabs/Asset Scenes/World Objects/Nature/Plants/bush_tear_drop.tscn" id="7_klx1s"]
+[ext_resource type="PackedScene" uid="uid://b2yj7ykigia5t" path="res://Prefabs/Asset Scenes/World Objects/Nature/Plants/bush_sphere.tscn" id="8_5chju"]
+[ext_resource type="PackedScene" uid="uid://cje3404hqh7mc" path="res://Prefabs/Asset Scenes/World Objects/Nature/Trees/tree_dead_with_mushrooms.tscn" id="8_xbepg"]
+[ext_resource type="PackedScene" uid="uid://bbunaqymstlo4" path="res://Prefabs/Asset Scenes/World Objects/Nature/Rocks/rock_one.tscn" id="9_60wye"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1u1x3"]
 size = Vector3(1, 4.48145, 12.3203)

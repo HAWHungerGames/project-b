@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dpk5yryax4sqk" path="res://Models/Nature/Baum/Baum.blend" id="1_3l51v"]
 [ext_resource type="PackedScene" uid="uid://cnrgjwnqfq1xv" path="res://Models/Nature/Baum/tree.blend" id="2_x7obf"]
-[ext_resource type="PackedScene" uid="uid://cnfsqcw5tv6y0" path="res://Prefabs/Asset Scenes/World Objects/Nature/mushroom_blue.tscn" id="3_x7obf"]
+[ext_resource type="PackedScene" uid="uid://cnfsqcw5tv6y0" path="res://Prefabs/Asset Scenes/World Objects/Nature/Mushrooms/mushroom_blue.tscn" id="3_x7obf"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_1cobk"]
 size = Vector2(5, 5)
