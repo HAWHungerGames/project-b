@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://4u43ho0i5epx"]
 
-[ext_resource type="PackedScene" uid="uid://cxviwc5p4xfp4" path="res://Models/Nature/piltz.blend" id="1_pfxjq"]
+[ext_resource type="PackedScene" uid="uid://cxviwc5p4xfp4" path="res://Models/Nature/Plants/piltz.blend" id="1_pfxjq"]
 
 [node name="MushroomMany" type="Node3D"]
 

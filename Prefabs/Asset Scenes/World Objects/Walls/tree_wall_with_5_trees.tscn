@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://ck4rfnlyd0qgp"]
 
-[ext_resource type="PackedScene" uid="uid://dpk5yryax4sqk" path="res://Models/Nature/Baum.blend" id="1_6dkop"]
+[ext_resource type="PackedScene" uid="uid://dpk5yryax4sqk" path="res://Models/Nature/Baum/Baum.blend" id="1_6dkop"]
 [ext_resource type="PackedScene" uid="uid://b2yj7ykigia5t" path="res://Prefabs/Asset Scenes/World Objects/Nature/bush_sphere.tscn" id="2_bsgvw"]
-[ext_resource type="PackedScene" uid="uid://6638cx8kjoqg" path="res://Models/Nature/RockTwo.blend" id="3_1jb35"]
+[ext_resource type="PackedScene" uid="uid://6638cx8kjoqg" path="res://Models/Nature/Rocks/RockTwo.blend" id="3_1jb35"]
 [ext_resource type="PackedScene" uid="uid://bbunaqymstlo4" path="res://Prefabs/Asset Scenes/World Objects/Nature/rock_one.tscn" id="4_bsgvw"]
 [ext_resource type="PackedScene" uid="uid://dcwv501p00np7" path="res://Prefabs/Asset Scenes/World Objects/Nature/monstera_bush.tscn" id="5_7uixu"]
 [ext_resource type="PackedScene" uid="uid://4u43ho0i5epx" path="res://Prefabs/Asset Scenes/World Objects/Nature/mushroom_many.tscn" id="6_d78m5"]

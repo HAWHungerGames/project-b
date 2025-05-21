@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://okc4kycpb5mw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_omqv4"]
+size = Vector3(4, 1, 4)
+
+[node name="ExtraCollision" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_omqv4")

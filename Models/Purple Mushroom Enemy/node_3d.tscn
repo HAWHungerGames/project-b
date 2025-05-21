@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3 uid="uid://diqqnfl7y8dd8"]
+
+[ext_resource type="PackedScene" uid="uid://flos54rimela" path="res://Models/Purple Mushroom Enemy/purple_mushroom_enemy.blend" id="1_1oo8b"]
+[ext_resource type="Texture2D" uid="uid://bwskn5wda0cav" path="res://Models/Purple Mushroom Enemy/purple_mushroom_enemy_body_texture.png" id="2_qufta"]
+[ext_resource type="Texture2D" uid="uid://ccgpfure7ssoj" path="res://Models/Purple Mushroom Enemy/purple_mushroom_enemy_head_texture.jpg" id="3_sissi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5k1m2"]
+albedo_texture = ExtResource("2_qufta")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gss2t"]
+albedo_texture = ExtResource("2_qufta")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dpfes"]
+albedo_texture = ExtResource("3_sissi")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_50onk"]
+albedo_texture = ExtResource("2_qufta")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5c8bh"]
+albedo_texture = ExtResource("2_qufta")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nhdq4"]
+albedo_texture = ExtResource("2_qufta")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="purple_mushroom_enemy" parent="." instance=ExtResource("1_1oo8b")]
+
+[node name="Skeleton3D" parent="purple_mushroom_enemy/PurpleMushroomEnemy" index="1"]
+bones/0/position = Vector3(-0.00743639, 0.187712, 0.0278507)
+bones/0/rotation = Quaternion(-0.00190255, -0.0796997, 0.0198775, 0.996619)
+bones/1/rotation = Quaternion(-0.0356406, -8.86638e-09, 3.49468e-10, 0.999365)
+bones/2/position = Vector3(0.17803, 0.107539, -0.0278504)
+bones/2/rotation = Quaternion(0.914507, -0.0708857, 0.0175355, -0.397925)
+bones/3/rotation = Quaternion(0.661963, 0.473995, 0.495072, 0.303376)
+bones/4/position = Vector3(-0.163157, 0.107539, -0.0278507)
+bones/4/rotation = Quaternion(0.999704, 0.0107531, -0.00266012, 0.0216696)
+bones/5/rotation = Quaternion(0.510747, -0.632921, -0.405521, 0.417254)
+
+[node name="arm_l" parent="purple_mushroom_enemy/PurpleMushroomEnemy/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_5k1m2")
+
+[node name="arm_r" parent="purple_mushroom_enemy/PurpleMushroomEnemy/Skeleton3D" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_gss2t")
+
+[node name="head" parent="purple_mushroom_enemy/PurpleMushroomEnemy/Skeleton3D" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_dpfes")
+
+[node name="leg_l" parent="purple_mushroom_enemy/PurpleMushroomEnemy/Skeleton3D" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_50onk")
+
+[node name="legs_r" parent="purple_mushroom_enemy/PurpleMushroomEnemy/Skeleton3D" index="4"]
+surface_material_override/0 = SubResource("StandardMaterial3D_5c8bh")
+
+[node name="body" parent="purple_mushroom_enemy/PurpleMushroomEnemy/Skeleton3D" index="5"]
+surface_material_override/0 = SubResource("StandardMaterial3D_nhdq4")
+
+[node name="AnimationPlayer" parent="purple_mushroom_enemy" index="1"]
+autoplay = "running"
+
+[editable path="purple_mushroom_enemy"]

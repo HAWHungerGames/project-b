@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://m5m2wps3p316"]
 
-[ext_resource type="PackedScene" uid="uid://6638cx8kjoqg" path="res://Models/Nature/RockTwo.blend" id="1_3g5v6"]
+[ext_resource type="PackedScene" uid="uid://6638cx8kjoqg" path="res://Models/Nature/Rocks/RockTwo.blend" id="1_3g5v6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5umkg"]
 size = Vector3(0.166016, 0.144775, 1)

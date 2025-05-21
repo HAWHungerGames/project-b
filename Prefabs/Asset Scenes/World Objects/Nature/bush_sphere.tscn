@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b2yj7ykigia5t"]
 
-[ext_resource type="PackedScene" uid="uid://brlysjr2dhrpx" path="res://Models/Nature/Bush2.blend" id="1_jqksu"]
+[ext_resource type="PackedScene" uid="uid://brlysjr2dhrpx" path="res://Models/Nature/Plants/Bush2.blend" id="1_jqksu"]
 
 [node name="BushSphere" type="Node3D"]
 

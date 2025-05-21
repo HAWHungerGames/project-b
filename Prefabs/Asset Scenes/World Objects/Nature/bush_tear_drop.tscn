@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bflrqla1nvy53"]
 
-[ext_resource type="PackedScene" uid="uid://box3iqujt7rt4" path="res://Models/Nature/Bush.blend" id="1_tdmkf"]
+[ext_resource type="PackedScene" uid="uid://box3iqujt7rt4" path="res://Models/Nature/Plants/Bush.blend" id="1_tdmkf"]
 
 [node name="BushTearDrop" type="Node3D"]
 
