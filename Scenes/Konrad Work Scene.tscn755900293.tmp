@@ -82,39 +82,6 @@ shader_parameter/intensity = 0.5
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_68ajo"]
 
-[sub_resource type="FontFile" id="FontFile_i5sur"]
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/50/0/ascent = 0.0
-cache/0/50/0/descent = 0.0
-cache/0/50/0/underline_position = 0.0
-cache/0/50/0/underline_thickness = 0.0
-cache/0/50/0/scale = 1.0
-
-[sub_resource type="FontVariation" id="FontVariation_ar3t4"]
-base_font = SubResource("FontFile_i5sur")
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vs2el"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_auvgr"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qi01s"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1tgbn"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5i7v7"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3qkpg"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6roa5"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i63v0"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_507y0"]
-
 [sub_resource type="Gradient" id="Gradient_fwfwu"]
 offsets = PackedFloat32Array(0, 0.489451, 0.767932, 1)
 colors = PackedColorArray(0.624, 0.72, 0, 0.537255, 0.857336, 0.841146, 0.221142, 0.890196, 0.911952, 0.9542, 0.360503, 0.94902, 1, 1, 1, 0.596078)
@@ -252,6 +219,39 @@ particles_anim_loop = false
 [sub_resource type="QuadMesh" id="QuadMesh_65wlj"]
 material = SubResource("StandardMaterial3D_fgmgr")
 size = Vector2(0.4, 0.4)
+
+[sub_resource type="FontFile" id="FontFile_i5sur"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/50/0/ascent = 0.0
+cache/0/50/0/descent = 0.0
+cache/0/50/0/underline_position = 0.0
+cache/0/50/0/underline_thickness = 0.0
+cache/0/50/0/scale = 1.0
+
+[sub_resource type="FontVariation" id="FontVariation_ar3t4"]
+base_font = SubResource("FontFile_i5sur")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vs2el"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_auvgr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qi01s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1tgbn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5i7v7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3qkpg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6roa5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i63v0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_507y0"]
 
 [node name="KonradWorkScene" type="Node3D"]
 
@@ -1018,7 +1018,7 @@ grow_vertical = 2
 script = ExtResource("32_3qkpg")
 
 [node name="pauseMenuContainer" type="VBoxContainer" parent="WorldEnvironment/CanvasLayer/pauseMenu"]
-process_mode = 3
+process_mode = 4
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
@@ -1035,121 +1035,13 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="buttonMargin" type="MarginContainer" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect"]
+[node name="buttoinMargin" type="MarginContainer" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="buttons" type="VBoxContainer" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="buttonsResume" type="HBoxContainer" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-
-[node name="buttonSelectLeftResume" type="TextureRect" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsResume"]
-modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("46_lfy4s")
-expand_mode = 1
-
-[node name="resume" type="Button" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsResume"]
-custom_minimum_size = Vector2(180, 60)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_fonts/font = SubResource("FontVariation_ar3t4")
-theme_override_font_sizes/font_size = 50
-theme_override_styles/hover = SubResource("StyleBoxEmpty_vs2el")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_auvgr")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_qi01s")
-text = "RESUME"
-
-[node name="buttonSelectRightResume" type="TextureRect" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsResume"]
-modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("47_qcrt0")
-expand_mode = 1
-
-[node name="buttonsOptions" type="HBoxContainer" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="buttonSelectLeftOptions" type="TextureRect" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsOptions"]
-modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("46_lfy4s")
-expand_mode = 1
-
-[node name="options" type="Button" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsOptions"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("33_6roa5")
-theme_override_font_sizes/font_size = 50
-theme_override_styles/hover = SubResource("StyleBoxEmpty_1tgbn")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_5i7v7")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_3qkpg")
-text = "OPTIONS"
-
-[node name="buttonSelectRightOptions" type="TextureRect" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsOptions"]
-modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("47_qcrt0")
-expand_mode = 1
-
-[node name="buttonsExit" type="HBoxContainer" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="buttonSelectLeftExit" type="TextureRect" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit"]
-modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("46_lfy4s")
-expand_mode = 1
-
-[node name="exit" type="Button" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("33_6roa5")
-theme_override_font_sizes/font_size = 50
-theme_override_styles/hover = SubResource("StyleBoxEmpty_6roa5")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_i63v0")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_507y0")
-text = "EXIT TO MENU"
-
-[node name="buttonSelectRightExit" type="TextureRect" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit"]
-modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("47_qcrt0")
-expand_mode = 1
 
 [node name="DeathSpores" type="GPUParticles3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00802851, 1.77447, 0)
@@ -1188,16 +1080,103 @@ explosiveness = 0.7
 process_material = SubResource("ParticleProcessMaterial_efexv")
 draw_pass_1 = SubResource("QuadMesh_65wlj")
 
+[node name="WorldEnvironment_CanvasLayer_pauseMenu_pauseMenuContainer_MarginContainer_NinePatchRect_MarginContainer#buttons" type="VBoxContainer" parent="."]
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="WorldEnvironment_CanvasLayer_pauseMenu_pauseMenuContainer_MarginContainer_NinePatchRect_buttonMargin_buttons#buttonsResume" type="HBoxContainer" parent="."]
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="WorldEnvironment_CanvasLayer_pauseMenu_pauseMenuContainer_MarginContainer_NinePatchRect_buttonMargin_buttons_buttonsResume#buttonSelectLeft" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("46_lfy4s")
+expand_mode = 1
+
+[node name="WorldEnvironment_CanvasLayer_pauseMenu_pauseMenuContainer_MarginContainer_NinePatchRect_buttonMargin_buttons_buttonsResume#resume" type="Button" parent="."]
+custom_minimum_size = Vector2(180, 60)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = SubResource("FontVariation_ar3t4")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vs2el")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_auvgr")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qi01s")
+text = "RESUME"
+
+[node name="WorldEnvironment_CanvasLayer_pauseMenu_pauseMenuContainer_MarginContainer_NinePatchRect_buttonMargin_buttons_buttonsResume#buttonSelectRight" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("47_qcrt0")
+expand_mode = 1
+
+[node name="WorldEnvironment_CanvasLayer_pauseMenu_pauseMenuContainer_MarginContainer_NinePatchRect_buttonMargin_buttons#buttonsOptions" type="HBoxContainer" parent="."]
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="WorldEnvironment_CanvasLayer_pauseMenu_pauseMenuContainer_MarginContainer_NinePatchRect_buttonMargin_buttons_buttonsOptions#buttonSelectLeft" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("46_lfy4s")
+expand_mode = 1
+
+[node name="WorldEnvironment_CanvasLayer_pauseMenu_pauseMenuContainer_MarginContainer_NinePatchRect_buttonMargin_buttons_buttonsOptions#options" type="Button" parent="."]
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("33_6roa5")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1tgbn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5i7v7")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3qkpg")
+text = "OPTIONS"
+
+[node name="WorldEnvironment_CanvasLayer_pauseMenu_pauseMenuContainer_MarginContainer_NinePatchRect_buttonMargin_buttons_buttonsOptions#buttonSelectRight" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("47_qcrt0")
+expand_mode = 1
+
+[node name="WorldEnvironment_CanvasLayer_pauseMenu_pauseMenuContainer_MarginContainer_NinePatchRect_buttonMargin_buttons#buttonsExit" type="HBoxContainer" parent="."]
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="WorldEnvironment_CanvasLayer_pauseMenu_pauseMenuContainer_MarginContainer_NinePatchRect_buttonMargin_buttons_buttonsExit#buttonSelectLeft" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("46_lfy4s")
+expand_mode = 1
+
+[node name="WorldEnvironment_CanvasLayer_pauseMenu_pauseMenuContainer_MarginContainer_NinePatchRect_buttonMargin_buttons_buttonsExit#exit" type="Button" parent="."]
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("33_6roa5")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6roa5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_i63v0")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_507y0")
+text = "EXIT TO MENU"
+
+[node name="WorldEnvironment_CanvasLayer_pauseMenu_pauseMenuContainer_MarginContainer_NinePatchRect_buttonMargin_buttons_buttonsExit#buttonSelectRight" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("47_qcrt0")
+expand_mode = 1
+
 [connection signal="timeout" from="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/health/timer" to="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_health_timer_timeout"]
 [connection signal="timeout" from="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina/timer" to="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_stamina_timer_timeout"]
 [connection signal="timeout" from="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/mana/timer" to="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_mana_timer_timeout"]
-[connection signal="mouse_entered" from="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsResume/resume" to="WorldEnvironment/CanvasLayer/pauseMenu" method="_on_resume_hover_enter"]
-[connection signal="mouse_exited" from="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsResume/resume" to="WorldEnvironment/CanvasLayer/pauseMenu" method="_on_resume_hover_exit"]
-[connection signal="pressed" from="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsResume/resume" to="WorldEnvironment/CanvasLayer/pauseMenu" method="_on_resume_pressed"]
-[connection signal="mouse_entered" from="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsOptions/options" to="WorldEnvironment/CanvasLayer/pauseMenu" method="_on_options_hover_enter"]
-[connection signal="mouse_exited" from="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsOptions/options" to="WorldEnvironment/CanvasLayer/pauseMenu" method="_on_options_hover_exit"]
-[connection signal="mouse_entered" from="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit/exit" to="WorldEnvironment/CanvasLayer/pauseMenu" method="_on_exit_hover_enter"]
-[connection signal="mouse_exited" from="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit/exit" to="WorldEnvironment/CanvasLayer/pauseMenu" method="_on_exit_hover_exit"]
-[connection signal="pressed" from="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit/exit" to="WorldEnvironment/CanvasLayer/pauseMenu" method="_on_exit_pressed"]
 
 [editable path="WorldEnvironment/Player"]

@@ -93,6 +93,7 @@ func _physics_process(delta: float) -> void:
 								hitObj.interact(owner)
 								GameManager.set_weapon_on_back()
 								GameManager.set_second_weapon(GameManager.get_first_weapon())
+								GameManager.weapons_updated()
 								GameManager.set_first_weapon(weapon_name)
 								GameManager.weapons_updated()
 								#print(GameManager.get_first_weapon())
