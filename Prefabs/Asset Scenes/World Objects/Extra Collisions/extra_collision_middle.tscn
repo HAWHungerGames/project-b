@@ -7,3 +7,4 @@ size = Vector3(4.71069, 10, 6)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_762lc")
+debug_color = Color(1, 1, 1, 1)

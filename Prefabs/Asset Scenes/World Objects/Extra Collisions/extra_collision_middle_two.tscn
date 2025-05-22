@@ -8,3 +8,4 @@ size = Vector3(40, 10, 5)
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.621)
 shape = SubResource("BoxShape3D_uqdb5")
+debug_color = Color(1, 1, 1, 1)
