@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://17sawqr1a5sd"]
+[gd_scene load_steps=101 format=3 uid="uid://17sawqr1a5sd"]
 
 [ext_resource type="Material" uid="uid://41byjnpqi8jl" path="res://Materials/TestBush.tres" id="1_3f6q6"]
 [ext_resource type="PackedScene" uid="uid://6j2eqyw3n43k" path="res://Prefabs/Asset Scenes/Game Objects/training_dummy.tscn" id="2_24xrm"]
@@ -49,7 +49,10 @@
 [ext_resource type="Texture2D" uid="uid://co6wmanklpgl3" path="res://UITextures/Particles/ParticleDust.png" id="39_5oe8d"]
 [ext_resource type="Texture2D" uid="uid://t8xpfim77iam" path="res://UITextures/Menus/ButtonTexture.png" id="46_lfy4s"]
 [ext_resource type="Texture2D" uid="uid://ci8xqo4vdx5av" path="res://UITextures/Menus/ButtonTexture2.png" id="47_qcrt0"]
+[ext_resource type="Texture2D" uid="uid://b2soptbss4h5v" path="res://UITextures/Menus/XBox.png" id="49_auvgr"]
 [ext_resource type="Material" uid="uid://dk88pgvvxre74" path="res://UITextures/Particles/fallImpact.tres" id="50_qcrt0"]
+[ext_resource type="Texture2D" uid="uid://b67sgvs236paw" path="res://Assets/Kenney Particles Transparent Background/circle_05.png" id="50_vs2el"]
+[ext_resource type="Script" uid="uid://c075aiwr805vf" path="res://Scenes/enemy_to_boss.gd" id="51_auvgr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lfy4s"]
 sky_top_color = Color(0.102228, 0.307553, 0.295863, 1)
@@ -222,6 +225,51 @@ particles_anim_loop = false
 material = SubResource("StandardMaterial3D_vs2el")
 size = Vector2(1.5, 1.5)
 
+[sub_resource type="Curve" id="Curve_qcrt0"]
+_limits = [-2.13483, 10.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, -2.13483), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ar3t4"]
+curve = SubResource("Curve_qcrt0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vs2el"]
+emission_shape_scale = Vector3(0.2, 0.2, 0.2)
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 0.0
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 9.49949e-08
+radial_velocity_min = -1.00002
+radial_velocity_max = -1.00002
+gravity = Vector3(10, 0, 0)
+radial_accel_min = -1.0
+radial_accel_max = -1.0
+tangential_accel_min = -1.0
+tangential_accel_max = 0.999998
+tangential_accel_curve = SubResource("CurveTexture_ar3t4")
+color = Color(1, 0, 0.833333, 1)
+turbulence_noise_strength = 5.95
+turbulence_noise_speed = Vector3(10, 0, 0)
+turbulence_noise_speed_random = 0.66
+turbulence_influence_max = 0.109
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_auvgr"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("50_vs2el")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_qi01s"]
+material = SubResource("StandardMaterial3D_auvgr")
+size = Vector2(0.5, 0.5)
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ar3t4"]
 direction = Vector3(0, 1, 0)
 spread = 90.0
@@ -259,6 +307,7 @@ initial_velocity_max = 1.0
 gravity = Vector3(0, 0, 0)
 damping_max = 1.0
 damping_curve = SubResource("CurveTexture_auvgr")
+color = Color(1, 0.866667, 0.780392, 1)
 
 [node name="KonradWorkScene" type="Node3D"]
 
@@ -736,7 +785,7 @@ homingStrength = 1.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="WorldEnvironment"]
 
-[node name="ColorRect" type="ColorRect" parent="WorldEnvironment/CanvasLayer"]
+[node name="blendScreen" type="ColorRect" parent="WorldEnvironment/CanvasLayer"]
 modulate = Color(1, 1, 1, 0)
 z_index = 2
 offset_right = 1920.0
@@ -1029,6 +1078,7 @@ script = ExtResource("32_3qkpg")
 [node name="pauseMenuContainer" type="VBoxContainer" parent="WorldEnvironment/CanvasLayer/pauseMenu"]
 process_mode = 3
 visible = false
+z_index = 3
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -1160,6 +1210,221 @@ size_flags_vertical = 4
 texture = ExtResource("47_qcrt0")
 expand_mode = 1
 
+[node name="optionsMenuContainer" type="VBoxContainer" parent="WorldEnvironment/CanvasLayer/pauseMenu"]
+process_mode = 3
+visible = false
+z_index = 3
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="WorldEnvironment/CanvasLayer/pauseMenu/optionsMenuContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="WorldEnvironment/CanvasLayer/pauseMenu/optionsMenuContainer/MarginContainer"]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="buttonMargin" type="MarginContainer" parent="WorldEnvironment/CanvasLayer/pauseMenu/optionsMenuContainer/MarginContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="buttons" type="VBoxContainer" parent="WorldEnvironment/CanvasLayer/pauseMenu/optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="buttonsDisplay" type="HBoxContainer" parent="WorldEnvironment/CanvasLayer/pauseMenu/optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="buttonSelectLeftResume" type="TextureRect" parent="WorldEnvironment/CanvasLayer/pauseMenu/optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsDisplay"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("46_lfy4s")
+expand_mode = 1
+
+[node name="display" type="Button" parent="WorldEnvironment/CanvasLayer/pauseMenu/optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsDisplay"]
+custom_minimum_size = Vector2(180, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = SubResource("FontVariation_ar3t4")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vs2el")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_auvgr")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qi01s")
+text = "DISPLAY"
+
+[node name="buttonSelectRightResume" type="TextureRect" parent="WorldEnvironment/CanvasLayer/pauseMenu/optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsDisplay"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("47_qcrt0")
+expand_mode = 1
+
+[node name="buttonsControls" type="HBoxContainer" parent="WorldEnvironment/CanvasLayer/pauseMenu/optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="buttonSelectLeftOptions" type="TextureRect" parent="WorldEnvironment/CanvasLayer/pauseMenu/optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsControls"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("46_lfy4s")
+expand_mode = 1
+
+[node name="controls" type="Button" parent="WorldEnvironment/CanvasLayer/pauseMenu/optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsControls"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("33_6roa5")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1tgbn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5i7v7")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3qkpg")
+text = "CONTROLS"
+
+[node name="buttonSelectRightOptions" type="TextureRect" parent="WorldEnvironment/CanvasLayer/pauseMenu/optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsControls"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("47_qcrt0")
+expand_mode = 1
+
+[node name="buttonsBack" type="HBoxContainer" parent="WorldEnvironment/CanvasLayer/pauseMenu/optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="buttonSelectLeftExit" type="TextureRect" parent="WorldEnvironment/CanvasLayer/pauseMenu/optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsBack"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("46_lfy4s")
+expand_mode = 1
+
+[node name="back" type="Button" parent="WorldEnvironment/CanvasLayer/pauseMenu/optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsBack"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("33_6roa5")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6roa5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_i63v0")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_507y0")
+text = "BACK"
+
+[node name="buttonSelectRightExit" type="TextureRect" parent="WorldEnvironment/CanvasLayer/pauseMenu/optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsBack"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("47_qcrt0")
+expand_mode = 1
+
+[node name="controlsMenuContainer" type="VBoxContainer" parent="WorldEnvironment/CanvasLayer/pauseMenu"]
+process_mode = 3
+visible = false
+z_index = 3
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="WorldEnvironment/CanvasLayer/pauseMenu/controlsMenuContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="WorldEnvironment/CanvasLayer/pauseMenu/controlsMenuContainer/MarginContainer"]
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="WorldEnvironment/CanvasLayer/pauseMenu/controlsMenuContainer/MarginContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("49_auvgr")
+expand_mode = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="WorldEnvironment/CanvasLayer/pauseMenu/controlsMenuContainer/MarginContainer"]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="buttonMargin" type="MarginContainer" parent="WorldEnvironment/CanvasLayer/pauseMenu/controlsMenuContainer/MarginContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.0
+offset_top = -33.5
+offset_right = 111.0
+offset_bottom = 33.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="buttons" type="VBoxContainer" parent="WorldEnvironment/CanvasLayer/pauseMenu/controlsMenuContainer/MarginContainer/NinePatchRect/buttonMargin"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="buttonsBack" type="HBoxContainer" parent="WorldEnvironment/CanvasLayer/pauseMenu/controlsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="buttonSelectLeftExit" type="TextureRect" parent="WorldEnvironment/CanvasLayer/pauseMenu/controlsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsBack"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("46_lfy4s")
+expand_mode = 1
+
+[node name="back" type="Button" parent="WorldEnvironment/CanvasLayer/pauseMenu/controlsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsBack"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("33_6roa5")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6roa5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_i63v0")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_507y0")
+text = "BACK"
+
+[node name="buttonSelectRightExit" type="TextureRect" parent="WorldEnvironment/CanvasLayer/pauseMenu/controlsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsBack"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("47_qcrt0")
+expand_mode = 1
+
 [node name="EnemyDeath" type="GPUParticles3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.739091, 1.77447, 0)
 process_material = SubResource("ParticleProcessMaterial_lfy4s")
@@ -1180,8 +1445,18 @@ transform_align = 1
 process_material = SubResource("ParticleProcessMaterial_65wlj")
 draw_pass_1 = SubResource("QuadMesh_auvgr")
 
+[node name="EnemyToBoss" type="GPUParticles3D" parent="WorldEnvironment"]
+transform = Transform3D(0.634366, 0, 0.773033, 0, 1, 0, -0.773033, 0, 0.634366, -7.63646, 18.8124, 0.00573015)
+amount = 50
+lifetime = 3.0
+explosiveness = 0.73
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_vs2el")
+draw_pass_1 = SubResource("QuadMesh_qi01s")
+script = ExtResource("51_auvgr")
+
 [node name="WalkingDust" type="GPUParticles3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.06771, 1.08313, 0.413133)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47942, 0.923584, 0.00573015)
 lifetime = 0.2
 explosiveness = 0.7
 process_material = SubResource("ParticleProcessMaterial_ar3t4")
@@ -1189,7 +1464,6 @@ draw_pass_1 = SubResource("QuadMesh_65wlj")
 
 [node name="Dash" type="GPUParticles3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38423, 1.64021)
-emitting = false
 amount = 50
 lifetime = 1.5
 speed_scale = 1.5
@@ -1213,8 +1487,12 @@ draw_pass_1 = SubResource("QuadMesh_65wlj")
 [connection signal="pressed" from="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsResume/resume" to="WorldEnvironment/CanvasLayer/pauseMenu" method="_on_resume_pressed"]
 [connection signal="mouse_entered" from="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsOptions/options" to="WorldEnvironment/CanvasLayer/pauseMenu" method="_on_options_hover_enter"]
 [connection signal="mouse_exited" from="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsOptions/options" to="WorldEnvironment/CanvasLayer/pauseMenu" method="_on_options_hover_exit"]
+[connection signal="pressed" from="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsOptions/options" to="WorldEnvironment/CanvasLayer/pauseMenu" method="_on_options_pressed"]
 [connection signal="mouse_entered" from="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit/exit" to="WorldEnvironment/CanvasLayer/pauseMenu" method="_on_exit_hover_enter"]
 [connection signal="mouse_exited" from="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit/exit" to="WorldEnvironment/CanvasLayer/pauseMenu" method="_on_exit_hover_exit"]
 [connection signal="pressed" from="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit/exit" to="WorldEnvironment/CanvasLayer/pauseMenu" method="_on_exit_pressed"]
+[connection signal="pressed" from="WorldEnvironment/CanvasLayer/pauseMenu/optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsControls/controls" to="WorldEnvironment/CanvasLayer/pauseMenu" method="_on_controls_pressed"]
+[connection signal="pressed" from="WorldEnvironment/CanvasLayer/pauseMenu/optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsBack/back" to="WorldEnvironment/CanvasLayer/pauseMenu" method="_on_back_pressed"]
+[connection signal="pressed" from="WorldEnvironment/CanvasLayer/pauseMenu/controlsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsBack/back" to="WorldEnvironment/CanvasLayer/pauseMenu" method="_on_back_controls_pressed"]
 
 [editable path="WorldEnvironment/Player"]

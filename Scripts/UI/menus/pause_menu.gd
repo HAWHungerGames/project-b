@@ -1,6 +1,8 @@
 extends MarginContainer
 
 @onready var pause_menu = $pauseMenuContainer
+@onready var options_menu = $optionsMenuContainer
+@onready var controls_menu = $controlsMenuContainer
 
 @onready var buttonSelectRightResume = $pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsResume/buttonSelectRightResume
 @onready var buttonSelectLeftResume = $pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsResume/buttonSelectLeftResume
@@ -9,6 +11,10 @@ extends MarginContainer
 @onready var buttonSelectRightExit = $pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit/buttonSelectRightExit
 @onready var buttonSelectLeftExit = $pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit/buttonSelectLeftExit
 @onready var blendScreen = $"../blendScreen"
+
+@onready var buttonsDisplay = $optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsDisplay
+@onready var buttonsControls = $optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsControls
+@onready var buttonsBack = $optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsBack
 
 @onready var resume = $pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsResume/resume
 @onready var options = $pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsOptions/options
@@ -20,16 +26,20 @@ func _input(event):
 		print("pause")
 		if pause_menu.visible:
 			unpause()
+		elif options_menu.visible:
+			_on_back_pressed()
+		elif controls_menu.visible:
+			_on_back_controls_pressed()
 		else:
 			pause()
 
 
 func _on_exit_pressed() -> void:
 	SceneManager.main_scene.emit()
+	pause_menu.z_index = 0
 	var tween = create_tween()
 	tween.tween_property(blendScreen, "modulate:a", 1.0, 1.0)
 	tween.play()
-	pause_menu.z_index = 0
 	await get_tree().create_timer(2).timeout
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Scenes/TitleScreen.tscn")
@@ -38,9 +48,13 @@ func _on_exit_pressed() -> void:
 func _on_resume_pressed() -> void:
 	unpause()
 
+func _on_options_pressed() -> void:
+	pause_menu.visible = false
+	options_menu.visible = true
+	
 func fadeSceneIn():
 	var tween = create_tween()
-	tween.tween_property(blendScreen, "modulate:a", 0.4, 0.1)
+	tween.tween_property(blendScreen, "modulate:a", 0.6, 0.1)
 	tween.play()
 	var resume_mouse_pos = resume.get_local_mouse_position()
 	var options_mouse_pos = options.get_local_mouse_position()
@@ -108,3 +122,18 @@ func _on_exit_hover_enter() -> void:
 func _on_exit_hover_exit() -> void:
 	buttonSelectLeftExit.modulate.a = 0.0
 	buttonSelectRightExit.modulate.a = 0.0
+
+
+func _on_back_pressed() -> void:
+	options_menu.visible = false
+	pause_menu.visible = true
+
+
+func _on_controls_pressed() -> void:
+	options_menu.visible = false
+	controls_menu.visible = true
+
+
+func _on_back_controls_pressed() -> void:
+	options_menu.visible = true
+	controls_menu.visible = false

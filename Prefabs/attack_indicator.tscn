@@ -1,0 +1,116 @@
+[gd_scene load_steps=7 format=3 uid="uid://nx0urgbw7hdy"]
+
+[ext_resource type="Script" uid="uid://bjoimqyyior8g" path="res://Scripts/UI/beam.gd" id="2_qbqox"]
+
+[sub_resource type="Shader" id="Shader_ytcms"]
+code = "shader_type canvas_item;
+
+uniform vec4 beam_color : source_color = vec4(1.0, 0.2, 0.2, 0.8);
+uniform float pulse_speed = 3.0;
+uniform float pulse_intensity = 0.5;
+uniform float edge_fade_sharpness = 0.8;
+uniform float width_taper = 0.5;
+uniform float flicker_speed = 10.0;
+uniform float flicker_intensity = 0.1;
+
+void fragment() {
+    // Calculate distance from center (horizontally)
+    float center_distance = abs(UV.x - 0.5) * 2.0;
+    
+    // Create width taper effect (thinner at edges)
+    float taper = 1.0 - pow(center_distance, width_taper);
+    
+    // Create vertical fade for edges
+    float edge_fade = 1.0 - 2.0 * abs(UV.y - 0.5);
+    edge_fade = smoothstep(0.0, edge_fade_sharpness, edge_fade);
+    
+    // Pulsing effect
+    float pulse = (sin(TIME * pulse_speed) * 0.5 + 0.5) * pulse_intensity + (1.0 - pulse_intensity);
+    
+    // Add random flicker for warning effect
+    float flicker = sin(TIME * flicker_speed * 1.7) * sin(TIME * flicker_speed * 2.3) * flicker_intensity + 1.0;
+    
+    // Combine effects
+    float alpha = edge_fade * taper * pulse * flicker;
+    
+    // Apply to color
+    vec4 final_color = beam_color;
+    final_color.a *= alpha;
+    
+    COLOR = final_color;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uyhdc"]
+shader = SubResource("Shader_ytcms")
+shader_parameter/beam_color = Color(1, 0.2, 0.2, 1)
+shader_parameter/pulse_speed = 3.21
+shader_parameter/pulse_intensity = -0.555
+shader_parameter/edge_fade_sharpness = 1.125
+shader_parameter/width_taper = 1.99
+shader_parameter/flicker_speed = 10.0
+shader_parameter/flicker_intensity = 0.1
+
+[sub_resource type="Shader" id="Shader_us6mg"]
+code = "shader_type canvas_item;
+
+uniform vec4 base_color : source_color = vec4(1.0, 0.2, 0.2, 0.8);
+uniform vec4 flash_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float flash_amount : hint_range(0.0, 1.0) = 0.0;
+uniform float width_taper = 3.0;  // More aggressive taper (red line in graph)
+uniform float edge_fade_sharpness = 0.8;
+
+void fragment() {
+    // Calculate distance from center (horizontally)
+    float center_distance = abs(UV.x - 0.5) * 2.0;
+    
+    // Create width taper effect (thinner at edges)
+    float taper = 1.0 - pow(center_distance, width_taper);
+    
+    // Create vertical fade for edges
+    float edge_fade = 1.0 - 2.0 * abs(UV.y - 0.5);
+    edge_fade = smoothstep(0.0, edge_fade_sharpness, edge_fade);
+    
+    // Combine for alpha
+    float alpha = edge_fade * taper;
+    
+    // Interpolate between base color and flash color
+    vec4 final_color = mix(base_color, flash_color, flash_amount);
+    final_color.a *= alpha;
+    
+    COLOR = final_color;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qbqox"]
+shader = SubResource("Shader_us6mg")
+shader_parameter/base_color = Color(1, 0.2, 0.2, 0.8)
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_amount = 0.767
+shader_parameter/width_taper = 4.545
+shader_parameter/edge_fade_sharpness = 0.385
+
+[sub_resource type="Curve" id="Curve_qbqox"]
+_data = [Vector2(0, 0.157303), 0.0, 0.0, 0, 0, Vector2(0.504545, 0.292135), 0.0, 0.0, 0, 0, Vector2(1, 0.146068), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="AttackIndicator" type="Node2D"]
+
+[node name="Beam" type="Line2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+z_index = 4
+material = SubResource("ShaderMaterial_uyhdc")
+points = PackedVector2Array(0, 0, 50, 0, 100, 0)
+texture_mode = 2
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("2_qbqox")
+
+[node name="Glow" type="Line2D" parent="Beam"]
+z_index = 3
+material = SubResource("ShaderMaterial_qbqox")
+points = PackedVector2Array(0, 0, 50, 0, 100, 0)
+width = 3.0
+width_curve = SubResource("Curve_qbqox")
+texture_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
