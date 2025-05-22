@@ -23,10 +23,9 @@ rotationType = "rotation based on right joystick"
 dashType = "dash with stamina"
 cameraFollowSpeed = 0.078
 
-[node name="Controller" type="CharacterBody3D" parent="." node_paths=PackedStringArray("settings", "playerShape")]
+[node name="Controller" type="CharacterBody3D" parent="." node_paths=PackedStringArray("playerShape")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.06884, 0)
 script = ExtResource("2_x3wgy")
-settings = NodePath("..")
 playerShape = NodePath("Model")
 
 [node name="Model" type="CollisionShape3D" parent="Controller"]
@@ -55,13 +54,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 7)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Controller/Area3D"]
 shape = SubResource("CapsuleShape3D_pbfqo")
 
-[node name="DebugUI" type="Control" parent="." node_paths=PackedStringArray("settings", "controller", "input", "xyz", "speed", "sneaking", "inDetectionArea", "inHidingArea", "detected", "hidden", "health", "stamina", "mana")]
+[node name="DebugUI" type="Control" parent="." node_paths=PackedStringArray("controller", "input", "xyz", "speed", "sneaking", "inDetectionArea", "inHidingArea", "detected", "hidden", "health", "stamina", "mana")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1150.0
 offset_bottom = 646.0
 script = ExtResource("5_f1ek2")
-settings = NodePath("..")
 controller = NodePath("../Controller")
 input = NodePath("GridContainer/Input2/RichTextLabel")
 xyz = NodePath("GridContainer/XYZ2/RichTextLabel")
