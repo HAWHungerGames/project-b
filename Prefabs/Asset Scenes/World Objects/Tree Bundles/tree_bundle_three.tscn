@@ -1,0 +1,78 @@
+[gd_scene load_steps=9 format=3 uid="uid://b4loplqq48y32"]
+
+[ext_resource type="PackedScene" uid="uid://cnrgjwnqfq1xv" path="res://Models/Nature/Baum/tree.blend" id="1_qv7hx"]
+[ext_resource type="PackedScene" uid="uid://db3ndiywdtl3x" path="res://Models/Nature/Baum/baumstamm1.blend" id="2_hr815"]
+[ext_resource type="PackedScene" uid="uid://cxviwc5p4xfp4" path="res://Models/Nature/Plants/piltz.blend" id="3_qlw68"]
+[ext_resource type="PackedScene" uid="uid://bkeeak7jos355" path="res://Models/Nature/Baum/baumast.blend" id="4_85cp5"]
+[ext_resource type="PackedScene" uid="uid://4u43ho0i5epx" path="res://Prefabs/Asset Scenes/World Objects/Nature/Mushrooms/mushroom_many.tscn" id="5_y73rb"]
+[ext_resource type="PackedScene" uid="uid://csnk7g6sii6ps" path="res://Models/Nature/Rocks/RockOne.blend" id="6_tf521"]
+[ext_resource type="PackedScene" uid="uid://6638cx8kjoqg" path="res://Models/Nature/Rocks/RockTwo.blend" id="7_2q1yw"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yey8x"]
+size = Vector2(5, 5)
+
+[node name="TreeBundleThree" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("PlaneMesh_yey8x")
+
+[node name="tree" parent="." instance=ExtResource("1_qv7hx")]
+transform = Transform3D(0.902382, 0, 0.430936, 0, 1, 0, -0.430936, 0, 0.902382, -1.3099, 0.114345, -1.26747)
+
+[node name="baumstamm1" parent="." instance=ExtResource("2_hr815")]
+transform = Transform3D(0.478414, 0, -0.145326, 0, 0.5, 0, 0.145326, 0, 0.478414, 0.495377, 0.232612, -1.67236)
+
+[node name="piltz" parent="baumstamm1" instance=ExtResource("3_qlw68")]
+transform = Transform3D(0.956829, 0, 0.290652, 0, 1, 0, -0.290652, 0, 0.956829, 1.862, 0.306006, 0.11201)
+
+[node name="piltz2" parent="baumstamm1" instance=ExtResource("3_qlw68")]
+transform = Transform3D(0.480545, 0.0815524, -0.634371, -0.26148, 0.749181, -0.101763, 0.583699, 0.268471, 0.476674, 1.13514, 0.306006, 0.136828)
+
+[node name="piltz3" parent="baumstamm1" instance=ExtResource("3_qlw68")]
+transform = Transform3D(0.225427, 0.27036, 0.718392, -0.00862743, 0.749578, -0.279389, -0.767534, 0.0709802, 0.214135, 0.296604, 0.306006, 0.110247)
+
+[node name="piltz4" parent="baumstamm1" instance=ExtResource("3_qlw68")]
+transform = Transform3D(-0.0368902, 0.013399, -0.39807, 0.0884795, 0.39006, 0.00492973, 0.388343, -0.0875979, -0.0389374, 0.73316, 0.46081, -0.147839)
+
+[node name="baumstamm2" parent="." instance=ExtResource("2_hr815")]
+transform = Transform3D(0.249709, -0.194428, -0.387096, 0.286811, 0.40905, -0.0204381, 0.32463, -0.211839, 0.315815, 1.491, 0.232612, 1.0177)
+
+[node name="piltz" parent="baumstamm2" instance=ExtResource("3_qlw68")]
+transform = Transform3D(0.956829, 0, 0.290652, 0, 1, 0, -0.290652, 0, 0.956829, 1.862, 0.306006, 0.11201)
+
+[node name="piltz2" parent="baumstamm2" instance=ExtResource("3_qlw68")]
+transform = Transform3D(0.480545, 0.0815524, -0.634371, -0.26148, 0.749181, -0.101763, 0.583699, 0.268471, 0.476674, 1.13514, 0.306006, 0.136828)
+
+[node name="piltz3" parent="baumstamm2" instance=ExtResource("3_qlw68")]
+transform = Transform3D(0.225427, 0.27036, 0.718392, -0.00862743, 0.749578, -0.279389, -0.767534, 0.0709802, 0.214135, 0.296604, 0.306006, 0.110247)
+
+[node name="piltz4" parent="baumstamm2" instance=ExtResource("3_qlw68")]
+transform = Transform3D(-0.0368902, 0.013399, -0.39807, 0.0884795, 0.39006, 0.00492973, 0.388343, -0.0875979, -0.0389374, 0.73316, 0.46081, -0.147839)
+
+[node name="baumast" parent="." instance=ExtResource("4_85cp5")]
+transform = Transform3D(0.138782, -0.0640881, 0.988247, 0.189859, 0.981115, 0.0369633, -0.971953, 0.182497, 0.148329, -0.165296, 0.414396, -0.807721)
+
+[node name="MushroomMany" parent="." instance=ExtResource("5_y73rb")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.258798, 0.0261045, -1.41344)
+
+[node name="tree2" parent="." instance=ExtResource("1_qv7hx")]
+transform = Transform3D(-0.719573, 0, 0.349592, 0, 0.8, 0, -0.349592, 0, -0.719573, 0.974872, 0, 0.166326)
+
+[node name="RockOne" parent="." instance=ExtResource("6_tf521")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.486378, 0, 1.02587)
+
+[node name="RockTwo" parent="." instance=ExtResource("7_2q1yw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.53442, 0, 1.4134)
+
+[node name="RockTwo2" parent="." instance=ExtResource("7_2q1yw")]
+transform = Transform3D(-0.998062, 0, -0.0622332, 0, 1, 0, 0.0622332, 0, -0.998062, 1.49077, 0, 1.94744)
+
+[node name="RockOne2" parent="." instance=ExtResource("6_tf521")]
+transform = Transform3D(-0.187418, 0.326089, 0.926575, 0.867001, 0.498306, 0, -0.461718, 0.803341, -0.376111, -0.986597, 0, 2.13355)
+
+[node name="tree3" parent="." instance=ExtResource("1_qv7hx")]
+transform = Transform3D(-0.131086, 0, 0.482511, 0, 0.5, 0, -0.482511, 0, -0.131086, 0.0755873, 2.38419e-07, 1.55556)
+
+[node name="tree4" parent="." instance=ExtResource("1_qv7hx")]
+transform = Transform3D(0.607915, 0, 0.916755, 0, 1.1, 0, -0.916755, 0, 0.607915, -1.36772, 0, 0.205837)

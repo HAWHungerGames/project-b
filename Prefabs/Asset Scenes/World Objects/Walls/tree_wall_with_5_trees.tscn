@@ -1,15 +1,15 @@
 [gd_scene load_steps=9 format=3 uid="uid://ck4rfnlyd0qgp"]
 
-[ext_resource type="PackedScene" uid="uid://dpk5yryax4sqk" path="res://Models/Nature/Baum.blend" id="1_6dkop"]
-[ext_resource type="PackedScene" uid="uid://b2yj7ykigia5t" path="res://Prefabs/Asset Scenes/World Objects/Nature/bush_sphere.tscn" id="2_bsgvw"]
-[ext_resource type="PackedScene" uid="uid://6638cx8kjoqg" path="res://Models/Nature/RockTwo.blend" id="3_1jb35"]
-[ext_resource type="PackedScene" uid="uid://bbunaqymstlo4" path="res://Prefabs/Asset Scenes/World Objects/Nature/rock_one.tscn" id="4_bsgvw"]
-[ext_resource type="PackedScene" uid="uid://dcwv501p00np7" path="res://Prefabs/Asset Scenes/World Objects/Nature/monstera_bush.tscn" id="5_7uixu"]
-[ext_resource type="PackedScene" uid="uid://4u43ho0i5epx" path="res://Prefabs/Asset Scenes/World Objects/Nature/mushroom_many.tscn" id="6_d78m5"]
-[ext_resource type="PackedScene" uid="uid://bwwem0bl1hx05" path="res://Prefabs/Asset Scenes/World Objects/Nature/plant_with_purple.tscn" id="7_ah25c"]
+[ext_resource type="PackedScene" uid="uid://dpk5yryax4sqk" path="res://Models/Nature/Baum/Baum.blend" id="1_6dkop"]
+[ext_resource type="PackedScene" uid="uid://b2yj7ykigia5t" path="res://Prefabs/Asset Scenes/World Objects/Nature/Plants/bush_sphere.tscn" id="2_bsgvw"]
+[ext_resource type="PackedScene" uid="uid://6638cx8kjoqg" path="res://Models/Nature/Rocks/RockTwo.blend" id="3_1jb35"]
+[ext_resource type="PackedScene" uid="uid://bbunaqymstlo4" path="res://Prefabs/Asset Scenes/World Objects/Nature/Rocks/rock_one.tscn" id="4_bsgvw"]
+[ext_resource type="PackedScene" uid="uid://dcwv501p00np7" path="res://Prefabs/Asset Scenes/World Objects/Nature/Plants/monstera_bush.tscn" id="5_7uixu"]
+[ext_resource type="PackedScene" uid="uid://4u43ho0i5epx" path="res://Prefabs/Asset Scenes/World Objects/Nature/Mushrooms/mushroom_many.tscn" id="6_d78m5"]
+[ext_resource type="PackedScene" uid="uid://bwwem0bl1hx05" path="res://Prefabs/Asset Scenes/World Objects/Nature/Plants/plant_with_purple.tscn" id="7_ah25c"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bcokc"]
-size = Vector3(5.2926, 4.22798, 2.62524)
+size = Vector3(5.2926, 4.22798, 1.75061)
 
 [node name="TreeWallWith5Trees" type="StaticBody3D"]
 

@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://cj7akhhfbs1ay"]
+
+[ext_resource type="PackedScene" uid="uid://bclu2cgnf3q2d" path="res://Models/Nature/Rankengrass/Grass.blend" id="1_56ow2"]
+
+[node name="GrassPlant" type="Node3D"]
+
+[node name="Grass2" parent="." instance=ExtResource("1_56ow2")]
+
+[node name="Skeleton3D" parent="Grass2/Grass" index="0"]
+bones/0/rotation = Quaternion(0.0923653, 0.00514365, 0.0621828, 0.993768)
+bones/1/rotation = Quaternion(-0.0841656, -0.0164314, -0.228429, 0.969776)
+bones/2/rotation = Quaternion(-0.144141, -0.0412645, 0.262751, 0.953144)
+bones/3/rotation = Quaternion(0.0957578, -0.00858176, -0.0884699, 0.991428)
+bones/4/rotation = Quaternion(-0.210101, -0.00554177, 0.210216, 0.954797)
+bones/5/rotation = Quaternion(0.084281, 0.0200468, -0.143102, 0.985909)
+bones/6/rotation = Quaternion(-0.103736, 0.00720131, -0.0681855, 0.992239)
+bones/7/rotation = Quaternion(0.119313, -0.0179309, 0.206643, 0.970949)
+bones/8/rotation = Quaternion(0.105519, -0.0379626, -0.261121, 0.95877)
+bones/9/rotation = Quaternion(-0.0823423, 0.00778963, -0.0922511, 0.992295)
+bones/10/rotation = Quaternion(0.167718, 0.000795608, 0.200096, 0.965314)
+bones/11/rotation = Quaternion(-0.0133249, -0.00642981, -0.0402032, 0.999082)
+bones/12/rotation = Quaternion(0.115166, 0.00375594, 0.0328812, 0.992795)
+bones/13/rotation = Quaternion(-0.153686, -0.0116478, -0.167819, 0.973695)
+bones/14/rotation = Quaternion(-0.0701833, -0.0358804, 0.226026, 0.970927)
+
+[node name="AnimationPlayer" parent="Grass2" index="1"]
+autoplay = "im-Wind-wehen"
+
+[editable path="Grass2"]

@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://c4pocta6ava2v"]
+[gd_scene load_steps=4 format=3 uid="uid://c4pocta6ava2v"]
 
 [ext_resource type="PackedScene" uid="uid://dp6ux0i73txnx" path="res://Models/Objects/zielscheibe.blend" id="1_enhmf"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_54gqj"]
 height = 0.260742
 radius = 0.988281
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xcjoi"]
+size = Vector3(2.375, 1, 0.75)
 
 [node name="trainingDummyRangedStand" type="StaticBody3D" groups=["TargetDummy"]]
 
@@ -22,6 +25,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.764609, 0.861036, 0.067045
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.284015, -0.95882, 0, 0.95882, 0.284015, 0, 1.05, 0)
 shape = SubResource("CylinderShape3D_54gqj")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.484268, 0.034236)
+shape = SubResource("BoxShape3D_xcjoi")
 
 [node name="DamageNumbersPosition" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07043, 0.384031)

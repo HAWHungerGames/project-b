@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://cgjm04fx7b74y"]
+
+[ext_resource type="PackedScene" uid="uid://bkeeak7jos355" path="res://Models/Nature/Baum/baumast.blend" id="1_w45d2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nwt7l"]
+size = Vector3(0.908714, 0.326019, 0.304199)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lpjij"]
+size = Vector3(0.70974, 0.352081, 0.304199)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l5m21"]
+size = Vector3(0.851995, 0.352081, 0.304199)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tssnn"]
+size = Vector3(0.161065, 0.612373, 0.662262)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4v41s"]
+size = Vector3(0.310286, 0.472063, 0.457539)
+
+[node name="TreeBranch" type="StaticBody3D"]
+
+[node name="baumast" parent="." instance=ExtResource("1_w45d2")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.9942, 0, 0.107548, 0, 1, 0, -0.107548, 0, 0.9942, 0.837106, -0.0166168, 0.0406599)
+shape = SubResource("BoxShape3D_nwt7l")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.984777, 0, -0.17382, 0, 1, 0, 0.17382, 0, 0.984777, 0.069621, -0.00788879, 0.00395516)
+shape = SubResource("BoxShape3D_lpjij")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.94277, 0, 0.333445, 0, 1, 0, -0.333445, 0, 0.94277, -0.591283, -0.00788879, 0.0803033)
+shape = SubResource("BoxShape3D_l5m21")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.23625, -0.000720978, 0.0989082)
+shape = SubResource("BoxShape3D_tssnn")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03348, 0.00337696, 0.190997)
+shape = SubResource("BoxShape3D_4v41s")

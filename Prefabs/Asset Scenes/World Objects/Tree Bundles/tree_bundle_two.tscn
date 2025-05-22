@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://blbfv3allw2s6"]
+
+[ext_resource type="PackedScene" uid="uid://brlysjr2dhrpx" path="res://Models/Nature/Plants/Bush2.blend" id="1_642da"]
+[ext_resource type="PackedScene" uid="uid://box3iqujt7rt4" path="res://Models/Nature/Plants/Bush.blend" id="2_na1vh"]
+[ext_resource type="PackedScene" uid="uid://dpk5yryax4sqk" path="res://Models/Nature/Baum/Baum.blend" id="3_vsthn"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_sgs1a"]
+size = Vector2(5, 5)
+
+[node name="TreeBundleTwo" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("PlaneMesh_sgs1a")
+
+[node name="Bush2" parent="." instance=ExtResource("1_642da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.662786, -1.19209e-07, 0.0106101)
+
+[node name="Bush3" parent="." instance=ExtResource("1_642da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0485538, 0, -0.741399)
+
+[node name="Bush4" parent="." instance=ExtResource("1_642da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.08454, 0, 0.786708)
+
+[node name="Bush" parent="." instance=ExtResource("2_na1vh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.623389, -1.19209e-07, -0.741143)
+
+[node name="Bush5" parent="." instance=ExtResource("2_na1vh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1459, 0, 0.239856)
+
+[node name="Baum" parent="." instance=ExtResource("3_vsthn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.461398, -1.19209e-07, 1.18576)
+
+[node name="Baum2" parent="." instance=ExtResource("3_vsthn")]
+transform = Transform3D(0.552798, 0, -1.06509, 0, 1.2, 0, 1.06509, 0, 0.552798, 1.34039, 0, 0.162991)
+
+[node name="Baum3" parent="." instance=ExtResource("3_vsthn")]
+transform = Transform3D(0.572203, 0, 0.820112, 0, 1, 0, -0.820112, 0, 0.572203, -0.643321, 2.38419e-07, 1.73729)
+
+[node name="Baum4" parent="." instance=ExtResource("3_vsthn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.22593, 0, -1.53483)
+
+[node name="Baum5" parent="." instance=ExtResource("3_vsthn")]
+transform = Transform3D(0.553342, 0, 0.577766, 0, 0.8, 0, -0.577766, 0, 0.553342, 1.50696, 2.38419e-07, 1.70505)
+
+[node name="Baum6" parent="." instance=ExtResource("3_vsthn")]
+transform = Transform3D(0.451134, 0, 1.43055, 0, 1.5, 0, -1.43055, 0, 0.451134, -1.45086, 0, -1.34552)

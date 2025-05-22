@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1dysh2rbufpr"]
+
+[ext_resource type="PackedScene" uid="uid://b55acphbhi0h2" path="res://Models/Nature/Wegsteine/PathStone1.blend" id="1_cawpp"]
+
+[node name="PathStoneOne" type="Node3D"]
+
+[node name="PathStone1" parent="." instance=ExtResource("1_cawpp")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)

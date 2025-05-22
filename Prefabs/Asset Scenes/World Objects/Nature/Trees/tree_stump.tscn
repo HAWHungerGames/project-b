@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://6m7mxx37ucf2"]
+
+[ext_resource type="PackedScene" uid="uid://db3ndiywdtl3x" path="res://Models/Nature/Baum/baumstamm1.blend" id="1_8cp7i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_famio"]
+size = Vector3(2.49219, 0.491943, 0.481445)
+
+[node name="TreeStump" type="StaticBody3D"]
+
+[node name="baumstamm1" parent="." instance=ExtResource("1_8cp7i")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_famio")
