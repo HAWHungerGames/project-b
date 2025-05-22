@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=3 uid="uid://d15uedqpojt2g"]
+
+[ext_resource type="PackedScene" uid="uid://y6ehg3r5suf5" path="res://Models/Objects/Baumstumpf.blend" id="1_vgs3g"]
+[ext_resource type="PackedScene" uid="uid://db3ndiywdtl3x" path="res://Models/Nature/Baum/baumstamm1.blend" id="2_sbfu0"]
+[ext_resource type="PackedScene" uid="uid://badybmc5288d" path="res://Models/Nature/Baum/baumstammStapel.blend" id="3_k0u2w"]
+[ext_resource type="PackedScene" uid="uid://b4ushremwkeg6" path="res://Prefabs/Asset Scenes/World Objects/Nature/Trees/tree_stump_with_mushrooms.tscn" id="4_iny8e"]
+[ext_resource type="PackedScene" uid="uid://4u43ho0i5epx" path="res://Prefabs/Asset Scenes/World Objects/Nature/Mushrooms/mushroom_many.tscn" id="5_k0ite"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bj4b0"]
+size = Vector2(5, 5)
+
+[node name="TreeBundleSeven" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("PlaneMesh_bj4b0")
+
+[node name="Baumstumpf" parent="." instance=ExtResource("1_vgs3g")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.396487, 1.19209e-07, -0.523469)
+
+[node name="Baumstumpf2" parent="." instance=ExtResource("1_vgs3g")]
+transform = Transform3D(0.239808, 0, -0.180256, 0, 0.3, 0, 0.180256, 0, 0.239808, 0.0322539, 1.19209e-07, 0.475578)
+
+[node name="Baumstumpf3" parent="." instance=ExtResource("1_vgs3g")]
+transform = Transform3D(0.291206, 0, -0.072104, 0, 0.3, 0, 0.072104, 0, 0.291206, 0.824397, 1.19209e-07, -0.499074)
+
+[node name="Baumstumpf4" parent="." instance=ExtResource("1_vgs3g")]
+transform = Transform3D(0.485344, 0, -0.120173, 0, 0.5, 0, 0.120173, 0, 0.485344, 0.813741, 1.19209e-07, 1.35767)
+
+[node name="Baumstumpf5" parent="." instance=ExtResource("1_vgs3g")]
+transform = Transform3D(0.350623, 0, -0.35646, 0, 0.5, 0, 0.35646, 0, 0.350623, -1.31612, 3.57628e-07, -1.59365)
+
+[node name="Baumstumpf6" parent="." instance=ExtResource("1_vgs3g")]
+transform = Transform3D(0.140249, 0, -0.142584, 0, 0.2, 0, 0.142584, 0, 0.140249, -1.37068, 3.57628e-07, 0.365723)
+
+[node name="Baumstumpf7" parent="." instance=ExtResource("1_vgs3g")]
+transform = Transform3D(0.140249, 0, -0.142584, 0, 0.2, 0, 0.142584, 0, 0.140249, 1.17498, 3.57628e-07, 0.223516)
+
+[node name="Baumstumpf8" parent="." instance=ExtResource("1_vgs3g")]
+transform = Transform3D(0.140249, 0, -0.142584, 0, 0.2, 0, 0.142584, 0, 0.140249, 0.222602, 3.57628e-07, -1.55719)
+
+[node name="Baumstumpf9" parent="." instance=ExtResource("1_vgs3g")]
+transform = Transform3D(0.280498, 0, -0.285168, 0, 0.4, 0, 0.285168, 0, 0.280498, 1.22496, 3.57628e-07, -1.58396)
+
+[node name="Baumstumpf10" parent="." instance=ExtResource("1_vgs3g")]
+transform = Transform3D(0.140249, 0, -0.142584, 0, 0.2, 0, 0.142584, 0, 0.140249, -0.640729, 5.96046e-07, 0.994189)
+
+[node name="Baumstumpf11" parent="." instance=ExtResource("1_vgs3g")]
+transform = Transform3D(0.140249, 0, -0.142584, 0, 0.2, 0, 0.142584, 0, 0.140249, -1.38448, 5.96046e-07, 1.14901)
+
+[node name="baumstamm1" parent="." instance=ExtResource("2_sbfu0")]
+transform = Transform3D(0.293035, 0, 0.0642672, 0, 0.3, 0, -0.0642672, 0, 0.293035, -0.996476, 0.338217, 1.06973)
+
+[node name="baumstammStapel" parent="." instance=ExtResource("3_k0u2w")]
+transform = Transform3D(0.288918, 0, 0.0807869, 0, 0.3, 0, -0.0807869, 0, 0.288918, -0.912586, 0.112913, 1.75383)
+
+[node name="TreeStumpWithMushrooms" parent="." instance=ExtResource("4_iny8e")]
+transform = Transform3D(0.547454, 0, -0.583347, 0, 0.8, 0, 0.583347, 0, 0.547454, -1.2008, 0.119733, -0.214633)
+
+[node name="TreeStumpWithMushrooms2" parent="." instance=ExtResource("4_iny8e")]
+transform = Transform3D(0.039744, -0.0180563, -0.798808, 0.330903, 0.728356, -5.80636e-09, 0.727271, -0.33041, 0.0436534, 0.0259355, 0.251097, -0.349734)
+
+[node name="MushroomMany" parent="." instance=ExtResource("5_k0ite")]
+transform = Transform3D(0.398587, 0, 0.301875, 0, 0.5, 0, -0.301875, 0, 0.398587, 0.811435, 0.300071, -0.437626)
+
+[node name="MushroomMany5" parent="." instance=ExtResource("5_k0ite")]
+transform = Transform3D(-0.22264, 0, 0.332312, 0, 0.4, 0, -0.332312, 0, -0.22264, 0.678308, 0.00743127, 0.253762)
+
+[node name="MushroomMany2" parent="." instance=ExtResource("5_k0ite")]
+transform = Transform3D(0.159435, 0, 0.12075, 0, 0.2, 0, -0.12075, 0, 0.159435, 1.01432, 0.275983, -0.537593)
+
+[node name="MushroomMany3" parent="." instance=ExtResource("5_k0ite")]
+transform = Transform3D(-0.0686074, 0, -0.187864, 0, 0.2, 0, 0.187864, 0, -0.0686074, 0.167644, 0.30341, 0.51224)
+
+[node name="MushroomMany4" parent="." instance=ExtResource("5_k0ite")]
+transform = Transform3D(-0.100618, 0.154423, -0.0776506, 0.0349701, 0.106178, 0.165841, 0.169272, 0.0698558, -0.080418, 0.309657, 0.231034, 0.51224)
