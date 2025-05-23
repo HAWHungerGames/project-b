@@ -1,7 +1,7 @@
 [gd_scene load_steps=35 format=3 uid="uid://uafprr7riwjm"]
 
 [ext_resource type="Script" uid="uid://fxahdnlqqgci" path="res://Scripts/Enemy Scripts/EnemyMelee.gd" id="1_a0bld"]
-[ext_resource type="PackedScene" uid="uid://dodp8sqamr6v2" path="res://Models/Enemies/Purple Mushroom Enemy/purple_enemy.blend" id="3_3nap6"]
+[ext_resource type="PackedScene" uid="uid://dl0b8wl8o6knn" path="res://Models/Enemies/Purple Mushroom Enemy/purple_enemy.blend" id="3_3nap6"]
 [ext_resource type="Texture2D" uid="uid://bvh4cxocd5ab8" path="res://Assets/Kenney Particles Transparent Background/dirt_01.png" id="3_p63bo"]
 [ext_resource type="Texture2D" uid="uid://co6wmanklpgl3" path="res://UI/Particles/ParticleDust.png" id="4_03kpj"]
 [ext_resource type="Script" uid="uid://cq485d4lp3x4t" path="res://Scripts/UI/death_spores.gd" id="5_qq2hi"]

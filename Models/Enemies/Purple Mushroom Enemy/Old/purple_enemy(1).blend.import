@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://k88cb4g5rk3c"
-path="res://.godot/imported/Burt3.blend-a21299f8881dcf3e42a75b6c07fe941c.scn"
+uid="uid://claqlj1b1migf"
+path="res://.godot/imported/purple_enemy(1).blend-1d7423a7edf33578d14fbc53a3dd6de0.scn"
 
 [deps]
 
-source_file="res://Models/Burt3.blend"
-dest_files=["res://.godot/imported/Burt3.blend-a21299f8881dcf3e42a75b6c07fe941c.scn"]
+source_file="res://Models/Enemies/Purple Mushroom Enemy/Old/purple_enemy(1).blend"
+dest_files=["res://.godot/imported/purple_enemy(1).blend-1d7423a7edf33578d14fbc53a3dd6de0.scn"]
 
 [params]
 
