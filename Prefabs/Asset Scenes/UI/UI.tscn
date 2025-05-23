@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://cytkpf563uyiu"]
+[gd_scene load_steps=56 format=3 uid="uid://cytkpf563uyiu"]
 
 [ext_resource type="Texture2D" uid="uid://b56g56co15oce" path="res://UI/Weapons/WeaponSlotFrame2.png" id="1_smxpu"]
 [ext_resource type="Script" uid="uid://jrwxn4jas2ej" path="res://Scripts/UI/weapon_slots.gd" id="2_rmcs1"]
@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://5yw52orkntao" path="res://UI/Stats/EnemyHealthbarUnderneath.png" id="29_wjqcv"]
 [ext_resource type="Texture2D" uid="uid://bngudf21uy2u1" path="res://UI/Stats/EnemyHealthbarFrame.png" id="30_glxls"]
 [ext_resource type="Texture2D" uid="uid://derd3hnc5uoux" path="res://UI/Stats/EnemyHealthbarDamageBar.png" id="31_suuof"]
+[ext_resource type="Texture2D" uid="uid://b67sgvs236paw" path="res://Assets/Kenney Particles Transparent Background/circle_05.png" id="32_gkfcp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8ekee"]
 shader = ExtResource("7_gkfcp")
@@ -120,6 +121,51 @@ shader_parameter/flash_color = Color(1, 1, 1, 1)
 shader_parameter/flash_amount = 0.0
 shader_parameter/width_taper = 3.0
 shader_parameter/edge_fade_sharpness = 0.8
+
+[sub_resource type="Curve" id="Curve_wjqcv"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 2.28583), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_g5dpn"]
+curve = SubResource("Curve_wjqcv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_glxls"]
+lifetime_randomness = 0.2
+particle_flag_align_y = true
+emission_shape_scale = Vector3(1, 1, 0.5)
+emission_shape = 1
+emission_sphere_radius = 0.2
+direction = Vector3(0, 0, 0)
+gravity = Vector3(0, 0.1, 0)
+scale_min = 0.2
+scale_curve = SubResource("CurveTexture_g5dpn")
+color = Color(1, 0.808, 0.68, 1)
+hue_variation_min = -2.23517e-08
+hue_variation_max = 0.05
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hxcvp"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0, 0, 1)
+albedo_texture = ExtResource("32_gkfcp")
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 0.5
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_suuof"]
+material = SubResource("StandardMaterial3D_hxcvp")
+size = Vector2(0.4, 0.4)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dreqj"]
+emission_shape_scale = Vector3(0.5, 1, 0.5)
+emission_shape = 1
+emission_sphere_radius = 0.5
+gravity = Vector3(0, 0.1, 0)
 
 [node name="SörenUI" type="Control"]
 layout_mode = 3
@@ -564,7 +610,6 @@ layout_mode = 2
 
 [node name="EnemyHealthbarViewport2" type="SubViewport" parent="."]
 transparent_bg = true
-texture_mipmap_bias = 1.0
 size = Vector2i(1920, 1080)
 size_2d_override = Vector2i(720, 500)
 render_target_update_mode = 4
@@ -592,6 +637,23 @@ nine_patch_stretch = true
 texture_under = ExtResource("29_wjqcv")
 texture_over = ExtResource("30_glxls")
 texture_progress = ExtResource("31_suuof")
+
+[node name="AttackIndicatorBottom" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -0.0784874, 2.38778, 0.523886)
+emitting = false
+amount = 50
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_glxls")
+draw_pass_1 = SubResource("QuadMesh_suuof")
+
+[node name="AttackIndicatorBottom2" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -0.0784874, 3.46959, 0.523886)
+emitting = false
+amount = 150
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_dreqj")
+draw_pass_1 = SubResource("QuadMesh_suuof")
 
 [connection signal="timeout" from="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/health/timer" to="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_health_timer_timeout"]
 [connection signal="timeout" from="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina/timer" to="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_stamina_timer_timeout"]
