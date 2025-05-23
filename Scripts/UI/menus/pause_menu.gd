@@ -1,8 +1,9 @@
 extends MarginContainer
 
 @onready var pause_menu = $pauseMenuContainer
-@onready var options_menu = $optionsMenuContainer
-@onready var controls_menu = $controlsMenuContainer
+@onready var options_menu = $Options
+@onready var controls_menu = $Controls
+@onready var display_menu = $Display
 
 @onready var buttonSelectRightResume = $pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsResume/buttonSelectRightResume
 @onready var buttonSelectLeftResume = $pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsResume/buttonSelectLeftResume
@@ -76,64 +77,64 @@ func fadeSceneIn():
 		_on_resume_hover_exit()
 		_on_options_hover_exit()
 		_on_exit_hover_exit()
-	
+
 func fadeSceneOut():
 	var tween = create_tween()
 	tween.tween_property(blendScreen, "modulate:a", 0.0, 0.1)
 	tween.play()
-	
+
 func unpause():
 	fadeSceneOut()
 	pause_menu.visible = false
 	pause_menu.z_index = 0
 	get_tree().paused = false
-	
+
 func pause():
 	fadeSceneIn()
 	pause_menu.visible = true
 	pause_menu.z_index = 3
 	get_tree().paused = true
-	
+
 func _on_resume_hover_enter() -> void:
 	buttonSelectLeftResume.modulate.a = 1.0
 	buttonSelectRightResume.modulate.a = 1.0
-
 
 func _on_resume_hover_exit() -> void:
 	buttonSelectLeftResume.modulate.a = 0.0
 	buttonSelectRightResume.modulate.a = 0.0
 
-
 func _on_options_hover_enter() -> void:
 	buttonSelectLeftOptions.modulate.a = 1.0
 	buttonSelectRightOptions.modulate.a = 1.0
-
 
 func _on_options_hover_exit() -> void:
 	buttonSelectLeftOptions.modulate.a = 0.0
 	buttonSelectRightOptions.modulate.a = 0.0
 
-
 func _on_exit_hover_enter() -> void:
 	buttonSelectLeftExit.modulate.a = 1.0
 	buttonSelectRightExit.modulate.a = 1.0
-
 
 func _on_exit_hover_exit() -> void:
 	buttonSelectLeftExit.modulate.a = 0.0
 	buttonSelectRightExit.modulate.a = 0.0
 
-
 func _on_back_pressed() -> void:
 	options_menu.visible = false
 	pause_menu.visible = true
-
 
 func _on_controls_pressed() -> void:
 	options_menu.visible = false
 	controls_menu.visible = true
 
-
 func _on_back_controls_pressed() -> void:
 	options_menu.visible = true
 	controls_menu.visible = false
+
+func _on_display_pressed() -> void:
+	options_menu.visible = false
+	display_menu.visible = true
+
+func _on_display_back_pressed() -> void:
+	options_menu.visible = true
+	display_menu.visible = false

@@ -1,8 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://durr2417rl7mr"]
+[gd_scene load_steps=33 format=3 uid="uid://durr2417rl7mr"]
 
 [ext_resource type="Script" uid="uid://xdurcngpahts" path="res://Scripts/Enemy Scripts/EnemyRanged.gd" id="2_gtfvv"]
 [ext_resource type="Material" uid="uid://bfkikr4b3287w" path="res://Materials/enemy1.tres" id="3_dp8bq"]
 [ext_resource type="Material" uid="uid://41byjnpqi8jl" path="res://Materials/TestBush.tres" id="3_rrnee"]
+[ext_resource type="Texture2D" uid="uid://co6wmanklpgl3" path="res://UI/Particles/ParticleDust.png" id="4_c6tls"]
+[ext_resource type="Script" uid="uid://cq485d4lp3x4t" path="res://Scripts/UI/death_spores.gd" id="5_nflyr"]
+[ext_resource type="Texture2D" uid="uid://b67sgvs236paw" path="res://Assets/Kenney Particles Transparent Background/circle_05.png" id="6_du60d"]
+[ext_resource type="Script" uid="uid://c075aiwr805vf" path="res://enemy_to_boss.gd" id="7_db7am"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dp8bq"]
 
@@ -14,6 +18,149 @@ points = PackedVector3Array(-0.387079, -0.952867, -0.893173, 0.0286088, 0.919081
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k711p"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_dp8bq"]
+
+[sub_resource type="Gradient" id="Gradient_cvead"]
+offsets = PackedFloat32Array(0, 0.489451, 0.767932, 1)
+colors = PackedColorArray(0.624, 0.72, 0, 0.537255, 0.857336, 0.841146, 0.221142, 0.890196, 0.911952, 0.9542, 0.360503, 0.94902, 1, 1, 1, 0.596078)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mrinq"]
+gradient = SubResource("Gradient_cvead")
+
+[sub_resource type="Curve" id="Curve_fuotu"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 13.0573), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_q0b4y"]
+curve = SubResource("Curve_fuotu")
+
+[sub_resource type="Curve" id="Curve_vbyxd"]
+_limits = [-10.0, 10.0, 0.0, 1.0]
+_data = [Vector2(0, 5.85987), 0.0, 0.0, 0, 0, Vector2(0.707224, -0.143312), -4.41427, -4.41427, 0, 0, Vector2(1, -1.17834), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_nh3io"]
+curve = SubResource("Curve_vbyxd")
+
+[sub_resource type="Curve" id="Curve_l85de"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5ts5i"]
+curve = SubResource("Curve_l85de")
+
+[sub_resource type="Curve" id="Curve_ogpkm"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.500753), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_6iqr4"]
+curve = SubResource("Curve_ogpkm")
+
+[sub_resource type="Curve" id="Curve_1ras4"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_sekbe"]
+curve = SubResource("Curve_1ras4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nse33"]
+lifetime_randomness = 0.5
+emission_shape_scale = Vector3(2, 6, 2)
+emission_shape = 1
+emission_sphere_radius = 0.25
+angle_min = 1.07288e-05
+angle_max = 45.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+flatness = 1.0
+initial_velocity_min = -2.0
+initial_velocity_max = 2.0
+angular_velocity_min = 30.0
+angular_velocity_max = 60.0
+orbit_velocity_min = 0.1
+orbit_velocity_max = 0.3
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = -2.23517e-05
+velocity_limit_curve = SubResource("CurveTexture_sekbe")
+gravity = Vector3(0, -0.2, 0)
+radial_accel_min = 0.0999978
+radial_accel_max = 0.199998
+radial_accel_curve = SubResource("CurveTexture_nh3io")
+tangential_accel_min = 0.399998
+tangential_accel_max = 0.999998
+damping_min = 0.2
+damping_max = 1.0
+damping_curve = SubResource("CurveTexture_q0b4y")
+scale_min = 0.3
+scale_max = 1.2
+scale_curve = SubResource("CurveTexture_5ts5i")
+color = Color(0.623529, 0.721569, 0, 1)
+color_ramp = SubResource("GradientTexture1D_mrinq")
+turbulence_enabled = true
+turbulence_noise_strength = 12.88
+turbulence_noise_speed = Vector3(1, 1, 1)
+turbulence_noise_speed_random = 1.04
+turbulence_initial_displacement_min = 1.49012e-06
+turbulence_initial_displacement_max = 1.49012e-06
+turbulence_influence_over_life = SubResource("CurveTexture_6iqr4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p2gcg"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("4_c6tls")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_ycsix"]
+material = SubResource("StandardMaterial3D_p2gcg")
+size = Vector2(1.5, 1.5)
+
+[sub_resource type="Curve" id="Curve_g014g"]
+_limits = [-2.13483, 10.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, -2.13483), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_7mww8"]
+curve = SubResource("Curve_g014g")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3ncdi"]
+emission_shape_scale = Vector3(0.2, 1, 0.2)
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 0.0
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 9.49949e-08
+radial_velocity_min = -1.00002
+radial_velocity_max = -1.00002
+gravity = Vector3(1, 0, 0)
+linear_accel_min = 0.999998
+linear_accel_max = 1.5
+radial_accel_min = -2.23517e-06
+radial_accel_max = -2.23517e-06
+tangential_accel_min = -0.250002
+tangential_accel_max = 0.249998
+tangential_accel_curve = SubResource("CurveTexture_7mww8")
+color = Color(1, 0, 0.833333, 1)
+turbulence_noise_strength = 5.95
+turbulence_noise_speed = Vector3(10, 0, 0)
+turbulence_noise_speed_random = 0.66
+turbulence_influence_max = 0.109
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qw2qv"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("6_du60d")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_k0u6i"]
+material = SubResource("StandardMaterial3D_qw2qv")
+size = Vector2(0.5, 0.5)
 
 [node name="RangedEnemy" type="CharacterBody3D" groups=["Enemy"]]
 script = ExtResource("2_gtfvv")
@@ -50,6 +197,35 @@ material_override = ExtResource("3_dp8bq")
 mesh = SubResource("CapsuleMesh_dp8bq")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="DeathSpores" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 1000
+lifetime = 5.0
+one_shot = true
+speed_scale = 3.0
+explosiveness = 1.0
+randomness = 1.0
+fixed_fps = 60
+local_coords = true
+draw_order = 3
+transform_align = 1
+process_material = SubResource("ParticleProcessMaterial_nse33")
+draw_pass_1 = SubResource("QuadMesh_ycsix")
+script = ExtResource("5_nflyr")
+
+[node name="EnemyToBoss" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1)
+emitting = false
+amount = 40
+lifetime = 8.0
+one_shot = true
+explosiveness = 1.0
+visibility_aabb = AABB(0, 0, 0, 0.01, 0.01, 0.01)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_3ncdi")
+draw_pass_1 = SubResource("QuadMesh_k0u6i")
+script = ExtResource("7_db7am")
 
 [connection signal="area_entered" from="HearingArea" to="." method="_on_hearing_area_entered"]
 [connection signal="area_exited" from="HearingArea" to="." method="_on_hearing_area_exited"]

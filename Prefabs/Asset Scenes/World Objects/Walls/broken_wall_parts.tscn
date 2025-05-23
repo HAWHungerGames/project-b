@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d3vvn20b551l5"]
 
 [ext_resource type="PackedScene" uid="uid://c4veooe0eol5v" path="res://Models/Objects/Mauer3.blend" id="1_rfcmi"]
-[ext_resource type="Material" uid="uid://bxg5v0ffrb7qj" path="res://UITextures/Themes/toon_material.tres" id="2_g7s48"]
+[ext_resource type="Material" uid="uid://bxg5v0ffrb7qj" path="res://UI/Themes/toon_material.tres" id="2_g7s48"]
 
 [node name="BrokenWallParts" type="Node3D"]
 

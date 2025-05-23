@@ -26,6 +26,9 @@ extends CharacterBody3D
 @onready var attackNode = $AttackArea
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
 
+@onready var boss_emitter = GameManager.get_child_by_name(self, "EnemyToBoss")
+@onready var death_spores = GameManager.get_child_by_name(self, "DeathSpores")
+
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var playerIsInHearingArea: bool = false
@@ -36,6 +39,7 @@ var isInAttackArea: bool = false
 var isMoving: bool = false 
 var isAttacking = false
 var player: Node3D
+
 
 func _ready():
 	player = GlobalPlayer.getPlayer()
@@ -110,7 +114,16 @@ func rotateToPlayer():
 func takeDamage(damage: int):
 	health -= damage
 	if health <= 0:
+		if boss_emitter != null:
+			var pos = boss_emitter.global_position
+			GameManager.reset_child_to_root(self, boss_emitter)
+			boss_emitter.activate_particles_to_boss()
+		if death_spores != null:
+			GameManager.reset_child_to_root(self, death_spores)
+			death_spores.activate_death_particles()
 		queue_free()
+
+		
 
 func attack(delta):
 	if isInAttackArea:

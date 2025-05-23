@@ -27,6 +27,7 @@ SceneManager="*res://Scripts/scene_manager.gd"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/subwindows/embed_subwindows=false
 window/stretch/mode="viewport"
 PlayerActionTracker="*res://Scripts/Player/PlayerActionTracker.gd"
 GameManager="*res://Scripts/game_manager.gd"

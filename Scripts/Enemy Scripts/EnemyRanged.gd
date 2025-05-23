@@ -27,6 +27,9 @@ extends CharacterBody3D
 @onready var world = $"../.."
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
 
+@onready var boss_emitter = GameManager.get_child_by_name(self, "EnemyToBoss")
+@onready var death_spores = GameManager.get_child_by_name(self, "DeathSpores")
+
 var playerIsInHearingArea: bool = false
 var playerIsInVisionArea: bool = false
 var attackCooldown: float = 0
@@ -133,6 +136,12 @@ func rotateToPlayer():
 func takeDamage(damage: int):
 	health -= damage
 	if health <= 0:
+		if boss_emitter != null:
+			GameManager.reset_child_to_root(self, boss_emitter)
+			boss_emitter.activate_particles_to_boss()
+		if death_spores != null:
+			GameManager.reset_child_to_root(self, death_spores)
+			death_spores.activate_death_particles()
 		queue_free()
 
 func attack(delta):

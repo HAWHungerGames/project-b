@@ -1,0 +1,232 @@
+[gd_scene load_steps=20 format=3 uid="uid://dqqvcx3rmwu3k"]
+
+[ext_resource type="Script" uid="uid://isgt2htj3fmm" path="res://Scripts/UI/menus/pause_menu.gd" id="1_uantx"]
+[ext_resource type="Texture2D" uid="uid://t8xpfim77iam" path="res://UI/Menus/ButtonTexture.png" id="2_e5bcg"]
+[ext_resource type="Texture2D" uid="uid://ci8xqo4vdx5av" path="res://UI/Menus/ButtonTexture2.png" id="3_kd62h"]
+[ext_resource type="FontFile" uid="uid://4l406r67702d" path="res://UI/Fonts/DidactGothic-Regular.ttf" id="4_o1fra"]
+[ext_resource type="PackedScene" uid="uid://brkmt2ctk71u7" path="res://Prefabs/Asset Scenes/UI/Options.tscn" id="5_hlsqj"]
+[ext_resource type="PackedScene" uid="uid://dymqhiqdwrpf0" path="res://Prefabs/Asset Scenes/UI/Display.tscn" id="6_uantx"]
+[ext_resource type="PackedScene" uid="uid://6nm3v04w1rep" path="res://Prefabs/Asset Scenes/UI/Controls.tscn" id="6_xpt66"]
+[ext_resource type="Texture2D" uid="uid://cfviqqvwxl6c8" path="res://UI/Menus/XBoxEn.png" id="8_kd62h"]
+
+[sub_resource type="FontFile" id="FontFile_1kpkd"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/50/0/ascent = 0.0
+cache/0/50/0/descent = 0.0
+cache/0/50/0/underline_position = 0.0
+cache/0/50/0/underline_thickness = 0.0
+cache/0/50/0/scale = 1.0
+
+[sub_resource type="FontVariation" id="FontVariation_qxth7"]
+base_font = SubResource("FontFile_1kpkd")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_juw2y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7pcq1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3dgmt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yvsvy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hw0ro"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mly46"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hxa10"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ql3jl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fvpgb"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="pauseMenu" type="MarginContainer" parent="."]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uantx")
+
+[node name="pauseMenuContainer" type="VBoxContainer" parent="pauseMenu"]
+process_mode = 3
+visible = false
+z_index = 3
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="pauseMenu/pauseMenuContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="pauseMenu/pauseMenuContainer/MarginContainer"]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="buttonMargin" type="MarginContainer" parent="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="buttons" type="VBoxContainer" parent="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="buttonsResume" type="HBoxContainer" parent="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="buttonSelectLeftResume" type="TextureRect" parent="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsResume"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_e5bcg")
+expand_mode = 1
+
+[node name="resume" type="Button" parent="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsResume"]
+custom_minimum_size = Vector2(180, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = SubResource("FontVariation_qxth7")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxEmpty_juw2y")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7pcq1")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3dgmt")
+text = "RESUME"
+
+[node name="buttonSelectRightResume" type="TextureRect" parent="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsResume"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_kd62h")
+expand_mode = 1
+
+[node name="buttonsOptions" type="HBoxContainer" parent="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="buttonSelectLeftOptions" type="TextureRect" parent="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsOptions"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_e5bcg")
+expand_mode = 1
+
+[node name="options" type="Button" parent="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsOptions"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("4_o1fra")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yvsvy")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hw0ro")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mly46")
+text = "OPTIONS"
+
+[node name="buttonSelectRightOptions" type="TextureRect" parent="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsOptions"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_kd62h")
+expand_mode = 1
+
+[node name="buttonsExit" type="HBoxContainer" parent="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="buttonSelectLeftExit" type="TextureRect" parent="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_e5bcg")
+expand_mode = 1
+
+[node name="exit" type="Button" parent="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("4_o1fra")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxEmpty_hxa10")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ql3jl")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fvpgb")
+text = "EXIT TO MENU"
+
+[node name="buttonSelectRightExit" type="TextureRect" parent="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_kd62h")
+expand_mode = 1
+
+[node name="Options" parent="pauseMenu" instance=ExtResource("5_hlsqj")]
+visible = false
+layout_mode = 2
+
+[node name="Display" parent="pauseMenu" instance=ExtResource("6_uantx")]
+visible = false
+layout_mode = 2
+
+[node name="Controls" parent="pauseMenu" instance=ExtResource("6_xpt66")]
+layout_mode = 2
+
+[node name="TextureRect" parent="pauseMenu/Controls/MarginContainer/controlsMenuContainer/MarginContainer/MarginContainer" index="0"]
+texture = ExtResource("8_kd62h")
+
+[connection signal="mouse_entered" from="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsResume/resume" to="pauseMenu" method="_on_resume_hover_enter"]
+[connection signal="mouse_exited" from="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsResume/resume" to="pauseMenu" method="_on_resume_hover_exit"]
+[connection signal="pressed" from="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsResume/resume" to="pauseMenu" method="_on_resume_pressed"]
+[connection signal="mouse_entered" from="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsOptions/options" to="pauseMenu" method="_on_options_hover_enter"]
+[connection signal="mouse_exited" from="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsOptions/options" to="pauseMenu" method="_on_options_hover_exit"]
+[connection signal="pressed" from="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsOptions/options" to="pauseMenu" method="_on_options_pressed"]
+[connection signal="mouse_entered" from="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit/exit" to="pauseMenu" method="_on_exit_hover_enter"]
+[connection signal="mouse_exited" from="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit/exit" to="pauseMenu" method="_on_exit_hover_exit"]
+[connection signal="pressed" from="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit/exit" to="pauseMenu" method="_on_exit_pressed"]
+[connection signal="pressed" from="pauseMenu/Options/optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsDisplay/display" to="pauseMenu" method="_on_display_pressed"]
+[connection signal="pressed" from="pauseMenu/Options/optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsControls/controls" to="pauseMenu" method="_on_controls_pressed"]
+[connection signal="pressed" from="pauseMenu/Options/optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsBack/back" to="pauseMenu" method="_on_back_pressed"]
+[connection signal="pressed" from="pauseMenu/Display/displayMenuContainer/menuMargin/NinePatchRect/buttonMargin/buttons/buttonsBack/back" to="pauseMenu" method="_on_display_back_pressed"]
+[connection signal="pressed" from="pauseMenu/Controls/MarginContainer/controlsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsBack/back" to="pauseMenu" method="_on_back_controls_pressed"]
+
+[editable path="pauseMenu/Options"]
+[editable path="pauseMenu/Display"]
+[editable path="pauseMenu/Controls"]

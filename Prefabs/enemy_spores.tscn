@@ -1,8 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://ddb5qsl2pw4p2"]
+[gd_scene load_steps=39 format=3 uid="uid://ddb5qsl2pw4p2"]
 
 [ext_resource type="Script" uid="uid://47g0nj26vged" path="res://Scripts/Enemy Scripts/EnemySpores.gd" id="1_lksty"]
 [ext_resource type="PackedScene" uid="uid://k88cb4g5rk3c" path="res://Models/Burt3.blend" id="3_lksty"]
 [ext_resource type="Texture2D" uid="uid://cbu02u0njv72o" path="res://Assets/Kenney Particles Transparent Background/smoke_07.png" id="4_0h6ff"]
+[ext_resource type="Texture2D" uid="uid://co6wmanklpgl3" path="res://UI/Particles/ParticleDust.png" id="4_k6aqa"]
+[ext_resource type="Script" uid="uid://cq485d4lp3x4t" path="res://Scripts/UI/death_spores.gd" id="5_5lmhk"]
+[ext_resource type="Texture2D" uid="uid://b67sgvs236paw" path="res://Assets/Kenney Particles Transparent Background/circle_05.png" id="6_7ub5t"]
+[ext_resource type="Script" uid="uid://c075aiwr805vf" path="res://enemy_to_boss.gd" id="7_yck4o"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dp8bq"]
 
@@ -55,6 +59,149 @@ hue_variation_min = -0.17
 hue_variation_max = 0.03
 
 [sub_resource type="QuadMesh" id="QuadMesh_7ub5t"]
+
+[sub_resource type="Gradient" id="Gradient_tvkxg"]
+offsets = PackedFloat32Array(0, 0.489451, 0.767932, 1)
+colors = PackedColorArray(0.624, 0.72, 0, 0.537255, 0.857336, 0.841146, 0.221142, 0.890196, 0.911952, 0.9542, 0.360503, 0.94902, 1, 1, 1, 0.596078)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_h6q5h"]
+gradient = SubResource("Gradient_tvkxg")
+
+[sub_resource type="Curve" id="Curve_pq135"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 13.0573), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_mnmti"]
+curve = SubResource("Curve_pq135")
+
+[sub_resource type="Curve" id="Curve_2wefb"]
+_limits = [-10.0, 10.0, 0.0, 1.0]
+_data = [Vector2(0, 5.85987), 0.0, 0.0, 0, 0, Vector2(0.707224, -0.143312), -4.41427, -4.41427, 0, 0, Vector2(1, -1.17834), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_3j6b4"]
+curve = SubResource("Curve_2wefb")
+
+[sub_resource type="Curve" id="Curve_sjfbl"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_opncc"]
+curve = SubResource("Curve_sjfbl")
+
+[sub_resource type="Curve" id="Curve_5g2iy"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.500753), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_er0cr"]
+curve = SubResource("Curve_5g2iy")
+
+[sub_resource type="Curve" id="Curve_kjflx"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_yh06s"]
+curve = SubResource("Curve_kjflx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_i7u5f"]
+lifetime_randomness = 0.5
+emission_shape_scale = Vector3(2, 6, 2)
+emission_shape = 1
+emission_sphere_radius = 0.25
+angle_min = 1.07288e-05
+angle_max = 45.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+flatness = 1.0
+initial_velocity_min = -2.0
+initial_velocity_max = 2.0
+angular_velocity_min = 30.0
+angular_velocity_max = 60.0
+orbit_velocity_min = 0.1
+orbit_velocity_max = 0.3
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = -2.23517e-05
+velocity_limit_curve = SubResource("CurveTexture_yh06s")
+gravity = Vector3(0, -0.2, 0)
+radial_accel_min = 0.0999978
+radial_accel_max = 0.199998
+radial_accel_curve = SubResource("CurveTexture_3j6b4")
+tangential_accel_min = 0.399998
+tangential_accel_max = 0.999998
+damping_min = 0.2
+damping_max = 1.0
+damping_curve = SubResource("CurveTexture_mnmti")
+scale_min = 0.3
+scale_max = 1.2
+scale_curve = SubResource("CurveTexture_opncc")
+color = Color(0.623529, 0.721569, 0, 1)
+color_ramp = SubResource("GradientTexture1D_h6q5h")
+turbulence_enabled = true
+turbulence_noise_strength = 12.88
+turbulence_noise_speed = Vector3(1, 1, 1)
+turbulence_noise_speed_random = 1.04
+turbulence_initial_displacement_min = 1.49012e-06
+turbulence_initial_displacement_max = 1.49012e-06
+turbulence_influence_over_life = SubResource("CurveTexture_er0cr")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x7nyk"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("4_k6aqa")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_yiehx"]
+material = SubResource("StandardMaterial3D_x7nyk")
+size = Vector2(1.5, 1.5)
+
+[sub_resource type="Curve" id="Curve_nsrve"]
+_limits = [-2.13483, 10.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, -2.13483), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ar3t4"]
+curve = SubResource("Curve_nsrve")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_n6he8"]
+emission_shape_scale = Vector3(0.2, 1, 0.2)
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 0.0
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 9.49949e-08
+radial_velocity_min = -1.00002
+radial_velocity_max = -1.00002
+gravity = Vector3(1, 0, 0)
+linear_accel_min = 0.999998
+linear_accel_max = 1.5
+radial_accel_min = -2.23517e-06
+radial_accel_max = -2.23517e-06
+tangential_accel_min = -0.250002
+tangential_accel_max = 0.249998
+tangential_accel_curve = SubResource("CurveTexture_ar3t4")
+color = Color(1, 0, 0.833333, 1)
+turbulence_noise_strength = 5.95
+turbulence_noise_speed = Vector3(10, 0, 0)
+turbulence_noise_speed_random = 0.66
+turbulence_influence_max = 0.109
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_auvgr"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("6_7ub5t")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_tdb2c"]
+material = SubResource("StandardMaterial3D_auvgr")
+size = Vector2(0.5, 0.5)
 
 [node name="SporeEnemy" type="CharacterBody3D" groups=["Enemy"]]
 script = ExtResource("1_lksty")
@@ -114,43 +261,72 @@ bones/11/rotation = Quaternion(-0.964045, 0.00538643, -0.00134476, 0.265682)
 bones/14/rotation = Quaternion(0.963827, 0.00310415, 0.000919186, 0.26651)
 
 [node name="Burt_head" parent="Mesh/Armature/Skeleton3D" index="0"]
-transform = Transform3D(1, 5.62728e-17, 0, -5.62728e-17, 1, -7.45356e-10, 0, 7.45356e-10, 1, 0.0270495, 1.5568, 7.45058e-08)
+transform = Transform3D(1, 5.62733e-17, 0, -5.62733e-17, 1, -7.4535e-10, 0, 7.4535e-10, 1, 0.0270495, 1.5568, 7.31088e-08)
 
 [node name="Eys" parent="Mesh/Armature/Skeleton3D" index="1"]
-transform = Transform3D(1, 5.62728e-17, 0, -5.62728e-17, 1, -7.45356e-10, 0, 7.45356e-10, 1, 0.650254, 1.80337, 0.00731646)
+transform = Transform3D(1, 5.62733e-17, 0, -5.62733e-17, 1, -7.4535e-10, 0, 7.4535e-10, 1, 0.650254, 1.80337, 0.00731646)
 
 [node name="Hat" parent="Mesh/Armature/Skeleton3D" index="2"]
-transform = Transform3D(1, 5.62728e-17, 0, -5.62728e-17, 1, -7.45356e-10, 0, 7.45356e-10, 1, 0.130813, 1.55177, 7.45021e-08)
+transform = Transform3D(1, 5.62733e-17, 0, -5.62733e-17, 1, -7.4535e-10, 0, 7.4535e-10, 1, 0.130813, 1.55177, 7.31051e-08)
 
 [node name="BafallHut" parent="Mesh/Armature/Skeleton3D" index="3"]
-transform = Transform3D(1, 5.62728e-17, 0, -5.62728e-17, 1, -7.45356e-10, 0, 7.45356e-10, 1, -0.0107317, 2.06607, 0.109385)
+transform = Transform3D(1, 5.62733e-17, 0, -5.62733e-17, 1, -7.4535e-10, 0, 7.4535e-10, 1, -0.0107317, 2.06607, 0.109385)
 
 [node name="Burt_Leg_R" parent="Mesh/Armature/Skeleton3D" index="4"]
-transform = Transform3D(0.999982, -0.00606415, 0.000523873, 0.0060638, 0.999982, 0.000671342, -0.000527948, -0.000668168, 1, -0.0612777, -0.0334842, -0.413215)
+transform = Transform3D(0.999982, -0.00606416, 0.000523902, 0.0060638, 0.999982, 0.00067129, -0.000527978, -0.000668116, 1, -0.0612777, -0.0334842, -0.413214)
 
 [node name="Burt_Leg_L" parent="Mesh/Armature/Skeleton3D" index="5"]
-transform = Transform3D(0.999851, 0.017268, -0.000339551, -0.0172682, 0.999851, -0.000771761, 0.000326173, 0.000777513, 1, -0.0665402, -0.0327654, 0.405501)
+transform = Transform3D(0.999851, 0.017268, -0.000339573, -0.0172683, 0.999851, -0.000771761, 0.000326196, 0.000777513, 1, -0.0665402, -0.0327653, 0.405501)
 
 [node name="Burt_Leg_L_Beffal" parent="Mesh/Armature/Skeleton3D" index="6"]
-transform = Transform3D(0.999851, 0.017268, -0.000339551, -0.0172682, 0.999851, -0.000771761, 0.000326173, 0.000777513, 1, 0.116113, -0.311637, 0.57645)
+transform = Transform3D(0.999851, 0.017268, -0.000339573, -0.0172683, 0.999851, -0.000771761, 0.000326196, 0.000777513, 1, 0.116113, -0.311637, 0.576451)
 
 [node name="Burt_Arm_L" parent="Mesh/Armature/Skeleton3D" index="7"]
-transform = Transform3D(0.999938, -0.00543692, 0.00968097, 0.0110999, 0.510652, -0.859716, -0.000269398, 0.85977, 0.510681, -0.128983, 1.27919, 0.57108)
+transform = Transform3D(0.999938, -0.00543692, 0.00968097, 0.0110999, 0.510653, -0.859715, -0.000269411, 0.85977, 0.510682, -0.128983, 1.27919, 0.57108)
 
 [node name="Burt_Beffal_Arm_L" parent="Mesh/Armature/Skeleton3D" index="8"]
-transform = Transform3D(0.999938, -0.00543692, 0.00968097, 0.0110999, 0.510652, -0.859716, -0.000269398, 0.85977, 0.510681, -0.0588853, 0.669235, 1.04606)
+transform = Transform3D(0.999938, -0.00543692, 0.00968097, 0.0110999, 0.510653, -0.859715, -0.000269411, 0.85977, 0.510682, -0.0588853, 0.669235, 1.04606)
 
 [node name="Burt_Arm_R" parent="Mesh/Armature/Skeleton3D" index="9"]
-transform = Transform3D(0.999979, 0.00341614, 0.00550005, -0.00647355, 0.512144, 0.858875, 0.00011722, -0.858893, 0.512155, -0.127224, 1.27987, -0.570903)
+transform = Transform3D(0.999979, 0.00341613, 0.00550004, -0.00647354, 0.512143, 0.858876, 0.000117225, -0.858893, 0.512155, -0.127224, 1.27987, -0.570903)
 
 [node name="Burt_Beffal_Arm_R" parent="Mesh/Armature/Skeleton3D" index="10"]
-transform = Transform3D(0.999979, 0.00341614, 0.00550005, -0.00647355, 0.512144, 0.858875, 0.00011722, -0.858893, 0.512155, -0.208403, 0.597047, -1.08602)
+transform = Transform3D(0.999979, 0.00341613, 0.00550004, -0.00647354, 0.512143, 0.858876, 0.000117225, -0.858893, 0.512155, -0.208403, 0.597047, -1.08602)
 
 [node name="Burt_Body" parent="Mesh/Armature/Skeleton3D" index="11"]
-transform = Transform3D(1, -1.12546e-16, 0, 1.12546e-16, 1, 0, 0, 0, 1, -7.45058e-09, 0.541689, 9.31323e-09)
+transform = Transform3D(1, -1.12546e-16, 0, 1.12546e-16, 1, 6.21725e-15, 0, -6.21725e-15, 1, 7.45058e-09, 0.541689, 7.91624e-09)
 
 [node name="BeffalKörper" parent="Mesh/Armature/Skeleton3D" index="12"]
-transform = Transform3D(1, -1.12546e-16, 0, 1.12546e-16, 1, 0, 0, 0, 1, -0.202008, 0.486896, 0.195547)
+transform = Transform3D(1, -1.12546e-16, 0, 1.12546e-16, 1, 6.21725e-15, 0, -6.21725e-15, 1, -0.202008, 0.486896, 0.195547)
+
+[node name="DeathSpores" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 1000
+lifetime = 5.0
+one_shot = true
+speed_scale = 3.0
+explosiveness = 1.0
+randomness = 1.0
+fixed_fps = 60
+local_coords = true
+draw_order = 3
+transform_align = 1
+process_material = SubResource("ParticleProcessMaterial_i7u5f")
+draw_pass_1 = SubResource("QuadMesh_yiehx")
+script = ExtResource("5_5lmhk")
+
+[node name="EnemyToBoss" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1)
+emitting = false
+amount = 40
+lifetime = 8.0
+one_shot = true
+explosiveness = 1.0
+visibility_aabb = AABB(0, 0, 0, 0.01, 0.01, 0.01)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_n6he8")
+draw_pass_1 = SubResource("QuadMesh_tdb2c")
+script = ExtResource("7_yck4o")
 
 [connection signal="area_entered" from="HearingArea" to="." method="_on_hearing_area_entered"]
 [connection signal="area_exited" from="HearingArea" to="." method="_on_hearing_area_exited"]

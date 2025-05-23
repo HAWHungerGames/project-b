@@ -1,0 +1,175 @@
+[gd_scene load_steps=14 format=3 uid="uid://dymqhiqdwrpf0"]
+
+[ext_resource type="Script" uid="uid://dpt35dae5ls6w" path="res://Prefabs/Asset Scenes/UI/display.gd" id="1_3nnh5"]
+[ext_resource type="FontFile" uid="uid://4l406r67702d" path="res://UI/Fonts/DidactGothic-Regular.ttf" id="2_sisev"]
+[ext_resource type="Texture2D" uid="uid://t8xpfim77iam" path="res://UI/Menus/ButtonTexture.png" id="3_3il5u"]
+[ext_resource type="Texture2D" uid="uid://ci8xqo4vdx5av" path="res://UI/Menus/ButtonTexture2.png" id="4_4dw2h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3nnh5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sisev"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3il5u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4dw2h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5qaty"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cmbsx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sl7mc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w5il2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rapa0"]
+
+[node name="Display" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3nnh5")
+
+[node name="displayMenuContainer" type="VBoxContainer" parent="."]
+process_mode = 3
+z_index = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="menuMargin" type="MarginContainer" parent="displayMenuContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="settingsMargin" type="MarginContainer" parent="displayMenuContainer/menuMargin"]
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 2
+theme_override_constants/margin_top = 50
+
+[node name="settings" type="VBoxContainer" parent="displayMenuContainer/menuMargin/settingsMargin"]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 64
+
+[node name="display" type="Label" parent="displayMenuContainer/menuMargin/settingsMargin/settings"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_sisev")
+theme_override_font_sizes/font_size = 50
+text = "DISPLAY"
+
+[node name="resolution" type="HBoxContainer" parent="displayMenuContainer/menuMargin/settingsMargin/settings"]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 160
+
+[node name="title" type="Label" parent="displayMenuContainer/menuMargin/settingsMargin/settings/resolution"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_sisev")
+theme_override_font_sizes/font_size = 30
+text = "RESOLUTION"
+
+[node name="seperator" type="Control" parent="displayMenuContainer/menuMargin/settingsMargin/settings/resolution"]
+layout_mode = 2
+
+[node name="options" type="OptionButton" parent="displayMenuContainer/menuMargin/settingsMargin/settings/resolution"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3nnh5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_sisev")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3il5u")
+
+[node name="windowMode" type="HBoxContainer" parent="displayMenuContainer/menuMargin/settingsMargin/settings"]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 139
+
+[node name="title" type="Label" parent="displayMenuContainer/menuMargin/settingsMargin/settings/windowMode"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_sisev")
+theme_override_font_sizes/font_size = 30
+text = "WINDOW MODE"
+
+[node name="seperator" type="Control" parent="displayMenuContainer/menuMargin/settingsMargin/settings/windowMode"]
+layout_mode = 2
+
+[node name="options" type="OptionButton" parent="displayMenuContainer/menuMargin/settingsMargin/settings/windowMode"]
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4dw2h")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5qaty")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cmbsx")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="displayMenuContainer/menuMargin"]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="buttonMargin" type="MarginContainer" parent="displayMenuContainer/menuMargin/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.0
+offset_top = -33.5
+offset_right = 111.0
+offset_bottom = 33.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="buttons" type="VBoxContainer" parent="displayMenuContainer/menuMargin/NinePatchRect/buttonMargin"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="buttonsBack" type="HBoxContainer" parent="displayMenuContainer/menuMargin/NinePatchRect/buttonMargin/buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="buttonSelectLeftExit" type="TextureRect" parent="displayMenuContainer/menuMargin/NinePatchRect/buttonMargin/buttons/buttonsBack"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_3il5u")
+expand_mode = 1
+
+[node name="back" type="Button" parent="displayMenuContainer/menuMargin/NinePatchRect/buttonMargin/buttons/buttonsBack"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_sisev")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxEmpty_sl7mc")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_w5il2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rapa0")
+text = "BACK"
+
+[node name="buttonSelectRightExit" type="TextureRect" parent="displayMenuContainer/menuMargin/NinePatchRect/buttonMargin/buttons/buttonsBack"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_4dw2h")
+expand_mode = 1
+
+[connection signal="item_selected" from="displayMenuContainer/menuMargin/settingsMargin/settings/resolution/options" to="." method="_on_resolution_selected"]
+[connection signal="item_selected" from="displayMenuContainer/menuMargin/settingsMargin/settings/windowMode/options" to="." method="_on_window_mode_selected"]
