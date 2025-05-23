@@ -202,6 +202,7 @@ mesh = SubResource("CapsuleMesh_dp8bq")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10546, 0)
 
 [node name="DeathSpores" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1)
 emitting = false
 amount = 1000
 lifetime = 5.0

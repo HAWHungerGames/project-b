@@ -1,6 +1,6 @@
 extends GPUParticles3D
 
-@onready var boss = get_tree().current_scene.find_child("RangedEnemy")
+@onready var boss = get_tree().current_scene.find_child("Boss Room")
 
 func activate_particles_to_boss():
 	var material = process_material
