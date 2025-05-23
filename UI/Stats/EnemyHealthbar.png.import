@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://de6x4f3a8tt2y"
-path="res://.godot/imported/XBoxDe.png-b3a336b18f1192a93c77756446365388.ctex"
+uid="uid://f1jjk5gaj2gd"
+path="res://.godot/imported/EnemyHealthbar.png-7ab4f26462b72ff0c0267e3fd678d99b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Menus/XBoxDe.png"
-dest_files=["res://.godot/imported/XBoxDe.png-b3a336b18f1192a93c77756446365388.ctex"]
+source_file="res://UI/Stats/EnemyHealthbar.png"
+dest_files=["res://.godot/imported/EnemyHealthbar.png-7ab4f26462b72ff0c0267e3fd678d99b.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

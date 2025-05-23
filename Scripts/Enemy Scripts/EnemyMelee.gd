@@ -40,6 +40,7 @@ var isMoving: bool = false
 var isAttacking = false
 var player: Node3D
 
+signal health_changed
 
 func _ready():
 	player = GlobalPlayer.getPlayer()
@@ -113,6 +114,7 @@ func rotateToPlayer():
 
 func takeDamage(damage: int):
 	health -= damage
+	health_changed.emit()
 	if health <= 0:
 		if boss_emitter != null:
 			var pos = boss_emitter.global_position

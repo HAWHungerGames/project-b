@@ -1,21 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://dymqhiqdwrpf0"]
+[gd_scene load_steps=8 format=3 uid="uid://dymqhiqdwrpf0"]
 
-[ext_resource type="Script" uid="uid://dpt35dae5ls6w" path="res://Prefabs/Asset Scenes/UI/display.gd" id="1_3nnh5"]
+[ext_resource type="Script" uid="uid://dpt35dae5ls6w" path="res://Scripts/UI/menus/display.gd" id="1_3nnh5"]
 [ext_resource type="FontFile" uid="uid://4l406r67702d" path="res://UI/Fonts/DidactGothic-Regular.ttf" id="2_sisev"]
-[ext_resource type="Texture2D" uid="uid://t8xpfim77iam" path="res://UI/Menus/ButtonTexture.png" id="3_3il5u"]
-[ext_resource type="Texture2D" uid="uid://ci8xqo4vdx5av" path="res://UI/Menus/ButtonTexture2.png" id="4_4dw2h"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3nnh5"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sisev"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3il5u"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4dw2h"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5qaty"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cmbsx"]
+[ext_resource type="Texture2D" uid="uid://t8xpfim77iam" path="res://UI/Menus/Buttons/ButtonTexture.png" id="3_3il5u"]
+[ext_resource type="Texture2D" uid="uid://ci8xqo4vdx5av" path="res://UI/Menus/Buttons/ButtonTexture2.png" id="4_4dw2h"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sl7mc"]
 
@@ -63,54 +51,93 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_sisev")
 theme_override_font_sizes/font_size = 50
-text = "DISPLAY"
+text = "BUTTON_DISPLAY"
 
-[node name="resolution" type="HBoxContainer" parent="displayMenuContainer/menuMargin/settingsMargin/settings"]
+[node name="MarginContainer" type="MarginContainer" parent="displayMenuContainer/menuMargin/settingsMargin/settings"]
+layout_mode = 2
+theme_override_constants/margin_top = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="displayMenuContainer/menuMargin/settingsMargin/settings/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="resolution" type="HBoxContainer" parent="displayMenuContainer/menuMargin/settingsMargin/settings/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(512, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 160
 
-[node name="title" type="Label" parent="displayMenuContainer/menuMargin/settingsMargin/settings/resolution"]
+[node name="title" type="Label" parent="displayMenuContainer/menuMargin/settingsMargin/settings/MarginContainer/VBoxContainer/resolution"]
+custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("2_sisev")
 theme_override_font_sizes/font_size = 30
-text = "RESOLUTION"
+text = "SETTING_RESOLUTION"
 
-[node name="seperator" type="Control" parent="displayMenuContainer/menuMargin/settingsMargin/settings/resolution"]
+[node name="seperator" type="Control" parent="displayMenuContainer/menuMargin/settingsMargin/settings/MarginContainer/VBoxContainer/resolution"]
 layout_mode = 2
 
-[node name="options" type="OptionButton" parent="displayMenuContainer/menuMargin/settingsMargin/settings/resolution"]
+[node name="options" type="OptionButton" parent="displayMenuContainer/menuMargin/settingsMargin/settings/MarginContainer/VBoxContainer/resolution"]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-size_flags_horizontal = 8
-theme_override_styles/hover = SubResource("StyleBoxEmpty_3nnh5")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_sisev")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_3il5u")
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_sisev")
+theme_override_font_sizes/font_size = 30
 
-[node name="windowMode" type="HBoxContainer" parent="displayMenuContainer/menuMargin/settingsMargin/settings"]
+[node name="windowMode" type="HBoxContainer" parent="displayMenuContainer/menuMargin/settingsMargin/settings/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(512, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 139
+theme_override_constants/separation = 160
 
-[node name="title" type="Label" parent="displayMenuContainer/menuMargin/settingsMargin/settings/windowMode"]
+[node name="title" type="Label" parent="displayMenuContainer/menuMargin/settingsMargin/settings/MarginContainer/VBoxContainer/windowMode"]
+custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("2_sisev")
 theme_override_font_sizes/font_size = 30
-text = "WINDOW MODE"
+text = "SETTING_WINDOW_MODE"
 
-[node name="seperator" type="Control" parent="displayMenuContainer/menuMargin/settingsMargin/settings/windowMode"]
+[node name="seperator" type="Control" parent="displayMenuContainer/menuMargin/settingsMargin/settings/MarginContainer/VBoxContainer/windowMode"]
 layout_mode = 2
 
-[node name="options" type="OptionButton" parent="displayMenuContainer/menuMargin/settingsMargin/settings/windowMode"]
+[node name="options" type="OptionButton" parent="displayMenuContainer/menuMargin/settingsMargin/settings/MarginContainer/VBoxContainer/windowMode"]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-theme_override_styles/hover = SubResource("StyleBoxEmpty_4dw2h")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_5qaty")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_cmbsx")
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_sisev")
+theme_override_font_sizes/font_size = 30
+
+[node name="language" type="HBoxContainer" parent="displayMenuContainer/menuMargin/settingsMargin/settings/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 160
+
+[node name="title" type="Label" parent="displayMenuContainer/menuMargin/settingsMargin/settings/MarginContainer/VBoxContainer/language"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_sisev")
+theme_override_font_sizes/font_size = 30
+text = "SETTING_LANGUAGE"
+
+[node name="seperator" type="Control" parent="displayMenuContainer/menuMargin/settingsMargin/settings/MarginContainer/VBoxContainer/language"]
+layout_mode = 2
+
+[node name="options" type="OptionButton" parent="displayMenuContainer/menuMargin/settingsMargin/settings/MarginContainer/VBoxContainer/language"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_sisev")
+theme_override_font_sizes/font_size = 30
 
 [node name="NinePatchRect" type="NinePatchRect" parent="displayMenuContainer/menuMargin"]
 custom_minimum_size = Vector2(400, 300)
@@ -160,7 +187,7 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxEmpty_sl7mc")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_w5il2")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_rapa0")
-text = "BACK"
+text = "BUTTON_BACK"
 
 [node name="buttonSelectRightExit" type="TextureRect" parent="displayMenuContainer/menuMargin/NinePatchRect/buttonMargin/buttons/buttonsBack"]
 modulate = Color(1, 1, 1, 0)
@@ -171,5 +198,6 @@ size_flags_vertical = 4
 texture = ExtResource("4_4dw2h")
 expand_mode = 1
 
-[connection signal="item_selected" from="displayMenuContainer/menuMargin/settingsMargin/settings/resolution/options" to="." method="_on_resolution_selected"]
-[connection signal="item_selected" from="displayMenuContainer/menuMargin/settingsMargin/settings/windowMode/options" to="." method="_on_window_mode_selected"]
+[connection signal="item_selected" from="displayMenuContainer/menuMargin/settingsMargin/settings/MarginContainer/VBoxContainer/resolution/options" to="." method="_on_resolution_selected"]
+[connection signal="item_selected" from="displayMenuContainer/menuMargin/settingsMargin/settings/MarginContainer/VBoxContainer/windowMode/options" to="." method="_on_window_mode_selected"]
+[connection signal="item_selected" from="displayMenuContainer/menuMargin/settingsMargin/settings/MarginContainer/VBoxContainer/language/options" to="." method="_on_language_item_selected"]

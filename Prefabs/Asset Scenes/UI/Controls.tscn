@@ -1,18 +1,17 @@
-[gd_scene load_steps=25 format=3 uid="uid://6nm3v04w1rep"]
+[gd_scene load_steps=24 format=3 uid="uid://6nm3v04w1rep"]
 
-[ext_resource type="Script" uid="uid://dlhxqt7urdttl" path="res://Scripts/UI/controls.gd" id="1_e1pf1"]
-[ext_resource type="Texture2D" uid="uid://cfviqqvwxl6c8" path="res://UI/Menus/XBoxEn.png" id="3_i3887"]
-[ext_resource type="Texture2D" uid="uid://t8xpfim77iam" path="res://UI/Menus/ButtonTexture.png" id="3_ydxgh"]
+[ext_resource type="Script" uid="uid://dlhxqt7urdttl" path="res://Scripts/UI/menus/controls.gd" id="1_e1pf1"]
+[ext_resource type="Texture2D" uid="uid://cfviqqvwxl6c8" path="res://UI/Menus/Controller/XBoxen_EN.png" id="3_i3887"]
+[ext_resource type="Texture2D" uid="uid://t8xpfim77iam" path="res://UI/Menus/Buttons/ButtonTexture.png" id="3_ydxgh"]
 [ext_resource type="FontFile" uid="uid://4l406r67702d" path="res://UI/Fonts/DidactGothic-Regular.ttf" id="4_g8ajw"]
 [ext_resource type="Texture2D" uid="uid://ok6txss2a5bl" path="res://UI/Menus/Keys/BUTTONREMAP.png" id="4_ydxgh"]
 [ext_resource type="Texture2D" uid="uid://ckoqbvo7sqnf4" path="res://UI/Menus/Keys/W.png" id="5_g8ajw"]
-[ext_resource type="Texture2D" uid="uid://ci8xqo4vdx5av" path="res://UI/Menus/ButtonTexture2.png" id="5_pb47s"]
+[ext_resource type="Texture2D" uid="uid://ci8xqo4vdx5av" path="res://UI/Menus/Buttons/ButtonTexture2.png" id="5_pb47s"]
 [ext_resource type="Texture2D" uid="uid://b8c7nwk0tchor" path="res://UI/Menus/Keys/UP.png" id="6_pb47s"]
 [ext_resource type="Texture2D" uid="uid://cgsdg6s8xs0gl" path="res://UI/Menus/Keys/S.png" id="7_sgenk"]
 [ext_resource type="Texture2D" uid="uid://6o0fkq4vfhy2" path="res://UI/Menus/Keys/DOWN.png" id="8_16274"]
 [ext_resource type="Texture2D" uid="uid://bservalpqos1e" path="res://UI/Menus/Keys/A.png" id="9_5s077"]
 [ext_resource type="Texture2D" uid="uid://bcxf2os6mdami" path="res://UI/Menus/Keys/LEFT.png" id="10_2lniu"]
-[ext_resource type="Texture2D" uid="uid://i3s754xek2mb" path="res://UI/Menus/Keys/RIGHT.png" id="11_quhrt"]
 [ext_resource type="Texture2D" uid="uid://brx824vt3xr80" path="res://UI/Menus/Keys/SHIFT.png" id="12_fdtmy"]
 [ext_resource type="Texture2D" uid="uid://4o2kh5yumido" path="res://UI/Menus/Keys/CTRL.png" id="13_g6ee7"]
 [ext_resource type="Texture2D" uid="uid://cnhko0aa540fl" path="res://UI/Menus/Keys/MOUSE1.png" id="14_upooh"]
@@ -55,13 +54,56 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_top = 50
 
-[node name="Label" type="Label" parent="MarginContainer/controlsMenuContainer/MarginContainer"]
+[node name="titles" type="VBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="controls" type="Label" parent="MarginContainer/controlsMenuContainer/MarginContainer/titles"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("4_g8ajw")
 theme_override_font_sizes/font_size = 50
-text = "CONTROLS"
+text = "BUTTON_CONTROLS"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/titles"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="buttonLeft" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/titles/HBoxContainer"]
+custom_minimum_size = Vector2(55, 55)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("3_ydxgh")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="controller" type="Label" parent="MarginContainer/controlsMenuContainer/MarginContainer/titles/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_g8ajw")
+theme_override_font_sizes/font_size = 40
+text = "BUTTON_CONTROLLER"
+horizontal_alignment = 1
+
+[node name="keyboard" type="Label" parent="MarginContainer/controlsMenuContainer/MarginContainer/titles/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_g8ajw")
+theme_override_font_sizes/font_size = 40
+text = "BUTTON_KEYBOARD"
+horizontal_alignment = 1
+
+[node name="buttonRight" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/titles/HBoxContainer"]
+custom_minimum_size = Vector2(55, 55)
+layout_mode = 2
+texture_normal = ExtResource("5_pb47s")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Controller" type="MarginContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer"]
 visible = false
@@ -76,35 +118,47 @@ texture = ExtResource("3_i3887")
 expand_mode = 1
 
 [node name="keyboard" type="MarginContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 720)
 layout_mode = 2
-theme_override_constants/margin_top = 100
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_top = 0
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard"]
-custom_minimum_size = Vector2(700, 750)
+[node name="keyRows" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard"]
+custom_minimum_size = Vector2(1500, 720)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 100
+
+[node name="keysRow1" type="VBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 
-[node name="keys" type="VBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer"]
-layout_mode = 2
-
-[node name="moveForward" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys"]
+[node name="moveForward" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 128
+theme_override_constants/separation = 64
 
-[node name="Label" type="Label" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/moveForward"]
+[node name="Label" type="Label" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/moveForward"]
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-text = "MOVE FORWARD"
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_g8ajw")
+theme_override_font_sizes/font_size = 25
+text = "KEY_FORWARD"
 
-[node name="Seperator" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/moveForward"]
+[node name="Seperator" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/moveForward"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/moveForward"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/moveForward"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="key" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/moveForward/HBoxContainer"]
+[node name="key" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/moveForward/HBoxContainer"]
 custom_minimum_size = Vector2(120, 80)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -113,7 +167,7 @@ texture_normal = ExtResource("4_ydxgh")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/moveForward/HBoxContainer/key"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/moveForward/HBoxContainer/key"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -129,10 +183,10 @@ grow_vertical = 2
 texture = ExtResource("5_g8ajw")
 expand_mode = 1
 
-[node name="Seperator2" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/moveForward/HBoxContainer"]
+[node name="Seperator2" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/moveForward/HBoxContainer"]
 layout_mode = 2
 
-[node name="alternativeKey" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/moveForward/HBoxContainer"]
+[node name="alternativeKey" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/moveForward/HBoxContainer"]
 custom_minimum_size = Vector2(120, 80)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -141,7 +195,7 @@ texture_normal = ExtResource("4_ydxgh")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/moveForward/HBoxContainer/alternativeKey"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/moveForward/HBoxContainer/alternativeKey"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -157,23 +211,27 @@ grow_vertical = 2
 texture = ExtResource("6_pb47s")
 expand_mode = 1
 
-[node name="moveBackwards" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys"]
+[node name="moveBackward" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 128
+theme_override_constants/separation = 64
 
-[node name="Label" type="Label" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/moveBackwards"]
+[node name="Label" type="Label" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/moveBackward"]
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-text = "MOVE BACKWARDS"
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_g8ajw")
+theme_override_font_sizes/font_size = 25
+text = "KEY_BACKWARD"
 
-[node name="Seperator" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/moveBackwards"]
+[node name="Seperator" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/moveBackward"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/moveBackwards"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/moveBackward"]
 layout_mode = 2
 
-[node name="key" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/moveBackwards/HBoxContainer"]
+[node name="key" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/moveBackward/HBoxContainer"]
 custom_minimum_size = Vector2(120, 80)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -182,7 +240,7 @@ texture_normal = ExtResource("4_ydxgh")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/moveBackwards/HBoxContainer/key"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/moveBackward/HBoxContainer/key"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -198,10 +256,10 @@ grow_vertical = 2
 texture = ExtResource("7_sgenk")
 expand_mode = 1
 
-[node name="Seperator2" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/moveBackwards/HBoxContainer"]
+[node name="Seperator2" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/moveBackward/HBoxContainer"]
 layout_mode = 2
 
-[node name="alternativeKey" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/moveBackwards/HBoxContainer"]
+[node name="alternativeKey" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/moveBackward/HBoxContainer"]
 custom_minimum_size = Vector2(120, 80)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -210,7 +268,7 @@ texture_normal = ExtResource("4_ydxgh")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/moveBackwards/HBoxContainer/alternativeKey"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/moveBackward/HBoxContainer/alternativeKey"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -226,23 +284,27 @@ grow_vertical = 2
 texture = ExtResource("8_16274")
 expand_mode = 1
 
-[node name="moveLeft" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys"]
+[node name="moveLeft" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 128
+theme_override_constants/separation = 64
 
-[node name="Label" type="Label" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/moveLeft"]
+[node name="Label" type="Label" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/moveLeft"]
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-text = "MOVE LEFT"
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_g8ajw")
+theme_override_font_sizes/font_size = 25
+text = "KEY_LEFT"
 
-[node name="Seperator" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/moveLeft"]
+[node name="Seperator" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/moveLeft"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/moveLeft"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/moveLeft"]
 layout_mode = 2
 
-[node name="key" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/moveLeft/HBoxContainer"]
+[node name="key" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/moveLeft/HBoxContainer"]
 custom_minimum_size = Vector2(120, 80)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -251,7 +313,7 @@ texture_normal = ExtResource("4_ydxgh")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/moveLeft/HBoxContainer/key"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/moveLeft/HBoxContainer/key"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -267,10 +329,10 @@ grow_vertical = 2
 texture = ExtResource("9_5s077")
 expand_mode = 1
 
-[node name="Seperator2" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/moveLeft/HBoxContainer"]
+[node name="Seperator2" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/moveLeft/HBoxContainer"]
 layout_mode = 2
 
-[node name="alternativeKey" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/moveLeft/HBoxContainer"]
+[node name="alternativeKey" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/moveLeft/HBoxContainer"]
 custom_minimum_size = Vector2(120, 80)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -279,7 +341,7 @@ texture_normal = ExtResource("4_ydxgh")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/moveLeft/HBoxContainer/alternativeKey"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/moveLeft/HBoxContainer/alternativeKey"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -295,23 +357,27 @@ grow_vertical = 2
 texture = ExtResource("10_2lniu")
 expand_mode = 1
 
-[node name="moveRight" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys"]
+[node name="moveRight" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 128
+theme_override_constants/separation = 64
 
-[node name="Label" type="Label" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/moveRight"]
+[node name="Label" type="Label" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/moveRight"]
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-text = "MOVE RIGHT"
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_g8ajw")
+theme_override_font_sizes/font_size = 25
+text = "KEY_RIGHT"
 
-[node name="Seperator" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/moveRight"]
+[node name="Seperator" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/moveRight"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/moveRight"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/moveRight"]
 layout_mode = 2
 
-[node name="key" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/moveRight/HBoxContainer"]
+[node name="key" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/moveRight/HBoxContainer"]
 custom_minimum_size = Vector2(120, 80)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -320,827 +386,7 @@ texture_normal = ExtResource("4_ydxgh")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/moveRight/HBoxContainer/key"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("11_quhrt")
-expand_mode = 1
-
-[node name="Seperator2" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/moveRight/HBoxContainer"]
-layout_mode = 2
-
-[node name="alternativeKey" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/moveRight/HBoxContainer"]
-custom_minimum_size = Vector2(120, 80)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("4_ydxgh")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/moveRight/HBoxContainer/alternativeKey"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("6_pb47s")
-expand_mode = 1
-
-[node name="dash" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 128
-
-[node name="Label" type="Label" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/dash"]
-layout_mode = 2
-text = "DASH"
-
-[node name="Seperator" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/dash"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/dash"]
-layout_mode = 2
-
-[node name="key" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/dash/HBoxContainer"]
-custom_minimum_size = Vector2(120, 80)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("4_ydxgh")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/dash/HBoxContainer/key"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("12_fdtmy")
-expand_mode = 1
-
-[node name="Seperator2" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/dash/HBoxContainer"]
-layout_mode = 2
-
-[node name="alternativeKey" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/dash/HBoxContainer"]
-custom_minimum_size = Vector2(120, 80)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("4_ydxgh")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/dash/HBoxContainer/alternativeKey"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 1
-
-[node name="sneak" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 128
-
-[node name="Label" type="Label" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/sneak"]
-layout_mode = 2
-text = "SNEAK"
-
-[node name="Seperator" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/sneak"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/sneak"]
-layout_mode = 2
-
-[node name="key" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/sneak/HBoxContainer"]
-custom_minimum_size = Vector2(120, 80)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("4_ydxgh")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/sneak/HBoxContainer/key"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("13_g6ee7")
-expand_mode = 1
-
-[node name="Seperator2" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/sneak/HBoxContainer"]
-layout_mode = 2
-
-[node name="alternativeKey" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/sneak/HBoxContainer"]
-custom_minimum_size = Vector2(120, 80)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("4_ydxgh")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/sneak/HBoxContainer/alternativeKey"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 1
-
-[node name="attack" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 128
-
-[node name="Label" type="Label" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/attack"]
-layout_mode = 2
-text = "ATTACK"
-
-[node name="Seperator" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/attack"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/attack"]
-layout_mode = 2
-
-[node name="key" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/attack/HBoxContainer"]
-custom_minimum_size = Vector2(120, 80)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("4_ydxgh")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/attack/HBoxContainer/key"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("14_upooh")
-expand_mode = 1
-
-[node name="Seperator2" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/attack/HBoxContainer"]
-layout_mode = 2
-
-[node name="alternativeKey" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/attack/HBoxContainer"]
-custom_minimum_size = Vector2(120, 80)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("4_ydxgh")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/attack/HBoxContainer/alternativeKey"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 1
-
-[node name="block" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 128
-
-[node name="Label" type="Label" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/block"]
-layout_mode = 2
-text = "BLOCK"
-
-[node name="Seperator" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/block"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/block"]
-layout_mode = 2
-
-[node name="key" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/block/HBoxContainer"]
-custom_minimum_size = Vector2(120, 80)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("4_ydxgh")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/block/HBoxContainer/key"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("15_uvw6j")
-expand_mode = 1
-
-[node name="Seperator2" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/block/HBoxContainer"]
-layout_mode = 2
-
-[node name="alternativeKey" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/block/HBoxContainer"]
-custom_minimum_size = Vector2(120, 80)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("4_ydxgh")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/block/HBoxContainer/alternativeKey"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 1
-
-[node name="swapWeapon" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 128
-
-[node name="Label" type="Label" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/swapWeapon"]
-layout_mode = 2
-text = "SWAP WEAPON"
-
-[node name="Seperator" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/swapWeapon"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/swapWeapon"]
-layout_mode = 2
-
-[node name="key" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/swapWeapon/HBoxContainer"]
-custom_minimum_size = Vector2(120, 80)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("4_ydxgh")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/swapWeapon/HBoxContainer/key"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("16_gdywo")
-expand_mode = 1
-
-[node name="Seperator2" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/swapWeapon/HBoxContainer"]
-layout_mode = 2
-
-[node name="alternativeKey" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/swapWeapon/HBoxContainer"]
-custom_minimum_size = Vector2(120, 80)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("4_ydxgh")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/swapWeapon/HBoxContainer/alternativeKey"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 1
-
-[node name="interact" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 128
-
-[node name="Label" type="Label" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/interact"]
-layout_mode = 2
-text = "INTERACT"
-
-[node name="Seperator" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/interact"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/interact"]
-layout_mode = 2
-
-[node name="key" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/interact/HBoxContainer"]
-custom_minimum_size = Vector2(120, 80)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("4_ydxgh")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/interact/HBoxContainer/key"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("17_aqo06")
-expand_mode = 1
-
-[node name="Seperator2" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/interact/HBoxContainer"]
-layout_mode = 2
-
-[node name="alternativeKey" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/interact/HBoxContainer"]
-custom_minimum_size = Vector2(120, 80)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("4_ydxgh")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/interact/HBoxContainer/alternativeKey"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 1
-
-[node name="pause" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 128
-
-[node name="Label" type="Label" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/pause"]
-layout_mode = 2
-text = "PAUSE"
-
-[node name="Seperator" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/pause"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/pause"]
-layout_mode = 2
-
-[node name="key" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/pause/HBoxContainer"]
-custom_minimum_size = Vector2(120, 80)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("4_ydxgh")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/pause/HBoxContainer/key"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("18_500gj")
-expand_mode = 1
-
-[node name="Seperator2" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/pause/HBoxContainer"]
-layout_mode = 2
-
-[node name="alternativeKey" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/pause/HBoxContainer"]
-custom_minimum_size = Vector2(120, 80)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("4_ydxgh")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/pause/HBoxContainer/alternativeKey"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 1
-
-[node name="lockDirection" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 128
-
-[node name="Label" type="Label" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/lockDirection"]
-layout_mode = 2
-text = "LOCK DIRECTION"
-
-[node name="Seperator" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/lockDirection"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/lockDirection"]
-layout_mode = 2
-
-[node name="key" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/lockDirection/HBoxContainer"]
-custom_minimum_size = Vector2(120, 80)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("4_ydxgh")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/lockDirection/HBoxContainer/key"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("15_uvw6j")
-expand_mode = 1
-
-[node name="Seperator2" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/lockDirection/HBoxContainer"]
-layout_mode = 2
-
-[node name="alternativeKey" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/lockDirection/HBoxContainer"]
-custom_minimum_size = Vector2(120, 80)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("4_ydxgh")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/lockDirection/HBoxContainer/alternativeKey"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 1
-
-[node name="lookUp" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 128
-
-[node name="Label" type="Label" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/lookUp"]
-layout_mode = 2
-text = "LOOK UP"
-
-[node name="Seperator" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/lookUp"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/lookUp"]
-layout_mode = 2
-
-[node name="key" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/lookUp/HBoxContainer"]
-custom_minimum_size = Vector2(120, 80)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("4_ydxgh")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/lookUp/HBoxContainer/key"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_g8ajw")
-expand_mode = 1
-
-[node name="Seperator2" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/lookUp/HBoxContainer"]
-layout_mode = 2
-
-[node name="alternativeKey" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/lookUp/HBoxContainer"]
-custom_minimum_size = Vector2(120, 80)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("4_ydxgh")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/lookUp/HBoxContainer/alternativeKey"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("6_pb47s")
-expand_mode = 1
-
-[node name="lookDown" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 128
-
-[node name="Label" type="Label" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/lookDown"]
-layout_mode = 2
-text = "LOOK DOWN"
-
-[node name="Seperator" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/lookDown"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/lookDown"]
-layout_mode = 2
-
-[node name="key" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/lookDown/HBoxContainer"]
-custom_minimum_size = Vector2(120, 80)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("4_ydxgh")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/lookDown/HBoxContainer/key"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("7_sgenk")
-expand_mode = 1
-
-[node name="Seperator2" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/lookDown/HBoxContainer"]
-layout_mode = 2
-
-[node name="alternativeKey" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/lookDown/HBoxContainer"]
-custom_minimum_size = Vector2(120, 80)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("4_ydxgh")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/lookDown/HBoxContainer/alternativeKey"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("8_16274")
-expand_mode = 1
-
-[node name="lookLeft" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 128
-
-[node name="Label" type="Label" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/lookLeft"]
-layout_mode = 2
-text = "LOOK LEFT"
-
-[node name="Seperator" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/lookLeft"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/lookLeft"]
-layout_mode = 2
-
-[node name="key" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/lookLeft/HBoxContainer"]
-custom_minimum_size = Vector2(120, 80)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("4_ydxgh")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/lookLeft/HBoxContainer/key"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("9_5s077")
-expand_mode = 1
-
-[node name="Seperator2" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/lookLeft/HBoxContainer"]
-layout_mode = 2
-
-[node name="alternativeKey" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/lookLeft/HBoxContainer"]
-custom_minimum_size = Vector2(120, 80)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("4_ydxgh")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/lookLeft/HBoxContainer/alternativeKey"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("10_2lniu")
-expand_mode = 1
-
-[node name="lookRight" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 128
-
-[node name="Label" type="Label" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/lookRight"]
-layout_mode = 2
-text = "LOOK RIGHT"
-
-[node name="Seperator" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/lookRight"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/lookRight"]
-layout_mode = 2
-
-[node name="key" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/lookRight/HBoxContainer"]
-custom_minimum_size = Vector2(120, 80)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("4_ydxgh")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/lookRight/HBoxContainer/key"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/moveRight/HBoxContainer/key"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1156,10 +402,10 @@ grow_vertical = 2
 texture = ExtResource("19_5oppm")
 expand_mode = 1
 
-[node name="Seperator2" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/lookRight/HBoxContainer"]
+[node name="Seperator2" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/moveRight/HBoxContainer"]
 layout_mode = 2
 
-[node name="alternativeKey" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/lookRight/HBoxContainer"]
+[node name="alternativeKey" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/moveRight/HBoxContainer"]
 custom_minimum_size = Vector2(120, 80)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -1168,7 +414,7 @@ texture_normal = ExtResource("4_ydxgh")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/ScrollContainer/keys/lookRight/HBoxContainer/alternativeKey"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/moveRight/HBoxContainer/alternativeKey"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1181,7 +427,597 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("11_quhrt")
+texture = ExtResource("6_pb47s")
+expand_mode = 1
+
+[node name="dash" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 64
+
+[node name="Label" type="Label" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/dash"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_g8ajw")
+theme_override_font_sizes/font_size = 25
+text = "KEY_DASH"
+
+[node name="Seperator" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/dash"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/dash"]
+layout_mode = 2
+
+[node name="key" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/dash/HBoxContainer"]
+custom_minimum_size = Vector2(120, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("4_ydxgh")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/dash/HBoxContainer/key"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_fdtmy")
+expand_mode = 1
+
+[node name="Seperator2" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/dash/HBoxContainer"]
+layout_mode = 2
+
+[node name="alternativeKey" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/dash/HBoxContainer"]
+custom_minimum_size = Vector2(120, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("4_ydxgh")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/dash/HBoxContainer/alternativeKey"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="sneak" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 64
+
+[node name="Label" type="Label" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/sneak"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_g8ajw")
+theme_override_font_sizes/font_size = 25
+text = "KEY_SNEAK"
+
+[node name="Seperator" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/sneak"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/sneak"]
+layout_mode = 2
+
+[node name="key" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/sneak/HBoxContainer"]
+custom_minimum_size = Vector2(120, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("4_ydxgh")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/sneak/HBoxContainer/key"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_g6ee7")
+expand_mode = 1
+
+[node name="Seperator2" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/sneak/HBoxContainer"]
+layout_mode = 2
+
+[node name="alternativeKey" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/sneak/HBoxContainer"]
+custom_minimum_size = Vector2(120, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("4_ydxgh")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow1/sneak/HBoxContainer/alternativeKey"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Seperator" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows"]
+layout_mode = 2
+
+[node name="keysRow2" type="VBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="attack" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 64
+
+[node name="Label" type="Label" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/attack"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_g8ajw")
+theme_override_font_sizes/font_size = 25
+text = "KEY_ATTACK"
+
+[node name="Seperator" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/attack"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/attack"]
+layout_mode = 2
+
+[node name="key" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/attack/HBoxContainer"]
+custom_minimum_size = Vector2(120, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("4_ydxgh")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/attack/HBoxContainer/key"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_upooh")
+expand_mode = 1
+
+[node name="Seperator2" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/attack/HBoxContainer"]
+layout_mode = 2
+
+[node name="alternativeKey" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/attack/HBoxContainer"]
+custom_minimum_size = Vector2(120, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("4_ydxgh")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/attack/HBoxContainer/alternativeKey"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="block" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 64
+
+[node name="Label" type="Label" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/block"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_g8ajw")
+theme_override_font_sizes/font_size = 25
+text = "KEY_BLOCK"
+
+[node name="Seperator" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/block"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/block"]
+layout_mode = 2
+
+[node name="key" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/block/HBoxContainer"]
+custom_minimum_size = Vector2(120, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("4_ydxgh")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/block/HBoxContainer/key"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_uvw6j")
+expand_mode = 1
+
+[node name="Seperator2" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/block/HBoxContainer"]
+layout_mode = 2
+
+[node name="alternativeKey" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/block/HBoxContainer"]
+custom_minimum_size = Vector2(120, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("4_ydxgh")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/block/HBoxContainer/alternativeKey"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="lockDirection" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 64
+
+[node name="Label" type="Label" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/lockDirection"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_g8ajw")
+theme_override_font_sizes/font_size = 25
+text = "KEY_LOCK_DIRECTION"
+
+[node name="Seperator" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/lockDirection"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/lockDirection"]
+layout_mode = 2
+
+[node name="key" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/lockDirection/HBoxContainer"]
+custom_minimum_size = Vector2(120, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("4_ydxgh")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/lockDirection/HBoxContainer/key"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_uvw6j")
+expand_mode = 1
+
+[node name="Seperator2" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/lockDirection/HBoxContainer"]
+layout_mode = 2
+
+[node name="alternativeKey" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/lockDirection/HBoxContainer"]
+custom_minimum_size = Vector2(120, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("4_ydxgh")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/lockDirection/HBoxContainer/alternativeKey"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="swapWeapon" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 64
+
+[node name="Label" type="Label" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/swapWeapon"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_g8ajw")
+theme_override_font_sizes/font_size = 25
+text = "KEY_SWAP_WEAPON"
+
+[node name="Seperator" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/swapWeapon"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/swapWeapon"]
+layout_mode = 2
+
+[node name="key" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/swapWeapon/HBoxContainer"]
+custom_minimum_size = Vector2(120, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("4_ydxgh")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/swapWeapon/HBoxContainer/key"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_gdywo")
+expand_mode = 1
+
+[node name="Seperator2" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/swapWeapon/HBoxContainer"]
+layout_mode = 2
+
+[node name="alternativeKey" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/swapWeapon/HBoxContainer"]
+custom_minimum_size = Vector2(120, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("4_ydxgh")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/swapWeapon/HBoxContainer/alternativeKey"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="interact" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 64
+
+[node name="Label" type="Label" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/interact"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_g8ajw")
+theme_override_font_sizes/font_size = 25
+text = "KEY_INTERACT"
+
+[node name="Seperator" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/interact"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/interact"]
+layout_mode = 2
+
+[node name="key" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/interact/HBoxContainer"]
+custom_minimum_size = Vector2(120, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("4_ydxgh")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/interact/HBoxContainer/key"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_aqo06")
+expand_mode = 1
+
+[node name="Seperator2" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/interact/HBoxContainer"]
+layout_mode = 2
+
+[node name="alternativeKey" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/interact/HBoxContainer"]
+custom_minimum_size = Vector2(120, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("4_ydxgh")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/interact/HBoxContainer/alternativeKey"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="pause" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 64
+
+[node name="Label" type="Label" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/pause"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_g8ajw")
+theme_override_font_sizes/font_size = 25
+text = "KEY_PAUSE"
+
+[node name="Seperator" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/pause"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/pause"]
+layout_mode = 2
+
+[node name="key" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/pause/HBoxContainer"]
+custom_minimum_size = Vector2(120, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("4_ydxgh")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/pause/HBoxContainer/key"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_500gj")
+expand_mode = 1
+
+[node name="Seperator2" type="Control" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/pause/HBoxContainer"]
+layout_mode = 2
+
+[node name="alternativeKey" type="TextureButton" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/pause/HBoxContainer"]
+custom_minimum_size = Vector2(120, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("4_ydxgh")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/keyboard/keyRows/keysRow2/pause/HBoxContainer/alternativeKey"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
 expand_mode = 1
 
 [node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/controlsMenuContainer/MarginContainer"]
@@ -1232,7 +1068,7 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxEmpty_dgm3k")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_qv046")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_cfr20")
-text = "BACK"
+text = "BUTTON_BACK"
 
 [node name="buttonSelectRightExit" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsBack"]
 modulate = Color(1, 1, 1, 0)
@@ -1242,3 +1078,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("5_pb47s")
 expand_mode = 1
+
+[connection signal="pressed" from="MarginContainer/controlsMenuContainer/MarginContainer/titles/HBoxContainer/buttonLeft" to="." method="_on_button_left_pressed"]
+[connection signal="pressed" from="MarginContainer/controlsMenuContainer/MarginContainer/titles/HBoxContainer/buttonRight" to="." method="_on_button_right_pressed"]

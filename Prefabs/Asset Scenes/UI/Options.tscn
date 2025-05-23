@@ -1,26 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://brkmt2ctk71u7"]
+[gd_scene load_steps=13 format=3 uid="uid://brkmt2ctk71u7"]
 
-[ext_resource type="Texture2D" uid="uid://t8xpfim77iam" path="res://UI/Menus/ButtonTexture.png" id="1_555a4"]
-[ext_resource type="Texture2D" uid="uid://ci8xqo4vdx5av" path="res://UI/Menus/ButtonTexture2.png" id="2_8foko"]
+[ext_resource type="Texture2D" uid="uid://t8xpfim77iam" path="res://UI/Menus/Buttons/ButtonTexture.png" id="1_555a4"]
+[ext_resource type="Texture2D" uid="uid://ci8xqo4vdx5av" path="res://UI/Menus/Buttons/ButtonTexture2.png" id="2_8foko"]
 [ext_resource type="FontFile" uid="uid://4l406r67702d" path="res://UI/Fonts/DidactGothic-Regular.ttf" id="3_uqxyv"]
-
-[sub_resource type="FontFile" id="FontFile_ar3t4"]
-subpixel_positioning = 0
-msdf_pixel_range = 14
-msdf_size = 128
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/50/0/ascent = 0.0
-cache/0/50/0/descent = 0.0
-cache/0/50/0/underline_position = 0.0
-cache/0/50/0/underline_thickness = 0.0
-cache/0/50/0/scale = 1.0
-
-[sub_resource type="FontVariation" id="FontVariation_7lj6a"]
-base_font = SubResource("FontFile_ar3t4")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_061nn"]
 
@@ -102,12 +84,12 @@ custom_minimum_size = Vector2(180, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_fonts/font = SubResource("FontVariation_7lj6a")
+theme_override_fonts/font = ExtResource("3_uqxyv")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxEmpty_061nn")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_3pqfp")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8vpc7")
-text = "DISPLAY"
+text = "BUTTON_DISPLAY"
 
 [node name="buttonSelectRightResume" type="TextureRect" parent="optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsDisplay"]
 modulate = Color(1, 1, 1, 0)
@@ -141,7 +123,7 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxEmpty_2es02")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_g56hm")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_yhex8")
-text = "CONTROLS"
+text = "BUTTON_CONTROLS"
 
 [node name="buttonSelectRightOptions" type="TextureRect" parent="optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsControls"]
 modulate = Color(1, 1, 1, 0)
@@ -175,7 +157,7 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxEmpty_0uuuy")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_w3a8x")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ascyu")
-text = "BACK"
+text = "BUTTON_BACK"
 
 [node name="buttonSelectRightExit" type="TextureRect" parent="optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsBack"]
 modulate = Color(1, 1, 1, 0)

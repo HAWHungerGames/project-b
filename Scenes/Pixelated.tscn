@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://cx8kva5n203y0"]
+[gd_scene load_steps=47 format=3 uid="uid://cx8kva5n203y0"]
 
 [ext_resource type="PackedScene" uid="uid://17sawqr1a5sd" path="res://Scenes/Konrad Work Scene.tscn" id="2_j1yk3"]
 [ext_resource type="Texture2D" uid="uid://b56g56co15oce" path="res://UI/Weapons/WeaponSlotFrame2.png" id="3_hdyds"]
@@ -21,11 +21,11 @@
 [ext_resource type="Texture2D" uid="uid://dncs81uxppe3f" path="res://UI/Stats/DamageMiddle.png" id="20_xqyaj"]
 [ext_resource type="Texture2D" uid="uid://dxxqrbfkg137x" path="res://UI/Stats/Mana.png" id="21_cst2b"]
 [ext_resource type="Script" uid="uid://c7616ek8c2kfe" path="res://Scripts/UI/low_health.gd" id="22_whxjm"]
-[ext_resource type="Texture2D" uid="uid://baxq1j20y701x" path="res://UI/Menus/redTint.png" id="23_p2d2b"]
+[ext_resource type="Texture2D" uid="uid://baxq1j20y701x" path="res://UI/Menus/Backgrounds/redTint.png" id="23_p2d2b"]
 [ext_resource type="Shader" uid="uid://bjy5d3x36hbdt" path="res://Scripts/Shaders/pulsating.gdshader" id="24_y2r2k"]
 [ext_resource type="Script" uid="uid://isgt2htj3fmm" path="res://Scripts/UI/menus/pause_menu.gd" id="25_kqvyq"]
-[ext_resource type="Texture2D" uid="uid://t8xpfim77iam" path="res://UI/Menus/ButtonTexture.png" id="26_cpi60"]
-[ext_resource type="Texture2D" uid="uid://ci8xqo4vdx5av" path="res://UI/Menus/ButtonTexture2.png" id="27_p5upx"]
+[ext_resource type="Texture2D" uid="uid://t8xpfim77iam" path="res://UI/Menus/Buttons/ButtonTexture.png" id="26_cpi60"]
+[ext_resource type="Texture2D" uid="uid://ci8xqo4vdx5av" path="res://UI/Menus/Buttons/ButtonTexture2.png" id="27_p5upx"]
 [ext_resource type="FontFile" uid="uid://4l406r67702d" path="res://UI/Fonts/DidactGothic-Regular.ttf" id="28_bu801"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qsm0h"]
@@ -115,6 +115,12 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hixc1"]
 shader = SubResource("Shader_7rkp8")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7rkp8"]
+viewport_path = NodePath("WorldEnvironment/Test Stuff/MeleeEnemy/EnemyHealthbarViewport2")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_kj2st"]
+viewport_path = NodePath("EnemyHealthbarViewport")
 
 [node name="Pixelated" type="Node3D"]
 
@@ -575,6 +581,12 @@ shadow_blur = 0.0
 [node name="GridContainer" parent="AspectRatioContainer/SubViewportContainer/SubViewport/KonradWorkScene/WorldEnvironment/Player/DebugUI" index="0"]
 columns = 1
 
+[node name="Sprite3D" parent="AspectRatioContainer/SubViewportContainer/SubViewport/KonradWorkScene/WorldEnvironment/Test Stuff/MeleeEnemy" index="11"]
+texture = SubResource("ViewportTexture_7rkp8")
+
+[node name="Sprite3D" parent="AspectRatioContainer/SubViewportContainer/SubViewport/KonradWorkScene/WorldEnvironment/Test Stuff/MeleeEnemy3/EnemyHealthbarViewport" index="1"]
+texture = SubResource("ViewportTexture_kj2st")
+
 [node name="CanvasLayer" parent="AspectRatioContainer/SubViewportContainer/SubViewport/KonradWorkScene/WorldEnvironment" index="5"]
 visible = false
 
@@ -604,3 +616,8 @@ offset_bottom = 38.5
 
 [editable path="AspectRatioContainer/SubViewportContainer/SubViewport/KonradWorkScene"]
 [editable path="AspectRatioContainer/SubViewportContainer/SubViewport/KonradWorkScene/WorldEnvironment/Player"]
+[editable path="AspectRatioContainer/SubViewportContainer/SubViewport/KonradWorkScene/WorldEnvironment/Test Stuff/MeleeEnemy3"]
+[editable path="AspectRatioContainer/SubViewportContainer/SubViewport/KonradWorkScene/WorldEnvironment/CanvasLayer/PauseMenu"]
+[editable path="AspectRatioContainer/SubViewportContainer/SubViewport/KonradWorkScene/WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu/Options"]
+[editable path="AspectRatioContainer/SubViewportContainer/SubViewport/KonradWorkScene/WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu/Display"]
+[editable path="AspectRatioContainer/SubViewportContainer/SubViewport/KonradWorkScene/WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu/Controls"]

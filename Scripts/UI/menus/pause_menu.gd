@@ -11,16 +11,15 @@ extends MarginContainer
 @onready var buttonSelectLeftOptions = $pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsOptions/buttonSelectLeftOptions
 @onready var buttonSelectRightExit = $pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit/buttonSelectRightExit
 @onready var buttonSelectLeftExit = $pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit/buttonSelectLeftExit
-@onready var blendScreen = $"../blendScreen"
+@onready var blendScreen = $blendScreen
 
-@onready var buttonsDisplay = $optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsDisplay
-@onready var buttonsControls = $optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsControls
-@onready var buttonsBack = $optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsBack
+@onready var buttonsDisplay = $Options/optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsDisplay
+@onready var buttonsControls = $Options/optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsControls
+@onready var buttonsBack = $Options/optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsBack
 
 @onready var resume = $pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsResume/resume
 @onready var options = $pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsOptions/options
 @onready var exit = $pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit/exit
-
 
 func _input(event):
 	if event.is_action_pressed("pause"):
@@ -43,9 +42,8 @@ func _on_exit_pressed() -> void:
 	tween.play()
 	await get_tree().create_timer(2).timeout
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://Scenes/TitleScreen.tscn")
-
-
+	get_tree().change_scene_to_file("res://Prefabs/Asset Scenes/UI/TitleScreen.tscn")
+	
 func _on_resume_pressed() -> void:
 	unpause()
 

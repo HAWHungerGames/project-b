@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8jpag0vcumdf"
-path="res://.godot/imported/PS5De.png-0336c9339cb10b6320038c8c04c154d2.ctex"
+uid="uid://5yw52orkntao"
+path="res://.godot/imported/EnemyHealthbarUnderneath.png-e42f0deaf39d13b4af99c30a67d5ee1d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Menus/PS5De.png"
-dest_files=["res://.godot/imported/PS5De.png-0336c9339cb10b6320038c8c04c154d2.ctex"]
+source_file="res://UI/Stats/EnemyHealthbarUnderneath.png"
+dest_files=["res://.godot/imported/EnemyHealthbarUnderneath.png-e42f0deaf39d13b4af99c30a67d5ee1d.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

@@ -1,31 +1,12 @@
-[gd_scene load_steps=20 format=3 uid="uid://dqqvcx3rmwu3k"]
+[gd_scene load_steps=17 format=3 uid="uid://dqqvcx3rmwu3k"]
 
 [ext_resource type="Script" uid="uid://isgt2htj3fmm" path="res://Scripts/UI/menus/pause_menu.gd" id="1_uantx"]
-[ext_resource type="Texture2D" uid="uid://t8xpfim77iam" path="res://UI/Menus/ButtonTexture.png" id="2_e5bcg"]
-[ext_resource type="Texture2D" uid="uid://ci8xqo4vdx5av" path="res://UI/Menus/ButtonTexture2.png" id="3_kd62h"]
+[ext_resource type="Texture2D" uid="uid://t8xpfim77iam" path="res://UI/Menus/Buttons/ButtonTexture.png" id="2_e5bcg"]
+[ext_resource type="Texture2D" uid="uid://ci8xqo4vdx5av" path="res://UI/Menus/Buttons/ButtonTexture2.png" id="3_kd62h"]
 [ext_resource type="FontFile" uid="uid://4l406r67702d" path="res://UI/Fonts/DidactGothic-Regular.ttf" id="4_o1fra"]
 [ext_resource type="PackedScene" uid="uid://brkmt2ctk71u7" path="res://Prefabs/Asset Scenes/UI/Options.tscn" id="5_hlsqj"]
 [ext_resource type="PackedScene" uid="uid://dymqhiqdwrpf0" path="res://Prefabs/Asset Scenes/UI/Display.tscn" id="6_uantx"]
 [ext_resource type="PackedScene" uid="uid://6nm3v04w1rep" path="res://Prefabs/Asset Scenes/UI/Controls.tscn" id="6_xpt66"]
-[ext_resource type="Texture2D" uid="uid://cfviqqvwxl6c8" path="res://UI/Menus/XBoxEn.png" id="8_kd62h"]
-
-[sub_resource type="FontFile" id="FontFile_1kpkd"]
-subpixel_positioning = 0
-msdf_pixel_range = 14
-msdf_size = 128
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/50/0/ascent = 0.0
-cache/0/50/0/descent = 0.0
-cache/0/50/0/underline_position = 0.0
-cache/0/50/0/underline_thickness = 0.0
-cache/0/50/0/scale = 1.0
-
-[sub_resource type="FontVariation" id="FontVariation_qxth7"]
-base_font = SubResource("FontFile_1kpkd")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_juw2y"]
 
@@ -63,9 +44,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uantx")
 
+[node name="blendScreen" type="ColorRect" parent="pauseMenu"]
+modulate = Color(1, 1, 1, 0)
+z_index = 2
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
 [node name="pauseMenuContainer" type="VBoxContainer" parent="pauseMenu"]
 process_mode = 3
-visible = false
 z_index = 3
 layout_mode = 2
 size_flags_horizontal = 4
@@ -114,7 +100,7 @@ custom_minimum_size = Vector2(180, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_fonts/font = SubResource("FontVariation_qxth7")
+theme_override_fonts/font = ExtResource("4_o1fra")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxEmpty_juw2y")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_7pcq1")
@@ -207,10 +193,8 @@ visible = false
 layout_mode = 2
 
 [node name="Controls" parent="pauseMenu" instance=ExtResource("6_xpt66")]
+visible = false
 layout_mode = 2
-
-[node name="TextureRect" parent="pauseMenu/Controls/MarginContainer/controlsMenuContainer/MarginContainer/MarginContainer" index="0"]
-texture = ExtResource("8_kd62h")
 
 [connection signal="mouse_entered" from="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsResume/resume" to="pauseMenu" method="_on_resume_hover_enter"]
 [connection signal="mouse_exited" from="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsResume/resume" to="pauseMenu" method="_on_resume_hover_exit"]
