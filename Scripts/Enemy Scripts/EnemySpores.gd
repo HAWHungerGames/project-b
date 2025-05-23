@@ -24,8 +24,6 @@ extends CharacterBody3D
 @onready var sporeNode = $SporeRange
 @onready var particles = $GPUParticles3D
 @onready var animationPlayer = $Mesh/AnimationPlayer
-@onready var attackIndicator = $AttackIndicatorBottom
-@onready var attackIndicator2 = $AttackIndicatorBottom2
 
 @onready var boss_emitter = GameManager.get_child_by_name(self, "EnemyToBoss")
 @onready var death_spores = GameManager.get_child_by_name(self, "DeathSpores")

@@ -60,7 +60,6 @@ hue_variation_max = 0.03
 
 [sub_resource type="QuadMesh" id="QuadMesh_7ub5t"]
 
-[node name="SporeEnemy" type="CharacterBody3D" groups=["Enemy", "enemy"]]
 [sub_resource type="Gradient" id="Gradient_tvkxg"]
 offsets = PackedFloat32Array(0, 0.489451, 0.767932, 1)
 colors = PackedColorArray(0.624, 0.72, 0, 0.537255, 0.857336, 0.841146, 0.221142, 0.890196, 0.911952, 0.9542, 0.360503, 0.94902, 1, 1, 1, 0.596078)
@@ -331,6 +330,7 @@ local_coords = true
 process_material = SubResource("ParticleProcessMaterial_n6he8")
 draw_pass_1 = SubResource("QuadMesh_tdb2c")
 script = ExtResource("7_yck4o")
+
 [connection signal="area_entered" from="HearingArea" to="." method="_on_hearing_area_entered"]
 [connection signal="area_exited" from="HearingArea" to="." method="_on_hearing_area_exited"]
 [connection signal="area_entered" from="VisionArea" to="." method="_on_vision_area_entered"]

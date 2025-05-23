@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://cytkpf563uyiu"]
+[gd_scene load_steps=60 format=3 uid="uid://cytkpf563uyiu"]
 
 [ext_resource type="Texture2D" uid="uid://b56g56co15oce" path="res://UI/Weapons/WeaponSlotFrame2.png" id="1_smxpu"]
 [ext_resource type="Script" uid="uid://jrwxn4jas2ej" path="res://Scripts/UI/weapon_slots.gd" id="2_rmcs1"]
@@ -85,44 +85,6 @@ base_font = SubResource("FontFile_i5sur")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gqamb"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q8m6m"]
-
-[sub_resource type="Shader" id="Shader_us6mg"]
-code = "shader_type canvas_item;
-
-uniform vec4 base_color : source_color = vec4(1.0, 0.2, 0.2, 0.8);
-uniform vec4 flash_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
-uniform float flash_amount : hint_range(0.0, 1.0) = 0.0;
-uniform float width_taper = 3.0;  // More aggressive taper (red line in graph)
-uniform float edge_fade_sharpness = 0.8;
-
-void fragment() {
-    // Calculate distance from center (horizontally)
-    float center_distance = abs(UV.x - 0.5) * 2.0;
-    
-    // Create width taper effect (thinner at edges)
-    float taper = 1.0 - pow(center_distance, width_taper);
-    
-    // Create vertical fade for edges
-    float edge_fade = 1.0 - 2.0 * abs(UV.y - 0.5);
-    edge_fade = smoothstep(0.0, edge_fade_sharpness, edge_fade);
-    
-    // Combine for alpha
-    float alpha = edge_fade * taper;
-    
-    // Interpolate between base color and flash color
-    vec4 final_color = mix(base_color, flash_color, flash_amount);
-    final_color.a *= alpha;
-    
-    COLOR = final_color;
-}"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1lsdj"]
-shader = SubResource("Shader_us6mg")
-shader_parameter/base_color = Color(1, 0.2, 0.2, 0.8)
-shader_parameter/flash_color = Color(1, 1, 1, 1)
-shader_parameter/flash_amount = 0.0
-shader_parameter/width_taper = 3.0
-shader_parameter/edge_fade_sharpness = 0.8
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wjqcv"]
 shader = ExtResource("7_gkfcp")
@@ -611,14 +573,6 @@ size_flags_vertical = 4
 texture = ExtResource("25_51o06")
 expand_mode = 1
 
-[node name="enemyUnblockableIndicator" type="MarginContainer" parent="CanvasLayer"]
-offset_right = 1920.0
-offset_bottom = 1080.0
-
-[node name="indicatorBeam" type="ColorRect" parent="CanvasLayer/enemyUnblockableIndicator"]
-material = SubResource("ShaderMaterial_1lsdj")
-layout_mode = 2
-
 [node name="EnemyHealthbarViewport2" type="SubViewport" parent="."]
 transparent_bg = true
 size = Vector2i(1920, 1080)
@@ -912,9 +866,10 @@ texture_progress = ExtResource("16_fjev8")
 
 [node name="timer" type="Timer" parent="CanvasLayer2/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/mana"]
 
-[node name="lowHealth" type="MarginContainer" parent="CanvasLayer2/FullUI"]
+[node name="lowHealth" type="MarginContainer" parent="CanvasLayer2/FullUI" node_paths=PackedStringArray("player")]
 layout_mode = 2
 script = ExtResource("20_27oga")
+player = NodePath("")
 
 [node name="redTint" type="TextureRect" parent="CanvasLayer2/FullUI/lowHealth"]
 visible = false
