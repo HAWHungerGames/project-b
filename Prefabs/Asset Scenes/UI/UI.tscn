@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://cytkpf563uyiu"]
+[gd_scene load_steps=49 format=3 uid="uid://cytkpf563uyiu"]
 
 [ext_resource type="Texture2D" uid="uid://b56g56co15oce" path="res://UI/Weapons/WeaponSlotFrame2.png" id="1_smxpu"]
 [ext_resource type="Script" uid="uid://jrwxn4jas2ej" path="res://Scripts/UI/weapon_slots.gd" id="2_rmcs1"]
@@ -26,6 +26,11 @@
 [ext_resource type="Texture2D" uid="uid://t8xpfim77iam" path="res://UI/Menus/Buttons/ButtonTexture.png" id="24_lp4ap"]
 [ext_resource type="Texture2D" uid="uid://ci8xqo4vdx5av" path="res://UI/Menus/Buttons/ButtonTexture2.png" id="25_51o06"]
 [ext_resource type="FontFile" uid="uid://4l406r67702d" path="res://UI/Fonts/DidactGothic-Regular.ttf" id="26_2jp13"]
+[ext_resource type="Script" uid="uid://b8cfcg3iy61dy" path="res://Scripts/UI/enemy_healthbar_viewport.gd" id="27_jilp8"]
+[ext_resource type="Texture2D" uid="uid://f1jjk5gaj2gd" path="res://UI/Stats/EnemyHealthbar.png" id="28_gkfcp"]
+[ext_resource type="Texture2D" uid="uid://5yw52orkntao" path="res://UI/Stats/EnemyHealthbarUnderneath.png" id="29_wjqcv"]
+[ext_resource type="Texture2D" uid="uid://bngudf21uy2u1" path="res://UI/Stats/EnemyHealthbarFrame.png" id="30_glxls"]
+[ext_resource type="Texture2D" uid="uid://derd3hnc5uoux" path="res://UI/Stats/EnemyHealthbarDamageBar.png" id="31_suuof"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8ekee"]
 shader = ExtResource("7_gkfcp")
@@ -556,6 +561,37 @@ offset_bottom = 1080.0
 [node name="indicatorBeam" type="ColorRect" parent="CanvasLayer/enemyUnblockableIndicator"]
 material = SubResource("ShaderMaterial_1lsdj")
 layout_mode = 2
+
+[node name="EnemyHealthbarViewport2" type="SubViewport" parent="."]
+transparent_bg = true
+texture_mipmap_bias = 1.0
+size = Vector2i(1920, 1080)
+size_2d_override = Vector2i(720, 500)
+render_target_update_mode = 4
+script = ExtResource("27_jilp8")
+
+[node name="MarginContainer" type="MarginContainer" parent="EnemyHealthbarViewport2"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_constants/margin_top = 0
+
+[node name="EnemyHealthbar" type="TextureProgressBar" parent="EnemyHealthbarViewport2/MarginContainer"]
+z_index = 1
+custom_minimum_size = Vector2(256, 1080)
+layout_mode = 2
+value = 100.0
+nine_patch_stretch = true
+texture_progress = ExtResource("28_gkfcp")
+
+[node name="EnemyDamagebar" type="TextureProgressBar" parent="EnemyHealthbarViewport2/MarginContainer"]
+texture_filter = 6
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 2
+value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("29_wjqcv")
+texture_over = ExtResource("30_glxls")
+texture_progress = ExtResource("31_suuof")
 
 [connection signal="timeout" from="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/health/timer" to="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_health_timer_timeout"]
 [connection signal="timeout" from="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina/timer" to="CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_stamina_timer_timeout"]

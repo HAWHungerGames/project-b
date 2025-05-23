@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://17sawqr1a5sd"]
+[gd_scene load_steps=62 format=3 uid="uid://17sawqr1a5sd"]
 
 [ext_resource type="Material" uid="uid://41byjnpqi8jl" path="res://Materials/TestBush.tres" id="1_3f6q6"]
 [ext_resource type="PackedScene" uid="uid://6j2eqyw3n43k" path="res://Prefabs/Asset Scenes/Game Objects/training_dummy.tscn" id="2_24xrm"]
@@ -34,19 +34,13 @@
 [ext_resource type="Shader" uid="uid://bru2whrhk4mlo" path="res://Scripts/Shaders/low_health.gdshader" id="19_jp8xc"]
 [ext_resource type="Texture2D" uid="uid://cjvmlsiwqy7rj" path="res://UI/Stats/UnderneathMiddle.png" id="20_3f6q6"]
 [ext_resource type="Texture2D" uid="uid://dncs81uxppe3f" path="res://UI/Stats/DamageMiddle.png" id="21_2uoa5"]
-[ext_resource type="Texture2D" uid="uid://f1jjk5gaj2gd" path="res://UI/Stats/EnemyHealthbar.png" id="22_ar3t4"]
 [ext_resource type="PackedScene" uid="uid://nc40df5rc7fy" path="res://Prefabs/Asset Scenes/World Objects/Walls/broke_wall_with_stuff.tscn" id="22_lfy4s"]
-[ext_resource type="Script" uid="uid://b8cfcg3iy61dy" path="res://Scenes/enemy_healthbar_viewport.gd" id="22_vs2el"]
 [ext_resource type="Texture2D" uid="uid://dxxqrbfkg137x" path="res://UI/Stats/Mana.png" id="23_e0tq6"]
-[ext_resource type="Texture2D" uid="uid://5yw52orkntao" path="res://UI/Stats/EnemyHealthbarUnderneath.png" id="23_vs2el"]
-[ext_resource type="Texture2D" uid="uid://bngudf21uy2u1" path="res://UI/Stats/EnemyHealthbarFrame.png" id="24_auvgr"]
 [ext_resource type="Script" uid="uid://jrwxn4jas2ej" path="res://Scripts/UI/weapon_slots.gd" id="24_lfy4s"]
 [ext_resource type="Texture2D" uid="uid://6m5jcd5pvxrn" path="res://UI/Weapons/WeaponSlotInactive.png" id="25_qcrt0"]
-[ext_resource type="Texture2D" uid="uid://derd3hnc5uoux" path="res://UI/Stats/EnemyHealthbarDamageBar.png" id="25_qi01s"]
 [ext_resource type="Texture2D" uid="uid://dgvicbxum24vi" path="res://UI/Weapons/WeaponSlotPressed.png" id="26_ar3t4"]
 [ext_resource type="Script" uid="uid://c7616ek8c2kfe" path="res://Scripts/UI/low_health.gd" id="26_vkbj3"]
 [ext_resource type="Texture2D" uid="uid://baxq1j20y701x" path="res://UI/Menus/Backgrounds/redTint.png" id="26_vkim1"]
-[ext_resource type="Script" uid="uid://0caua1pqc72x" path="res://Scenes/sprite_3d.gd" id="27_auvgr"]
 [ext_resource type="Texture2D" uid="uid://b0gb728e1n47w" path="res://UI/Weapons/WeaponSlot.png" id="27_vs2el"]
 [ext_resource type="Texture2D" uid="uid://b56g56co15oce" path="res://UI/Weapons/WeaponSlotFrame2.png" id="30_1tgbn"]
 [ext_resource type="Shader" uid="uid://bjy5d3x36hbdt" path="res://Scripts/Shaders/pulsating.gdshader" id="34_5oe8d"]
@@ -71,12 +65,6 @@ sky = SubResource("Sky_qcrt0")
 vertices = PackedVector3Array(19.5, 1, 46.893, 19.5, 1.25, -18.607, 19, 1, -18.607, -159.5, 1, 46.893, 19, 1, -27.357, 21.25, 1, -252.107, -159.5, 1, -252.107, 21.25, 1, -27.607, 23, 1, -27.607, 23, 1, -252.107, 25, 1, -27.607, 25.25, 1, -25.857, 159.5, 1, -26.107, 159.5, 1, -252.107, 20, 2.25, -20.357, 24.25, 2.25, -20.357, 24.25, 3.75, -26.607, 20, 3.75, -26.607, 20, 3.75, -22.857, 24.25, 3.75, -22.857, 20.25, 1, -26.357, 20.25, 1, -21.607, 24, 1, -21.607, 24, 1, -26.357, 25.25, 1, -18.607, 24.75, 1.25, -18.607, 24.75, 1, 46.893, 159.5, 1, 46.893, 24.25, 1.25, -18.607, 20, 1.25, -18.607)
 polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 3), PackedInt32Array(4, 2, 3), PackedInt32Array(4, 5, 7), PackedInt32Array(5, 9, 7), PackedInt32Array(7, 9, 8), PackedInt32Array(11, 10, 12), PackedInt32Array(12, 10, 13), PackedInt32Array(13, 10, 9), PackedInt32Array(10, 8, 9), PackedInt32Array(14, 18, 15), PackedInt32Array(15, 18, 19), PackedInt32Array(19, 18, 17), PackedInt32Array(19, 17, 16), PackedInt32Array(23, 22, 20), PackedInt32Array(20, 22, 21), PackedInt32Array(26, 25, 24), PackedInt32Array(24, 11, 12), PackedInt32Array(26, 24, 27), PackedInt32Array(27, 24, 12), PackedInt32Array(29, 14, 28), PackedInt32Array(28, 14, 15), PackedInt32Array(28, 26, 29), PackedInt32Array(29, 26, 0), PackedInt32Array(0, 1, 29), PackedInt32Array(28, 25, 26)]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_vs2el"]
-viewport_path = NodePath("WorldEnvironment/Test Stuff/MeleeEnemy/EnemyHealthbarViewport2")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_auvgr"]
-viewport_path = NodePath("EnemyHealthbarViewport")
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qsm0h"]
 shader = ExtResource("19_jp8xc")
 shader_parameter/low_health = false
@@ -91,11 +79,6 @@ shader_parameter/pulse_speed = 2.0
 shader_parameter/intensity = 0.5
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_68ajo"]
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lfy4s"]
-gravity = Vector3(0, 0, 0)
-
-[sub_resource type="QuadMesh" id="QuadMesh_qcrt0"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ar3t4"]
 direction = Vector3(0, 1, 0)
@@ -601,48 +584,8 @@ transform = Transform3D(-0.999999, 0, -8.74227e-08, 0, 1, 0, 8.74227e-08, 0, -0.
 [node name="MeleeEnemy" parent="WorldEnvironment/Test Stuff" groups=["enemy"] instance=ExtResource("10_1ee8w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -60.1661)
 
-[node name="EnemyHealthbarViewport2" type="SubViewport" parent="WorldEnvironment/Test Stuff/MeleeEnemy"]
-transparent_bg = true
-size = Vector2i(1920, 1080)
-size_2d_override = Vector2i(720, 500)
-render_target_update_mode = 4
-script = ExtResource("22_vs2el")
-
-[node name="MarginContainer" type="MarginContainer" parent="WorldEnvironment/Test Stuff/MeleeEnemy/EnemyHealthbarViewport2"]
-offset_right = 1920.0
-offset_bottom = 1080.0
-theme_override_constants/margin_top = 0
-
-[node name="EnemyHealthbar" type="TextureProgressBar" parent="WorldEnvironment/Test Stuff/MeleeEnemy/EnemyHealthbarViewport2/MarginContainer"]
-z_index = 1
-custom_minimum_size = Vector2(256, 1080)
-layout_mode = 2
-value = 100.0
-nine_patch_stretch = true
-texture_progress = ExtResource("22_ar3t4")
-
-[node name="EnemyDamagebar" type="TextureProgressBar" parent="WorldEnvironment/Test Stuff/MeleeEnemy/EnemyHealthbarViewport2/MarginContainer"]
-texture_filter = 6
-custom_minimum_size = Vector2(1920, 1080)
-layout_mode = 2
-value = 100.0
-nine_patch_stretch = true
-texture_under = ExtResource("23_vs2el")
-texture_over = ExtResource("24_auvgr")
-texture_progress = ExtResource("25_qi01s")
-
-[node name="Sprite3D" type="Sprite3D" parent="WorldEnvironment/Test Stuff/MeleeEnemy"]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 1.39132, 0)
-billboard = 1
-texture_filter = 5
-texture = SubResource("ViewportTexture_vs2el")
-script = ExtResource("27_auvgr")
-
 [node name="MeleeEnemy3" parent="WorldEnvironment/Test Stuff" groups=["enemy"] instance=ExtResource("10_1ee8w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.77517, 1.5, -65.0895)
-
-[node name="Sprite3D" parent="WorldEnvironment/Test Stuff/MeleeEnemy3/EnemyHealthbarViewport" index="1"]
-texture = SubResource("ViewportTexture_auvgr")
 
 [node name="RangedEnemy" parent="WorldEnvironment/Test Stuff" groups=["enemy"] instance=ExtResource("12_q6ig3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.45755, 1.57494, -64.5633)
@@ -933,19 +876,12 @@ texture = SubResource("CompressedTexture2D_68ajo")
 
 [node name="PauseMenu" parent="WorldEnvironment/CanvasLayer" instance=ExtResource("45_ccm0r")]
 
-[node name="blendScreen" parent="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu" index="0"]
-visible = false
-
 [node name="pauseMenuContainer" parent="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu" index="1"]
 visible = false
 
-[node name="EnemyDeath" type="GPUParticles3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.739091, 1.77447, 0)
-process_material = SubResource("ParticleProcessMaterial_lfy4s")
-draw_pass_1 = SubResource("QuadMesh_qcrt0")
-
 [node name="WalkingDust" type="GPUParticles3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47942, 0.923584, 0.00573015)
+emitting = false
 lifetime = 0.2
 explosiveness = 0.7
 process_material = SubResource("ParticleProcessMaterial_ar3t4")
@@ -953,6 +889,7 @@ draw_pass_1 = SubResource("QuadMesh_65wlj")
 
 [node name="Dash" type="GPUParticles3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38423, 1.64021)
+emitting = false
 amount = 50
 lifetime = 1.5
 speed_scale = 1.5
@@ -962,19 +899,21 @@ draw_pass_1 = SubResource("QuadMesh_65wlj")
 
 [node name="FallImpact" type="GPUParticles3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.39728, 1.64021)
+emitting = false
 amount = 50
 lifetime = 0.5
 explosiveness = 0.7
 process_material = ExtResource("50_qcrt0")
 draw_pass_1 = SubResource("QuadMesh_65wlj")
 
-[node name="EnemyHealthbarFrame" type="Sprite2D" parent="."]
-scale = Vector2(0.370313, 0.382407)
-texture = ExtResource("24_auvgr")
-
 [connection signal="timeout" from="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/health/timer" to="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_health_timer_timeout"]
 [connection signal="timeout" from="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina/timer" to="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_stamina_timer_timeout"]
 [connection signal="timeout" from="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/mana/timer" to="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_mana_timer_timeout"]
+[connection signal="pressed" from="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu/Options/optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsDisplay/display" to="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu" method="_on_display_pressed"]
+[connection signal="pressed" from="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu/Options/optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsControls/controls" to="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu" method="_on_controls_pressed"]
+[connection signal="pressed" from="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu/Options/optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsBack/back" to="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu" method="_on_back_pressed"]
+[connection signal="pressed" from="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu/Display/displayMenuContainer/menuMargin/NinePatchRect/buttonMargin/buttons/buttonsBack/back" to="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu" method="_on_display_back_pressed"]
+[connection signal="pressed" from="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu/Controls/MarginContainer/controlsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsBack/back" to="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu" method="_on_back_controls_pressed"]
 
 [editable path="WorldEnvironment/Player"]
 [editable path="WorldEnvironment/Test Stuff/MeleeEnemy3"]

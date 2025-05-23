@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://uafprr7riwjm"]
+[gd_scene load_steps=34 format=3 uid="uid://uafprr7riwjm"]
 
 [ext_resource type="Script" uid="uid://fxahdnlqqgci" path="res://Scripts/Enemy Scripts/EnemyMelee.gd" id="1_a0bld"]
 [ext_resource type="Material" uid="uid://41byjnpqi8jl" path="res://Materials/TestBush.tres" id="2_x0lkj"]
@@ -6,15 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://co6wmanklpgl3" path="res://UI/Particles/ParticleDust.png" id="4_03kpj"]
 [ext_resource type="Script" uid="uid://cq485d4lp3x4t" path="res://Scripts/UI/death_spores.gd" id="5_qq2hi"]
 [ext_resource type="Texture2D" uid="uid://b67sgvs236paw" path="res://Assets/Kenney Particles Transparent Background/circle_05.png" id="6_1qlky"]
-[ext_resource type="Script" uid="uid://c075aiwr805vf" path="res://enemy_to_boss.gd" id="7_ghq20"]
-[ext_resource type="Script" uid="uid://b8cfcg3iy61dy" path="res://Scenes/enemy_healthbar_viewport.gd" id="8_l7f8h"]
-[ext_resource type="Texture2D" uid="uid://f1jjk5gaj2gd" path="res://UI/Stats/EnemyHealthbar.png" id="9_5yb1s"]
-[ext_resource type="Texture2D" uid="uid://5yw52orkntao" path="res://UI/Stats/EnemyHealthbarUnderneath.png" id="10_uvoca"]
-[ext_resource type="Texture2D" uid="uid://bngudf21uy2u1" path="res://UI/Stats/EnemyHealthbarFrame.png" id="11_btwkg"]
-[ext_resource type="Texture2D" uid="uid://derd3hnc5uoux" path="res://UI/Stats/EnemyHealthbarDamageBar.png" id="12_se6ri"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_jvw48"]
-viewport_path = NodePath("EnemyHealthbarViewport")
+[ext_resource type="Script" uid="uid://c075aiwr805vf" path="res://Scripts/UI/enemy_to_boss.gd" id="7_ghq20"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dp8bq"]
 
@@ -177,42 +169,6 @@ script = ExtResource("1_a0bld")
 health = 100
 attackHeight = 2.0
 attackWidth = 3.0
-
-[node name="EnemyHealthbarViewport" type="SubViewport" parent="."]
-transparent_bg = true
-canvas_item_default_texture_filter = 2
-size = Vector2i(1920, 1080)
-size_2d_override = Vector2i(720, 500)
-script = ExtResource("8_l7f8h")
-
-[node name="MarginContainer" type="MarginContainer" parent="EnemyHealthbarViewport"]
-offset_right = 1920.0
-offset_bottom = 1080.0
-theme_override_constants/margin_top = 0
-
-[node name="EnemyHealthbar" type="TextureProgressBar" parent="EnemyHealthbarViewport/MarginContainer"]
-z_index = 1
-custom_minimum_size = Vector2(256, 1080)
-layout_mode = 2
-value = 100.0
-nine_patch_stretch = true
-texture_progress = ExtResource("9_5yb1s")
-
-[node name="EnemyDamagebar" type="TextureProgressBar" parent="EnemyHealthbarViewport/MarginContainer"]
-texture_filter = 6
-custom_minimum_size = Vector2(1920, 1080)
-layout_mode = 2
-value = 100.0
-nine_patch_stretch = true
-texture_under = ExtResource("10_uvoca")
-texture_over = ExtResource("11_btwkg")
-texture_progress = ExtResource("12_se6ri")
-
-[node name="Sprite3D" type="Sprite3D" parent="EnemyHealthbarViewport"]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 1.39132, 0)
-billboard = 1
-texture_filter = 5
-texture = SubResource("ViewportTexture_jvw48")
 
 [node name="HearingArea" type="Area3D" parent="." groups=["Enemy"]]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
