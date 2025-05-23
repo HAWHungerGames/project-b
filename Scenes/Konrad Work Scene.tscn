@@ -1,4 +1,4 @@
-[gd_scene load_steps=114 format=3 uid="uid://17sawqr1a5sd"]
+[gd_scene load_steps=115 format=3 uid="uid://17sawqr1a5sd"]
 
 [ext_resource type="Material" uid="uid://41byjnpqi8jl" path="res://Materials/TestBush.tres" id="1_3f6q6"]
 [ext_resource type="PackedScene" uid="uid://bo6t8u3r6w260" path="res://Prefabs/Asset Scenes/World Objects/Nature/Plants/grass_ground.tscn" id="2_5i7v7"]
@@ -31,7 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://dc4hcr4p2xbna" path="res://UI/Stats/UnderneathTop.png" id="10_65wlj"]
 [ext_resource type="PackedScene" uid="uid://vj7to5njslw6" path="res://Prefabs/Asset Scenes/Game Objects/Socket.tscn" id="11_1bu8d"]
 [ext_resource type="PackedScene" uid="uid://dl4qm10erpopc" path="res://Prefabs/Asset Scenes/World Objects/Path Stones/path_stone_nine.tscn" id="11_4bywt"]
-[ext_resource type="PackedScene" path="res://Prefabs/Asset Scenes/World Objects/Walls/wall_dead_trees.tscn" id="11_ar3t4"]
+[ext_resource type="PackedScene" uid="uid://bv7bn85ey3wrk" path="res://Prefabs/Asset Scenes/World Objects/Walls/wall_dead_trees.tscn" id="11_ar3t4"]
 [ext_resource type="PackedScene" uid="uid://bbunaqymstlo4" path="res://Prefabs/Asset Scenes/World Objects/Nature/Rocks/rock_one.tscn" id="11_ccm0r"]
 [ext_resource type="Texture2D" uid="uid://cvmgiuevaosab" path="res://UI/Stats/DamageTop.png" id="11_toju0"]
 [ext_resource type="PackedScene" uid="uid://dcsqxh8ksn77m" path="res://Prefabs/Asset Scenes/Game Objects/door.tscn" id="12_1bu8d"]
@@ -39,10 +39,11 @@
 [ext_resource type="PackedScene" uid="uid://okc4kycpb5mw" path="res://Prefabs/Asset Scenes/World Objects/Extra Collisions/extra_collision.tscn" id="12_vs2el"]
 [ext_resource type="PackedScene" uid="uid://bboh7j44bhsnd" path="res://Prefabs/Asset Scenes/World Objects/Extra Collisions/extra_collision_middle.tscn" id="12_yexh8"]
 [ext_resource type="Texture2D" uid="uid://crd1yijlsjxdv" path="res://UI/Stats/BarFrameBottom.png" id="13_8rmxw"]
+[ext_resource type="PackedScene" uid="uid://cuwqxo4ogp4jh" path="res://Prefabs/Asset Scenes/World Objects/Walls/wall_tree_with_dead_trees.tscn" id="13_derlu"]
 [ext_resource type="Script" uid="uid://l471dqs5cmuc" path="res://Scripts/UI/bars.gd" id="13_fwfwu"]
 [ext_resource type="PackedScene" uid="uid://c52kip4noulnc" path="res://Prefabs/Asset Scenes/World Objects/Path Stones/path_stone_eleven.tscn" id="13_u41q7"]
 [ext_resource type="Texture2D" uid="uid://idv5h3wy02ok" path="res://UI/Stats/StaminaBottom.png" id="14_jp8xc"]
-[ext_resource type="PackedScene" path="res://Prefabs/Asset Scenes/World Objects/Walls/wall_small_with_trees.tscn" id="14_qi01s"]
+[ext_resource type="PackedScene" uid="uid://dbclsysglhxj2" path="res://Prefabs/Asset Scenes/World Objects/Walls/wall_small_with_trees.tscn" id="14_qi01s"]
 [ext_resource type="PackedScene" uid="uid://8mfs13ix63n" path="res://Prefabs/Asset Scenes/World Objects/Extra Collisions/extra_collision_big.tscn" id="15_1tgbn"]
 [ext_resource type="Texture2D" uid="uid://c8eq20nuh4yxx" path="res://UI/Stats/UnderneathBottom.png" id="15_5oe8d"]
 [ext_resource type="Texture2D" uid="uid://cur1fsy614172" path="res://UI/Stats/DamageBottom.png" id="16_qsm0h"]
@@ -51,7 +52,7 @@
 [ext_resource type="Shader" uid="uid://bru2whrhk4mlo" path="res://Scripts/Shaders/low_health.gdshader" id="19_jp8xc"]
 [ext_resource type="Texture2D" uid="uid://cjvmlsiwqy7rj" path="res://UI/Stats/UnderneathMiddle.png" id="20_3f6q6"]
 [ext_resource type="Texture2D" uid="uid://dncs81uxppe3f" path="res://UI/Stats/DamageMiddle.png" id="21_2uoa5"]
-[ext_resource type="PackedScene" uid="uid://nc40df5rc7fy" path="res://Prefabs/Asset Scenes/World Objects/Walls/broke_wall_with_stuff.tscn" id="22_lfy4s"]
+[ext_resource type="PackedScene" uid="uid://bubm7bi3hce1i" path="res://Prefabs/Asset Scenes/World Objects/Walls/broke_wall_with_stuff.tscn" id="22_lfy4s"]
 [ext_resource type="Texture2D" uid="uid://dxxqrbfkg137x" path="res://UI/Stats/Mana.png" id="23_e0tq6"]
 [ext_resource type="Texture2D" uid="uid://6m5jcd5pvxrn" path="res://UI/Weapons/WeaponSlotInactive.png" id="25_qcrt0"]
 [ext_resource type="Texture2D" uid="uid://dgvicbxum24vi" path="res://UI/Weapons/WeaponSlotPressed.png" id="26_ar3t4"]
@@ -75,16 +76,16 @@
 [ext_resource type="PackedScene" uid="uid://cnfsqcw5tv6y0" path="res://Prefabs/Asset Scenes/World Objects/Nature/Mushrooms/mushroom_blue.tscn" id="38_p74uf"]
 [ext_resource type="PackedScene" uid="uid://wnycorje8dkh" path="res://Prefabs/Asset Scenes/World Objects/Nature/Trees/tree_stapel_collision.tscn" id="40_isys4"]
 [ext_resource type="PackedScene" uid="uid://dch7u4w1qcfrl" path="res://Prefabs/Asset Scenes/World Objects/Nature/Plants/plant_blue.tscn" id="41_u212g"]
-[ext_resource type="PackedScene" path="res://Prefabs/Asset Scenes/World Objects/Walls/wall_tree_bundle_one.tscn" id="42_3v1g4"]
+[ext_resource type="PackedScene" uid="uid://dvnkacwfayu8h" path="res://Prefabs/Asset Scenes/World Objects/Walls/wall_tree_bundle_one.tscn" id="42_3v1g4"]
 [ext_resource type="PackedScene" uid="uid://cnsql16f2ejyb" path="res://Prefabs/Asset Scenes/World Objects/Nature/Plants/plant_red.tscn" id="42_u41q7"]
-[ext_resource type="PackedScene" path="res://Prefabs/Asset Scenes/World Objects/Walls/wall_tree_bundle_two.tscn" id="43_3np88"]
+[ext_resource type="PackedScene" uid="uid://b8m308lglvc7j" path="res://Prefabs/Asset Scenes/World Objects/Walls/wall_tree_bundle_two.tscn" id="43_3np88"]
 [ext_resource type="PackedScene" uid="uid://dkygrtfub7v2f" path="res://Prefabs/Asset Scenes/World Objects/Nature/Plants/plant_white.tscn" id="43_ob714"]
 [ext_resource type="PackedScene" uid="uid://brt0oycfe6ah" path="res://Prefabs/Asset Scenes/World Objects/Walls/wall_middle_part.tscn" id="44_3np88"]
 [ext_resource type="PackedScene" uid="uid://dqqvcx3rmwu3k" path="res://Prefabs/Asset Scenes/UI/PauseMenu.tscn" id="45_ccm0r"]
-[ext_resource type="PackedScene" path="res://Prefabs/Asset Scenes/World Objects/Walls/wall_tree_bundle_four.tscn" id="45_sffgg"]
-[ext_resource type="PackedScene" path="res://Prefabs/Asset Scenes/World Objects/Walls/wall_tree_bundle_three.tscn" id="46_l5vnb"]
-[ext_resource type="PackedScene" path="res://Prefabs/Asset Scenes/World Objects/Walls/wall_trees_dead_trees.tscn" id="47_l5vnb"]
-[ext_resource type="PackedScene" path="res://Prefabs/Asset Scenes/Game Objects/sign.tscn" id="49_lfy4s"]
+[ext_resource type="PackedScene" uid="uid://b0pgai48uoifv" path="res://Prefabs/Asset Scenes/World Objects/Walls/wall_tree_bundle_four.tscn" id="45_sffgg"]
+[ext_resource type="PackedScene" uid="uid://dcq4em5be8cd" path="res://Prefabs/Asset Scenes/World Objects/Walls/wall_tree_bundle_three.tscn" id="46_l5vnb"]
+[ext_resource type="PackedScene" uid="uid://3xt38evj5ssm" path="res://Prefabs/Asset Scenes/World Objects/Walls/wall_trees_dead_trees.tscn" id="47_l5vnb"]
+[ext_resource type="PackedScene" uid="uid://b7pa2hcc7huv0" path="res://Prefabs/Asset Scenes/Game Objects/sign.tscn" id="49_lfy4s"]
 [ext_resource type="PackedScene" uid="uid://d4laed6rnr6ds" path="res://Models/Objects/BossAreana.blend" id="49_wiwy5"]
 [ext_resource type="PackedScene" uid="uid://cfubqgne171oq" path="res://Prefabs/Asset Scenes/Game Objects/SneakingBush/curve_bush_for_sneaking.tscn" id="51_4bywt"]
 [ext_resource type="PackedScene" uid="uid://b4ushremwkeg6" path="res://Prefabs/Asset Scenes/World Objects/Nature/Trees/tree_stump_with_mushrooms.tscn" id="51_pueoc"]
@@ -230,7 +231,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.4316, 5.36682, -37.2094)
 
 [node name="West" type="Node3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Tutorial Room/Walls"]
 
-[node name="WallTreeWithDeadTree" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Tutorial Room/Walls/West" instance=ExtResource("22_lfy4s")]
+[node name="WallTreeWithDeadTree2" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Tutorial Room/Walls/West" instance=ExtResource("13_derlu")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -24.2752, 0.456082, 1.16742)
 
 [node name="BrokeWallWithStuff2" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Tutorial Room/Walls/West" instance=ExtResource("22_lfy4s")]
@@ -252,7 +253,7 @@ transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 25.397
 
 [node name="South" type="Node3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Tutorial Room/Walls"]
 
-[node name="WallTreeWithDeadTree" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Tutorial Room/Walls/South" instance=ExtResource("22_lfy4s")]
+[node name="WallTreeWithDeadTree2" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Tutorial Room/Walls/South" instance=ExtResource("13_derlu")]
 transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -9.88708, 0, 4.32351)
 
 [node name="WallSmallWithTrees" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Tutorial Room/Walls/South" instance=ExtResource("14_qi01s")]
@@ -476,7 +477,7 @@ transform = Transform3D(-1.5, 0, 2.59808, 0, 3, 0, -2.59808, 0, -1.5, -24.0221, 
 [node name="WallSmallWithTrees" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/West" instance=ExtResource("14_qi01s")]
 transform = Transform3D(-1.5, 0, 2.59808, 0, 3, 0, -2.59808, 0, -1.5, -28.2613, 0.189339, -57.7941)
 
-[node name="WallTreeWithDeadTree" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/West" instance=ExtResource("22_lfy4s")]
+[node name="WallTreeWithDeadTree" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/West" instance=ExtResource("13_derlu")]
 transform = Transform3D(1.73205, 0, 1, 0, 2, 0, -1, 0, 1.73205, -34.6207, 0.446848, -70.3443)
 
 [node name="ExtraCollisionCeiling" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/West" instance=ExtResource("32_q3f6p")]
@@ -641,7 +642,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.59805, 8.67282, 17.3967)
 
 [node name="East" type="Node3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 3/Walls"]
 
-[node name="WallTreeWithDeadTree" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 3/Walls/East" instance=ExtResource("22_lfy4s")]
+[node name="WallTreeWithDeadTree" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 3/Walls/East" instance=ExtResource("13_derlu")]
 transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 12.8725, 0.5, 1.21011)
 
 [node name="Wall_dead_trees" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 3/Walls/East" instance=ExtResource("11_ar3t4")]
@@ -720,7 +721,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5468, 0, -123.678)
 [node name="ExtraCollisionCeiling" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 4/Walls/South" instance=ExtResource("32_q3f6p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.84902, 5.26683, 22.03)
 
-[node name="WallTreeWithDeadTree" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 4/Walls/South" instance=ExtResource("22_lfy4s")]
+[node name="WallTreeWithDeadTree2" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 4/Walls/South" instance=ExtResource("13_derlu")]
 transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -3.77379, 0, 20.6787)
 
 [node name="West" type="Node3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 4/Walls"]
@@ -771,8 +772,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.5971, -1.90217, -0.864784)
 [node name="TreeWallWith5Trees" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 4/Walls/North" instance=ExtResource("6_lfy4s")]
 transform = Transform3D(-2.99993, 0, -0.0197922, 0, 3, 0, 0.0197922, 0, -2.99993, -12.7032, 0.943643, -32.0962)
 
-[node name="WallTreeWithDeadTree" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 4/Walls/North" instance=ExtResource("22_lfy4s")]
-transform = Transform3D(0.68404, 0, -1.87939, 0, 2, 0, 1.87939, 0, 0.68404, 4.41836, 0.408006, -32.5479)
+[node name="WallTreeWithDeadTree" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 4/Walls/North" instance=ExtResource("13_derlu")]
+transform = Transform3D(0.684039, 0, -1.87939, 0, 2, 0, 1.87939, 0, 0.684039, 4.41836, 0.408006, -32.5479)
 
 [node name="Nature" type="Node3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 4"]
 
@@ -821,7 +822,7 @@ transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -17.77
 [node name="WallSmallWithTrees" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 5/Wall/West" instance=ExtResource("14_qi01s")]
 transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -16.1547, 0, 12.6119)
 
-[node name="WallTreeWithDeadTree2" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 5/Wall/West" instance=ExtResource("22_lfy4s")]
+[node name="WallTreeWithDeadTree3" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 5/Wall/West" instance=ExtResource("13_derlu")]
 transform = Transform3D(1.1653, 0, -1.62545, 0, 2, 0, 1.62545, 0, 1.1653, -8.85505, 0.550612, -34.3309)
 
 [node name="WallTreeWithDeadTree" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 5/Wall/West" instance=ExtResource("47_l5vnb")]
@@ -3700,11 +3701,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6574, 1.75848, -27.7459)
 [connection signal="timeout" from="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/health/timer" to="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_health_timer_timeout"]
 [connection signal="timeout" from="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina/timer" to="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_stamina_timer_timeout"]
 [connection signal="timeout" from="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/mana/timer" to="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_mana_timer_timeout"]
-[connection signal="pressed" from="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu/Options/optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsDisplay/display" to="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu" method="_on_display_pressed"]
-[connection signal="pressed" from="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu/Options/optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsControls/controls" to="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu" method="_on_controls_pressed"]
-[connection signal="pressed" from="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu/Options/optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsBack/back" to="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu" method="_on_back_pressed"]
-[connection signal="pressed" from="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu/Display/displayMenuContainer/menuMargin/NinePatchRect/buttonMargin/buttons/buttonsBack/back" to="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu" method="_on_display_back_pressed"]
-[connection signal="pressed" from="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu/Controls/MarginContainer/controlsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsBack/back" to="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu" method="_on_back_controls_pressed"]
 
 [editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/BrokeWallWithStuff"]
 [editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 4/Walls/East/brokenWallWith2Trees"]
