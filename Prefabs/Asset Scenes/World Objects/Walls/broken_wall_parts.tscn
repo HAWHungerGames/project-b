@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://d3vvn20b551l5"]
+[gd_scene load_steps=3 format=3 uid="uid://d3vvn20b551l5"]
 
 [ext_resource type="PackedScene" uid="uid://c4veooe0eol5v" path="res://Models/Objects/Mauer3.blend" id="1_rfcmi"]
+[ext_resource type="Material" uid="uid://bxg5v0ffrb7qj" path="res://UI/Themes/toon_material.tres" id="2_g7s48"]
 
 [node name="BrokenWallParts" type="Node3D"]
 
@@ -8,11 +9,13 @@
 
 [node name="Cube" parent="Mauer3" index="0"]
 visible = false
+material_overlay = ExtResource("2_g7s48")
 
 [node name="Cube_001" parent="Mauer3" index="1"]
 visible = false
 
 [node name="Cube_002" parent="Mauer3" index="2"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_g7s48")
 
 [editable path="Mauer3"]

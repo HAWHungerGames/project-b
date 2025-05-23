@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cb5i8f3tl81vb"]
+
+[ext_resource type="Shader" uid="uid://bqfglfgtscvtn" path="res://Scripts/Shaders/palette_limiter.gdshader" id="1_sab4p"]
+
+[resource]
+shader = ExtResource("1_sab4p")

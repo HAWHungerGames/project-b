@@ -1,0 +1,169 @@
+[gd_scene load_steps=13 format=3 uid="uid://brkmt2ctk71u7"]
+
+[ext_resource type="Texture2D" uid="uid://t8xpfim77iam" path="res://UI/Menus/Buttons/ButtonTexture.png" id="1_555a4"]
+[ext_resource type="Texture2D" uid="uid://ci8xqo4vdx5av" path="res://UI/Menus/Buttons/ButtonTexture2.png" id="2_8foko"]
+[ext_resource type="FontFile" uid="uid://4l406r67702d" path="res://UI/Fonts/DidactGothic-Regular.ttf" id="3_uqxyv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_061nn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3pqfp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8vpc7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2es02"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g56hm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yhex8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0uuuy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w3a8x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ascyu"]
+
+[node name="Options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="optionsMenuContainer" type="VBoxContainer" parent="."]
+process_mode = 3
+z_index = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="optionsMenuContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="NinePatchRect" type="NinePatchRect" parent="optionsMenuContainer/MarginContainer"]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="buttonMargin" type="MarginContainer" parent="optionsMenuContainer/MarginContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="buttons" type="VBoxContainer" parent="optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="buttonsDisplay" type="HBoxContainer" parent="optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="buttonSelectLeftResume" type="TextureRect" parent="optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsDisplay"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_555a4")
+expand_mode = 1
+
+[node name="display" type="Button" parent="optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsDisplay"]
+custom_minimum_size = Vector2(180, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("3_uqxyv")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxEmpty_061nn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_3pqfp")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8vpc7")
+text = "BUTTON_DISPLAY"
+
+[node name="buttonSelectRightResume" type="TextureRect" parent="optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsDisplay"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_8foko")
+expand_mode = 1
+
+[node name="buttonsControls" type="HBoxContainer" parent="optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="buttonSelectLeftOptions" type="TextureRect" parent="optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsControls"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_555a4")
+expand_mode = 1
+
+[node name="controls" type="Button" parent="optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsControls"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("3_uqxyv")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2es02")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_g56hm")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_yhex8")
+text = "BUTTON_CONTROLS"
+
+[node name="buttonSelectRightOptions" type="TextureRect" parent="optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsControls"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_8foko")
+expand_mode = 1
+
+[node name="buttonsBack" type="HBoxContainer" parent="optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="buttonSelectLeftExit" type="TextureRect" parent="optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsBack"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_555a4")
+expand_mode = 1
+
+[node name="back" type="Button" parent="optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsBack"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("3_uqxyv")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0uuuy")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_w3a8x")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ascyu")
+text = "BUTTON_BACK"
+
+[node name="buttonSelectRightExit" type="TextureRect" parent="optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsBack"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_8foko")
+expand_mode = 1

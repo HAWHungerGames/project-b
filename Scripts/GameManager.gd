@@ -9,6 +9,7 @@ var bow_attack_timer
 
 var is_attacking = false
 signal weapons_changed
+signal attacks
 
 func get_weapon_in_hand():
 	return weapon_in_hand
@@ -52,5 +53,18 @@ func get_is_attacking():
 
 func set_is_attacking(check):
 	is_attacking = check
+	GameManager.attacks.emit()
+
 func weapons_updated():
 	weapons_changed.emit()
+
+func get_child_by_name(parent, name: String):
+	for child in parent.get_children():
+		if child.name == name:
+			return child
+			
+func reset_child_to_root(parent, child):
+		var pos = child.global_position
+		parent.remove_child(child)
+		get_tree().current_scene.add_child(child)
+		child.global_position = pos

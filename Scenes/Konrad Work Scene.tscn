@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://17sawqr1a5sd"]
+[gd_scene load_steps=62 format=3 uid="uid://17sawqr1a5sd"]
 
 [ext_resource type="Material" uid="uid://41byjnpqi8jl" path="res://Materials/TestBush.tres" id="1_3f6q6"]
 [ext_resource type="PackedScene" uid="uid://6j2eqyw3n43k" path="res://Prefabs/Asset Scenes/Game Objects/training_dummy.tscn" id="2_24xrm"]
@@ -16,38 +16,37 @@
 [ext_resource type="PackedScene" uid="uid://dcwv501p00np7" path="res://Prefabs/Asset Scenes/World Objects/Nature/monstera_bush.tscn" id="8_2uoa5"]
 [ext_resource type="PackedScene" uid="uid://bkb84hjpc3lba" path="res://Prefabs/Asset Scenes/Game Objects/training_dummy_ranged.tscn" id="8_oxcgu"]
 [ext_resource type="PackedScene" uid="uid://cls0f2j5gkklh" path="res://Prefabs/Asset Scenes/World Objects/Walls/broken_wall_with_2_trees.tscn" id="8_qcrt0"]
-[ext_resource type="Texture2D" uid="uid://dmuil4tlckvro" path="res://UITextures/BarFrameTop.png" id="9_fgmgr"]
+[ext_resource type="Texture2D" uid="uid://dmuil4tlckvro" path="res://UI/Stats/BarFrameTop.png" id="9_fgmgr"]
 [ext_resource type="PackedScene" uid="uid://uafprr7riwjm" path="res://Prefabs/enemy_melee.tscn" id="10_1ee8w"]
-[ext_resource type="Texture2D" uid="uid://dc4hcr4p2xbna" path="res://UITextures/UnderneathTop.png" id="10_65wlj"]
+[ext_resource type="Texture2D" uid="uid://dc4hcr4p2xbna" path="res://UI/Stats/UnderneathTop.png" id="10_65wlj"]
 [ext_resource type="PackedScene" uid="uid://vj7to5njslw6" path="res://Prefabs/Asset Scenes/Game Objects/Socket.tscn" id="11_1bu8d"]
 [ext_resource type="PackedScene" uid="uid://bbunaqymstlo4" path="res://Prefabs/Asset Scenes/World Objects/Nature/rock_one.tscn" id="11_ccm0r"]
-[ext_resource type="Texture2D" uid="uid://cvmgiuevaosab" path="res://UITextures/DamageTop.png" id="11_toju0"]
+[ext_resource type="Texture2D" uid="uid://cvmgiuevaosab" path="res://UI/Stats/DamageTop.png" id="11_toju0"]
 [ext_resource type="PackedScene" uid="uid://dcsqxh8ksn77m" path="res://Prefabs/Asset Scenes/Game Objects/door.tscn" id="12_1bu8d"]
 [ext_resource type="PackedScene" uid="uid://durr2417rl7mr" path="res://Prefabs/enemy_ranged.tscn" id="12_q6ig3"]
-[ext_resource type="Texture2D" uid="uid://crd1yijlsjxdv" path="res://UITextures/BarFrameBottom.png" id="13_8rmxw"]
+[ext_resource type="Texture2D" uid="uid://crd1yijlsjxdv" path="res://UI/Stats/BarFrameBottom.png" id="13_8rmxw"]
 [ext_resource type="Script" uid="uid://l471dqs5cmuc" path="res://Scripts/UI/bars.gd" id="13_fwfwu"]
-[ext_resource type="Texture2D" uid="uid://idv5h3wy02ok" path="res://UITextures/StaminaBottom.png" id="14_jp8xc"]
-[ext_resource type="Texture2D" uid="uid://c8eq20nuh4yxx" path="res://UITextures/UnderneathBottom.png" id="15_5oe8d"]
-[ext_resource type="Texture2D" uid="uid://cur1fsy614172" path="res://UITextures/DamageBottom.png" id="16_qsm0h"]
-[ext_resource type="Texture2D" uid="uid://booeplbhoubjy" path="res://UITextures/BarFrameMiddle.png" id="18_ga1i8"]
-[ext_resource type="Texture2D" uid="uid://b7ms4tj2ov82j" path="res://UITextures/StaminaMiddle.png" id="19_2xhpb"]
+[ext_resource type="Texture2D" uid="uid://idv5h3wy02ok" path="res://UI/Stats/StaminaBottom.png" id="14_jp8xc"]
+[ext_resource type="Texture2D" uid="uid://c8eq20nuh4yxx" path="res://UI/Stats/UnderneathBottom.png" id="15_5oe8d"]
+[ext_resource type="Texture2D" uid="uid://cur1fsy614172" path="res://UI/Stats/DamageBottom.png" id="16_qsm0h"]
+[ext_resource type="Texture2D" uid="uid://booeplbhoubjy" path="res://UI/Stats/BarFrameMiddle.png" id="18_ga1i8"]
+[ext_resource type="Texture2D" uid="uid://b7ms4tj2ov82j" path="res://UI/Stats/StaminaMiddle.png" id="19_2xhpb"]
 [ext_resource type="Shader" uid="uid://bru2whrhk4mlo" path="res://Scripts/Shaders/low_health.gdshader" id="19_jp8xc"]
-[ext_resource type="Texture2D" uid="uid://cjvmlsiwqy7rj" path="res://UITextures/UnderneathMiddle.png" id="20_3f6q6"]
-[ext_resource type="Texture2D" uid="uid://dncs81uxppe3f" path="res://UITextures/DamageMiddle.png" id="21_2uoa5"]
+[ext_resource type="Texture2D" uid="uid://cjvmlsiwqy7rj" path="res://UI/Stats/UnderneathMiddle.png" id="20_3f6q6"]
+[ext_resource type="Texture2D" uid="uid://dncs81uxppe3f" path="res://UI/Stats/DamageMiddle.png" id="21_2uoa5"]
 [ext_resource type="PackedScene" uid="uid://nc40df5rc7fy" path="res://Prefabs/Asset Scenes/World Objects/Walls/broke_wall_with_stuff.tscn" id="22_lfy4s"]
-[ext_resource type="Texture2D" uid="uid://dxxqrbfkg137x" path="res://UITextures/Mana.png" id="23_e0tq6"]
-[ext_resource type="Texture2D" uid="uid://6m5jcd5pvxrn" path="res://UITextures/WeaponSlotInactive.png" id="25_qcrt0"]
-[ext_resource type="Texture2D" uid="uid://dgvicbxum24vi" path="res://UITextures/WeaponSlotPressed.png" id="26_ar3t4"]
+[ext_resource type="Texture2D" uid="uid://dxxqrbfkg137x" path="res://UI/Stats/Mana.png" id="23_e0tq6"]
+[ext_resource type="Script" uid="uid://jrwxn4jas2ej" path="res://Scripts/UI/weapon_slots.gd" id="24_lfy4s"]
+[ext_resource type="Texture2D" uid="uid://6m5jcd5pvxrn" path="res://UI/Weapons/WeaponSlotInactive.png" id="25_qcrt0"]
+[ext_resource type="Texture2D" uid="uid://dgvicbxum24vi" path="res://UI/Weapons/WeaponSlotPressed.png" id="26_ar3t4"]
 [ext_resource type="Script" uid="uid://c7616ek8c2kfe" path="res://Scripts/UI/low_health.gd" id="26_vkbj3"]
-[ext_resource type="Texture2D" uid="uid://baxq1j20y701x" path="res://UITextures/redTint.png" id="26_vkim1"]
-[ext_resource type="Texture2D" uid="uid://b0gb728e1n47w" path="res://UITextures/WeaponSlot.png" id="27_vs2el"]
-[ext_resource type="Texture2D" uid="uid://dwoof1omyr8bt" path="res://UITextures/mycelium.png" id="28_vkbj3"]
-[ext_resource type="Texture2D" uid="uid://b56g56co15oce" path="res://UITextures/WeaponSlotFrame2.png" id="30_1tgbn"]
-[ext_resource type="Script" uid="uid://cr2dkifmawgcm" path="res://Scripts/UI/weapon_slots.gd" id="31_5i7v7"]
-[ext_resource type="Script" uid="uid://isgt2htj3fmm" path="res://Scripts/UI/menus/pause_menu.gd" id="32_3qkpg"]
-[ext_resource type="FontFile" uid="uid://4l406r67702d" path="res://UITextures/Fonts/DidactGothic-Regular.ttf" id="33_6roa5"]
+[ext_resource type="Texture2D" uid="uid://baxq1j20y701x" path="res://UI/Menus/Backgrounds/redTint.png" id="26_vkim1"]
+[ext_resource type="Texture2D" uid="uid://b0gb728e1n47w" path="res://UI/Weapons/WeaponSlot.png" id="27_vs2el"]
+[ext_resource type="Texture2D" uid="uid://b56g56co15oce" path="res://UI/Weapons/WeaponSlotFrame2.png" id="30_1tgbn"]
 [ext_resource type="Shader" uid="uid://bjy5d3x36hbdt" path="res://Scripts/Shaders/pulsating.gdshader" id="34_5oe8d"]
-[ext_resource type="Texture2D" uid="uid://co6wmanklpgl3" path="res://UITextures/ParticleDust.png" id="39_5oe8d"]
+[ext_resource type="Texture2D" uid="uid://co6wmanklpgl3" path="res://UI/Particles/ParticleDust.png" id="39_5oe8d"]
+[ext_resource type="PackedScene" uid="uid://dqqvcx3rmwu3k" path="res://Prefabs/Asset Scenes/UI/PauseMenu.tscn" id="45_ccm0r"]
+[ext_resource type="Material" uid="uid://dk88pgvvxre74" path="res://UI/Particles/fallImpact.tres" id="50_qcrt0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lfy4s"]
 sky_top_color = Color(0.102228, 0.307553, 0.295863, 1)
@@ -79,134 +78,20 @@ shader_parameter/pulse_color = Color(1, 0, 0, 0.5)
 shader_parameter/pulse_speed = 2.0
 shader_parameter/intensity = 0.5
 
-[sub_resource type="Gradient" id="Gradient_fwfwu"]
-offsets = PackedFloat32Array(0, 0.489451, 0.767932, 1)
-colors = PackedColorArray(0.624, 0.72, 0, 0.537255, 0.857336, 0.841146, 0.221142, 0.890196, 0.911952, 0.9542, 0.360503, 0.94902, 1, 1, 1, 0.596078)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_68ajo"]
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_hq7hx"]
-gradient = SubResource("Gradient_fwfwu")
-
-[sub_resource type="Curve" id="Curve_hq7hx"]
-_limits = [0.0, 100.0, 0.0, 1.0]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 13.0573), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_efexv"]
-curve = SubResource("Curve_hq7hx")
-
-[sub_resource type="Curve" id="Curve_65wlj"]
-_limits = [-10.0, 10.0, 0.0, 1.0]
-_data = [Vector2(0, 5.85987), 0.0, 0.0, 0, 0, Vector2(0.707224, -0.143312), -4.41427, -4.41427, 0, 0, Vector2(1, -1.17834), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_toju0"]
-curve = SubResource("Curve_65wlj")
-
-[sub_resource type="Curve" id="Curve_efexv"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_fgmgr"]
-curve = SubResource("Curve_efexv")
-
-[sub_resource type="Curve" id="Curve_fwfwu"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.500753), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_hq7hx"]
-curve = SubResource("Curve_fwfwu")
-
-[sub_resource type="Curve" id="Curve_fgmgr"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_65wlj"]
-curve = SubResource("Curve_fgmgr")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_65wlj"]
-lifetime_randomness = 0.5
-emission_shape = 1
-emission_sphere_radius = 0.25
-angle_min = 1.07288e-05
-angle_max = 45.0
-spread = 12.945
-flatness = 1.0
-initial_velocity_min = 0.1
-initial_velocity_max = 1.0
-angular_velocity_min = 30.0
-angular_velocity_max = 60.0
-orbit_velocity_min = 0.1
-orbit_velocity_max = 0.3
-radial_velocity_min = -2.23517e-05
-radial_velocity_max = -2.23517e-05
-velocity_limit_curve = SubResource("CurveTexture_65wlj")
-gravity = Vector3(0, -0.2, 0)
-radial_accel_min = 0.0999978
-radial_accel_max = 0.199998
-radial_accel_curve = SubResource("CurveTexture_toju0")
-tangential_accel_min = 0.399998
-tangential_accel_max = 0.999998
-damping_min = 0.2
-damping_max = 1.0
-damping_curve = SubResource("CurveTexture_efexv")
-scale_min = 0.3
-scale_max = 1.2
-scale_curve = SubResource("CurveTexture_fgmgr")
-color = Color(0.623529, 0.721569, 0, 1)
-color_ramp = SubResource("GradientTexture1D_hq7hx")
-turbulence_enabled = true
-turbulence_noise_strength = 12.88
-turbulence_noise_speed = Vector3(1, 1, 1)
-turbulence_noise_speed_random = 1.04
-turbulence_initial_displacement_min = 1.49012e-06
-turbulence_initial_displacement_max = 1.49012e-06
-turbulence_influence_over_life = SubResource("CurveTexture_hq7hx")
-
-[sub_resource type="Shader" id="Shader_jp8xc"]
-code = "shader_type particles;
-
-uniform vec3 player_pos;
-uniform float attract_strength = 2.0;
-
-void particle() {
-    // Calculate direction to player
-    vec3 dir = normalize(player_pos - );
-    
-    // Adjust velocity (homing force)
-    VELOCITY += dir * attract_strength * DELTA;
-}"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_fwfwu"]
-shader = SubResource("Shader_jp8xc")
-
-[sub_resource type="SphereMesh" id="SphereMesh_hq7hx"]
-material = SubResource("ShaderMaterial_fwfwu")
-radius = 0.04
-height = 0.08
-
-[sub_resource type="Curve" id="Curve_toju0"]
-_limits = [0.0, 3.0, 0.0, 1.0]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 2.28583), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_g5dpn"]
-curve = SubResource("Curve_toju0")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_efexv"]
-lifetime_randomness = 0.2
-particle_flag_align_y = true
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ar3t4"]
 direction = Vector3(0, 1, 0)
+spread = 90.0
+flatness = 1.0
 initial_velocity_max = 1.0
-gravity = Vector3(0, 0.5, 0)
-scale_min = 0.2
-scale_curve = SubResource("CurveTexture_g5dpn")
-color = Color(1, 0.808, 0.68, 1)
-hue_variation_min = -2.23517e-08
-hue_variation_max = 0.05
+gravity = Vector3(0, 0, 0)
+color = Color(1, 0.866667, 0.780392, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fgmgr"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ar3t4"]
 transparency = 1
 vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.866667, 0.780392, 1)
 albedo_texture = ExtResource("39_5oe8d")
 billboard_mode = 3
 particles_anim_h_frames = 1
@@ -214,8 +99,25 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_65wlj"]
-material = SubResource("StandardMaterial3D_fgmgr")
+material = SubResource("StandardMaterial3D_ar3t4")
 size = Vector2(0.4, 0.4)
+
+[sub_resource type="Curve" id="Curve_vs2el"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 14.6067), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_auvgr"]
+curve = SubResource("Curve_vs2el")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qi01s"]
+spread = 15.0
+initial_velocity_min = 0.5
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+damping_max = 1.0
+damping_curve = SubResource("CurveTexture_auvgr")
+color = Color(1, 0.866667, 0.780392, 1)
 
 [node name="KonradWorkScene" type="Node3D"]
 
@@ -691,6 +593,13 @@ homingStrength = 1.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="WorldEnvironment"]
 
+[node name="blendScreen" type="ColorRect" parent="WorldEnvironment/CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+z_index = 2
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
 [node name="FullUI" type="MarginContainer" parent="WorldEnvironment/CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
@@ -753,7 +662,7 @@ size_flags_vertical = 4
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("31_5i7v7")
+script = ExtResource("24_lfy4s")
 
 [node name="weaponSlot1" type="TextureButton" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/weaponSlotMargin/weaponSlotFrameBox/AspectRatioContainer/weaponSlotFrame/AspectRatioContainer2/weaponSlots"]
 custom_minimum_size = Vector2(99, 99)
@@ -963,107 +872,52 @@ expand_mode = 1
 visible = false
 material = SubResource("ShaderMaterial_ga1i8")
 layout_mode = 2
-texture = ExtResource("28_vkbj3")
+texture = SubResource("CompressedTexture2D_68ajo")
 
-[node name="pauseMenu" type="MarginContainer" parent="WorldEnvironment/CanvasLayer"]
-process_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("32_3qkpg")
+[node name="PauseMenu" parent="WorldEnvironment/CanvasLayer" instance=ExtResource("45_ccm0r")]
 
-[node name="pauseMenuContainer" type="VBoxContainer" parent="WorldEnvironment/CanvasLayer/pauseMenu"]
-process_mode = 4
+[node name="pauseMenuContainer" parent="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu" index="1"]
 visible = false
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="MarginContainer" type="MarginContainer" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="NinePatchRect" type="NinePatchRect" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer"]
-custom_minimum_size = Vector2(400, 300)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="MarginContainer" type="MarginContainer" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="continue" type="Button" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("33_6roa5")
-theme_override_font_sizes/font_size = 50
-text = "Resume"
-
-[node name="options" type="Button" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("33_6roa5")
-theme_override_font_sizes/font_size = 50
-text = "Options"
-
-[node name="quit" type="Button" parent="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("33_6roa5")
-theme_override_font_sizes/font_size = 50
-text = "Exit"
-
-[node name="DeathSpores" type="GPUParticles3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00802851, 1.77447, 0)
-emitting = false
-amount = 5000
-lifetime = 3.5
-explosiveness = 1.0
-randomness = 1.0
-fixed_fps = 60
-local_coords = true
-draw_order = 3
-transform_align = 1
-trail_enabled = true
-process_material = SubResource("ParticleProcessMaterial_65wlj")
-draw_pass_1 = SubResource("SphereMesh_hq7hx")
-
-[node name="DeathSpores2" type="GPUParticles3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.27317, 1.77447, 0)
-emitting = false
-amount = 1000
-lifetime = 3.5
-explosiveness = 1.0
-randomness = 1.0
-fixed_fps = 60
-local_coords = true
-draw_order = 3
-transform_align = 1
-trail_enabled = true
-process_material = SubResource("ParticleProcessMaterial_65wlj")
-draw_pass_1 = SubResource("SphereMesh_hq7hx")
 
 [node name="WalkingDust" type="GPUParticles3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.616489, 0.413133)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47942, 0.923584, 0.00573015)
+emitting = false
 lifetime = 0.2
 explosiveness = 0.7
-process_material = SubResource("ParticleProcessMaterial_efexv")
+process_material = SubResource("ParticleProcessMaterial_ar3t4")
+draw_pass_1 = SubResource("QuadMesh_65wlj")
+
+[node name="Dash" type="GPUParticles3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38423, 1.64021)
+emitting = false
+amount = 50
+lifetime = 1.5
+speed_scale = 1.5
+explosiveness = 0.91
+process_material = SubResource("ParticleProcessMaterial_qi01s")
+draw_pass_1 = SubResource("QuadMesh_65wlj")
+
+[node name="FallImpact" type="GPUParticles3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.39728, 1.64021)
+emitting = false
+amount = 50
+lifetime = 0.5
+explosiveness = 0.7
+process_material = ExtResource("50_qcrt0")
 draw_pass_1 = SubResource("QuadMesh_65wlj")
 
 [connection signal="timeout" from="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/health/timer" to="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_health_timer_timeout"]
 [connection signal="timeout" from="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina/timer" to="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_stamina_timer_timeout"]
 [connection signal="timeout" from="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/mana/timer" to="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_mana_timer_timeout"]
-[connection signal="pressed" from="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/continue" to="WorldEnvironment/CanvasLayer/pauseMenu" method="_on_continue_pressed"]
-[connection signal="pressed" from="WorldEnvironment/CanvasLayer/pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/quit" to="WorldEnvironment/CanvasLayer/pauseMenu" method="_on_button_3_pressed"]
+[connection signal="pressed" from="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu/Options/optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsDisplay/display" to="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu" method="_on_display_pressed"]
+[connection signal="pressed" from="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu/Options/optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsControls/controls" to="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu" method="_on_controls_pressed"]
+[connection signal="pressed" from="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu/Options/optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsBack/back" to="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu" method="_on_back_pressed"]
+[connection signal="pressed" from="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu/Display/displayMenuContainer/menuMargin/NinePatchRect/buttonMargin/buttons/buttonsBack/back" to="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu" method="_on_display_back_pressed"]
+[connection signal="pressed" from="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu/Controls/MarginContainer/controlsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsBack/back" to="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu" method="_on_back_controls_pressed"]
 
 [editable path="WorldEnvironment/Player"]
+[editable path="WorldEnvironment/Test Stuff/MeleeEnemy3"]
+[editable path="WorldEnvironment/CanvasLayer/PauseMenu"]
+[editable path="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu/Options"]
+[editable path="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu/Display"]
+[editable path="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu/Controls"]

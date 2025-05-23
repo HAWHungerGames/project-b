@@ -12,18 +12,26 @@ var weapon_in_slot1 = ""
 var weapon_in_slot2 = ""
 
 var slot_one_active = true
+var state = "idle" 
+var weapon_index = 0
 
-var weapon_textures = [{"idle": "res://UITextures/Sword.png", "active": "res://UITextures/SwordAttack.png"},
-{"idle": "res://UITextures/Shield.png", "active": "res://UITextures/ShieldBlock.png"},
-{"idle": "res://UITextures/Bow.png", "active": "res://UITextures/BowTensioned.png"},
-{"idle": "res://UITextures/Magic.png", "active": "res://UITextures/MagicAttack.png"}]
+var weapon_textures = [{"idle": "res://UITextures/Weapons/Sword.png", "active": "res://UITextures/Weapons/SwordAttack.png"},
+{"idle": "res://UITextures/Weapons/Shield.png", "active": "res://UITextures/Weapons/ShieldBlock.png"},
+{"idle": "res://UITextures/Weapons/Bow.png", "active": "res://UITextures/Weapons/BowTensioned.png"},
+{"idle": "res://UITextures/Weapons/Magic.png", "active": "res://UITextures/Weapons/MagicAttack.png"}]
 
 func _ready() -> void:
 	GameManager.weapons_changed.connect(update_weapons)
+	GameManager.attacks.connect(attack)
 func update_weapons():
+	print("update")
+	if GameManager.is_attacking:
+		state = "active"
+	else:
+		state = "idle"
 	var new_first_weapon = GameManager.get_first_weapon()
 	var new_second_weapon = GameManager.get_second_weapon()
-	
+	print(weapon1.get_path())
 	if Input.is_action_just_pressed("weapon_swap"):
 		var slot_changed = true
 		slot_one_active = !slot_one_active
@@ -58,24 +66,36 @@ func update_weapons():
 			switch_weapon_texture(GameManager.get_first_weapon())
 		first_weapon = new_first_weapon
 		second_weapon = new_second_weapon
+		print("signal shot")
+
+func attack():
+	check_weapon(GameManager.get_first_weapon())
+	if GameManager.is_attacking:
+		attack_texture("active")
+	else:
+		attack_texture("idle")
+		
+func attack_texture(state):
+	if slot_one_active:
+		weapon1.texture = load(weapon_textures[weapon_index][state])
+	else:
+		weapon2.texture = load(weapon_textures[weapon_index][state])
 		
 func switch_weapon_texture(weapon):
-	var weapon_index = 0
+	print(weapon)
 	if !weapon.is_empty():
-		if "shield" in weapon.to_lower():
-			weapon_index = 1
-		elif "bow" in weapon.to_lower():
-			weapon_index = 2
-		elif "staff" in weapon.to_lower():
-			weapon_index = 3
-		
+		check_weapon(weapon)
+		print(weapon_index)
 		if !slot_one_active && weapon2.texture != null:
 			weapon2.texture = load(weapon_textures[weapon_index]["idle"])
 			slot_one_active = !slot_one_active
 		elif !slot_one_active:
 			weapon2.texture = load(weapon_textures[weapon_index]["idle"])
 		else:
+			print("update terxuter 1")
+			print(load((weapon_textures[weapon_index]["idle"])))
 			weapon1.texture = load(weapon_textures[weapon_index]["idle"])
+			print(weapon1.texture)
 			switch_active_texture()
 	else:
 		if !slot_one_active:
@@ -83,6 +103,17 @@ func switch_weapon_texture(weapon):
 		else:
 			weapon1.texture = null
 
+func check_weapon(weapon):
+	print(weapon)
+	if "shield" in weapon.to_lower():
+		weapon_index = 1
+	elif "bow" in weapon.to_lower():
+		weapon_index = 2
+	elif "staff" in weapon.to_lower():
+		weapon_index = 3
+	else:
+		weapon_index = 0
+	print(weapon_index)
 func switch_active_texture():
 	if slot_one_active:
 		weapon1.z_index = 1

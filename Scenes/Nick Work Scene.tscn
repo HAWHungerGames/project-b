@@ -210,6 +210,24 @@ transform = Transform3D(-0.721241, 0, 0.692685, 0, 1, 0, -0.692685, 0, -0.721241
 hearingRange = 20.0
 visionRange = 50.0
 
+[node name="AttackIndicatorBottom" type="GPUParticles3D" parent="SporeEnemy"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -0.0784874, 2.38778, 0.523886)
+emitting = false
+amount = 50
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_n7ijj")
+draw_pass_1 = SubResource("QuadMesh_eawxa")
+
+[node name="AttackIndicatorBottom2" type="GPUParticles3D" parent="SporeEnemy"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -0.0784874, 3.46959, 0.523886)
+emitting = false
+amount = 150
+explosiveness = 1.0
+randomness = 1.0
+trail_enabled = true
+process_material = SubResource("ParticleProcessMaterial_028yh")
+draw_pass_1 = SubResource("QuadMesh_eawxa")
+
 [node name="MeleeEnemy" parent="." instance=ExtResource("7_k711p")]
 transform = Transform3D(-0.999998, 0, 0.00209435, 0, 1, 0, -0.00209435, 0, -0.999998, -34.1856, 3.54163, 27.6593)
 hearingRange = 30.0

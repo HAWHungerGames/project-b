@@ -17,6 +17,7 @@ extends VBoxContainer
 @onready var mana_container = $mana
 
 func _ready() -> void:
+	print(player)
 	player.healthChanged.connect(update_health)
 	player.staminaChanged.connect(update_stamina)
 	player.manaChanged.connect(update_mana)

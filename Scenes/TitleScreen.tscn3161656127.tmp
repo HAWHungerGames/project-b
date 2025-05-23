@@ -1,0 +1,219 @@
+[gd_scene load_steps=18 format=3 uid="uid://dwh1hvl3kgobd"]
+
+[ext_resource type="Script" uid="uid://b5vtbmi5nafbd" path="res://Scripts/UI/menus/main_menu.gd" id="1_8l4an"]
+[ext_resource type="Texture2D" uid="uid://bbcidp2tk4fkv" path="res://UITextures/Menus/MycAnimafter.png" id="2_n15yj"]
+[ext_resource type="FontFile" uid="uid://4l406r67702d" path="res://UITextures/Fonts/DidactGothic-Regular.ttf" id="3_emot1"]
+[ext_resource type="VideoStream" path="res://UITextures/TitleAnimation.ogv" id="3_i5sur"]
+[ext_resource type="Texture2D" uid="uid://t8xpfim77iam" path="res://UITextures/Menus/ButtonTexture.png" id="4_i5sur"]
+[ext_resource type="Texture2D" uid="uid://ci8xqo4vdx5av" path="res://UITextures/Menus/ButtonTexture2.png" id="6_7whhf"]
+
+[sub_resource type="FontFile" id="FontFile_i5sur"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/50/0/ascent = 0.0
+cache/0/50/0/descent = 0.0
+cache/0/50/0/underline_position = 0.0
+cache/0/50/0/underline_thickness = 0.0
+cache/0/50/0/scale = 1.0
+
+[sub_resource type="FontVariation" id="FontVariation_7whhf"]
+base_font = SubResource("FontFile_i5sur")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7whhf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pie25"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5c2t2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2jiiu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_awp6w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bawyk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qu6cc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4hokt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qfyqv"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8l4an")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="titleBackground" type="TextureRect" parent="MarginContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("2_n15yj")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="MarginContainer"]
+layout_mode = 2
+stream = ExtResource("3_i5sur")
+autoplay = true
+
+[node name="Timer" type="Timer" parent="MarginContainer/VideoStreamPlayer"]
+wait_time = 2.0
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="buttonSelectLeft" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_i5sur")
+expand_mode = 1
+
+[node name="start" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(270, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = SubResource("FontVariation_7whhf")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7whhf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_pie25")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5c2t2")
+text = "START GAME"
+
+[node name="buttonSelectRight" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("6_7whhf")
+expand_mode = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="buttonSelectLeft" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer3"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_i5sur")
+expand_mode = 1
+
+[node name="options" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("3_emot1")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2jiiu")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_awp6w")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bawyk")
+text = "OPTIONS"
+
+[node name="buttonSelectRight" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer3"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("6_7whhf")
+expand_mode = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="buttonSelectLeft" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer2"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_i5sur")
+expand_mode = 1
+
+[node name="quit" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("3_emot1")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxEmpty_qu6cc")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_4hokt")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qfyqv")
+text = "EXIT GAME"
+
+[node name="buttonSelectRight" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer2"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("6_7whhf")
+expand_mode = 1
+
+[connection signal="finished" from="MarginContainer/VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
+[connection signal="timeout" from="MarginContainer/VideoStreamPlayer/Timer" to="." method="_on_timer_timeout"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/start" to="." method="_on_hover_start_enter"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/start" to="." method="_on_hover_start_exit"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/start" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer3/options" to="." method="_on_hover_options_enter"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer3/options" to="." method="_on_hover_options_exit"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer2/quit" to="." method="_on_hover_exit_enter"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer2/quit" to="." method="_on_hover_exit_exit"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer2/quit" to="." method="_on_button_3_pressed"]
