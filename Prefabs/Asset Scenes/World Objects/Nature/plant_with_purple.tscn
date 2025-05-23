@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bwwem0bl1hx05"]
-
-[ext_resource type="PackedScene" uid="uid://xvme5e52fmp5" path="res://Models/Nature/Plant.blend" id="1_tpd0k"]
-
-[node name="PlantWithPurple" type="Node3D"]
-
-[node name="Plant" parent="." instance=ExtResource("1_tpd0k")]

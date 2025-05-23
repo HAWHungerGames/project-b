@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnsql16f2ejyb"]
+
+[ext_resource type="PackedScene" uid="uid://db2g6cyxck7sh" path="res://Models/Nature/Plants/PlantRed.blend" id="1_126fv"]
+
+[node name="PlantRed" type="Node3D"]
+
+[node name="PlantRed" parent="." instance=ExtResource("1_126fv")]

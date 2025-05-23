@@ -6,6 +6,7 @@
 size = Vector3(0.652344, 4.6864, 16.9365)
 
 [node name="WallFullBroken" type="StaticBody3D"]
+collision_layer = 3
 
 [node name="Mauer3" parent="." instance=ExtResource("1_400fv")]
 

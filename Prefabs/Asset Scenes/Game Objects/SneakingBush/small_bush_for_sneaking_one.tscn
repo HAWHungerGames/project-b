@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://by6i1emt5b34n"]
+
+[ext_resource type="Material" uid="uid://41byjnpqi8jl" path="res://Materials/TestBush.tres" id="1_xd38g"]
+[ext_resource type="PackedScene" uid="uid://brlysjr2dhrpx" path="res://Models/Nature/Plants/Bush2.blend" id="2_7rqrw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1267e"]
+size = Vector3(1.74365, 1.71509, 1.83984)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5ramj"]
+size = Vector3(1.74365, 1.71509, 1.83984)
+
+[node name="SmallBushForSneakingOne" type="Node3D"]
+
+[node name="Bush1" type="MeshInstance3D" parent="." groups=["Bush", "World"]]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+layers = 2
+material_override = ExtResource("1_xd38g")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Bush1" groups=["Bush", "World"]]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bush1/StaticBody3D" groups=["World"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_1267e")
+
+[node name="Bush3" type="Area3D" parent="Bush1" groups=["Bush"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bush1/Bush3" groups=["Bush"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_5ramj")
+debug_color = Color(0, 0.647059, 0.196078, 1)
+
+[node name="Bush2" parent="." instance=ExtResource("2_7rqrw")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)

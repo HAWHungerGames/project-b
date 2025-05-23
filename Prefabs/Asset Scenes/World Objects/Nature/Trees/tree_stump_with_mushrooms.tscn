@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4ushremwkeg6"]
+
+[ext_resource type="PackedScene" uid="uid://db3ndiywdtl3x" path="res://Models/Nature/Baum/baumstamm1.blend" id="1_6ie0r"]
+[ext_resource type="PackedScene" uid="uid://cxviwc5p4xfp4" path="res://Models/Nature/Plants/piltz.blend" id="2_rs168"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_famio"]
+size = Vector3(2.49219, 0.491943, 0.481445)
+
+[node name="TreeStumpWithMushrooms" type="StaticBody3D"]
+
+[node name="baumstamm1" parent="." instance=ExtResource("1_6ie0r")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="piltz" parent="baumstamm1" instance=ExtResource("2_rs168")]
+transform = Transform3D(0.956829, 0, 0.290652, 0, 1, 0, -0.290652, 0, 0.956829, 1.862, 0.306006, 0.11201)
+
+[node name="piltz2" parent="baumstamm1" instance=ExtResource("2_rs168")]
+transform = Transform3D(0.480545, 0.0815524, -0.634371, -0.26148, 0.749181, -0.101763, 0.583699, 0.268471, 0.476674, 1.13514, 0.306006, 0.136828)
+
+[node name="piltz3" parent="baumstamm1" instance=ExtResource("2_rs168")]
+transform = Transform3D(0.225427, 0.27036, 0.718392, -0.00862743, 0.749578, -0.279389, -0.767534, 0.0709802, 0.214135, 0.296604, 0.306006, 0.110247)
+
+[node name="piltz4" parent="baumstamm1" instance=ExtResource("2_rs168")]
+transform = Transform3D(-0.0368902, 0.013399, -0.39807, 0.0884795, 0.39006, 0.00492973, 0.388343, -0.0875979, -0.0389374, 0.73316, 0.46081, -0.147839)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_famio")

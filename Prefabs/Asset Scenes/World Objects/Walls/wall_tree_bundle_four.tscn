@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0pgai48uoifv"]
+
+[ext_resource type="PackedScene" uid="uid://cnrgjwnqfq1xv" path="res://Models/Nature/Baum/tree.blend" id="1_xiqn8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tseup"]
+size = Vector3(5.27606, 5.04028, 5.09424)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aib6v"]
+size = Vector3(0.242859, 0.314026, 1.28467)
+
+[node name="WallTreeBundleFour" type="StaticBody3D"]
+
+[node name="Deco" type="Node3D" parent="."]
+
+[node name="tree" parent="Deco" instance=ExtResource("1_xiqn8")]
+transform = Transform3D(0.902382, 0, 0.430936, 0, 1, 0, -0.430936, 0, 0.902382, -1.3099, 0.114345, -1.26747)
+
+[node name="tree2" parent="Deco" instance=ExtResource("1_xiqn8")]
+transform = Transform3D(-0.719573, 0, 0.349592, 0, 0.8, 0, -0.349592, 0, -0.719573, 0.974872, 0.154466, 0.166326)
+
+[node name="tree3" parent="Deco" instance=ExtResource("1_xiqn8")]
+transform = Transform3D(-0.131086, 0, 0.482511, 0, 0.5, 0, -0.482511, 0, -0.131086, 0.0755873, 2.38419e-07, 1.55556)
+
+[node name="tree4" parent="Deco" instance=ExtResource("1_xiqn8")]
+transform = Transform3D(0.607915, 0, 0.916755, 0, 1.1, 0, -0.916755, 0, 0.607915, -1.36772, 0, 0.205837)
+
+[node name="tree5" parent="Deco" instance=ExtResource("1_xiqn8")]
+transform = Transform3D(-0.203547, 0, 1.48613, 0, 1.5, 0, -1.48613, 0, -0.203547, 1.36322, 4.76837e-07, 1.76618)
+
+[node name="tree6" parent="Deco" instance=ExtResource("1_xiqn8")]
+transform = Transform3D(-0.133675, 0, -1.09185, 0, 1.1, 0, 1.09185, 0, -0.133675, 1.23613, 0, -1.58872)
+
+[node name="tree7" parent="Deco" instance=ExtResource("1_xiqn8")]
+transform = Transform3D(-0.434861, 0, -0.54854, 0, 0.7, 0, 0.54854, 0, -0.434861, -1.74641, 0, 1.72051)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0990906, 2.02014, -0.107666)
+shape = SubResource("BoxShape3D_tseup")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.988636, 0.150329, 0, -0.150329, 0.988636, 0.352709, -0.0706728, -3.18244)
+shape = SubResource("BoxShape3D_aib6v")

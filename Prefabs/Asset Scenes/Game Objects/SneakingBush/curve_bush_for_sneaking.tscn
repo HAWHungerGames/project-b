@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://cfubqgne171oq"]
+
+[ext_resource type="PackedScene" uid="uid://brlysjr2dhrpx" path="res://Models/Nature/Plants/Bush2.blend" id="2_vwt8k"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cej1e"]
+size = Vector3(1.74365, 1.71509, 2.82324)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ylfdm"]
+size = Vector3(1.94421, 1.71509, 2.29846)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xqiwt"]
+size = Vector3(1.74365, 1.71509, 2.82324)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tc1t3"]
+size = Vector3(1.94421, 1.71509, 2.29846)
+
+[node name="CurveBushForSneaking" type="Node3D"]
+
+[node name="Bush1" type="MeshInstance3D" parent="." groups=["Bush", "World"]]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+layers = 2
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Bush1" groups=["Bush", "World"]]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bush1/StaticBody3D" groups=["World"]]
+transform = Transform3D(0.855247, 0, 0.518221, 0, 1, 0, -0.518221, 0, 0.855247, -0.613679, 0, -0.534739)
+shape = SubResource("BoxShape3D_cej1e")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Bush1/StaticBody3D" groups=["World"]]
+transform = Transform3D(0.296525, 0, 0.955025, 0, 1, 0, -0.955025, 0, 0.296525, 0.760674, 0, 0.515891)
+shape = SubResource("BoxShape3D_ylfdm")
+
+[node name="Bush3" type="Area3D" parent="Bush1" groups=["Bush"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bush1/Bush3" groups=["Bush"]]
+transform = Transform3D(0.855247, 0, 0.518221, 0, 1, 0, -0.518221, 0, 0.855247, -0.613679, 0, -0.534739)
+shape = SubResource("BoxShape3D_xqiwt")
+debug_color = Color(0, 0.647059, 0.196078, 1)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Bush1/Bush3" groups=["Bush"]]
+transform = Transform3D(0.296525, 0, 0.955025, 0, 1, 0, -0.955025, 0, 0.296525, 0.760674, 0, 0.515891)
+shape = SubResource("BoxShape3D_tc1t3")
+debug_color = Color(0, 0.647059, 0.196078, 1)
+
+[node name="ModelMesh" type="Node3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="Bush2" parent="ModelMesh" instance=ExtResource("2_vwt8k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.902509, 0, -0.98293)
+
+[node name="Bush3" parent="ModelMesh" instance=ExtResource("2_vwt8k")]
+transform = Transform3D(0.524536, 0, 0.851388, 0, 1, 0, -0.851388, 0, 0.524536, -0.777408, 0, -0.688051)
+
+[node name="Bush4" parent="ModelMesh" instance=ExtResource("2_vwt8k")]
+transform = Transform3D(0.0731686, 0, -0.99732, 0, 1, 0, 0.99732, 0, 0.0731686, -0.509336, 0, -0.321686)
+
+[node name="Bush5" parent="ModelMesh" instance=ExtResource("2_vwt8k")]
+transform = Transform3D(-0.963914, 0, 0.266212, 0, 1, 0, -0.266212, 0, -0.963914, -0.285943, 0, -0.0446787)
+
+[node name="Bush6" parent="ModelMesh" instance=ExtResource("2_vwt8k")]
+transform = Transform3D(-0.724112, 0, -0.689683, 0, 1, 0, 0.689683, 0, -0.724112, -0.00893551, 0, 0.178714)
+
+[node name="Bush7" parent="ModelMesh" instance=ExtResource("2_vwt8k")]
+transform = Transform3D(-0.819152, 0, 0.573576, 0, 1, 0, -0.573576, 0, -0.819152, 0.268072, 0, 0.366365)
+
+[node name="Bush8" parent="ModelMesh" instance=ExtResource("2_vwt8k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.562951, 0, 0.527208)
+
+[node name="Bush9" parent="ModelMesh" instance=ExtResource("2_vwt8k")]
+transform = Transform3D(0.537094, 0, -0.843523, 0, 1, 0, 0.843523, 0, 0.537094, 0.762951, 0, 0.527208)
+
+[node name="Bush10" parent="ModelMesh" instance=ExtResource("2_vwt8k")]
+transform = Transform3D(-0.760667, 0, 0.649143, 0, 1, 0, -0.649143, 0, -0.760667, 1.03273, 0, 0.491465)

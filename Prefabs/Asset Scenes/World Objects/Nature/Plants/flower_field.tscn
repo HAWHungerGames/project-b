@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://cv7frpdt6s4s5"]
+
+[ext_resource type="PackedScene" uid="uid://dch7u4w1qcfrl" path="res://Prefabs/Asset Scenes/World Objects/Nature/Plants/plant_blue.tscn" id="1_2h7lf"]
+[ext_resource type="PackedScene" uid="uid://cnsql16f2ejyb" path="res://Prefabs/Asset Scenes/World Objects/Nature/Plants/plant_red.tscn" id="2_4565s"]
+[ext_resource type="PackedScene" uid="uid://dkygrtfub7v2f" path="res://Prefabs/Asset Scenes/World Objects/Nature/Plants/plant_white.tscn" id="3_mr7ns"]
+[ext_resource type="PackedScene" uid="uid://bwwem0bl1hx05" path="res://Prefabs/Asset Scenes/World Objects/Nature/Plants/plant_with_purple.tscn" id="4_8lv3p"]
+
+[node name="FlowerField" type="Node3D"]
+transform = Transform3D(0.951969, 0, 0.306194, 0, 1, 0, -0.306194, 0, 0.951969, 0, 0, 0)
+
+[node name="PlantBlue" parent="." instance=ExtResource("1_2h7lf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.485214, 0.5, 0.0192356)
+
+[node name="PlantBlue2" parent="." instance=ExtResource("1_2h7lf")]
+transform = Transform3D(0.929178, 0, 0.369633, 0, 1, 0, -0.369633, 0, 0.929178, 0.853203, 0.5, 1.16856)
+
+[node name="PlantBlue4" parent="." instance=ExtResource("1_2h7lf")]
+transform = Transform3D(0.929178, 0, 0.369633, 0, 1, 0, -0.369633, 0, 0.929178, 0.0261879, 0.5, 2.52329)
+
+[node name="PlantBlue3" parent="." instance=ExtResource("1_2h7lf")]
+transform = Transform3D(0.991411, 0, -0.130786, 0, 1, 0, 0.130786, 0, 0.991411, -0.993595, 0.5, 1.05278)
+
+[node name="PlantRed" parent="." instance=ExtResource("2_4565s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.608137, 0.5, 0.489237)
+
+[node name="PlantRed2" parent="." instance=ExtResource("2_4565s")]
+transform = Transform3D(0.99008, 0, 0.140504, 0, 1, 0, -0.140504, 0, 0.99008, -0.561309, 0.5, 1.83815)
+
+[node name="PlantRed3" parent="." instance=ExtResource("2_4565s")]
+transform = Transform3D(0.997214, 0, -0.0745959, 0, 1, 0, 0.0745959, 0, 0.997214, -1.23867, 0.5, -0.556252)
+
+[node name="PlantRed4" parent="." instance=ExtResource("2_4565s")]
+transform = Transform3D(0.997214, 0, -0.0745959, 0, 1, 0, 0.0745959, 0, 0.997214, 1.67557, 0.5, 1.5546)
+
+[node name="PlantWhite" parent="." instance=ExtResource("3_mr7ns")]
+transform = Transform3D(0.890705, 0, 0.454581, 0, 1, 0, -0.454581, 0, 0.890705, 1.4593, 0.5, 0.734028)
+
+[node name="PlantWhite5" parent="." instance=ExtResource("3_mr7ns")]
+transform = Transform3D(0.890705, 0, 0.454581, 0, 1, 0, -0.454581, 0, 0.890705, -2.05931, 0.5, -0.157106)
+
+[node name="PlantWhite2" parent="." instance=ExtResource("3_mr7ns")]
+transform = Transform3D(0.998043, 0, 0.0625292, 0, 1, 0, -0.0625292, 0, 0.998043, 0.359321, 0.5, -0.290685)
+
+[node name="PlantWhite4" parent="." instance=ExtResource("3_mr7ns")]
+transform = Transform3D(0.998043, 0, 0.0625292, 0, 1, 0, -0.0625292, 0, 0.998043, -1.46011, 0.5, 1.8123)
+
+[node name="PlantWhite3" parent="." instance=ExtResource("3_mr7ns")]
+transform = Transform3D(0.98997, 0, 0.141281, 0, 1, 0, -0.141281, 0, 0.98997, -0.167509, 0.5, 0.79771)
+
+[node name="PlantWithPurple" parent="." instance=ExtResource("4_8lv3p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19329, 0.499998, 1.46679)
+
+[node name="PlantWithPurple3" parent="." instance=ExtResource("4_8lv3p")]
+transform = Transform3D(0.788677, 0, -0.614808, 0, 1, 0, 0.614808, 0, 0.788677, 1.18931, 0.499998, -0.100248)
+
+[node name="PlantWithPurple2" parent="." instance=ExtResource("4_8lv3p")]
+transform = Transform3D(0.87728, 0, 0.479979, 0, 1, 0, -0.479979, 0, 0.87728, -1.23089, 0.499998, 0.332081)
+
+[node name="PlantWithPurple4" parent="." instance=ExtResource("4_8lv3p")]
+transform = Transform3D(0.87728, 0, 0.479979, 0, 1, 0, -0.479979, 0, 0.87728, -1.01959, 0.499998, 2.61045)

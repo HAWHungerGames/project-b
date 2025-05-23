@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c52kip4noulnc"]
+
+[ext_resource type="PackedScene" uid="uid://cy41rsipkvt71" path="res://Models/Nature/Wegsteine/PathStone11.blend" id="1_cqhw8"]
+
+[node name="PathStoneEleven" type="Node3D"]
+
+[node name="PathStone11" parent="." instance=ExtResource("1_cqhw8")]
