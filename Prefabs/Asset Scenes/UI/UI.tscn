@@ -109,7 +109,7 @@ initial_velocity_max = 1.0
 gravity = Vector3(0, 0, 0)
 color = Color(1, 0.866667, 0.780392, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ar3t4"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_glxls"]
 transparency = 1
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 0.866667, 0.780392, 1)
@@ -120,7 +120,7 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_alxtg"]
-material = SubResource("StandardMaterial3D_ar3t4")
+material = SubResource("StandardMaterial3D_glxls")
 size = Vector2(0.4, 0.4)
 
 [sub_resource type="Curve" id="Curve_07hx8"]
@@ -128,7 +128,7 @@ _limits = [0.0, 100.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 14.6067), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_auvgr"]
+[sub_resource type="CurveTexture" id="CurveTexture_suuof"]
 curve = SubResource("Curve_07hx8")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uajyy"]
@@ -137,7 +137,7 @@ initial_velocity_min = 0.5
 initial_velocity_max = 1.0
 gravity = Vector3(0, 0, 0)
 damping_max = 1.0
-damping_curve = SubResource("CurveTexture_auvgr")
+damping_curve = SubResource("CurveTexture_suuof")
 color = Color(1, 0.866667, 0.780392, 1)
 
 [node name="SörenUI" type="Control"]
@@ -866,10 +866,9 @@ texture_progress = ExtResource("16_fjev8")
 
 [node name="timer" type="Timer" parent="CanvasLayer2/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/mana"]
 
-[node name="lowHealth" type="MarginContainer" parent="CanvasLayer2/FullUI" node_paths=PackedStringArray("player")]
+[node name="lowHealth" type="MarginContainer" parent="CanvasLayer2/FullUI"]
 layout_mode = 2
 script = ExtResource("20_27oga")
-player = NodePath("")
 
 [node name="redTint" type="TextureRect" parent="CanvasLayer2/FullUI/lowHealth"]
 visible = false
