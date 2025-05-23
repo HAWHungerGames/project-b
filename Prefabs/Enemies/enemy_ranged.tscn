@@ -19,7 +19,6 @@ points = PackedVector3Array(-0.387079, -0.952867, -0.893173, 0.0286088, 0.919081
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_dp8bq"]
 
-[node name="RangedEnemy" type="CharacterBody3D" groups=["Enemy", "enemy"]]
 [sub_resource type="Gradient" id="Gradient_cvead"]
 offsets = PackedFloat32Array(0, 0.489451, 0.767932, 1)
 colors = PackedColorArray(0.624, 0.72, 0, 0.537255, 0.857336, 0.841146, 0.221142, 0.890196, 0.911952, 0.9542, 0.360503, 0.94902, 1, 1, 1, 0.596078)
@@ -201,6 +200,7 @@ mesh = SubResource("CapsuleMesh_dp8bq")
 
 [node name="DamageNumbersPosition" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10546, 0)
+
 [node name="DeathSpores" type="GPUParticles3D" parent="."]
 emitting = false
 amount = 1000

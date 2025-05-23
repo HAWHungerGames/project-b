@@ -564,7 +564,6 @@ layout_mode = 2
 
 [node name="EnemyHealthbarViewport2" type="SubViewport" parent="."]
 transparent_bg = true
-texture_mipmap_bias = 1.0
 size = Vector2i(1920, 1080)
 size_2d_override = Vector2i(720, 500)
 render_target_update_mode = 4

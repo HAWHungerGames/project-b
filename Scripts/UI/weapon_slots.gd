@@ -15,10 +15,10 @@ var slot_one_active = true
 var state = "idle" 
 var weapon_index = 0
 
-var weapon_textures = [{"idle": "res://UITextures/Weapons/Sword.png", "active": "res://UITextures/Weapons/SwordAttack.png"},
-{"idle": "res://UITextures/Weapons/Shield.png", "active": "res://UITextures/Weapons/ShieldBlock.png"},
-{"idle": "res://UITextures/Weapons/Bow.png", "active": "res://UITextures/Weapons/BowTensioned.png"},
-{"idle": "res://UITextures/Weapons/Magic.png", "active": "res://UITextures/Weapons/MagicAttack.png"}]
+var weapon_textures = [{"idle": "res://UI/Weapons/Sword.png", "active": "res://UI/Weapons/SwordAttack.png"},
+{"idle": "res://UI/Weapons/Shield.png", "active": "res://UI/Weapons/ShieldBlock.png"},
+{"idle": "res://UI/Weapons/Bow.png", "active": "res://UI/Weapons/BowTensioned.png"},
+{"idle": "res://UI/Weapons/Magic.png", "active": "res://UI/Weapons/MagicAttack.png"}]
 
 func _ready() -> void:
 	GameManager.weapons_changed.connect(update_weapons)
