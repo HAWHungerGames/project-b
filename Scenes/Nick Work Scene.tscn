@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bmqgvvy0t5bfp"]
+[gd_scene load_steps=16 format=3 uid="uid://bmqgvvy0t5bfp"]
 
 [ext_resource type="Material" uid="uid://b2rgc8u5hwwcc" path="res://Materials/TestGround.tres" id="1_7g8fi"]
 [ext_resource type="Material" uid="uid://dekpipancsbc6" path="res://Materials/TestCubes.tres" id="2_8h0xq"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://durr2417rl7mr" path="res://Prefabs/enemy_ranged.tscn" id="5_e6mua"]
 [ext_resource type="PackedScene" uid="uid://ddb5qsl2pw4p2" path="res://Prefabs/enemy_spores.tscn" id="6_r2bbj"]
 [ext_resource type="PackedScene" uid="uid://uafprr7riwjm" path="res://Prefabs/enemy_melee.tscn" id="7_k711p"]
-[ext_resource type="Texture2D" uid="uid://b67sgvs236paw" path="res://Assets/Kenney Particles Transparent Background/circle_05.png" id="7_yyohc"]
 [ext_resource type="PackedScene" uid="uid://dqu4ynl3lwx2t" path="res://Prefabs/enemy_boss.tscn" id="8_pbfqo"]
 
 [sub_resource type="Environment" id="Environment_1dgrj"]
@@ -29,51 +28,6 @@ size = Vector3(10, 0.1, 10)
 [sub_resource type="BoxShape3D" id="BoxShape3D_r2bbj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k711p"]
-
-[sub_resource type="Curve" id="Curve_apc6b"]
-_limits = [0.0, 3.0, 0.0, 1.0]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 2.28583), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_g5dpn"]
-curve = SubResource("Curve_apc6b")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_n7ijj"]
-lifetime_randomness = 0.2
-particle_flag_align_y = true
-emission_shape_scale = Vector3(1, 1, 0.5)
-emission_shape = 1
-emission_sphere_radius = 0.2
-direction = Vector3(0, 0, 0)
-gravity = Vector3(0, 0.1, 0)
-scale_min = 0.2
-scale_curve = SubResource("CurveTexture_g5dpn")
-color = Color(1, 0.808, 0.68, 1)
-hue_variation_min = -2.23517e-08
-hue_variation_max = 0.05
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hxcvp"]
-transparency = 1
-vertex_color_use_as_albedo = true
-albedo_color = Color(1, 0, 0, 1)
-albedo_texture = ExtResource("7_yyohc")
-emission_enabled = true
-emission = Color(1, 0, 0, 1)
-emission_energy_multiplier = 0.5
-billboard_mode = 3
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="QuadMesh" id="QuadMesh_eawxa"]
-material = SubResource("StandardMaterial3D_hxcvp")
-size = Vector2(0.4, 0.4)
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_028yh"]
-emission_shape_scale = Vector3(0.5, 1, 0.5)
-emission_shape = 1
-emission_sphere_radius = 0.5
-gravity = Vector3(0, 0.1, 0)
 
 [node name="NickWorkScene" type="Node3D"]
 
@@ -255,24 +209,6 @@ keepDistance = 10.0
 transform = Transform3D(-0.721241, 0, 0.692685, 0, 1, 0, -0.692685, 0, -0.721241, 16.3382, 2.79195, -11.8325)
 hearingRange = 20.0
 visionRange = 50.0
-
-[node name="AttackIndicatorBottom" type="GPUParticles3D" parent="SporeEnemy"]
-transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -0.0784874, 2.38778, 0.523886)
-emitting = false
-amount = 50
-explosiveness = 1.0
-process_material = SubResource("ParticleProcessMaterial_n7ijj")
-draw_pass_1 = SubResource("QuadMesh_eawxa")
-
-[node name="AttackIndicatorBottom2" type="GPUParticles3D" parent="SporeEnemy"]
-transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -0.0784874, 3.46959, 0.523886)
-emitting = false
-amount = 150
-explosiveness = 1.0
-randomness = 1.0
-trail_enabled = true
-process_material = SubResource("ParticleProcessMaterial_028yh")
-draw_pass_1 = SubResource("QuadMesh_eawxa")
 
 [node name="MeleeEnemy" parent="." instance=ExtResource("7_k711p")]
 transform = Transform3D(-0.999998, 0, 0.00209435, 0, 1, 0, -0.00209435, 0, -0.999998, 19.7886, 8.66211, -17.1762)
