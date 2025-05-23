@@ -146,7 +146,7 @@ func set_sneaking(value: bool):
 func set_stamina_regen_cooldown(value: float):
 	staminaRegenCooldown = value
 
-func check_if_attack_was_blocked(attacker: Node3D):
+func check_if_attack_was_blocked(attacker: Node3D, blockCostModifier):
 	var diffVector = self.get_child(0).global_transform.origin - attacker.global_transform.origin
 	var attackAngle = normalizeAngle(atan2(diffVector.x, diffVector.z) / PI * 180)
 	var playerAngle = normalizeAngle(self.get_child(0).get_child(0).rotation.y / PI * 180)
@@ -157,7 +157,7 @@ func check_if_attack_was_blocked(attacker: Node3D):
 			playerAngle += 360
 	if !(attackAngle >= playerAngle - shieldRadiusProtection/2) or !(attackAngle <= playerAngle + shieldRadiusProtection/2) or !isBlocking or blockBroken > 0:
 		return false
-	if stamina < blockingStaminaCost: 
+	if stamina < (blockingStaminaCost * (1-blockCostModifier)): 
 		blockBroken = brokenBlockDuration
 		print("Block was broken, stamina too low")
 		return false
@@ -173,12 +173,12 @@ func breakBlock():
 	blockBroken = brokenBlockDuration
 	print("Block was broken from attack")
 
-func takeDamage(damage: int, attacker: Node3D, isBlockable):
+func takeDamage(damage: int, attacker: Node3D, isBlockable, blockCostModifier):
 	healthRegenDelay = 2
-	if check_if_attack_was_blocked(attacker):
+	if check_if_attack_was_blocked(attacker, blockCostModifier):
 		if isBlockable:
 			health -= damage* (1-getBlockingDamageReduction())
-			stamina -= blockingStaminaCost
+			stamina -= blockingStaminaCost * (1-blockCostModifier)
 			staminaChanged.emit()
 			healthChanged.emit()
 		else: 
@@ -189,13 +189,13 @@ func takeDamage(damage: int, attacker: Node3D, isBlockable):
 
 func getBlockingDamageReduction():
 	if GameManager.get_first_weapon() == "Bow":
-		return 0.2
+		return 0.4
 	if GameManager.get_first_weapon() == "Staff":
-		return 0.3
+		return 0.5
 	if GameManager.get_first_weapon() == "Sword":
 		if GameManager.get_second_weapon() == "Shield":
 			return 1.0
-		return 0.5
+		return 0.7
 	if GameManager.get_first_weapon() == "Shield":
 		return 1.0
 	return 1.0

@@ -15,7 +15,7 @@ points = PackedVector3Array(-0.387079, -0.952867, -0.893173, 0.0286088, 0.919081
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_dp8bq"]
 
-[node name="RangedEnemy" type="CharacterBody3D" groups=["Enemy"]]
+[node name="RangedEnemy" type="CharacterBody3D" groups=["Enemy", "enemy"]]
 script = ExtResource("2_gtfvv")
 bulletSpeed = 10
 

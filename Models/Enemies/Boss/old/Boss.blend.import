@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bffmge8min5bm"
-path="res://.godot/imported/Roller2.blend-222e9abec76385a810b9bc6735a24372.scn"
+uid="uid://ccoxh6jnjbccm"
+path="res://.godot/imported/Boss.blend-6bd1708e32b62d983ec04ad8ec1b3823.scn"
 
 [deps]
 
-source_file="res://Models/Roller2.blend"
-dest_files=["res://.godot/imported/Roller2.blend-222e9abec76385a810b9bc6735a24372.scn"]
+source_file="res://Models/Enemies/Boss/old/Boss.blend"
+dest_files=["res://.godot/imported/Boss.blend-6bd1708e32b62d983ec04ad8ec1b3823.scn"]
 
 [params]
 

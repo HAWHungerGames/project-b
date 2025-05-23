@@ -1,27 +1,48 @@
-[gd_scene load_steps=10 format=3 uid="uid://uafprr7riwjm"]
+[gd_scene load_steps=11 format=3 uid="uid://uafprr7riwjm"]
 
 [ext_resource type="Script" uid="uid://fxahdnlqqgci" path="res://Scripts/Enemy Scripts/EnemyMelee.gd" id="1_a0bld"]
-[ext_resource type="Material" uid="uid://41byjnpqi8jl" path="res://Materials/TestBush.tres" id="2_x0lkj"]
-[ext_resource type="Material" uid="uid://coyp2b7pigfla" path="res://Materials/enemy2.tres" id="3_a0bld"]
+[ext_resource type="PackedScene" uid="uid://dodp8sqamr6v2" path="res://Models/Enemies/Purple Mushroom Enemy/purple_enemy.blend" id="3_3nap6"]
+[ext_resource type="Texture2D" uid="uid://bvh4cxocd5ab8" path="res://Assets/Kenney Particles Transparent Background/dirt_01.png" id="3_p63bo"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dp8bq"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_yu556"]
 points = PackedVector3Array(-0.387079, -0.952867, -0.893173, 0.0286088, 0.919081, 0.0286088, 0.0286088, 0.919081, -0.0286088, 0.964119, -0.964119, 0.090221, -0.69589, -0.968294, 0.69589, 0.387079, -0.952867, 0.893173, 0.654605, -0.952357, -0.714081, -0.964119, -0.964119, -0.090221, 0.090221, -0.964119, -0.964119, -0.090221, -0.964119, 0.964119, -0.69589, -0.968294, -0.69589, 0.714081, -0.952357, 0.654605, 0.893173, -0.952867, -0.387079, -0.0286088, 0.919081, 0.0286088, -0.893173, -0.952867, 0.387079, -0.893173, -0.952867, -0.387079, -0.387079, -0.952867, 0.893173, 0.387079, -0.952867, -0.893173, 0.893173, -0.952867, 0.387079, -0.0286088, 0.919081, -0.0286088, 0.964119, -0.964119, -0.090221, 0.090221, -0.964119, 0.964119, -0.919554, -0.861947, 0.0574271, -0.0574271, -0.861947, -0.919554, 0.656224, -0.855898, -0.656046, 0.656224, -0.855898, 0.656046, 0.0572615, 0.689839, -0.143694, -0.143684, 0.68979, -0.0574375, 0.143694, 0.689839, 0.0572615, 0.0572615, 0.689839, 0.143694, -0.241132, -0.964526, -0.934314, 0.143694, 0.689839, -0.0572615)
 
-[sub_resource type="BoxMesh" id="BoxMesh_r2bbj"]
-
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k711p"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_dp8bq"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_a0bld"]
+size = Vector3(0.680603, 1.1665, 1.54938)
 
-[node name="MeleeEnemy" type="CharacterBody3D" groups=["Enemy"]]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3nap6"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("3_p63bo")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yhbfn"]
+emission_shape = 1
+emission_sphere_radius = 0.2
+angle_min = -162.6
+angle_max = 114.3
+inherit_velocity_ratio = 1.0
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 0.6
+color = Color(0.8, 0.470588, 0.976471, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_aeiv7"]
+
+[node name="MeleeEnemy" type="CharacterBody3D" groups=["Enemy", "enemy"]]
 script = ExtResource("1_a0bld")
 health = 100
-attackHeight = 2.0
-attackWidth = 3.0
 
 [node name="HearingArea" type="Area3D" parent="." groups=["Enemy"]]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
@@ -37,21 +58,8 @@ transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0.2, 0.581, 0)
 transform = Transform3D(-1.09278e-08, -0.25, 0, 0.25, -1.09278e-08, 0, 0, 0, 0.25, 0.232, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_yu556")
 
-[node name="BulletSpawnPoint" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.544362, 0.573799, 0)
-
-[node name="FrontMaker" type="MeshInstance3D" parent="BulletSpawnPoint" groups=["Bullet"]]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
-material_override = ExtResource("2_x0lkj")
-mesh = SubResource("BoxMesh_r2bbj")
-skeleton = NodePath("../../../..")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_k711p")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-material_override = ExtResource("3_a0bld")
-mesh = SubResource("CapsuleMesh_dp8bq")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
@@ -59,10 +67,36 @@ mesh = SubResource("CapsuleMesh_dp8bq")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.911974, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AttackArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.159698, 0.083252, -0.014801)
 shape = SubResource("BoxShape3D_a0bld")
 
 [node name="DamageNumbersPosition" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1007, 0)
+
+[node name="AttackParticles" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.826796, 0.210455, 0)
+material_override = SubResource("StandardMaterial3D_3nap6")
+emitting = false
+amount = 5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_yhbfn")
+draw_pass_1 = SubResource("QuadMesh_aeiv7")
+
+[node name="Mesh" parent="." instance=ExtResource("3_3nap6")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.990879, 0)
+
+[node name="Skeleton3D" parent="Mesh/PurpleMushroomEnemy" index="1"]
+bones/0/rotation = Quaternion(-0.037557, -0.0863011, 0.0248375, 0.995251)
+bones/1/rotation = Quaternion(-0.0226767, 0.000990087, 0.00400233, 0.999734)
+bones/2/position = Vector3(0.177935, 0.104646, -0.0276735)
+bones/2/rotation = Quaternion(0.998863, -0.00827973, 0.00204817, -0.046912)
+bones/3/position = Vector3(0.339065, 0.536492, 0.0816328)
+bones/3/rotation = Quaternion(0.604054, 0.557515, 0.423895, 0.380274)
+bones/4/position = Vector3(-0.163061, 0.110433, -0.0280276)
+bones/4/rotation = Quaternion(0.998863, -0.00827973, 0.00204817, -0.046912)
+bones/5/position = Vector3(-0.324938, 0.512327, 0.109862)
+bones/5/rotation = Quaternion(0.445305, -0.67701, -0.28738, 0.51066)
 
 [connection signal="area_entered" from="HearingArea" to="." method="_on_hearing_area_entered"]
 [connection signal="area_exited" from="HearingArea" to="." method="_on_hearing_area_exited"]
@@ -70,3 +104,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1007, 0)
 [connection signal="area_exited" from="VisionArea" to="." method="_on_vision_area_exited"]
 [connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_entered"]
 [connection signal="area_exited" from="AttackArea" to="." method="_on_attack_area_exited"]
+
+[editable path="Mesh"]

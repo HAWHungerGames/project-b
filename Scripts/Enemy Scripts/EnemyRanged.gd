@@ -38,6 +38,7 @@ var moveDelay: float = 0
 #Tracks the time the enemy is not moving
 var moveTime: float = 0
 var player: Node3D
+var gotAttackedTime: float = 0
 
 func _ready():
 	player = GlobalPlayer.getPlayer()
@@ -46,6 +47,8 @@ func _ready():
 
 func _physics_process(delta):
 	apply_gravity(delta)
+	if gotAttackedTime > 0:
+		gotAttackedTime -= delta
 	if detect_player():
 		rotateToPlayer()
 		attack(delta)
@@ -90,21 +93,21 @@ func keep_set_distance_from_player(delta):
 
 func detect_player():
 	if playerIsInHearingArea and !playerIsInVisionArea:
-		if player.isSneaking and !player.isDetected:
+		if player.isSneaking and !player.isDetected and gotAttackedTime <= 0:
 			player.removeDetectingEnemy([self])
 			return false
 		else:
 			player.addDetectingEnemy([self])
 			return true
 	if  playerIsInVisionArea and !playerIsInHearingArea:
-		if detect_player_raycast() or player.isDetected:
+		if detect_player_raycast() or player.isDetected or gotAttackedTime > 0:
 			player.addDetectingEnemy([self])
 			return true
 		else:
 			player.removeDetectingEnemy([self])
 			return false
 	if playerIsInHearingArea and playerIsInVisionArea:
-		if player.isDetected or detect_player_raycast() or !player.isSneaking:
+		if player.isDetected or detect_player_raycast() or !player.isSneaking or gotAttackedTime > 0:
 			player.addDetectingEnemy([self])
 			return true
 	player.removeDetectingEnemy([self])
@@ -134,6 +137,8 @@ func takeDamage(damage: int):
 	health -= damage
 	if health <= 0:
 		queue_free()
+	else:
+		gotAttackedTime = 3
 
 func attack(delta):
 	if attackCooldown <= 0 and detect_player_raycast() and !isMoving and moveDelay <= 0:

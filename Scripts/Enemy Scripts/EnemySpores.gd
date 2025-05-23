@@ -35,6 +35,7 @@ var isInSporeRange: bool = false
 var isAttacking: bool = false
 var player: Node3D
 var attacked: bool = false
+var gotAttackedTime: float = 0
 
 func _ready():
 	player = GlobalPlayer.getPlayer()
@@ -46,6 +47,8 @@ func _physics_process(delta):
 	apply_gravity(delta)
 	if !isAttacking:
 		particles.emitting = false
+	if gotAttackedTime > 0:
+		gotAttackedTime -= delta
 	if detect_player():
 		rotateToPlayer()
 		attack(delta)
@@ -71,21 +74,21 @@ func move_towards_player(delta):
 
 func detect_player():
 	if playerIsInHearingArea and !playerIsInVisionArea:
-		if player.isSneaking and !player.isDetected:
+		if player.isSneaking and !player.isDetected and gotAttackedTime <= 0:
 			player.removeDetectingEnemy([self])
 			return false
 		else:
 			player.addDetectingEnemy([self])
 			return true
 	if  playerIsInVisionArea and !playerIsInHearingArea:
-		if detect_player_raycast() or player.isDetected:
+		if detect_player_raycast() or player.isDetected or gotAttackedTime > 0:
 			player.addDetectingEnemy([self])
 			return true
 		else:
 			player.removeDetectingEnemy([self])
 			return false
 	if playerIsInHearingArea and playerIsInVisionArea:
-		if player.isDetected or detect_player_raycast() or !player.isSneaking:
+		if player.isDetected or detect_player_raycast() or !player.isSneaking or gotAttackedTime > 0:
 			player.addDetectingEnemy([self])
 			return true
 	player.removeDetectingEnemy([self])
@@ -115,6 +118,8 @@ func takeDamage(damage: int):
 	health -= damage
 	if health <= 0:
 		queue_free()
+	else:
+		gotAttackedTime = 4
 
 func attack(delta):
 	if isInSporeRange:
@@ -132,7 +137,7 @@ func attack(delta):
 			particles.restart()
 			particles.emitting = true
 			if isInSporeRange:
-				player.takeDamage(attackDamage, self, false)
+				player.takeDamage(attackDamage, self, false, 0)
 		if tempAttackDelay <= 0:
 			attacked = false
 			tempAttackDelay = attackDelay

@@ -1,0 +1,70 @@
+[gd_scene load_steps=12 format=3 uid="uid://djhmf11d33csx"]
+
+[ext_resource type="Script" uid="uid://b4v7vex67dxe5" path="res://Scripts/Enemy Scripts/TeleportSmoke.gd" id="1_ljr08"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gorya"]
+load_path = "res://.godot/imported/smoke_07.png-6c69edce9bb2f8625d6da62887c836a6.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_equ68"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("CompressedTexture2D_gorya")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="Curve" id="Curve_ljr08"]
+_data = [Vector2(0.534351, 0.438202), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_ivjtr"]
+curve = SubResource("Curve_ljr08")
+
+[sub_resource type="Curve" id="Curve_6cddc"]
+_limits = [-10.0, 10.0, 0.0, 1.0]
+_data = [Vector2(0, 10), 0.0, 0.0, 0, 0, Vector2(0.740458, -9.77528), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_xyy1i"]
+curve = SubResource("Curve_6cddc")
+
+[sub_resource type="Curve" id="Curve_jxqqy"]
+_data = [Vector2(0.0076336, 0.449438), 0.0, 0.0, 0, 0, Vector2(0.450382, 1), 0.0, 0.0, 0, 0, Vector2(0.99999, 0.539326), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_v4xao"]
+curve = SubResource("Curve_jxqqy")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lcm25"]
+emission_shape = 1
+emission_sphere_radius = 3.0
+angle_min = -92.9
+angle_max = 45.7
+gravity = Vector3(0, 0, 0)
+radial_accel_min = 0.999998
+radial_accel_max = 0.999998
+radial_accel_curve = SubResource("CurveTexture_xyy1i")
+damping_min = 2.0
+damping_max = 2.0
+scale_min = 5.0
+scale_max = 6.0
+scale_curve = SubResource("CurveTexture_v4xao")
+alpha_curve = SubResource("CurveTexture_ivjtr")
+hue_variation_min = -0.15
+hue_variation_max = 0.15
+
+[sub_resource type="QuadMesh" id="QuadMesh_1t2ff"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_ljr08")
+
+[node name="Teleport Smoke" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.28698, 0.0270147, 0.0169544)
+material_override = SubResource("StandardMaterial3D_equ68")
+emitting = false
+amount = 500
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_lcm25")
+draw_pass_1 = SubResource("QuadMesh_1t2ff")

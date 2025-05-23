@@ -39,7 +39,7 @@ angular_velocity_max = 45.71
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_ycfru")
-color = Color(0.428429, 0.000129231, 0.429455, 1)
+color = Color(0.330632, 0.153821, 0.00781396, 1)
 hue_variation_min = -0.03
 hue_variation_max = -2.23517e-08
 
@@ -72,6 +72,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0040983, 0.00271535, -0.00
 material_override = SubResource("StandardMaterial3D_ycfru")
 amount = 20
 lifetime = 0.35
+preprocess = 0.35
 process_material = SubResource("ParticleProcessMaterial_7w6p8")
 draw_pass_1 = SubResource("QuadMesh_jkh2i")
 

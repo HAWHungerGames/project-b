@@ -23,6 +23,8 @@ var dashCooldown: float = 0
 var mouseMode: bool = false
 var mouseTimer: float = 0
 var player: Node3D
+var lock = false
+var sneakToggle = false
 
 @onready var spring_arm = $CameraArm
 
@@ -104,7 +106,6 @@ func rotate_player():
 
 func rotate_based_on_last_movement():
 	var input = Input.get_vector("left", "right", "forward", "backward")
-	var lock = false
 	if lockActive:
 		lock = Input.is_action_pressed("lock_movement")
 	if (input.x != 0 or input.y != 0) and !lock:
@@ -115,6 +116,8 @@ func rotate_based_on_second_input():
 	var look_input = Input.get_vector("look_left", "look_right", "look_forward", "look_backward")
 	if (look_input.x != 0 or look_input.y != 0):
 		mouseMode = false
+	if lockActive:
+		lock = Input.is_action_pressed("lock_movement")
 	if !mouseMode:
 		var input = Input.get_vector("left", "right", "forward", "backward")
 		if (input.x != 0 or input.y != 0):
@@ -127,16 +130,18 @@ func rotate_based_on_second_input():
 		var screenCenter = Vector2(screenSize.x/2,screenSize.y/2 - 20)
 		var normalizedRelativeMousePosition = Vector2(mousePosition.x - screenCenter.x, mousePosition.y - screenCenter.y).normalized()
 		temprotation = atan2(normalizedRelativeMousePosition.x, normalizedRelativeMousePosition.y) + PI
-	playerShape.rotation.y = temprotation
+	if !lock:
+		playerShape.rotation.y = temprotation
 
 func get_move_input(delta):
+	sneakToggler()
 	var vy = velocity.y
 	velocity.y = 0
 	var input = Input.get_vector("left", "right", "forward", "backward").normalized()
 	var direction = Vector3(input.x, 0, input.y).rotated(Vector3.UP, spring_arm.rotation.y)
 	var playerSpeed = player.speed
 	player.set_sneaking(false)
-	if Input.is_action_pressed("sneak"):
+	if sneakToggle:
 		player.set_sneaking(true)
 		playerSpeed = playerSpeed / player.sneakSpeedModifier
 	velocity = lerp(velocity, direction * playerSpeed, acceleration * delta)
@@ -145,6 +150,13 @@ func get_move_input(delta):
 		velocity.x -= velocity.x * friction
 	if abs(input.y) < 0.01:
 		velocity.z -= velocity.z * friction
-	
+
+func sneakToggler():
+	if Input.is_action_just_pressed("sneak"):
+		if sneakToggle:
+			sneakToggle = false
+		else:
+			sneakToggle = true
+
 func apply_gravity(delta):
 	velocity.y += -gravity * delta

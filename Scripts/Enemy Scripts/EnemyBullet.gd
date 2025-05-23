@@ -11,6 +11,7 @@ extends CharacterBody3D
 var isTracking: bool = false
 var trackingDelay: float = 0
 var delayValue: float = 0
+var blockCostModifier: float = 0
 
 func setParameter(playerInput: Node3D, damageInput: float, speedInput: float, trackingRadiusInput: float, trackingStrengthInput: float, velInput: Vector3, lifetimeInput: float):
 	player = playerInput
@@ -23,6 +24,9 @@ func setParameter(playerInput: Node3D, damageInput: float, speedInput: float, tr
 
 func setTrackingDelay(delay):
 	trackingDelay = delay
+
+func setBlockCostModifier(value):
+	blockCostModifier = value
 
 func _physics_process(delta):
 	move(delta)
@@ -52,7 +56,7 @@ func _on_area_3d_area_exited(area: Area3D) -> void:
 
 func _on_hit_area_area_entered(area: Area3D) -> void:
 	if area.is_in_group("Player"):
-		player.takeDamage(damage, self, true)
+		player.takeDamage(damage, self, true, blockCostModifier)
 		queue_free()
 
 func _on_hit_area_body_entered(body: Node3D) -> void:

@@ -10,13 +10,13 @@ extends CharacterBody3D
 @export_category("Stats")
 @export_subgroup("Enemy Stats")
 @export var health: int = 300
-@export var speed: int = 6
-@export var acceleration: int = 6
+@export var speed: int = 5
+@export var acceleration: int = 5
 
 @export_subgroup("Attack Stats")
 @export var attackDamage: int = 10
-@export var attackSpeed: float = 1
-@export var attackDelay: float = 0.25
+@export var attackSpeed: float = 1/(1.58/2)
+@export var attackDelay: float = -0.1
 @export var attackHeight: float = 1
 @export var attackWidth: float = 1
 @export var attackLength: float = 1
@@ -24,6 +24,8 @@ extends CharacterBody3D
 @onready var hearingNode = $HearingArea
 @onready var visionNode = $VisionArea
 @onready var attackNode = $AttackArea
+@onready var animationPlayer = $Mesh/AnimationPlayer
+@onready var particles = $AttackParticles
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -36,6 +38,7 @@ var isInAttackArea: bool = false
 var isMoving: bool = false 
 var isAttacking = false
 var player: Node3D
+var gotAttackedTime: float = 0
 
 func _ready():
 	player = GlobalPlayer.getPlayer()
@@ -45,15 +48,20 @@ func _ready():
 
 func _physics_process(delta):
 	apply_gravity(delta)
+	if gotAttackedTime > 0:
+		gotAttackedTime -= delta
 	if detect_player():
 		rotateToPlayer()
 		attack(delta)
-	if detect_player():
-		if !isAttacking:
+		if !isAttacking and !isInAttackArea:
+			animationPlayer.speed_scale = 1
+			animationPlayer.play("Running")
 			move_towards_player(delta)
 		else:
 			velocity = Vector3(0, velocity.y, 0)
 	else:
+		animationPlayer.speed_scale = 1
+		animationPlayer.play("Idle")
 		velocity = Vector3(0, velocity.y, 0)
 	move_and_slide()
 
@@ -67,21 +75,21 @@ func move_towards_player(delta):
 
 func detect_player():
 	if playerIsInHearingArea and !playerIsInVisionArea:
-		if player.isSneaking and !player.isDetected:
+		if player.isSneaking and !player.isDetected and gotAttackedTime <= 0:
 			player.removeDetectingEnemy([self])
 			return false
 		else:
 			player.addDetectingEnemy([self])
 			return true
 	if  playerIsInVisionArea and !playerIsInHearingArea:
-		if detect_player_raycast() or player.isDetected:
+		if detect_player_raycast() or player.isDetected or gotAttackedTime > 0:
 			player.addDetectingEnemy([self])
 			return true
 		else:
 			player.removeDetectingEnemy([self])
 			return false
 	if playerIsInHearingArea and playerIsInVisionArea:
-		if player.isDetected or detect_player_raycast() or !player.isSneaking:
+		if player.isDetected or detect_player_raycast() or !player.isSneaking or gotAttackedTime > 0:
 			player.addDetectingEnemy([self])
 			return true
 	player.removeDetectingEnemy([self])
@@ -111,6 +119,8 @@ func takeDamage(damage: int):
 	health -= damage
 	if health <= 0:
 		queue_free()
+	else:
+		gotAttackedTime = 3
 
 func attack(delta):
 	if isInAttackArea:
@@ -119,6 +129,8 @@ func attack(delta):
 		tempAttackDelay = attackDelay
 		attackCooldown = 1/attackSpeed
 	if isAttacking:
+		animationPlayer.speed_scale = 1
+		animationPlayer.play("Bump")
 		if tempAttackDelay > 0:
 			tempAttackDelay -= delta
 		else:
@@ -128,7 +140,9 @@ func attack(delta):
 				attackCooldown = 1/attackSpeed
 				isAttacking = false
 				if isInAttackArea:
-					player.takeDamage(attackDamage, self, true)
+					particles.restart()
+					particles.emitting = true
+					player.takeDamage(attackDamage, self, true, 0)
 
 func apply_gravity(delta):
 	velocity.y += -gravity * delta

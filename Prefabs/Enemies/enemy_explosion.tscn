@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://do1xe3tqii0no"]
 
 [ext_resource type="Script" uid="uid://ch7v656g1dis3" path="res://Scripts/Enemy Scripts/EnemyExplosion.gd" id="1_cx1pd"]
-[ext_resource type="PackedScene" uid="uid://bffmge8min5bm" path="res://Models/Roller2.blend" id="2_aj5v4"]
+[ext_resource type="PackedScene" uid="uid://st2wda44sgu7" path="res://Models/Enemies/Roller2.blend" id="2_aj5v4"]
 [ext_resource type="Texture2D" uid="uid://8coueektucvq" path="res://Assets/Kenney Particles Transparent Background/fire_01.png" id="3_8iw1i"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dp8bq"]
@@ -71,7 +71,7 @@ hue_variation_curve = SubResource("CurveTexture_52x3p")
 [sub_resource type="BoxShape3D" id="BoxShape3D_xuh6v"]
 size = Vector3(0.272949, 0.581909, 0.394104)
 
-[node name="MeleeEnemy" type="CharacterBody3D" groups=["Enemy"]]
+[node name="ExplosionEnemy" type="CharacterBody3D" groups=["Enemy", "enemy"]]
 script = ExtResource("1_cx1pd")
 health = 100
 
@@ -103,28 +103,28 @@ bones/10/position = Vector3(-0.000245689, 0.000394933, -2.24236e-07)
 bones/10/rotation = Quaternion(8.06622e-09, -1.89425e-09, -0.0909777, 0.995853)
 
 [node name="BeinR" parent="Mesh/Armature/Skeleton3D" index="0"]
-transform = Transform3D(0.818803, -0.574074, -9.54457e-08, 0.574074, 0.818803, -5.55051e-08, 5.04107e-08, -9.34516e-09, 1, -0.0236346, 0.0306313, -0.00346245)
+transform = Transform3D(0.818803, -0.574075, -9.54457e-08, 0.574074, 0.818803, -5.55052e-08, 5.04107e-08, -9.34513e-09, 1, -0.0236344, 0.0306309, -0.00346281)
 
 [node name="BeinL" parent="Mesh/Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.818803, -0.574074, -9.54457e-08, 0.574074, 0.818803, -5.55051e-08, 5.04107e-08, -9.34516e-09, 1, -0.0210461, 0.0269394, 1.04308e-07)
+transform = Transform3D(0.818803, -0.574075, -9.54457e-08, 0.574074, 0.818803, -5.55052e-08, 5.04107e-08, -9.34513e-09, 1, -0.021046, 0.0269391, 1.04308e-07)
 
 [node name="ArmL" parent="Mesh/Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.818803, -0.44446, -0.363341, 0.574074, 0.633934, 0.518234, 1.87623e-09, -0.632916, 0.774221, 0.0573382, -0.0848603, -0.000962451)
+transform = Transform3D(0.818803, -0.44446, -0.363341, 0.574075, 0.633934, 0.518234, -2.36542e-07, -0.632917, 0.77422, 0.0573383, -0.0848604, -0.000962868)
 
 [node name="ArmR" parent="Mesh/Armature/Skeleton3D" index="3"]
-transform = Transform3D(0.818803, -0.431416, 0.378736, 0.574074, 0.61533, -0.540192, -2.98023e-07, 0.659734, 0.751499, 0.0602919, -0.0890733, -0.000921726)
+transform = Transform3D(0.818803, -0.431416, 0.378736, 0.574074, 0.615331, -0.540191, -7.7486e-07, 0.659733, 0.7515, 0.060292, -0.0890731, -0.000921667)
 
 [node name="Hutshell" parent="Mesh/Armature/Skeleton3D" index="4"]
-transform = Transform3D(0.909272, -0.416203, 6.56292e-08, 0.416203, 0.909272, 1.88862e-08, -6.75353e-08, 1.01424e-08, 1, -0.000427887, 0.000182314, -2.24022e-07)
+transform = Transform3D(0.881335, -0.472492, 0.000287027, 0.472492, 0.881335, -2.53634e-05, -0.000240983, 0.000157972, 1, -0.000420555, 0.000211563, -3.61166e-07)
 
 [node name="Körper" parent="Mesh/Armature/Skeleton3D" index="5"]
-transform = Transform3D(0.905571, -0.423776, -0.0188538, 0.423862, 0.905727, 0.000616998, 0.0168149, -0.00855013, 0.999822, 0.00501396, -0.0107162, 0.000101157)
+transform = Transform3D(0.905571, -0.423777, -0.0188538, 0.423862, 0.905726, 0.000616985, 0.0168149, -0.00855013, 0.999822, 0.00501396, -0.0107162, 0.000101157)
 
 [node name="Hut" parent="Mesh/Armature/Skeleton3D" index="6"]
-transform = Transform3D(0.905571, -0.423776, -0.0188538, 0.423862, 0.905727, 0.000616998, 0.0168149, -0.00855013, 0.999822, -1.11759e-08, 1.11759e-08, -4.9331e-09)
+transform = Transform3D(0.905571, -0.423777, -0.0188538, 0.423862, 0.905726, 0.000616985, 0.0168149, -0.00855013, 0.999822, -1.11759e-08, 1.21072e-08, -4.9331e-09)
 
 [node name="Sphere_002" parent="Mesh/Armature/Skeleton3D" index="7"]
-transform = Transform3D(0.905571, -0.423776, -0.0188538, 0.423862, 0.905727, 0.000616998, 0.0168149, -0.00855013, 0.999822, -0.129447, -0.000277355, -0.00244082)
+transform = Transform3D(0.905571, -0.423777, -0.0188538, 0.423862, 0.905726, 0.000616985, 0.0168149, -0.00855013, 0.999822, -0.129447, -0.000277434, -0.00244082)
 
 [node name="AttackArea" type="Area3D" parent="."]
 

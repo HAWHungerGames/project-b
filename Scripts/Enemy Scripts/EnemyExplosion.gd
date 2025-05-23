@@ -6,7 +6,7 @@ extends CharacterBody3D
 @export_category("Stats")
 @export_subgroup("Enemy Stats")
 @export var health: int = 20
-@export var speed: int = 7
+@export var speed: int = 8
 @export var acceleration: int = 4
 
 @export_subgroup("Attack Stats")
@@ -71,15 +71,16 @@ func rollController(delta):
 	else:
 		velocity.y = 20
 	if global_position.y >= 20:
+		if justSpawned:
+			global_position = calculateFallPosition()
 		justSpawned = false
-		global_position = calculateFallPosition()
 
 func calculateFallPosition():
 	var randomXOffset = rng.randf_range(-5.0, 5.0)
 	var randomZOffset = rng.randf_range(-5.0, 5.0)
 	var positionDifference = player.global_position - global_position
-	var fallX = player.get_child(0).global_position.x - positionDifference.x*0.1 - randomXOffset
-	var fallZ = player.get_child(0).global_position.z - positionDifference.z*0.1 - randomZOffset
+	var fallX = player.get_child(0).global_position.x - (positionDifference.x*0.1) + randomXOffset
+	var fallZ = player.get_child(0).global_position.z - (positionDifference.z*0.1) + randomZOffset
 	fallPosition = Vector3(fallX, global_position.y, fallZ)
 	return fallPosition
 
@@ -102,7 +103,7 @@ func takeDamage(damage: int):
 		queue_free()
 
 func attack(delta):
-	if isInAttackArea:
+	if isInAttackArea and pathfinding:
 		attackDelay -= delta
 		if attackDelay <= 1:
 			explode()
@@ -113,7 +114,7 @@ func explode():
 	paricles.emitting = true
 	mesh.visible = false
 	if isInDamageArea:
-		player.takeDamage(attackDamage, self, false)
+		player.takeDamage(attackDamage, self, false, 0)
 		isInDamageArea = false
 
 
