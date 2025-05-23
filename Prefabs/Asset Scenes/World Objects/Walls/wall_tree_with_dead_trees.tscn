@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://nc40df5rc7fy"]
+[gd_scene load_steps=11 format=3 uid="uid://cuwqxo4ogp4jh"]
 
 [ext_resource type="PackedScene" uid="uid://uis0puhqo5yl" path="res://Prefabs/Asset Scenes/World Objects/Nature/Trees/tree_round.tscn" id="2_674lk"]
 [ext_resource type="PackedScene" uid="uid://m5m2wps3p316" path="res://Prefabs/Asset Scenes/World Objects/Nature/Rocks/rock_two.tscn" id="3_vejpl"]

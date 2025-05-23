@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cy8khdr3pbrna"]
+
+[ext_resource type="PackedScene" path="res://Models/Nature/RockTwo.blend" id="1_3g5v6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5umkg"]
+size = Vector3(0.166016, 0.144775, 1)
+
+[node name="RockTwo" type="StaticBody3D"]
+
+[node name="RockTwo" parent="." instance=ExtResource("1_3g5v6")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_5umkg")

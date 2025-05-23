@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwwlfn73jkfpu"]
+
+[ext_resource type="PackedScene" path="res://Models/Nature/RockOne.blend" id="1_khesl"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0muoe"]
+radius = 0.579164
+
+[node name="RockOne" type="StaticBody3D"]
+
+[node name="RockOne" parent="." instance=ExtResource("1_khesl")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0223615, 0, 0.0424869)
+shape = SubResource("SphereShape3D_0muoe")

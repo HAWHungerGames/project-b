@@ -3,7 +3,7 @@ extends Node3D
 @onready var settings: Node3D = GlobalPlayer.getPlayer()
 
 @export var maxAttackCooldown: float = 1
-@export var maxInputCooldown: float = 0.4
+@export var maxInputCooldown: float = 0.2
 @export var maxStaffInputCooldown: float = 0.7
 @export var maxResetComboStepCooldown: float = 1
 @export var manaCostPerAttack: int = 60
