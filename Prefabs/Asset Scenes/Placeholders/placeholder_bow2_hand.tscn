@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://cqi3j3d5yoptw"]
 
-[ext_resource type="Script" uid="uid://bnnfld0unuf65" path="res://Scripts/Weapons/BowLogic.gd" id="1_tj13g"]
+[ext_resource type="Script" uid="uid://bnnfld0unuf65" path="res://Scripts/Weapons/BowLogicOld.gd" id="1_tj13g"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_6pjgy"]
 

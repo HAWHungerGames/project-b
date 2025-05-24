@@ -1,10 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://i40hh252nalo"]
 
-[ext_resource type="Script" uid="uid://cq6vo7hp0vcly" path="res://Scripts/Player/PlayerInteract.gd" id="1_35kea"]
+[ext_resource type="Script" uid="uid://bkvvayld8u85i" path="res://Scripts/Player/PlayerInteractNew.gd" id="1_xhjho"]
 
 [node name="InteractRayCast" type="RayCast3D"]
 collision_mask = 3
-script = ExtResource("1_35kea")
+script = ExtResource("1_xhjho")
 
 [node name="Prompt" type="Label" parent="."]
 anchors_preset = 14
