@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bmqgvvy0t5bfp"]
+[gd_scene load_steps=18 format=3 uid="uid://bmqgvvy0t5bfp"]
 
 [ext_resource type="Material" uid="uid://b2rgc8u5hwwcc" path="res://Materials/TestGround.tres" id="1_7g8fi"]
 [ext_resource type="Material" uid="uid://dekpipancsbc6" path="res://Materials/TestCubes.tres" id="2_8h0xq"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ddb5qsl2pw4p2" path="res://Prefabs/Enemies/enemy_spores.tscn" id="6_r2bbj"]
 [ext_resource type="PackedScene" uid="uid://uafprr7riwjm" path="res://Prefabs/Enemies/enemy_melee.tscn" id="7_k711p"]
 [ext_resource type="PackedScene" uid="uid://dqu4ynl3lwx2t" path="res://Prefabs/Enemies/enemy_boss.tscn" id="8_pbfqo"]
+[ext_resource type="PackedScene" uid="uid://djdcvh5h1c6bq" path="res://Prefabs/Enemies/enemy_explosion_placeable.tscn" id="10_apc6b"]
 
 [sub_resource type="Environment" id="Environment_1dgrj"]
 
@@ -36,7 +37,7 @@ size = Vector3(10, 0.1, 10)
 environment = SubResource("Environment_1dgrj")
 
 [node name="Player" parent="." instance=ExtResource("3_r2bbj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.644, 6.23315, 52.1939)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5149, 3.91131, 4.51619)
 healthType = "Health regeneration"
 cameraAngle = -35.0
 
@@ -199,11 +200,9 @@ polygon = PackedVector2Array(-10.4771, -0.499426, -1.71498, 1.9336, 3.64565, 1.5
 transform = Transform3D(1, 0, 0, 0, 0.743145, 0.669131, 0, -0.669131, 0.743145, 0, 13.6917, 0)
 
 [node name="RangedEnemy" parent="." instance=ExtResource("5_e6mua")]
-transform = Transform3D(0.157417, 0, 0.987532, 0, 1, 0, -0.987532, 0, 0.157417, -14.4614, 8.76488, 0)
+transform = Transform3D(0.157417, 0, 0.987532, 0, 1, 0, -0.987532, 0, 0.157417, -18.0326, 1.53961, -11.9799)
 hearingRange = 20.0
 visionRange = 30.0
-movementType = "keep set distance from player"
-keepDistance = 10.0
 
 [node name="SporeEnemy" parent="." instance=ExtResource("6_r2bbj")]
 transform = Transform3D(-0.721241, 0, 0.692685, 0, 1, 0, -0.692685, 0, -0.721241, 16.3382, 2.79195, -11.8325)
@@ -211,7 +210,7 @@ hearingRange = 20.0
 visionRange = 50.0
 
 [node name="MeleeEnemy" parent="." instance=ExtResource("7_k711p")]
-transform = Transform3D(-0.999998, 0, 0.00209435, 0, 1, 0, -0.00209435, 0, -0.999998, -34.1856, 3.54163, 27.6593)
+transform = Transform3D(-0.999998, 0, 0.00209435, 0, 1, 0, -0.00209435, 0, -0.999998, -26.7369, 3.54163, 46.8299)
 hearingRange = 30.0
 visionRange = 30.0
 
@@ -235,3 +234,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.8698, 2.53851, 20.2759)
 
 [node name="HealingOrb" parent="." instance=ExtResource("5_yyohc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.0227, 2.28275, -7.1154)
+
+[node name="ExplosionEnemy" parent="." instance=ExtResource("10_apc6b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.7431, 0.422035, 22.5371)

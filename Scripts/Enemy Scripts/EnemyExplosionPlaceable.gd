@@ -1,32 +1,28 @@
 extends CharacterBody3D
 @export_category("Behaviour")
 @export_subgroup("DetectionBehaviour")
-@export var hearingRange: float = 8
-@export var visionRange: float = 10
-
-@export_subgroup("MovementBehaviour")
-@export var keepDistance: float = 5
+@export var detectionRange: float = 8
 
 @export_category("Stats")
 @export_subgroup("Enemy Stats")
-@export var health: int = 300
-@export var speed: int = 5
-@export var acceleration: int = 5
+@export var health: int = 20
+@export var speed: int = 8
+@export var acceleration: int = 4
 
 @export_subgroup("Attack Stats")
-@export var attackDamage: int = 10
-@export var attackSpeed: float = 1/(1.58/2)
-@export var attackDelay: float = -0.1
-@export var attackHeight: float = 1
-@export var attackWidth: float = 1
-@export var attackLength: float = 1
+@export var attackDamage: int = 25
+@export var attackDelay: float = 1
+@export var timeBeforePathfinding: float = 20
+@export var lifetime: float = 3
 
 @onready var hearingNode = $HearingArea
 @onready var visionNode = $VisionArea
 @onready var attackNode = $AttackArea
-@onready var animationPlayer = $Mesh/AnimationPlayer
-@onready var particles = $AttackParticles
+@onready var damageNode = $DamageArea
+@onready var paricles = $GPUParticles3D
+@onready var mesh = $Mesh
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
+@onready var animationPlayer = $Mesh/AnimationPlayer
 
 @onready var boss_emitter = GameManager.get_child_by_name(self, "EnemyToBoss")
 @onready var death_spores = GameManager.get_child_by_name(self, "DeathSpores")
@@ -38,45 +34,38 @@ var playerIsInVisionArea: bool = false
 var attackCooldown: float = 0
 var tempAttackDelay: float = 0
 var isInAttackArea: bool = false
+var isInDamageArea: bool = false
 var isMoving: bool = false 
 var isAttacking = false
 var player: Node3D
+var pathfinding: bool = false
+var justSpawned: bool = true
+var fallPosition: Vector3
+var rng = RandomNumberGenerator.new()
 var gotAttackedTime: float = 0
 
-signal health_changed
 
 func _ready():
 	player = GlobalPlayer.getPlayer()
-	hearingNode.scale = Vector3(hearingRange, hearingRange, hearingRange)
-	visionNode.scale = Vector3(visionRange, visionRange, visionRange)
-	attackNode.scale = Vector3(attackLength, attackHeight, attackWidth)
 
 func _physics_process(delta):
-	apply_gravity(delta)
-	if gotAttackedTime > 0:
-		gotAttackedTime -= delta
-	if detect_player():
-		rotateToPlayer()
-		attack(delta)
-		if !isAttacking and !isInAttackArea:
-			animationPlayer.speed_scale = 1
-			animationPlayer.play("Running")
-			move_towards_player(delta)
-		else:
-			velocity = Vector3(0, velocity.y, 0)
-	else:
-		animationPlayer.speed_scale = 1
-		animationPlayer.play("Idle")
-		velocity = Vector3(0, velocity.y, 0)
+	if lifetime <= 1:
+		explode()
+	if lifetime <= 0:
+		queue_free()
+	movement(delta)
+	attack(delta)
 	move_and_slide()
-
-func move_towards_player(delta):
-	var direction = Vector3()
+	if detect_player() and timeBeforePathfinding > 10:
+		animationPlayer.play("Transform2ball")
+		timeBeforePathfinding = 0.3
+	if timeBeforePathfinding < 10 and timeBeforePathfinding >= 0:
+		timeBeforePathfinding -= delta
+	if timeBeforePathfinding <= 0:
+		pathfinding = true
+		animationPlayer.play("Ball roll")
+		lifetime -= delta
 	
-	nav.target_position = player.get_child(0).global_position
-	
-	direction = (nav.get_next_path_position() - global_position).normalized()
-	velocity = velocity.lerp(direction * speed, acceleration * delta)
 
 func detect_player():
 	if gotAttackedTime > 0:
@@ -117,6 +106,22 @@ func detect_player_raycast():
 				return true
 	return false
 
+func movement(delta):
+	rotateToPlayer()
+	if !isInAttackArea:
+		if pathfinding:
+			move_towards_player(delta)
+	else:
+		velocity = Vector3(0, velocity.y, 0)
+
+func move_towards_player(delta):
+	var direction = Vector3()
+	
+	nav.target_position = player.get_child(0).global_position
+	
+	direction = (nav.get_next_path_position() - global_position).normalized()
+	velocity = velocity.lerp(direction * speed, acceleration * delta)
+
 func rotateToPlayer():
 	var angleVector = player.get_child(0).global_transform.origin - global_transform.origin
 	var angle = atan2(angleVector.x, angleVector.z)
@@ -124,7 +129,6 @@ func rotateToPlayer():
 
 func takeDamage(damage: int):
 	health -= damage
-	health_changed.emit()
 	if health <= 0:
 		if boss_emitter != null:
 			GameManager.reset_child_to_root(self, boss_emitter)
@@ -134,30 +138,22 @@ func takeDamage(damage: int):
 			death_spores.activate_death_particles()
 		queue_free()
 	else:
-		gotAttackedTime = 3
-
+		gotAttackedTime = 4
 
 func attack(delta):
-	if isInAttackArea:
-		isAttacking = true
-	if !isAttacking:
-		tempAttackDelay = attackDelay
-		attackCooldown = 1/attackSpeed
-	if isAttacking:
-		animationPlayer.speed_scale = 1
-		animationPlayer.play("Bump")
-		if tempAttackDelay > 0:
-			tempAttackDelay -= delta
-		else:
-			if attackCooldown > 0:
-				attackCooldown -= delta
-			else:
-				attackCooldown = 1/attackSpeed
-				isAttacking = false
-				if isInAttackArea:
-					particles.restart()
-					particles.emitting = true
-					player.takeDamage(attackDamage, self, true, 0)
+	if isInAttackArea and pathfinding:
+		attackDelay -= delta
+		if attackDelay <= 1:
+			explode()
+		if attackDelay <= 0:
+			queue_free()
+
+func explode():
+	paricles.emitting = true
+	mesh.visible = false
+	if isInDamageArea:
+		player.takeDamage(attackDamage, self, false, 0)
+		isInDamageArea = false
 
 func apply_gravity(delta):
 	velocity.y += -gravity * delta
@@ -182,6 +178,10 @@ func _on_attack_area_entered(area: Area3D) -> void:
 	if area.is_in_group("Player"):
 		isInAttackArea = true
 
-func _on_attack_area_exited(area: Area3D) -> void:
+func _on_damage_area_entered(area: Area3D) -> void:
 	if area.is_in_group("Player"):
-		isInAttackArea = false
+		isInDamageArea = true
+
+func _on_damage_area_exited(area: Area3D) -> void:
+	if area.is_in_group("Player"):
+		isInDamageArea = false

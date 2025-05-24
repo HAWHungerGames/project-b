@@ -37,7 +37,6 @@ var justSpawned: bool = true
 var fallPosition: Vector3
 var rng = RandomNumberGenerator.new()
 
-
 func _ready():
 	player = GlobalPlayer.getPlayer()
 	detectionRangeNode.scale = Vector3(detectionRange, detectionRange, detectionRange)

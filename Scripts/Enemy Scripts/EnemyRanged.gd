@@ -18,14 +18,19 @@ extends CharacterBody3D
 @export var bulletSpeed: int = 1
 @export var bulletDamage: int = 10
 @export var bulletLifetime: float = 5
-@export var attackSpeed: float = 1
+@export var attackSpeed: float = 1/1.6667
 @export_range(0, 1) var homingStrength: float = 0
 @export var homingRange: float = 50
+
+@export_subgroup("MeleeAttack")
+@export var meleeDamage: float = 20
 
 @onready var hearingNode = $HearingArea
 @onready var visionNode = $VisionArea
 @onready var world = $"../.."
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
+@onready var animationPlayer = $Mesh/AnimationPlayer
+@onready var bulletSpawnPoint = $BulletSpawnPoint
 
 @onready var boss_emitter = GameManager.get_child_by_name(self, "EnemyToBoss")
 @onready var death_spores = GameManager.get_child_by_name(self, "DeathSpores")
@@ -42,6 +47,12 @@ var moveDelay: float = 0
 var moveTime: float = 0
 var player: Node3D
 var gotAttackedTime: float = 0
+var throwTimer: float = 0
+var punchTimer: float = 0
+var rangedAttackDelay: float = 0.54
+var idleTimer: float = 0
+var inMeleeRange: bool = false
+var inMeleeDamageArea: bool = false
 
 func _ready():
 	player = GlobalPlayer.getPlayer()
@@ -52,9 +63,19 @@ func _physics_process(delta):
 	apply_gravity(delta)
 	if gotAttackedTime > 0:
 		gotAttackedTime -= delta
+	if idleTimer >= 0:
+		idleTimer -= delta
 	if detect_player():
-		rotateToPlayer()
-		attack(delta)
+		if punchTimer <= 0:
+			rotateToPlayer()
+		if idleTimer <= 0:#
+			if !inMeleeRange:
+				rangedAttack(delta)
+			else: 
+				meleeAttack(delta)
+	else:
+		animationPlayer.play("Idle")
+		idleTimer = 1
 	if detect_player():
 		navigation(delta)
 	move_and_slide()
@@ -151,17 +172,34 @@ func takeDamage(damage: int):
 	else:
 		gotAttackedTime = 3
 
-func attack(delta):
-	if attackCooldown <= 0 and detect_player_raycast() and !isMoving and moveDelay <= 0:
-		var pos: Vector3 = get_child(2).global_transform.origin
-		var vel: Vector3 = player.get_child(0).global_transform.origin - global_transform.origin
+func rangedAttack(delta):
+	rangedAttackDelay -= delta
+	if attackCooldown <= 0 and detect_player_raycast() and !isMoving and moveDelay <= 0 and rangedAttackDelay <= 0:
+		var pos: Vector3 = bulletSpawnPoint.global_transform.origin
+		var vel: Vector3 = player.get_child(0).global_transform.origin - pos
 		var bullet = bulletScene.instantiate()
 		bullet.setParameter(player, bulletDamage, bulletSpeed, homingRange, homingStrength, vel, bulletLifetime)
 		world.add_child(bullet)
 		bullet.global_transform.origin = pos
 		attackCooldown = 1.0/attackSpeed
-	elif(attackCooldown >= 0): 
+		throwTimer = 1.6667
+	if(attackCooldown >= 0): 
 		attackCooldown -= delta
+	if throwTimer >= 0:
+		throwTimer -= delta
+		animationPlayer.play("Throw")
+
+func meleeAttack(delta):
+	if punchTimer <= 0:
+		punchTimer = 12.0833
+		rotateToPlayer()
+	else: 
+		punchTimer -= delta
+	animationPlayer.play("Punch")
+	if punchTimer <= 11.0833 and punchTimer > 10:
+		if inMeleeDamageArea:
+			player.takeDamage(meleeDamage, self, true, 0)
+		punchTimer -= 10
 
 func apply_gravity(delta):
 	velocity.y += -gravity * delta
@@ -169,15 +207,42 @@ func apply_gravity(delta):
 func _on_hearing_area_entered(area: Area3D) -> void:
 	if area.is_in_group("Player"):
 		playerIsInHearingArea = true
+		if !playerIsInVisionArea:
+			rangedAttackDelay = 0.54
 
 func _on_hearing_area_exited(area: Area3D) -> void:
 	if area.is_in_group("Player"):
 		playerIsInHearingArea = false
+		if !playerIsInVisionArea:
+			attackCooldown = 0
 
 func _on_vision_area_entered(area: Area3D) -> void:
 	if area.is_in_group("Player"):
 		playerIsInVisionArea = true
+		if !playerIsInHearingArea:
+			rangedAttackDelay = 0.54
 
 func _on_vision_area_exited(area: Area3D) -> void:
 	if area.is_in_group("Player"):
 		playerIsInVisionArea = false
+		if !playerIsInHearingArea:
+			attackCooldown = 0
+
+func _on_melee_range_entered(area: Area3D) -> void:
+	if area.is_in_group("Player"):
+		inMeleeRange = true 
+
+func _on_melee_range_exited(area: Area3D) -> void:
+	if area.is_in_group("Player"):
+		inMeleeRange = false
+		rangedAttackDelay = 0.54
+		attackCooldown = 0
+		punchTimer = 0
+
+func _on_melee_damage_area_entered(area: Area3D) -> void:
+	if area.is_in_group("Player"):
+		inMeleeDamageArea = true
+
+func _on_melee_damage_area_exited(area: Area3D) -> void:
+	if area.is_in_group("Player"):
+		inMeleeDamageArea = false

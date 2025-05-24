@@ -1,23 +1,18 @@
-[gd_scene load_steps=33 format=3 uid="uid://durr2417rl7mr"]
+[gd_scene load_steps=41 format=3 uid="uid://durr2417rl7mr"]
 
 [ext_resource type="Script" uid="uid://xdurcngpahts" path="res://Scripts/Enemy Scripts/EnemyRanged.gd" id="2_gtfvv"]
-[ext_resource type="Material" uid="uid://bfkikr4b3287w" path="res://Materials/enemy1.tres" id="3_dp8bq"]
-[ext_resource type="Material" uid="uid://41byjnpqi8jl" path="res://Materials/TestBush.tres" id="3_rrnee"]
 [ext_resource type="Texture2D" uid="uid://co6wmanklpgl3" path="res://UI/Particles/ParticleDust.png" id="4_c6tls"]
 [ext_resource type="Script" uid="uid://cq485d4lp3x4t" path="res://Scripts/UI/death_spores.gd" id="5_nflyr"]
+[ext_resource type="PackedScene" uid="uid://br57tc42i7wf" path="res://Models/Enemies/Enoki Enemy/Enoki_Enemy.blend" id="6_2kxcm"]
 [ext_resource type="Texture2D" uid="uid://b67sgvs236paw" path="res://Assets/Kenney Particles Transparent Background/circle_05.png" id="6_du60d"]
+[ext_resource type="Texture2D" uid="uid://btdwlxvsr1gas" path="res://Models/Enemies/Enoki Enemy/enoki-texture.png" id="7_bt4eu"]
 [ext_resource type="Script" uid="uid://c075aiwr805vf" path="res://Scripts/UI/enemy_to_boss.gd" id="7_db7am"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dp8bq"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_yu556"]
-points = PackedVector3Array(-0.387079, -0.952867, -0.893173, 0.0286088, 0.919081, 0.0286088, 0.0286088, 0.919081, -0.0286088, 0.964119, -0.964119, 0.090221, -0.69589, -0.968294, 0.69589, 0.387079, -0.952867, 0.893173, 0.654605, -0.952357, -0.714081, -0.964119, -0.964119, -0.090221, 0.090221, -0.964119, -0.964119, -0.090221, -0.964119, 0.964119, -0.69589, -0.968294, -0.69589, 0.714081, -0.952357, 0.654605, 0.893173, -0.952867, -0.387079, -0.0286088, 0.919081, 0.0286088, -0.893173, -0.952867, 0.387079, -0.893173, -0.952867, -0.387079, -0.387079, -0.952867, 0.893173, 0.387079, -0.952867, -0.893173, 0.893173, -0.952867, 0.387079, -0.0286088, 0.919081, -0.0286088, 0.964119, -0.964119, -0.090221, 0.090221, -0.964119, 0.964119, -0.919554, -0.861947, 0.0574271, -0.0574271, -0.861947, -0.919554, 0.656224, -0.855898, -0.656046, 0.656224, -0.855898, 0.656046, 0.0572615, 0.689839, -0.143694, -0.143684, 0.68979, -0.0574375, 0.143694, 0.689839, 0.0572615, 0.0572615, 0.689839, 0.143694, -0.241132, -0.964526, -0.934314, 0.143694, 0.689839, -0.0572615)
-
-[sub_resource type="BoxMesh" id="BoxMesh_r2bbj"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_gqdys"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k711p"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_dp8bq"]
 
 [sub_resource type="Gradient" id="Gradient_cvead"]
 offsets = PackedFloat32Array(0, 0.489451, 0.767932, 1)
@@ -162,8 +157,41 @@ particles_anim_loop = false
 material = SubResource("StandardMaterial3D_qw2qv")
 size = Vector2(0.5, 0.5)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h27ax"]
+albedo_texture = ExtResource("7_bt4eu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1nl8l"]
+albedo_texture = ExtResource("7_bt4eu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wwqh1"]
+albedo_texture = ExtResource("7_bt4eu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hmqui"]
+albedo_texture = ExtResource("7_bt4eu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qncnq"]
+albedo_texture = ExtResource("7_bt4eu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxqqx"]
+albedo_texture = ExtResource("7_bt4eu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_prrou"]
+albedo_texture = ExtResource("7_bt4eu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1r6g4"]
+albedo_texture = ExtResource("7_bt4eu")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2kxcm"]
+radius = 5.6637
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2kxcm"]
+size = Vector3(6.29492, 2.16852, 1.66553)
+
 [node name="RangedEnemy" type="CharacterBody3D" groups=["Enemy"]]
 script = ExtResource("2_gtfvv")
+keepDistance = 10.0
+speed = 2
+acceleration = 1
 bulletSpeed = 10
 
 [node name="HearingArea" type="Area3D" parent="." groups=["Enemy"]]
@@ -174,27 +202,17 @@ shape = SubResource("SphereShape3D_dp8bq")
 debug_color = Color(0.138961, 0.599429, 0.670183, 1)
 
 [node name="VisionArea" type="Area3D" parent="."]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0.2, 0.581, 0)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="VisionArea"]
-transform = Transform3D(-1.09278e-08, -0.25, 0, 0.25, -1.09278e-08, 0, 0, 0, 0.25, 0.232, 0, 0)
-shape = SubResource("ConvexPolygonShape3D_yu556")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VisionArea" groups=["Enemy"]]
+shape = SubResource("SphereShape3D_gqdys")
+debug_color = Color(0.138961, 0.599429, 0.670183, 1)
 
 [node name="BulletSpawnPoint" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.544362, 0.573799, 0)
-
-[node name="FrontMaker" type="MeshInstance3D" parent="BulletSpawnPoint" groups=["Bullet"]]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
-material_override = ExtResource("3_rrnee")
-mesh = SubResource("BoxMesh_r2bbj")
-skeleton = NodePath("../../../..")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.544362, 3.61219, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_k711p")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-material_override = ExtResource("3_dp8bq")
-mesh = SubResource("CapsuleMesh_dp8bq")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
@@ -231,7 +249,119 @@ process_material = SubResource("ParticleProcessMaterial_3ncdi")
 draw_pass_1 = SubResource("QuadMesh_k0u6i")
 script = ExtResource("7_db7am")
 
+[node name="Mesh" parent="." instance=ExtResource("6_2kxcm")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.988553, 0)
+
+[node name="Skeleton3D" parent="Mesh/Armature_bendy_009" index="0"]
+bones/0/position = Vector3(0.0252984, 0.0300992, -0.0132118)
+bones/1/rotation = Quaternion(0.0295352, 0.0192108, -0.027767, 0.998993)
+bones/2/rotation = Quaternion(0.0515902, -0.00650627, -0.0367249, 0.997972)
+bones/3/rotation = Quaternion(-0.058668, -0.0399337, 0.071276, 0.994929)
+bones/4/rotation = Quaternion(-0.115469, 0.0389329, 0.0746285, 0.989738)
+bones/5/rotation = Quaternion(-0.0908787, 0.0632924, 0.0394306, 0.993066)
+bones/6/rotation = Quaternion(0.0387341, -0.0894744, 0.0639418, 0.99318)
+bones/7/rotation = Quaternion(-0.110341, -0.182059, -0.0345708, 0.976465)
+bones/8/position = Vector3(0.412091, 0.0300992, 0.398331)
+bones/8/scale = Vector3(1.02136, 1.02136, 1.02136)
+bones/9/rotation = Quaternion(-0.0464719, -0.00359075, 0.00298163, 0.998909)
+bones/10/rotation = Quaternion(-0.0382817, -0.0113214, 0.0346429, 0.998602)
+bones/11/rotation = Quaternion(0.0378278, -0.0007157, 0.0595704, 0.997507)
+bones/12/rotation = Quaternion(0.0951475, -0.00177494, 0.0600684, 0.993648)
+bones/13/rotation = Quaternion(0.0440679, -0.0217505, -0.0716618, 0.996218)
+bones/14/rotation = Quaternion(0.0390668, -0.0360589, -0.103292, 0.993229)
+bones/15/rotation = Quaternion(0.0560406, -0.0213127, -0.117478, 0.991264)
+bones/16/position = Vector3(0.630823, 0.0300992, -0.0936149)
+bones/17/rotation = Quaternion(0.0184297, -0.00662348, -0.0500745, 0.998553)
+bones/18/rotation = Quaternion(0.0255311, -0.00888946, -0.0122618, 0.999559)
+bones/19/rotation = Quaternion(-0.0621458, -0.00663965, -0.0488846, 0.996847)
+bones/20/rotation = Quaternion(-0.0390828, 0.00290472, 0.0339142, 0.998656)
+bones/21/rotation = Quaternion(-0.0231542, -0.00709746, 0.068623, 0.997349)
+bones/22/rotation = Quaternion(0.0511573, -0.0168396, 0.0344285, 0.997955)
+bones/23/rotation = Quaternion(0.0754752, -0.0330152, 0.0287408, 0.996186)
+bones/24/position = Vector3(-0.0642879, 0.0300992, 0.523206)
+bones/25/rotation = Quaternion(0.024742, 0.00214612, -0.02971, 0.99925)
+bones/26/rotation = Quaternion(-0.013714, -0.00166638, 0.0507185, 0.998617)
+bones/27/rotation = Quaternion(-0.0494847, 0.0112572, 0.0136474, 0.998618)
+bones/28/rotation = Quaternion(-0.0880257, 0.0213751, 0.0323436, 0.995364)
+bones/29/rotation = Quaternion(0.0831005, -0.0247907, -0.0656964, 0.994064)
+bones/30/rotation = Quaternion(0.0702312, -0.0183707, -0.0202062, 0.997157)
+bones/31/rotation = Quaternion(0.125552, 0.0703055, 0.0613043, 0.987692)
+bones/32/position = Vector3(-0.476037, 0.0300992, 0.291571)
+bones/33/rotation = Quaternion(0.0317445, -0.009106, 0.0617596, 0.997545)
+bones/34/rotation = Quaternion(-0.0156718, -0.0263313, 0.0781814, 0.996468)
+bones/35/rotation = Quaternion(-0.0628325, -0.0136047, 0.0548976, 0.99642)
+bones/36/rotation = Quaternion(-0.00790618, 0.0432068, 0.0466447, 0.997945)
+bones/37/rotation = Quaternion(0.104812, -0.00872178, -0.169937, 0.979827)
+bones/38/rotation = Quaternion(-0.00164805, -0.0587485, -0.26171, 0.963355)
+bones/39/rotation = Quaternion(0.0869789, -0.12964, -0.153855, 0.975683)
+bones/40/position = Vector3(-0.519224, 0.0300992, -0.135538)
+bones/41/rotation = Quaternion(-0.175586, 0.655704, 0.283364, 0.677442)
+bones/42/rotation = Quaternion(-0.211161, 0.155503, 0.252863, 0.931284)
+bones/43/rotation = Quaternion(-0.0380061, 0.101667, 0.162626, 0.9807)
+bones/44/rotation = Quaternion(-0.0159209, 0.0513136, 0.170816, 0.983837)
+bones/44/scale = Vector3(1.59078, 1.59078, 1.59078)
+bones/45/rotation = Quaternion(-0.0623676, 0.0349505, 0.149003, 0.986249)
+bones/46/rotation = Quaternion(-0.159647, 0.037357, 0.0498168, 0.985208)
+bones/47/rotation = Quaternion(-0.113177, 0.0824374, -0.066663, 0.987902)
+bones/48/position = Vector3(-0.289403, 0.0300992, -0.470397)
+bones/49/rotation = Quaternion(0.0505296, 0.0067805, -0.0242793, 0.998404)
+bones/50/rotation = Quaternion(-0.0066384, 0.00881868, 0.0475868, 0.998806)
+bones/51/rotation = Quaternion(-0.0187412, -0.0084977, -0.0155938, 0.999667)
+bones/52/rotation = Quaternion(-0.0436882, -0.0119849, -0.0724056, 0.996346)
+bones/53/rotation = Quaternion(-0.0472779, 0.0161239, -0.0725399, 0.996114)
+bones/54/rotation = Quaternion(-0.104422, 0.0223009, -0.0470861, 0.993167)
+bones/55/rotation = Quaternion(-0.130135, -0.0468893, -0.00517087, 0.990373)
+bones/56/position = Vector3(0.255441, 0.0300992, -0.487135)
+bones/57/rotation = Quaternion(-0.00828337, -0.000106327, 0.0406745, 0.999138)
+bones/58/rotation = Quaternion(-0.0624608, -0.0269994, -0.0851942, 0.994038)
+bones/59/rotation = Quaternion(-0.0189383, 0.0091006, -0.170851, 0.985073)
+bones/60/rotation = Quaternion(0.0887929, 0.0462698, 0.0675389, 0.99268)
+bones/61/rotation = Quaternion(0.0615108, -0.0351639, 0.0888214, 0.993524)
+bones/62/rotation = Quaternion(-0.0524434, -0.027464, 0.124191, 0.990491)
+bones/63/rotation = Quaternion(-0.0292111, 0.08135, 0.1562, 0.983936)
+
+[node name="Enoki_001" parent="Mesh/Armature_bendy_009/Skeleton3D" index="0"]
+material_override = SubResource("StandardMaterial3D_h27ax")
+
+[node name="Enoki_002" parent="Mesh/Armature_bendy_009/Skeleton3D" index="1"]
+material_override = SubResource("StandardMaterial3D_1nl8l")
+
+[node name="Enoki_003" parent="Mesh/Armature_bendy_009/Skeleton3D" index="2"]
+material_override = SubResource("StandardMaterial3D_wwqh1")
+
+[node name="Enoki_004" parent="Mesh/Armature_bendy_009/Skeleton3D" index="3"]
+material_override = SubResource("StandardMaterial3D_hmqui")
+
+[node name="Enoki_005" parent="Mesh/Armature_bendy_009/Skeleton3D" index="4"]
+material_override = SubResource("StandardMaterial3D_qncnq")
+
+[node name="Enoki_006" parent="Mesh/Armature_bendy_009/Skeleton3D" index="5"]
+material_override = SubResource("StandardMaterial3D_sxqqx")
+
+[node name="Enoki_007" parent="Mesh/Armature_bendy_009/Skeleton3D" index="6"]
+material_override = SubResource("StandardMaterial3D_prrou")
+
+[node name="Enoki_008" parent="Mesh/Armature_bendy_009/Skeleton3D" index="7"]
+material_override = SubResource("StandardMaterial3D_1r6g4")
+
+[node name="MeleeRange" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeleeRange"]
+shape = SubResource("SphereShape3D_2kxcm")
+
+[node name="MeleeDamageArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeleeDamageArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.64746, 0.10434, -0.119873)
+shape = SubResource("BoxShape3D_2kxcm")
+
 [connection signal="area_entered" from="HearingArea" to="." method="_on_hearing_area_entered"]
 [connection signal="area_exited" from="HearingArea" to="." method="_on_hearing_area_exited"]
 [connection signal="area_entered" from="VisionArea" to="." method="_on_vision_area_entered"]
 [connection signal="area_exited" from="VisionArea" to="." method="_on_vision_area_exited"]
+[connection signal="area_entered" from="MeleeRange" to="." method="_on_melee_range_entered"]
+[connection signal="area_exited" from="MeleeRange" to="." method="_on_melee_range_exited"]
+[connection signal="area_entered" from="MeleeDamageArea" to="." method="_on_melee_damage_area_entered"]
+[connection signal="area_exited" from="MeleeDamageArea" to="." method="_on_melee_damage_area_exited"]
+
+[editable path="Mesh"]

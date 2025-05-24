@@ -80,9 +80,10 @@ func _ready():
 	sporeDamageArea.scale = Vector3(sporeArea, sporeArea, sporeArea)
 
 func _physics_process(delta: float):
-	activateBoss()
-	actionManager(delta)
-	
+	if active:
+		activateBoss()
+		actionManager(delta)
+		
 
 func calculateAggression():
 	aggression = baseAggressionLevel
@@ -204,8 +205,7 @@ func move_towards_target(delta, targetPoint):
 		direction = (nav.get_next_path_position() - global_position).normalized()
 		velocity = velocity.lerp(direction * speed, acceleration * delta)
 		rotateToTarget(targetPoint)
-		animationPlayer.speed_scale = 1.2
-		animationPlayer.play("Walking")
+		animationPlayer.play("Running")
 		return false
 	else:
 		velocity = Vector3(0, velocity.y, 0)
