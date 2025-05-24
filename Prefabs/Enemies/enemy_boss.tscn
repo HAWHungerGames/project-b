@@ -214,7 +214,10 @@ shape = SubResource("BoxShape3D_gbk7o")
 [connection signal="area_entered" from="SporeDamageArea" to="." method="_on_spore_damage_area_entered"]
 [connection signal="area_exited" from="SporeDamageArea" to="." method="_on_spore_damage_area_exited"]
 [connection signal="area_entered" from="SpearCombo 1" to="." method="_on_spear_combo_1_entered"]
+[connection signal="area_exited" from="SpearCombo 1" to="." method="_on_spear_combo_1_exited"]
 [connection signal="area_entered" from="SpearCombo 2" to="." method="_on_spear_combo_2_entered"]
+[connection signal="area_exited" from="SpearCombo 2" to="." method="_on_spear_combo_2_exited"]
 [connection signal="area_entered" from="SpearCombo 3" to="." method="_on_spear_combo_3_entered"]
+[connection signal="area_exited" from="SpearCombo 3" to="." method="_on_spear_combo_3_exited"]
 
 [editable path="Mesh"]

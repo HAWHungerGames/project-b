@@ -95,22 +95,24 @@ func keep_set_distance_from_player(delta):
 		velocity = Vector3(0, velocity.y, 0)
 
 func detect_player():
+	if gotAttackedTime > 0:
+		return true
 	if playerIsInHearingArea and !playerIsInVisionArea:
-		if player.isSneaking and !player.isDetected and gotAttackedTime <= 0:
+		if player.isSneaking and !player.isDetected:
 			player.removeDetectingEnemy([self])
 			return false
 		else:
 			player.addDetectingEnemy([self])
 			return true
 	if  playerIsInVisionArea and !playerIsInHearingArea:
-		if detect_player_raycast() or player.isDetected or gotAttackedTime > 0:
+		if detect_player_raycast() or player.isDetected:
 			player.addDetectingEnemy([self])
 			return true
 		else:
 			player.removeDetectingEnemy([self])
 			return false
 	if playerIsInHearingArea and playerIsInVisionArea:
-		if player.isDetected or detect_player_raycast() or !player.isSneaking or gotAttackedTime > 0:
+		if player.isDetected or detect_player_raycast() or !player.isSneaking:
 			player.addDetectingEnemy([self])
 			return true
 	player.removeDetectingEnemy([self])

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dcsqxh8ksn77m"]
+[gd_scene load_steps=22 format=3 uid="uid://dcsqxh8ksn77m"]
 
 [ext_resource type="Script" uid="uid://bqwde0hhdtnbd" path="res://Scripts/Assets/Door.gd" id="1_urwcp"]
 [ext_resource type="PackedScene" uid="uid://uis0puhqo5yl" path="res://Prefabs/Asset Scenes/World Objects/Nature/Trees/tree_round.tscn" id="2_vets3"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://m5m2wps3p316" path="res://Prefabs/Asset Scenes/World Objects/Nature/Rocks/rock_two.tscn" id="8_0kpld"]
 [ext_resource type="PackedScene" uid="uid://bbunaqymstlo4" path="res://Prefabs/Asset Scenes/World Objects/Nature/Rocks/rock_one.tscn" id="9_351bd"]
 [ext_resource type="PackedScene" uid="uid://bpog55qglxd8s" path="res://Prefabs/Asset Scenes/World Objects/Nature/Mushrooms/mushroom_red.tscn" id="10_351bd"]
+[ext_resource type="Texture2D" uid="uid://cfuxi6d678l45" path="res://Assets/Kenney Particles Transparent Background/smoke_04.png" id="11_hh1ye"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_dy4fv"]
 
@@ -181,11 +182,41 @@ _data = {
 &"RESET": SubResource("Animation_urwcp")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nvalq"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("11_hh1ye")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ak1ux"]
+emission_shape = 3
+emission_box_extents = Vector3(2.7, 0.1, 0.4)
+angle_min = -125.7
+angle_max = 11.4
+direction = Vector3(0, -1, 0)
+spread = 10.0
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 3.0
+color = Color(0.788672, 0.795313, 0.822636, 1)
+turbulence_noise_strength = 0.1
+turbulence_noise_scale = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_06482"]
+
 [node name="Door" type="StaticBody3D"]
 script = ExtResource("1_urwcp")
 
 [node name="MeshDoor" type="MeshInstance3D" parent="."]
 transform = Transform3D(6, 0, 0, 0, 4, 0, 0, 0, 1, 0, 2, 0)
+visible = false
 material_override = ExtResource("2_ymewj")
 mesh = SubResource("BoxMesh_dy4fv")
 
@@ -293,6 +324,16 @@ transform = Transform3D(0.3, 0, 0, 0, 0.48, 0, 0, 0, 0.3, -4.92859, 0.230799, -1
 
 [node name="MushroomRed3" parent="Deco" instance=ExtResource("10_351bd")]
 transform = Transform3D(0.4, 0, 0, 0, 0.8, 0, 0, 0, 0.4, 3.13628, 0.481171, 0.613427)
+
+[node name="FallingParticles" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.74118, -0.1)
+material_override = SubResource("StandardMaterial3D_nvalq")
+amount = 700
+lifetime = 5.0
+preprocess = 2.49
+randomness = 0.1
+process_material = SubResource("ParticleProcessMaterial_ak1ux")
+draw_pass_1 = SubResource("QuadMesh_06482")
 
 [editable path="Deco/Baum"]
 [editable path="Deco/Baum2"]

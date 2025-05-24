@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://upsw5aho5ygu"]
+[gd_scene load_steps=12 format=3 uid="uid://upsw5aho5ygu"]
 
 [ext_resource type="Script" uid="uid://bwwmf8rq85ngw" path="res://Scripts/Weapons/PlayerMagicBullet.gd" id="1_3rtgv"]
-[ext_resource type="Material" uid="uid://vlajy1vjbcaw" path="res://Materials/TestCubes2.tres" id="2_xh7pu"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_k711p"]
+[ext_resource type="Texture2D" uid="uid://duosk0i3ma7x0" path="res://Assets/Kenney Particles Transparent Background/flame_04.png" id="2_xh7pu"]
+[ext_resource type="Texture2D" uid="uid://8coueektucvq" path="res://Assets/Kenney Particles Transparent Background/fire_01.png" id="3_m025p"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_rlome"]
 radius = 0.26532
@@ -11,13 +10,54 @@ radius = 0.26532
 [sub_resource type="SphereShape3D" id="SphereShape3D_lof1i"]
 radius = 4.0
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ean8y"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_xh7pu")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3rtgv"]
+angle_min = -180.0
+angle_max = 180.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.8
+scale_max = 1.2
+color = Color(0.145031, 0.600068, 0.65509, 1)
+hue_variation_min = -0.1
+hue_variation_max = 0.1
+
+[sub_resource type="QuadMesh" id="QuadMesh_xh7pu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0t0a4"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("3_m025p")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hb1it"]
+angle_min = -180.0
+angle_max = 180.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.3
+scale_max = 0.4
+color = Color(0.162275, 0.538649, 0.928602, 1)
+hue_variation_min = -0.1
+hue_variation_max = 0.1
+
+[sub_resource type="QuadMesh" id="QuadMesh_78fn7"]
+
 [node name="Bullet" type="Node3D" groups=["Weapon"]]
 script = ExtResource("1_3rtgv")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-material_override = ExtResource("2_xh7pu")
-mesh = SubResource("SphereMesh_k711p")
 
 [node name="Hitbox" type="Area3D" parent="." groups=["Weapon"]]
 
@@ -28,6 +68,20 @@ shape = SubResource("SphereShape3D_rlome")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
 shape = SubResource("SphereShape3D_lof1i")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+material_override = SubResource("StandardMaterial3D_ean8y")
+amount = 20
+lifetime = 0.1
+process_material = SubResource("ParticleProcessMaterial_3rtgv")
+draw_pass_1 = SubResource("QuadMesh_xh7pu")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
+material_override = SubResource("StandardMaterial3D_0t0a4")
+amount = 20
+lifetime = 0.15
+process_material = SubResource("ParticleProcessMaterial_hb1it")
+draw_pass_1 = SubResource("QuadMesh_78fn7")
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]

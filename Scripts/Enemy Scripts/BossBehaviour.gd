@@ -400,7 +400,6 @@ func _on_charge_attack_body_entered(body: Node3D) -> void:
 
 func _on_spear_combo_1_entered(area: Area3D) -> void:
 	if area.is_in_group("Player"):
-		print("Area 1")
 		comboArea1 = true
 
 func _on_spear_combo_2_entered(area: Area3D) -> void:
@@ -410,3 +409,15 @@ func _on_spear_combo_2_entered(area: Area3D) -> void:
 func _on_spear_combo_3_entered(area: Area3D) -> void:
 	if area.is_in_group("Player"):
 		comboArea3 = true
+
+func _on_spear_combo_1_exited(area: Area3D) -> void:
+	if area.is_in_group("Player"):
+		comboArea1 = false
+
+func _on_spear_combo_2_exited(area: Area3D) -> void:
+	if area.is_in_group("Player"):
+		comboArea2 = false
+
+func _on_spear_combo_3_exited(area: Area3D) -> void:
+	if area.is_in_group("Player"):
+		comboArea3 = false

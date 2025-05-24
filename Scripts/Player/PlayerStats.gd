@@ -33,7 +33,7 @@ extends Node3D
 
 @export_subgroup("Stamina")
 @export var maxStamina: float = 200
-@export var staminaPerSecond: float = 10
+@export var staminaPerSecond: float = 50
 
 @export_subgroup("Mana")
 @export var maxMana: float = 200
