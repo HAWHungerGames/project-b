@@ -1,4 +1,4 @@
-[gd_scene load_steps=119 format=3 uid="uid://17sawqr1a5sd"]
+[gd_scene load_steps=121 format=3 uid="uid://17sawqr1a5sd"]
 
 [ext_resource type="Material" uid="uid://41byjnpqi8jl" path="res://Materials/TestBush.tres" id="1_3f6q6"]
 [ext_resource type="PackedScene" uid="uid://bo6t8u3r6w260" path="res://Prefabs/Asset Scenes/World Objects/Nature/Plants/grass_ground.tscn" id="2_5i7v7"]
@@ -108,9 +108,10 @@
 [ext_resource type="PackedScene" uid="uid://durr2417rl7mr" path="res://Prefabs/Enemies/enemy_ranged.tscn" id="74_5ysuy"]
 [ext_resource type="PackedScene" uid="uid://ddb5qsl2pw4p2" path="res://Prefabs/Enemies/enemy_spores.tscn" id="76_lyv0c"]
 [ext_resource type="PackedScene" uid="uid://do1xe3tqii0no" path="res://Prefabs/Enemies/enemy_explosion.tscn" id="77_derlu"]
-[ext_resource type="AudioStream" uid="uid://cxe8crgvm4lnb" path="res://Assets/Sound/Music/Buildup/Ambience1.wav" id="77_sl0tm"]
-[ext_resource type="Script" uid="uid://dabmdfbx7rw8m" path="res://Scripts/Sound/BGMusic.gd" id="77_wiwy5"]
-[ext_resource type="AudioStream" uid="uid://b46sipdwqf6uo" path="res://Assets/Sound/Music/Boss/Boss_Music - 75BPM Intense Part only.wav" id="78_c4fj1"]
+[ext_resource type="Script" uid="uid://cud6ytedl0vjp" path="res://Scripts/Sound/music_manager.gd" id="77_sl0tm"]
+[ext_resource type="AudioStream" uid="uid://bfky37dcfo6mm" path="res://Assets/Sound/Music/StartingArea.wav" id="78_tumgl"]
+[ext_resource type="AudioStream" uid="uid://4w1umfo3fwsr" path="res://Assets/Sound/Music/Background (OutOfBattle).wav" id="79_tumgl"]
+[ext_resource type="AudioStream" uid="uid://c772vjw0wtmyn" path="res://Assets/Sound/Music/BossFight.wav" id="80_snyj6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lfy4s"]
 sky_top_color = Color(0.102228, 0.307553, 0.295863, 1)
@@ -126,6 +127,9 @@ background_mode = 2
 sky = SubResource("Sky_qcrt0")
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_oxcgu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sl0tm"]
+size = Vector3(69.9304, 3.36621, 37.0212)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qsm0h"]
 shader = ExtResource("19_jp8xc")
@@ -3392,15 +3396,34 @@ transform = Transform3D(0.922888, 0, -0.385068, 0, 1, 0, 0.385068, 0, 0.922888, 
 [node name="TreeBranch4" parent="WorldEnvironment/World/Nav Exclusion/Boss Room/Nature" instance=ExtResource("52_1ud1s")]
 transform = Transform3D(-0.896884, 0.128859, -0.423077, 0.142214, 0.989836, 0, 0.418777, -0.0601676, -0.906094, -14.5059, 2.59266, -18.7155)
 
-[node name="Audio" type="Node" parent="WorldEnvironment/World"]
-script = ExtResource("77_wiwy5")
+[node name="MusicManager" type="Node" parent="WorldEnvironment/World"]
+script = ExtResource("77_sl0tm")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="WorldEnvironment/World/Audio"]
-stream = ExtResource("78_c4fj1")
+[node name="StartingArea(Track0)" type="AudioStreamPlayer" parent="WorldEnvironment/World/MusicManager"]
+stream = ExtResource("78_tumgl")
 bus = &"Music"
 
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="WorldEnvironment/World/Audio"]
-stream = ExtResource("77_sl0tm")
+[node name="BGMusic(Track1)" type="AudioStreamPlayer" parent="WorldEnvironment/World/MusicManager"]
+stream = ExtResource("79_tumgl")
+bus = &"Music"
+
+[node name="BattelMusic(Track2)" type="AudioStreamPlayer" parent="WorldEnvironment/World/MusicManager"]
+
+[node name="BossFight(Track3)" type="AudioStreamPlayer" parent="WorldEnvironment/World/MusicManager"]
+stream = ExtResource("80_snyj6")
+
+[node name="Fade_Track0" type="Area3D" parent="WorldEnvironment/World/MusicManager"]
+
+[node name="Fade_Track1" type="Area3D" parent="WorldEnvironment/World/MusicManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7865, -39.5976)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/World/MusicManager/Fade_Track1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.23181, 0, -16.5668)
+shape = SubResource("BoxShape3D_sl0tm")
+
+[node name="Fade_Track2" type="Area3D" parent="WorldEnvironment/World/MusicManager"]
+
+[node name="Fade_Track3" type="Area3D" parent="WorldEnvironment/World/MusicManager"]
 
 [node name="Grey Box World" type="Node3D" parent="WorldEnvironment"]
 
@@ -3902,6 +3925,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.76051, 1.47631, 59.2765)
 [node name="WallTreeWithDeadTree2" parent="WorldEnvironment/Wall Selection" instance=ExtResource("47_l5vnb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6574, 1.75848, -27.7459)
 
+[connection signal="area_entered" from="WorldEnvironment/World/MusicManager/Fade_Track0" to="WorldEnvironment/World/MusicManager" method="fade_to_Track0"]
+[connection signal="area_entered" from="WorldEnvironment/World/MusicManager/Fade_Track1" to="WorldEnvironment/World/MusicManager" method="fade_to_Track1"]
+[connection signal="area_entered" from="WorldEnvironment/World/MusicManager/Fade_Track2" to="WorldEnvironment/World/MusicManager" method="fade_to_Track2"]
+[connection signal="area_entered" from="WorldEnvironment/World/MusicManager/Fade_Track3" to="WorldEnvironment/World/MusicManager" method="fade_to_Track3"]
 [connection signal="timeout" from="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/health/timer" to="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_health_timer_timeout"]
 [connection signal="timeout" from="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina/timer" to="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_stamina_timer_timeout"]
 [connection signal="timeout" from="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/mana/timer" to="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_mana_timer_timeout"]

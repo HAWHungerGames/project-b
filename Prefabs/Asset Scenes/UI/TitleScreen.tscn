@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://brkmt2ctk71u7" path="res://Prefabs/Asset Scenes/UI/Options.tscn" id="7_dte6x"]
 [ext_resource type="PackedScene" uid="uid://dymqhiqdwrpf0" path="res://Prefabs/Asset Scenes/UI/Display.tscn" id="8_ywewy"]
 [ext_resource type="PackedScene" uid="uid://6nm3v04w1rep" path="res://Prefabs/Asset Scenes/UI/Controls.tscn" id="9_44j2y"]
-[ext_resource type="AudioStream" uid="uid://bnrdoj63uwg4m" path="res://Assets/Sound/Music/Ambience 1/projectb_final_harp.wav" id="10_ywewy"]
+[ext_resource type="AudioStream" uid="uid://ie6iv0c8e2bn" path="res://Assets/Sound/Music/projectb_final_harp.wav" id="10_ywewy"]
 
 [sub_resource type="FontFile" id="FontFile_i5sur"]
 cache/0/16/0/ascent = 0.0
@@ -253,7 +253,6 @@ layout_mode = 1
 stream = ExtResource("10_ywewy")
 volume_db = 8.412
 autoplay = true
-stream_paused = true
 bus = &"Music"
 
 [connection signal="finished" from="AspectRatioContainer/VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
