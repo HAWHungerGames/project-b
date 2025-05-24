@@ -113,7 +113,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_e5bcg")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_juw2y")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_7pcq1")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_3dgmt")
-text = "RESUME"
+text = "BUTTON_RESUME"
 
 [node name="buttonSelectRightResume" type="TextureRect" parent="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsResume"]
 modulate = Color(1, 1, 1, 0)
@@ -148,7 +148,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_kd62h")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_yvsvy")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_hw0ro")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_mly46")
-text = "OPTIONS"
+text = "BUTTON_OPTIONS"
 
 [node name="buttonSelectRightOptions" type="TextureRect" parent="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsOptions"]
 modulate = Color(1, 1, 1, 0)
@@ -183,7 +183,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_o1fra")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_hxa10")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_ql3jl")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_fvpgb")
-text = "EXIT TO MENU"
+text = "BUTTON_EXIT_TO_MENU"
 
 [node name="buttonSelectRightExit" type="TextureRect" parent="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit"]
 modulate = Color(1, 1, 1, 0)

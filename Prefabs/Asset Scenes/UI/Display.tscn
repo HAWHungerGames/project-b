@@ -64,11 +64,11 @@ layout_mode = 2
 theme_override_constants/separation = 30
 
 [node name="resolution" type="HBoxContainer" parent="displayMenuContainer/menuMargin/settingsMargin/settings/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(512, 0)
+custom_minimum_size = Vector2(1000, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 160
+theme_override_constants/separation = 146
 
 [node name="title" type="Label" parent="displayMenuContainer/menuMargin/settingsMargin/settings/MarginContainer/VBoxContainer/resolution"]
 custom_minimum_size = Vector2(350, 0)
@@ -76,13 +76,13 @@ layout_mode = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("2_sisev")
 theme_override_font_sizes/font_size = 30
-text = "SETTING_RESOLUTION"
+text = "AUFLÖSUNG"
 
 [node name="seperator" type="Control" parent="displayMenuContainer/menuMargin/settingsMargin/settings/MarginContainer/VBoxContainer/resolution"]
 layout_mode = 2
 
 [node name="options" type="OptionButton" parent="displayMenuContainer/menuMargin/settingsMargin/settings/MarginContainer/VBoxContainer/resolution"]
-custom_minimum_size = Vector2(300, 0)
+custom_minimum_size = Vector2(360, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -90,11 +90,11 @@ theme_override_fonts/font = ExtResource("2_sisev")
 theme_override_font_sizes/font_size = 30
 
 [node name="windowMode" type="HBoxContainer" parent="displayMenuContainer/menuMargin/settingsMargin/settings/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(512, 0)
+custom_minimum_size = Vector2(1000, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 160
+theme_override_constants/separation = 146
 
 [node name="title" type="Label" parent="displayMenuContainer/menuMargin/settingsMargin/settings/MarginContainer/VBoxContainer/windowMode"]
 custom_minimum_size = Vector2(350, 0)
@@ -108,7 +108,7 @@ text = "SETTING_WINDOW_MODE"
 layout_mode = 2
 
 [node name="options" type="OptionButton" parent="displayMenuContainer/menuMargin/settingsMargin/settings/MarginContainer/VBoxContainer/windowMode"]
-custom_minimum_size = Vector2(300, 0)
+custom_minimum_size = Vector2(360, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -116,11 +116,11 @@ theme_override_fonts/font = ExtResource("2_sisev")
 theme_override_font_sizes/font_size = 30
 
 [node name="language" type="HBoxContainer" parent="displayMenuContainer/menuMargin/settingsMargin/settings/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(512, 0)
+custom_minimum_size = Vector2(1000, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 160
+theme_override_constants/separation = 146
 
 [node name="title" type="Label" parent="displayMenuContainer/menuMargin/settingsMargin/settings/MarginContainer/VBoxContainer/language"]
 custom_minimum_size = Vector2(350, 0)
@@ -134,7 +134,7 @@ text = "SETTING_LANGUAGE"
 layout_mode = 2
 
 [node name="options" type="OptionButton" parent="displayMenuContainer/menuMargin/settingsMargin/settings/MarginContainer/VBoxContainer/language"]
-custom_minimum_size = Vector2(300, 0)
+custom_minimum_size = Vector2(360, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4

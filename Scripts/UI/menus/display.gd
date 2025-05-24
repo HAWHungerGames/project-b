@@ -28,10 +28,11 @@ func _input(event: InputEvent) -> void:
 	if !visible:
 		return
 	if event.is_action_pressed("ui_up"):
-		if !back.get_child(1).focused:
+		if !back.get_child(1).has_focus():
 			return
+		print("has focus")
 		resolution_option.grab_focus()
-		
+
 func get_initial_resolution_string():
 	var res = DisplayServer.screen_get_size()
 	return "%d × %d" % [res.x, res.y] if res != null else "1920 × 1080"

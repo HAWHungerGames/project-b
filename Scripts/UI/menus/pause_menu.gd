@@ -153,6 +153,7 @@ func _on_controls_back_pressed() -> void:
 func _on_display_pressed() -> void:
 	options_menu.visible = false
 	display_menu.visible = true
+	display_back.grab_focus()
 
 func _on_display_back_pressed() -> void:
 	options_menu.visible = true
