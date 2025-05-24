@@ -4,6 +4,10 @@ extends Control
 @onready var window_mode_option = $displayMenuContainer/menuMargin/settingsMargin/settings/MarginContainer/VBoxContainer/windowMode/options
 @onready var lang_option = $displayMenuContainer/menuMargin/settingsMargin/settings/MarginContainer/VBoxContainer/language/options
 
+@onready var back = $displayMenuContainer/menuMargin/NinePatchRect/buttonMargin/buttons/buttonsBack
+
+@onready var pause_menu = $"../../pauseMenu"
+
 const RESOLUTION_DICTIONARY : Dictionary = {
 	"2560 × 1440": Vector2(2560, 1440),
 	"1920 × 1080": Vector2(1920, 1080),
@@ -20,6 +24,14 @@ const WINDOW_MODE_ARRAY : Array[String] = [
 func _ready():
 	get_initial_settings()
 
+func _input(event: InputEvent) -> void:
+	if !visible:
+		return
+	if event.is_action_pressed("ui_up"):
+		if !back.get_child(1).focused:
+			return
+		resolution_option.grab_focus()
+		
 func get_initial_resolution_string():
 	var res = DisplayServer.screen_get_size()
 	return "%d × %d" % [res.x, res.y] if res != null else "1920 × 1080"
@@ -77,3 +89,9 @@ func center_window():
 
 func _on_language_item_selected(index: int) -> void:
 	UiManager.update_lang(UiManager.LANGUAGES.keys()[index])
+
+func _on_back_mouse_entered() -> void:
+	pause_menu.toggle_button_selects(back, true)
+
+func _on_back_mouse_exited() -> void:
+	pause_menu.toggle_button_selects(back, false)

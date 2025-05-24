@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dqqvcx3rmwu3k"]
+[gd_scene load_steps=20 format=3 uid="uid://dqqvcx3rmwu3k"]
 
 [ext_resource type="Script" uid="uid://isgt2htj3fmm" path="res://Scripts/UI/menus/pause_menu.gd" id="1_uantx"]
 [ext_resource type="Texture2D" uid="uid://t8xpfim77iam" path="res://UI/Menus/Buttons/ButtonTexture.png" id="2_e5bcg"]
@@ -8,17 +8,23 @@
 [ext_resource type="PackedScene" uid="uid://dymqhiqdwrpf0" path="res://Prefabs/Asset Scenes/UI/Display.tscn" id="6_uantx"]
 [ext_resource type="PackedScene" uid="uid://6nm3v04w1rep" path="res://Prefabs/Asset Scenes/UI/Controls.tscn" id="6_xpt66"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e5bcg"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_juw2y"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7pcq1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3dgmt"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kd62h"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yvsvy"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hw0ro"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mly46"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o1fra"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hxa10"]
 
@@ -103,6 +109,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("4_o1fra")
 theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_e5bcg")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_juw2y")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_7pcq1")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_3dgmt")
@@ -137,6 +144,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("4_o1fra")
 theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kd62h")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_yvsvy")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_hw0ro")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_mly46")
@@ -171,6 +179,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("4_o1fra")
 theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_o1fra")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_hxa10")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_ql3jl")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_fvpgb")
@@ -197,12 +206,18 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 
+[connection signal="focus_entered" from="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsResume/resume" to="pauseMenu" method="_on_resume_hover_enter"]
+[connection signal="focus_exited" from="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsResume/resume" to="pauseMenu" method="_on_resume_hover_exit"]
 [connection signal="mouse_entered" from="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsResume/resume" to="pauseMenu" method="_on_resume_hover_enter"]
 [connection signal="mouse_exited" from="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsResume/resume" to="pauseMenu" method="_on_resume_hover_exit"]
 [connection signal="pressed" from="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsResume/resume" to="pauseMenu" method="_on_resume_pressed"]
+[connection signal="focus_entered" from="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsOptions/options" to="pauseMenu" method="_on_options_hover_enter"]
+[connection signal="focus_exited" from="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsOptions/options" to="pauseMenu" method="_on_options_hover_exit"]
 [connection signal="mouse_entered" from="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsOptions/options" to="pauseMenu" method="_on_options_hover_enter"]
 [connection signal="mouse_exited" from="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsOptions/options" to="pauseMenu" method="_on_options_hover_exit"]
 [connection signal="pressed" from="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsOptions/options" to="pauseMenu" method="_on_options_pressed"]
+[connection signal="focus_entered" from="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit/exit" to="pauseMenu" method="_on_exit_hover_enter"]
+[connection signal="focus_exited" from="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit/exit" to="pauseMenu" method="_on_exit_hover_exit"]
 [connection signal="mouse_entered" from="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit/exit" to="pauseMenu" method="_on_exit_hover_enter"]
 [connection signal="mouse_exited" from="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit/exit" to="pauseMenu" method="_on_exit_hover_exit"]
 [connection signal="pressed" from="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit/exit" to="pauseMenu" method="_on_exit_pressed"]
