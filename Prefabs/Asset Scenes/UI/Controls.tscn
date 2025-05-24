@@ -1,7 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://6nm3v04w1rep"]
+[gd_scene load_steps=23 format=3 uid="uid://6nm3v04w1rep"]
 
 [ext_resource type="Script" uid="uid://dlhxqt7urdttl" path="res://Scripts/UI/menus/controls.gd" id="1_e1pf1"]
-[ext_resource type="Texture2D" uid="uid://eicwi2op4oj" path="res://UI/Menus/Controller/XBoxen_EN.png" id="3_i3887"]
 [ext_resource type="Texture2D" uid="uid://t8xpfim77iam" path="res://UI/Menus/Buttons/ButtonTexture.png" id="3_ydxgh"]
 [ext_resource type="FontFile" uid="uid://4l406r67702d" path="res://UI/Fonts/DidactGothic-Regular.ttf" id="4_g8ajw"]
 [ext_resource type="Texture2D" uid="uid://ok6txss2a5bl" path="res://UI/Menus/Keys/BUTTONREMAP.png" id="4_ydxgh"]
@@ -114,7 +113,6 @@ size_flags_vertical = 4
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/controlsMenuContainer/MarginContainer/Controller"]
 layout_mode = 2
-texture = ExtResource("3_i3887")
 expand_mode = 1
 
 [node name="keyboard" type="MarginContainer" parent="MarginContainer/controlsMenuContainer/MarginContainer"]

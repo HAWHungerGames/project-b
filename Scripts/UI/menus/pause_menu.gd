@@ -21,6 +21,12 @@ extends MarginContainer
 @onready var options = $pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsOptions/options
 @onready var exit = $pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit/exit
 
+@onready var display = buttonsDisplay.get_child(1)
+@onready var controls = buttonsControls.get_child(1)
+@onready var back = buttonsBack.get_child(1)
+@onready var display_back = display_menu.find_child("back")
+@onready var controls_back = controls_menu.find_child("back")
+
 func _ready() -> void:
 	connect_button_signals()
 
@@ -35,13 +41,13 @@ func _input(event) -> void:
 			_on_controls_back_pressed()
 		else:
 			pause()
-
+	
 func connect_button_signals() -> void:
-	buttonsDisplay.get_child(1).pressed.connect(_on_display_pressed)
-	buttonsControls.get_child(1).pressed.connect(_on_controls_pressed)
-	buttonsBack.get_child(1).pressed.connect(_on_back_pressed)
-	display_menu.find_child("back").pressed.connect(_on_display_back_pressed)
-	controls_menu.find_child("back").pressed.connect(_on_controls_back_pressed)
+	display.pressed.connect(_on_display_pressed)
+	controls.pressed.connect(_on_controls_pressed)
+	back.pressed.connect(_on_back_pressed)
+	display_back.pressed.connect(_on_display_back_pressed)
+	controls_back.pressed.connect(_on_controls_back_pressed)
 
 func _on_exit_pressed() -> void:
 	SceneManager.main_scene.emit()
@@ -59,6 +65,7 @@ func _on_resume_pressed() -> void:
 func _on_options_pressed() -> void:
 	pause_menu.visible = false
 	options_menu.visible = true
+	display.grab_focus()
 	
 func fadeSceneIn():
 	var tween = create_tween()
@@ -96,6 +103,7 @@ func pause():
 	pause_menu.visible = true
 	pause_menu.z_index = 3
 	get_tree().paused = true
+	resume.grab_focus()
 
 func _on_resume_hover_enter() -> void:
 	buttonSelectLeftResume.modulate.a = 1.0
@@ -124,15 +132,18 @@ func _on_exit_hover_exit() -> void:
 func _on_back_pressed() -> void:
 	options_menu.visible = false
 	pause_menu.visible = true
+	resume.grab_focus()
 
 func _on_controls_pressed() -> void:
 	options_menu.visible = false
 	controls_menu.visible = true
+	controls.grab_focus()
 	controls_menu.update_controller_controls()
 
 func _on_controls_back_pressed() -> void:
 	options_menu.visible = true
 	controls_menu.visible = false
+	display.grab_focus()
 
 func _on_display_pressed() -> void:
 	options_menu.visible = false
@@ -141,3 +152,4 @@ func _on_display_pressed() -> void:
 func _on_display_back_pressed() -> void:
 	options_menu.visible = true
 	display_menu.visible = false
+	display.grab_focus()

@@ -19,14 +19,14 @@ func _ready() -> void:
 	UiManager.lang_change.connect(update_controller_controls)
 	
 func update_controller_controls() -> void:
-	var controller_type = "XBox" 
+	var controller_type = "XBox_" 
 	if len(Input.get_connected_joypads()) > 0:
 		if "ps" in Input.get_joy_name(0).to_lower():
-			controller_type = "PS5"
+			controller_type = "PS5_"
 		elif "nintendo" in Input.get_joy_name(0).to_lower():
-			controller_type = "Nintendo"
+			controller_type = "Nintendo_"
 		else:
-			controller_type = "XBox"
+			controller_type = "XBox_"
 	controller_image.texture = load(CONTROLLER_CONTROLS[controller_type + UiManager.current_lang])
 	
 func _on_button_left_pressed() -> void:

@@ -197,6 +197,9 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 
+[node name="TextureRect" parent="pauseMenu/Controls/MarginContainer/controlsMenuContainer/MarginContainer/Controller" index="0"]
+texture = null
+
 [connection signal="mouse_entered" from="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsResume/resume" to="pauseMenu" method="_on_resume_hover_enter"]
 [connection signal="mouse_exited" from="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsResume/resume" to="pauseMenu" method="_on_resume_hover_exit"]
 [connection signal="pressed" from="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsResume/resume" to="pauseMenu" method="_on_resume_pressed"]
