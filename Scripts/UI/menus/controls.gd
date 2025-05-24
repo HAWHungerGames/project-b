@@ -6,21 +6,28 @@ extends Control
 @onready var controller_image = $MarginContainer/controlsMenuContainer/MarginContainer/Controller/TextureRect
 @onready var keyboard_menu = $MarginContainer/controlsMenuContainer/MarginContainer/keyboard
 
-@onready var current_lang = UiManager.current_lang
-
 const CONTROLLER_CONTROLS: Dictionary = {
-	"PSen_EN": "res://UI/Menus/Controller/PS5En.png",
-	"PSde_DE": "res://UI/Menus/Controller/PS5De.png",
-	"XBoxen_EN": "res://UI/Menus/Controller/XBoxEn.png",
-	"XBoxde_DE": "res://UI/Menus/Controller/XBoxDe.png"
+	"PS5_en_EN": "res://UI/Menus/Controller/PS5_en_EN.png",
+	"PS5_de_DE": "res://UI/Menus/Controller/PS5_de_DE.png",
+	"XBox_en_EN": "res://UI/Menus/Controller/XBox_en_EN.png",
+	"XBox_de_DE": "res://UI/Menus/Controller/XBox_de_DE.png",
+	"Nintendo_en_EN": "res://UI/Menus/Controller/Nintedno_en_EN.png",
+	"Nintendo_de_DE": "res://UI/Menus/Controller/Nintendo_de_DE.png",
 }
 
 func _ready() -> void:
 	UiManager.lang_change.connect(update_controller_controls)
 	
 func update_controller_controls() -> void:
-	var controller_type = "XBox" if len(Input.get_connected_joypads()) > 0 && Input.get_joy_name(0).to_lower() in "xbox" else "PS"
-	controller_image.texture = load(CONTROLLER_CONTROLS[controller_type + current_lang])
+	var controller_type = "XBox" 
+	if len(Input.get_connected_joypads()) > 0:
+		if "ps" in Input.get_joy_name(0).to_lower():
+			controller_type = "PS5"
+		elif "nintendo" in Input.get_joy_name(0).to_lower():
+			controller_type = "Nintendo"
+		else:
+			controller_type = "XBox"
+	controller_image.texture = load(CONTROLLER_CONTROLS[controller_type + UiManager.current_lang])
 	
 func _on_button_left_pressed() -> void:
 	controller_text.visible = true

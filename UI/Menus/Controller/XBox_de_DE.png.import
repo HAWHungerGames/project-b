@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhlyn2lcsav1i"
-path="res://.godot/imported/PS5en_EN.png-d60ada6a1843338b533b8efbf1d55710.ctex"
+uid="uid://w4axnkssgcop"
+path="res://.godot/imported/XBox_de_DE.png-2d80c8d29cc4dc4588bec358b798e9ce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Menus/Controller/PS5en_EN.png"
-dest_files=["res://.godot/imported/PS5en_EN.png-d60ada6a1843338b533b8efbf1d55710.ctex"]
+source_file="res://UI/Menus/Controller/XBox_de_DE.png"
+dest_files=["res://.godot/imported/XBox_de_DE.png-2d80c8d29cc4dc4588bec358b798e9ce.ctex"]
 
 [params]
 

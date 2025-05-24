@@ -52,6 +52,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="pauseMenuContainer" type="VBoxContainer" parent="pauseMenu"]
 process_mode = 3
+visible = false
 z_index = 3
 layout_mode = 2
 size_flags_horizontal = 4
@@ -205,11 +206,6 @@ layout_mode = 2
 [connection signal="mouse_entered" from="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit/exit" to="pauseMenu" method="_on_exit_hover_enter"]
 [connection signal="mouse_exited" from="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit/exit" to="pauseMenu" method="_on_exit_hover_exit"]
 [connection signal="pressed" from="pauseMenu/pauseMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit/exit" to="pauseMenu" method="_on_exit_pressed"]
-[connection signal="pressed" from="pauseMenu/Options/optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsDisplay/display" to="pauseMenu" method="_on_display_pressed"]
-[connection signal="pressed" from="pauseMenu/Options/optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsControls/controls" to="pauseMenu" method="_on_controls_pressed"]
-[connection signal="pressed" from="pauseMenu/Options/optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsBack/back" to="pauseMenu" method="_on_back_pressed"]
-[connection signal="pressed" from="pauseMenu/Display/displayMenuContainer/menuMargin/NinePatchRect/buttonMargin/buttons/buttonsBack/back" to="pauseMenu" method="_on_display_back_pressed"]
-[connection signal="pressed" from="pauseMenu/Controls/MarginContainer/controlsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsBack/back" to="pauseMenu" method="_on_back_controls_pressed"]
 
 [editable path="pauseMenu/Options"]
 [editable path="pauseMenu/Display"]
