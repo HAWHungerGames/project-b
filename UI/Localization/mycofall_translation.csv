@@ -48,3 +48,25 @@ KEY_SWAP_WEAPON,SWAP WEAPON,WAFFE WECHSELN
 KEY_PAUSE,PAUSE,PAUSE
 KEY_INTERACT,INTERACT,INTERAGIEREN
 KEY_LOCK_DIRECTION,LOCK DIRECTION,RICHTUNG FIXIEREN
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+INTERACT_TOOLTIP_START,EMPTY,EMPTY
+INTERACT_TOOLTIP_ENEMY_UNBLOCKABLE,"Heavy Attacks:
+
+Some enemies have heavy attacks. Here it is better to dodge the attack rather than blocking it, because you will receive the full damage!","Schwere Angriffe:
+
+Einige Gegner haben schwere Angriffe. Hier ist es besser, dem Angriff auszuweichen, anstatt ihn zu blocken, da du dann den vollen Schaden erhältst!"
+INTERACT_TOOLTIP_WEAPONS,"Greetings traveler!
+
+These are the weapons at your disposal. You may take two but you must take one! These weapons posses different attacks and you can block with every one of them but beware of incoming damage, a shield absorbs it best! 
+
+Good luck!","Seid gegrüßt, Reisender!
+
+Dies sind die Waffen, die dir zur Verfügung stehen. Du darfst zwei nehmen, aber du musst eine nehmen! Diese Waffen besitzen unterschiedliche Angriffe und du kannst mit jeder von ihnen blocken, aber hüte dich vor eintreffendem Schaden, ein Schild absorbiert ihn am besten! 
+
+Viel Glück!"

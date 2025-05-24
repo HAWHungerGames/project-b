@@ -1,4 +1,4 @@
-[gd_scene load_steps=116 format=3 uid="uid://17sawqr1a5sd"]
+[gd_scene load_steps=117 format=3 uid="uid://17sawqr1a5sd"]
 
 [ext_resource type="Material" uid="uid://41byjnpqi8jl" path="res://Materials/TestBush.tres" id="1_3f6q6"]
 [ext_resource type="PackedScene" uid="uid://bo6t8u3r6w260" path="res://Prefabs/Asset Scenes/World Objects/Nature/Plants/grass_ground.tscn" id="2_5i7v7"]
@@ -108,6 +108,7 @@
 [ext_resource type="PackedScene" uid="uid://ddb5qsl2pw4p2" path="res://Prefabs/Enemies/enemy_spores.tscn" id="76_lyv0c"]
 [ext_resource type="PackedScene" uid="uid://do1xe3tqii0no" path="res://Prefabs/Enemies/enemy_explosion.tscn" id="77_derlu"]
 [ext_resource type="PackedScene" uid="uid://drdm7buu34xes" path="res://Prefabs/Asset Scenes/UI/text.tscn" id="84_4qm2b"]
+[ext_resource type="PackedScene" uid="uid://dkq4iwxhux6s2" path="res://Prefabs/Asset Scenes/Test Objects/TestSphere.tscn" id="109_wiwy5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lfy4s"]
 sky_top_color = Color(0.102228, 0.307553, 0.295863, 1)
@@ -3361,9 +3362,6 @@ grow_vertical = 2
 visible = false
 layout_mode = 2
 
-[node name="timer" parent="WorldEnvironment/CanvasLayer/FullUI/textField" index="1"]
-autostart = true
-
 [node name="VBoxContainer" type="VBoxContainer" parent="WorldEnvironment/CanvasLayer/FullUI"]
 layout_mode = 2
 size_flags_horizontal = 0
@@ -3699,6 +3697,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.76051, 1.47631, 59.2765)
 [node name="WallTreeWithDeadTree2" parent="WorldEnvironment/Wall Selection" instance=ExtResource("47_l5vnb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6574, 1.75848, -27.7459)
 
+[node name="TestSphere" parent="." instance=ExtResource("109_wiwy5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.89782, 1.42536, -10.6859)
+
 [connection signal="timeout" from="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/health/timer" to="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_health_timer_timeout"]
 [connection signal="timeout" from="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina/timer" to="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_stamina_timer_timeout"]
 [connection signal="timeout" from="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/mana/timer" to="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_mana_timer_timeout"]
@@ -3709,7 +3710,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6574, 1.75848, -27.7459)
 [editable path="WorldEnvironment/World/Nav Exclusion/TreeBundleWall/TreeBundleFour3"]
 [editable path="WorldEnvironment/Player"]
 [editable path="WorldEnvironment/Player/Controller/Model/Player"]
-[editable path="WorldEnvironment/CanvasLayer/FullUI/textField"]
 [editable path="WorldEnvironment/CanvasLayer/PauseMenu"]
 [editable path="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu/Options"]
 [editable path="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu/Display"]
