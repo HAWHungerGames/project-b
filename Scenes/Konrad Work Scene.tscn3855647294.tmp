@@ -1,4 +1,4 @@
-[gd_scene load_steps=115 format=3 uid="uid://17sawqr1a5sd"]
+[gd_scene load_steps=116 format=3 uid="uid://17sawqr1a5sd"]
 
 [ext_resource type="Material" uid="uid://41byjnpqi8jl" path="res://Materials/TestBush.tres" id="1_3f6q6"]
 [ext_resource type="PackedScene" uid="uid://bo6t8u3r6w260" path="res://Prefabs/Asset Scenes/World Objects/Nature/Plants/grass_ground.tscn" id="2_5i7v7"]
@@ -107,6 +107,7 @@
 [ext_resource type="PackedScene" uid="uid://durr2417rl7mr" path="res://Prefabs/Enemies/enemy_ranged.tscn" id="74_5ysuy"]
 [ext_resource type="PackedScene" uid="uid://ddb5qsl2pw4p2" path="res://Prefabs/Enemies/enemy_spores.tscn" id="76_lyv0c"]
 [ext_resource type="PackedScene" uid="uid://do1xe3tqii0no" path="res://Prefabs/Enemies/enemy_explosion.tscn" id="77_derlu"]
+[ext_resource type="Texture2D" uid="uid://eicwi2op4oj" path="res://UI/Menus/Controller/XBoxen_En.png" id="108_4qm2b"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lfy4s"]
 sky_top_color = Color(0.102228, 0.307553, 0.295863, 1)
@@ -3627,6 +3628,9 @@ z_index = 0
 
 [node name="Controller" parent="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu/Controls/MarginContainer/controlsMenuContainer/MarginContainer" index="1"]
 visible = true
+
+[node name="TextureRect" parent="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu/Controls/MarginContainer/controlsMenuContainer/MarginContainer/Controller" index="0"]
+texture = ExtResource("108_4qm2b")
 
 [node name="Wall Selection" type="Node3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102.315, 0, -83.6677)

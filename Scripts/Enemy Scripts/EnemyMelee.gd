@@ -125,7 +125,6 @@ func takeDamage(damage: int):
 	health_changed.emit()
 	if health <= 0:
 		if boss_emitter != null:
-			var pos = boss_emitter.global_position
 			GameManager.reset_child_to_root(self, boss_emitter)
 			boss_emitter.activate_particles_to_boss()
 		if death_spores != null:
