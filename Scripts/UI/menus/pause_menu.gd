@@ -25,7 +25,12 @@ extends MarginContainer
 @onready var controls = buttonsControls.get_child(1)
 @onready var back = buttonsBack.get_child(1)
 @onready var display_back = display_menu.find_child("back")
+#@onready var display_res = display_menu.find_child("back")
+#@onready var display_mode = display_menu.find_child("back")
+#@onready var display_lang = display_menu.find_child("back")
 @onready var controls_back = controls_menu.find_child("back")
+@onready var controls_left = controls_menu.find_child("buttonLeft")
+@onready var controls_right = controls_menu.find_child("buttonRight")
 
 func _ready() -> void:
 	connect_button_signals()

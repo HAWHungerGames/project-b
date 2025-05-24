@@ -5,6 +5,8 @@ extends Control
 @onready var controller_menu = $MarginContainer/controlsMenuContainer/MarginContainer/Controller
 @onready var controller_image = $MarginContainer/controlsMenuContainer/MarginContainer/Controller/TextureRect
 @onready var keyboard_menu = $MarginContainer/controlsMenuContainer/MarginContainer/keyboard
+@onready var button_left = $MarginContainer/controlsMenuContainer/MarginContainer/titles/HBoxContainer/buttonLeft
+@onready var button_right = $MarginContainer/controlsMenuContainer/MarginContainer/titles/HBoxContainer/buttonRight
 
 const CONTROLLER_CONTROLS: Dictionary = {
 	"PS5_en_EN": "res://UI/Menus/Controller/PS5_en_EN.png",
@@ -21,22 +23,32 @@ func _ready() -> void:
 func update_controller_controls() -> void:
 	var controller_type = "XBox_" 
 	if len(Input.get_connected_joypads()) > 0:
+		button_right.grab_focus()
+		reveal_controller()
 		if "ps" in Input.get_joy_name(0).to_lower():
 			controller_type = "PS5_"
 		elif "nintendo" in Input.get_joy_name(0).to_lower():
 			controller_type = "Nintendo_"
 		else:
 			controller_type = "XBox_"
-	controller_image.texture = load(CONTROLLER_CONTROLS[controller_type + UiManager.current_lang])
-	
+		controller_image.texture = load(CONTROLLER_CONTROLS[controller_type + UiManager.current_lang])
+	else:
+		button_left.grab_focus()
+		reveal_keyboard()
 func _on_button_left_pressed() -> void:
-	controller_text.visible = true
-	controller_menu.visible = true
-	keyboard_menu.visible = false
-	keyboard_text.visible = false
+	reveal_controller()
 
 func _on_button_right_pressed() -> void:
+	reveal_keyboard()
+
+func reveal_keyboard() -> void:
 	controller_text.visible = false
 	controller_menu.visible = false
 	keyboard_menu.visible = true
 	keyboard_text.visible = true
+	
+func reveal_controller() -> void:
+	controller_text.visible = true
+	controller_menu.visible = true
+	keyboard_menu.visible = false
+	keyboard_text.visible = false
