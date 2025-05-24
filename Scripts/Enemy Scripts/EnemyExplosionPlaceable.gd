@@ -93,7 +93,7 @@ func detect_player():
 
 func detect_player_raycast():
 	var space_state = get_world_3d().direct_space_state
-	var origin = transform.origin
+	var origin = global_position
 	var end = player.get_child(0).global_transform.origin
 	var query = PhysicsRayQueryParameters3D.create(origin, end, 3, [self])
 

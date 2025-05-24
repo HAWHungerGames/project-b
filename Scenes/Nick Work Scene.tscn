@@ -202,7 +202,6 @@ transform = Transform3D(1, 0, 0, 0, 0.743145, 0.669131, 0, -0.669131, 0.743145, 
 [node name="RangedEnemy" parent="." instance=ExtResource("5_e6mua")]
 transform = Transform3D(0.157417, 0, 0.987532, 0, 1, 0, -0.987532, 0, 0.157417, -18.0326, 1.53961, -11.9799)
 hearingRange = 20.0
-visionRange = 30.0
 
 [node name="SporeEnemy" parent="." instance=ExtResource("6_r2bbj")]
 transform = Transform3D(-0.721241, 0, 0.692685, 0, 1, 0, -0.692685, 0, -0.721241, 16.3382, 2.79195, -11.8325)

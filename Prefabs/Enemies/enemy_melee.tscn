@@ -229,16 +229,13 @@ draw_pass_1 = SubResource("QuadMesh_aeiv7")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.990879, 0)
 
 [node name="Skeleton3D" parent="Mesh/PurpleMushroomEnemy" index="1"]
-bones/0/rotation = Quaternion(-0.037557, -0.0863011, 0.0248375, 0.995251)
-bones/1/rotation = Quaternion(-0.0226767, 0.000990087, 0.00400233, 0.999734)
-bones/2/position = Vector3(0.177935, 0.104646, -0.0276735)
-bones/2/rotation = Quaternion(0.998863, -0.00827973, 0.00204817, -0.046912)
-bones/3/position = Vector3(0.339065, 0.536492, 0.0816328)
-bones/3/rotation = Quaternion(0.604054, 0.557515, 0.423895, 0.380274)
-bones/4/position = Vector3(-0.163061, 0.110433, -0.0280276)
-bones/4/rotation = Quaternion(0.998863, -0.00827973, 0.00204817, -0.046912)
-bones/5/position = Vector3(-0.324938, 0.512327, 0.109862)
-bones/5/rotation = Quaternion(0.445305, -0.67701, -0.28738, 0.51066)
+bones/1/rotation = Quaternion(0.135362, 0, 0, 0.990796)
+bones/2/position = Vector3(0.17803, 0.107539, -0.0278504)
+bones/3/position = Vector3(0.340993, 0.524888, 0.0954263)
+bones/3/rotation = Quaternion(0.840543, 0.373569, 0.373569, 0.119916)
+bones/4/position = Vector3(-0.163157, 0.107539, -0.0278507)
+bones/5/position = Vector3(-0.326865, 0.523931, 0.0960684)
+bones/5/rotation = Quaternion(0.840571, -0.373522, -0.373522, 0.120008)
 
 [node name="DeathSpores" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1)

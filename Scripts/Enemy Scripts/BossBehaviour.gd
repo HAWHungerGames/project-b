@@ -7,7 +7,7 @@ extends CharacterBody3D
 @export var movePoints: Array[Node3D]
 
 @export_subgroup("Enemy Stats")
-@export var health: float = 300
+@export var health: float = 2000
 @export var speed: float = 4
 @export var acceleration: float = 3
 
@@ -33,7 +33,6 @@ extends CharacterBody3D
 @export var spearDamage: float = 25
 
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
-@onready var world = $"../.."
 @onready var sporeSpawnPoints = $SporeSpawnPoints
 @onready var sporeDamageArea = $SporeDamageArea
 @onready var ExplosionEnemySpawnPoint = $ExplosionEnemySpawnPoint
@@ -46,6 +45,8 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var bulletScene: PackedScene = preload("res://Prefabs/enemies/enemy_bullet.tscn")
 var explosionEnemy: PackedScene = preload("res://Prefabs/enemies/enemy_explosion.tscn")
 var teleportSmoke: PackedScene = preload("res://Prefabs/Enemies/Boss_Teleport_Smoke.tscn")
+
+@onready var death_spores = GameManager.get_child_by_name(self, "DeathSpores")
 
 var aggression
 var attacksBlockedPercentage: float
@@ -69,6 +70,7 @@ var comboArea3: bool = false
 var spearTimeKeeper: float = 0
 var teleportTimer: float = 0
 var destination: Vector3
+var deathTimer: float = 10
 
 enum actionTypes {NONE, EXPLOSION_ATTACK, RANGED_ATTACK, CHARGE_ATTACK, POISON_CLOUD_ATTACK, SPEAR_ATTACK}
 var actionType = actionTypes.NONE
@@ -80,7 +82,8 @@ func _ready():
 	sporeDamageArea.scale = Vector3(sporeArea, sporeArea, sporeArea)
 
 func _physics_process(delta: float):
-	if active:
+	die(delta)
+	if active and deathTimer == 10:
 		activateBoss()
 		actionManager(delta)
 		
@@ -277,19 +280,28 @@ func chargeAttackAction(delta):
 		chargeCollision.disabled = true
 		actionType = actionTypes.NONE
 
+func die(delta):
+	if deathTimer < 10:
+		deathTimer -= delta
+	if deathTimer >= 5 and deathTimer <= 9:
+		animationPlayer.stop()
+		animationPlayer.play("Die")
+		deathTimer = 3.9167
+
+
 func spearAttackAction(delta, playerPosition):
 	if actionTime >= 151:
 		if global_position.distance_to(playerPosition) >= 10:
 			rotateToTarget(playerPosition)
 			var smoke = teleportSmoke.instantiate()
-			world.add_child(smoke)
+			self.add_child(smoke)
 			smoke.global_position = self.global_position
 			smoke.get_child(0).emitting = true
 			
 			destination = playerPosition - Vector3(playerPosition - global_position).normalized() * 2.5
 			
 			var smoke2 = teleportSmoke.instantiate()
-			world.add_child(smoke2)
+			self.add_child(smoke2)
 			smoke2.global_position = destination
 			smoke2.get_child(0).emitting = true
 			actionTime = 100
@@ -323,7 +335,7 @@ func sporeRangedAttack():
 		bullet.setParameter(player, bulletDamage, bulletSpeed, homingRange, homingStrength, vel, bulletLifetime)
 		bullet.setTrackingDelay(randomTrackingDelay)
 		bullet.setBlockCostModifier(0.5)
-		world.add_child(bullet)
+		self.add_child(bullet)
 		bullet.global_transform.origin = pos
 
 
@@ -342,7 +354,7 @@ func chargeAttack():
 
 func explosionMiniEnemiesAttack():
 	var tempExplosionEnemy = explosionEnemy.instantiate()
-	world.add_child(tempExplosionEnemy)
+	self.add_child(tempExplosionEnemy)
 	tempExplosionEnemy.global_position = ExplosionEnemySpawnPoint.global_position
 
 
@@ -367,6 +379,11 @@ func sporeAreaAttack(delta):
 
 func apply_gravity(delta):
 	velocity.y += -gravity * delta
+
+func takeDamage(damage: int):
+	health -= damage
+	if health <= 0 and deathTimer == 10:
+		deathTimer = 8
 
 func _on_detection_area_entered(area: Area3D) -> void:
 	if area.is_in_group("Player"):

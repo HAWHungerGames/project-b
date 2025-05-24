@@ -42,6 +42,7 @@ var isMoving: bool = false
 var isAttacking = false
 var player: Node3D
 var gotAttackedTime: float = 0
+var deathTimer: float = 10
 
 signal health_changed
 
@@ -53,9 +54,10 @@ func _ready():
 
 func _physics_process(delta):
 	apply_gravity(delta)
+	die(delta)
 	if gotAttackedTime > 0:
 		gotAttackedTime -= delta
-	if detect_player():
+	if detect_player() and deathTimer == 10:
 		rotateToPlayer()
 		attack(delta)
 		if !isAttacking and !isInAttackArea:
@@ -64,11 +66,27 @@ func _physics_process(delta):
 			move_towards_player(delta)
 		else:
 			velocity = Vector3(0, velocity.y, 0)
-	else:
+	elif deathTimer == 10:
 		animationPlayer.speed_scale = 1
 		animationPlayer.play("Idle")
 		velocity = Vector3(0, velocity.y, 0)
 	move_and_slide()
+
+func die(delta):
+	if deathTimer < 10:
+		deathTimer -= delta
+	if deathTimer >= 5 and deathTimer <= 9:
+		animationPlayer.stop()
+		animationPlayer.play("Die")
+		deathTimer = 1.5833
+	if deathTimer <= 1:
+		if boss_emitter != null:
+			GameManager.reset_child_to_root(self, boss_emitter)
+			boss_emitter.activate_particles_to_boss()
+		if death_spores != null:
+			GameManager.reset_child_to_root(self, death_spores)
+			death_spores.activate_death_particles()
+		queue_free()
 
 func move_towards_player(delta):
 	var direction = Vector3()
@@ -104,7 +122,7 @@ func detect_player():
 
 func detect_player_raycast():
 	var space_state = get_world_3d().direct_space_state
-	var origin = transform.origin
+	var origin = global_position
 	var end = player.get_child(0).global_transform.origin
 	var query = PhysicsRayQueryParameters3D.create(origin, end, 3, [self])
 
@@ -124,18 +142,10 @@ func rotateToPlayer():
 
 func takeDamage(damage: int):
 	health -= damage
-	health_changed.emit()
-	if health <= 0:
-		if boss_emitter != null:
-			GameManager.reset_child_to_root(self, boss_emitter)
-			boss_emitter.activate_particles_to_boss()
-		if death_spores != null:
-			GameManager.reset_child_to_root(self, death_spores)
-			death_spores.activate_death_particles()
-		queue_free()
+	if health <= 0 and deathTimer == 10:
+		deathTimer = 8
 	else:
 		gotAttackedTime = 3
-
 
 func attack(delta):
 	if isInAttackArea:
@@ -143,7 +153,7 @@ func attack(delta):
 	if !isAttacking:
 		tempAttackDelay = attackDelay
 		attackCooldown = 1/attackSpeed
-	if isAttacking:
+	if isAttacking and deathTimer == 10:
 		animationPlayer.speed_scale = 1
 		animationPlayer.play("Bump")
 		if tempAttackDelay > 0:

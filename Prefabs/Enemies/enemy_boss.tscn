@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://dqu4ynl3lwx2t"]
+[gd_scene load_steps=36 format=3 uid="uid://dqu4ynl3lwx2t"]
 
 [ext_resource type="Script" uid="uid://emldon8urap5" path="res://Scripts/Enemy Scripts/BossBehaviour.gd" id="1_1bxol"]
 [ext_resource type="PackedScene" uid="uid://dpvom7f6ll5un" path="res://Models/Enemies/Boss/Boss.blend" id="3_4onus"]
 [ext_resource type="Texture2D" uid="uid://cbu02u0njv72o" path="res://Assets/Kenney Particles Transparent Background/smoke_07.png" id="4_2ws8c"]
+[ext_resource type="Script" uid="uid://cq485d4lp3x4t" path="res://Scripts/UI/death_spores.gd" id="5_tbb04"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dp8bq"]
 
@@ -66,6 +67,105 @@ size = Vector3(5.42419, 4.8479, 0.644318)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gbk7o"]
 size = Vector3(6.74976, 0.274902, 2.22347)
+
+[sub_resource type="Gradient" id="Gradient_sadec"]
+offsets = PackedFloat32Array(0, 0.489451, 0.767932, 1)
+colors = PackedColorArray(0.624, 0.72, 0, 0.537255, 0.857336, 0.841146, 0.221142, 0.890196, 0.911952, 0.9542, 0.360503, 0.94902, 1, 1, 1, 0.596078)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4onus"]
+gradient = SubResource("Gradient_sadec")
+
+[sub_resource type="Curve" id="Curve_rviuc"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 13.0573), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_gorya"]
+curve = SubResource("Curve_rviuc")
+
+[sub_resource type="Curve" id="Curve_tbb04"]
+_limits = [-10.0, 10.0, 0.0, 1.0]
+_data = [Vector2(0, 5.85987), 0.0, 0.0, 0, 0, Vector2(0.707224, -0.143312), -4.41427, -4.41427, 0, 0, Vector2(1, -1.17834), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_gbk7o"]
+curve = SubResource("Curve_tbb04")
+
+[sub_resource type="Curve" id="Curve_otkrd"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2ylx7"]
+curve = SubResource("Curve_otkrd")
+
+[sub_resource type="Curve" id="Curve_6alni"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.500753), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ivjtr"]
+curve = SubResource("Curve_6alni")
+
+[sub_resource type="Curve" id="Curve_6bngx"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_xyy1i"]
+curve = SubResource("Curve_6bngx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kkpad"]
+lifetime_randomness = 0.5
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = 1.07288e-05
+angle_max = 45.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+flatness = 1.0
+initial_velocity_min = -2.0
+initial_velocity_max = 2.0
+angular_velocity_min = 30.0
+angular_velocity_max = 60.0
+orbit_velocity_min = 0.1
+orbit_velocity_max = 0.3
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = -2.23517e-05
+velocity_limit_curve = SubResource("CurveTexture_xyy1i")
+gravity = Vector3(0, -0.2, 0)
+radial_accel_min = 0.0999978
+radial_accel_max = 0.199998
+radial_accel_curve = SubResource("CurveTexture_gbk7o")
+tangential_accel_min = 0.399998
+tangential_accel_max = 0.999998
+damping_curve = SubResource("CurveTexture_gorya")
+scale_min = 0.9
+scale_max = 2.5
+scale_curve = SubResource("CurveTexture_2ylx7")
+color = Color(0.623529, 0.721569, 0, 1)
+color_ramp = SubResource("GradientTexture1D_4onus")
+turbulence_enabled = true
+turbulence_noise_strength = 12.88
+turbulence_noise_speed = Vector3(1, 1, 1)
+turbulence_noise_speed_random = 1.04
+turbulence_initial_displacement_min = 1.49012e-06
+turbulence_initial_displacement_max = 1.49012e-06
+turbulence_influence_over_life = SubResource("CurveTexture_ivjtr")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v4xao"]
+load_path = "res://.godot/imported/ParticleDust.png-5c738db6d9ee9a5378886db327d9fe67.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_06wt0"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("CompressedTexture2D_v4xao")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_ui5th"]
+material = SubResource("StandardMaterial3D_06wt0")
+size = Vector2(1.5, 1.5)
 
 [node name="BossEnemy" type="CharacterBody3D" groups=["Enemy", "enemy"]]
 script = ExtResource("1_1bxol")
@@ -152,37 +252,38 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.57163, 3.40632, 0)
 transform = Transform3D(-3.93403e-08, 0, 0.9, 0, 0.9, 0, -0.9, 0, -3.93403e-08, 0, -1.20249, 0)
 
 [node name="Skeleton3D" parent="Mesh/Armature" index="0"]
-bones/0/position = Vector3(0, 0.669439, 0.00143407)
-bones/0/rotation = Quaternion(-0.0061202, -0.00431436, -0.000679386, 0.999972)
-bones/1/rotation = Quaternion(-0.00652031, -0.00451454, -0.00134428, 0.999968)
-bones/2/rotation = Quaternion(-0.000880446, -0.000165684, 0.000389863, 1)
-bones/3/position = Vector3(0.94421, 0.250678, -0.108617)
-bones/3/rotation = Quaternion(0.0466193, -0.0478172, 0.899103, -0.432612)
-bones/4/rotation = Quaternion(0.255916, -0.00348747, -0.0598601, 0.964838)
-bones/5/rotation = Quaternion(-0.0352049, -0.00206448, -0.0587993, 0.997647)
-bones/6/rotation = Quaternion(0.125573, -0.00133018, -0.0922733, 0.987783)
-bones/7/rotation = Quaternion(0.0937972, -0.00296714, -0.120272, 0.988296)
-bones/9/rotation = Quaternion(0.0124481, 0.000587574, -0.146491, 0.989134)
-bones/10/position = Vector3(-0.94436, 0.248239, -0.108604)
-bones/10/rotation = Quaternion(-0.0554867, -0.0506176, 0.900784, 0.427724)
-bones/11/rotation = Quaternion(0.257841, 0.00312059, 0.0694942, 0.96368)
-bones/12/rotation = Quaternion(-0.0668954, 0.0129895, 0.154855, 0.985584)
+bones/0/position = Vector3(0, 0.669694, 0)
+bones/0/rotation = Quaternion(0.00522411, 0, 0, 0.999986)
+bones/1/rotation = Quaternion(0.0083771, 1.19205e-07, -1.69822e-09, 0.999965)
+bones/2/rotation = Quaternion(-3.55271e-15, 1.05003e-14, 8.32659e-17, 1)
+bones/3/position = Vector3(0.944021, 0.25059, -0.108592)
+bones/3/rotation = Quaternion(0.0589992, -0.0386755, 0.903462, -0.422823)
+bones/4/rotation = Quaternion(0.245598, 0.0115368, -0.0551547, 0.967733)
+bones/5/rotation = Quaternion(-0.0372393, -0.00292326, -0.0506705, 0.998017)
+bones/6/rotation = Quaternion(0.122588, -0.00178744, -0.0781887, 0.989371)
+bones/7/rotation = Quaternion(0.0901468, 6.2212e-05, -0.105388, 0.990337)
+bones/8/rotation = Quaternion(0.427789, 0.0307319, 0.242074, 0.870317)
+bones/9/rotation = Quaternion(0.00887719, 0.000598749, -0.136631, 0.990582)
+bones/10/position = Vector3(-0.944021, 0.25059, -0.108593)
+bones/10/rotation = Quaternion(-0.0473737, -0.0368461, 0.901836, 0.427889)
+bones/11/rotation = Quaternion(0.256753, -0.016047, 0.0725906, 0.963614)
+bones/12/rotation = Quaternion(-0.0590723, 0.0207869, 0.158028, 0.985447)
 bones/13/position = Vector3(0.559574, 0.228499, 0.0635878)
-bones/13/rotation = Quaternion(0.0163956, 0.083103, 0.995727, -0.0367723)
+bones/13/rotation = Quaternion(0.0124051, 0.0980158, 0.994449, -0.0361938)
 bones/13/scale = Vector3(0.999998, 1, 0.999987)
-bones/14/rotation = Quaternion(-0.127079, 0.000181031, -0.0348406, 0.99128)
-bones/15/position = Vector3(-0.559575, 0.228499, 0.0635878)
-bones/15/rotation = Quaternion(-0.00744696, 0.102333, 0.994009, 0.0376704)
-bones/16/rotation = Quaternion(-0.146151, -0.000180516, 0.0400693, 0.98845)
-bones/17/position = Vector3(-0.57865, 0.132883, 0.0809978)
-bones/17/rotation = Quaternion(-0.00132196, 0.674108, 0.738624, 0.00340787)
-bones/18/rotation = Quaternion(-0.0116467, 6.28799e-12, 9.50137e-06, 0.999932)
+bones/14/rotation = Quaternion(-0.131428, 0.000180905, -0.0360326, 0.990671)
+bones/14/scale = Vector3(1, 1, 0.999999)
+bones/15/position = Vector3(-0.559574, 0.228499, 0.0635878)
+bones/15/rotation = Quaternion(-0.0124052, 0.0980158, 0.994449, 0.0361938)
+bones/16/rotation = Quaternion(-0.131428, -0.000180907, 0.0360326, 0.990671)
+bones/17/position = Vector3(-0.57865, 0.129149, 0.0803048)
+bones/17/rotation = Quaternion(0.000303981, 0.666783, 0.745252, 0.000271975)
+bones/18/rotation = Quaternion(-0.0116466, -1.13176e-10, 9.50127e-06, 0.999932)
 bones/19/position = Vector3(0.57865, 0.129149, 0.0803049)
 bones/19/rotation = Quaternion(-0.000303981, 0.666783, 0.745252, -0.000271975)
-bones/20/rotation = Quaternion(-0.0116466, 2.51695e-11, -9.50127e-06, 0.999932)
+bones/20/rotation = Quaternion(-0.0116466, 1.13176e-10, -9.50127e-06, 0.999932)
 bones/21/rotation = Quaternion(0.000261053, 0.768368, -0.640008, -0.00031341)
 bones/22/position = Vector3(0.578651, 0.478512, 0.452005)
-bones/23/position = Vector3(-0.578651, 0.132883, 0.0809964)
 bones/23/rotation = Quaternion(-0.000261053, 0.768368, -0.640008, 0.00031341)
 bones/24/position = Vector3(-0.578651, 0.478512, 0.452005)
 
@@ -204,6 +305,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0272579, 0.0875964, 0.0855
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="SpearCombo 3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.03318, 0.573887, 0.68315)
 shape = SubResource("BoxShape3D_gbk7o")
+
+[node name="DeathSpores" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.36659, 0.321118, 0)
+emitting = false
+amount = 1000
+lifetime = 5.0
+one_shot = true
+speed_scale = 3.0
+explosiveness = 1.0
+randomness = 1.0
+fixed_fps = 60
+local_coords = true
+draw_order = 3
+transform_align = 1
+process_material = SubResource("ParticleProcessMaterial_kkpad")
+draw_pass_1 = SubResource("QuadMesh_ui5th")
+script = ExtResource("5_tbb04")
 
 [connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_entered"]
 [connection signal="area_exited" from="DetectionArea" to="." method="_on_detection_area_exited"]

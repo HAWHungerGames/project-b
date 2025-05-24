@@ -46,6 +46,7 @@ hue_variation_max = -2.23517e-08
 [sub_resource type="QuadMesh" id="QuadMesh_jkh2i"]
 
 [node name="Bullet" type="CharacterBody3D" groups=["Bullet"]]
+top_level = true
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_26jo2")

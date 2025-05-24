@@ -1,8 +1,8 @@
 extends CharacterBody3D
 @export_category("Behaviour")
 @export_subgroup("DetectionBehaviour")
-@export var hearingRange: float = 8
-@export var visionRange: float = 10
+@export var hearingRange: float = 30
+@export var visionRange: float = 30
 
 @export_subgroup("MovementBehaviour")
 @export_enum("stand still", "move towards player", "keep set distance from player") var movementType: String = "stand still"
@@ -27,7 +27,6 @@ extends CharacterBody3D
 
 @onready var hearingNode = $HearingArea
 @onready var visionNode = $VisionArea
-@onready var world = $"../.."
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
 @onready var animationPlayer = $Mesh/AnimationPlayer
 @onready var bulletSpawnPoint = $BulletSpawnPoint
@@ -53,6 +52,7 @@ var rangedAttackDelay: float = 0.54
 var idleTimer: float = 0
 var inMeleeRange: bool = false
 var inMeleeDamageArea: bool = false
+var deathTimer: float = 10
 
 func _ready():
 	player = GlobalPlayer.getPlayer()
@@ -61,24 +61,41 @@ func _ready():
 
 func _physics_process(delta):
 	apply_gravity(delta)
+	die(delta)
 	if gotAttackedTime > 0:
 		gotAttackedTime -= delta
 	if idleTimer >= 0:
 		idleTimer -= delta
-	if detect_player():
+	if detect_player() and deathTimer == 10:
 		if punchTimer <= 0:
 			rotateToPlayer()
-		if idleTimer <= 0:#
+		if idleTimer <= 0:
 			if !inMeleeRange:
 				rangedAttack(delta)
 			else: 
 				meleeAttack(delta)
-	else:
+	elif deathTimer == 10:
 		animationPlayer.play("Idle")
 		idleTimer = 1
-	if detect_player():
+	if detect_player() and deathTimer == 10:
 		navigation(delta)
 	move_and_slide()
+
+func die(delta):
+	if deathTimer < 10:
+		deathTimer -= delta
+	if deathTimer >= 5 and deathTimer <= 9:
+		animationPlayer.stop()
+		animationPlayer.play("Die")
+		deathTimer = 2.6667
+	if deathTimer <= 1:
+		if boss_emitter != null:
+			GameManager.reset_child_to_root(self, boss_emitter)
+			boss_emitter.activate_particles_to_boss()
+		if death_spores != null:
+			GameManager.reset_child_to_root(self, death_spores)
+			death_spores.activate_death_particles()
+		queue_free()
 
 func navigation(delta):
 	match movementType:
@@ -141,8 +158,8 @@ func detect_player():
 
 func detect_player_raycast():
 	var space_state = get_world_3d().direct_space_state
-	var origin = transform.origin
-	var end = player.get_child(0).global_transform.origin
+	var origin = global_position
+	var end = player.get_child(0).global_position 
 	var query = PhysicsRayQueryParameters3D.create(origin, end, 3, [self])
 
 	var result = space_state.intersect_ray(query)
@@ -155,32 +172,26 @@ func detect_player_raycast():
 	return false
 
 func rotateToPlayer():
-	var angleVector = player.get_child(0).global_transform.origin - global_transform.origin
+	var angleVector = player.get_child(0).global_position  - global_position 
 	var angle = atan2(angleVector.x, angleVector.z)
 	rotation.y = angle - PI/2
 
 func takeDamage(damage: int):
 	health -= damage
-	if health <= 0:
-		if boss_emitter != null:
-			GameManager.reset_child_to_root(self, boss_emitter)
-			boss_emitter.activate_particles_to_boss()
-		if death_spores != null:
-			GameManager.reset_child_to_root(self, death_spores)
-			death_spores.activate_death_particles()
-		queue_free()
+	if health <= 0 and deathTimer == 10:
+		deathTimer = 8
 	else:
 		gotAttackedTime = 3
 
 func rangedAttack(delta):
 	rangedAttackDelay -= delta
 	if attackCooldown <= 0 and detect_player_raycast() and !isMoving and moveDelay <= 0 and rangedAttackDelay <= 0:
-		var pos: Vector3 = bulletSpawnPoint.global_transform.origin
-		var vel: Vector3 = player.get_child(0).global_transform.origin - pos
+		var pos: Vector3 = bulletSpawnPoint.global_position 
+		var vel: Vector3 = player.get_child(0).global_position - pos
 		var bullet = bulletScene.instantiate()
 		bullet.setParameter(player, bulletDamage, bulletSpeed, homingRange, homingStrength, vel, bulletLifetime)
-		world.add_child(bullet)
-		bullet.global_transform.origin = pos
+		self.add_child(bullet)
+		bullet.global_position = pos
 		attackCooldown = 1.0/attackSpeed
 		throwTimer = 1.6667
 	if(attackCooldown >= 0): 
