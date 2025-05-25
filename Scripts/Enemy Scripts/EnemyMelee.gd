@@ -53,6 +53,10 @@ func _ready():
 	attackNode.scale = Vector3(attackLength, attackHeight, attackWidth)
 
 func _physics_process(delta):
+	if attackCooldown > 0:
+		attackCooldown -= delta
+	elif attackCooldown <= 0:
+		isAttacking = false
 	apply_gravity(delta)
 	die(delta)
 	if gotAttackedTime > 0:
@@ -146,25 +150,20 @@ func takeDamage(damage: int):
 		gotAttackedTime = 3
 
 func attack(delta):
-	if isInAttackArea:
-		isAttacking = true
 	if !isAttacking:
 		tempAttackDelay = attackDelay
 		attackCooldown = (1/attackSpeed) + 5
+	if isInAttackArea:
+		isAttacking = true
 	if isAttacking and deathTimer == 10:
 		animationPlayer.play("Bump")
-		if attackCooldown > 0:
-			attackCooldown -= delta
 		if attackCooldown <= 5.42 and attackCooldown > 5:
 			if isInAttackArea:
 				particles.restart()
 				particles.emitting = true
 				player.takeDamage(attackDamage, self, true, 0)
 				attackCooldown -= 5
-		elif attackCooldown <= 0:
-			attackCooldown = (1/attackSpeed) + 5
-			print(attackCooldown)
-			isAttacking = false
+
 
 func apply_gravity(delta):
 	velocity.y += -gravity * delta
@@ -192,3 +191,4 @@ func _on_attack_area_entered(area: Area3D) -> void:
 func _on_attack_area_exited(area: Area3D) -> void:
 	if area.is_in_group("Player"):
 		isInAttackArea = false
+		attackCooldown -= 5

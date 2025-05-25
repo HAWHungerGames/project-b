@@ -151,7 +151,6 @@ func attack(delta):
 		tempAttackDelay = attackDelay
 	if isAttacking and deathTimer == 10:
 		if tempAttackDelay > 0:
-			particles.emitting = false
 			animationPlayer.speed_scale = 1
 			animationPlayer.play("attack")
 			tempAttackDelay -= delta
