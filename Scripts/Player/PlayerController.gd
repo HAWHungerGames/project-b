@@ -75,6 +75,9 @@ func dash_with_stamina(delta):
 	if Input.is_action_just_pressed("dash") and player.stamina >= staminaCostPerDash:
 		dash_ability(delta)
 		player.reduce_stamina(staminaCostPerDash)
+		$PlayerAudio/DashSFX.play()
+	elif Input.is_action_just_pressed("dash") and player.stamina <= staminaCostPerDash:
+		$PlayerAudio/NoStaminaSFX.play()
 
 func dash_ability(delta):
 	var vy = velocity.y

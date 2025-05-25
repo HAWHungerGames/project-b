@@ -181,10 +181,12 @@ func takeDamage(damage: int, attacker: Node3D, isBlockable, blockCostModifier):
 			stamina -= blockingStaminaCost * (1-blockCostModifier)
 			staminaChanged.emit()
 			healthChanged.emit()
+			$Controller/PlayerAudio/BlockedSFX.play()
 		else: 
 			breakBlock()
 	else:
 		health -= damage
+		$Controller/PlayerAudio/HitSFX.play()
 		healthChanged.emit()
 
 func getBlockingDamageReduction():
@@ -208,6 +210,8 @@ func heal(amount):
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.is_in_group("Bush"):
 		isInHidingArea = true
+		$Controller/PlayerAudio/BushEntedSFX.play()
+		
 	if area.is_in_group("Enemy"):
 		isInDetectionArea = true
 
@@ -216,3 +220,4 @@ func _on_area_3d_area_exited(area: Area3D) -> void:
 		isInDetectionArea = false
 	if area.is_in_group("Bush"):
 		isInHidingArea = false
+		$Controller/PlayerAudio/BushEntedSFX.play()
