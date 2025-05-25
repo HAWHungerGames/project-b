@@ -55,7 +55,8 @@ func update_value_attack_loading(bar, extra_bar, current_val, max_val_bar, max_v
 		#var target_color = yellow_color.lerp(orange_color, normalized_value)
 		#bar.modulate = target_color
 	extra_bar.modulate.a = 1.0
-	extra_bar.value = current_val * 100 / (100 / bar.value * max_val_extra_bar)
+	#extra_bar.value = current_val * 100 / (100 / bar.value * max_val_extra_bar)
+	extra_bar.value = current_val * 100 / max_val_extra_bar
 func update_mana() -> void:
 	update_value(mana_bar, mana_damage_bar, player.mana, player.maxMana)
 	

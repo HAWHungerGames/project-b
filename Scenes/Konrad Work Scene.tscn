@@ -1,4 +1,4 @@
-[gd_scene load_steps=113 format=3 uid="uid://17sawqr1a5sd"]
+[gd_scene load_steps=131 format=3 uid="uid://17sawqr1a5sd"]
 
 [ext_resource type="Material" uid="uid://41byjnpqi8jl" path="res://Materials/TestBush.tres" id="1_3f6q6"]
 [ext_resource type="PackedScene" uid="uid://bo6t8u3r6w260" path="res://Prefabs/Asset Scenes/World Objects/Nature/Plants/grass_ground.tscn" id="2_5i7v7"]
@@ -113,7 +113,7 @@
 [ext_resource type="AudioStream" uid="uid://c772vjw0wtmyn" path="res://Assets/Sound/Music/BossFight.wav" id="80_snyj6"]
 [ext_resource type="PackedScene" uid="uid://drdm7buu34xes" path="res://Prefabs/Asset Scenes/UI/text.tscn" id="84_4qm2b"]
 [ext_resource type="Texture2D" uid="uid://dpawmxsv4htrg" path="res://UI/Stats/StaminaLoadingAttackMiddle.png" id="97_n5ej2"]
-[ext_resource type="Texture2D" uid="uid://csiv2pnap5l2c" path="res://UI/Stats/StaminaLoadingAttack.png" id="100_6ctfl"]
+[ext_resource type="Texture2D" uid="uid://b1ytdbchyxce" path="res://UI/Stats/StaminaLoadingAttackThird.png" id="103_gg2u3"]
 [ext_resource type="Script" uid="uid://binsywba0e010" path="res://Scenes/boss_health.gd" id="108_24wiy"]
 [ext_resource type="Texture2D" uid="uid://cn00nn06sxjus" path="res://UI/Stats/BossHealthbar.png" id="108_tumgl"]
 [ext_resource type="Texture2D" uid="uid://6latdbcv0h2a" path="res://UI/Stats/BossHealthbarUnderneath.png" id="109_snyj6"]
@@ -238,7 +238,7 @@ transform = Transform3D(0.683032, 0, 0.730389, 0, 1, 0, -0.730389, 0, 0.683032, 
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -17.6828, 1.17827, -35.771)
 
 [node name="Door" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Tutorial Room/Walls/North" instance=ExtResource("12_1bu8d")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 16.472, -34.3258)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.508897, -34.326)
 
 [node name="brokenWallWith2Trees" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Tutorial Room/Walls/North" instance=ExtResource("8_qcrt0")]
 transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, 12.0899, 0.8, -34.9749)
@@ -3510,7 +3510,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -97.552)
 
 [node name="RangedEnemy" parent="WorldEnvironment/Enemies/Room 2" groups=["enemy"] instance=ExtResource("74_5ysuy")]
 transform = Transform3D(0.217479, 0, -0.976065, 0, 1, 0, 0.976065, 0, 0.217479, -1.01116, 1.5, -1.23425)
-visionRange = 30.0
 
 [node name="MeleeEnemy" parent="WorldEnvironment/Enemies/Room 2" groups=["enemy"] instance=ExtResource("10_1ee8w")]
 transform = Transform3D(-0.498488, 0, -0.866897, 0, 1, 0, 0.866897, 0, -0.498488, 5.92814, 1.5, 6.00854)
@@ -3518,7 +3517,6 @@ visionRange = 20.0
 
 [node name="RangedEnemy2" parent="WorldEnvironment/Enemies/Room 2" groups=["enemy"] instance=ExtResource("74_5ysuy")]
 transform = Transform3D(-0.351793, 0, -0.936078, 0, 1, 0, 0.936078, 0, -0.351793, 7.94817, 1.5, -7.02195)
-visionRange = 30.0
 
 [node name="Room 3" type="Node3D" parent="WorldEnvironment/Enemies"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.7486, 0, -135.172)
@@ -3596,6 +3594,15 @@ dashMaxCooldown = 0.5
 sneakSpeedModifier = 2.25
 healthPerSecond = 25.0
 manaPerSecond = 40.0
+
+[node name="RightWeaponHand" parent="WorldEnvironment/Player/Controller/Model/Player/Armature/Skeleton3D" index="1"]
+transform = Transform3D(-0.165291, -0.879337, 0.446592, 0.932135, -0.287216, -0.220528, 0.322187, 0.379832, 0.867135, -2.84966, 1.51509, 0.564782)
+
+[node name="LeftWeaponHand" parent="WorldEnvironment/Player/Controller/Model/Player/Armature/Skeleton3D" index="2"]
+transform = Transform3D(-0.165291, 0.879337, -0.446592, -0.932135, -0.287216, -0.220528, -0.322187, 0.379832, 0.867135, 2.84966, 1.51509, 0.564782)
+
+[node name="BackWeapon" parent="WorldEnvironment/Player/Controller/Model/Player/Armature/Skeleton3D" index="3"]
+transform = Transform3D(1, 0, 0, 0, 0.949272, -0.314457, 1.42109e-14, 0.314457, 0.949272, 3.55271e-15, 1, 0.194046)
 
 [node name="AnimationTree" parent="WorldEnvironment/Player/Controller/Model/Player" index="2"]
 parameters/Sword/blend_amount = 1.0
@@ -3832,7 +3839,7 @@ custom_minimum_size = Vector2(380, 216)
 layout_mode = 2
 step = 0.01
 nine_patch_stretch = true
-texture_progress = ExtResource("100_6ctfl")
+texture_progress = ExtResource("103_gg2u3")
 
 [node name="damageBar" type="TextureProgressBar" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina"]
 z_index = -1

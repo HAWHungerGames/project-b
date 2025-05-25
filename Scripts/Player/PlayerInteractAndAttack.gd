@@ -515,11 +515,13 @@ func holding_bow_attack_timer_for_dmg(delta):
 			#print(holdingBowAttackTimer)
 		if player_controller.velocity.length() > 0.2:
 			animation_tree.set("parameters/WalkOrBowBlend/blend_amount", 0.8)
+		GameManager.set_bow_attack_timer(holding_bow_attack_timer)
 			
 # Release Input to finish Attack
 func finishing_bow_attack_animation():
 		if holding_bow_attack_timer >= bow_cooldown and !Input.is_action_pressed("attack"):
 			GameManager.set_bow_attack_timer(holding_bow_attack_timer)
+			GameManager.set_attack_loading_value(0)
 			bow_animation_player.play("Finish")
 			animation_tree.set("parameters/AimTimeSeek/seek_request", 0)
 			animation_tree.set("parameters/Bow/blend_amount", 1)
