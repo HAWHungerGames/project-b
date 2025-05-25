@@ -61,7 +61,7 @@ var playerInSporeArea: bool = false
 var rng = RandomNumberGenerator.new()
 var areaAttackCooldown: float = 0
 var isAttacking: bool = false
-var active: bool = true
+var active: bool = false
 var sporeTime: float = 0
 var chargeAttackOnGoing: bool = false
 var inChargeAttackArea: bool = false
@@ -82,16 +82,14 @@ var actionTime: float = 0
 
 func _ready():
 	calculateAggression()
+	calculateBlocksAndDashes()
 	player = GlobalPlayer.getPlayer()
-	sporeDamageArea.scale = Vector3(sporeArea, sporeArea, sporeArea)
 
 func _physics_process(delta: float):
 	die(delta)
 	apply_gravity(delta)
 	if active and deathTimer == 10:
-		activateBoss()
 		actionManager(delta)
-		
 
 func calculateAggression():
 	aggression = baseAggressionLevel
@@ -178,39 +176,39 @@ func determineNextAction():
 #Boss Actions
 #Movement
 func reachedTarget(targetPoint):
-	if global_position.distance_to(targetPoint) <= 2:
+	if global_position.distance_to(Vector3(targetPoint.x, global_position.y, targetPoint.z)) <= 2:
 		return true
 	return false
 
 func return_closest_point():
 	var closestPoint: Vector3
-	if global_position.distance_to(movePoints[0].transform.origin) >= 5:
-		closestPoint = movePoints[0].transform.origin
+	if global_position.distance_to(movePoints[0].global_position) >= 5:
+		closestPoint = movePoints[0].global_position
 	else: 
-		closestPoint = movePoints[1].transform.origin
+		closestPoint = movePoints[1].global_position
 	for point in movePoints:
-		if self.transform.origin.distance_to(point.transform.origin) < self.transform.origin.distance_to(closestPoint) and global_position.distance_to(point.transform.origin) >= 5:
-			closestPoint = point.transform.origin
+		if self.global_position.distance_to(point.global_position) < self.global_position.distance_to(closestPoint) and global_position.distance_to(point.global_position) >= 5:
+			closestPoint = point.global_position
 	return closestPoint
 
 func return_furthest_point_from_player():
 	var furthestPoint: Vector3
-	if global_position.distance_to(movePoints[0].transform.origin) >= 5:
-		furthestPoint = movePoints[0].transform.origin
+	if global_position.distance_to(movePoints[0].global_position) >= 5:
+		furthestPoint = movePoints[0].global_position
 	else: 
-		furthestPoint = movePoints[1].transform.origin
+		furthestPoint = movePoints[1].global_position
 	for point in movePoints:
-		if player.get_child(0).global_transform.origin.distance_to(point.global_transform.origin) > player.get_child(0).global_transform.origin.distance_to(furthestPoint) and global_position.distance_to(point.transform.origin) >= 5:
-			furthestPoint = point.transform.origin
+		if player.get_child(0).global_position.distance_to(point.global_position) > player.get_child(0).global_position.distance_to(furthestPoint) and global_position.distance_to(point.global_position) >= 5:
+			furthestPoint = point.global_position
 	return furthestPoint
 
 
 func move_towards_target(delta, targetPoint):
 	if !reachedTarget(targetPoint):
 		var direction = Vector3()
-		nav.target_position = Vector3(targetPoint.x, self.transform.origin.y, targetPoint.z)
+		nav.target_position = Vector3(targetPoint.x, self.global_position.y, targetPoint.z)
 		
-		direction = (targetPoint - global_position).normalized()
+		direction = (nav.get_next_path_position() - global_position).normalized()
 		velocity = velocity.lerp(direction * speed, acceleration * delta)
 		rotateToTarget(targetPoint)
 		animationPlayer.play("Running")
@@ -223,7 +221,7 @@ func move_towards_target(delta, targetPoint):
 		return true
 
 func rotateToTarget(targetPoint):
-	var angleVector = targetPoint - global_transform.origin
+	var angleVector = targetPoint - global_position
 	var angle = atan2(angleVector.x, angleVector.z)
 	rotation.y = angle - PI/2
 
@@ -345,14 +343,14 @@ func ongoingSporeAreaAction(delta):
 func sporeRangedAttack():
 	for sporeSpawnPoint in sporeSpawnPoints.get_children():
 		var randomTrackingDelay = rng.randf_range(0.1, 0.2)
-		var pos: Vector3 = sporeSpawnPoint.global_transform.origin
-		var vel: Vector3 = pos - global_transform.origin
+		var pos: Vector3 = sporeSpawnPoint.global_position
+		var vel: Vector3 = pos - global_position
 		var bullet = bulletScene.instantiate()
 		bullet.setParameter(player, bulletDamage, bulletSpeed, homingRange, homingStrength, vel, bulletLifetime)
 		bullet.setTrackingDelay(randomTrackingDelay)
 		bullet.setBlockCostModifier(0.5)
 		self.add_child(bullet)
-		bullet.global_transform.origin = pos
+		bullet.global_position = pos
 
 
 func chargeAttack():
@@ -460,3 +458,7 @@ func _on_spear_combo_2_exited(area: Area3D) -> void:
 func _on_spear_combo_3_exited(area: Area3D) -> void:
 	if area.is_in_group("Player"):
 		comboArea3 = false
+
+func _on_boss_erea_entered(area: Area3D) -> void:
+	if area.is_in_group("Player"):
+		activateBoss()

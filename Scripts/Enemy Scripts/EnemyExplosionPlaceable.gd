@@ -13,7 +13,7 @@ extends CharacterBody3D
 @export var attackDamage: int = 25
 @export var attackDelay: float = 1
 @export var timeBeforePathfinding: float = 20
-@export var lifetime: float = 3
+@export var lifetime: float = 5
 
 @onready var hearingNode = $HearingArea
 @onready var visionNode = $VisionArea

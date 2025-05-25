@@ -1,8 +1,8 @@
 extends CharacterBody3D
 @export_category("Behaviour")
 @export_subgroup("DetectionBehaviour")
-@export var hearingRange: float = 30
-@export var visionRange: float = 30
+@export var hearingRange: float = 40
+@export var visionRange: float = 40
 
 @export_subgroup("MovementBehaviour")
 @export_enum("stand still", "move towards player", "keep set distance from player") var movementType: String = "stand still"

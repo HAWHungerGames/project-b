@@ -15,7 +15,7 @@ height = 0.898169
 radius = 1.70299
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_3kmyd"]
-radius = 3.51696
+radius = 3.103
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xuh6v"]
 transparency = 1

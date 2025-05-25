@@ -22,7 +22,7 @@ height = 0.898169
 radius = 1.70299
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_3kmyd"]
-radius = 3.46895
+radius = 2.89292
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xuh6v"]
 transparency = 1
@@ -229,7 +229,7 @@ shape = SubResource("SphereShape3D_rq65h")
 debug_color = Color(0.138961, 0.599429, 0.670183, 1)
 
 [node name="VisionArea" type="Area3D" parent="."]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0.2, 0.581, 0)
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0.2, 0.581, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="VisionArea"]
 transform = Transform3D(-2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 0, 0, 0.5, 0.462569, -0.0517724, 0)

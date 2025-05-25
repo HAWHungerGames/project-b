@@ -200,7 +200,7 @@ func getBlockingDamageReduction():
 		return 0.7
 	if GameManager.get_first_weapon() == "Shield":
 		return 1.0
-	return 1.0
+	return 0.0
 
 func heal(amount):
 	if health <= maxHealth:
