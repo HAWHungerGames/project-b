@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://cpyee7rfs1efb"]
+[gd_scene load_steps=77 format=3 uid="uid://cpyee7rfs1efb"]
 
 [ext_resource type="Script" uid="uid://bwrchpg0h1fcx" path="res://Scripts/Player/PlayerStats.gd" id="1_2nftw"]
 [ext_resource type="Script" uid="uid://birw8rdmwcq4v" path="res://Scripts/Player/PlayerController.gd" id="2_knrd4"]
@@ -37,15 +37,21 @@ use_custom_timeline = true
 timeline_length = 1.0
 stretch_time_scale = true
 start_offset = 0.0
-loop_mode = 1
+loop_mode = 0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_405c5"]
 animation = &"Hit_horizontal_backhand"
 use_custom_timeline = true
-timeline_length = 1.0
+timeline_length = 0.8
 stretch_time_scale = true
 start_offset = 0.0
-loop_mode = 1
+loop_mode = 0
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vjsh3"]
+animation = &"Hit_horizontal_normal"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7c0pg"]
+animation = &"Hit_horizontal_backhand"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qvmbc"]
 animation = &"Shoot"
@@ -170,16 +176,31 @@ states/Sneaking/node = SubResource("AnimationNodeAnimation_2xbkd")
 states/Sneaking/position = Vector2(677, 279)
 states/Start/position = Vector2(159, 100)
 states/Walking/node = SubResource("AnimationNodeBlendSpace2D_0fs2y")
-states/Walking/position = Vector2(377, 117)
+states/Walking/position = Vector2(379, 118)
 transitions = ["Walking", "Dashing", SubResource("AnimationNodeStateMachineTransition_wphcr"), "Dashing", "Walking", SubResource("AnimationNodeStateMachineTransition_and0b"), "Walking", "Sneaking", SubResource("AnimationNodeStateMachineTransition_405c5"), "Sneaking", "Walking", SubResource("AnimationNodeStateMachineTransition_i3mxk"), "Sneaking", "Dashing", SubResource("AnimationNodeStateMachineTransition_qvmbc"), "Sneaking", "Dashing2", SubResource("AnimationNodeStateMachineTransition_qjulh"), "Dashing2", "Walking", SubResource("AnimationNodeStateMachineTransition_evqxc"), "Walking", "Dashing2", SubResource("AnimationNodeStateMachineTransition_6gc6r"), "Dashing2", "Dashing", SubResource("AnimationNodeStateMachineTransition_juxdh"), "Dashing", "Dashing2", SubResource("AnimationNodeStateMachineTransition_4qbli")]
 graph_offset = Vector2(-120, 19)
 
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_6gc6r"]
 
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_qjulh"]
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_0u5bp"]
+
+[sub_resource type="AnimationNodeTimeSeek" id="AnimationNodeTimeSeek_di5ps"]
+
+[sub_resource type="AnimationNodeTimeSeek" id="AnimationNodeTimeSeek_qkk0s"]
+
+[sub_resource type="AnimationNodeTimeSeek" id="AnimationNodeTimeSeek_q7l0e"]
+
+[sub_resource type="AnimationNodeTimeSeek" id="AnimationNodeTimeSeek_0fs2y"]
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_m62uw"]
+filter_enabled = true
+filters = ["Armature/Skeleton3D:Hand1.L", "Armature/Skeleton3D:Hand1.R", "Armature/Skeleton3D:Hand2.L", "Armature/Skeleton3D:Hand2.R", "Armature/Skeleton3D:Hand3.L", "Armature/Skeleton3D:Hand3.R", "Armature/Skeleton3D:Oberarm.L", "Armature/Skeleton3D:Oberarm.R", "Armature/Skeleton3D:Unterarm.L", "Armature/Skeleton3D:Unterarm.R"]
 
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_vjsh3"]
 filters = ["", "Armature/Skeleton3D:Brust", "Armature/Skeleton3D:Hals", "Armature/Skeleton3D:Hand1.L", "Armature/Skeleton3D:Hand1.R", "Armature/Skeleton3D:Hand2.L", "Armature/Skeleton3D:Hand2.R", "Armature/Skeleton3D:Hand3.L", "Armature/Skeleton3D:Hand3.R", "Armature/Skeleton3D:Hüfte", "Armature/Skeleton3D:Kopf", "Armature/Skeleton3D:Oberarm.L", "Armature/Skeleton3D:Oberarm.R", "Armature/Skeleton3D:Unterarm.L", "Armature/Skeleton3D:Unterarm.R"]
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_qjulh"]
+filters = ["", "Armature/Skeleton3D:Hand1.L", "Armature/Skeleton3D:Hand1.R", "Armature/Skeleton3D:Hand2.L", "Armature/Skeleton3D:Hand2.R", "Armature/Skeleton3D:Hand3.L", "Armature/Skeleton3D:Hand3.R", "Armature/Skeleton3D:Oberarm.L", "Armature/Skeleton3D:Oberarm.R", "Armature/Skeleton3D:Unterarm.L", "Armature/Skeleton3D:Unterarm.R"]
 
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_7c0pg"]
 filters = ["", "Armature/Skeleton3D:Brust", "Armature/Skeleton3D:Hals", "Armature/Skeleton3D:Hand1.L", "Armature/Skeleton3D:Hand1.R", "Armature/Skeleton3D:Hand2.L", "Armature/Skeleton3D:Hand2.R", "Armature/Skeleton3D:Hand3.L", "Armature/Skeleton3D:Hand3.R", "Armature/Skeleton3D:Kopf", "Armature/Skeleton3D:Oberarm.L", "Armature/Skeleton3D:Oberarm.R", "Armature/Skeleton3D:Unterarm.L", "Armature/Skeleton3D:Unterarm.R"]
@@ -189,43 +210,59 @@ filter_enabled = true
 filters = ["Armature/Skeleton3D:Brust", "Armature/Skeleton3D:Hals", "Armature/Skeleton3D:Hand1.L", "Armature/Skeleton3D:Hand1.R", "Armature/Skeleton3D:Hand2.L", "Armature/Skeleton3D:Hand2.R", "Armature/Skeleton3D:Hand3.L", "Armature/Skeleton3D:Hand3.R", "Armature/Skeleton3D:Kopf", "Armature/Skeleton3D:Oberarm.L", "Armature/Skeleton3D:Oberarm.R", "Armature/Skeleton3D:Unterarm.L", "Armature/Skeleton3D:Unterarm.R"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_evqxc"]
-graph_offset = Vector2(-121.461, 871.059)
+graph_offset = Vector2(-179.859, 799.108)
 nodes/Aim/node = SubResource("AnimationNodeAnimation_i3mxk")
-nodes/Aim/position = Vector2(-620, 840)
+nodes/Aim/position = Vector2(-140, 1140)
 nodes/AimTimeSeek/node = SubResource("AnimationNodeTimeSeek_ms580")
-nodes/AimTimeSeek/position = Vector2(-420, 800)
+nodes/AimTimeSeek/position = Vector2(60, 1100)
 nodes/Bow/node = SubResource("AnimationNodeBlend2_evqxc")
-nodes/Bow/position = Vector2(-180, 760)
+nodes/Bow/position = Vector2(300, 1000)
 nodes/Melee1/node = SubResource("AnimationNodeAnimation_qjulh")
-nodes/Melee1/position = Vector2(-620, 400)
+nodes/Melee1/position = Vector2(-920, 460)
 nodes/Melee2/node = SubResource("AnimationNodeAnimation_405c5")
-nodes/Melee2/position = Vector2(-620, 580)
+nodes/Melee2/position = Vector2(-920, 660)
+nodes/Melee3/node = SubResource("AnimationNodeAnimation_vjsh3")
+nodes/Melee3/position = Vector2(-680, 880)
+nodes/Melee4/node = SubResource("AnimationNodeAnimation_7c0pg")
+nodes/Melee4/position = Vector2(-640, 1080)
 nodes/Shoot/node = SubResource("AnimationNodeAnimation_qvmbc")
-nodes/Shoot/position = Vector2(-580, 1100)
+nodes/Shoot/position = Vector2(-100, 1400)
 nodes/ShootTimeSeek/node = SubResource("AnimationNodeTimeSeek_b30ri")
-nodes/ShootTimeSeek/position = Vector2(-400, 1020)
+nodes/ShootTimeSeek/position = Vector2(80, 1320)
 nodes/Staff/node = SubResource("AnimationNodeAnimation_evqxc")
-nodes/Staff/position = Vector2(60, 1480)
+nodes/Staff/position = Vector2(400, 1420)
 nodes/Staff2/node = SubResource("AnimationNodeAnimation_6gc6r")
-nodes/Staff2/position = Vector2(360, 1680)
+nodes/Staff2/position = Vector2(520, 1600)
 nodes/StaffTimeSeek/node = SubResource("AnimationNodeTimeSeek_m62uw")
-nodes/StaffTimeSeek/position = Vector2(280, 1400)
+nodes/StaffTimeSeek/position = Vector2(620, 1340)
 nodes/StaffTimeSeek2/node = SubResource("AnimationNodeTimeSeek_vjsh3")
-nodes/StaffTimeSeek2/position = Vector2(600, 1620)
+nodes/StaffTimeSeek2/position = Vector2(760, 1540)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_qjulh")
 nodes/StateMachine/position = Vector2(-620, 180)
 nodes/Sword/node = SubResource("AnimationNodeBlend2_6gc6r")
 nodes/Sword/position = Vector2(-320, 400)
-nodes/WalkMeleeBlend/node = SubResource("AnimationNodeBlend2_qjulh")
-nodes/WalkMeleeBlend/position = Vector2(-120, 280)
+nodes/Sword2/node = SubResource("AnimationNodeBlend2_0u5bp")
+nodes/Sword2/position = Vector2(-20, 720)
+nodes/Sword2TimeSeek/node = SubResource("AnimationNodeTimeSeek_di5ps")
+nodes/Sword2TimeSeek/position = Vector2(-280, 740)
+nodes/Sword2TimeSeek2/node = SubResource("AnimationNodeTimeSeek_qkk0s")
+nodes/Sword2TimeSeek2/position = Vector2(-280, 940)
+nodes/SwordTimeSeek/node = SubResource("AnimationNodeTimeSeek_q7l0e")
+nodes/SwordTimeSeek/position = Vector2(-600, 420)
+nodes/SwordTimeSeek2/node = SubResource("AnimationNodeTimeSeek_0fs2y")
+nodes/SwordTimeSeek2/position = Vector2(-580, 600)
+nodes/WalkMeleeBlend/node = SubResource("AnimationNodeBlend2_m62uw")
+nodes/WalkMeleeBlend/position = Vector2(180, 620)
 nodes/WalkOrBowBlend/node = SubResource("AnimationNodeBlend2_vjsh3")
-nodes/WalkOrBowBlend/position = Vector2(80, 640)
+nodes/WalkOrBowBlend/position = Vector2(500, 860)
+nodes/WalkOrMeleeBlend/node = SubResource("AnimationNodeBlend2_qjulh")
+nodes/WalkOrMeleeBlend/position = Vector2(-120, 280)
 nodes/WalkOrStaffBlend/node = SubResource("AnimationNodeBlend2_7c0pg")
-nodes/WalkOrStaffBlend/position = Vector2(540, 1240)
+nodes/WalkOrStaffBlend/position = Vector2(800, 1100)
 nodes/WalkStaffBlend/node = SubResource("AnimationNodeBlend2_unxwf")
-nodes/WalkStaffBlend/position = Vector2(820, 1280)
-nodes/output/position = Vector2(1000, 580)
-node_connections = [&"AimTimeSeek", 0, &"Aim", &"Bow", 0, &"AimTimeSeek", &"Bow", 1, &"ShootTimeSeek", &"ShootTimeSeek", 0, &"Shoot", &"StaffTimeSeek", 0, &"Staff", &"StaffTimeSeek2", 0, &"Staff2", &"Sword", 0, &"Melee1", &"Sword", 1, &"Melee2", &"WalkMeleeBlend", 0, &"StateMachine", &"WalkMeleeBlend", 1, &"Sword", &"WalkOrBowBlend", 0, &"WalkMeleeBlend", &"WalkOrBowBlend", 1, &"Bow", &"WalkOrStaffBlend", 0, &"WalkOrBowBlend", &"WalkOrStaffBlend", 1, &"StaffTimeSeek", &"WalkStaffBlend", 0, &"WalkOrStaffBlend", &"WalkStaffBlend", 1, &"StaffTimeSeek2", &"output", 0, &"WalkStaffBlend"]
+nodes/WalkStaffBlend/position = Vector2(1080, 1140)
+nodes/output/position = Vector2(1380, 900)
+node_connections = [&"AimTimeSeek", 0, &"Aim", &"Bow", 0, &"AimTimeSeek", &"Bow", 1, &"ShootTimeSeek", &"ShootTimeSeek", 0, &"Shoot", &"StaffTimeSeek", 0, &"Staff", &"StaffTimeSeek2", 0, &"Staff2", &"Sword", 0, &"SwordTimeSeek", &"Sword", 1, &"SwordTimeSeek2", &"Sword2", 0, &"Sword2TimeSeek", &"Sword2", 1, &"Sword2TimeSeek2", &"Sword2TimeSeek", 0, &"Melee3", &"Sword2TimeSeek2", 0, &"Melee4", &"SwordTimeSeek", 0, &"Melee1", &"SwordTimeSeek2", 0, &"Melee2", &"WalkMeleeBlend", 0, &"WalkOrMeleeBlend", &"WalkMeleeBlend", 1, &"Sword2", &"WalkOrBowBlend", 0, &"WalkMeleeBlend", &"WalkOrBowBlend", 1, &"Bow", &"WalkOrMeleeBlend", 0, &"StateMachine", &"WalkOrMeleeBlend", 1, &"Sword", &"WalkOrStaffBlend", 0, &"WalkOrBowBlend", &"WalkOrStaffBlend", 1, &"StaffTimeSeek", &"WalkStaffBlend", 0, &"WalkOrStaffBlend", &"WalkStaffBlend", 1, &"StaffTimeSeek2", &"output", 0, &"WalkStaffBlend"]
 
 [sub_resource type="Curve" id="Curve_08u7w"]
 _limits = [0.0, 100.0, 0.0, 1.0]
@@ -312,6 +349,7 @@ visible = false
 visible = false
 
 [node name="Sword" parent="Controller/Model/Player/Armature/Skeleton3D/RightWeaponHand" instance=ExtResource("11_ms580")]
+transform = Transform3D(4.75776, 1.43196, 0.559689, -1.49435, 3.87911, 2.77839, 0.361491, -2.81105, 4.11914, 0.490332, 1.97684, -0.975855)
 visible = false
 
 [node name="Staff" parent="Controller/Model/Player/Armature/Skeleton3D/RightWeaponHand" instance=ExtResource("7_3vpsw")]
@@ -358,10 +396,16 @@ parameters/StaffTimeSeek2/seek_request = -1.0
 parameters/StateMachine/Dashing/blend_position = -1.0
 parameters/StateMachine/Dashing2/blend_position = Vector2(0, 0)
 parameters/StateMachine/Walking/blend_position = Vector2(0.000861287, -0.986486)
-parameters/Sword/blend_amount = -1.0
+parameters/Sword/blend_amount = 0.0
+parameters/Sword2/blend_amount = 0.0
+parameters/Sword2TimeSeek/seek_request = -1.0
+parameters/Sword2TimeSeek2/seek_request = -1.0
+parameters/SwordTimeSeek/seek_request = -1.0
+parameters/SwordTimeSeek2/seek_request = -1.0
 parameters/WalkMeleeBlend/blend_amount = 0.0
-parameters/WalkOrBowBlend/blend_amount = false
-parameters/WalkOrStaffBlend/blend_amount = false
+parameters/WalkOrBowBlend/blend_amount = 0.0
+parameters/WalkOrMeleeBlend/blend_amount = 0.0
+parameters/WalkOrStaffBlend/blend_amount = 0.0
 parameters/WalkStaffBlend/blend_amount = 0.0
 script = ExtResource("5_juxdh")
 
@@ -623,5 +667,6 @@ script = ExtResource("5_knrd4")
 [connection signal="area_exited" from="Controller/Area3D" to="." method="_on_area_3d_area_exited"]
 
 [editable path="Controller/Model/Player"]
+[editable path="Controller/Model/Player/Armature/Skeleton3D/RightWeaponHand/Sword"]
 [editable path="Controller/Model/Player/Armature/Skeleton3D/RightWeaponHand/Staff"]
 [editable path="Controller/Model/Player/Armature/Skeleton3D/LeftWeaponHand/Bow"]

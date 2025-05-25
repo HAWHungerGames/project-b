@@ -70,6 +70,11 @@ var shield_idle_position_back = Vector3(0.04, -0.07, -1.35)
 var shield_idle_rotation_back = Vector3(-19, -0.2, 28)
 var shield_idle_scale_back = Vector3(4, 4, 4)
 
+# ------- Attacking -------
+var sword_idle_position_attack = Vector3(0.5, 1.98, -0.98)
+var sword_idle_rotation_attack = Vector3(-34, 7.7, -21)
+var sword_idle_scale_attack = Vector3(5, 5, 5)
+
 var controller_input_device = false
 var weapon
 
@@ -78,12 +83,13 @@ var weapon
 @onready var animation_tree = $"../Player/AnimationTree"
 @onready var staff_animation_player = $"../Player/Armature/Skeleton3D/RightWeaponHand/Staff/AnimationPlayer"
 @onready var bow_animation_player = $"../Player/Armature/Skeleton3D/LeftWeaponHand/Bow/AnimationPlayer"
+@onready var sword_animation_player = $"../Player/Armature/Skeleton3D/RightWeaponHand/Sword/AnimationPlayer"
 @onready var player_controller = $"../.."
 
-@export var maxAttackCooldown: float = 1
-@export var maxInputCooldown: float = 0.2
+@export var max_attack_cooldown: float = 1
+@export var max_input_cooldown: float = 0.6
 @export var maxStaffInputCooldown: float = 0.7
-@export var maxResetComboStepCooldown: float = 1
+@export var max_reset_combo_step_cooldown: float = 1.2
 @export var manaCostPerAttack: int = 60
 @export var bow_cooldown: float = 1
 @export var bow_max_cooldown: float = 3
@@ -94,11 +100,11 @@ var weapon_name
 var reduction_speed
 var original_speed
 
-var finishedCombo = false
-var attackCooldown: float = 0
-var inputCooldown: float = 0
-var resetComboStepCooldown: float = 1
-var comboStep = 0
+var finished_combo = false
+var attack_cooldown: float = 0
+var input_cooldown: float = 0
+var reset_combo_step_cooldown: float = 1.2
+var combo_step = 0
 var holding_bow_attack = false
 var holding_bow_attack_timer: float = 0
 var isAttacking = false
@@ -155,7 +161,7 @@ func change_transform_of_weapon_back(child_node, new_position, new_rotation, new
 	child_node.rotation_degrees = new_rotation
 	child_node.scale = new_scale
 
-# Interacting
+# ----- Interacting -----
 func swapping_weapons():
 	if Input.is_action_just_pressed("weapon_swap") and !GameManager.get_is_attacking():
 		if GameManager.get_weapon_in_hand() == true and GameManager.get_weapon_on_back() == true:
@@ -411,19 +417,19 @@ func interacting_with_world():
 					hitObj.interact(owner)
 
 
-# Attacking
+# ----- Attacking -----
 func attacks(delta):
 	if GameManager.get_weapon_in_hand():
 		weapon_name = GameManager.get_first_weapon()
 		match weapon_name:
 			sword_name:
-				pass
+				sword_attack(delta)
 			staff_name:
 				staff_attack(delta)
 			bow_name:
 				bow_attack(delta)
 
-
+# ----- Staff Attack -----
 func staff_attack(delta):
 	staff_attack_animation()
 	calc_staff_timer(delta)
@@ -453,6 +459,7 @@ func calc_staff_timer(delta):
 		animation_tree.set("parameters/WalkStaffBlend/blend_amount", 0)
 		
 
+# ----- Bow Attack -----
 # Some Issues with spamming the Attack Button other than that it works
 func bow_attack(delta):
 	start_bow_attack_animation()
@@ -523,3 +530,84 @@ func walking_animation_after_bow_attack(delta):
 		bow_main.visible = true
 		bow_offhand.visible = false
 		finished_bow_attack = false
+
+# ----- Sword Attack -----
+func sword_attack1_animation():
+	if player_controller.velocity.length() > 0.2:
+		if Input.is_action_just_pressed("attack") and attack_cooldown <= 0 and combo_step == 0:
+			change_transform_of_weapon_main_hand(sword_main, sword_idle_position_attack, sword_idle_rotation_attack, sword_idle_scale_attack)
+			combo_step = 1
+			input_cooldown = max_input_cooldown
+			animation_tree.set("parameters/Sword2TimeSeek/seek_request", 0)
+			animation_tree.set("parameters/Sword2/blend_amount", 0)
+			animation_tree.set("parameters/WalkMeleeBlend/blend_amount", 1)
+			sword_animation_player.play("Attack1")
+	else:
+		if Input.is_action_just_pressed("attack") and attack_cooldown <= 0 and combo_step == 0:
+			change_transform_of_weapon_main_hand(sword_main, sword_idle_position_attack, sword_idle_rotation_attack, sword_idle_scale_attack)
+			combo_step = 1
+			input_cooldown = max_input_cooldown
+			animation_tree.set("parameters/SwordTimeSeek/seek_request", 0)
+			animation_tree.set("parameters/Sword/blend_amount", 0)
+			animation_tree.set("parameters/WalkOrMeleeBlend/blend_amount", 1)
+			sword_animation_player.play("Attack1")
+
+func play_attack2_animation():
+	if player_controller.velocity.length() > 0.2:
+		if input_cooldown <= 0 and combo_step == 1:
+			if sword_animation_player.current_animation == "Attack1" and Input.is_action_just_pressed("attack"):
+				sword_animation_player.stop()
+				sword_animation_player.play("Attack2")
+				animation_tree.set("parameters/Sword2TimeSeek2/seek_request", 0)
+				animation_tree.set("parameters/Sword2/blend_amount", 1)
+				animation_tree.set("parameters/WalkOrMeleeBlend/blend_amount", 0)
+				animation_tree.set("parameters/WalkMeleeBlend/blend_amount", 1)
+				finished_combo = true
+				combo_step = 0
+				reset_combo_step_cooldown = max_reset_combo_step_cooldown
+	else:
+		if input_cooldown <= 0 and combo_step == 1:
+			if sword_animation_player.current_animation == "Attack1" and Input.is_action_just_pressed("attack"):
+				sword_animation_player.stop()
+				sword_animation_player.play("Attack2")
+				animation_tree.set("parameters/SwordTimeSeek2/seek_request", 0)
+				animation_tree.set("parameters/Sword/blend_amount", 1)
+				animation_tree.set("parameters/WalkMeleeBlend/blend_amount", 0)
+				animation_tree.set("parameters/WalkOrMeleeBlend/blend_amount", 1)
+				finished_combo = true
+				combo_step = 0
+				reset_combo_step_cooldown = max_reset_combo_step_cooldown
+
+func calc_attack_cooldown(delta):
+	if finished_combo == true:
+		if attack_cooldown <= 0:
+			attack_cooldown = max_attack_cooldown
+		elif attack_cooldown > 0:
+			attack_cooldown = attack_cooldown - delta
+			if attack_cooldown <= 0:
+				finished_combo = false
+				animation_tree.set("parameters/WalkOrMeleeBlend/blend_amount", 0)
+				animation_tree.set("parameters/WalkMeleeBlend/blend_amount", 0)
+				change_transform_of_weapon_main_hand(sword_main, sword_idle_position, sword_idle_rotation, sword_idle_scale)
+
+func calc_input_cooldown(delta):
+	if input_cooldown >= 0:
+		input_cooldown = input_cooldown - delta
+
+func reset_combo_step(delta):
+	if combo_step == 1:
+		if reset_combo_step_cooldown > 0:
+			reset_combo_step_cooldown = reset_combo_step_cooldown - delta
+		elif reset_combo_step_cooldown <= 0:
+			combo_step = 0
+			reset_combo_step_cooldown = max_reset_combo_step_cooldown
+			animation_tree.set("parameters/WalkOrMeleeBlend/blend_amount", 0)
+			animation_tree.set("parameters/WalkMeleeBlend/blend_amount", 0)
+			change_transform_of_weapon_main_hand(sword_main, sword_idle_position, sword_idle_rotation, sword_idle_scale)
+
+func sword_attack(delta):
+	sword_attack1_animation()
+	calc_input_cooldown(delta)
+	play_attack2_animation()
+	reset_combo_step(delta)
+	calc_attack_cooldown(delta)

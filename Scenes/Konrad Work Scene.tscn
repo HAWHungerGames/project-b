@@ -3333,6 +3333,12 @@ manaPerSecond = 40.0
 
 [node name="AnimationTree" parent="WorldEnvironment/Player/Controller/Model/Player" index="2"]
 parameters/Sword/blend_amount = 1.0
+parameters/Sword2/blend_amount = 0
+parameters/Sword2TimeSeek/seek_request = -1.0
+parameters/Sword2TimeSeek2/seek_request = -1.0
+parameters/SwordTimeSeek/seek_request = -1.0
+parameters/SwordTimeSeek2/seek_request = -1.0
+parameters/WalkMeleeBlend/blend_amount = 0
 parameters/WalkOrStaffBlend/blend_amount = 0
 parameters/WalkStaffBlend/blend_amount = 0
 
@@ -3693,6 +3699,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6574, 1.75848, -27.7459)
 [editable path="WorldEnvironment/World/Nav Exclusion/TreeBundleWall/TreeBundleFour3"]
 [editable path="WorldEnvironment/Player"]
 [editable path="WorldEnvironment/Player/Controller/Model/Player"]
+[editable path="WorldEnvironment/Player/Controller/Model/Player/Armature/Skeleton3D/RightWeaponHand/Sword"]
 [editable path="WorldEnvironment/Player/Controller/Model/Player/Armature/Skeleton3D/RightWeaponHand/Staff"]
 [editable path="WorldEnvironment/Player/Controller/Model/Player/Armature/Skeleton3D/LeftWeaponHand/Bow"]
 [editable path="WorldEnvironment/CanvasLayer/PauseMenu"]
