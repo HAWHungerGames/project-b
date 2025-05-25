@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://cpyee7rfs1efb"]
+[gd_scene load_steps=97 format=3 uid="uid://cpyee7rfs1efb"]
 
 [ext_resource type="Script" uid="uid://bwrchpg0h1fcx" path="res://Scripts/Player/PlayerStats.gd" id="1_2nftw"]
 [ext_resource type="Script" uid="uid://birw8rdmwcq4v" path="res://Scripts/Player/PlayerController.gd" id="2_knrd4"]
@@ -132,6 +132,50 @@ blend_point_2/pos = Vector2(1, 0)
 blend_point_3/node = SubResource("AnimationNodeAnimation_and0b")
 blend_point_3/pos = Vector2(-1, 0)
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ygfkb"]
+animation = &"Dodge_Backwards"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l3blc"]
+animation = &"Dodge_Forward"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1q4fu"]
+animation = &"Dodge_Left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jxrwi"]
+animation = &"Dodge_Right"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_s2pui"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_ygfkb")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_l3blc")
+blend_point_1/pos = Vector2(0, -1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_1q4fu")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_jxrwi")
+blend_point_3/pos = Vector2(1, 0)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_acf7d"]
+animation = &"Dodge_Backwards"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0srn8"]
+animation = &"Dodge_Forward"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ba8jc"]
+animation = &"Dodge_Right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_131b1"]
+animation = &"Dodge_Left"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_qelst"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_acf7d")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_0srn8")
+blend_point_1/pos = Vector2(0, -1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_ba8jc")
+blend_point_2/pos = Vector2(1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_131b1")
+blend_point_3/pos = Vector2(-1, 0)
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2xbkd"]
 animation = &"Sneaking"
 
@@ -174,31 +218,50 @@ xfade_time = 0.2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_i3mxk"]
 xfade_time = 0.2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qvmbc"]
-xfade_time = 0.2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qjulh"]
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_evqxc"]
+xfade_time = 0.5
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6gc6r"]
+xfade_time = 0.2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_juxdh"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4qbli"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ob8dk"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_faewp"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_da5es"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_375py"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3rsih"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6qop4"]
+xfade_time = 0.2
+switch_mode = 2
+advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_qjulh"]
 states/Dashing/node = SubResource("AnimationNodeBlendSpace2D_kgmex")
 states/Dashing/position = Vector2(229, 301)
 states/Dashing2/node = SubResource("AnimationNodeBlendSpace2D_405c5")
 states/Dashing2/position = Vector2(454, 368)
+states/Dashing3/node = SubResource("AnimationNodeBlendSpace2D_s2pui")
+states/Dashing3/position = Vector2(639, 406)
+states/Dashing4/node = SubResource("AnimationNodeBlendSpace2D_qelst")
+states/Dashing4/position = Vector2(893, 350)
 states/Sneaking/node = SubResource("AnimationNodeAnimation_2xbkd")
 states/Sneaking/position = Vector2(677, 279)
 states/Start/position = Vector2(159, 100)
 states/Walking/node = SubResource("AnimationNodeBlendSpace2D_0fs2y")
 states/Walking/position = Vector2(379, 118)
-transitions = ["Walking", "Dashing", SubResource("AnimationNodeStateMachineTransition_wphcr"), "Dashing", "Walking", SubResource("AnimationNodeStateMachineTransition_and0b"), "Walking", "Sneaking", SubResource("AnimationNodeStateMachineTransition_405c5"), "Sneaking", "Walking", SubResource("AnimationNodeStateMachineTransition_i3mxk"), "Sneaking", "Dashing", SubResource("AnimationNodeStateMachineTransition_qvmbc"), "Sneaking", "Dashing2", SubResource("AnimationNodeStateMachineTransition_qjulh"), "Dashing2", "Walking", SubResource("AnimationNodeStateMachineTransition_evqxc"), "Walking", "Dashing2", SubResource("AnimationNodeStateMachineTransition_6gc6r"), "Dashing2", "Dashing", SubResource("AnimationNodeStateMachineTransition_juxdh"), "Dashing", "Dashing2", SubResource("AnimationNodeStateMachineTransition_4qbli")]
-graph_offset = Vector2(-120, 19)
+transitions = ["Walking", "Dashing", SubResource("AnimationNodeStateMachineTransition_wphcr"), "Dashing", "Walking", SubResource("AnimationNodeStateMachineTransition_and0b"), "Walking", "Sneaking", SubResource("AnimationNodeStateMachineTransition_405c5"), "Sneaking", "Walking", SubResource("AnimationNodeStateMachineTransition_i3mxk"), "Dashing2", "Walking", SubResource("AnimationNodeStateMachineTransition_evqxc"), "Walking", "Dashing2", SubResource("AnimationNodeStateMachineTransition_6gc6r"), "Dashing2", "Dashing", SubResource("AnimationNodeStateMachineTransition_juxdh"), "Dashing", "Dashing2", SubResource("AnimationNodeStateMachineTransition_4qbli"), "Sneaking", "Dashing3", SubResource("AnimationNodeStateMachineTransition_ob8dk"), "Dashing3", "Dashing4", SubResource("AnimationNodeStateMachineTransition_faewp"), "Dashing4", "Dashing3", SubResource("AnimationNodeStateMachineTransition_da5es"), "Dashing4", "Sneaking", SubResource("AnimationNodeStateMachineTransition_375py"), "Sneaking", "Dashing4", SubResource("AnimationNodeStateMachineTransition_3rsih"), "Dashing3", "Sneaking", SubResource("AnimationNodeStateMachineTransition_6qop4")]
+graph_offset = Vector2(-16, 22)
 
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_6gc6r"]
 
@@ -238,7 +301,7 @@ filter_enabled = true
 filters = ["Armature/Skeleton3D:Brust", "Armature/Skeleton3D:Hals", "Armature/Skeleton3D:Hand1.L", "Armature/Skeleton3D:Hand1.R", "Armature/Skeleton3D:Hand2.L", "Armature/Skeleton3D:Hand2.R", "Armature/Skeleton3D:Hand3.L", "Armature/Skeleton3D:Hand3.R", "Armature/Skeleton3D:Kopf", "Armature/Skeleton3D:Oberarm.L", "Armature/Skeleton3D:Oberarm.R", "Armature/Skeleton3D:Unterarm.L", "Armature/Skeleton3D:Unterarm.R"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_evqxc"]
-graph_offset = Vector2(328.207, 767.939)
+graph_offset = Vector2(-815.714, 116.93)
 nodes/Aim/node = SubResource("AnimationNodeAnimation_i3mxk")
 nodes/Aim/position = Vector2(-140, 1140)
 nodes/AimTimeSeek/node = SubResource("AnimationNodeTimeSeek_ms580")
@@ -365,6 +428,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.2
 
 [node name="FrontPointer" type="MeshInstance3D" parent="Controller/Model"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.519964, -0.60851)
+visible = false
 material_override = ExtResource("3_hck1p")
 mesh = SubResource("BoxMesh_r2bbj")
 skeleton = NodePath("../../..")
@@ -377,47 +441,8 @@ skeleton = NodePath("../..")
 [node name="Player" parent="Controller/Model" instance=ExtResource("4_hck1p")]
 transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 0, -1, 0)
 
-[node name="Skeleton3D" parent="Controller/Model/Player/Armature" index="0"]
-bones/0/position = Vector3(-3.44042e-08, 0.72478, 7.23238e-10)
-bones/0/rotation = Quaternion(0.217546, -4.44919e-06, 0.000165215, 0.97605)
-bones/1/rotation = Quaternion(0.0596026, 0.0898709, -0.0533771, 0.992734)
-bones/2/rotation = Quaternion(-0.219374, 1.16829e-07, -2.50908e-08, 0.975641)
-bones/3/rotation = Quaternion(-0.0954344, -3.49311e-09, -2.17713e-08, 0.995436)
-bones/4/position = Vector3(0.419945, 0.922861, -0.133212)
-bones/4/rotation = Quaternion(0.25523, 0.574782, -0.755758, 0.182516)
-bones/5/rotation = Quaternion(0.352238, 0.0132116, -0.0458766, 0.934692)
-bones/6/rotation = Quaternion(-3.42706e-05, 0.0657196, 0.136761, 0.988422)
-bones/7/rotation = Quaternion(0.338543, 0.0941094, -0.281858, 0.892798)
-bones/8/rotation = Quaternion(0.164687, 0.080068, -0.182136, 0.966071)
-bones/9/position = Vector3(-0.419945, 0.922861, -0.133212)
-bones/9/rotation = Quaternion(0.0613005, 0.109716, 0.941798, 0.311804)
-bones/10/rotation = Quaternion(0.441451, 0.0383851, -4.32585e-05, 0.896464)
-bones/11/rotation = Quaternion(0.0543096, -0.0411252, -0.176473, 0.981945)
-bones/12/rotation = Quaternion(0.418048, -0.0942105, 0.185352, 0.884311)
-bones/13/rotation = Quaternion(0.227632, -0.200009, 0.0544327, 0.951429)
-bones/14/rotation = Quaternion(0.573323, -0.399713, -0.557511, 0.448008)
-bones/15/rotation = Quaternion(0.0232748, 0.000190871, -0.336665, 0.941337)
-bones/16/rotation = Quaternion(0.707323, -0.0525989, 0.704928, -0.00183896)
-bones/17/rotation = Quaternion(0.0418866, -0.000161094, 0.60588, 0.794453)
-bones/18/position = Vector3(0.501452, -1.09859, 0.955674)
-bones/18/rotation = Quaternion(0.464162, -0.344448, -0.588496, 0.565315)
-bones/19/rotation = Quaternion(-0.0152258, -0.0856501, 0.22913, 0.969501)
-bones/20/rotation = Quaternion(-0.053832, -0.0610137, 0.196669, 0.977088)
-bones/21/position = Vector3(0.501452, -1.09859, 0.955674)
-bones/21/rotation = Quaternion(-0.504832, -0.495121, 0.495121, 0.504831)
-bones/22/position = Vector3(0.471372, -1.07404, 2.27099)
-bones/22/rotation = Quaternion(0.520863, -0.478228, -0.478228, 0.520863)
-bones/23/position = Vector3(-0.455662, 0.0186373, -1.61734)
-bones/23/rotation = Quaternion(0.713129, -0.0880701, 0.676172, 0.162732)
-bones/24/rotation = Quaternion(-0.0292013, 0.154879, -0.417622, 0.894847)
-bones/25/rotation = Quaternion(-0.0685923, 0.13758, -0.380986, 0.911711)
-bones/26/position = Vector3(-0.455662, 0.0186127, -1.61734)
-bones/26/rotation = Quaternion(-0.504832, 0.495121, -0.495121, 0.504831)
-bones/27/position = Vector3(-0.471372, -1.07404, 2.27099)
-bones/27/rotation = Quaternion(0.520863, 0.478228, 0.478228, 0.520863)
-
 [node name="RightWeaponHand" type="BoneAttachment3D" parent="Controller/Model/Player/Armature/Skeleton3D" index="1"]
-transform = Transform3D(-0.397987, 0.609981, 0.685223, 0.706659, -0.27247, 0.652988, 0.585013, 0.744099, -0.322608, -1.13232, 0.910498, 2.34636)
+transform = Transform3D(-0.165291, -0.879337, 0.446592, 0.932135, -0.287216, -0.220528, 0.322187, 0.379832, 0.867135, -2.84966, 1.51509, 0.564782)
 bone_name = "Hand2.R"
 bone_idx = 12
 
@@ -434,7 +459,7 @@ visible = false
 visible = false
 
 [node name="LeftWeaponHand" type="BoneAttachment3D" parent="Controller/Model/Player/Armature/Skeleton3D" index="2"]
-transform = Transform3D(-0.573328, -0.579208, -0.579494, 0.796258, -0.560542, -0.227519, -0.19305, -0.59187, 0.782574, 1.13738, 1.59983, -1.44334)
+transform = Transform3D(-0.165291, 0.879337, -0.446592, -0.932135, -0.287216, -0.220528, -0.322187, 0.379832, 0.867135, 2.84966, 1.51509, 0.564782)
 bone_name = "Hand2.L"
 bone_idx = 7
 
@@ -445,7 +470,7 @@ visible = false
 visible = false
 
 [node name="BackWeapon" type="BoneAttachment3D" parent="Controller/Model/Player/Armature/Skeleton3D" index="3"]
-transform = Transform3D(0.978167, 0.116378, 0.172176, -0.00745586, 0.847612, -0.530564, -0.207685, 0.517697, 0.829974, -0.000330539, 1.64701, 0.432594)
+transform = Transform3D(1, 0, 0, 0, 0.949272, -0.314457, 1.42109e-14, 0.314457, 0.949272, 3.55271e-15, 1, 0.194046)
 bone_name = "Brust"
 bone_idx = 1
 
@@ -472,9 +497,11 @@ parameters/OffhandBlockTimeSeek/seek_request = -1.0
 parameters/ShootTimeSeek/seek_request = -1.0
 parameters/StaffTimeSeek/seek_request = -1.0
 parameters/StaffTimeSeek2/seek_request = -1.0
-parameters/StateMachine/Dashing/blend_position = -1.0
-parameters/StateMachine/Dashing2/blend_position = Vector2(0, 0)
-parameters/StateMachine/Walking/blend_position = Vector2(0.000861287, -0.986486)
+parameters/StateMachine/Dashing/blend_position = Vector2(-0.000823021, -0.995918)
+parameters/StateMachine/Dashing2/blend_position = Vector2(0.000823021, -0.995918)
+parameters/StateMachine/Dashing3/blend_position = 1.0
+parameters/StateMachine/Dashing4/blend_position = 0.035404
+parameters/StateMachine/Walking/blend_position = Vector2(-0.00246912, -1.02857)
 parameters/Sword/blend_amount = 0.0
 parameters/Sword2/blend_amount = 0.0
 parameters/Sword2TimeSeek/seek_request = -1.0

@@ -1511,6 +1511,8 @@ transform = Transform3D(-0.165291, 0.879337, -0.446592, -0.932135, -0.287216, -0
 transform = Transform3D(1, 0, 0, 0, 0.949272, -0.314457, 1.42109e-14, 0.314457, 0.949272, 3.55271e-15, 1, 0.194046)
 
 [node name="AnimationTree" parent="WorldEnvironment/Player/Controller/Model/Player" index="2"]
+parameters/StateMachine/Dashing3/blend_position = Vector2(0, 0)
+parameters/StateMachine/Dashing4/blend_position = Vector2(0, 0)
 parameters/Sword/blend_amount = false
 parameters/WalkBlockBlend/blend_amount = 0
 parameters/WalkOffhandBlockBlend/blend_amount = 0
