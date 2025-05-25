@@ -15,7 +15,7 @@ extends CharacterBody3D
 
 @export_subgroup("Attack Stats")
 @export var attackDamage: int = 10
-@export var attackSpeed: float = 1/(1.58/2)
+@export var attackSpeed: float = 1/0.7917
 @export var attackDelay: float = -0.1
 @export var attackHeight: float = 1
 @export var attackWidth: float = 1
@@ -42,6 +42,7 @@ var isMoving: bool = false
 var isAttacking = false
 var player: Node3D
 var gotAttackedTime: float = 0
+var deathTimer: float = 10
 
 signal health_changed
 
@@ -53,22 +54,37 @@ func _ready():
 
 func _physics_process(delta):
 	apply_gravity(delta)
+	die(delta)
 	if gotAttackedTime > 0:
 		gotAttackedTime -= delta
-	if detect_player():
+	if detect_player() and deathTimer == 10:
 		rotateToPlayer()
 		attack(delta)
 		if !isAttacking and !isInAttackArea:
-			animationPlayer.speed_scale = 1
 			animationPlayer.play("Running")
 			move_towards_player(delta)
 		else:
 			velocity = Vector3(0, velocity.y, 0)
-	else:
-		animationPlayer.speed_scale = 1
+	elif deathTimer == 10:
 		animationPlayer.play("Idle")
 		velocity = Vector3(0, velocity.y, 0)
 	move_and_slide()
+
+func die(delta):
+	if deathTimer < 10:
+		deathTimer -= delta
+	if deathTimer >= 5 and deathTimer <= 9:
+		animationPlayer.stop()
+		animationPlayer.play("Die")
+		deathTimer = 1.5833
+	if deathTimer <= 1:
+		if boss_emitter != null:
+			GameManager.reset_child_to_root(self, boss_emitter)
+			boss_emitter.activate_particles_to_boss()
+		if death_spores != null:
+			GameManager.reset_child_to_root(self, death_spores)
+			death_spores.activate_death_particles()
+		queue_free()
 
 func move_towards_player(delta):
 	var direction = Vector3()
@@ -104,7 +120,7 @@ func detect_player():
 
 func detect_player_raycast():
 	var space_state = get_world_3d().direct_space_state
-	var origin = transform.origin
+	var origin = global_position
 	var end = player.get_child(0).global_transform.origin
 	var query = PhysicsRayQueryParameters3D.create(origin, end, 3, [self])
 
@@ -124,41 +140,31 @@ func rotateToPlayer():
 
 func takeDamage(damage: int):
 	health -= damage
-	health_changed.emit()
-	if health <= 0:
-		if boss_emitter != null:
-			GameManager.reset_child_to_root(self, boss_emitter)
-			boss_emitter.activate_particles_to_boss()
-		if death_spores != null:
-			GameManager.reset_child_to_root(self, death_spores)
-			death_spores.activate_death_particles()
-		queue_free()
+	if health <= 0 and deathTimer == 10:
+		deathTimer = 8
 	else:
 		gotAttackedTime = 3
-
-		
 
 func attack(delta):
 	if isInAttackArea:
 		isAttacking = true
 	if !isAttacking:
 		tempAttackDelay = attackDelay
-		attackCooldown = 1/attackSpeed
-	if isAttacking:
-		animationPlayer.speed_scale = 1
+		attackCooldown = (1/attackSpeed) + 5
+	if isAttacking and deathTimer == 10:
 		animationPlayer.play("Bump")
-		if tempAttackDelay > 0:
-			tempAttackDelay -= delta
-		else:
-			if attackCooldown > 0:
-				attackCooldown -= delta
-			else:
-				attackCooldown = 1/attackSpeed
-				isAttacking = false
-				if isInAttackArea:
-					particles.restart()
-					particles.emitting = true
-					player.takeDamage(attackDamage, self, true, 0)
+		if attackCooldown > 0:
+			attackCooldown -= delta
+		if attackCooldown <= 5.42 and attackCooldown > 5:
+			if isInAttackArea:
+				particles.restart()
+				particles.emitting = true
+				player.takeDamage(attackDamage, self, true, 0)
+				attackCooldown -= 5
+		elif attackCooldown <= 0:
+			attackCooldown = (1/attackSpeed) + 5
+			print(attackCooldown)
+			isAttacking = false
 
 func apply_gravity(delta):
 	velocity.y += -gravity * delta

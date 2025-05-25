@@ -71,7 +71,8 @@ hue_variation_curve = SubResource("CurveTexture_52x3p")
 [sub_resource type="BoxShape3D" id="BoxShape3D_xuh6v"]
 size = Vector3(0.272949, 0.581909, 0.394104)
 
-[node name="ExplosionEnemy" type="CharacterBody3D" groups=["Enemy", "enemy"]]
+[node name="DONOTPLACEINWORLD" type="CharacterBody3D" groups=["Enemy", "enemy"]]
+top_level = true
 script = ExtResource("1_cx1pd")
 health = 100
 
