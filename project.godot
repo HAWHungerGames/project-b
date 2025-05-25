@@ -23,6 +23,7 @@ GlobalPlayer="*res://Scripts/Player/GlobalPlayer.gd"
 PlayerActionTracker="*res://Scripts/Player/PlayerActionTracker.gd"
 SceneManager="*res://Scripts/scene_manager.gd"
 UiManager="*res://Scripts/UI/ui_manager.gd"
+AnimationCullingManager="*res://Scripts/animation_culling_manager.gd"
 
 [display]
 
@@ -45,6 +46,7 @@ GameManager="*res://Scenes/game_manager.tscn"
 enemy=""
 TargetDummy=""
 Weapon=""
+animated_objects="for managing all animations in frustum distance"
 
 [input]
 

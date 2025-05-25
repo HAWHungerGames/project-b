@@ -3569,6 +3569,9 @@ parameters/WalkStaffBlend/blend_amount = 0
 [node name="DebugUI" parent="WorldEnvironment/Player" index="1"]
 visible = false
 
+[node name="Camera" parent="WorldEnvironment/Player" index="2"]
+far = 43.03
+
 [node name="CanvasLayer" type="CanvasLayer" parent="WorldEnvironment"]
 
 [node name="FullUI" type="MarginContainer" parent="WorldEnvironment/CanvasLayer"]
