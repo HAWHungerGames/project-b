@@ -10,7 +10,7 @@ extends Control
 @onready var button_right = $MarginContainer/controlsMenuContainer/MarginContainer/titles/HBoxContainer/buttonRight
 @onready var back = $MarginContainer/controlsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsBack
 
-@onready var pause_menu = $"../../pauseMenu"
+@onready var current_menu = get_node_or_null("../../pauseMenu")
 
 const CONTROLLER_CONTROLS: Dictionary = {
 	"PS5_en_EN": "res://UI/Menus/Controller/PS5_en_EN.png",
@@ -26,7 +26,8 @@ var control_buttons = false
 
 func _ready() -> void:
 	UiManager.lang_change.connect(update_controller_controls)
-
+	if current_menu == null:
+		current_menu = get_parent()
 func _input(event: InputEvent) -> void:
 	if !visible:
 		return
@@ -90,7 +91,7 @@ func reveal_controller() -> void:
 	keyboard_text.visible = false
 
 func _on_back_mouse_entered() -> void:
-	pause_menu.toggle_button_selects(back, true)
+	current_menu.toggle_button_selects(back, true)
 
 func _on_back_mouse_exited() -> void:
-	pause_menu.toggle_button_selects(back, false)
+	current_menu.toggle_button_selects(back, false)

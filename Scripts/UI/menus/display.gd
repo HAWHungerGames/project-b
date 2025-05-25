@@ -6,7 +6,7 @@ extends Control
 
 @onready var back = $displayMenuContainer/menuMargin/NinePatchRect/buttonMargin/buttons/buttonsBack
 
-@onready var pause_menu = $"../../pauseMenu"
+@onready var current_menu = get_node_or_null("../../pauseMenu")
 
 const RESOLUTION_DICTIONARY : Dictionary = {
 	"2560 × 1440": Vector2(2560, 1440),
@@ -25,6 +25,8 @@ const WINDOW_MODE_ARRAY : Array[String] = [
 func _ready():
 	get_initial_settings()
 	apply_resolution_scaling()
+	if current_menu == null:
+		current_menu = get_parent()
 	#call_deferred("apply_manual_scaling")
 
 func _input(event: InputEvent) -> void:
@@ -100,10 +102,10 @@ func _on_language_item_selected(index: int) -> void:
 	UiManager.update_lang(UiManager.LANGUAGES.keys()[index])
 
 func _on_back_mouse_entered() -> void:
-	pause_menu.toggle_button_selects(back, true)
+	current_menu.toggle_button_selects(back, true)
 
 func _on_back_mouse_exited() -> void:
-	pause_menu.toggle_button_selects(back, false)
+	current_menu.toggle_button_selects(back, false)
 
 func apply_resolution_scaling():
 	var screen_size = DisplayServer.screen_get_size()

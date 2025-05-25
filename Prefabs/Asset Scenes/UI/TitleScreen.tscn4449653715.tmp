@@ -89,6 +89,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="titleBackground" type="TextureRect" parent="main_menu"]
+modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 2
 texture = ExtResource("3_yq6uq")
@@ -260,12 +261,11 @@ bus = &"Music"
 
 [connection signal="finished" from="AspectRatioContainer/VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
 [connection signal="timeout" from="AspectRatioContainer/VideoStreamPlayer/Timer" to="." method="_on_timer_timeout"]
-[connection signal="mouse_entered" from="main_menu/MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/buttonsStart/start" to="." method="_on_start_hover_enter"]
-[connection signal="mouse_exited" from="main_menu/MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/buttonsStart/start" to="." method="_on_start_hover_exit"]
+[connection signal="mouse_entered" from="main_menu/MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/buttonsStart/start" to="." method="_on_hover_start_enter"]
+[connection signal="mouse_exited" from="main_menu/MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/buttonsStart/start" to="." method="_on_hover_start_exit"]
 [connection signal="pressed" from="main_menu/MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/buttonsStart/start" to="." method="_on_button_pressed"]
-[connection signal="mouse_entered" from="main_menu/MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/buttonsOptions/options" to="." method="_on_options_hover_enter"]
-[connection signal="mouse_exited" from="main_menu/MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/buttonsOptions/options" to="." method="_on_options_hover_exit"]
-[connection signal="pressed" from="main_menu/MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/buttonsOptions/options" to="." method="_on_options_pressed"]
-[connection signal="mouse_entered" from="main_menu/MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/buttonsExit/exit" to="." method="_on_exit_hover_enter"]
-[connection signal="mouse_exited" from="main_menu/MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/buttonsExit/exit" to="." method="_on_exit_hover_exit"]
+[connection signal="mouse_entered" from="main_menu/MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/buttonsOptions/options" to="." method="_on_hover_options_enter"]
+[connection signal="mouse_exited" from="main_menu/MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/buttonsOptions/options" to="." method="_on_hover_options_exit"]
+[connection signal="mouse_entered" from="main_menu/MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/buttonsExit/exit" to="." method="_on_hover_exit_enter"]
+[connection signal="mouse_exited" from="main_menu/MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/buttonsExit/exit" to="." method="_on_hover_exit_exit"]
 [connection signal="pressed" from="main_menu/MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/buttonsExit/exit" to="." method="_on_button_3_pressed"]
