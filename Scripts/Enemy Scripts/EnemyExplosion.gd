@@ -92,7 +92,7 @@ func move_towards_player(delta):
 	velocity = velocity.lerp(direction * speed, acceleration * delta)
 
 func rotateToPlayer():
-	var angleVector = player.get_child(0).global_transform.origin - global_transform.origin
+	var angleVector = player.get_child(0).global_position - global_position
 	var angle = atan2(angleVector.x, angleVector.z)
 	rotation.y = angle - PI/2
 

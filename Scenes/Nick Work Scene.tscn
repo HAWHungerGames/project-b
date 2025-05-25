@@ -205,13 +205,11 @@ hearingRange = 20.0
 
 [node name="SporeEnemy" parent="." instance=ExtResource("6_r2bbj")]
 transform = Transform3D(-0.721241, 0, 0.692685, 0, 1, 0, -0.692685, 0, -0.721241, 16.3382, 2.79195, -11.8325)
-hearingRange = 20.0
 visionRange = 50.0
 
 [node name="MeleeEnemy" parent="." instance=ExtResource("7_k711p")]
 transform = Transform3D(-0.999998, 0, 0.00209435, 0, 1, 0, -0.00209435, 0, -0.999998, -26.7369, 3.54163, 46.8299)
 hearingRange = 30.0
-visionRange = 30.0
 
 [node name="BossEnemy" parent="." node_paths=PackedStringArray("movePoints") instance=ExtResource("8_pbfqo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.3987, 3.38342, -8.85181)

@@ -328,6 +328,13 @@ process_material = SubResource("ParticleProcessMaterial_6mfum")
 draw_pass_1 = SubResource("QuadMesh_nsjrd")
 script = ExtResource("6_hymqt")
 
+[node name="DamageNumbersPosition" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.906926, 0)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.620592, 0)
+shape = SubResource("CapsuleShape3D_k711p")
+
 [connection signal="area_entered" from="HearingArea" to="." method="_on_hearing_area_entered"]
 [connection signal="area_exited" from="HearingArea" to="." method="_on_hearing_area_exited"]
 [connection signal="area_entered" from="VisionArea" to="." method="_on_vision_area_entered"]

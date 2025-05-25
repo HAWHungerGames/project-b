@@ -153,6 +153,13 @@ draw_pass_1 = SubResource("QuadMesh_3kmyd")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.461661, 0)
 shape = SubResource("BoxShape3D_xuh6v")
 
+[node name="DamageNumbersPosition" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1007, 0)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.521917, 0)
+shape = SubResource("CapsuleShape3D_k711p")
+
 [connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_entered"]
 [connection signal="area_entered" from="DamageArea" to="." method="_on_damage_area_entered"]
 [connection signal="area_exited" from="DamageArea" to="." method="_on_damage_area_exited"]

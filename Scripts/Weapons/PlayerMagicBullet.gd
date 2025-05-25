@@ -1,7 +1,7 @@
 extends Node3D
 
 @export var speed = 10.0
-@export var dmg = 40
+@export var dmg = 50
 @export var lifetime = 5
 
 #@onready var mesh = $MeshInstance3D
@@ -25,6 +25,8 @@ func moving(delta):
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("enemy"):
 		body.takeDamage(dmg)
+		var dmg_position = body.get_node_or_null("DamageNumbersPosition")
+		DamageNumbers.display_number(dmg, dmg_position.global_position)
 		queue_free()
 		#print("hit")
 	elif body.is_in_group("TargetDummy"):
