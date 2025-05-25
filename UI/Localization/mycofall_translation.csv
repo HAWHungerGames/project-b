@@ -2,7 +2,7 @@ keys,en,de
 BUTTON_START,START GAME,SPIEL STARTEN
 BUTTON_OPTIONS,OPTIONS,OPTIONEN
 BUTTON_EXIT_GAME,EXIT GAME,SPIEL VERLASSEN
-BUTTON_EXIT_TO_MENU,EXIT TO MAIN MENU,ZURCK ZUM HAUPTMENÜ
+BUTTON_EXIT_TO_MENU,MAIN MENU,HAUPTMENÜ
 BUTTON_DISPLAY,DISPLAY,ANZEIGE
 BUTTON_CONTROLS,CONTROLS,STEUERUNG
 BUTTON_BACK,BACK,ZURÜCK
@@ -19,19 +19,19 @@ SETTING_WINDOWED,WINDOW,FENSTER
 SETTING_BORDERLESS_WINDOW,BORDERLESS WINDOW,RAHMENLOSES FENSTER
 SETTING_LANGUAGE_ENGLISH,ENGLISH,ENGLISCH
 SETTING_LANGUAGE_GERMAN,GERMAN,DEUTSCH
+SETTING_LANGUAGE_ENGLISH_US,ENGLISH (US),ENGLISCH (US)
+SETTING_LANGUAGE_ENGLISH_GB,ENGLISH (GB),ENGLISCH (GB)
+SETTING_LANGUAGE_ENGLISH_AU,ENGLISH (AU),ENGLISCH (AU)
 ,,
 ,,
 ,,
+,,
+,,
+,,
+,,
+SETTING_CONNECT_CONTROLLER,CONNECT YOUR CONTROLLER TO VIEW THE CONTROLS...,"SCHLIEßE DEINEN CONTROLLER AN, UM DIE STEUERUNG ZU SEHEN..."
 CONTROLS_MOVE,MOVE,BEWEGEN
 CONTROLS_LOOK,TURN,DREHEN
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
 KEY_FORWARD,MOVE FORWARD,NACH VORNE
 KEY_BACKWARD,MOVE BACKWARD,NACH HINTEN
 KEY_LEFT,MOVE LEFT,NACH LINKS
@@ -48,3 +48,25 @@ KEY_SWAP_WEAPON,SWAP WEAPON,WAFFE WECHSELN
 KEY_PAUSE,PAUSE,PAUSE
 KEY_INTERACT,INTERACT,INTERAGIEREN
 KEY_LOCK_DIRECTION,LOCK DIRECTION,RICHTUNG FIXIEREN
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+INTERACT_TOOLTIP_START,EMPTY,EMPTY
+INTERACT_TOOLTIP_ENEMY_UNBLOCKABLE,"Heavy Attacks:
+
+Some enemies have heavy attacks. Here it is better to dodge the attack rather than blocking it, because you will receive the full damage!","Schwere Angriffe:
+
+Einige Gegner haben schwere Angriffe. Hier ist es besser, dem Angriff auszuweichen, anstatt ihn zu blocken, da du dann den vollen Schaden erhältst!"
+INTERACT_TOOLTIP_WEAPONS,"Greetings traveler!
+
+These are the weapons at your disposal. You may take two but you must take one! These weapons posses different attacks and you can block with every one of them but beware of incoming damage, a shield absorbs it best! 
+
+Good luck!","Seid gegrüßt, Reisender!
+
+Dies sind die Waffen, die dir zur Verfügung stehen. Du darfst zwei nehmen, aber du musst eine nehmen! Diese Waffen besitzen unterschiedliche Angriffe und du kannst mit jeder von ihnen blocken, aber hüte dich vor eintreffendem Schaden, ein Schild absorbiert ihn am besten! 
+
+Viel Glück!"

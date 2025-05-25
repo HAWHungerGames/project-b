@@ -89,10 +89,15 @@ func dash_ability(delta):
 
 func block():
 	if Input.is_action_just_pressed("block"):
-		if check_for_equipped_shield():
-			player.isBlocking = true
+		#if check_for_equipped_shield():
+		print("blocking")
+		player.isBlocking = true
+		GameManager.set_is_blocking(true)
 	if Input.is_action_just_released("block"):
+		print("not blocking")
 		player.isBlocking = false
+		GameManager.set_is_blocking(false)
+		
 
 func check_for_equipped_shield():
 	return true
@@ -126,10 +131,19 @@ func rotate_based_on_second_input():
 			temprotation = atan2(-look_input.x, -look_input.y)
 	else:
 		var mousePosition = get_viewport().get_mouse_position()
-		var screenSize = get_viewport().get_visible_rect().size
-		var screenCenter = Vector2(screenSize.x/2,screenSize.y/2 - 20)
-		var normalizedRelativeMousePosition = Vector2(mousePosition.x - screenCenter.x, mousePosition.y - screenCenter.y).normalized()
-		temprotation = atan2(normalizedRelativeMousePosition.x, normalizedRelativeMousePosition.y) + PI
+		var mouse_world_position = GameManager.get_mouse_ground_position_fixed(self)
+		#var screenSize = get_viewport().get_visible_rect().size
+		#var screenCenter = Vector2(screenSize.x/2,screenSize.y/2 - 20)
+		#var normalizedRelativeMousePosition = Vector2(mousePosition.x - screenCenter.x, mousePosition.y - screenCenter.y).normalized()
+		#temprotation = atan2(normalizedRelativeMousePosition.x, normalizedRelativeMousePosition.y) + PI
+		var direction = (mouse_world_position - global_position)
+		direction.y = 0  # Y-Komponente ignorieren
+		direction = -direction.normalized()
+	
+		if direction.length() > 0:
+			# Direkte Rotation um Y-Achse
+			var angle = atan2(direction.x, direction.z)
+			temprotation = angle
 	if !lock:
 		playerShape.rotation.y = temprotation
 

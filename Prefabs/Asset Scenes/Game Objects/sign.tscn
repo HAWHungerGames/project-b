@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7pa2hcc7huv0"]
+[gd_scene load_steps=5 format=3 uid="uid://b7pa2hcc7huv0"]
 
 [ext_resource type="PackedScene" uid="uid://or8h6kpvob3b" path="res://Models/Objects/Sign.blend" id="1_0sttg"]
+[ext_resource type="Script" uid="uid://q4ienxxfpd6v" path="res://Scripts/UI/sign.gd" id="1_wkh62"]
+[ext_resource type="AudioStream" uid="uid://dg30u3n0a7tv0" path="res://Assets/Sound/mixkit-sweet-kitty-meow-93.wav" id="3_xu058"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wkh62"]
 size = Vector3(1.90332, 2.15332, 0.366211)
 
 [node name="Sign" type="StaticBody3D"]
+script = ExtResource("1_wkh62")
 
 [node name="Sign2" parent="." instance=ExtResource("1_0sttg")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
@@ -13,3 +16,8 @@ transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01521, -0.0268073)
 shape = SubResource("BoxShape3D_wkh62")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_xu058")
+
+[connection signal="interacted" from="." to="." method="_on_interacted"]

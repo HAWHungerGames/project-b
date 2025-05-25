@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://drdm7buu34xes"]
+
+[ext_resource type="FontFile" uid="uid://4l406r67702d" path="res://UI/Fonts/DidactGothic-Regular.ttf" id="1_ii2lu"]
+[ext_resource type="Texture2D" uid="uid://c8nie3evhfoii" path="res://UI/Interactables/textInteractTop.png" id="2_3au6y"]
+[ext_resource type="Texture2D" uid="uid://cl1gg2xceo3q7" path="res://UI/Interactables/textInteractBottom.png" id="3_8o8a3"]
+
+[node name="Text" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="displayMargin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 150
+
+[node name="text" type="TextEdit" parent="displayMargin"]
+custom_minimum_size = Vector2(1200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("1_ii2lu")
+theme_override_font_sizes/font_size = 25
+wrap_mode = 1
+scroll_fit_content_height = true
+
+[node name="topTexture" type="MarginContainer" parent="displayMargin"]
+layout_mode = 2
+theme_override_constants/margin_top = -290
+
+[node name="TextureRect" type="TextureRect" parent="displayMargin/topTexture"]
+custom_minimum_size = Vector2(720, 480)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("2_3au6y")
+expand_mode = 1
+
+[node name="bottomTexture" type="MarginContainer" parent="displayMargin"]
+layout_mode = 2
+theme_override_constants/margin_top = 70
+
+[node name="TextureRect" type="TextureRect" parent="displayMargin/bottomTexture"]
+custom_minimum_size = Vector2(480, 320)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("3_8o8a3")
+expand_mode = 1
+
+[node name="timer" type="Timer" parent="."]
+process_mode = 3
+wait_time = 0.01
+one_shot = true

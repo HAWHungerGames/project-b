@@ -111,6 +111,15 @@
 [ext_resource type="AudioStream" uid="uid://4w1umfo3fwsr" path="res://Assets/Sound/Music/Background (OutOfBattle).wav" id="79_tumgl"]
 [ext_resource type="AudioStream" uid="uid://dt4qfdh0xbfbx" path="res://Assets/Sound/Music/BattleMusic.wav" id="80_24wiy"]
 [ext_resource type="AudioStream" uid="uid://c772vjw0wtmyn" path="res://Assets/Sound/Music/BossFight.wav" id="80_snyj6"]
+[ext_resource type="PackedScene" uid="uid://drdm7buu34xes" path="res://Prefabs/Asset Scenes/UI/text.tscn" id="84_4qm2b"]
+[ext_resource type="Texture2D" uid="uid://dpawmxsv4htrg" path="res://UI/Stats/StaminaLoadingAttackMiddle.png" id="97_n5ej2"]
+[ext_resource type="Texture2D" uid="uid://csiv2pnap5l2c" path="res://UI/Stats/StaminaLoadingAttack.png" id="100_6ctfl"]
+[ext_resource type="Script" uid="uid://binsywba0e010" path="res://Scenes/boss_health.gd" id="108_24wiy"]
+[ext_resource type="Texture2D" uid="uid://cn00nn06sxjus" path="res://UI/Stats/BossHealthbar.png" id="108_tumgl"]
+[ext_resource type="Texture2D" uid="uid://6latdbcv0h2a" path="res://UI/Stats/BossHealthbarUnderneath.png" id="109_snyj6"]
+[ext_resource type="Texture2D" uid="uid://dolcijtgdehqs" path="res://UI/Stats/BossHealthbarFrame.png" id="110_24wiy"]
+[ext_resource type="Texture2D" uid="uid://d0xa3l4brovcr" path="res://UI/Stats/BossHealthbarDamage.png" id="111_0l7n2"]
+[ext_resource type="Texture2D" uid="uid://bg74iei8b148" path="res://UI/Stats/BossHealthbarMycelium.png" id="112_snyj6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lfy4s"]
 sky_top_color = Color(0.102228, 0.307553, 0.295863, 1)
@@ -215,7 +224,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.41
 [node name="training_dummy3" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Tutorial Room/GameObjects" instance=ExtResource("2_24xrm")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.6793, 0.522169, -18.9932)
 
-[node name="Sign" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Tutorial Room/GameObjects" instance=ExtResource("49_lfy4s")]
+[node name="Sign_weapons" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Tutorial Room/GameObjects" instance=ExtResource("49_lfy4s")]
 transform = Transform3D(0.683032, 0, 0.730389, 0, 1, 0, -0.730389, 0, 0.683032, -6.85491, 0.500962, -9.82267)
 
 [node name="Sign2" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Tutorial Room/GameObjects" instance=ExtResource("49_lfy4s")]
@@ -3595,6 +3604,9 @@ parameters/WalkMeleeBlend/blend_amount = 0
 parameters/WalkOrStaffBlend/blend_amount = 0
 parameters/WalkStaffBlend/blend_amount = 0
 
+[node name="DebugUI" parent="WorldEnvironment/Player" index="1"]
+visible = false
+
 [node name="CanvasLayer" type="CanvasLayer" parent="WorldEnvironment"]
 
 [node name="FullUI" type="MarginContainer" parent="WorldEnvironment/CanvasLayer"]
@@ -3603,6 +3615,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="textField" parent="WorldEnvironment/CanvasLayer/FullUI" instance=ExtResource("84_4qm2b")]
+visible = false
+layout_mode = 2
+
+[node name="timer" parent="WorldEnvironment/CanvasLayer/FullUI/textField" index="1"]
+autostart = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="WorldEnvironment/CanvasLayer/FullUI"]
 layout_mode = 2
@@ -3749,17 +3768,19 @@ alignment_horizontal = 0
 alignment_vertical = 0
 
 [node name="healthBar" type="TextureProgressBar" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/health"]
-z_index = 1
 material = SubResource("ShaderMaterial_qsm0h")
 custom_minimum_size = Vector2(380, 1)
 layout_mode = 2
+step = 0.1
 value = 64.0
 nine_patch_stretch = true
 texture_progress = SubResource("CompressedTexture2D_i63v0")
 
 [node name="damageBar" type="TextureProgressBar" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/health"]
+z_index = -1
 custom_minimum_size = Vector2(380, 100)
 layout_mode = 2
+step = 0.1
 value = 74.0
 nine_patch_stretch = true
 texture_under = ExtResource("10_65wlj")
@@ -3781,39 +3802,60 @@ alignment_vertical = 0
 [node name="staminaBarMiddle" type="TextureProgressBar" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina"]
 process_mode = 4
 visible = false
-z_index = 1
 custom_minimum_size = Vector2(380, 216)
 layout_mode = 2
+step = 0.1
 value = 66.0
 nine_patch_stretch = true
-texture_over = ExtResource("18_ga1i8")
 texture_progress = ExtResource("19_2xhpb")
 
-[node name="staminaBar" type="TextureProgressBar" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina"]
-z_index = 1
+[node name="attackLoadingMiddle" type="TextureProgressBar" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina"]
+process_mode = 4
+visible = false
 custom_minimum_size = Vector2(380, 216)
 layout_mode = 2
+step = 0.01
+nine_patch_stretch = true
+texture_over = ExtResource("18_ga1i8")
+texture_progress = ExtResource("97_n5ej2")
+
+[node name="staminaBar" type="TextureProgressBar" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina"]
+custom_minimum_size = Vector2(380, 216)
+layout_mode = 2
+step = 0.1
 value = 66.0
 nine_patch_stretch = true
-texture_over = ExtResource("13_8rmxw")
 texture_progress = ExtResource("14_jp8xc")
 
-[node name="damageBar" type="TextureProgressBar" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina"]
+[node name="attackLoading" type="TextureProgressBar" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina"]
 custom_minimum_size = Vector2(380, 216)
 layout_mode = 2
+step = 0.01
+nine_patch_stretch = true
+texture_progress = ExtResource("100_6ctfl")
+
+[node name="damageBar" type="TextureProgressBar" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina"]
+z_index = -1
+custom_minimum_size = Vector2(380, 216)
+layout_mode = 2
+step = 0.1
 value = 66.0
 nine_patch_stretch = true
 texture_under = ExtResource("15_5oe8d")
+texture_over = ExtResource("13_8rmxw")
 texture_progress = ExtResource("16_qsm0h")
 
 [node name="damageBarMiddle" type="TextureProgressBar" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina"]
 process_mode = 4
 visible = false
+z_index = -1
 custom_minimum_size = Vector2(380, 216)
 layout_mode = 2
+step = 0.1
 value = 66.0
 nine_patch_stretch = true
 texture_under = ExtResource("20_3f6q6")
+texture_over = ExtResource("18_ga1i8")
 texture_progress = ExtResource("21_2uoa5")
 
 [node name="timer" type="Timer" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina"]
@@ -3829,21 +3871,23 @@ alignment_horizontal = 0
 alignment_vertical = 0
 
 [node name="manaBar" type="TextureProgressBar" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/mana"]
-z_index = 1
 texture_filter = 6
 texture_repeat = 2
 custom_minimum_size = Vector2(380, 216)
 layout_mode = 2
+step = 0.1
 value = 66.0
 nine_patch_stretch = true
 texture_over = ExtResource("13_8rmxw")
 texture_progress = ExtResource("23_e0tq6")
 
 [node name="damageBar" type="TextureProgressBar" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/mana"]
+z_index = -1
 texture_filter = 6
 texture_repeat = 2
 custom_minimum_size = Vector2(380, 216)
 layout_mode = 2
+step = 0.1
 value = 66.0
 nine_patch_stretch = true
 texture_under = ExtResource("15_5oe8d")
@@ -3871,13 +3915,56 @@ material = SubResource("ShaderMaterial_ga1i8")
 layout_mode = 2
 texture = ExtResource("28_vkbj3")
 
+[node name="bossHealthMargin" type="MarginContainer" parent="WorldEnvironment/CanvasLayer/FullUI"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/margin_bottom = -250
+script = ExtResource("108_24wiy")
+
+[node name="health" type="AspectRatioContainer" parent="WorldEnvironment/CanvasLayer/FullUI/bossHealthMargin"]
+custom_minimum_size = Vector2(384, 216)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+alignment_horizontal = 0
+alignment_vertical = 0
+
+[node name="healthBar" type="TextureProgressBar" parent="WorldEnvironment/CanvasLayer/FullUI/bossHealthMargin/health"]
+material = SubResource("ShaderMaterial_qsm0h")
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 2
+size_flags_vertical = 0
+value = 64.0
+nine_patch_stretch = true
+texture_progress = ExtResource("108_tumgl")
+
+[node name="damageBar" type="TextureProgressBar" parent="WorldEnvironment/CanvasLayer/FullUI/bossHealthMargin/health"]
+z_index = -1
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 2
+value = 74.0
+nine_patch_stretch = true
+texture_under = ExtResource("109_snyj6")
+texture_over = ExtResource("110_24wiy")
+texture_progress = ExtResource("111_0l7n2")
+
+[node name="MarginContainer" type="MarginContainer" parent="WorldEnvironment/CanvasLayer/FullUI/bossHealthMargin"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="WorldEnvironment/CanvasLayer/FullUI/bossHealthMargin/MarginContainer"]
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("112_snyj6")
+expand_mode = 1
+flip_v = true
+
 [node name="PauseMenu" parent="WorldEnvironment/CanvasLayer" instance=ExtResource("45_ccm0r")]
 
 [node name="blendScreen" parent="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu" index="0"]
 z_index = 0
-
-[node name="Controller" parent="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu/Controls/MarginContainer/controlsMenuContainer/MarginContainer" index="1"]
-visible = true
 
 [node name="Wall Selection" type="Node3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102.315, 0, -83.6677)
@@ -3959,6 +4046,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6574, 1.75848, -27.7459)
 [editable path="WorldEnvironment/Player/Controller/Model/Player/Armature/Skeleton3D/RightWeaponHand/Sword"]
 [editable path="WorldEnvironment/Player/Controller/Model/Player/Armature/Skeleton3D/RightWeaponHand/Staff"]
 [editable path="WorldEnvironment/Player/Controller/Model/Player/Armature/Skeleton3D/LeftWeaponHand/Bow"]
+[editable path="WorldEnvironment/CanvasLayer/FullUI/textField"]
 [editable path="WorldEnvironment/CanvasLayer/PauseMenu"]
 [editable path="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu/Options"]
 [editable path="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu/Display"]

@@ -13,8 +13,13 @@ extends VBoxContainer
 @onready var stamina_timer = $stamina/timer
 @onready var stamina_damage_bar = $stamina/damageBar
 @onready var stamina_damage_bar_middle = $stamina/damageBarMiddle
+@onready var attack_loading_bar = $stamina/attackLoading
+@onready var attack_loading_bar_middle = $stamina/attackLoadingMiddle
 
 @onready var mana_container = $mana
+
+@onready var yellow_color = stamina_bar_bottom.modulate
+var orange_color = Color(0.898, 0.329, 0.133, 1.0)
 
 func _ready() -> void:
 	print(player)
@@ -22,17 +27,39 @@ func _ready() -> void:
 	player.staminaChanged.connect(update_stamina)
 	player.manaChanged.connect(update_mana)
 	GameManager.weapons_changed.connect(update_bars)
+	GameManager.attack_loading_updated.connect(update_attack_loading)
 	init_bars()
 
-func update_health():
+func update_health() -> void:
 	update_value(health_bar, health_damage_bar, player.health, player.maxHealth)
-func update_stamina():
+	
+func update_stamina() -> void:
 	update_value(stamina_bar_middle, stamina_damage_bar_middle, player.stamina, player.maxStamina)
 	update_value(stamina_bar_bottom, stamina_damage_bar, player.stamina, player.maxStamina)
-func update_mana():
+
+func update_attack_loading() -> void:
+	update_value_attack_loading(stamina_bar_middle, attack_loading_bar, GameManager.get_attack_loading_value(), player.maxStamina, 3)
+	update_value_attack_loading(stamina_bar_bottom, attack_loading_bar_middle, GameManager.get_attack_loading_value(), player.maxStamina, 3)
+
+func update_value_attack_loading(bar, extra_bar, current_val, max_val_bar, max_val_extra_bar) -> void:
+	if current_val == null:
+		return
+	var normalized_value = clamp(current_val / max_val_extra_bar, 0.0, 1.0)
+	if current_val == 0:
+		var tween = get_tree().create_tween()
+		tween.set_parallel(true)
+		tween.tween_property(bar, "modulate", yellow_color, 0.1).set_trans(Tween.TRANS_LINEAR)
+		tween.tween_property(extra_bar, "modulate:a", 0.0, 0.1).set_trans(Tween.TRANS_LINEAR)
+		await get_tree().create_timer(0.1).timeout
+	#else:
+		#var target_color = yellow_color.lerp(orange_color, normalized_value)
+		#bar.modulate = target_color
+	extra_bar.modulate.a = 1.0
+	extra_bar.value = current_val * 100 / (100 / bar.value * max_val_extra_bar)
+func update_mana() -> void:
 	update_value(mana_bar, mana_damage_bar, player.mana, player.maxMana)
 	
-func update_bars():
+func update_bars() -> void:
 	if "staff" in GameManager.get_first_weapon().to_lower() || "staff" in GameManager.get_second_weapon().to_lower():
 		mana_container.process_mode = Node.PROCESS_MODE_INHERIT
 		mana_container.visible = true
@@ -56,7 +83,7 @@ func update_bars():
 		stamina_bar_bottom.visible = true
 		stamina_damage_bar.visible = true
 	
-func init_bars():
+func init_bars() -> void:
 	health_bar.value = player.health * 100 / player.maxHealth
 	health_damage_bar.value = player.health * 100 / player.maxHealth
 	stamina_bar_bottom.value = player.stamina * 100 / player.maxStamina
@@ -65,7 +92,7 @@ func init_bars():
 	mana_bar.value = player.mana * 100 / player.maxMana
 	mana_damage_bar.value = player.mana * 100 / player.maxMana
 	
-func update_value(bar, damage_bar, current_val, max_val):
+func update_value(bar, damage_bar, current_val, max_val) -> void:
 	bar.value = current_val * 100 / max_val
 	if bar.value < damage_bar.value:
 		var tween = get_tree().create_tween()
@@ -73,7 +100,7 @@ func update_value(bar, damage_bar, current_val, max_val):
 	else:
 		damage_bar.value = current_val * 100 / max_val
 
-func damage_tween(bar, val):
+func damage_tween(bar, val) -> void:
 	var tween = get_tree().create_tween()
 	tween.tween_property(bar, "value", val, 1).set_trans(Tween.TRANS_LINEAR)
 

@@ -1,15 +1,19 @@
 extends Node
 
-var weapon_in_hand = false
-var weapon_on_back = false
-var first_weapon = ""
-var second_weapon = ""
+var weapon_in_hand: bool = false
+var weapon_on_back: bool = false
+var first_weapon: String = ""
+var second_weapon: String = ""
 
-var bow_attack_timer
+var bow_attack_timer: float
+var attack_loading_value: float = bow_attack_timer
+var is_attacking: bool = false
+var is_blocking: bool = false
 
-var is_attacking = false
 signal weapons_changed
 signal attacks
+signal blocks
+signal attack_loading_updated
 
 func get_weapon_in_hand():
 	return weapon_in_hand
@@ -45,8 +49,16 @@ func get_bow_attack_timer():
 	return bow_attack_timer
 	
 func set_bow_attack_timer(timer):
-	bow_attack_timer = round(timer*10)/10
-	#print(bow_attack_timer)
+	bow_attack_timer = round(timer*100)/100
+	print(bow_attack_timer)
+	set_attack_loading_value(bow_attack_timer)
+
+func get_attack_loading_value():
+	return attack_loading_value
+	
+func set_attack_loading_value(val):
+	attack_loading_value = val
+	attack_loading_updated.emit()
 	
 func get_is_attacking():
 	return is_attacking
@@ -54,6 +66,13 @@ func get_is_attacking():
 func set_is_attacking(check):
 	is_attacking = check
 	GameManager.attacks.emit()
+	
+func get_is_blocking():
+	return is_blocking
+
+func set_is_blocking(check):
+	is_blocking = check
+	GameManager.blocks.emit()
 
 func weapons_updated():
 	weapons_changed.emit()
@@ -68,3 +87,19 @@ func reset_child_to_root(parent, child):
 		parent.remove_child(child)
 		get_tree().current_scene.add_child(child)
 		child.global_position = pos
+
+func get_mouse_ground_position_fixed(object) -> Vector3:
+	var camera = get_viewport().get_camera_3d()
+	var mouse_pos = get_viewport().get_mouse_position()
+	
+	var origin = camera.project_ray_origin(mouse_pos)
+	var direction = camera.project_ray_normal(mouse_pos)
+	
+	var ground_y = object.global_position.y
+	
+	if direction.y != 0:
+		var t = (ground_y - origin.y) / direction.y
+		var world_pos = origin + direction * t
+		return world_pos
+	
+	return object.global_position
