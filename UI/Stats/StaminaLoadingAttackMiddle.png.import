@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csk3d62r5liv5"
-path="res://.godot/imported/BowTensioned.png-2997426c5213ce5f429361f75f3191a6.ctex"
+uid="uid://dpawmxsv4htrg"
+path="res://.godot/imported/StaminaLoadingAttackMiddle.png-023f29b0fc1395422b5b27f7d4b8021e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Weapons/BowTensioned.png"
-dest_files=["res://.godot/imported/BowTensioned.png-2997426c5213ce5f429361f75f3191a6.ctex"]
+source_file="res://UI/Stats/StaminaLoadingAttackMiddle.png"
+dest_files=["res://.godot/imported/StaminaLoadingAttackMiddle.png-023f29b0fc1395422b5b27f7d4b8021e.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

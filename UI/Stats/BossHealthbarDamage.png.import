@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctgqbsucfhxbe"
-path="res://.godot/imported/ShieldBlock.png-94d8b39b68458ff25ef69a85c5bf8249.ctex"
+uid="uid://d0xa3l4brovcr"
+path="res://.godot/imported/BossHealthbarDamage.png-3cb23428e6ffd1b971dc5dbda442117d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Weapons/ShieldBlock.png"
-dest_files=["res://.godot/imported/ShieldBlock.png-94d8b39b68458ff25ef69a85c5bf8249.ctex"]
+source_file="res://UI/Stats/BossHealthbarDamage.png"
+dest_files=["res://.godot/imported/BossHealthbarDamage.png-3cb23428e6ffd1b971dc5dbda442117d.ctex"]
 
 [params]
 

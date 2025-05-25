@@ -326,6 +326,7 @@ transform = Transform3D(0.3, 0, 0, 0, 0.48, 0, 0, 0, 0.3, -4.92859, 0.230799, -1
 transform = Transform3D(0.4, 0, 0, 0, 0.8, 0, 0, 0, 0.4, 3.13628, 0.481171, 0.613427)
 
 [node name="FallingParticles" type="GPUParticles3D" parent="."]
+process_mode = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.74118, -0.1)
 material_override = SubResource("StandardMaterial3D_nvalq")
 amount = 700

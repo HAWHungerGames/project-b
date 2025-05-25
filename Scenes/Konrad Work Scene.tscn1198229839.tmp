@@ -1,4 +1,4 @@
-[gd_scene load_steps=124 format=3 uid="uid://17sawqr1a5sd"]
+[gd_scene load_steps=116 format=3 uid="uid://17sawqr1a5sd"]
 
 [ext_resource type="Material" uid="uid://41byjnpqi8jl" path="res://Materials/TestBush.tres" id="1_3f6q6"]
 [ext_resource type="PackedScene" uid="uid://bo6t8u3r6w260" path="res://Prefabs/Asset Scenes/World Objects/Nature/Plants/grass_ground.tscn" id="2_5i7v7"]
@@ -108,14 +108,6 @@
 [ext_resource type="PackedScene" uid="uid://ddb5qsl2pw4p2" path="res://Prefabs/Enemies/enemy_spores.tscn" id="76_lyv0c"]
 [ext_resource type="PackedScene" uid="uid://do1xe3tqii0no" path="res://Prefabs/Enemies/enemy_explosion.tscn" id="77_derlu"]
 [ext_resource type="PackedScene" uid="uid://drdm7buu34xes" path="res://Prefabs/Asset Scenes/UI/text.tscn" id="84_4qm2b"]
-[ext_resource type="Texture2D" uid="uid://dpawmxsv4htrg" path="res://UI/Stats/StaminaLoadingAttackMiddle.png" id="97_n5ej2"]
-[ext_resource type="Texture2D" uid="uid://csiv2pnap5l2c" path="res://UI/Stats/StaminaLoadingAttack.png" id="100_6ctfl"]
-[ext_resource type="Script" uid="uid://binsywba0e010" path="res://Scenes/boss_health.gd" id="108_24wiy"]
-[ext_resource type="Texture2D" uid="uid://cn00nn06sxjus" path="res://UI/Stats/BossHealthbar.png" id="108_tumgl"]
-[ext_resource type="Texture2D" uid="uid://6latdbcv0h2a" path="res://UI/Stats/BossHealthbarUnderneath.png" id="109_snyj6"]
-[ext_resource type="Texture2D" uid="uid://dolcijtgdehqs" path="res://UI/Stats/BossHealthbarFrame.png" id="110_24wiy"]
-[ext_resource type="Texture2D" uid="uid://d0xa3l4brovcr" path="res://UI/Stats/BossHealthbarDamage.png" id="111_0l7n2"]
-[ext_resource type="Texture2D" uid="uid://bg74iei8b148" path="res://UI/Stats/BossHealthbarMycelium.png" id="112_snyj6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lfy4s"]
 sky_top_color = Color(0.102228, 0.307553, 0.295863, 1)
@@ -3520,7 +3512,6 @@ alignment_vertical = 0
 material = SubResource("ShaderMaterial_qsm0h")
 custom_minimum_size = Vector2(380, 1)
 layout_mode = 2
-step = 0.1
 value = 64.0
 nine_patch_stretch = true
 texture_progress = SubResource("CompressedTexture2D_i63v0")
@@ -3529,7 +3520,6 @@ texture_progress = SubResource("CompressedTexture2D_i63v0")
 z_index = -1
 custom_minimum_size = Vector2(380, 100)
 layout_mode = 2
-step = 0.1
 value = 74.0
 nine_patch_stretch = true
 texture_under = ExtResource("10_65wlj")
@@ -3553,45 +3543,26 @@ process_mode = 4
 visible = false
 custom_minimum_size = Vector2(380, 216)
 layout_mode = 2
-step = 0.1
 value = 66.0
 nine_patch_stretch = true
-texture_progress = ExtResource("19_2xhpb")
-
-[node name="attackLoadingMiddle" type="TextureProgressBar" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina"]
-process_mode = 4
-visible = false
-custom_minimum_size = Vector2(380, 216)
-layout_mode = 2
-step = 0.01
-nine_patch_stretch = true
 texture_over = ExtResource("18_ga1i8")
-texture_progress = ExtResource("97_n5ej2")
+texture_progress = ExtResource("19_2xhpb")
 
 [node name="staminaBar" type="TextureProgressBar" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina"]
 custom_minimum_size = Vector2(380, 216)
 layout_mode = 2
-step = 0.1
 value = 66.0
 nine_patch_stretch = true
+texture_over = ExtResource("13_8rmxw")
 texture_progress = ExtResource("14_jp8xc")
-
-[node name="attackLoading" type="TextureProgressBar" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina"]
-custom_minimum_size = Vector2(380, 216)
-layout_mode = 2
-step = 0.01
-nine_patch_stretch = true
-texture_progress = ExtResource("100_6ctfl")
 
 [node name="damageBar" type="TextureProgressBar" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina"]
 z_index = -1
 custom_minimum_size = Vector2(380, 216)
 layout_mode = 2
-step = 0.1
 value = 66.0
 nine_patch_stretch = true
 texture_under = ExtResource("15_5oe8d")
-texture_over = ExtResource("13_8rmxw")
 texture_progress = ExtResource("16_qsm0h")
 
 [node name="damageBarMiddle" type="TextureProgressBar" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina"]
@@ -3600,11 +3571,9 @@ visible = false
 z_index = -1
 custom_minimum_size = Vector2(380, 216)
 layout_mode = 2
-step = 0.1
 value = 66.0
 nine_patch_stretch = true
 texture_under = ExtResource("20_3f6q6")
-texture_over = ExtResource("18_ga1i8")
 texture_progress = ExtResource("21_2uoa5")
 
 [node name="timer" type="Timer" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina"]
@@ -3624,7 +3593,6 @@ texture_filter = 6
 texture_repeat = 2
 custom_minimum_size = Vector2(380, 216)
 layout_mode = 2
-step = 0.1
 value = 66.0
 nine_patch_stretch = true
 texture_over = ExtResource("13_8rmxw")
@@ -3636,7 +3604,6 @@ texture_filter = 6
 texture_repeat = 2
 custom_minimum_size = Vector2(380, 216)
 layout_mode = 2
-step = 0.1
 value = 66.0
 nine_patch_stretch = true
 texture_under = ExtResource("15_5oe8d")
@@ -3663,52 +3630,6 @@ visible = false
 material = SubResource("ShaderMaterial_ga1i8")
 layout_mode = 2
 texture = ExtResource("28_vkbj3")
-
-[node name="bossHealthMargin" type="MarginContainer" parent="WorldEnvironment/CanvasLayer/FullUI"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme_override_constants/margin_bottom = -250
-script = ExtResource("108_24wiy")
-
-[node name="health" type="AspectRatioContainer" parent="WorldEnvironment/CanvasLayer/FullUI/bossHealthMargin"]
-custom_minimum_size = Vector2(384, 216)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-alignment_horizontal = 0
-alignment_vertical = 0
-
-[node name="healthBar" type="TextureProgressBar" parent="WorldEnvironment/CanvasLayer/FullUI/bossHealthMargin/health"]
-material = SubResource("ShaderMaterial_qsm0h")
-custom_minimum_size = Vector2(1280, 720)
-layout_mode = 2
-size_flags_vertical = 0
-value = 64.0
-nine_patch_stretch = true
-texture_progress = ExtResource("108_tumgl")
-
-[node name="damageBar" type="TextureProgressBar" parent="WorldEnvironment/CanvasLayer/FullUI/bossHealthMargin/health"]
-z_index = -1
-custom_minimum_size = Vector2(1280, 720)
-layout_mode = 2
-value = 74.0
-nine_patch_stretch = true
-texture_under = ExtResource("109_snyj6")
-texture_over = ExtResource("110_24wiy")
-texture_progress = ExtResource("111_0l7n2")
-
-[node name="MarginContainer" type="MarginContainer" parent="WorldEnvironment/CanvasLayer/FullUI/bossHealthMargin"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="WorldEnvironment/CanvasLayer/FullUI/bossHealthMargin/MarginContainer"]
-custom_minimum_size = Vector2(1280, 720)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("112_snyj6")
-expand_mode = 1
-flip_v = true
 
 [node name="PauseMenu" parent="WorldEnvironment/CanvasLayer" instance=ExtResource("45_ccm0r")]
 

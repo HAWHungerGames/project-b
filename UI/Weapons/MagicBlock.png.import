@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctgqbsucfhxbe"
-path="res://.godot/imported/ShieldBlock.png-94d8b39b68458ff25ef69a85c5bf8249.ctex"
+uid="uid://c1q5fdofqnx7d"
+path="res://.godot/imported/MagicBlock.png-b2dadef2403ce87ba676d28366c62c6e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Weapons/ShieldBlock.png"
-dest_files=["res://.godot/imported/ShieldBlock.png-94d8b39b68458ff25ef69a85c5bf8249.ctex"]
+source_file="res://UI/Weapons/MagicBlock.png"
+dest_files=["res://.godot/imported/MagicBlock.png-b2dadef2403ce87ba676d28366c62c6e.ctex"]
 
 [params]
 

@@ -3520,7 +3520,6 @@ alignment_vertical = 0
 material = SubResource("ShaderMaterial_qsm0h")
 custom_minimum_size = Vector2(380, 1)
 layout_mode = 2
-step = 0.1
 value = 64.0
 nine_patch_stretch = true
 texture_progress = SubResource("CompressedTexture2D_i63v0")
@@ -3529,7 +3528,6 @@ texture_progress = SubResource("CompressedTexture2D_i63v0")
 z_index = -1
 custom_minimum_size = Vector2(380, 100)
 layout_mode = 2
-step = 0.1
 value = 74.0
 nine_patch_stretch = true
 texture_under = ExtResource("10_65wlj")
@@ -3553,9 +3551,9 @@ process_mode = 4
 visible = false
 custom_minimum_size = Vector2(380, 216)
 layout_mode = 2
-step = 0.1
 value = 66.0
 nine_patch_stretch = true
+texture_over = ExtResource("18_ga1i8")
 texture_progress = ExtResource("19_2xhpb")
 
 [node name="attackLoadingMiddle" type="TextureProgressBar" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina"]
@@ -3563,7 +3561,7 @@ process_mode = 4
 visible = false
 custom_minimum_size = Vector2(380, 216)
 layout_mode = 2
-step = 0.01
+value = 66.0
 nine_patch_stretch = true
 texture_over = ExtResource("18_ga1i8")
 texture_progress = ExtResource("97_n5ej2")
@@ -3571,27 +3569,26 @@ texture_progress = ExtResource("97_n5ej2")
 [node name="staminaBar" type="TextureProgressBar" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina"]
 custom_minimum_size = Vector2(380, 216)
 layout_mode = 2
-step = 0.1
 value = 66.0
 nine_patch_stretch = true
+texture_over = ExtResource("13_8rmxw")
 texture_progress = ExtResource("14_jp8xc")
 
 [node name="attackLoading" type="TextureProgressBar" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina"]
 custom_minimum_size = Vector2(380, 216)
 layout_mode = 2
-step = 0.01
+value = 66.0
 nine_patch_stretch = true
+texture_over = ExtResource("13_8rmxw")
 texture_progress = ExtResource("100_6ctfl")
 
 [node name="damageBar" type="TextureProgressBar" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina"]
 z_index = -1
 custom_minimum_size = Vector2(380, 216)
 layout_mode = 2
-step = 0.1
 value = 66.0
 nine_patch_stretch = true
 texture_under = ExtResource("15_5oe8d")
-texture_over = ExtResource("13_8rmxw")
 texture_progress = ExtResource("16_qsm0h")
 
 [node name="damageBarMiddle" type="TextureProgressBar" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina"]
@@ -3600,11 +3597,9 @@ visible = false
 z_index = -1
 custom_minimum_size = Vector2(380, 216)
 layout_mode = 2
-step = 0.1
 value = 66.0
 nine_patch_stretch = true
 texture_under = ExtResource("20_3f6q6")
-texture_over = ExtResource("18_ga1i8")
 texture_progress = ExtResource("21_2uoa5")
 
 [node name="timer" type="Timer" parent="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/stamina"]
@@ -3624,7 +3619,6 @@ texture_filter = 6
 texture_repeat = 2
 custom_minimum_size = Vector2(380, 216)
 layout_mode = 2
-step = 0.1
 value = 66.0
 nine_patch_stretch = true
 texture_over = ExtResource("13_8rmxw")
@@ -3636,7 +3630,6 @@ texture_filter = 6
 texture_repeat = 2
 custom_minimum_size = Vector2(380, 216)
 layout_mode = 2
-step = 0.1
 value = 66.0
 nine_patch_stretch = true
 texture_under = ExtResource("15_5oe8d")

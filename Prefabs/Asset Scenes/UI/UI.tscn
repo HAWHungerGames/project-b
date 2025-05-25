@@ -640,16 +640,16 @@ texture_progress = ExtResource("31_suuof")
 
 [node name="AttackIndicatorBottom" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -0.0784874, 2.38778, 0.523886)
-emitting = false
 amount = 50
+lifetime = 2.0
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_glxls")
 draw_pass_1 = SubResource("QuadMesh_suuof")
 
 [node name="AttackIndicatorBottom2" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -0.0784874, 3.46959, 0.523886)
-emitting = false
 amount = 150
+lifetime = 2.0
 explosiveness = 1.0
 randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_dreqj")

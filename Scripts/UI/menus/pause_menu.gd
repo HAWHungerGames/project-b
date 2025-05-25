@@ -104,15 +104,15 @@ func fadeSceneOut():
 	tween.play()
 
 func unpause():
+	pause_menu.z_index = -1
 	fadeSceneOut()
 	pause_menu.visible = false
-	pause_menu.z_index = 0
 	get_tree().paused = false
 
 func pause():
 	fadeSceneIn()
 	pause_menu.visible = true
-	pause_menu.z_index = 3
+	pause_menu.z_index = 0
 	get_tree().paused = true
 	buttonsResume.get_child(1).grab_focus()
 

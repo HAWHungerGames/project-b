@@ -155,11 +155,13 @@ func holdingBowAttackCooldown(delta):
 		elif Input.is_action_pressed("attack") and holdingBowAttackTimer <= bowMaxCooldown:
 			holdingBowAttackTimer += delta
 			print(holdingBowAttackTimer)
+		GameManager.set_bow_attack_timer(holdingBowAttackTimer)
 
 # Release Input to finish Attack
 func finishingBowAttackAnimation():
 	if holdingBowAttackTimer >= bowCooldown and !Input.is_action_pressed("attack"):
 		GameManager.set_bow_attack_timer(holdingBowAttackTimer)
+		GameManager.set_attack_loading_value(0)
 		holdingBowAttack = false
 		holdingBowAttackTimer = 0
 		animation_player.stop()

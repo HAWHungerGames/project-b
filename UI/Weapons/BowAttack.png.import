@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctgqbsucfhxbe"
-path="res://.godot/imported/ShieldBlock.png-94d8b39b68458ff25ef69a85c5bf8249.ctex"
+uid="uid://csk3d62r5liv5"
+path="res://.godot/imported/BowAttack.png-b89a786e0736b840a5669e785f4c9b05.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Weapons/ShieldBlock.png"
-dest_files=["res://.godot/imported/ShieldBlock.png-94d8b39b68458ff25ef69a85c5bf8249.ctex"]
+source_file="res://UI/Weapons/BowAttack.png"
+dest_files=["res://.godot/imported/BowAttack.png-b89a786e0736b840a5669e785f4c9b05.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
