@@ -4,7 +4,7 @@ extends Node
 @onready var current_controller: String = get_controller_type()
 @onready var text_field: Control = get_tree().current_scene.find_child("textField")
 @onready var stats: MarginContainer = get_tree().current_scene.find_child("stats")
-@onready var timer: Timer = text_field.get_child(1)
+#@onready var timer: Timer = text_field.get_child(1)
 
 const LANGUAGES : Dictionary = {
 	"en_EN": "SETTING_LANGUAGE_ENGLISH",
@@ -49,7 +49,7 @@ var can_toggle_display = true
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	timer.timeout.connect(_on_timer_finished)
+	#timer.timeout.connect(_on_timer_finished)
 	print(get_tree().current_scene)
 	
 func _input(event: InputEvent) -> void:
@@ -85,7 +85,7 @@ func toggle_display_text(sign_name: String, text_displayed: bool):
 	display_text.text = text
 	stats.visible = !text_displayed
 	get_tree().paused = text_displayed
-	timer.start()
+	#timer.start()
 
 func _on_timer_finished():
 	can_toggle_display = true

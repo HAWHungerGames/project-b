@@ -10,7 +10,7 @@ var bullet_intance
 func _on_animation_player_animation_started(anim_name: StringName) -> void:
 	if anim_name == "Finish":
 		spawn_bullet()
-		print("bow attack")
+		#print("bow attack")
 
 func spawn_bullet():
 	bullet_intance = bullet_scene.instantiate()

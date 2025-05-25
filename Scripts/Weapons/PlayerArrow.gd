@@ -22,7 +22,7 @@ func lifetime_of_bullet(delta):
 	lifetime -= delta
 	if lifetime < 0:
 		queue_free()
-		print("bullet despawned")
+		#print("bullet despawned")
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
@@ -35,30 +35,30 @@ func attack(body):
 		# Normal or somewhat charged Bow Attack
 		if extraDmg < 3:
 			dmg *= extraDmg
-			print(dmg)
+			#print(dmg)
 			body.takeDamage(dmg)
 			queue_free()
-			print("hit")
+			#print("hit")
 		# Fully Charged Bow Attack
 		elif extraDmg >= 3:
 			dmg *= 4
-			print(dmg)
+			#print(dmg)
 			body.takeDamage(dmg)
-			print("hit")
+			#print("hit")
 			dmg /= 4
 			
 	elif body.is_in_group("TargetDummy"):
 		if extraDmg < 3:
 			dmg *= extraDmg
-			print(dmg)
+			#print(dmg)
 		elif extraDmg >= 3:
 			dmg *= 4
-			print(dmg)
-		print("dummy hit")
+			#print(dmg)
+		#print("dummy hit")
 		var dmg_position = body.get_node_or_null("DamageNumbersPosition")
 		DamageNumbers.display_number(dmg, dmg_position.global_position)
 		queue_free()
 		
 	else:
 		queue_free()
-		print("bullet despawned")
+		#print("bullet despawned")
