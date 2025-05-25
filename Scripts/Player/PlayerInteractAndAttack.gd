@@ -88,15 +88,12 @@ var weapon
 
 @export var max_attack_cooldown: float = 1
 @export var max_input_cooldown: float = 0.6
-@export var maxStaffInputCooldown: float = 0.7
 @export var max_reset_combo_step_cooldown: float = 1.2
 @export var manaCostPerAttack: int = 60
 @export var bow_cooldown: float = 1
 @export var bow_max_cooldown: float = 3
 
 
-var animation_player
-var weapon_name
 var reduction_speed
 var original_speed
 
@@ -107,7 +104,7 @@ var reset_combo_step_cooldown: float = 1.2
 var combo_step = 0
 var holding_bow_attack = false
 var holding_bow_attack_timer: float = 0
-var isAttacking = false
+var is_attacking = false
 var finished_bow_attack_timer: float = 0
 var finished_bow_attack = false
 
@@ -197,6 +194,7 @@ func swapping_weapons():
 					shield_name:
 						shield_back.visible = true
 						shield_main.visible = false
+						
 				var first_weapon_game_manager = GameManager.get_first_weapon()
 				var second_weapon_game_manager = GameManager.get_second_weapon()
 				GameManager.set_first_weapon(second_weapon_game_manager)
@@ -420,7 +418,7 @@ func interacting_with_world():
 # ----- Attacking -----
 func attacks(delta):
 	if GameManager.get_weapon_in_hand():
-		weapon_name = GameManager.get_first_weapon()
+		var weapon_name = GameManager.get_first_weapon()
 		match weapon_name:
 			sword_name:
 				sword_attack(delta)
@@ -441,12 +439,16 @@ func staff_attack_animation():
 			#animation_tree.set("parameters/WalkStaffBlend/filter_enabled", true)
 			animation_tree.set("parameters/WalkStaffBlend/blend_amount", 1)
 			staff_animation_player.play("MagicAttack")
+			is_attacking = true
+			GameManager.set_is_attacking(is_attacking)
 	else: 
 		if Input.is_action_pressed("attack") and settings.mana >= manaCostPerAttack and staff_timer <= 0:
 			staff_timer = 0.8333
 			#animation_tree.set("parameters/WalkStaffBlend/filter_enabled", false)
 			animation_tree.set("parameters/WalkOrStaffBlend/blend_amount", 1)
 			staff_animation_player.play("MagicAttack")
+			is_attacking = true
+			GameManager.set_is_attacking(is_attacking)
 
 func calc_staff_timer(delta):
 	if staff_timer > 0:
@@ -457,6 +459,8 @@ func calc_staff_timer(delta):
 	if staff_timer <= 0 and !Input.is_action_pressed("attack"):
 		animation_tree.set("parameters/WalkOrStaffBlend/blend_amount", 0)
 		animation_tree.set("parameters/WalkStaffBlend/blend_amount", 0)
+		is_attacking = false
+		GameManager.set_is_attacking(is_attacking)
 		
 
 # ----- Bow Attack -----
@@ -477,11 +481,12 @@ func start_bow_attack_animation():
 			animation_tree.set("parameters/ShootTimeSeek/seek_request", 0)
 			animation_tree.set("parameters/Bow/blend_amount", 0)
 			animation_tree.set("parameters/WalkOrBowBlend/blend_amount", 0.8)
-			#animation_tree.set("parameters/WalkStaffBlend/filter_enabled", true)
 			bow_animation_player.play("Aim")
 			# Reducing Speed while drwaing the Bow
 			original_speed = settings.speed
 			reduction_speed = settings.speed * 0.2
+			is_attacking = true
+			GameManager.set_is_attacking(is_attacking)
 	else:
 		if Input.is_action_pressed("attack") and !holding_bow_attack:
 			print(2)
@@ -496,6 +501,8 @@ func start_bow_attack_animation():
 			# Reducing Speed while drwaing the Bow
 			original_speed = settings.speed
 			reduction_speed = settings.speed * 0.2
+			is_attacking = true
+			GameManager.set_is_attacking(is_attacking)
 
 # Press Input once for Quick Bow Attack, hold Input for Long Bow Attack
 func holding_bow_attack_timer_for_dmg(delta):
@@ -530,6 +537,8 @@ func walking_animation_after_bow_attack(delta):
 		bow_main.visible = true
 		bow_offhand.visible = false
 		finished_bow_attack = false
+		is_attacking = false
+		GameManager.set_is_attacking(is_attacking)
 
 # ----- Sword Attack -----
 func sword_attack1_animation():
@@ -542,6 +551,8 @@ func sword_attack1_animation():
 			animation_tree.set("parameters/Sword2/blend_amount", 0)
 			animation_tree.set("parameters/WalkMeleeBlend/blend_amount", 1)
 			sword_animation_player.play("Attack1")
+			is_attacking = true
+			GameManager.set_is_attacking(is_attacking)
 	else:
 		if Input.is_action_just_pressed("attack") and attack_cooldown <= 0 and combo_step == 0:
 			change_transform_of_weapon_main_hand(sword_main, sword_idle_position_attack, sword_idle_rotation_attack, sword_idle_scale_attack)
@@ -551,6 +562,8 @@ func sword_attack1_animation():
 			animation_tree.set("parameters/Sword/blend_amount", 0)
 			animation_tree.set("parameters/WalkOrMeleeBlend/blend_amount", 1)
 			sword_animation_player.play("Attack1")
+			is_attacking = true
+			GameManager.set_is_attacking(is_attacking)
 
 func play_attack2_animation():
 	if player_controller.velocity.length() > 0.2:
@@ -589,6 +602,8 @@ func calc_attack_cooldown(delta):
 				animation_tree.set("parameters/WalkOrMeleeBlend/blend_amount", 0)
 				animation_tree.set("parameters/WalkMeleeBlend/blend_amount", 0)
 				change_transform_of_weapon_main_hand(sword_main, sword_idle_position, sword_idle_rotation, sword_idle_scale)
+				is_attacking = false
+				GameManager.set_is_attacking(is_attacking)
 
 func calc_input_cooldown(delta):
 	if input_cooldown >= 0:
@@ -604,6 +619,8 @@ func reset_combo_step(delta):
 			animation_tree.set("parameters/WalkOrMeleeBlend/blend_amount", 0)
 			animation_tree.set("parameters/WalkMeleeBlend/blend_amount", 0)
 			change_transform_of_weapon_main_hand(sword_main, sword_idle_position, sword_idle_rotation, sword_idle_scale)
+			is_attacking = false
+			GameManager.set_is_attacking(is_attacking)
 
 func sword_attack(delta):
 	sword_attack1_animation()

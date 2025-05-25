@@ -49,9 +49,19 @@ loop_mode = 0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vjsh3"]
 animation = &"Hit_horizontal_normal"
+use_custom_timeline = true
+timeline_length = 1.0
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7c0pg"]
 animation = &"Hit_horizontal_backhand"
+use_custom_timeline = true
+timeline_length = 0.8
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qvmbc"]
 animation = &"Shoot"
@@ -74,21 +84,21 @@ animation = &"Dodge_Backwards"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_juxdh"]
 animation = &"Dodge_Forward"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4qbli"]
-animation = &"Dodge_Right"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_08u7w"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_unxwf"]
 animation = &"Dodge_Left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0u5bp"]
+animation = &"Dodge_Right"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_kgmex"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_hck1p")
 blend_point_0/pos = Vector2(0, 1)
 blend_point_1/node = SubResource("AnimationNodeAnimation_juxdh")
 blend_point_1/pos = Vector2(0, -1)
-blend_point_2/node = SubResource("AnimationNodeAnimation_4qbli")
-blend_point_2/pos = Vector2(1, 0)
-blend_point_3/node = SubResource("AnimationNodeAnimation_08u7w")
-blend_point_3/pos = Vector2(-1, 0)
+blend_point_2/node = SubResource("AnimationNodeAnimation_unxwf")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_0u5bp")
+blend_point_3/pos = Vector2(1, 0)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kgmex"]
 animation = &"Dodge_Backwards"
@@ -194,7 +204,7 @@ graph_offset = Vector2(-120, 19)
 
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_m62uw"]
 filter_enabled = true
-filters = ["Armature/Skeleton3D:Hand1.L", "Armature/Skeleton3D:Hand1.R", "Armature/Skeleton3D:Hand2.L", "Armature/Skeleton3D:Hand2.R", "Armature/Skeleton3D:Hand3.L", "Armature/Skeleton3D:Hand3.R", "Armature/Skeleton3D:Oberarm.L", "Armature/Skeleton3D:Oberarm.R", "Armature/Skeleton3D:Unterarm.L", "Armature/Skeleton3D:Unterarm.R"]
+filters = ["Armature/Skeleton3D:Brust", "Armature/Skeleton3D:Hand1.R", "Armature/Skeleton3D:Hand2.R", "Armature/Skeleton3D:Hand3.R", "Armature/Skeleton3D:Hüfte", "Armature/Skeleton3D:Oberarm.R", "Armature/Skeleton3D:Unterarm.R"]
 
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_vjsh3"]
 filters = ["", "Armature/Skeleton3D:Brust", "Armature/Skeleton3D:Hals", "Armature/Skeleton3D:Hand1.L", "Armature/Skeleton3D:Hand1.R", "Armature/Skeleton3D:Hand2.L", "Armature/Skeleton3D:Hand2.R", "Armature/Skeleton3D:Hand3.L", "Armature/Skeleton3D:Hand3.R", "Armature/Skeleton3D:Hüfte", "Armature/Skeleton3D:Kopf", "Armature/Skeleton3D:Oberarm.L", "Armature/Skeleton3D:Oberarm.R", "Armature/Skeleton3D:Unterarm.L", "Armature/Skeleton3D:Unterarm.R"]
@@ -210,7 +220,7 @@ filter_enabled = true
 filters = ["Armature/Skeleton3D:Brust", "Armature/Skeleton3D:Hals", "Armature/Skeleton3D:Hand1.L", "Armature/Skeleton3D:Hand1.R", "Armature/Skeleton3D:Hand2.L", "Armature/Skeleton3D:Hand2.R", "Armature/Skeleton3D:Hand3.L", "Armature/Skeleton3D:Hand3.R", "Armature/Skeleton3D:Kopf", "Armature/Skeleton3D:Oberarm.L", "Armature/Skeleton3D:Oberarm.R", "Armature/Skeleton3D:Unterarm.L", "Armature/Skeleton3D:Unterarm.R"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_evqxc"]
-graph_offset = Vector2(-179.859, 799.108)
+graph_offset = Vector2(-655.242, -0.637054)
 nodes/Aim/node = SubResource("AnimationNodeAnimation_i3mxk")
 nodes/Aim/position = Vector2(-140, 1140)
 nodes/AimTimeSeek/node = SubResource("AnimationNodeTimeSeek_ms580")
@@ -393,7 +403,7 @@ parameters/Bow/blend_amount = false
 parameters/ShootTimeSeek/seek_request = -1.0
 parameters/StaffTimeSeek/seek_request = -1.0
 parameters/StaffTimeSeek2/seek_request = -1.0
-parameters/StateMachine/Dashing/blend_position = -1.0
+parameters/StateMachine/Dashing/blend_position = Vector2(-1, 0.00222719)
 parameters/StateMachine/Dashing2/blend_position = Vector2(0, 0)
 parameters/StateMachine/Walking/blend_position = Vector2(0.000861287, -0.986486)
 parameters/Sword/blend_amount = 0.0
