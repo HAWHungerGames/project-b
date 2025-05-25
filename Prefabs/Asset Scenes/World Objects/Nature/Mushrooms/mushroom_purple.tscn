@@ -6,9 +6,18 @@
 
 [node name="mushroom" parent="." instance=ExtResource("1_jfej4")]
 
+[node name="Skeleton3D" parent="mushroom/Armature" index="0"]
+bones/0/scale = Vector3(1, 0.999069, 1)
+bones/1/scale = Vector3(0.9997, 0.9997, 0.9997)
+
+[node name="AnimationPlayer" parent="mushroom" index="1"]
+autoplay = "Idle"
+
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.308211, 0.692231, 0.113329)
 light_color = Color(0.590259, 0.00303306, 0.497309, 1)
 light_energy = 3.0
 light_size = 1.0
 omni_range = 10.0
+
+[editable path="mushroom"]

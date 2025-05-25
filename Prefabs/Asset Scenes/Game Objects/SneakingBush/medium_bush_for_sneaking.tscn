@@ -36,14 +36,42 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="Bush2" parent="ModelMesh" instance=ExtResource("2_qmtc8")]
 
-[node name="Bush3" parent="ModelMesh" instance=ExtResource("2_qmtc8")]
-transform = Transform3D(0.404487, 0, -0.914544, 0, 1, 0, 0.914544, 0, 0.404487, 0, 0, 0.512647)
+[node name="Skeleton3D" parent="ModelMesh/Bush2/Armature_001" index="0"]
+bones/1/rotation = Quaternion(0.00119438, -0.0002408, 0.000120708, 0.999999)
+bones/2/rotation = Quaternion(0.00317896, -0.000447886, 0.719085, 0.694915)
+bones/3/rotation = Quaternion(-0.002366, 0.000434377, -0.694911, 0.719092)
+bones/4/rotation = Quaternion(-0.704273, 0.0101731, 0.0135178, 0.709728)
+bones/5/rotation = Quaternion(0.709772, -0.0102527, 0.00783952, 0.704314)
+
+[node name="AnimationPlayer" parent="ModelMesh/Bush2" index="2"]
+autoplay = "Idle"
 
 [node name="Bush4" parent="ModelMesh" instance=ExtResource("2_qmtc8")]
 transform = Transform3D(0.594177, 0, 0.804334, 0, 1, 0, -0.804334, 0, 0.594177, 0, 0, 0.958606)
 
-[node name="Bush5" parent="ModelMesh" instance=ExtResource("2_qmtc8")]
-transform = Transform3D(0.737702, 0, -0.675127, 0, 1, 0, 0.675127, 0, 0.737702, 0, 0, -0.562049)
+[node name="Skeleton3D" parent="ModelMesh/Bush4/Armature_001" index="0"]
+bones/1/rotation = Quaternion(0.00119438, -0.0002408, 0.000120708, 0.999999)
+bones/2/rotation = Quaternion(0.00317896, -0.000447886, 0.719085, 0.694915)
+bones/3/rotation = Quaternion(-0.002366, 0.000434377, -0.694911, 0.719092)
+bones/4/rotation = Quaternion(-0.704273, 0.0101731, 0.0135178, 0.709728)
+bones/5/rotation = Quaternion(0.709772, -0.0102527, 0.00783952, 0.704314)
+
+[node name="AnimationPlayer" parent="ModelMesh/Bush4" index="2"]
+autoplay = "Idle"
 
 [node name="Bush6" parent="ModelMesh" instance=ExtResource("2_qmtc8")]
 transform = Transform3D(-0.986043, 0, 0.166493, 0, 1, 0, -0.166493, 0, -0.986043, 0, 0, -1.06867)
+
+[node name="Skeleton3D" parent="ModelMesh/Bush6/Armature_001" index="0"]
+bones/1/rotation = Quaternion(0.00119438, -0.0002408, 0.000120708, 0.999999)
+bones/2/rotation = Quaternion(0.00317896, -0.000447886, 0.719085, 0.694915)
+bones/3/rotation = Quaternion(-0.002366, 0.000434377, -0.694911, 0.719092)
+bones/4/rotation = Quaternion(-0.704273, 0.0101731, 0.0135178, 0.709728)
+bones/5/rotation = Quaternion(0.709772, -0.0102527, 0.00783952, 0.704314)
+
+[node name="AnimationPlayer" parent="ModelMesh/Bush6" index="2"]
+autoplay = "Idle"
+
+[editable path="ModelMesh/Bush2"]
+[editable path="ModelMesh/Bush4"]
+[editable path="ModelMesh/Bush6"]

@@ -53,64 +53,40 @@ transform = Transform3D(1, 0, 0, 0, 1.7441, -0.489413, 0, 0.978826, 0.872052, -0
 transform = Transform3D(0.592885, 0, -1.37786, 0, 1.5, 0, 1.37786, 0, 0.592885, -4.78452, 0, -1.76601)
 
 [node name="Skeleton3D" parent="TreeStumpWithMushrooms/baumstamm1/piltz/Armature" index="0"]
-bones/0/rotation = Quaternion(0.0272638, 0.00175744, 0.0532235, 0.998209)
-bones/0/scale = Vector3(0.998788, 0.998788, 0.998788)
-bones/1/rotation = Quaternion(0.00612736, -0.00733238, 0.044286, 0.998973)
-bones/1/scale = Vector3(0.995378, 0.995378, 0.995378)
-bones/2/rotation = Quaternion(0.0100008, -0.0125431, 0.0292333, 0.999444)
-bones/2/scale = Vector3(0.966519, 0.966519, 0.966519)
-bones/3/rotation = Quaternion(0.00595783, -0.00739111, 0.0345592, 0.999358)
-bones/3/scale = Vector3(0.966519, 0.966519, 0.966519)
-bones/4/rotation = Quaternion(0.0103236, -0.0124353, 0.0399736, 0.99907)
-bones/4/scale = Vector3(0.998788, 0.998788, 0.998788)
-
-[node name="AnimationPlayer" parent="TreeStumpWithMushrooms/baumstamm1/piltz" index="1"]
-autoplay = "Idle"
+bones/0/rotation = Quaternion(0.0273, 0.00105263, 0.0274217, 0.999251)
+bones/0/scale = Vector3(0.975615, 0.975615, 0.975615)
+bones/1/rotation = Quaternion(0.00594872, -0.00748581, 0.0189609, 0.999775)
+bones/1/scale = Vector3(0.97391, 0.97391, 0.97391)
+bones/2/rotation = Quaternion(0.0098364, -0.0127517, 0.00864972, 0.999833)
+bones/2/scale = Vector3(0.95948, 0.95948, 0.95948)
+bones/3/rotation = Quaternion(0.0058612, -0.00751504, 0.0139754, 0.999857)
+bones/3/scale = Vector3(0.95948, 0.95948, 0.95948)
+bones/4/rotation = Quaternion(0.010003, -0.012698, 0.014154, 0.999769)
+bones/4/scale = Vector3(0.975615, 0.975615, 0.975615)
 
 [node name="Skeleton3D" parent="TreeStumpWithMushrooms/baumstamm1/piltz2/Armature" index="0"]
-bones/0/rotation = Quaternion(0.0272638, 0.00175744, 0.0532235, 0.998209)
-bones/0/scale = Vector3(0.998788, 0.998788, 0.998788)
-bones/1/rotation = Quaternion(0.00612736, -0.00733238, 0.044286, 0.998973)
-bones/1/scale = Vector3(0.995378, 0.995378, 0.995378)
-bones/2/rotation = Quaternion(0.0100008, -0.0125431, 0.0292333, 0.999444)
-bones/2/scale = Vector3(0.966519, 0.966519, 0.966519)
-bones/3/rotation = Quaternion(0.00595783, -0.00739111, 0.0345592, 0.999358)
-bones/3/scale = Vector3(0.966519, 0.966519, 0.966519)
-bones/4/rotation = Quaternion(0.0103236, -0.0124353, 0.0399736, 0.99907)
-bones/4/scale = Vector3(0.998788, 0.998788, 0.998788)
-
-[node name="AnimationPlayer" parent="TreeStumpWithMushrooms/baumstamm1/piltz2" index="1"]
-autoplay = "Idle"
-
-[node name="Skeleton3D" parent="TreeStumpWithMushrooms/baumstamm1/piltz3/Armature" index="0"]
-bones/0/rotation = Quaternion(0.0272638, 0.00175744, 0.0532235, 0.998209)
-bones/0/scale = Vector3(0.998788, 0.998788, 0.998788)
-bones/1/rotation = Quaternion(0.00612736, -0.00733238, 0.044286, 0.998973)
-bones/1/scale = Vector3(0.995378, 0.995378, 0.995378)
-bones/2/rotation = Quaternion(0.0100008, -0.0125431, 0.0292333, 0.999444)
-bones/2/scale = Vector3(0.966519, 0.966519, 0.966519)
-bones/3/rotation = Quaternion(0.00595783, -0.00739111, 0.0345592, 0.999358)
-bones/3/scale = Vector3(0.966519, 0.966519, 0.966519)
-bones/4/rotation = Quaternion(0.0103236, -0.0124353, 0.0399736, 0.99907)
-bones/4/scale = Vector3(0.998788, 0.998788, 0.998788)
-
-[node name="AnimationPlayer" parent="TreeStumpWithMushrooms/baumstamm1/piltz3" index="1"]
-autoplay = "Idle"
+bones/0/rotation = Quaternion(0.0273, 0.00105263, 0.0274217, 0.999251)
+bones/0/scale = Vector3(0.975615, 0.975615, 0.975615)
+bones/1/rotation = Quaternion(0.00594872, -0.00748581, 0.0189609, 0.999775)
+bones/1/scale = Vector3(0.97391, 0.97391, 0.97391)
+bones/2/rotation = Quaternion(0.0098364, -0.0127517, 0.00864972, 0.999833)
+bones/2/scale = Vector3(0.95948, 0.95948, 0.95948)
+bones/3/rotation = Quaternion(0.0058612, -0.00751504, 0.0139754, 0.999857)
+bones/3/scale = Vector3(0.95948, 0.95948, 0.95948)
+bones/4/rotation = Quaternion(0.010003, -0.012698, 0.014154, 0.999769)
+bones/4/scale = Vector3(0.975615, 0.975615, 0.975615)
 
 [node name="Skeleton3D" parent="TreeStumpWithMushrooms/baumstamm1/piltz4/Armature" index="0"]
-bones/0/rotation = Quaternion(0.0272638, 0.00175744, 0.0532235, 0.998209)
-bones/0/scale = Vector3(0.998788, 0.998788, 0.998788)
-bones/1/rotation = Quaternion(0.00612736, -0.00733238, 0.044286, 0.998973)
-bones/1/scale = Vector3(0.995378, 0.995378, 0.995378)
-bones/2/rotation = Quaternion(0.0100008, -0.0125431, 0.0292333, 0.999444)
-bones/2/scale = Vector3(0.966519, 0.966519, 0.966519)
-bones/3/rotation = Quaternion(0.00595783, -0.00739111, 0.0345592, 0.999358)
-bones/3/scale = Vector3(0.966519, 0.966519, 0.966519)
-bones/4/rotation = Quaternion(0.0103236, -0.0124353, 0.0399736, 0.99907)
-bones/4/scale = Vector3(0.998788, 0.998788, 0.998788)
-
-[node name="AnimationPlayer" parent="TreeStumpWithMushrooms/baumstamm1/piltz4" index="1"]
-autoplay = "Idle"
+bones/0/rotation = Quaternion(0.0273, 0.00105263, 0.0274217, 0.999251)
+bones/0/scale = Vector3(0.975615, 0.975615, 0.975615)
+bones/1/rotation = Quaternion(0.00594872, -0.00748581, 0.0189609, 0.999775)
+bones/1/scale = Vector3(0.97391, 0.97391, 0.97391)
+bones/2/rotation = Quaternion(0.0098364, -0.0127517, 0.00864972, 0.999833)
+bones/2/scale = Vector3(0.95948, 0.95948, 0.95948)
+bones/3/rotation = Quaternion(0.0058612, -0.00751504, 0.0139754, 0.999857)
+bones/3/scale = Vector3(0.95948, 0.95948, 0.95948)
+bones/4/rotation = Quaternion(0.010003, -0.012698, 0.014154, 0.999769)
+bones/4/scale = Vector3(0.975615, 0.975615, 0.975615)
 
 [node name="TreeStapel" parent="." instance=ExtResource("9_nf882")]
 transform = Transform3D(0.261715, 0, -0.649234, 0, 0.7, 0, 0.649234, 0, 0.261715, -7.48707, 0, -3.5737)

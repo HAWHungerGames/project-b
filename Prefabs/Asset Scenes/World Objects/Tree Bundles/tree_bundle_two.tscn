@@ -137,9 +137,9 @@ autoplay = "Idle"
 transform = Transform3D(0.451134, 0, 1.43055, 0, 1.5, 0, -1.43055, 0, 0.451134, -1.45086, 0, -1.34552)
 
 [node name="Skeleton3D" parent="Baum6/Armature" index="0"]
-bones/1/rotation = Quaternion(0.000861991, -1.00045e-07, 0.00147922, 0.999999)
-bones/2/scale = Vector3(1, 0.962117, 1)
-bones/3/scale = Vector3(1, 0.999322, 1)
+bones/1/rotation = Quaternion(0.0220471, -8.93471e-08, 0.037834, 0.999041)
+bones/2/scale = Vector3(1, 0.999646, 1)
+bones/3/scale = Vector3(1, 0.999632, 1)
 
 [node name="AnimationPlayer" parent="Baum6" index="1"]
 autoplay = "Idle"

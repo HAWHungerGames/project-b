@@ -8,11 +8,11 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.98123, 0)
 
 [node name="Skeleton3D" parent="Bush2/Armature_001" index="0"]
-bones/1/rotation = Quaternion(0.00487321, 0.00190062, 0.00748798, 0.999958)
-bones/2/rotation = Quaternion(0.0031846, -0.000405819, 0.709835, 0.704361)
-bones/3/rotation = Quaternion(-0.00237153, 0.000403059, -0.704357, 0.709842)
-bones/4/rotation = Quaternion(-0.704346, 0.000861279, 0.00413356, 0.709845)
-bones/5/rotation = Quaternion(0.709845, -0.000868153, -0.00147268, 0.704356)
+bones/1/rotation = Quaternion(0.00160814, 4.53354e-08, 0.000949309, 0.999998)
+bones/2/rotation = Quaternion(0.00317902, -0.000447471, 0.718994, 0.695009)
+bones/3/rotation = Quaternion(-0.00236605, 0.000434068, -0.695005, 0.719001)
+bones/4/rotation = Quaternion(-0.704274, 0.0100811, 0.0134251, 0.70973)
+bones/5/rotation = Quaternion(0.709773, -0.01016, 0.00774747, 0.704315)
 
 [node name="AnimationPlayer" parent="Bush2" index="2"]
 autoplay = "Idle"
