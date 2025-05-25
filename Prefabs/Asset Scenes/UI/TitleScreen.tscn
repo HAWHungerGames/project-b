@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dwh1hvl3kgobd"]
+[gd_scene load_steps=22 format=3 uid="uid://dwh1hvl3kgobd"]
 
 [ext_resource type="Script" uid="uid://b5vtbmi5nafbd" path="res://Scripts/UI/menus/main_menu.gd" id="1_8l4an"]
 [ext_resource type="VideoStream" uid="uid://dauedw0luybg6" path="res://UI/Menus/TitleAnimationShort.ogv" id="2_y4msy"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://brkmt2ctk71u7" path="res://Prefabs/Asset Scenes/UI/Options.tscn" id="7_dte6x"]
 [ext_resource type="PackedScene" uid="uid://dymqhiqdwrpf0" path="res://Prefabs/Asset Scenes/UI/Display.tscn" id="8_ywewy"]
 [ext_resource type="PackedScene" uid="uid://6nm3v04w1rep" path="res://Prefabs/Asset Scenes/UI/Controls.tscn" id="9_44j2y"]
+[ext_resource type="AudioStream" uid="uid://ie6iv0c8e2bn" path="res://Assets/Sound/Music/projectb_final_harp.wav" id="10_ywewy"]
 
 [sub_resource type="FontFile" id="FontFile_i5sur"]
 cache/0/16/0/ascent = 0.0
@@ -247,6 +248,12 @@ layout_mode = 1
 [node name="Controls" parent="." instance=ExtResource("9_44j2y")]
 visible = false
 layout_mode = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_ywewy")
+volume_db = 8.412
+autoplay = true
+bus = &"Music"
 
 [connection signal="finished" from="AspectRatioContainer/VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
 [connection signal="timeout" from="AspectRatioContainer/VideoStreamPlayer/Timer" to="." method="_on_timer_timeout"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://6j2eqyw3n43k"]
+[gd_scene load_steps=14 format=3 uid="uid://6j2eqyw3n43k"]
 
 [ext_resource type="Script" uid="uid://d126mr2i2jxrk" path="res://Scripts/Assets/training_dummy.gd" id="1_dacpj"]
 [ext_resource type="PackedScene" uid="uid://cjwhnt4r6k3dj" path="res://Models/Objects/TrainingDummy.blend" id="1_rye1t"]
+[ext_resource type="AudioStream" uid="uid://ek8jhyfqedco" path="res://Assets/Sound/SFX/AreaAssets/StrawPuppet/StrawPuppetHit_2.wav" id="4_s5rpl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pq71n"]
 size = Vector3(0.546875, 2.19949, 0.575928)
@@ -82,6 +83,12 @@ _data = {
 &"RESET": SubResource("Animation_nylhb")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_nylhb"]
+random_pitch = 1.5
+random_volume_offset_db = 0.3
+streams_count = 1
+stream_0/stream = ExtResource("4_s5rpl")
+
 [node name="training_dummy" type="StaticBody3D" groups=["TargetDummy"]]
 script = ExtResource("1_dacpj")
 
@@ -123,5 +130,11 @@ speed_scale = 0.6
 
 [node name="DamageNumbersPosition" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.61803, 0)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_nylhb")
+pitch_scale = 0.5
+max_distance = 30.0
+bus = &"SFX"
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

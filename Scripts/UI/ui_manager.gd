@@ -4,6 +4,7 @@ extends Node
 
 const LANGUAGES : Dictionary = {
 	"en_EN": "SETTING_LANGUAGE_ENGLISH",
+	"en_GB": "SETTING_LANGUAGE_ENGLISH",
 	"de_DE": "SETTING_LANGUAGE_GERMAN"
 }
 
