@@ -48,6 +48,7 @@ func _on_button_pressed() -> void:
 	fadeSceneOut()
 	await get_tree().create_timer(2).timeout
 	get_tree().change_scene_to_file("res://Scenes/Konrad Work Scene.tscn")
+	SceneManager.game_scene.emit()
 
 func _on_options_pressed() -> void:
 	main_menu.visible = false

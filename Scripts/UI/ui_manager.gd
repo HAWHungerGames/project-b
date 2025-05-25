@@ -5,6 +5,7 @@ extends Node
 @onready var text_field: Control = get_tree().current_scene.find_child("textField")
 @onready var stats: MarginContainer = get_tree().current_scene.find_child("stats")
 @onready var timer: Timer
+@onready var gameBlend
 
 const LANGUAGES : Dictionary = {
 	"en_EN": "SETTING_LANGUAGE_ENGLISH",
@@ -40,6 +41,15 @@ const button_mappings: Dictionary[String, Dictionary] = {
 		"weapon_swap": "X",
 		"sneak": "L3",
 		"dash": "L"
+	},
+	"none": {
+		"interact": "A",
+		"block": "LT",
+		"pause": "Menu",
+		"attack": "RT",
+		"weapon_swap": "Y",
+		"sneak": "L3",
+		"dash": "LB"
 	}
 }
 
@@ -57,7 +67,7 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") && get_tree().paused:
 		toggle_display_text("None", false)
-		
+	
 func update_lang(lang: String) -> void:
 	TranslationServer.set_locale(lang)
 	lang_change.emit()

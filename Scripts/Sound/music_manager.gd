@@ -38,7 +38,7 @@ func _physics_process(_delta: float) -> void:
 		print("Boss")
 	else:
 		await switch_with_crossfade(0)
-		print("Area0")
+		#print("Area0")
 
 
 func switch_with_crossfade(index: int) -> void:

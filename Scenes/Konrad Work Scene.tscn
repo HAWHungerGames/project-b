@@ -1,4 +1,4 @@
-[gd_scene load_steps=161 format=3 uid="uid://17sawqr1a5sd"]
+[gd_scene load_steps=162 format=3 uid="uid://17sawqr1a5sd"]
 
 [ext_resource type="Material" uid="uid://41byjnpqi8jl" path="res://Materials/TestBush.tres" id="1_3f6q6"]
 [ext_resource type="PackedScene" uid="uid://bo6t8u3r6w260" path="res://Prefabs/Asset Scenes/World Objects/Nature/Plants/grass_ground.tscn" id="2_5i7v7"]
@@ -57,7 +57,6 @@
 [ext_resource type="Texture2D" uid="uid://baxq1j20y701x" path="res://UI/Menus/Backgrounds/redTint.png" id="26_vkim1"]
 [ext_resource type="PackedScene" uid="uid://bft5jww0xfn2h" path="res://Prefabs/Asset Scenes/World Objects/Objects/rampTutorial.tscn" id="27_4qm2b"]
 [ext_resource type="Texture2D" uid="uid://b0gb728e1n47w" path="res://UI/Weapons/WeaponSlot.png" id="27_vs2el"]
-[ext_resource type="Texture2D" uid="uid://ckpk8adjc2d36" path="res://UI/Menus/Backgrounds/myceliumFrame.png" id="28_vkbj3"]
 [ext_resource type="Texture2D" uid="uid://b56g56co15oce" path="res://UI/Weapons/WeaponSlotFrame2.png" id="30_1tgbn"]
 [ext_resource type="Script" uid="uid://jrwxn4jas2ej" path="res://Scripts/UI/weapon_slots.gd" id="31_5i7v7"]
 [ext_resource type="PackedScene" uid="uid://uis0puhqo5yl" path="res://Prefabs/Asset Scenes/World Objects/Nature/Trees/tree_round.tscn" id="32_klcqc"]
@@ -141,7 +140,9 @@
 [ext_resource type="Texture2D" uid="uid://d0xa3l4brovcr" path="res://UI/Stats/BossHealthbarDamage.png" id="111_0l7n2"]
 [ext_resource type="Texture2D" uid="uid://bg74iei8b148" path="res://UI/Stats/BossHealthbarMycelium.png" id="112_snyj6"]
 [ext_resource type="Texture2D" uid="uid://b5fefhxud83tp" path="res://UI/Stats/Health.png" id="116_lxpkg"]
+[ext_resource type="Texture2D" uid="uid://d2b5ueh2upkqi" path="res://UI/Menus/Backgrounds/mycelium.png" id="134_qw7hm"]
 [ext_resource type="PackedScene" uid="uid://dduhwohr0vah4" path="res://Prefabs/Asset Scenes/UI/death_scene.tscn" id="141_3ulng"]
+[ext_resource type="Script" uid="uid://cj6crb3hhcnmh" path="res://Scenes/game_blend.gd" id="141_qw7hm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lfy4s"]
 sky_top_color = Color(0.102228, 0.307553, 0.295863, 1)
@@ -3816,6 +3817,7 @@ visible = false
 far = 50.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="WorldEnvironment"]
+process_mode = 3
 
 [node name="FullUI" type="MarginContainer" parent="WorldEnvironment/CanvasLayer"]
 anchors_preset = 15
@@ -4112,8 +4114,6 @@ player = NodePath("../../../Player")
 visible = false
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 texture = ExtResource("26_vkim1")
 expand_mode = 1
 
@@ -4121,7 +4121,7 @@ expand_mode = 1
 visible = false
 material = SubResource("ShaderMaterial_ga1i8")
 layout_mode = 2
-texture = ExtResource("28_vkbj3")
+texture = ExtResource("134_qw7hm")
 
 [node name="bossHealthMargin" type="MarginContainer" parent="WorldEnvironment/CanvasLayer/FullUI"]
 layout_mode = 2
@@ -4169,16 +4169,28 @@ texture = ExtResource("112_snyj6")
 expand_mode = 1
 flip_v = true
 
-[node name="DeathScene" parent="WorldEnvironment/CanvasLayer/FullUI" instance=ExtResource("141_3ulng")]
+[node name="gameBlend" type="ColorRect" parent="WorldEnvironment/CanvasLayer/FullUI"]
+process_mode = 3
+visible = false
 layout_mode = 2
-
-[node name="death_blackscreen" parent="WorldEnvironment/CanvasLayer/FullUI/DeathScene/deathMenu" index="1"]
-z_index = -1
+color = Color(0, 0, 0, 1)
+script = ExtResource("141_qw7hm")
 
 [node name="PauseMenu" parent="WorldEnvironment/CanvasLayer" instance=ExtResource("45_ccm0r")]
 
 [node name="blendScreen" parent="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu" index="0"]
 z_index = 0
+
+[node name="DeathScene" parent="WorldEnvironment/CanvasLayer" instance=ExtResource("141_3ulng")]
+
+[node name="death_blackscreen" parent="WorldEnvironment/CanvasLayer/DeathScene/deathMenu" index="0"]
+z_index = -1
+
+[node name="blendScreen" parent="WorldEnvironment/CanvasLayer/DeathScene/deathMenu" index="1"]
+color = Color(0, 0, 0, 0)
+
+[node name="deathMenuContainer" parent="WorldEnvironment/CanvasLayer/DeathScene/deathMenu" index="2"]
+visible = false
 
 [connection signal="area_entered" from="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/BossAreana/Area3D" to="WorldEnvironment/Enemies/Room Boss/BossEnemy" method="_on_boss_erea_entered"]
 [connection signal="area_entered" from="WorldEnvironment/World/Nav Exclusion/Music/MusicManager/Fade_Track0" to="WorldEnvironment/World/Nav Exclusion/Music/MusicManager" method="fade_to_Track0"]
@@ -4200,8 +4212,8 @@ z_index = 0
 [editable path="WorldEnvironment/Player/Controller/Model/Player/Armature/Skeleton3D/RightWeaponHand/Staff"]
 [editable path="WorldEnvironment/Player/Controller/Model/Player/Armature/Skeleton3D/LeftWeaponHand/Bow"]
 [editable path="WorldEnvironment/CanvasLayer/FullUI/textField"]
-[editable path="WorldEnvironment/CanvasLayer/FullUI/DeathScene"]
 [editable path="WorldEnvironment/CanvasLayer/PauseMenu"]
 [editable path="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu/Options"]
 [editable path="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu/Display"]
 [editable path="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu/Controls"]
+[editable path="WorldEnvironment/CanvasLayer/DeathScene"]
