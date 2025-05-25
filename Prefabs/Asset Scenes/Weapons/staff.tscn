@@ -5,7 +5,7 @@
 
 [sub_resource type="Animation" id="Animation_7m86y"]
 resource_name = "MagicAttack"
-length = 0.4
+length = 0.4167
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -31,10 +31,6 @@ script = ExtResource("1_7m86y")
 
 [node name="Wand2" parent="." instance=ExtResource("1_n5ytd")]
 transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 0, 0)
-
-[node name="RayCast3D" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.836501, 0.250255, -0.658984)
-target_position = Vector3(0, 0, -1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

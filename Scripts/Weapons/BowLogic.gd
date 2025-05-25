@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var ray_position = $RayCast3D
+@onready var ray_position = $"../../../../../AimRayCast3D2"
 @onready var player: Node3D = GlobalPlayer.getPlayer()
 @onready var world = $"../../../../../../../.."
 

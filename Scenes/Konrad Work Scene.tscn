@@ -3333,6 +3333,7 @@ manaPerSecond = 40.0
 
 [node name="AnimationTree" parent="WorldEnvironment/Player/Controller/Model/Player" index="2"]
 parameters/Sword/blend_amount = 1.0
+parameters/WalkOrStaffBlend/blend_amount = 0
 parameters/WalkStaffBlend/blend_amount = 0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="WorldEnvironment"]
@@ -3692,6 +3693,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6574, 1.75848, -27.7459)
 [editable path="WorldEnvironment/World/Nav Exclusion/TreeBundleWall/TreeBundleFour3"]
 [editable path="WorldEnvironment/Player"]
 [editable path="WorldEnvironment/Player/Controller/Model/Player"]
+[editable path="WorldEnvironment/Player/Controller/Model/Player/Armature/Skeleton3D/RightWeaponHand/Staff"]
+[editable path="WorldEnvironment/Player/Controller/Model/Player/Armature/Skeleton3D/LeftWeaponHand/Bow"]
 [editable path="WorldEnvironment/CanvasLayer/PauseMenu"]
 [editable path="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu/Options"]
 [editable path="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu/Display"]

@@ -46,7 +46,7 @@ func get_bow_attack_timer():
 	
 func set_bow_attack_timer(timer):
 	bow_attack_timer = round(timer*10)/10
-	print(bow_attack_timer)
+	#print(bow_attack_timer)
 	
 func get_is_attacking():
 	return is_attacking

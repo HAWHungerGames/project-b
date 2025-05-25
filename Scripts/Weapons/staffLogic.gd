@@ -2,7 +2,7 @@ extends Node3D
 
 @export var mana_cost_per_attack: int = 60
 
-@onready var ray_position = $RayCast3D
+@onready var ray_position = $"../../../../../AimRayCast3D"
 
 @onready var player: Node3D = GlobalPlayer.getPlayer()
 @onready var world = $"../../../../../../../.."
@@ -21,5 +21,5 @@ func spawn_bullet():
 func magicAttack():
 	if player.mana >= mana_cost_per_attack:
 		player.reduce_mana(mana_cost_per_attack)
-		print("-" + str(mana_cost_per_attack))
+		#print("-" + str(mana_cost_per_attack))
 		spawn_bullet()

@@ -1463,11 +1463,11 @@ script = ExtResource("5_b5gbf")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 speed = 8.0
 dashMaxCooldown = 0.5
-manaPerSecond = 40.0
+manaPerSecond = 200.0
 
 [node name="AnimationTree" parent="WorldEnvironment/Player/Controller/Model/Player" index="2"]
-parameters/Bow/blend_amount = false
 parameters/Sword/blend_amount = false
+parameters/WalkOrStaffBlend/blend_amount = 0
 parameters/WalkStaffBlend/blend_amount = 0
 
 [node name="Socket1" parent="WorldEnvironment" instance=ExtResource("6_nhess")]
@@ -1487,3 +1487,5 @@ weapon = "shield"
 
 [editable path="WorldEnvironment/Player"]
 [editable path="WorldEnvironment/Player/Controller/Model/Player"]
+[editable path="WorldEnvironment/Player/Controller/Model/Player/Armature/Skeleton3D/RightWeaponHand/Staff"]
+[editable path="WorldEnvironment/Player/Controller/Model/Player/Armature/Skeleton3D/LeftWeaponHand/Bow"]
