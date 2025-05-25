@@ -4,7 +4,7 @@
 
 [node name="GrassPlant" type="Node3D"]
 
-[node name="Grass2" parent="." instance=ExtResource("1_56ow2")]
+[node name="Grass2" parent="." groups=["animated_objects"] instance=ExtResource("1_56ow2")]
 
 [node name="Skeleton3D" parent="Grass2/Grass" index="0"]
 bones/0/rotation = Quaternion(0.104669, 0.0178178, 0.076306, 0.991415)

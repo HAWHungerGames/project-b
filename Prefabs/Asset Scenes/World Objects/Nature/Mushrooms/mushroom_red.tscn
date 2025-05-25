@@ -4,7 +4,7 @@
 
 [node name="MushroomRed" type="Node3D"]
 
-[node name="mushroom1" parent="." instance=ExtResource("1_pekiv")]
+[node name="mushroom1" parent="." groups=["animated_objects"] instance=ExtResource("1_pekiv")]
 
 [node name="Skeleton3D" parent="mushroom1/Armature" index="0"]
 bones/0/scale = Vector3(1, 0.999069, 1)

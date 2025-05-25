@@ -13,7 +13,7 @@ size = Vector2(5, 5)
 visible = false
 mesh = SubResource("PlaneMesh_sgs1a")
 
-[node name="Bush2" parent="." instance=ExtResource("1_642da")]
+[node name="Bush2" parent="." groups=["animated_objects"] instance=ExtResource("1_642da")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.662786, -1.19209e-07, 0.0106101)
 
 [node name="Skeleton3D" parent="Bush2/Armature_001" index="0"]
@@ -26,7 +26,7 @@ bones/5/rotation = Quaternion(0.709777, -0.00989657, 0.0074861, 0.704318)
 [node name="AnimationPlayer" parent="Bush2" index="2"]
 autoplay = "Idle"
 
-[node name="Bush3" parent="." instance=ExtResource("1_642da")]
+[node name="Bush3" parent="." groups=["animated_objects"] instance=ExtResource("1_642da")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0485538, 0, -0.741399)
 
 [node name="Skeleton3D" parent="Bush3/Armature_001" index="0"]
@@ -39,7 +39,7 @@ bones/5/rotation = Quaternion(0.709778, -0.00978162, 0.00737204, 0.704319)
 [node name="AnimationPlayer" parent="Bush3" index="2"]
 autoplay = "Idle"
 
-[node name="Bush4" parent="." instance=ExtResource("1_642da")]
+[node name="Bush4" parent="." groups=["animated_objects"] instance=ExtResource("1_642da")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.08454, 0, 0.786708)
 
 [node name="Skeleton3D" parent="Bush4/Armature_001" index="0"]
@@ -52,7 +52,7 @@ bones/5/rotation = Quaternion(0.709843, -0.00201293, -0.000336751, 0.704357)
 [node name="AnimationPlayer" parent="Bush4" index="2"]
 autoplay = "Idle"
 
-[node name="Bush" parent="." instance=ExtResource("2_na1vh")]
+[node name="Bush" parent="." groups=["animated_objects"] instance=ExtResource("2_na1vh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.623389, -1.19209e-07, -0.741143)
 
 [node name="Skeleton3D" parent="Bush/Armature_001" index="0"]
@@ -65,7 +65,7 @@ bones/5/rotation = Quaternion(0.709846, -0.000193625, -0.00214199, 0.704354)
 [node name="AnimationPlayer" parent="Bush" index="2"]
 autoplay = "Idle"
 
-[node name="Bush5" parent="." instance=ExtResource("2_na1vh")]
+[node name="Bush5" parent="." groups=["animated_objects"] instance=ExtResource("2_na1vh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1459, 0, 0.239856)
 
 [node name="Skeleton3D" parent="Bush5/Armature_001" index="0"]
@@ -78,7 +78,7 @@ bones/5/rotation = Quaternion(0.709814, -0.00674702, 0.0043608, 0.704344)
 [node name="AnimationPlayer" parent="Bush5" index="2"]
 autoplay = "Idle"
 
-[node name="Baum" parent="." instance=ExtResource("3_vsthn")]
+[node name="Baum" parent="." groups=["animated_objects"] instance=ExtResource("3_vsthn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.461398, -1.19209e-07, 1.18576)
 
 [node name="Skeleton3D" parent="Baum/Armature" index="0"]
@@ -89,7 +89,7 @@ bones/3/scale = Vector3(1, 0.999507, 1)
 [node name="AnimationPlayer" parent="Baum" index="1"]
 autoplay = "Idle"
 
-[node name="Baum2" parent="." instance=ExtResource("3_vsthn")]
+[node name="Baum2" parent="." groups=["animated_objects"] instance=ExtResource("3_vsthn")]
 transform = Transform3D(0.552798, 0, -1.06509, 0, 1.2, 0, 1.06509, 0, 0.552798, 1.34039, 0, 0.162991)
 
 [node name="Skeleton3D" parent="Baum2/Armature" index="0"]
@@ -100,7 +100,7 @@ bones/3/scale = Vector3(1, 0.983506, 1)
 [node name="AnimationPlayer" parent="Baum2" index="1"]
 autoplay = "Idle"
 
-[node name="Baum3" parent="." instance=ExtResource("3_vsthn")]
+[node name="Baum3" parent="." groups=["animated_objects"] instance=ExtResource("3_vsthn")]
 transform = Transform3D(0.572203, 0, 0.820112, 0, 1, 0, -0.820112, 0, 0.572203, -0.643321, 2.38419e-07, 1.73729)
 
 [node name="Skeleton3D" parent="Baum3/Armature" index="0"]
@@ -111,7 +111,7 @@ bones/3/scale = Vector3(1, 0.887811, 1)
 [node name="AnimationPlayer" parent="Baum3" index="1"]
 autoplay = "Idle"
 
-[node name="Baum4" parent="." instance=ExtResource("3_vsthn")]
+[node name="Baum4" parent="." groups=["animated_objects"] instance=ExtResource("3_vsthn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.22593, 0, -1.53483)
 
 [node name="Skeleton3D" parent="Baum4/Armature" index="0"]
@@ -122,7 +122,7 @@ bones/3/scale = Vector3(1, 0.997496, 1)
 [node name="AnimationPlayer" parent="Baum4" index="1"]
 autoplay = "Idle"
 
-[node name="Baum5" parent="." instance=ExtResource("3_vsthn")]
+[node name="Baum5" parent="." groups=["animated_objects"] instance=ExtResource("3_vsthn")]
 transform = Transform3D(0.553342, 0, 0.577766, 0, 0.8, 0, -0.577766, 0, 0.553342, 1.50696, 2.38419e-07, 1.70505)
 
 [node name="Skeleton3D" parent="Baum5/Armature" index="0"]
@@ -133,7 +133,7 @@ bones/3/scale = Vector3(1, 0.893327, 1)
 [node name="AnimationPlayer" parent="Baum5" index="1"]
 autoplay = "Idle"
 
-[node name="Baum6" parent="." instance=ExtResource("3_vsthn")]
+[node name="Baum6" parent="." groups=["animated_objects"] instance=ExtResource("3_vsthn")]
 transform = Transform3D(0.451134, 0, 1.43055, 0, 1.5, 0, -1.43055, 0, 0.451134, -1.45086, 0, -1.34552)
 
 [node name="Skeleton3D" parent="Baum6/Armature" index="0"]

@@ -6,10 +6,6 @@
 
 [node name="mushroomBlue" parent="." groups=["animated_objects"] instance=ExtResource("1_bsn38")]
 
-[node name="Skeleton3D" parent="mushroomBlue/Armature" index="0"]
-bones/0/scale = Vector3(1, 0.824032, 1)
-bones/1/scale = Vector3(0.919094, 0.919094, 0.919094)
-
 [node name="AnimationPlayer" parent="mushroomBlue" index="1"]
 autoplay = "Idle"
 

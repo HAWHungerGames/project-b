@@ -4,7 +4,7 @@
 
 [node name="MushroomMany" type="Node3D"]
 
-[node name="piltz" parent="." instance=ExtResource("1_pfxjq")]
+[node name="piltz" parent="." groups=["animated_objects"] instance=ExtResource("1_pfxjq")]
 
 [node name="Skeleton3D" parent="piltz/Armature" index="0"]
 bones/0/rotation = Quaternion(0.0273, 0.00105263, 0.0274217, 0.999251)

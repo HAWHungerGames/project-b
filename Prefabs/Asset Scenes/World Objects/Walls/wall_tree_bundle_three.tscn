@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dkkibrn515frk"]
+[gd_scene load_steps=9 format=3 uid="uid://dcq4em5be8cd"]
 
 [ext_resource type="PackedScene" uid="uid://cnrgjwnqfq1xv" path="res://Models/Nature/Baum/tree.blend" id="1_02itw"]
 [ext_resource type="PackedScene" uid="uid://db3ndiywdtl3x" path="res://Models/Nature/Baum/baumstamm1.blend" id="2_0t3xa"]
@@ -15,7 +15,7 @@ size = Vector3(5.1189, 4.28223, 4.94873)
 
 [node name="Deco" type="Node3D" parent="."]
 
-[node name="tree" parent="Deco" instance=ExtResource("1_02itw")]
+[node name="tree" parent="Deco" groups=["animated_objects"] instance=ExtResource("1_02itw")]
 transform = Transform3D(0.902382, 0, 0.430936, 0, 1, 0, -0.430936, 0, 0.902382, -1.3099, 0.114345, -1.26747)
 
 [node name="Skeleton3D" parent="Deco/tree/Armature" index="0"]
@@ -34,7 +34,7 @@ bones/12/rotation = Quaternion(-0.0001076, 0.000214769, 0.00118185, 0.999999)
 [node name="AnimationPlayer" parent="Deco/tree" index="1"]
 autoplay = "Idle"
 
-[node name="baumstamm1" parent="Deco" instance=ExtResource("2_0t3xa")]
+[node name="baumstamm1" parent="Deco" groups=["animated_objects"] instance=ExtResource("2_0t3xa")]
 transform = Transform3D(0.478414, 0, -0.145326, 0, 0.5, 0, 0.145326, 0, 0.478414, 0.495377, 0.232612, -1.67236)
 
 [node name="piltz" parent="Deco/baumstamm1" instance=ExtResource("3_o07ub")]
@@ -55,7 +55,7 @@ bones/4/scale = Vector3(0.998788, 0.998788, 0.998788)
 [node name="AnimationPlayer" parent="Deco/baumstamm1/piltz" index="1"]
 autoplay = "Idle"
 
-[node name="piltz2" parent="Deco/baumstamm1" instance=ExtResource("3_o07ub")]
+[node name="piltz2" parent="Deco/baumstamm1" groups=["animated_objects"] instance=ExtResource("3_o07ub")]
 transform = Transform3D(0.480545, 0.0815524, -0.634371, -0.26148, 0.749181, -0.101763, 0.583699, 0.268471, 0.476674, 1.13514, 0.306006, 0.136828)
 
 [node name="Skeleton3D" parent="Deco/baumstamm1/piltz2/Armature" index="0"]
@@ -73,7 +73,7 @@ bones/4/scale = Vector3(0.998788, 0.998788, 0.998788)
 [node name="AnimationPlayer" parent="Deco/baumstamm1/piltz2" index="1"]
 autoplay = "Idle"
 
-[node name="piltz3" parent="Deco/baumstamm1" instance=ExtResource("3_o07ub")]
+[node name="piltz3" parent="Deco/baumstamm1" groups=["animated_objects"] instance=ExtResource("3_o07ub")]
 transform = Transform3D(0.225427, 0.27036, 0.718392, -0.00862743, 0.749578, -0.279389, -0.767534, 0.0709802, 0.214135, 0.296604, 0.306006, 0.110247)
 
 [node name="Skeleton3D" parent="Deco/baumstamm1/piltz3/Armature" index="0"]
@@ -91,7 +91,7 @@ bones/4/scale = Vector3(0.998788, 0.998788, 0.998788)
 [node name="AnimationPlayer" parent="Deco/baumstamm1/piltz3" index="1"]
 autoplay = "Idle"
 
-[node name="piltz4" parent="Deco/baumstamm1" instance=ExtResource("3_o07ub")]
+[node name="piltz4" parent="Deco/baumstamm1" groups=["animated_objects"] instance=ExtResource("3_o07ub")]
 transform = Transform3D(-0.0368902, 0.013399, -0.39807, 0.0884795, 0.39006, 0.00492973, 0.388343, -0.0875979, -0.0389374, 0.73316, 0.46081, -0.147839)
 
 [node name="Skeleton3D" parent="Deco/baumstamm1/piltz4/Armature" index="0"]
@@ -112,7 +112,7 @@ autoplay = "Idle"
 [node name="baumstamm2" parent="Deco" instance=ExtResource("2_0t3xa")]
 transform = Transform3D(0.249709, -0.194428, -0.387096, 0.286811, 0.40905, -0.0204381, 0.32463, -0.211839, 0.315815, 1.491, 0.232612, 1.0177)
 
-[node name="piltz" parent="Deco/baumstamm2" instance=ExtResource("3_o07ub")]
+[node name="piltz" parent="Deco/baumstamm2" groups=["animated_objects"] instance=ExtResource("3_o07ub")]
 transform = Transform3D(0.956829, 0, 0.290652, 0, 1, 0, -0.290652, 0, 0.956829, 1.862, 0.306006, 0.11201)
 
 [node name="Skeleton3D" parent="Deco/baumstamm2/piltz/Armature" index="0"]
@@ -130,7 +130,7 @@ bones/4/scale = Vector3(0.998788, 0.998788, 0.998788)
 [node name="AnimationPlayer" parent="Deco/baumstamm2/piltz" index="1"]
 autoplay = "Idle"
 
-[node name="piltz2" parent="Deco/baumstamm2" instance=ExtResource("3_o07ub")]
+[node name="piltz2" parent="Deco/baumstamm2" groups=["animated_objects"] instance=ExtResource("3_o07ub")]
 transform = Transform3D(0.480545, 0.0815524, -0.634371, -0.26148, 0.749181, -0.101763, 0.583699, 0.268471, 0.476674, 1.13514, 0.306006, 0.136828)
 
 [node name="Skeleton3D" parent="Deco/baumstamm2/piltz2/Armature" index="0"]
@@ -148,7 +148,7 @@ bones/4/scale = Vector3(0.998788, 0.998788, 0.998788)
 [node name="AnimationPlayer" parent="Deco/baumstamm2/piltz2" index="1"]
 autoplay = "Idle"
 
-[node name="piltz3" parent="Deco/baumstamm2" instance=ExtResource("3_o07ub")]
+[node name="piltz3" parent="Deco/baumstamm2" groups=["animated_objects"] instance=ExtResource("3_o07ub")]
 transform = Transform3D(0.225427, 0.27036, 0.718392, -0.00862743, 0.749578, -0.279389, -0.767534, 0.0709802, 0.214135, 0.296604, 0.306006, 0.110247)
 
 [node name="Skeleton3D" parent="Deco/baumstamm2/piltz3/Armature" index="0"]
@@ -166,7 +166,7 @@ bones/4/scale = Vector3(0.998788, 0.998788, 0.998788)
 [node name="AnimationPlayer" parent="Deco/baumstamm2/piltz3" index="1"]
 autoplay = "Idle"
 
-[node name="piltz4" parent="Deco/baumstamm2" instance=ExtResource("3_o07ub")]
+[node name="piltz4" parent="Deco/baumstamm2" groups=["animated_objects"] instance=ExtResource("3_o07ub")]
 transform = Transform3D(-0.0368902, 0.013399, -0.39807, 0.0884795, 0.39006, 0.00492973, 0.388343, -0.0875979, -0.0389374, 0.73316, 0.46081, -0.147839)
 
 [node name="Skeleton3D" parent="Deco/baumstamm2/piltz4/Armature" index="0"]
@@ -190,7 +190,7 @@ transform = Transform3D(0.138782, -0.0640881, 0.988247, 0.189859, 0.981115, 0.03
 [node name="MushroomMany" parent="Deco" instance=ExtResource("5_r0c44")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.258798, 0.0261045, -1.41344)
 
-[node name="tree2" parent="Deco" instance=ExtResource("1_02itw")]
+[node name="tree2" parent="Deco" groups=["animated_objects"] instance=ExtResource("1_02itw")]
 transform = Transform3D(-0.719573, 0, 0.349592, 0, 0.8, 0, -0.349592, 0, -0.719573, 0.974872, 0, 0.166326)
 
 [node name="Skeleton3D" parent="Deco/tree2/Armature" index="0"]
@@ -221,7 +221,7 @@ transform = Transform3D(-0.998062, 0, -0.0622332, 0, 1, 0, 0.0622332, 0, -0.9980
 [node name="RockOne2" parent="Deco" instance=ExtResource("6_a1dr2")]
 transform = Transform3D(-0.187418, 0.326089, 0.926575, 0.867001, 0.498306, 0, -0.461718, 0.803341, -0.376111, -0.986597, 0, 2.13355)
 
-[node name="tree3" parent="Deco" instance=ExtResource("1_02itw")]
+[node name="tree3" parent="Deco" groups=["animated_objects"] instance=ExtResource("1_02itw")]
 transform = Transform3D(-0.131086, 0, 0.482511, 0, 0.5, 0, -0.482511, 0, -0.131086, 0.0755873, 2.38419e-07, 1.55556)
 
 [node name="Skeleton3D" parent="Deco/tree3/Armature" index="0"]
@@ -240,7 +240,7 @@ bones/12/rotation = Quaternion(-0.0001076, 0.000214769, 0.00118185, 0.999999)
 [node name="AnimationPlayer" parent="Deco/tree3" index="1"]
 autoplay = "Idle"
 
-[node name="tree4" parent="Deco" instance=ExtResource("1_02itw")]
+[node name="tree4" parent="Deco" groups=["animated_objects"] instance=ExtResource("1_02itw")]
 transform = Transform3D(0.607915, 0, 0.916755, 0, 1.1, 0, -0.916755, 0, 0.607915, -1.36772, 0, 0.205837)
 
 [node name="Skeleton3D" parent="Deco/tree4/Armature" index="0"]

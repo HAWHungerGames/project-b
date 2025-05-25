@@ -266,7 +266,7 @@ _data = {
 
 [node name="Monstera_bush" type="Node3D"]
 
-[node name="Monstera_bush" parent="." instance=ExtResource("1_pq0oa")]
+[node name="Monstera_bush" parent="." groups=["animated_objects"] instance=ExtResource("1_pq0oa")]
 
 [node name="Skeleton3D" parent="Monstera_bush/Armature" index="0"]
 bones/0/position = Vector3(6.40713e-05, 3.93688e-07, 3.61672e-05)

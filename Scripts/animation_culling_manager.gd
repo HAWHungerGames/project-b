@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 		if !is_instance_valid(item.object):
 			continue
 		var distance = item.object.global_position.distance_to(camera.global_position)
-		if distance > culling_distance:
+		if distance > culling_distance || camera.is_position_behind(item.object.global_position):
 			if item.animation_player.is_playing():
 				item.animation_player.pause()
 				item.was_playing = true

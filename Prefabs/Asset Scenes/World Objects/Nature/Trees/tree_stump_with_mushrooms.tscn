@@ -8,7 +8,7 @@ size = Vector3(2.49219, 0.491943, 0.481445)
 
 [node name="TreeStumpWithMushrooms" type="StaticBody3D"]
 
-[node name="baumstamm1" parent="." instance=ExtResource("1_6ie0r")]
+[node name="baumstamm1" parent="." groups=["animated_objects"] instance=ExtResource("1_6ie0r")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="piltz" parent="baumstamm1" instance=ExtResource("2_rs168")]

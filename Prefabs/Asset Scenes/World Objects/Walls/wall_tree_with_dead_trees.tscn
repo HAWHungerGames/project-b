@@ -73,10 +73,28 @@ transform = Transform3D(-0.6, 0, 5.24537e-08, 0, 0.6, 0, -5.24537e-08, 0, -0.6, 
 [node name="TreeDead" parent="." instance=ExtResource("7_cjm80")]
 transform = Transform3D(0.896664, 0, 0.442711, 0, 1, 0, -0.442711, 0, 0.896664, -2.01695, 0.127651, 0.0549707)
 
-[node name="TreeDead2" parent="." instance=ExtResource("8_xbepg")]
+[node name="TreeDead2" parent="." groups=["animated_objects"] instance=ExtResource("8_xbepg")]
 transform = Transform3D(-0.761131, 0, 0.648598, 0, 1, 0, -0.648598, 0, -0.761131, -5.09557, 0.143986, 0.97486)
 
-[node name="TreeRound3" parent="." instance=ExtResource("2_674lk")]
+[node name="MushroomMany2" parent="TreeDead2" index="3" groups=["animated_objects"]]
+
+[node name="MushroomMany5" parent="TreeDead2" index="4" groups=["animated_objects"]]
+
+[node name="MushroomMany6" parent="TreeDead2" index="5" groups=["animated_objects"]]
+
+[node name="MushroomMany3" parent="TreeDead2" index="6" groups=["animated_objects"]]
+
+[node name="MushroomMany4" parent="TreeDead2" index="7" groups=["animated_objects"]]
+
+[node name="MushroomPurple" parent="TreeDead2" index="8" groups=["animated_objects"]]
+
+[node name="GrassPlant" parent="TreeDead2" index="9" groups=["animated_objects"]]
+
+[node name="MushroomBlue" parent="TreeDead2" index="10" groups=["animated_objects"]]
+
+[node name="MushroomRed" parent="TreeDead2" index="11" groups=["animated_objects"]]
+
+[node name="TreeRound3" parent="." groups=["animated_objects"] instance=ExtResource("2_674lk")]
 transform = Transform3D(0.0759387, 0, 1.99856, 0, 1.5, 0, -1.99856, 0, 0.0759387, -1.52321, 0, 2.69744)
 
 [node name="RockOne" parent="." instance=ExtResource("9_60wye")]

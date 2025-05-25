@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dkygrtfub7v2f" path="res://Prefabs/Asset Scenes/World Objects/Nature/Plants/plant_white.tscn" id="3_mr7ns"]
 [ext_resource type="PackedScene" uid="uid://bwwem0bl1hx05" path="res://Prefabs/Asset Scenes/World Objects/Nature/Plants/plant_with_purple.tscn" id="4_8lv3p"]
 
-[node name="FlowerField" type="Node3D"]
+[node name="FlowerField" type="Node3D" groups=["animated_objects"]]
 transform = Transform3D(0.951969, 0, 0.306194, 0, 1, 0, -0.306194, 0, 0.951969, 0, 0, 0)
 
 [node name="PlantBlue" parent="." instance=ExtResource("1_2h7lf")]
@@ -53,15 +53,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19329, 0.499998, 1.46679)
 [node name="PlantWithPurple3" parent="." instance=ExtResource("4_8lv3p")]
 transform = Transform3D(0.788677, 0, -0.614808, 0, 1, 0, 0.614808, 0, 0.788677, 1.18931, 0.499998, -0.100248)
 
-[node name="Skeleton3D" parent="PlantWithPurple3/Plant/Armature" index="0"]
-bones/0/rotation = Quaternion(-0.553916, -0.269179, -0.240207, 0.750346)
-bones/1/rotation = Quaternion(-0.242157, 0.000749182, -0.0244961, 0.969928)
-bones/2/rotation = Quaternion(-0.568092, 0.268968, 0.249625, 0.736624)
-bones/3/rotation = Quaternion(-0.216317, -0.000377113, 0.01233, 0.976245)
-bones/4/rotation = Quaternion(-0.0516347, 0.599449, 0.562297, 0.56729)
-bones/5/rotation = Quaternion(-0.162775, -0.00340092, 0.1112, 0.980371)
-bones/6/rotation = Quaternion(0.0311839, -0.605758, -0.579409, 0.544399)
-bones/7/rotation = Quaternion(-0.13595, 0.00344906, -0.112773, 0.98427)
+[node name="AnimationPlayer" parent="PlantWithPurple3/Plant" index="2"]
+autoplay = ""
 
 [node name="PlantWithPurple2" parent="." instance=ExtResource("4_8lv3p")]
 transform = Transform3D(0.87728, 0, 0.479979, 0, 1, 0, -0.479979, 0, 0.87728, -1.23089, 0.499998, 0.332081)

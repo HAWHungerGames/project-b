@@ -11,7 +11,7 @@ size = Vector2(5, 5)
 visible = false
 mesh = SubResource("PlaneMesh_yey8x")
 
-[node name="tree" parent="." instance=ExtResource("1_ph4np")]
+[node name="tree" parent="." groups=["animated_objects"] instance=ExtResource("1_ph4np")]
 transform = Transform3D(0.902382, 0, 0.430936, 0, 1, 0, -0.430936, 0, 0.902382, -1.3099, 0.114345, -1.26747)
 
 [node name="Skeleton3D" parent="tree/Armature" index="0"]
@@ -30,7 +30,7 @@ bones/12/rotation = Quaternion(-0.0001076, 0.000214769, 0.00118185, 0.999999)
 [node name="AnimationPlayer" parent="tree" index="1"]
 autoplay = "Idle"
 
-[node name="tree2" parent="." instance=ExtResource("1_ph4np")]
+[node name="tree2" parent="." groups=["animated_objects"] instance=ExtResource("1_ph4np")]
 transform = Transform3D(-0.719573, 0, 0.349592, 0, 0.8, 0, -0.349592, 0, -0.719573, 0.974872, 0.154466, 0.166326)
 
 [node name="Skeleton3D" parent="tree2/Armature" index="0"]
@@ -49,7 +49,7 @@ bones/12/rotation = Quaternion(-0.0001076, 0.000214769, 0.00118185, 0.999999)
 [node name="AnimationPlayer" parent="tree2" index="1"]
 autoplay = "Idle"
 
-[node name="tree3" parent="." instance=ExtResource("1_ph4np")]
+[node name="tree3" parent="." groups=["animated_objects"] instance=ExtResource("1_ph4np")]
 transform = Transform3D(-0.131086, 0, 0.482511, 0, 0.5, 0, -0.482511, 0, -0.131086, 0.0755873, 2.38419e-07, 1.55556)
 
 [node name="Skeleton3D" parent="tree3/Armature" index="0"]
@@ -68,7 +68,7 @@ bones/12/rotation = Quaternion(-0.0001076, 0.000214769, 0.00118185, 0.999999)
 [node name="AnimationPlayer" parent="tree3" index="1"]
 autoplay = "Idle"
 
-[node name="tree4" parent="." instance=ExtResource("1_ph4np")]
+[node name="tree4" parent="." groups=["animated_objects"] instance=ExtResource("1_ph4np")]
 transform = Transform3D(0.607915, 0, 0.916755, 0, 1.1, 0, -0.916755, 0, 0.607915, -1.36772, 0, 0.205837)
 
 [node name="Skeleton3D" parent="tree4/Armature" index="0"]
@@ -87,7 +87,7 @@ bones/12/rotation = Quaternion(-0.0001076, 0.000214769, 0.00118185, 0.999999)
 [node name="AnimationPlayer" parent="tree4" index="1"]
 autoplay = "Idle"
 
-[node name="tree5" parent="." instance=ExtResource("1_ph4np")]
+[node name="tree5" parent="." groups=["animated_objects"] instance=ExtResource("1_ph4np")]
 transform = Transform3D(-0.203547, 0, 1.48613, 0, 1.5, 0, -1.48613, 0, -0.203547, 1.36322, 4.76837e-07, 1.76618)
 
 [node name="Skeleton3D" parent="tree5/Armature" index="0"]
@@ -106,7 +106,7 @@ bones/12/rotation = Quaternion(-0.0001076, 0.000214769, 0.00118185, 0.999999)
 [node name="AnimationPlayer" parent="tree5" index="1"]
 autoplay = "Idle"
 
-[node name="tree6" parent="." instance=ExtResource("1_ph4np")]
+[node name="tree6" parent="." groups=["animated_objects"] instance=ExtResource("1_ph4np")]
 transform = Transform3D(-0.133675, 0, -1.09185, 0, 1.1, 0, 1.09185, 0, -0.133675, 1.23613, 0, -1.58872)
 
 [node name="Skeleton3D" parent="tree6/Armature" index="0"]
@@ -125,7 +125,7 @@ bones/12/rotation = Quaternion(-0.0001076, 0.000214769, 0.00118185, 0.999999)
 [node name="AnimationPlayer" parent="tree6" index="1"]
 autoplay = "Idle"
 
-[node name="tree7" parent="." instance=ExtResource("1_ph4np")]
+[node name="tree7" parent="." groups=["animated_objects"] instance=ExtResource("1_ph4np")]
 transform = Transform3D(-0.434861, 0, -0.54854, 0, 0.7, 0, 0.54854, 0, -0.434861, -1.74641, 0, 1.72051)
 
 [node name="Skeleton3D" parent="tree7/Armature" index="0"]

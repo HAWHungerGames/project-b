@@ -10,7 +10,7 @@ size = Vector3(2.24634, 1.79663, 2.26904)
 
 [node name="TreeRoundWithTopCollider" type="StaticBody3D"]
 
-[node name="Baum" parent="." instance=ExtResource("1_fw87w")]
+[node name="Baum" parent="." groups=["animated_objects"] instance=ExtResource("1_fw87w")]
 
 [node name="Skeleton3D" parent="Baum/Armature" index="0"]
 bones/1/rotation = Quaternion(0.0220471, -8.93471e-08, 0.037834, 0.999041)

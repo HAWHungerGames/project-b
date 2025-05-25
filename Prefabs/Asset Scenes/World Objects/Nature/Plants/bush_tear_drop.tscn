@@ -4,7 +4,7 @@
 
 [node name="BushTearDrop" type="Node3D"]
 
-[node name="Bush" parent="." instance=ExtResource("1_tdmkf")]
+[node name="Bush" parent="." groups=["animated_objects"] instance=ExtResource("1_tdmkf")]
 
 [node name="Skeleton3D" parent="Bush/Armature_001" index="0"]
 bones/1/rotation = Quaternion(0.00131344, -0.000171498, 0.000359138, 0.999999)
