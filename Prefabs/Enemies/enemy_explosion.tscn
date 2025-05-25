@@ -15,7 +15,7 @@ height = 0.898169
 radius = 1.70299
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_3kmyd"]
-radius = 5.20359
+radius = 3.51696
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xuh6v"]
 transparency = 1
@@ -69,7 +69,7 @@ hue_variation_curve = SubResource("CurveTexture_52x3p")
 [sub_resource type="QuadMesh" id="QuadMesh_3kmyd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xuh6v"]
-size = Vector3(0.272949, 0.581909, 0.394104)
+size = Vector3(0.272949, 0.925232, 0.394104)
 
 [node name="DONOTPLACEINWORLD" type="CharacterBody3D" groups=["Enemy", "enemy"]]
 top_level = true
@@ -150,7 +150,7 @@ draw_pass_1 = SubResource("QuadMesh_3kmyd")
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.29, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.461661, 0)
 shape = SubResource("BoxShape3D_xuh6v")
 
 [connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_entered"]

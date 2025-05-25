@@ -42,6 +42,8 @@ extends CharacterBody3D
 @onready var launcherSound1 = $Sounds/LauncherSound1
 @onready var launcherSound2 = $Sounds/LauncherSound2
 @onready var squishSound = $Sounds/SquishSound
+@onready var spearSound = $Sounds/SpearSound
+@onready var walkingSound = $Sounds/WalkingSound
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var bulletScene: PackedScene = preload("res://Prefabs/enemies/enemy_bullet.tscn")
@@ -85,6 +87,7 @@ func _ready():
 
 func _physics_process(delta: float):
 	die(delta)
+	apply_gravity(delta)
 	if active and deathTimer == 10:
 		activateBoss()
 		actionManager(delta)
@@ -207,10 +210,13 @@ func move_towards_target(delta, targetPoint):
 		var direction = Vector3()
 		nav.target_position = Vector3(targetPoint.x, self.transform.origin.y, targetPoint.z)
 		
-		direction = (nav.get_next_path_position() - global_position).normalized()
+		direction = (targetPoint - global_position).normalized()
 		velocity = velocity.lerp(direction * speed, acceleration * delta)
 		rotateToTarget(targetPoint)
 		animationPlayer.play("Running")
+		if !walkingSound.playing:
+			walkingSound.pitch_scale = 0.6
+			walkingSound.play()
 		return false
 	else:
 		velocity = Vector3(0, velocity.y, 0)
@@ -277,6 +283,9 @@ func chargeAttackAction(delta):
 		chargeCollision.disabled = false
 		animationPlayer.play("Rush")
 		chargeAttack()
+		if !walkingSound.playing:
+			walkingSound.pitch_scale = 1
+			walkingSound.play()
 	if chargeHit and actionTime >= 51:
 		animationPlayer.play("Smash_After_Rush")
 		actionTime = 50
@@ -323,6 +332,7 @@ func spearAttackAction(delta, playerPosition):
 		spearMeleeAttack(delta)
 	elif actionTime <= 50 - 2:
 		actionTime = 0
+		spearTimeKeeper = 0
 		actionType = actionTypes.NONE
 
 func ongoingSporeAreaAction(delta):
@@ -366,15 +376,21 @@ func explosionMiniEnemiesAttack():
 
 func spearMeleeAttack(delta):
 	spearTimeKeeper += delta
-	if spearTimeKeeper >= 0.64 and spearTimeKeeper <= 0.73 and comboArea1:
-		player.takeDamage(spearDamage, self, true, 0.5)
-		comboArea1 = false
-	elif spearTimeKeeper >= 1.12 and spearTimeKeeper <= 1.16 and comboArea2:
-		player.takeDamage(spearDamage, self, true, 0.5)
-		comboArea2 = false
-	elif spearTimeKeeper >= 1.7 and spearTimeKeeper <= 2.1 and comboArea3:
-		player.takeDamage(spearDamage*3, self, true, 0.5)
-		comboArea3 = false
+	if spearTimeKeeper >= 0.64 and spearTimeKeeper <= 0.73:
+		spearSound.play()
+		if comboArea1:
+			player.takeDamage(spearDamage, self, true, 0.5)
+			comboArea1 = false
+	elif spearTimeKeeper >= 1.12 and spearTimeKeeper <= 1.16:
+		spearSound.play()
+		if comboArea2:
+			player.takeDamage(spearDamage, self, true, 0.5)
+			comboArea2 = false
+	elif spearTimeKeeper >= 1.7 and spearTimeKeeper <= 2.1:
+		spearSound.play()
+		if comboArea3:
+			player.takeDamage(spearDamage, self, true, 0.5)
+			comboArea3 = false
 
 func sporeAreaAttack(delta):
 	areaAttackCooldown -= delta

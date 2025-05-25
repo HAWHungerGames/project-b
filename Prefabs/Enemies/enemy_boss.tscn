@@ -1,11 +1,18 @@
-[gd_scene load_steps=40 format=3 uid="uid://dqu4ynl3lwx2t"]
+[gd_scene load_steps=49 format=3 uid="uid://dqu4ynl3lwx2t"]
 
 [ext_resource type="Script" uid="uid://emldon8urap5" path="res://Scripts/Enemy Scripts/BossBehaviour.gd" id="1_1bxol"]
 [ext_resource type="PackedScene" uid="uid://dpvom7f6ll5un" path="res://Models/Enemies/Boss/Boss.blend" id="3_4onus"]
 [ext_resource type="Texture2D" uid="uid://cbu02u0njv72o" path="res://Assets/Kenney Particles Transparent Background/smoke_07.png" id="4_2ws8c"]
-[ext_resource type="AudioStream" uid="uid://c2p0ws3k35nib" path="res://Assets/Sound/Enemy/BossSound/GrenadeLauncher/Boss_GrenadeLauncher_1.wav" id="5_4onus"]
+[ext_resource type="AudioStream" uid="uid://dhtjj3be1be7a" path="res://Assets/Sound/SFX/Enemy/BossSound/GrenadeLauncher/Boss_GrenadeLauncher_1.wav" id="5_rviuc"]
 [ext_resource type="Script" uid="uid://cq485d4lp3x4t" path="res://Scripts/UI/death_spores.gd" id="5_tbb04"]
-[ext_resource type="AudioStream" uid="uid://4a80ft6bfa4i" path="res://Assets/Sound/Enemy/PinkMushroom/PinkMushroomSteps/PinkMushroomSteps_4.wav" id="6_rviuc"]
+[ext_resource type="AudioStream" uid="uid://psuwp8u5ir2a" path="res://Assets/Sound/SFX/Enemy/PinkMushroom/PinkMushroomSteps/PinkMushroomSteps_4.wav" id="6_gorya"]
+[ext_resource type="AudioStream" uid="uid://dywnrgi7fdg8k" path="res://Assets/Sound/SFX/Enemy/BossSound/SpearAttack/SpearAttack_1.wav" id="7_gbk7o"]
+[ext_resource type="AudioStream" uid="uid://cognl0t8a1s3d" path="res://Assets/Sound/SFX/Enemy/BossSound/SpearAttack/SpearAttack_2.wav" id="8_otkrd"]
+[ext_resource type="AudioStream" uid="uid://dk1042tqc80qh" path="res://Assets/Sound/SFX/Enemy/BossSound/SpearAttack/SpearAttack_3.wav" id="9_2ylx7"]
+[ext_resource type="AudioStream" uid="uid://b1hsb381rnrpy" path="res://Assets/Sound/SFX/Enemy/BossSound/Footsteps/BossFootstep_1.wav" id="10_ivjtr"]
+[ext_resource type="AudioStream" uid="uid://clq1uix8ckwjx" path="res://Assets/Sound/SFX/Enemy/BossSound/Footsteps/BossFootstep_2.wav" id="11_6bngx"]
+[ext_resource type="AudioStream" uid="uid://bxankm5gtkgy8" path="res://Assets/Sound/SFX/Enemy/BossSound/Footsteps/BossFootstep_3.wav" id="12_xyy1i"]
+[ext_resource type="AudioStream" uid="uid://chwxsddr2usx6" path="res://Assets/Sound/SFX/Enemy/BossSound/Footsteps/BossFootstep_4.wav" id="13_kkpad"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dp8bq"]
 
@@ -173,13 +180,30 @@ size = Vector2(1.5, 1.5)
 random_pitch = 1.2
 random_volume_offset_db = 1.0
 streams_count = 1
-stream_0/stream = ExtResource("5_4onus")
+stream_0/stream = ExtResource("5_rviuc")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_rviuc"]
 random_pitch = 1.1
 random_volume_offset_db = 1.0
 streams_count = 1
-stream_0/stream = ExtResource("6_rviuc")
+stream_0/stream = ExtResource("6_gorya")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_tbb04"]
+random_pitch = 1.05
+random_volume_offset_db = 1.0
+streams_count = 3
+stream_0/stream = ExtResource("7_gbk7o")
+stream_1/stream = ExtResource("8_otkrd")
+stream_2/stream = ExtResource("9_2ylx7")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_v4xao"]
+random_pitch = 1.2
+random_volume_offset_db = 1.0
+streams_count = 4
+stream_0/stream = ExtResource("10_ivjtr")
+stream_1/stream = ExtResource("11_6bngx")
+stream_2/stream = ExtResource("12_xyy1i")
+stream_3/stream = ExtResource("13_kkpad")
 
 [node name="BossEnemy" type="CharacterBody3D" groups=["Enemy", "enemy"]]
 script = ExtResource("1_1bxol")
@@ -201,6 +225,7 @@ shape = SubResource("CapsuleShape3D_k711p")
 [node name="Collision2" type="CollisionShape3D" parent="." groups=["enemy"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0466276, 1.44008, 0)
 shape = SubResource("CapsuleShape3D_k711p")
+disabled = true
 
 [node name="ChargeCollision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.86986, 0.250936, 0.00324762)
@@ -266,34 +291,34 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.57163, 3.40632, 0)
 transform = Transform3D(-3.93403e-08, 0, 0.9, 0, 0.9, 0, -0.9, 0, -3.93403e-08, 0, -1.20249, 0)
 
 [node name="Skeleton3D" parent="Mesh/Armature" index="0"]
-bones/0/position = Vector3(0.0115451, 0.551896, 0.0940552)
-bones/0/rotation = Quaternion(-0.081211, -0.0095139, 0.115965, 0.989882)
-bones/1/rotation = Quaternion(0.33395, -0.00770359, 0.15257, 0.930129)
-bones/2/rotation = Quaternion(0.0727616, -0.270207, 0.220396, 0.934409)
-bones/3/position = Vector3(0.944022, 0.330478, -0.259319)
-bones/3/rotation = Quaternion(0.0256945, 0.240835, 0.879688, -0.409253)
-bones/4/rotation = Quaternion(0.59193, 0.14448, 0.292347, 0.737073)
-bones/5/rotation = Quaternion(-0.0369356, -0.00329672, -0.0501344, 0.998054)
-bones/6/rotation = Quaternion(0.122588, -0.00178743, -0.0781887, 0.989371)
-bones/7/rotation = Quaternion(0.0901468, 6.22011e-05, -0.105388, 0.990337)
+bones/0/position = Vector3(0, 0.669694, 0)
+bones/0/rotation = Quaternion(-2.98043e-08, -1.52568e-09, 0.0113552, 0.999936)
+bones/1/rotation = Quaternion(-0.0915616, 0.00844725, 0.0689362, 0.993375)
+bones/2/rotation = Quaternion(-3.82157e-09, 3.30758e-10, 3.60887e-09, 1)
+bones/3/position = Vector3(0.944022, 0.25059, -0.108592)
+bones/3/rotation = Quaternion(0.0545506, -0.0481721, 0.903006, -0.42342)
+bones/4/rotation = Quaternion(0.245598, 0.0115368, -0.0551547, 0.967733)
+bones/5/rotation = Quaternion(-0.0372393, -0.00292326, -0.0506705, 0.998017)
+bones/6/rotation = Quaternion(0.132116, -0.069062, -0.482004, 0.863393)
+bones/7/rotation = Quaternion(0.208654, 0.0703963, -0.584766, 0.780741)
 bones/8/rotation = Quaternion(0.427789, 0.0307319, 0.242074, 0.870317)
-bones/9/rotation = Quaternion(0.00887718, 0.000598771, -0.136631, 0.990582)
-bones/10/position = Vector3(-0.944022, 0.330478, -0.25932)
-bones/10/rotation = Quaternion(-0.0499925, 0.275586, 0.859768, 0.427027)
-bones/11/rotation = Quaternion(0.623858, 0.0590019, -0.121522, 0.769774)
-bones/12/rotation = Quaternion(0.0477391, 0.183247, -0.0757827, 0.978978)
+bones/9/rotation = Quaternion(0.208394, 0.186046, -0.486139, 0.828026)
+bones/10/position = Vector3(-0.944022, 0.250591, -0.108593)
+bones/10/rotation = Quaternion(-0.0545508, -0.0481722, 0.903006, 0.42342)
+bones/11/rotation = Quaternion(0.159887, -0.0955346, 0.0758435, 0.97957)
+bones/12/rotation = Quaternion(-0.0590723, 0.0207869, 0.158028, 0.985447)
 bones/13/position = Vector3(0.559574, 0.228499, 0.0635878)
-bones/13/rotation = Quaternion(0.0538715, -0.106937, 0.99091, 0.061318)
+bones/13/rotation = Quaternion(0.0160585, 0.0134888, 0.999768, -0.00487797)
 bones/13/scale = Vector3(0.999998, 0.999999, 0.999987)
-bones/14/rotation = Quaternion(-0.0043261, 0.000182567, -0.00118596, 0.99999)
-bones/14/scale = Vector3(1, 1, 0.999999)
+bones/14/rotation = Quaternion(-0.00432691, 0.000182563, -0.00118618, 0.99999)
+bones/14/scale = Vector3(0.999999, 1, 1)
 bones/15/position = Vector3(-0.559574, 0.228499, 0.0635878)
-bones/15/rotation = Quaternion(0.0851123, 0.433729, 0.867401, 0.228585)
-bones/16/rotation = Quaternion(-0.738722, -0.000116915, 0.202529, 0.642862)
-bones/17/position = Vector3(-0.57865, 0.129146, 0.0803032)
+bones/15/rotation = Quaternion(-0.00748433, 0.151255, 0.986632, 0.0602014)
+bones/16/rotation = Quaternion(-0.219481, -0.000177804, 0.0601735, 0.973759)
+bones/17/position = Vector3(-0.57865, 0.129149, 0.0803042)
 bones/17/rotation = Quaternion(0.000303981, 0.666783, 0.745252, 0.000271975)
 bones/18/rotation = Quaternion(-0.0116466, -1.13176e-10, 9.50127e-06, 0.999932)
-bones/19/position = Vector3(0.577512, 0.140647, 0.0808926)
+bones/19/position = Vector3(0.57844, 0.135958, 0.0801665)
 bones/19/rotation = Quaternion(-0.000303981, 0.666783, 0.745252, -0.000271975)
 bones/20/rotation = Quaternion(-0.0116466, 1.13176e-10, -9.50127e-06, 0.999932)
 bones/21/rotation = Quaternion(0.000261053, 0.768368, -0.640008, -0.00031341)
@@ -351,6 +376,15 @@ stream = SubResource("AudioStreamRandomizer_gorya")
 stream = SubResource("AudioStreamRandomizer_rviuc")
 volume_db = -3.0
 pitch_scale = 0.5
+
+[node name="SpearSound" type="AudioStreamPlayer3D" parent="Sounds"]
+stream = SubResource("AudioStreamRandomizer_tbb04")
+
+[node name="WalkingSound" type="AudioStreamPlayer3D" parent="Sounds"]
+stream = SubResource("AudioStreamRandomizer_v4xao")
+volume_db = -24.0
+max_db = 0.0
+pitch_scale = 0.6
 
 [connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_entered"]
 [connection signal="area_exited" from="DetectionArea" to="." method="_on_detection_area_exited"]
