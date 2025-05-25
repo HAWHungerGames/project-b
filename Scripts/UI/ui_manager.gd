@@ -4,7 +4,7 @@ extends Node
 @onready var current_controller: String = get_controller_type()
 @onready var text_field: Control = get_tree().current_scene.find_child("textField")
 @onready var stats: MarginContainer = get_tree().current_scene.find_child("stats")
-#@onready var timer: Timer = text_field.get_child(1)
+@onready var timer: Timer
 
 const LANGUAGES : Dictionary = {
 	"en_EN": "SETTING_LANGUAGE_ENGLISH",
@@ -49,7 +49,9 @@ var can_toggle_display = true
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	#timer.timeout.connect(_on_timer_finished)
+	if timer != null:
+		timer = text_field.get_child(1)
+		timer.timeout.connect(_on_timer_finished)
 	print(get_tree().current_scene)
 	
 func _input(event: InputEvent) -> void:
@@ -72,8 +74,8 @@ func get_controller_type():
 	return controller_type
 
 # future changes - generic also to keyboard
-func get_controller_input_key(action: InputEvent, controller_connected: bool) -> String:
-	return button_mappings[current_controller.to_lower()][action.as_text().to_lower()]
+func get_controller_input_key(action: String, controller_connected: bool) -> String:
+	return button_mappings[current_controller.to_lower()][action.to_lower()]
 
 func toggle_display_text(sign_name: String, text_displayed: bool):
 	if !can_toggle_display:
@@ -85,7 +87,7 @@ func toggle_display_text(sign_name: String, text_displayed: bool):
 	display_text.text = text
 	stats.visible = !text_displayed
 	get_tree().paused = text_displayed
-	#timer.start()
+	timer.start()
 
 func _on_timer_finished():
 	can_toggle_display = true

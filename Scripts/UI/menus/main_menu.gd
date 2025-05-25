@@ -1,26 +1,61 @@
 extends Control
 
-@onready var color_rect = $MarginContainer/ColorRect
-@onready var vbox = $MarginContainer/MarginContainer/VBoxContainer
-@onready var background = $MarginContainer/titleBackground
+@onready var color_rect = $main_menu/ColorRect
+@onready var vbox = $main_menu/MarginContainer/VBoxContainer
+@onready var background = $main_menu/titleBackground
+
+@onready var main_menu = $main_menu/MarginContainer
+@onready var options_menu = $Options
+@onready var controls_menu = $Controls
+@onready var display_menu = $Display
 
 @onready var timer = $AspectRatioContainer/VideoStreamPlayer/Timer
-@onready var buttonSelectRightStart = $MarginContainer/MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/buttonSelectRight
-@onready var buttonSelectLeftStart = $MarginContainer/MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/buttonSelectLeft
-@onready var buttonSelectRightOptions = $MarginContainer/MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer3/buttonSelectRight
-@onready var buttonSelectLeftOptions = $MarginContainer/MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer3/buttonSelectLeft
-@onready var buttonSelectRightExit = $MarginContainer/MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer2/buttonSelectRight
-@onready var buttonSelectLeftExit = $MarginContainer/MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer2/buttonSelectLeft
+#@onready var buttonSelectRightStart = $MarginContainer/MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/buttonSelectRight
+@onready var buttonsStart = $main_menu/MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/buttonsStart
+@onready var buttonsOptions = $main_menu/MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/buttonsOptions
+#@onready var buttonSelectLeftOptions = $MarginContainer/MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer3/buttonSelectLeft
+@onready var buttonsExit = $main_menu/MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/buttonsExit
+#@onready var buttonSelectLeftExit = $MarginContainer/MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer2/buttonSelectLeft
+
+@onready var buttonsDisplay = $Options/optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsDisplay
+@onready var buttonsControls = $Options/optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsControls
+@onready var buttonsBack = $Options/optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsBack
+
+@onready var display = buttonsDisplay.get_child(1)
+@onready var controls = buttonsControls.get_child(1)
+@onready var back = buttonsBack.get_child(1)
+@onready var display_back = display_menu.find_child("buttonsBack").get_child(1)
+#@onready var display_res = display_menu.find_child("back")
+#@onready var display_mode = display_menu.find_child("back")
+#@onready var display_lang = display_menu.find_child("back")
+@onready var controls_back = controls_menu.find_child("buttonsBack").get_child(1)
+@onready var controls_left = controls_menu.find_child("buttonLeft")
+@onready var controls_right = controls_menu.find_child("buttonRight")
 
 func _ready():
 	SceneManager.main_scene.connect(fadeSceneIn)
 	fadeSceneIn()
+	connect_button_signals()
 
+func connect_button_signals() -> void:
+	display.pressed.connect(_on_display_pressed)
+	controls.pressed.connect(_on_controls_pressed)
+	back.pressed.connect(_on_back_pressed)
+	display_back.pressed.connect(_on_display_back_pressed)
+	controls_back.pressed.connect(_on_controls_back_pressed)
+	
 func _on_button_pressed() -> void:
 	fadeSceneOut()
 	await get_tree().create_timer(2).timeout
-	get_tree().change_scene_to_file("res://Scenes/Nick Work Scene.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Konrad Work Scene.tscn")
 
+func _on_options_pressed() -> void:
+	main_menu.visible = false
+	options_menu.visible = true
+	var tween = create_tween()
+	tween.tween_property(color_rect, "modulate:a", 0.6, 0.1)
+	display.grab_focus()
+	
 func _on_button_3_pressed() -> void:
 	fadeSceneOut()
 	await get_tree().create_timer(2).timeout
@@ -56,26 +91,60 @@ func fadeIn():
 func _on_timer_timeout() -> void:
 	fadeIn()
 
-func _on_hover_start_enter() -> void:
-	buttonSelectLeftStart.modulate.a = 1.0
-	buttonSelectRightStart.modulate.a = 1.0
+func _on_start_hover_enter() -> void:
+	toggle_button_selects(buttonsStart, true)
 
-func _on_hover_start_exit() -> void:
-	buttonSelectLeftStart.modulate.a = 0.0
-	buttonSelectRightStart.modulate.a = 0.0
+func _on_start_hover_exit() -> void:
+	toggle_button_selects(buttonsStart, false)
 
-func _on_hover_options_enter() -> void:
-	buttonSelectLeftOptions.modulate.a = 1.0
-	buttonSelectRightOptions.modulate.a = 1.0
+func _on_options_hover_enter() -> void:
+	toggle_button_selects(buttonsOptions, true)
 
-func _on_hover_options_exit() -> void:
-	buttonSelectLeftOptions.modulate.a = 0.0
-	buttonSelectRightOptions.modulate.a = 0.0
+func _on_options_hover_exit() -> void:
+	toggle_button_selects(buttonsOptions, false)
 
-func _on_hover_exit_enter() -> void:
-	buttonSelectLeftExit.modulate.a = 1.0
-	buttonSelectRightExit.modulate.a = 1.0
+func _on_exit_hover_enter() -> void:
+	toggle_button_selects(buttonsExit, true)
 
-func _on_hover_exit_exit() -> void:
-	buttonSelectLeftExit.modulate.a = 0.0
-	buttonSelectRightExit.modulate.a = 0.0
+func _on_exit_hover_exit() -> void:
+	toggle_button_selects(buttonsExit, false)
+
+func _on_back_pressed() -> void:
+	options_menu.visible = false
+	main_menu.visible = true
+	buttonsStart.get_child(1).grab_focus()
+	var tween = create_tween()
+	tween.tween_property(color_rect, "modulate:a", 0.0, 0.1)
+
+func _on_controls_pressed() -> void:
+	options_menu.visible = false
+	controls_menu.visible = true
+	controls.grab_focus()
+	controls_menu.update_controller_controls()
+
+func _on_controls_back_pressed() -> void:
+	options_menu.visible = true
+	controls_menu.visible = false
+	display.grab_focus()
+
+func _on_display_pressed() -> void:
+	options_menu.visible = false
+	display_menu.visible = true
+	display_back.grab_focus()
+
+func _on_display_back_pressed() -> void:
+	options_menu.visible = true
+	display_menu.visible = false
+	display.grab_focus()
+
+func toggle_button_selects(buttons, selected) -> void:
+	var left_select = buttons.get_child(0)
+	var right_select = buttons.get_child(2)
+	var button = buttons.get_child(1)
+	if selected:
+		button.grab_focus()
+		left_select.modulate.a = 1.0
+		right_select.modulate.a = 1.0
+	else:
+		left_select.modulate.a = 0.0
+		right_select.modulate.a = 0.0
