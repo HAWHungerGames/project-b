@@ -23,7 +23,4 @@ bones/12/rotation = Quaternion(0.115166, 0.00375594, 0.0328812, 0.992795)
 bones/13/rotation = Quaternion(-0.153686, -0.0116478, -0.167819, 0.973695)
 bones/14/rotation = Quaternion(-0.0701833, -0.0358804, 0.226026, 0.970927)
 
-[node name="AnimationPlayer" parent="Grass2" index="1"]
-autoplay = "im-Wind-wehen"
-
 [editable path="Grass2"]

@@ -1,8 +1,8 @@
 extends CharacterBody3D
 @export_category("Behaviour")
 @export_subgroup("DetectionBehaviour")
-@export var hearingRange: float = 8
-@export var visionRange: float = 10
+@export var hearingRange: float = 20
+@export var visionRange: float = 30
 
 @export_subgroup("MovementBehaviour")
 @export var keepDistance: float = 5
