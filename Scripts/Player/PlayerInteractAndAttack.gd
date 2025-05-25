@@ -75,6 +75,28 @@ var sword_idle_position_attack = Vector3(0.5, 1.98, -0.98)
 var sword_idle_rotation_attack = Vector3(-34, 7.7, -21)
 var sword_idle_scale_attack = Vector3(5, 5, 5)
 
+# ------- Blocking -------
+var sword_blocking_position = Vector3(-0.11, 1.6, 0.55)
+var sword_blocking_rotation = Vector3(48.5, -11.3, 10.5)
+var sword_blocking_scale = Vector3(5, 5, 5)
+
+var bow_blocking_position = Vector3(0.1, 1.98, -0.135)
+var bow_blocking_rotation = Vector3(-41, -22, -87)
+var bow_blocking_scale = Vector3(2, 2, 2)
+
+var staff_blocking_position = Vector3(-0.04, 2.53, 0.39)
+var staff_blocking_rotation = Vector3(48.8, -13.5, 7.5)
+var staff_blocking_scale = Vector3(4, 4, 4)
+
+var shield_blocking_position = Vector3(0.14, 1.52, -0.19)
+var shield_blocking_rotation = Vector3(47.5, -12.2, -82.6)
+var shield_blocking_scale = Vector3(4, 4, 4)
+
+var shield_blocking_position_offhand = Vector3(0.14, 1.52, -0.19)
+var shield_blocking_rotation_offhand = Vector3(48.5, 11.7, 82)
+var shield_blocking_scale_offhand = Vector3(4, 4, 4)
+
+
 var controller_input_device = false
 var weapon
 
@@ -107,8 +129,8 @@ var holding_bow_attack_timer: float = 0
 var is_attacking = false
 var finished_bow_attack_timer: float = 0
 var finished_bow_attack = false
-
 var staff_timer: float = 0
+var is_blocking = false
 
 func _ready() -> void:
 	change_transform_of_weapon_main_hand(sword_main, sword_idle_position, sword_idle_rotation, sword_idle_scale)
@@ -130,17 +152,18 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventJoypadButton or event is InputEventJoypadMotion:
 		if controller_input_device != true:
 			controller_input_device = true
-			print("Switched to controller")
+			#print("Switched to controller")
 	elif event is InputEventKey or event is InputEventMouse:
 		if controller_input_device != false:
 			controller_input_device = false
-			print("Switched to keyboard/mouse")
+			#print("Switched to keyboard/mouse")
 
 
 func _physics_process(delta: float) -> void:
 	swapping_weapons()
 	interacting_with_world()
 	attacks(delta)
+	block_with_weapon()
 	
 
 func change_transform_of_weapon_main_hand(child_node, new_position, new_rotation, new_scale):
@@ -417,7 +440,7 @@ func interacting_with_world():
 
 # ----- Attacking -----
 func attacks(delta):
-	if GameManager.get_weapon_in_hand():
+	if GameManager.get_weapon_in_hand() and  !is_blocking:
 		var weapon_name = GameManager.get_first_weapon()
 		match weapon_name:
 			sword_name:
@@ -436,7 +459,6 @@ func staff_attack_animation():
 	if player_controller.velocity.length() > 0.2:
 		if Input.is_action_pressed("attack") and settings.mana >= manaCostPerAttack and staff_timer <= 0:
 			staff_timer = 0.8333
-			#animation_tree.set("parameters/WalkStaffBlend/filter_enabled", true)
 			animation_tree.set("parameters/WalkStaffBlend/blend_amount", 1)
 			staff_animation_player.play("MagicAttack")
 			is_attacking = true
@@ -444,7 +466,6 @@ func staff_attack_animation():
 	else: 
 		if Input.is_action_pressed("attack") and settings.mana >= manaCostPerAttack and staff_timer <= 0:
 			staff_timer = 0.8333
-			#animation_tree.set("parameters/WalkStaffBlend/filter_enabled", false)
 			animation_tree.set("parameters/WalkOrStaffBlend/blend_amount", 1)
 			staff_animation_player.play("MagicAttack")
 			is_attacking = true
@@ -474,7 +495,6 @@ func bow_attack(delta):
 func start_bow_attack_animation():
 	if player_controller.velocity.length() > 0.2:
 		if Input.is_action_pressed("attack") and !holding_bow_attack:
-			print(1)
 			holding_bow_attack = true
 			bow_main.visible = false
 			bow_offhand.visible = true
@@ -489,14 +509,12 @@ func start_bow_attack_animation():
 			GameManager.set_is_attacking(is_attacking)
 	else:
 		if Input.is_action_pressed("attack") and !holding_bow_attack:
-			print(2)
 			holding_bow_attack = true
 			bow_main.visible = false
 			bow_offhand.visible = true
 			animation_tree.set("parameters/ShootTimeSeek/seek_request", 0)
 			animation_tree.set("parameters/Bow/blend_amount", 0)
 			animation_tree.set("parameters/WalkOrBowBlend/blend_amount", 1)
-			#animation_tree.set("parameters/WalkStaffBlend/filter_enabled", true)
 			bow_animation_player.play("Aim")
 			# Reducing Speed while drwaing the Bow
 			original_speed = settings.speed
@@ -630,3 +648,45 @@ func sword_attack(delta):
 	play_attack2_animation()
 	reset_combo_step(delta)
 	calc_attack_cooldown(delta)
+
+func block_with_weapon():
+	if GameManager.get_weapon_in_hand() and Input.is_action_pressed("block") and !GameManager.get_is_attacking():
+		var weapon_name = GameManager.get_first_weapon()
+		if weapon_name == sword_name and GameManager.get_second_weapon() == shield_name:
+			change_transform_of_weapon_off_hand(shield_offhand, shield_blocking_position_offhand, shield_blocking_rotation_offhand, shield_blocking_scale_offhand)
+			animation_tree.set("parameters/WalkOffhandBlockBlend/blend_amount", 1)
+			is_blocking = true
+		else:
+			match weapon_name:
+				sword_name:
+					change_transform_of_weapon_main_hand(sword_main, sword_blocking_position, sword_blocking_rotation, sword_blocking_scale)
+				staff_name:
+					change_transform_of_weapon_main_hand(staff_main, staff_blocking_position, staff_blocking_rotation, staff_blocking_scale)
+				bow_name:
+					change_transform_of_weapon_main_hand(bow_main, bow_blocking_position, bow_blocking_rotation, bow_blocking_scale)
+				shield_name:
+					change_transform_of_weapon_main_hand(shield_main, shield_blocking_position, shield_blocking_rotation, shield_blocking_scale)
+			is_blocking = true
+			animation_tree.set("parameters/WalkBlockBlend/blend_amount", 1)
+	else:
+		if GameManager.get_weapon_in_hand() and Input.is_action_just_released("block") and is_blocking == true:
+			var weapon_name_2 = GameManager.get_first_weapon()
+			if weapon_name_2 == sword_name and GameManager.get_second_weapon() == shield_name:
+				change_transform_of_weapon_off_hand(shield_offhand, shield_idle_position_offhand, shield_idle_rotation_offhand, shield_idle_scale_offhand)
+				animation_tree.set("parameters/WalkOffhandBlockBlend/blend_amount", 0)
+				animation_tree.set("parameters/OffhandBlockTimeSeek/seek_request", 0)
+			else:
+				match weapon_name_2:
+					sword_name:
+						change_transform_of_weapon_main_hand(sword_main, sword_idle_position, sword_idle_rotation, sword_idle_scale)
+					staff_name:
+						change_transform_of_weapon_main_hand(staff_main, staff_idle_position, staff_idle_rotation, staff_idle_scale)
+					bow_name:
+						change_transform_of_weapon_main_hand(bow_main, bow_idle_position, bow_idle_rotation, bow_idle_scale)
+					shield_name:
+						change_transform_of_weapon_main_hand(shield_main, shield_idle_position, shield_idle_rotation, shield_idle_scale)
+				animation_tree.set("parameters/BlockTimeSeek/seek_request", 0)
+				animation_tree.set("parameters/WalkBlockBlend/blend_amount", 0)
+			is_blocking = false
+			
+	

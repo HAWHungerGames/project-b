@@ -50,7 +50,7 @@ func get_bow_attack_timer():
 	
 func set_bow_attack_timer(timer):
 	bow_attack_timer = round(timer*100)/100
-	print(bow_attack_timer)
+	#print(bow_attack_timer)
 	set_attack_loading_value(bow_attack_timer)
 
 func get_attack_loading_value():
