@@ -25,6 +25,9 @@ extends CharacterBody3D
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+@onready var boss_emitter = GameManager.get_child_by_name(self, "EnemyToBoss")
+@onready var death_spores = GameManager.get_child_by_name(self, "DeathSpores")
+
 var attackCooldown: float = 0
 var tempAttackDelay: float = 0
 var isInAttackArea: bool = false
@@ -92,13 +95,19 @@ func move_towards_player(delta):
 	velocity = velocity.lerp(direction * speed, acceleration * delta)
 
 func rotateToPlayer():
-	var angleVector = player.get_child(0).global_transform.origin - global_transform.origin
+	var angleVector = player.get_child(0).global_position - global_position
 	var angle = atan2(angleVector.x, angleVector.z)
 	rotation.y = angle - PI/2
 
-func takeDamage(damage: int):
+func takeDamage(damage: int, type: String):
 	health -= damage
 	if health <= 0:
+		if boss_emitter != null:
+			GameManager.reset_child_to_root(self, boss_emitter)
+			boss_emitter.activate_particles_to_boss()
+		if death_spores != null:
+			GameManager.reset_child_to_root(self, death_spores)
+			death_spores.activate_death_particles()
 		queue_free()
 
 func attack(delta):

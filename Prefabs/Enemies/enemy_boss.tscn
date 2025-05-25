@@ -207,6 +207,7 @@ stream_3/stream = ExtResource("13_kkpad")
 
 [node name="BossEnemy" type="CharacterBody3D" groups=["Enemy", "enemy"]]
 script = ExtResource("1_1bxol")
+health = 1000.0
 
 [node name="DetectionArea" type="Area3D" parent="." groups=["Enemy"]]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)

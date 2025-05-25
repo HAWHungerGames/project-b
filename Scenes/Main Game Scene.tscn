@@ -469,7 +469,7 @@ transform = Transform3D(0.32543, -0.448543, -0.832409, -0.255405, 0.80591, -0.53
 transform = Transform3D(0.422223, 0, 0.906492, 0, 1, 0, -0.906492, 0, 0.422223, 19.3211, 0.422574, -1.73018)
 
 [node name="MushroomMany" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Tutorial Room/Nature/Room Elements/RockOne2" instance=ExtResource("7_2xhpb")]
-transform = Transform3D(0.468354, 0, 0.175055, 0, 0.5, 0, -0.175055, 0, 0.468354, -7.67918, 0.494467, -9.72465)
+transform = Transform3D(0.468354, 0, 0.175055, 0, 0.5, 0, -0.175055, 0, 0.468354, -7.67918, 0.0960948, -9.72465)
 
 [node name="RockOne3" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Tutorial Room/Nature/Room Elements" instance=ExtResource("11_ccm0r")]
 transform = Transform3D(-0.138776, 0, -0.990324, 0, 1, 0, 0.990324, 0, -0.138776, 11.2341, 0.627519, -12.6471)
@@ -3635,16 +3635,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.3943, 0, -132.912)
 [node name="RangedEnemy" parent="WorldEnvironment/Enemies/Room 4" groups=["enemy"] instance=ExtResource("74_5ysuy")]
 transform = Transform3D(0.884736, 0, 0.466093, 0, 1, 0, -0.466093, 0, 0.884736, 2.03719, 1.5, 8.76811)
 
-[node name="MeleeEnemy4" parent="WorldEnvironment/Enemies/Room 4" instance=ExtResource("10_1ee8w")]
+[node name="MeleeEnemy4" parent="WorldEnvironment/Enemies/Room 4" groups=["enemy"] instance=ExtResource("10_1ee8w")]
 transform = Transform3D(-0.964012, 0, -0.265859, 0, 1, 0, 0.265859, 0, -0.964012, 10.2634, 1.5, -16.435)
 
-[node name="RangedEnemy2" parent="WorldEnvironment/Enemies/Room 4" instance=ExtResource("74_5ysuy")]
+[node name="RangedEnemy2" parent="WorldEnvironment/Enemies/Room 4" groups=["enemy"] instance=ExtResource("74_5ysuy")]
 transform = Transform3D(-0.923157, 0, -0.384424, 0, 1, 0, 0.384424, 0, -0.923157, 15.4836, 1.5, -20.2502)
 
 [node name="ExplosionEnemy" parent="WorldEnvironment/Enemies/Room 4" instance=ExtResource("86_1sds5")]
 transform = Transform3D(0.286123, 0, -0.958193, 0, 1, 0, 0.958193, 0, 0.286123, -5.90869, 0.912033, 5.54507)
 
-[node name="MeleeEnemy" parent="WorldEnvironment/Enemies/Room 4" instance=ExtResource("10_1ee8w")]
+[node name="MeleeEnemy" parent="WorldEnvironment/Enemies/Room 4" groups=["enemy"] instance=ExtResource("10_1ee8w")]
 transform = Transform3D(0.49177, 0, -0.870725, 0, 1, 0, 0.870725, 0, 0.49177, -6.56972, 1.49088, -3.61807)
 
 [node name="ExplosionEnemy2" parent="WorldEnvironment/Enemies/Room 4" instance=ExtResource("86_1sds5")]
@@ -3656,25 +3656,25 @@ transform = Transform3D(0.954678, 0, -0.297641, 0, 1, 0, 0.297641, 0, 0.954678, 
 [node name="Room 5" type="Node3D" parent="WorldEnvironment/Enemies"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -189.082)
 
-[node name="SporeEnemy" parent="WorldEnvironment/Enemies/Room 5" instance=ExtResource("76_lyv0c")]
+[node name="SporeEnemy" parent="WorldEnvironment/Enemies/Room 5" groups=["enemy"] instance=ExtResource("76_lyv0c")]
 transform = Transform3D(-0.0862341, 0, -0.996275, 0, 1, 0, 0.996275, 0, -0.0862341, 11.9741, 1.53342, 19.4888)
 
-[node name="MeleeEnemy" parent="WorldEnvironment/Enemies/Room 5" instance=ExtResource("10_1ee8w")]
+[node name="MeleeEnemy" parent="WorldEnvironment/Enemies/Room 5" groups=["enemy"] instance=ExtResource("10_1ee8w")]
 transform = Transform3D(0.95588, 0, -0.293757, 0, 1, 0, 0.293757, 0, 0.95588, -3.41108, 1.5, -12.4573)
 
-[node name="MeleeEnemy2" parent="WorldEnvironment/Enemies/Room 5" instance=ExtResource("10_1ee8w")]
+[node name="MeleeEnemy2" parent="WorldEnvironment/Enemies/Room 5" groups=["enemy"] instance=ExtResource("10_1ee8w")]
 transform = Transform3D(0.247067, 0, -0.968998, 0, 1, 0, 0.968998, 0, 0.247067, -3.38705, 1.5, 19.3559)
 
-[node name="RangedEnemy" parent="WorldEnvironment/Enemies/Room 5" instance=ExtResource("74_5ysuy")]
+[node name="RangedEnemy" parent="WorldEnvironment/Enemies/Room 5" groups=["enemy"] instance=ExtResource("74_5ysuy")]
 transform = Transform3D(0.993944, 0, -0.10989, 0, 1, 0, 0.10989, 0, 0.993944, -8.85898, 1.5, 14.8963)
 
-[node name="SporeEnemy2" parent="WorldEnvironment/Enemies/Room 5" instance=ExtResource("76_lyv0c")]
+[node name="SporeEnemy2" parent="WorldEnvironment/Enemies/Room 5" groups=["enemy"] instance=ExtResource("76_lyv0c")]
 transform = Transform3D(-0.851965, 0, -0.523599, 0, 1, 0, 0.523599, 0, -0.851965, 9.79403, 1.53342, -2.28706)
 
-[node name="MeleeEnemy5" parent="WorldEnvironment/Enemies/Room 5" instance=ExtResource("10_1ee8w")]
+[node name="MeleeEnemy5" parent="WorldEnvironment/Enemies/Room 5" groups=["enemy"] instance=ExtResource("10_1ee8w")]
 transform = Transform3D(-0.247794, 0, -0.968813, 0, 1, 0, 0.968813, 0, -0.247794, 2.64831, 1.5, 26.7992)
 
-[node name="RangedEnemy2" parent="WorldEnvironment/Enemies/Room 5" instance=ExtResource("74_5ysuy")]
+[node name="RangedEnemy2" parent="WorldEnvironment/Enemies/Room 5" groups=["enemy"] instance=ExtResource("74_5ysuy")]
 transform = Transform3D(-0.378875, 0, -0.925448, 0, 1, 0, 0.925448, 0, -0.378875, 11.2565, 1.5, -16.2346)
 
 [node name="ExplosionEnemy2" parent="WorldEnvironment/Enemies/Room 5" instance=ExtResource("86_1sds5")]
@@ -3714,11 +3714,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2282, 1.90735e-06, -251.80
 [node name="Player" parent="WorldEnvironment" instance=ExtResource("6_0ctdn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.44575, 3.61796, -8.93757)
 speed = 5.5
-staminaCostPerDash = 25
 dashMaxCooldown = 0.5
 sneakSpeedModifier = 2.25
 healthPerSecond = 25.0
-manaPerSecond = 40.0
+staminaPerSecond = 80.0
+manaPerSecond = 50.0
 
 [node name="Skeleton3D" parent="WorldEnvironment/Player/Controller/Model/Player/Armature" index="0"]
 bones/0/position = Vector3(0, 0, 3.72529e-09)

@@ -1,7 +1,7 @@
 extends Node3D
 
 @export var speed = 40.0
-@export var dmg = 60
+@export var dmg = 30
 @export var lifetime = 5
 
 #@onready var mesh = $MeshInstance3D
@@ -35,17 +35,18 @@ func attack(body):
 		# Normal or somewhat charged Bow Attack
 		if extraDmg < 3:
 			dmg *= extraDmg
-			#print(dmg)
-			body.takeDamage(dmg)
+			var dmg_position = body.get_node_or_null("DamageNumbersPosition")
+			DamageNumbers.display_number(dmg, dmg_position.global_position)
+			body.takeDamage(dmg, "bow")
 			queue_free()
 			#print("hit")
 		# Fully Charged Bow Attack
 		elif extraDmg >= 3:
-			dmg *= 4
 			#print(dmg)
-			body.takeDamage(dmg)
+			var dmg_position = body.get_node_or_null("DamageNumbersPosition")
+			DamageNumbers.display_number(dmg * 4, dmg_position.global_position)
+			body.takeDamage(dmg * 4, "bow")
 			#print("hit")
-			dmg /= 4
 			
 	elif body.is_in_group("TargetDummy"):
 		if extraDmg < 3:

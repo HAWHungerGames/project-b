@@ -79,7 +79,7 @@ hue_variation_curve = SubResource("CurveTexture_52x3p")
 offsets = PackedFloat32Array(0, 0.489451, 0.767932, 1)
 colors = PackedColorArray(0.624, 0.72, 0, 0.537255, 0.857336, 0.841146, 0.221142, 0.890196, 0.911952, 0.9542, 0.360503, 0.94902, 1, 1, 1, 0.596078)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_h6q5h"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_em71o"]
 gradient = SubResource("Gradient_2116j")
 
 [sub_resource type="Curve" id="Curve_cpecf"]
@@ -87,7 +87,7 @@ _limits = [0.0, 100.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 13.0573), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_mnmti"]
+[sub_resource type="CurveTexture" id="CurveTexture_sv5qx"]
 curve = SubResource("Curve_cpecf")
 
 [sub_resource type="Curve" id="Curve_vvdxi"]
@@ -95,28 +95,28 @@ _limits = [-10.0, 10.0, 0.0, 1.0]
 _data = [Vector2(0, 5.85987), 0.0, 0.0, 0, 0, Vector2(0.707224, -0.143312), -4.41427, -4.41427, 0, 0, Vector2(1, -1.17834), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_3j6b4"]
+[sub_resource type="CurveTexture" id="CurveTexture_hymqt"]
 curve = SubResource("Curve_vvdxi")
 
 [sub_resource type="Curve" id="Curve_awlts"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_opncc"]
+[sub_resource type="CurveTexture" id="CurveTexture_2116j"]
 curve = SubResource("Curve_awlts")
 
 [sub_resource type="Curve" id="Curve_kreo4"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.500753), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_er0cr"]
+[sub_resource type="CurveTexture" id="CurveTexture_cpecf"]
 curve = SubResource("Curve_kreo4")
 
 [sub_resource type="Curve" id="Curve_rpsj5"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_yh06s"]
+[sub_resource type="CurveTexture" id="CurveTexture_vvdxi"]
 curve = SubResource("Curve_rpsj5")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tk045"]
@@ -137,30 +137,30 @@ orbit_velocity_min = 0.1
 orbit_velocity_max = 0.3
 radial_velocity_min = -2.23517e-05
 radial_velocity_max = -2.23517e-05
-velocity_limit_curve = SubResource("CurveTexture_yh06s")
+velocity_limit_curve = SubResource("CurveTexture_vvdxi")
 gravity = Vector3(0, -0.2, 0)
 radial_accel_min = 0.0999978
 radial_accel_max = 0.199998
-radial_accel_curve = SubResource("CurveTexture_3j6b4")
+radial_accel_curve = SubResource("CurveTexture_hymqt")
 tangential_accel_min = 0.399998
 tangential_accel_max = 0.999998
 damping_min = 0.2
 damping_max = 1.0
-damping_curve = SubResource("CurveTexture_mnmti")
+damping_curve = SubResource("CurveTexture_sv5qx")
 scale_min = 0.3
 scale_max = 1.2
-scale_curve = SubResource("CurveTexture_opncc")
+scale_curve = SubResource("CurveTexture_2116j")
 color = Color(0.623529, 0.721569, 0, 1)
-color_ramp = SubResource("GradientTexture1D_h6q5h")
+color_ramp = SubResource("GradientTexture1D_em71o")
 turbulence_enabled = true
 turbulence_noise_strength = 12.88
 turbulence_noise_speed = Vector3(1, 1, 1)
 turbulence_noise_speed_random = 1.04
 turbulence_initial_displacement_min = 1.49012e-06
 turbulence_initial_displacement_max = 1.49012e-06
-turbulence_influence_over_life = SubResource("CurveTexture_er0cr")
+turbulence_influence_over_life = SubResource("CurveTexture_cpecf")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x7nyk"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_awlts"]
 transparency = 1
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("3_i4xqa")
@@ -170,7 +170,7 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_lnx1g"]
-material = SubResource("StandardMaterial3D_x7nyk")
+material = SubResource("StandardMaterial3D_awlts")
 size = Vector2(1.5, 1.5)
 
 [sub_resource type="Curve" id="Curve_fr4n8"]
@@ -327,6 +327,13 @@ local_coords = true
 process_material = SubResource("ParticleProcessMaterial_6mfum")
 draw_pass_1 = SubResource("QuadMesh_nsjrd")
 script = ExtResource("6_hymqt")
+
+[node name="DamageNumbersPosition" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.906926, 0)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.620592, 0)
+shape = SubResource("CapsuleShape3D_k711p")
 
 [connection signal="area_entered" from="HearingArea" to="." method="_on_hearing_area_entered"]
 [connection signal="area_exited" from="HearingArea" to="." method="_on_hearing_area_exited"]

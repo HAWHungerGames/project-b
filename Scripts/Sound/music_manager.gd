@@ -29,16 +29,12 @@ func _ready():
 func _physics_process(_delta: float) -> void:
 	if player.isDetected and !atBoss:
 		await switch_with_crossfade(2)
-		print("Battle")
 	elif isInArea1 and !atBoss:
 		await switch_with_crossfade(1)
-		print("Area1")
 	elif atBoss:
 		await switch_with_crossfade(3)
-		print("Boss")
 	else:
 		await switch_with_crossfade(0)
-		#print("Area0")
 
 
 func switch_with_crossfade(index: int) -> void:

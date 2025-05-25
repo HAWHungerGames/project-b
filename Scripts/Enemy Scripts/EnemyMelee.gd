@@ -142,10 +142,16 @@ func rotateToPlayer():
 	var angle = atan2(angleVector.x, angleVector.z)
 	rotation.y = angle - PI/2
 
-func takeDamage(damage: int):
+func takeDamage(damage: int, type: String):
 	health -= damage
 	if health <= 0 and deathTimer == 10:
 		deathTimer = 8
+		if type == "bow":
+			PlayerActionTracker.bowKills += 1
+		if type == "staff":
+			PlayerActionTracker.staffKills += 1
+		if type == "sword":
+			PlayerActionTracker.meleeKills += 1
 	else:
 		gotAttackedTime = 3
 
