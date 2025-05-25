@@ -58,3 +58,6 @@ transform = Transform3D(0.87728, 0, 0.479979, 0, 1, 0, -0.479979, 0, 0.87728, -1
 
 [node name="PlantWithPurple4" parent="." instance=ExtResource("4_8lv3p")]
 transform = Transform3D(0.87728, 0, 0.479979, 0, 1, 0, -0.479979, 0, 0.87728, -1.01959, 0.499998, 2.61045)
+
+[editable path="PlantWithPurple3"]
+[editable path="PlantWithPurple3/Plant"]

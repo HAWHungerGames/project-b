@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bv7bn85ey3wrk"]
+[gd_scene load_steps=7 format=3 uid="uid://b2c2eb8nd2fpa"]
 
 [ext_resource type="PackedScene" uid="uid://b3ngd7bq53bhx" path="res://Prefabs/Asset Scenes/World Objects/Nature/Trees/tree_dead.tscn" id="1_vn40p"]
 [ext_resource type="PackedScene" uid="uid://cje3404hqh7mc" path="res://Prefabs/Asset Scenes/World Objects/Nature/Trees/tree_dead_with_mushrooms.tscn" id="2_yqr00"]
@@ -35,3 +35,8 @@ transform = Transform3D(0.441154, 0, 0.235337, 0, 0.5, 0, -0.235337, 0, 0.441154
 
 [node name="RockOne" parent="." instance=ExtResource("5_viap2")]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 1.6945, 0, -0.751429)
+
+[editable path="TreeDead2"]
+[editable path="TreeDead2/tree"]
+[editable path="TreeDead4"]
+[editable path="TreeDead4/tree"]

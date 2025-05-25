@@ -314,16 +314,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.37331, 0.499114, -0.002465
 [node name="PlantWithPurple4" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Tutorial Room/Nature/Socket Deco/Socket2" instance=ExtResource("6_3f6q6")]
 transform = Transform3D(-0.108884, 0, -0.488, 0, 0.5, 0, 0.488, 0, -0.108884, 8.52555, -0.00817502, 0.728988)
 
-[node name="Skeleton3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Tutorial Room/Nature/Socket Deco/Socket2/PlantWithPurple4/Plant/Armature" index="0"]
-bones/0/rotation = Quaternion(-0.510733, -0.282294, -0.22465, 0.780381)
-bones/1/rotation = Quaternion(-0.212393, 1.66839e-09, -0.0245075, 0.976877)
-bones/2/rotation = Quaternion(-0.52566, 0.282613, 0.234065, 0.76748)
-bones/3/rotation = Quaternion(-0.186373, -1.10206e-08, 0.0123358, 0.982402)
-bones/4/rotation = Quaternion(-0.01957, 0.630196, 0.527607, 0.569298)
-bones/5/rotation = Quaternion(-0.132729, 1.51298e-08, 0.111252, 0.984889)
-bones/6/rotation = Quaternion(0.0618261, -0.63746, -0.544336, 0.541775)
-bones/7/rotation = Quaternion(-0.105798, 1.17833e-08, -0.112825, 0.987966) 
-
 [node name="PlantWithPurple5" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Tutorial Room/Nature/Socket Deco/Socket2" instance=ExtResource("6_3f6q6")]
 transform = Transform3D(-0.368945, 0, -0.15453, 0, 0.4, 0, 0.15453, 0, -0.368945, 8.4487, -0.00817502, 0.935461)
 
@@ -341,13 +331,6 @@ transform = Transform3D(-0.0615575, 0, -0.285436, 0, 0.2, 0, 0.190291, 0, -0.092
 
 [node name="BushSphere2" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Tutorial Room/Nature/Socket Deco/Socket2/BushSphere2" instance=ExtResource("4_ga1i8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.980488, -0.424162, 0)
-
-[node name="Skeleton3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Tutorial Room/Nature/Socket Deco/Socket2/BushSphere2/BushSphere2/Bush2/Armature_001" index="0"]
-bones/1/rotation = Quaternion(0.00160814, 4.52136e-08, 0.000949309, 0.999998)
-bones/2/rotation = Quaternion(0.00318523, -0.000400851, 0.708735, 0.705468)
-bones/3/rotation = Quaternion(-0.00237216, 0.000399359, -0.705464, 0.708742)
-bones/4/rotation = Quaternion(-0.704346, -0.000237446, 0.00302626, 0.70985)
-bones/5/rotation = Quaternion(0.709846, 0.00023915, -0.00257142, 0.704353) 
 
 [node name="BushSphere3" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Tutorial Room/Nature/Socket Deco/Socket2/BushSphere2" instance=ExtResource("4_ga1i8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.980488, 0.189917, -1.1736)
@@ -372,17 +355,6 @@ transform = Transform3D(0.000781901, 0, 0.199998, 0, 0.2, 0, -0.199998, 0, 0.000
 
 [node name="PlantWithPurple" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Tutorial Room/Nature/Socket Deco/Socket4" instance=ExtResource("6_3f6q6")]
 transform = Transform3D(0.599069, 0, -0.0334197, 0, 0.6, 0, 0.0334197, 0, 0.599069, -11.3898, 0.00088647, 8.83263)
-
-[node name="Skeleton3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Tutorial Room/Nature/Room Elements/RockOne/PlantWithPurple/Plant/Armature" index="0"]
-
-bones/0/rotation = Quaternion(-0.510733, -0.282294, -0.22465, 0.780381)
-bones/1/rotation = Quaternion(-0.212393, 1.66839e-09, -0.0245075, 0.976877)
-bones/2/rotation = Quaternion(-0.52566, 0.282613, 0.234065, 0.76748)
-bones/3/rotation = Quaternion(-0.186373, -1.10206e-08, 0.0123358, 0.982402)
-bones/4/rotation = Quaternion(-0.01957, 0.630196, 0.527607, 0.569298)
-bones/5/rotation = Quaternion(-0.132729, 1.51298e-08, 0.111252, 0.984889)
-bones/6/rotation = Quaternion(0.0618261, -0.63746, -0.544336, 0.541775)
-bones/7/rotation = Quaternion(-0.105798, 1.17833e-08, -0.112825, 0.987966) 
 
 [node name="PlantWithPurple2" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Tutorial Room/Nature/Socket Deco/Socket4" instance=ExtResource("6_3f6q6")]
 transform = Transform3D(0.475821, 0, -0.365506, 0, 0.6, 0, 0.365506, 0, 0.475821, -12.083, 0.00088647, 10.1534)
@@ -450,19 +422,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -57.4876)
 [node name="TreeDead" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Nature/Trees" instance=ExtResource("33_phnsu")]
 transform = Transform3D(1.81971, 0, 2.38509, 0, 3, 0, -2.38509, 0, 1.81971, 14.3219, 0.678681, 0.727581)
 
-[node name="Skeleton3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Nature/Trees/TreeDead/tree/Armature" index="0"]
-bones/1/rotation = Quaternion(-0.0532978, -0.0137526, 0.24947, 0.966817)
-bones/2/rotation = Quaternion(-0.443356, -0.0206534, -0.271912, 0.853858)
-bones/3/rotation = Quaternion(-0.261599, -0.00987669, -0.150404, 0.953335)
-bones/4/rotation = Quaternion(0.270177, 3.14623e-05, -0.511328, 0.815811)
-bones/5/rotation = Quaternion(0.267295, -0.0800249, -0.0316024, 0.959766)
-bones/6/rotation = Quaternion(0.0159233, 0.0101524, 0.53033, 0.847581)
-bones/7/rotation = Quaternion(-0.307103, -0.152685, -0.174466, 0.923004)
-bones/8/rotation = Quaternion(-3.07336e-08, 4.28408e-08, 1.2666e-07, 1)
-bones/10/rotation = Quaternion(-0.0107331, 3.51912e-08, -0.342398, 0.939494)
-bones/11/rotation = Quaternion(0.298003, 0.122875, -0.0284422, 0.946196)
-bones/12/rotation = Quaternion(-4.00469e-08, 3.66941e-07, 1.04308e-07, 1) 
-
 [node name="TreeRound" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Nature/Trees" instance=ExtResource("32_klcqc")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -21.9796, 0.526641, -4.78153)
 
@@ -482,18 +441,6 @@ transform = Transform3D(1.90213, 0, 0.617968, 0, 2, 0, -0.617968, 0, 1.90213, 18
 
 [node name="TreeStumpWithMushrooms2" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Nature/Room Elements" instance=ExtResource("51_pueoc")]
 transform = Transform3D(-1.09446, 0.194502, 1.66262, 0.536106, 1.92255, 0.127995, -1.58579, 0.515715, -1.10422, 17.5482, 1.38655, 3.84299)
-
-[node name="AnimationPlayer" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Nature/Room Elements/TreeStumpWithMushrooms2/baumstamm1/piltz" index="1"]
-autoplay = "Idle"
-
-[node name="AnimationPlayer" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Nature/Room Elements/TreeStumpWithMushrooms2/baumstamm1/piltz2" index="1"]
-autoplay = "Idle"
-
-[node name="AnimationPlayer" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Nature/Room Elements/TreeStumpWithMushrooms2/baumstamm1/piltz3" index="1"]
-autoplay = "Idle"
-
-[node name="AnimationPlayer" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Nature/Room Elements/TreeStumpWithMushrooms2/baumstamm1/piltz4" index="1"]
-autoplay = "Idle" 
 
 [node name="TreeBranch" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Nature/Room Elements" instance=ExtResource("52_1ud1s")]
 transform = Transform3D(-0.309593, 0, -1.97589, 0, 2, 0, 1.97589, 0, -0.309593, 12.4893, 0.857083, 4.71878)
@@ -566,34 +513,6 @@ transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, 
 
 [node name="MushroomPurple" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/BrokeWallWithStuff" index="9"]
 visible = false
-
-[node name="Skeleton3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/BrokeWallWithStuff/BushTearDrop/Bush/Armature_001" index="0"]
-bones/1/rotation = Quaternion(0.00160814, 4.52136e-08, 0.000949309, 0.999998)
-bones/2/rotation = Quaternion(0.00318523, -0.000400851, 0.708735, 0.705468)
-bones/3/rotation = Quaternion(-0.00237216, 0.000399359, -0.705464, 0.708742)
-bones/4/rotation = Quaternion(-0.704346, -0.000237446, 0.00302626, 0.70985)
-bones/5/rotation = Quaternion(0.709846, 0.00023915, -0.00257142, 0.704353)
-
-[node name="Skeleton3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/BrokeWallWithStuff/BushTearDrop2/Bush/Armature_001" index="0"]
-bones/1/rotation = Quaternion(0.00160814, 4.52136e-08, 0.000949309, 0.999998)
-bones/2/rotation = Quaternion(0.00318523, -0.000400851, 0.708735, 0.705468)
-bones/3/rotation = Quaternion(-0.00237216, 0.000399359, -0.705464, 0.708742)
-bones/4/rotation = Quaternion(-0.704346, -0.000237446, 0.00302626, 0.70985)
-bones/5/rotation = Quaternion(0.709846, 0.00023915, -0.00257142, 0.704353)
-
-[node name="Skeleton3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/BrokeWallWithStuff/BushTearDrop3/Bush/Armature_001" index="0"]
-bones/1/rotation = Quaternion(0.00160814, 4.52136e-08, 0.000949309, 0.999998)
-bones/2/rotation = Quaternion(0.00318523, -0.000400851, 0.708735, 0.705468)
-bones/3/rotation = Quaternion(-0.00237216, 0.000399359, -0.705464, 0.708742)
-bones/4/rotation = Quaternion(-0.704346, -0.000237446, 0.00302626, 0.70985)
-bones/5/rotation = Quaternion(0.709846, 0.00023915, -0.00257142, 0.704353)
-
-[node name="Skeleton3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/BrokeWallWithStuff/BushSphere/Bush2/Armature_001" index="0"]
-bones/1/rotation = Quaternion(0.00160814, 4.52136e-08, 0.000949309, 0.999998)
-bones/2/rotation = Quaternion(0.00318523, -0.000400851, 0.708735, 0.705468)
-bones/3/rotation = Quaternion(-0.00237216, 0.000399359, -0.705464, 0.708742)
-bones/4/rotation = Quaternion(-0.704346, -0.000237446, 0.00302626, 0.70985)
-bones/5/rotation = Quaternion(0.709846, 0.00023915, -0.00257142, 0.704353) 
 
 [node name="WallFullBroken" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North" instance=ExtResource("34_hjixs")]
 transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 44.5014, -0.417638, -71.3724)
@@ -675,19 +594,6 @@ transform = Transform3D(-1.09278e-07, 0, 2.5, 0, 2.5, 0, -2.5, 0, -1.09278e-07, 
 [node name="TreeDead" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 2/Nature/Trees" instance=ExtResource("33_phnsu")]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 9.46192, 0.78528, 5.05408)
 
-[node name="Skeleton3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 2/Nature/Trees/TreeDead/tree/Armature" index="0"]
-bones/1/rotation = Quaternion(-0.0532978, -0.0137526, 0.24947, 0.966817)
-bones/2/rotation = Quaternion(-0.443356, -0.0206534, -0.271912, 0.853858)
-bones/3/rotation = Quaternion(-0.261599, -0.00987669, -0.150404, 0.953335)
-bones/4/rotation = Quaternion(0.270177, 3.14623e-05, -0.511328, 0.815811)
-bones/5/rotation = Quaternion(0.267295, -0.0800249, -0.0316024, 0.959766)
-bones/6/rotation = Quaternion(0.0159233, 0.0101524, 0.53033, 0.847581)
-bones/7/rotation = Quaternion(-0.307103, -0.152685, -0.174466, 0.923004)
-bones/8/rotation = Quaternion(-3.07336e-08, 4.28408e-08, 1.2666e-07, 1)
-bones/10/rotation = Quaternion(-0.0107331, 3.51912e-08, -0.342398, 0.939494)
-bones/11/rotation = Quaternion(0.298003, 0.122875, -0.0284422, 0.946196)
-bones/12/rotation = Quaternion(-4.00469e-08, 3.66941e-07, 1.04308e-07, 1) 
-
 [node name="TreeBranch" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 2/Nature/Trees" instance=ExtResource("52_1ud1s")]
 transform = Transform3D(0.747644, -0.0305499, -1.30004, 0.0152301, 1.49969, -0.0264828, 1.30031, -1.39698e-09, 0.7478, -9.62398, 0.744575, 16.9738)
 
@@ -699,63 +605,6 @@ transform = Transform3D(0.073726, -0.0427713, 0.996361, 0.124791, 0.991623, 0.03
 [node name="TreeStumpWithMushrooms" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 2/Nature/RoomElements" instance=ExtResource("51_pueoc")]
 transform = Transform3D(3.83165, 0, 1.14824, 0, 4, 0, -1.14824, 0, 3.83165, -3.33572, 0.833448, 4.66515)
 
-[node name="Skeleton3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 2/Nature/RoomElements/TreeStumpWithMushrooms/baumstamm1/piltz/Armature" index="0"]
-bones/0/rotation = Quaternion(0.0273, 0.00105263, 0.0274217, 0.999251)
-bones/0/scale = Vector3(0.975615, 0.975615, 0.975615)
-bones/1/rotation = Quaternion(0.00594872, -0.00748581, 0.0189609, 0.999775)
-bones/1/scale = Vector3(0.97391, 0.97391, 0.97391)
-bones/2/rotation = Quaternion(0.0098364, -0.0127517, 0.00864972, 0.999833)
-bones/2/scale = Vector3(0.95948, 0.95948, 0.95948)
-bones/3/rotation = Quaternion(0.0058612, -0.00751504, 0.0139754, 0.999857)
-bones/3/scale = Vector3(0.95948, 0.95948, 0.95948)
-bones/4/rotation = Quaternion(0.010003, -0.012698, 0.014154, 0.999769)
-bones/4/scale = Vector3(0.975615, 0.975615, 0.975615)
-
-[node name="AnimationPlayer" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 2/Nature/RoomElements/TreeStumpWithMushrooms/baumstamm1/piltz" index="1"]
-autoplay = "Idle"
-
-[node name="Skeleton3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 2/Nature/RoomElements/TreeStumpWithMushrooms/baumstamm1/piltz2/Armature" index="0"]
-bones/0/rotation = Quaternion(0.0273, 0.00105263, 0.0274217, 0.999251)
-bones/0/scale = Vector3(0.975615, 0.975615, 0.975615)
-bones/1/rotation = Quaternion(0.00594872, -0.00748581, 0.0189609, 0.999775)
-bones/1/scale = Vector3(0.97391, 0.97391, 0.97391)
-bones/2/rotation = Quaternion(0.0098364, -0.0127517, 0.00864972, 0.999833)
-bones/2/scale = Vector3(0.95948, 0.95948, 0.95948)
-bones/3/rotation = Quaternion(0.0058612, -0.00751504, 0.0139754, 0.999857)
-bones/3/scale = Vector3(0.95948, 0.95948, 0.95948)
-bones/4/rotation = Quaternion(0.010003, -0.012698, 0.014154, 0.999769)
-bones/4/scale = Vector3(0.975615, 0.975615, 0.975615)
-[node name="AnimationPlayer" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 2/Nature/RoomElements/TreeStumpWithMushrooms/baumstamm1/piltz2" index="1"]
-autoplay = "Idle"
-
-[node name="Skeleton3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 2/Nature/RoomElements/TreeStumpWithMushrooms/baumstamm1/piltz3/Armature" index="0"]
-bones/0/rotation = Quaternion(0.0273, 0.00105263, 0.0274217, 0.999251)
-bones/0/scale = Vector3(0.975615, 0.975615, 0.975615)
-bones/1/rotation = Quaternion(0.00594872, -0.00748581, 0.0189609, 0.999775)
-bones/1/scale = Vector3(0.97391, 0.97391, 0.97391)
-bones/2/rotation = Quaternion(0.0098364, -0.0127517, 0.00864972, 0.999833)
-bones/2/scale = Vector3(0.95948, 0.95948, 0.95948)
-bones/3/rotation = Quaternion(0.0058612, -0.00751504, 0.0139754, 0.999857)
-bones/3/scale = Vector3(0.95948, 0.95948, 0.95948)
-bones/4/rotation = Quaternion(0.010003, -0.012698, 0.014154, 0.999769)
-bones/4/scale = Vector3(0.975615, 0.975615, 0.975615)
-[node name="AnimationPlayer" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 2/Nature/RoomElements/TreeStumpWithMushrooms/baumstamm1/piltz3" index="1"]
-autoplay = "Idle"
-
-[node name="Skeleton3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 2/Nature/RoomElements/TreeStumpWithMushrooms/baumstamm1/piltz4/Armature" index="0"]
-bones/0/rotation = Quaternion(0.0273, 0.00105263, 0.0274217, 0.999251)
-bones/0/scale = Vector3(0.975615, 0.975615, 0.975615)
-bones/1/rotation = Quaternion(0.00594872, -0.00748581, 0.0189609, 0.999775)
-bones/1/scale = Vector3(0.97391, 0.97391, 0.97391)
-bones/2/rotation = Quaternion(0.0098364, -0.0127517, 0.00864972, 0.999833)
-bones/2/scale = Vector3(0.95948, 0.95948, 0.95948)
-bones/3/rotation = Quaternion(0.0058612, -0.00751504, 0.0139754, 0.999857)
-bones/3/scale = Vector3(0.95948, 0.95948, 0.95948)
-bones/4/rotation = Quaternion(0.010003, -0.012698, 0.014154, 0.999769)
-bones/4/scale = Vector3(0.975615, 0.975615, 0.975615)
-
-[node name="AnimationPlayer" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 2/Nature/RoomElements/TreeStumpWithMushrooms/baumstamm1/piltz4" index="1"]
-autoplay = "Idle" 
 [node name="RockTwo2" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 2/Nature/RoomElements" instance=ExtResource("35_llwuo")]
 transform = Transform3D(0.417394, 0, -1.95596, 0, 2, 0, 1.95596, 0, 0.417394, 9.6246, 0.877743, 8.22244)
 
@@ -917,44 +766,8 @@ transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, -10.5354
 [node name="brokenWallWith2Trees" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 4/Walls/East" instance=ExtResource("8_qcrt0")]
 transform = Transform3D(-1.03923, 0, -0.6, 0, 1.2, 0, 0.6, 0, -1.03923, 9.89202, 0.660201, -1.46617)
 
-[node name="Skeleton3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 4/Walls/East/brokenWallWith2Trees/Deco/Baum/Armature" index="0"]
-bones/1/rotation = Quaternion(-1.77636e-15, -7.45058e-08, 8.88178e-16, 1)
-bones/2/scale = Vector3(1, 1, 1)
-bones/3/scale = Vector3(1, 1, 1)
-
 [node name="Monstera_bush" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 4/Walls/East/brokenWallWith2Trees/Deco" index="4"]
 visible = false
-
-[node name="Skeleton3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 4/Walls/East/brokenWallWith2Trees/Deco/MushroomMany/piltz/Armature" index="0"]
-bones/0/rotation = Quaternion(0.0273184, 0.000311871, 0.000311871, 0.999627)
-bones/0/scale = Vector3(1, 1, 1)
-bones/1/rotation = Quaternion(0.00575706, -0.00764174, -0.00764186, 0.999925)
-bones/1/scale = Vector3(1, 1, 1)
-bones/2/rotation = Quaternion(0.00965928, -0.0129648, -0.0129649, 0.999785)
-bones/2/scale = Vector3(1, 1, 1)
-bones/3/rotation = Quaternion(0.00575706, -0.00764174, -0.00764186, 0.999925)
-bones/3/scale = Vector3(1, 1, 1)
-bones/4/rotation = Quaternion(0.00965936, -0.0129648, -0.0129649, 0.999785)
-bones/4/scale = Vector3(1, 1, 1)
-	
-[node name="Skeleton3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 4/Walls/East/brokenWallWith2Trees/Deco/TreeRound/Baum/Armature" index="0"]
-bones/1/rotation = Quaternion(-1.77636e-15, -7.45058e-08, 8.88178e-16, 1)
-bones/2/scale = Vector3(1, 1, 1)
-bones/3/scale = Vector3(1, 1, 1)
-
-[node name="Skeleton3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 4/Walls/East/brokenWallWith2Trees/Deco/BushTearDrop/Bush/Armature_001" index="0"]
-bones/1/rotation = Quaternion(0.00160814, 4.52136e-08, 0.000949309, 0.999998)
-bones/2/rotation = Quaternion(0.00318523, -0.000400851, 0.708735, 0.705468)
-bones/3/rotation = Quaternion(-0.00237216, 0.000399359, -0.705464, 0.708742)
-bones/4/rotation = Quaternion(-0.704346, -0.000237446, 0.00302626, 0.70985)
-bones/5/rotation = Quaternion(0.709846, 0.00023915, -0.00257142, 0.704353)
-
-[node name="Skeleton3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 4/Walls/East/brokenWallWith2Trees/Deco/BushSphere/Bush2/Armature_001" index="0"]
-bones/1/rotation = Quaternion(0.00160814, 4.52136e-08, 0.000949309, 0.999998)
-bones/2/rotation = Quaternion(0.00318523, -0.000400851, 0.708735, 0.705468)
-bones/3/rotation = Quaternion(-0.00237216, 0.000399359, -0.705464, 0.708742)
-bones/4/rotation = Quaternion(-0.704346, -0.000237446, 0.00302626, 0.70985)
-bones/5/rotation = Quaternion(0.709846, 0.00023915, -0.00257142, 0.704353) 
 
 [node name="TreeDead" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 4/Walls/East/brokenWallWith2Trees/Deco" index="16"]
 visible = false
@@ -1035,95 +848,11 @@ transform = Transform3D(1.1653, 0, -1.62545, 0, 2, 0, 1.62545, 0, 1.1653, -8.855
 [node name="WallTreeWithDeadTree" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 5/Wall/West" instance=ExtResource("47_l5vnb")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -15.0832, 1.11636, -17.2112)
 
-[node name="Skeleton3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 5/Wall/West/WallTreeWithDeadTree/TreeRound4/Baum/Armature" index="0"]
-bones/1/rotation = Quaternion(-1.77636e-15, -7.45058e-08, 8.88178e-16, 1)
-bones/2/scale = Vector3(1, 1, 1)
-bones/3/scale = Vector3(1, 1, 1)
-
 [node name="TreeDead2" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 5/Wall/West/WallTreeWithDeadTree" index="5"]
 visible = false
 
-[node name="Skeleton3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 5/Wall/West/WallTreeWithDeadTree/TreeRound3/Baum/Armature" index="0"]
-bones/1/rotation = Quaternion(-1.77636e-15, -7.45058e-08, 8.88178e-16, 1)
-bones/2/scale = Vector3(1, 1, 1)
-bones/3/scale = Vector3(1, 1, 1)
-
-[node name="Skeleton3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 5/Wall/West/WallTreeWithDeadTree/TreeStumpWithMushrooms/baumstamm1/piltz/Armature" index="0"]
-bones/0/rotation = Quaternion(0.0273184, 0.000311871, 0.000311871, 0.999627)
-bones/0/scale = Vector3(1, 1, 1)
-bones/1/rotation = Quaternion(0.00575706, -0.00764174, -0.00764186, 0.999925)
-bones/1/scale = Vector3(1, 1, 1)
-bones/2/rotation = Quaternion(0.00965928, -0.0129648, -0.0129649, 0.999785)
-bones/2/scale = Vector3(1, 1, 1)
-bones/3/rotation = Quaternion(0.00575706, -0.00764174, -0.00764186, 0.999925)
-bones/3/scale = Vector3(1, 1, 1)
-bones/4/rotation = Quaternion(0.00965936, -0.0129648, -0.0129649, 0.999785)
-bones/4/scale = Vector3(1, 1, 1)
-
-[node name="Skeleton3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 5/Wall/West/WallTreeWithDeadTree/TreeStumpWithMushrooms/baumstamm1/piltz2/Armature" index="0"]
-bones/0/rotation = Quaternion(0.0273184, 0.000311871, 0.000311871, 0.999627)
-bones/0/scale = Vector3(1, 1, 1)
-bones/1/rotation = Quaternion(0.00575706, -0.00764174, -0.00764186, 0.999925)
-bones/1/scale = Vector3(1, 1, 1)
-bones/2/rotation = Quaternion(0.00965928, -0.0129648, -0.0129649, 0.999785)
-bones/2/scale = Vector3(1, 1, 1)
-bones/3/rotation = Quaternion(0.00575706, -0.00764174, -0.00764186, 0.999925)
-bones/3/scale = Vector3(1, 1, 1)
-bones/4/rotation = Quaternion(0.00965936, -0.0129648, -0.0129649, 0.999785)
-bones/4/scale = Vector3(1, 1, 1)
-
-[node name="Skeleton3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 5/Wall/West/WallTreeWithDeadTree/TreeStumpWithMushrooms/baumstamm1/piltz3/Armature" index="0"]
-bones/0/rotation = Quaternion(0.0273184, 0.000311871, 0.000311871, 0.999627)
-bones/0/scale = Vector3(1, 1, 1)
-bones/1/rotation = Quaternion(0.00575706, -0.00764174, -0.00764186, 0.999925)
-bones/1/scale = Vector3(1, 1, 1)
-bones/2/rotation = Quaternion(0.00965928, -0.0129648, -0.0129649, 0.999785)
-bones/2/scale = Vector3(1, 1, 1)
-bones/3/rotation = Quaternion(0.00575706, -0.00764174, -0.00764186, 0.999925)
-bones/3/scale = Vector3(1, 1, 1)
-bones/4/rotation = Quaternion(0.00965936, -0.0129648, -0.0129649, 0.999785)
-bones/4/scale = Vector3(1, 1, 1)
-
-[node name="Skeleton3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 5/Wall/West/WallTreeWithDeadTree/TreeStumpWithMushrooms/baumstamm1/piltz4/Armature" index="0"]
-bones/0/rotation = Quaternion(0.0273184, 0.000311871, 0.000311871, 0.999627)
-bones/0/scale = Vector3(1, 1, 1)
-bones/1/rotation = Quaternion(0.00575706, -0.00764174, -0.00764186, 0.999925)
-bones/1/scale = Vector3(1, 1, 1)
-bones/2/rotation = Quaternion(0.00965928, -0.0129648, -0.0129649, 0.999785)
-bones/2/scale = Vector3(1, 1, 1)
-bones/3/rotation = Quaternion(0.00575706, -0.00764174, -0.00764186, 0.999925)
-bones/3/scale = Vector3(1, 1, 1)
-bones/4/rotation = Quaternion(0.00965936, -0.0129648, -0.0129649, 0.999785)
-bones/4/scale = Vector3(1, 1, 1)
-
 [node name="TreeStapel" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 5/Wall/West/WallTreeWithDeadTree" index="12"]
 visible = false
-
-[node name="Skeleton3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 5/Wall/West/WallTreeWithDeadTree/TreeDead3/tree/Armature" index="0"]
-bones/1/rotation = Quaternion(-0.0532978, -0.0137526, 0.24947, 0.966817)
-bones/2/rotation = Quaternion(-0.443356, -0.0206534, -0.271912, 0.853858)
-bones/3/rotation = Quaternion(-0.261599, -0.00987669, -0.150404, 0.953335)
-bones/4/rotation = Quaternion(0.270177, 3.14623e-05, -0.511328, 0.815811)
-bones/5/rotation = Quaternion(0.267295, -0.0800249, -0.0316024, 0.959766)
-bones/6/rotation = Quaternion(0.0159233, 0.0101524, 0.53033, 0.847581)
-bones/7/rotation = Quaternion(-0.307103, -0.152685, -0.174466, 0.923004)
-bones/8/rotation = Quaternion(-3.07336e-08, 4.28408e-08, 1.2666e-07, 1)
-bones/10/rotation = Quaternion(-0.0107331, 3.51912e-08, -0.342398, 0.939494)
-bones/11/rotation = Quaternion(0.298003, 0.122875, -0.0284422, 0.946196)
-bones/12/rotation = Quaternion(-4.00469e-08, 3.66941e-07, 1.04308e-07, 1)
-
-[node name="Skeleton3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 5/Wall/West/WallTreeWithDeadTree/TreeDead4/tree/Armature" index="0"]
-bones/1/rotation = Quaternion(-0.0532978, -0.0137526, 0.24947, 0.966817)
-bones/2/rotation = Quaternion(-0.443356, -0.0206534, -0.271912, 0.853858)
-bones/3/rotation = Quaternion(-0.261599, -0.00987669, -0.150404, 0.953335)
-bones/4/rotation = Quaternion(0.270177, 3.14623e-05, -0.511328, 0.815811)
-bones/5/rotation = Quaternion(0.267295, -0.0800249, -0.0316024, 0.959766)
-bones/6/rotation = Quaternion(0.0159233, 0.0101524, 0.53033, 0.847581)
-bones/7/rotation = Quaternion(-0.307103, -0.152685, -0.174466, 0.923004)
-bones/8/rotation = Quaternion(-3.07336e-08, 4.28408e-08, 1.2666e-07, 1)
-bones/10/rotation = Quaternion(-0.0107331, 3.51912e-08, -0.342398, 0.939494)
-bones/11/rotation = Quaternion(0.298003, 0.122875, -0.0284422, 0.946196)
-bones/12/rotation = Quaternion(-4.00469e-08, 3.66941e-07, 1.04308e-07, 1) 
 
 [node name="East" type="Node3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 5/Wall"]
 
@@ -1223,27 +952,21 @@ metadata/_edit_lock_ = true
 
 [node name="TreeBundleOne" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("56_5i7v7")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -32.023, 0.5, -26.069)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleOne3" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("56_5i7v7")]
 transform = Transform3D(-0.43412, 0, 2.46202, 0, 2.5, 0, -2.46202, 0, -0.43412, -44.123, 0.5, -22.669)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleOne2" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("56_5i7v7")]
 transform = Transform3D(-2, 0, 1.74846e-07, 0, 2, 0, -1.74846e-07, 0, -2, 36.777, 0.5, -10.069)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleTwo" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("57_6roa5")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -33.8, 0.5, -16.4)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleTwo5" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("57_6roa5")]
 transform = Transform3D(2.81908, 0, 1.02606, 0, 3, 0, -1.02606, 0, 2.81908, -40.9, 0.5, -34.6)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleTwo2" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("57_6roa5")]
 transform = Transform3D(-1.53209, 0, 1.28558, 0, 2, 0, -1.28558, 0, -1.53209, 34.6, 0.5, -1.8)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleThree" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("58_i63v0")]
 transform = Transform3D(-3, 0, 0, 0, 3, 0, 0, 0, -3, 36.2, 0.7, -32.3)
@@ -1253,85 +976,66 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 38.1, 0.9, -20.5)
 
 [node name="TreeBundleFive" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("60_507y0")]
 transform = Transform3D(0.878666, 0, -2.86843, 0, 3, 0, 2.86843, 0, 0.878666, 45.5887, 0.9, -62.031)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleFive2" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("60_507y0")]
 transform = Transform3D(1.5, 0, 2.59808, 0, 3, 0, -2.59808, 0, 1.5, 58.7, 0.9, -56.3)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleFive3" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("60_507y0")]
 transform = Transform3D(1.96962, 0, -0.347296, 0, 2, 0, 0.347296, 0, 1.96962, 59.2, 0.9, -40.9)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleFive6" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("60_507y0")]
 transform = Transform3D(1.91511, 0, 1.60697, 0, 2.5, 0, -1.60697, 0, 1.91511, 48.7, 0.9, -46.5)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleFive7" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("60_507y0")]
 transform = Transform3D(1.5, 0, -2.59808, 0, 3, 0, 2.59808, 0, 1.5, 48.4, 0.9, -33.1)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleTwo3" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("61_4uuyj")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -37.5, 0.7, -7.1)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleTwo4" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("61_4uuyj")]
 transform = Transform3D(1.02606, 0, -2.81908, 0, 3, 0, 2.81908, 0, 1.02606, -28.1, 0.7, -42.1)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleSix" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("61_4uuyj")]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 19.9, 0.5, 15.7)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleSix2" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("61_4uuyj")]
 transform = Transform3D(-1.74846e-07, 0, -4, 0, 4, 0, 4, 0, -1.74846e-07, -2.1, 0.5, 19.4)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleSix3" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("61_4uuyj")]
 transform = Transform3D(3.75877, 0, -1.36808, 0, 4, 0, 1.36808, 0, 3.75877, -21.3, 0.5, 18.5)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleOne4" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("56_5i7v7")]
 transform = Transform3D(-0.625068, 0, -1.89981, 0, 2, 0, 1.89981, 0, -0.625068, -15.3358, 0.460647, -127.9)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleThree2" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("58_i63v0")]
 transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 0.196765, 0.405014, -127.306)
 
 [node name="TreeBundleOne5" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("56_5i7v7")]
 transform = Transform3D(3.22768, 0, -2.36265, 0, 4, 0, 2.36265, 0, 3.22768, -60.0386, 0.0389538, -164.768)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleOne6" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("56_5i7v7")]
 transform = Transform3D(-3.44261, 0, -2.03677, 0, 4, 0, 2.03677, 0, -3.44261, -40.0241, 0.0389547, -173.794)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleTwo6" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("57_6roa5")]
 transform = Transform3D(-1.89254, 0, -3.52396, 0, 4, 0, 3.52396, 0, -1.89254, -59.1957, 0.0389557, -181.115)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleOne7" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("56_5i7v7")]
 transform = Transform3D(3.23118, 0, -2.35786, 0, 4, 0, 2.35786, 0, 3.23118, -30.1633, 0.104904, -221.385)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleTwo7" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("57_6roa5")]
 transform = Transform3D(3.23118, 0, -2.35786, 0, 4, 0, 2.35786, 0, 3.23118, -32.0558, 0.0389538, -199.489)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleTwo8" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("57_6roa5")]
 transform = Transform3D(1.8753, 0, 3.53317, 0, 4, 0, -3.53317, 0, 1.8753, -31.6771, 0.03895, -236.944)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleSix4" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("61_4uuyj")]
 transform = Transform3D(-1.89254, 0, -3.52396, 0, 4, 0, 3.52396, 0, -1.89254, -31.4566, 0.0389519, -179.544)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleSix5" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("61_4uuyj")]
 transform = Transform3D(1.7313, 0, 3.60591, 0, 4, 0, -3.60591, 0, 1.7313, -17.0049, 0.494175, -229.396)
 
 [node name="TreeBundleSix6" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("61_4uuyj")]
 transform = Transform3D(-3.18561, 0, 2.41906, 0, 4, 0, -2.41906, 0, -3.18561, -47.2207, 0.494177, -218.8)
-metadata/_edit_lock_ = true
 
 [node name="WallFullBroken" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("34_hjixs")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 17.9914, 0.785681, -89.3598)
@@ -1362,61 +1066,47 @@ metadata/_edit_lock_ = true
 
 [node name="TreeBundleFive4" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("60_507y0")]
 transform = Transform3D(0.835194, 0, -0.549956, 0, 1, 0, 0.549956, 0, 0.835194, 27.6078, 0.538403, -93.5398)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleFive5" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("60_507y0")]
 transform = Transform3D(1.05043, 0, 0.7659, 0, 1.3, 0, -0.7659, 0, 1.05043, 17.3663, 0.538404, -93.466)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleFive8" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("60_507y0")]
 transform = Transform3D(3.23208, 0, 2.35662, 0, 4, 0, -2.35662, 0, 3.23208, 59.4988, 0.538404, -74.1073)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleFive9" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("60_507y0")]
 transform = Transform3D(-1.46984, 0, -3.72016, 0, 4, 0, 3.72016, 0, -1.46984, 63.7432, 0.5384, -92.8627)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleOne8" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("56_5i7v7")]
 transform = Transform3D(0.058984, 0, -1.99913, 0, 2, 0, 1.99913, 0, 0.058984, 55.6291, 0.538401, -103.917)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleOne9" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("56_5i7v7")]
 transform = Transform3D(3.52336, 0, 1.89365, 0, 4, 0, -1.89365, 0, 3.52336, 69.3711, 0.538402, -113.083)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleTwo9" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("57_6roa5")]
 transform = Transform3D(-0.366911, 0, 3.98314, 0, 4, 0, -3.98314, 0, -0.366911, 64.0634, 0.538402, -131.368)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleSeven" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("54_j1ccg")]
 transform = Transform3D(-0.946997, 0, -2.84661, 0, 3, 0, 2.84661, 0, -0.946997, 36.8166, 0.526352, -167.43)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleSeven2" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("54_j1ccg")]
 transform = Transform3D(1.13595, 0, 2.77662, 0, 3, 0, -2.77662, 0, 1.13595, 50.3924, 0.526353, -165.714)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleOne10" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("56_5i7v7")]
 transform = Transform3D(1.30951, 0, 2.69911, 0, 3, 0, -2.69911, 0, 1.30951, 66.3406, 0.178663, -145.359)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleFive10" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("60_507y0")]
 transform = Transform3D(2.3848, 0, 1.82009, 0, 3, 0, -1.82009, 0, 2.3848, 60.1708, 0.178663, -155.93)
 visible = false
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleTwo10" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("57_6roa5")]
 transform = Transform3D(3.82976, 0, 1.15452, 0, 4, 0, -1.15452, 0, 3.82976, 79.2671, 0.178663, -157.96)
 visible = false
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleTwo11" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("57_6roa5")]
 transform = Transform3D(-2.05632, 0, 3.43097, 0, 4, 0, -3.43097, 0, -2.05632, 79.2671, 0.178663, -143.055)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleTwo12" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("57_6roa5")]
 transform = Transform3D(-2.19411, 0, -3.34453, 0, 4, 0, 3.34453, 0, -2.19411, 67.9378, 0.178661, -166.325)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleFour" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("59_i63v0")]
 transform = Transform3D(-2.41055, 0, -0.662755, 0, 2.5, 0, 0.662755, 0, -2.41055, 54.6829, 0.704337, -174.722)
@@ -1427,194 +1117,56 @@ transform = Transform3D(2.39756, 0, -0.708323, 0, 2.5, 0, 0.708323, 0, 2.39756, 
 [node name="baumstamm1" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall/TreeBundleFour3" index="2"]
 visible = false
 
-[node name="Skeleton3D" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall/TreeBundleFour3/tree/Armature" index="0"]
-visible = false
-bones/1/rotation = Quaternion(-0.0532978, -0.0137526, 0.24947, 0.966817)
-bones/2/rotation = Quaternion(-0.443356, -0.0206534, -0.271912, 0.853858)
-bones/3/rotation = Quaternion(-0.261599, -0.00987669, -0.150404, 0.953335)
-bones/4/rotation = Quaternion(0.270177, 3.14623e-05, -0.511328, 0.815811)
-bones/5/rotation = Quaternion(0.267295, -0.0800249, -0.0316024, 0.959766)
-bones/6/rotation = Quaternion(0.0159233, 0.0101524, 0.53033, 0.847581)
-bones/7/rotation = Quaternion(-0.307103, -0.152685, -0.174466, 0.923004)
-bones/8/rotation = Quaternion(-3.07336e-08, 4.28408e-08, 1.2666e-07, 1)
-bones/10/rotation = Quaternion(-0.0107331, 3.51912e-08, -0.342398, 0.939494)
-bones/11/rotation = Quaternion(0.298003, 0.122875, -0.0284422, 0.946196)
-bones/12/rotation = Quaternion(-4.00469e-08, 3.66941e-07, 1.04308e-07, 1)
-	
-
-[node name="Skeleton3D" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall/TreeBundleFour3/baumstamm1/piltz/Armature" index="0"]
-bones/0/rotation = Quaternion(0.0273184, 0.000311871, 0.000311871, 0.999627)
-bones/0/scale = Vector3(1, 1, 1)
-bones/1/rotation = Quaternion(0.00575706, -0.00764174, -0.00764186, 0.999925)
-bones/1/scale = Vector3(1, 1, 1)
-bones/2/rotation = Quaternion(0.00965928, -0.0129648, -0.0129649, 0.999785)
-bones/2/scale = Vector3(1, 1, 1)
-bones/3/rotation = Quaternion(0.00575706, -0.00764174, -0.00764186, 0.999925)
-bones/3/scale = Vector3(1, 1, 1)
-bones/4/rotation = Quaternion(0.00965936, -0.0129648, -0.0129649, 0.999785)
-bones/4/scale = Vector3(1, 1, 1)
-	
-
-[node name="Skeleton3D" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall/TreeBundleFour3/baumstamm1/piltz2/Armature" index="0"]
-bones/0/rotation = Quaternion(0.0273184, 0.000311871, 0.000311871, 0.999627)
-bones/0/scale = Vector3(1, 1, 1)
-bones/1/rotation = Quaternion(0.00575706, -0.00764174, -0.00764186, 0.999925)
-bones/1/scale = Vector3(1, 1, 1)
-bones/2/rotation = Quaternion(0.00965928, -0.0129648, -0.0129649, 0.999785)
-bones/2/scale = Vector3(1, 1, 1)
-bones/3/rotation = Quaternion(0.00575706, -0.00764174, -0.00764186, 0.999925)
-bones/3/scale = Vector3(1, 1, 1)
-bones/4/rotation = Quaternion(0.00965936, -0.0129648, -0.0129649, 0.999785)
-bones/4/scale = Vector3(1, 1, 1)
-	
-
-[node name="Skeleton3D" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall/TreeBundleFour3/baumstamm1/piltz3/Armature" index="0"]
-bones/0/rotation = Quaternion(0.0273184, 0.000311871, 0.000311871, 0.999627)
-bones/1/rotation = Quaternion(0.00575706, -0.00764174, -0.00764186, 0.999925)
-bones/1/scale = Vector3(1, 1, 1)
-bones/2/rotation = Quaternion(0.00965928, -0.0129648, -0.0129649, 0.999785)
-bones/3/rotation = Quaternion(0.00575706, -0.00764174, -0.00764186, 0.999925)
-bones/3/scale = Vector3(1, 1, 1)
-bones/4/rotation = Quaternion(0.00965936, -0.0129648, -0.0129649, 0.999785)
-	
-
-[node name="Skeleton3D" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall/TreeBundleFour3/baumstamm1/piltz4/Armature" index="0"]
-bones/0/rotation = Quaternion(0.0273184, 0.000311871, 0.000311871, 0.999627)
-bones/0/scale = Vector3(1, 1, 1)
-bones/1/rotation = Quaternion(0.00575706, -0.00764174, -0.00764186, 0.999925)
-bones/1/scale = Vector3(1, 1, 1)
-bones/2/rotation = Quaternion(0.00965928, -0.0129648, -0.0129649, 0.999785)
-bones/2/scale = Vector3(1, 1, 1)
-bones/3/rotation = Quaternion(0.00575706, -0.00764174, -0.00764186, 0.999925)
-bones/3/scale = Vector3(1, 1, 1)
-bones/4/rotation = Quaternion(0.00965936, -0.0129648, -0.0129649, 0.999785)
-bones/4/scale = Vector3(1, 1, 1)
 [node name="MushroomMany" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall/TreeBundleFour3" index="4"]
-[node name="MushroomMany" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall/TreeBundleFour3" index="4"]
-
 visible = false
-visible = false
-	
 
-[node name="Skeleton3D" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall/TreeBundleFour3/tree2/Armature" index="0"]
-bones/1/rotation = Quaternion(-0.0532978, -0.0137526, 0.24947, 0.966817)
-bones/2/rotation = Quaternion(-0.443356, -0.0206534, -0.271912, 0.853858)
-bones/3/rotation = Quaternion(-0.261599, -0.00987669, -0.150404, 0.953335)
-bones/4/rotation = Quaternion(0.270177, 3.14623e-05, -0.511328, 0.815811)
-bones/5/rotation = Quaternion(0.267295, -0.0800249, -0.0316024, 0.959766)
-bones/6/rotation = Quaternion(0.0159233, 0.0101524, 0.53033, 0.847581)
-bones/7/rotation = Quaternion(-0.307103, -0.152685, -0.174466, 0.923004)
-bones/8/rotation = Quaternion(-3.07336e-08, 4.28408e-08, 1.2666e-07, 1)
-bones/10/rotation = Quaternion(-0.0107331, 3.51912e-08, -0.342398, 0.939494)
-bones/11/rotation = Quaternion(0.298003, 0.122875, -0.0284422, 0.946196)
-bones/12/rotation = Quaternion(-4.00469e-08, 3.66941e-07, 1.04308e-07, 1)
 [node name="RockOne" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall/TreeBundleFour3" index="6"]
-[node name="RockOne" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall/TreeBundleFour3" index="6"]
+visible = false
 
-visible = false
-visible = false
 [node name="RockTwo" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall/TreeBundleFour3" index="7"]
-[node name="RockTwo" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall/TreeBundleFour3" index="7"]
+visible = false
 
-visible = false
-visible = false
 [node name="RockOne2" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall/TreeBundleFour3" index="8"]
-[node name="RockOne2" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall/TreeBundleFour3" index="8"]
-
 visible = false
-visible = false
-	
 
-[node name="Skeleton3D" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall/TreeBundleFour3/tree3/Armature" index="0"]
-bones/1/rotation = Quaternion(-0.0532978, -0.0137526, 0.24947, 0.966817)
-bones/2/rotation = Quaternion(-0.443356, -0.0206534, -0.271912, 0.853858)
-bones/3/rotation = Quaternion(-0.261599, -0.00987669, -0.150404, 0.953335)
-bones/4/rotation = Quaternion(0.270177, 3.14623e-05, -0.511328, 0.815811)
-bones/5/rotation = Quaternion(0.267295, -0.0800249, -0.0316024, 0.959766)
-bones/6/rotation = Quaternion(0.0159233, 0.0101524, 0.53033, 0.847581)
-bones/7/rotation = Quaternion(-0.307103, -0.152685, -0.174466, 0.923004)
-bones/8/rotation = Quaternion(-3.07336e-08, 4.28408e-08, 1.2666e-07, 1)
-bones/10/rotation = Quaternion(-0.0107331, 3.51912e-08, -0.342398, 0.939494)
-bones/11/rotation = Quaternion(0.298003, 0.122875, -0.0284422, 0.946196)
-bones/12/rotation = Quaternion(-4.00469e-08, 3.66941e-07, 1.04308e-07, 1)
-	
-
-[node name="Skeleton3D" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall/TreeBundleFour3/tree4/Armature" index="0"]
-bones/1/rotation = Quaternion(-0.0532978, -0.0137526, 0.24947, 0.966817)
-bones/2/rotation = Quaternion(-0.443356, -0.0206534, -0.271912, 0.853858)
-bones/3/rotation = Quaternion(-0.261599, -0.00987669, -0.150404, 0.953335)
-bones/4/rotation = Quaternion(0.270177, 3.14623e-05, -0.511328, 0.815811)
-bones/5/rotation = Quaternion(0.267295, -0.0800249, -0.0316024, 0.959766)
-bones/6/rotation = Quaternion(0.0159233, 0.0101524, 0.53033, 0.847581)
-bones/7/rotation = Quaternion(-0.307103, -0.152685, -0.174466, 0.923004)
-bones/8/rotation = Quaternion(-3.07336e-08, 4.28408e-08, 1.2666e-07, 1)
-bones/10/rotation = Quaternion(-0.0107331, 3.51912e-08, -0.342398, 0.939494)
-bones/11/rotation = Quaternion(0.298003, 0.122875, -0.0284422, 0.946196)
-bones/12/rotation = Quaternion(-4.00469e-08, 3.66941e-07, 1.04308e-07, 1)
-	
-
-[node name="Skeleton3D" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall/TreeBundleFour3/tree5/Armature" index="0"]
-bones/1/rotation = Quaternion(-0.0532978, -0.0137526, 0.24947, 0.966817)
-bones/2/rotation = Quaternion(-0.443356, -0.0206534, -0.271912, 0.853858)
-bones/3/rotation = Quaternion(-0.261599, -0.00987669, -0.150404, 0.953335)
-bones/4/rotation = Quaternion(0.270177, 3.14623e-05, -0.511328, 0.815811)
-bones/5/rotation = Quaternion(0.267295, -0.0800249, -0.0316024, 0.959766)
-bones/6/rotation = Quaternion(0.0159233, 0.0101524, 0.53033, 0.847581)
-bones/7/rotation = Quaternion(-0.307103, -0.152685, -0.174466, 0.923004)
-bones/8/rotation = Quaternion(-3.07336e-08, 4.28408e-08, 1.2666e-07, 1)
-bones/10/rotation = Quaternion(-0.0107331, 3.51912e-08, -0.342398, 0.939494)
-bones/11/rotation = Quaternion(0.298003, 0.122875, -0.0284422, 0.946196)
-bones/12/rotation = Quaternion(-4.00469e-08, 3.66941e-07, 1.04308e-07, 1) 
 [node name="TreeBundleFive11" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("60_507y0")]
 transform = Transform3D(-2.31132, 0, -3.26463, 0, 4, 0, 3.26463, 0, -2.31132, 46.3533, 0.474895, -191.67)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleFive14" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("60_507y0")]
 transform = Transform3D(3.81096, 0, -1.21513, 0, 4, 0, 1.21513, 0, 3.81096, 45.5094, 0.474895, -216.09)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleFive18" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("60_507y0")]
 transform = Transform3D(-0.669278, 0, -3.94361, 0, 4, 0, 3.94361, 0, -0.669278, 47.7615, 0.474895, -232.308)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleFive19" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("60_507y0")]
 transform = Transform3D(3.84043, 0, 1.11851, 0, 4, 0, -1.11851, 0, 3.84043, 67.9286, 0.474898, -224.324)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleFive16" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("60_507y0")]
 transform = Transform3D(0.127826, 0, -0.991797, 0, 1, 0, 0.991797, 0, 0.127826, 33.7341, 0.652735, -220.384)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleFive17" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("60_507y0")]
 transform = Transform3D(0.988518, 0, -0.151106, 0, 1, 0, 0.151106, 0, 0.988518, 38.6146, 0.652735, -204.995)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleFive15" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("60_507y0")]
 transform = Transform3D(2.59689, 0, 3.04239, 0, 4, 0, -3.04239, 0, 2.59689, 62.5093, 0.474895, -208.899)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleFive13" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("60_507y0")]
 transform = Transform3D(-1.78943, 0, 0.89327, 0, 2, 0, -0.89327, 0, -1.78943, 31.9498, 0.474893, -197.676)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleFive12" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("60_507y0")]
 transform = Transform3D(-1.67781, 0, 3.63111, 0, 4, 0, -3.63111, 0, -1.67781, 66.157, 0.474891, -185.857)
-metadata/_edit_lock_ = true
 
 [node name="TreeBundleThree4" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("58_i63v0")]
 transform = Transform3D(-1.98349, 0, -0.256483, 0, 2, 0, 0.256483, 0, -1.98349, 42.7659, 0.474896, -176.819)
 
 [node name="TreeDead" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("33_dlsde")]
 transform = Transform3D(1.38859, 0, -2.65929, 0, 3, 0, 2.65929, 0, 1.38859, 27.6293, 0.680555, -214.594)
-metadata/_edit_lock_ = true
 
 [node name="TreeStumpWithMushrooms" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("51_pueoc")]
 transform = Transform3D(-1.46001, 0, 2.62076, 0, 3, 0, -2.62076, 0, -1.46001, 24.8143, 0.680551, -209.416)
-metadata/_edit_lock_ = true
 
 [node name="TreeDead2" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("33_dlsde")]
 transform = Transform3D(-0.646405, 0, 2.92953, 0, 3, 0, -2.92953, 0, -0.646405, 30.7878, 0.680551, -207.422)
-metadata/_edit_lock_ = true
 
 [node name="Wall_dead_trees3" parent="WorldEnvironment/World/Nav Exclusion/TreeBundleWall" instance=ExtResource("11_ar3t4")]
 transform = Transform3D(-1.85905, 0, -0.737515, 0, 2, 0, 0.737515, 0, -1.85905, 24.3353, 0.794, -222.57)
@@ -1902,16 +1454,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19329, 0.499998, 1.46679)
 [node name="PlantWithPurple3" parent="WorldEnvironment/World/Nav Exclusion/Tutorial Room/Nature/Room Elements/FlowerField2" instance=ExtResource("6_3f6q6")]
 transform = Transform3D(0.788677, 0, -0.614808, 0, 1, 0, 0.614808, 0, 0.788677, 1.18931, 0.499998, -0.100248)
 
-[node name="Skeleton3D" parent="WorldEnvironment/World/Nav Exclusion/Tutorial Room/Nature/Room Elements/FlowerField2/PlantWithPurple3/Plant/Armature" index="0"]
-bones/0/rotation = Quaternion(-0.510733, -0.282294, -0.22465, 0.780381)
-bones/1/rotation = Quaternion(-0.212393, 1.66839e-09, -0.0245075, 0.976877)
-bones/2/rotation = Quaternion(-0.52566, 0.282613, 0.234065, 0.76748)
-bones/3/rotation = Quaternion(-0.186373, -1.10206e-08, 0.0123358, 0.982402)
-bones/4/rotation = Quaternion(-0.01957, 0.630196, 0.527607, 0.569298)
-bones/5/rotation = Quaternion(-0.132729, 1.51298e-08, 0.111252, 0.984889)
-bones/6/rotation = Quaternion(0.0618261, -0.63746, -0.544336, 0.541775)
-bones/7/rotation = Quaternion(-0.105798, 1.17833e-08, -0.112825, 0.987966) 
-
 [node name="PlantWithPurple2" parent="WorldEnvironment/World/Nav Exclusion/Tutorial Room/Nature/Room Elements/FlowerField2" instance=ExtResource("6_3f6q6")]
 transform = Transform3D(0.87728, 0, 0.479979, 0, 1, 0, -0.479979, 0, 0.87728, -1.23089, 0.499998, 0.332081)
 
@@ -1965,16 +1507,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19329, 0.499998, 1.46679)
 
 [node name="PlantWithPurple3" parent="WorldEnvironment/World/Nav Exclusion/Tutorial Room/Nature/Room Elements/FlowerField3" instance=ExtResource("6_3f6q6")]
 transform = Transform3D(0.788677, 0, -0.614808, 0, 1, 0, 0.614808, 0, 0.788677, 1.18931, 0.499998, -0.100248)
-
-[node name="Skeleton3D" parent="WorldEnvironment/World/Nav Exclusion/Room 1/Nature/Room Elements/FlowerField7/PlantWithPurple3/Plant/Armature" index="0"]
-bones/0/rotation = Quaternion(-0.510733, -0.282294, -0.22465, 0.780381)
-bones/1/rotation = Quaternion(-0.212393, 1.66839e-09, -0.0245075, 0.976877)
-bones/2/rotation = Quaternion(-0.52566, 0.282613, 0.234065, 0.76748)
-bones/3/rotation = Quaternion(-0.186373, -1.10206e-08, 0.0123358, 0.982402)
-bones/4/rotation = Quaternion(-0.01957, 0.630196, 0.527607, 0.569298)
-bones/5/rotation = Quaternion(-0.132729, 1.51298e-08, 0.111252, 0.984889)
-bones/6/rotation = Quaternion(0.0618261, -0.63746, -0.544336, 0.541775)
-bones/7/rotation = Quaternion(-0.105798, 1.17833e-08, -0.112825, 0.987966) 
 
 [node name="PlantWithPurple2" parent="WorldEnvironment/World/Nav Exclusion/Tutorial Room/Nature/Room Elements/FlowerField3" instance=ExtResource("6_3f6q6")]
 transform = Transform3D(0.87728, 0, 0.479979, 0, 1, 0, -0.479979, 0, 0.87728, -1.23089, 0.499998, 0.332081)
@@ -2481,32 +2013,11 @@ transform = Transform3D(-0.13082, 0, -0.991406, 0, 1, 0, 0.991406, 0, -0.13082, 
 
 [node name="SmallBushForSneakingOne" parent="WorldEnvironment/World/Nav Exclusion/Room 1/GameObjects/SneakBush" instance=ExtResource("52_u41q7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.60791, 1.5, 1.05992)
-[node name="Skeleton3D" parent="WorldEnvironment/World/Nav Exclusion/Room 1/GameObjects/SneakBush/SmallBushForSneakingOne/Bush2/Armature_001" index="0"]
-bones/1/rotation = Quaternion(0.00160814, 4.52136e-08, 0.000949309, 0.999998)
-bones/2/rotation = Quaternion(0.00318523, -0.000400851, 0.708735, 0.705468)
-bones/3/rotation = Quaternion(-0.00237216, 0.000399359, -0.705464, 0.708742)
-bones/4/rotation = Quaternion(-0.704346, -0.000237446, 0.00302626, 0.70985)
-bones/5/rotation = Quaternion(0.709846, 0.00023915, -0.00257142, 0.704353)
 
 [node name="MediumBushForSneaking" parent="WorldEnvironment/World/Nav Exclusion/Room 1/GameObjects/SneakBush" instance=ExtResource("53_ob714")]
 transform = Transform3D(0.551617, 0, -0.834098, 0, 1, 0, 0.834098, 0, 0.551617, 2.4919, 1.5, -4.64118)
 
-[node name="AnimationPlayer" parent="WorldEnvironment/World/Nav Exclusion/Room 1/GameObjects/SneakBush/MediumBushForSneaking/ModelMesh/Bush2" index="2"]
-autoplay = "Idle"
-
-[node name="AnimationPlayer" parent="WorldEnvironment/World/Nav Exclusion/Room 1/GameObjects/SneakBush/MediumBushForSneaking/ModelMesh/Bush3" index="2"]
-autoplay = "Idle"
-
-[node name="AnimationPlayer" parent="WorldEnvironment/World/Nav Exclusion/Room 1/GameObjects/SneakBush/MediumBushForSneaking/ModelMesh/Bush4" index="2"]
-autoplay = "Idle"
-
-[node name="AnimationPlayer" parent="WorldEnvironment/World/Nav Exclusion/Room 1/GameObjects/SneakBush/MediumBushForSneaking/ModelMesh/Bush5" index="2"]
-autoplay = "Idle"
-
-[node name="AnimationPlayer" parent="WorldEnvironment/World/Nav Exclusion/Room 1/GameObjects/SneakBush/MediumBushForSneaking/ModelMesh/Bush6" index="2"]
-autoplay = "Idle" 
-
-[node name="MediumBushForSneaking" parent="WorldEnvironment/World/Nav Exclusion/Room 1/GameObjects/SneakBush" instance=ExtResource("53_ob714")]
+[node name="MediumBushForSneaking2" parent="WorldEnvironment/World/Nav Exclusion/Room 1/GameObjects/SneakBush" instance=ExtResource("53_ob714")]
 transform = Transform3D(0.551617, 0, -0.834098, 0, 1, 0, 0.834098, 0, 0.551617, 2.4919, 1.5, -4.64118)
 
 [node name="Room 2" type="Node3D" parent="WorldEnvironment/World/Nav Exclusion"]
@@ -2543,16 +2054,6 @@ transform = Transform3D(0.453973, 0, -0.209544, 0, 0.5, 0, 0.209544, 0, 0.453973
 
 [node name="PlantWithPurple" parent="WorldEnvironment/World/Nav Exclusion/Room 2/Nature" instance=ExtResource("6_3f6q6")]
 transform = Transform3D(-0.101017, 0.737467, -0.667785, -0.857497, 0.275815, 0.43431, 0.504475, 0.616496, 0.604514, -5.2603, 0.5, 7.37433)
-
-[node name="Skeleton3D" parent="WorldEnvironment/World/Nav Exclusion/Room 2/Nature/PlantWithPurple/Plant/Armature" index="0"]
-bones/0/rotation = Quaternion(-0.510733, -0.282294, -0.22465, 0.780381)
-bones/1/rotation = Quaternion(-0.212393, 1.66839e-09, -0.0245075, 0.976877)
-bones/2/rotation = Quaternion(-0.52566, 0.282613, 0.234065, 0.76748)
-bones/3/rotation = Quaternion(-0.186373, -1.10206e-08, 0.0123358, 0.982402)
-bones/4/rotation = Quaternion(-0.01957, 0.630196, 0.527607, 0.569298)
-bones/5/rotation = Quaternion(-0.132729, 1.51298e-08, 0.111252, 0.984889)
-bones/6/rotation = Quaternion(0.0618261, -0.63746, -0.544336, 0.541775)
-bones/7/rotation = Quaternion(-0.105798, 1.17833e-08, -0.112825, 0.987966) 
 
 [node name="PlantWithPurple2" parent="WorldEnvironment/World/Nav Exclusion/Room 2/Nature" instance=ExtResource("6_3f6q6")]
 transform = Transform3D(0.73437, 0.415503, -0.536711, -0.492439, 0.870347, 0, 0.467125, 0.264297, 0.843766, -4.81427, 0.555684, 7.24145)
@@ -2738,7 +2239,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.5366, 0, -114.404)
 [node name="Gameplay Objects" type="Node3D" parent="WorldEnvironment/World/Nav Exclusion/Room 3"]
 
 [node name="MediumBushForSneaking" parent="WorldEnvironment/World/Nav Exclusion/Room 3/Gameplay Objects" instance=ExtResource("53_ob714")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.1333, 1.5, -103.843)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.6699, 1.5, -218.247)
 top_level = true
 
 [node name="CurveBushForSneaking" parent="WorldEnvironment/World/Nav Exclusion/Room 3/Gameplay Objects" instance=ExtResource("51_4bywt")]
@@ -4499,9 +4000,61 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6574, 1.75848, -27.7459)
 [connection signal="timeout" from="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars/mana/timer" to="WorldEnvironment/CanvasLayer/FullUI/VBoxContainer/stats/horizontal/statBarsMargin/bars" method="_on_mana_timer_timeout"]
 
 [editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/BrokeWallWithStuff"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/BrokeWallWithStuff/BushTearDrop"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/BrokeWallWithStuff/BushTearDrop/Bush"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/BrokeWallWithStuff/BushTearDrop2"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/BrokeWallWithStuff/BushTearDrop2/Bush"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/BrokeWallWithStuff/BushTearDrop3"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/BrokeWallWithStuff/BushTearDrop3/Bush"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/BrokeWallWithStuff/BushSphere"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/BrokeWallWithStuff/BushSphere/Bush2"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/TreeWallWith5Trees3"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/TreeWallWith5Trees3/Baum"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/TreeWallWith5Trees3/Baum2"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/TreeWallWith5Trees3/Baum3"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/TreeWallWith5Trees3/Baum4"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/TreeWallWith5Trees3/Baum5"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/TreeWallWith5Trees3/BushSphere"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/TreeWallWith5Trees3/BushSphere/Bush2"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/TreeWallWith5Trees3/BushSphere2"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/TreeWallWith5Trees3/BushSphere2/Bush2"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/TreeWallWith5Trees3/RockOne"]
 [editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 4/Walls/East/brokenWallWith2Trees"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 4/Walls/East/brokenWallWith2Trees/Deco/Baum"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 4/Walls/East/brokenWallWith2Trees/Deco/MushroomMany"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 4/Walls/East/brokenWallWith2Trees/Deco/MushroomMany/piltz"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 4/Walls/East/brokenWallWith2Trees/Deco/TreeRound"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 4/Walls/East/brokenWallWith2Trees/Deco/TreeRound/Baum"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 4/Walls/East/brokenWallWith2Trees/Deco/BushTearDrop"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 4/Walls/East/brokenWallWith2Trees/Deco/BushTearDrop/Bush"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 4/Walls/East/brokenWallWith2Trees/Deco/BushSphere"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 4/Walls/East/brokenWallWith2Trees/Deco/BushSphere/Bush2"]
 [editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 5/Wall/West/WallTreeWithDeadTree"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 5/Wall/West/WallTreeWithDeadTree/TreeRound4"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 5/Wall/West/WallTreeWithDeadTree/TreeRound4/Baum"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 5/Wall/West/WallTreeWithDeadTree/TreeRound3"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 5/Wall/West/WallTreeWithDeadTree/TreeRound3/Baum"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 5/Wall/West/WallTreeWithDeadTree/TreeStumpWithMushrooms"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 5/Wall/West/WallTreeWithDeadTree/TreeStumpWithMushrooms/baumstamm1/piltz"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 5/Wall/West/WallTreeWithDeadTree/TreeStumpWithMushrooms/baumstamm1/piltz2"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 5/Wall/West/WallTreeWithDeadTree/TreeStumpWithMushrooms/baumstamm1/piltz3"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 5/Wall/West/WallTreeWithDeadTree/TreeStumpWithMushrooms/baumstamm1/piltz4"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 5/Wall/West/WallTreeWithDeadTree/TreeStapel"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 5/Wall/West/WallTreeWithDeadTree/TreeDead3"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 5/Wall/West/WallTreeWithDeadTree/TreeDead3/tree"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 5/Wall/West/WallTreeWithDeadTree/TreeBranch"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 5/Wall/West/WallTreeWithDeadTree/TreeDead4"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 5/Wall/West/WallTreeWithDeadTree/TreeDead4/tree"]
 [editable path="WorldEnvironment/World/Nav Exclusion/TreeBundleWall/TreeBundleFour3"]
+[editable path="WorldEnvironment/World/Nav Exclusion/TreeBundleWall/TreeBundleFour3/tree"]
+[editable path="WorldEnvironment/World/Nav Exclusion/TreeBundleWall/TreeBundleFour3/baumstamm1/piltz"]
+[editable path="WorldEnvironment/World/Nav Exclusion/TreeBundleWall/TreeBundleFour3/baumstamm1/piltz2"]
+[editable path="WorldEnvironment/World/Nav Exclusion/TreeBundleWall/TreeBundleFour3/baumstamm1/piltz3"]
+[editable path="WorldEnvironment/World/Nav Exclusion/TreeBundleWall/TreeBundleFour3/baumstamm1/piltz4"]
+[editable path="WorldEnvironment/World/Nav Exclusion/TreeBundleWall/TreeBundleFour3/tree2"]
+[editable path="WorldEnvironment/World/Nav Exclusion/TreeBundleWall/TreeBundleFour3/tree3"]
+[editable path="WorldEnvironment/World/Nav Exclusion/TreeBundleWall/TreeBundleFour3/tree4"]
+[editable path="WorldEnvironment/World/Nav Exclusion/TreeBundleWall/TreeBundleFour3/tree5"]
 [editable path="WorldEnvironment/Player"]
 [editable path="WorldEnvironment/Player/Controller/Model/Player"]
 [editable path="WorldEnvironment/Player/Controller/Model/Player/Armature/Skeleton3D/RightWeaponHand/Sword"]

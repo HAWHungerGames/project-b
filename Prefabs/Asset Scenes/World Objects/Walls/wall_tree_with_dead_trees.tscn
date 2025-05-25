@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cuwqxo4ogp4jh"]
+[gd_scene load_steps=11 format=3 uid="uid://d8oi6hi86e3j"]
 
 [ext_resource type="PackedScene" uid="uid://uis0puhqo5yl" path="res://Prefabs/Asset Scenes/World Objects/Nature/Trees/tree_round.tscn" id="2_674lk"]
 [ext_resource type="PackedScene" uid="uid://m5m2wps3p316" path="res://Prefabs/Asset Scenes/World Objects/Nature/Rocks/rock_two.tscn" id="3_vejpl"]
@@ -40,11 +40,32 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.965
 [node name="BushTearDrop" parent="." instance=ExtResource("7_klx1s")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.50603, -0.139683, -5.81419)
 
+[node name="Skeleton3D" parent="BushTearDrop/Bush/Armature_001" index="0"]
+bones/1/rotation = Quaternion(-0.000381134, -0.00115787, -0.00303439, 0.999995)
+bones/2/rotation = Quaternion(0.00318365, -0.000413234, 0.711473, 0.702706)
+bones/3/rotation = Quaternion(-0.00237059, 0.000408581, -0.702702, 0.71148)
+bones/4/rotation = Quaternion(-0.704342, 0.00250157, 0.00578665, 0.709833)
+bones/5/rotation = Quaternion(0.709841, -0.00252125, 0.00016764, 0.704357)
+
 [node name="BushTearDrop2" parent="." instance=ExtResource("7_klx1s")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.743106, -0.139683, -6.6833)
 
+[node name="Skeleton3D" parent="BushTearDrop2/Bush/Armature_001" index="0"]
+bones/1/rotation = Quaternion(-0.000381134, -0.00115787, -0.00303439, 0.999995)
+bones/2/rotation = Quaternion(0.00318365, -0.000413234, 0.711473, 0.702706)
+bones/3/rotation = Quaternion(-0.00237059, 0.000408581, -0.702702, 0.71148)
+bones/4/rotation = Quaternion(-0.704342, 0.00250157, 0.00578665, 0.709833)
+bones/5/rotation = Quaternion(0.709841, -0.00252125, 0.00016764, 0.704357)
+
 [node name="BushTearDrop3" parent="." instance=ExtResource("7_klx1s")]
 transform = Transform3D(-0.5, 0, 4.37114e-08, 0, 0.5, 0, -4.37114e-08, 0, -0.5, -1.84611, -0.139683, -6.70194)
+
+[node name="Skeleton3D" parent="BushTearDrop3/Bush/Armature_001" index="0"]
+bones/1/rotation = Quaternion(-0.000381134, -0.00115787, -0.00303439, 0.999995)
+bones/2/rotation = Quaternion(0.00318365, -0.000413234, 0.711473, 0.702706)
+bones/3/rotation = Quaternion(-0.00237059, 0.000408581, -0.702702, 0.71148)
+bones/4/rotation = Quaternion(-0.704342, 0.00250157, 0.00578665, 0.709833)
+bones/5/rotation = Quaternion(0.709841, -0.00252125, 0.00016764, 0.704357)
 
 [node name="BushSphere" parent="." instance=ExtResource("8_5chju")]
 transform = Transform3D(-0.6, 0, 5.24537e-08, 0, 0.6, 0, -5.24537e-08, 0, -0.6, -1.13645, -0.278423, -3.27702)
@@ -66,3 +87,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.09546, 0, -0.402142)
 
 [node name="RockOne2" parent="." instance=ExtResource("9_60wye")]
 transform = Transform3D(1, 0, 0, 0, 1.7441, -0.489413, 0, 0.978826, 0.872052, -0.564543, 0.414642, 0.742551)
+
+[editable path="BushTearDrop"]
+[editable path="BushTearDrop/Bush"]
+[editable path="BushTearDrop2"]
+[editable path="BushTearDrop2/Bush"]
+[editable path="BushTearDrop3"]
+[editable path="BushTearDrop3/Bush"]
+[editable path="TreeRound3"]
+[editable path="TreeRound3/Baum"]

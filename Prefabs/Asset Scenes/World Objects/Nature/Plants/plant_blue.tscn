@@ -5,3 +5,18 @@
 [node name="PlantBlue" type="Node3D"]
 
 [node name="PlantBlau" parent="." instance=ExtResource("1_s3bwk")]
+
+[node name="Skeleton3D" parent="PlantBlau/Armature" index="0"]
+bones/0/rotation = Quaternion(-0.540709, -0.273339, -0.235463, 0.759919)
+bones/1/rotation = Quaternion(-0.247536, 0.000885119, -0.0244916, 0.968569)
+bones/2/rotation = Quaternion(-0.555123, 0.273292, 0.244883, 0.746447)
+bones/3/rotation = Quaternion(-0.221732, -0.000445546, 0.0123278, 0.97503)
+bones/4/rotation = Quaternion(-0.0417053, 0.609191, 0.551727, 0.568106)
+bones/5/rotation = Quaternion(-0.168213, -0.004018, 0.111179, 0.979453)
+bones/6/rotation = Quaternion(0.0407002, -0.615798, -0.568726, 0.543771)
+bones/7/rotation = Quaternion(-0.141411, 0.00407485, -0.112752, 0.983501)
+
+[node name="AnimationPlayer" parent="PlantBlau" index="3"]
+autoplay = "Rascheln"
+
+[editable path="PlantBlau"]

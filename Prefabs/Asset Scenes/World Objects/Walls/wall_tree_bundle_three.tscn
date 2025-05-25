@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dcq4em5be8cd"]
+[gd_scene load_steps=9 format=3 uid="uid://dkkibrn515frk"]
 
 [ext_resource type="PackedScene" uid="uid://cnrgjwnqfq1xv" path="res://Models/Nature/Baum/tree.blend" id="1_02itw"]
 [ext_resource type="PackedScene" uid="uid://db3ndiywdtl3x" path="res://Models/Nature/Baum/baumstamm1.blend" id="2_0t3xa"]
@@ -18,20 +18,96 @@ size = Vector3(5.1189, 4.28223, 4.94873)
 [node name="tree" parent="Deco" instance=ExtResource("1_02itw")]
 transform = Transform3D(0.902382, 0, 0.430936, 0, 1, 0, -0.430936, 0, 0.902382, -1.3099, 0.114345, -1.26747)
 
+[node name="Skeleton3D" parent="Deco/tree/Armature" index="0"]
+bones/1/rotation = Quaternion(-0.0532977, -0.0137533, 0.249483, 0.966814)
+bones/2/rotation = Quaternion(-0.444768, -0.020198, -0.272515, 0.852941)
+bones/3/rotation = Quaternion(-0.269663, -0.00606691, -0.121698, 0.955214)
+bones/4/rotation = Quaternion(0.270372, 0.00056273, -0.510099, 0.816516)
+bones/5/rotation = Quaternion(0.221533, 0.022222, 0.0913808, 0.970608)
+bones/6/rotation = Quaternion(0.0141098, 0.00810424, 0.552462, 0.833379)
+bones/7/rotation = Quaternion(-0.307108, -0.152675, -0.174445, 0.923008)
+bones/8/rotation = Quaternion(0.000189039, 9.39975e-05, 0.000972141, 1)
+bones/10/rotation = Quaternion(-0.0107567, 1.62012e-05, -0.342208, 0.939563)
+bones/11/rotation = Quaternion(0.298003, 0.122871, -0.0284283, 0.946197)
+bones/12/rotation = Quaternion(-0.0001076, 0.000214769, 0.00118185, 0.999999)
+
+[node name="AnimationPlayer" parent="Deco/tree" index="1"]
+autoplay = "Idle"
+
 [node name="baumstamm1" parent="Deco" instance=ExtResource("2_0t3xa")]
 transform = Transform3D(0.478414, 0, -0.145326, 0, 0.5, 0, 0.145326, 0, 0.478414, 0.495377, 0.232612, -1.67236)
 
 [node name="piltz" parent="Deco/baumstamm1" instance=ExtResource("3_o07ub")]
 transform = Transform3D(0.956829, 0, 0.290652, 0, 1, 0, -0.290652, 0, 0.956829, 1.862, 0.306006, 0.11201)
 
+[node name="Skeleton3D" parent="Deco/baumstamm1/piltz/Armature" index="0"]
+bones/0/rotation = Quaternion(0.0272638, 0.00175744, 0.0532235, 0.998209)
+bones/0/scale = Vector3(0.998788, 0.998788, 0.998788)
+bones/1/rotation = Quaternion(0.00612736, -0.00733238, 0.044286, 0.998973)
+bones/1/scale = Vector3(0.995378, 0.995378, 0.995378)
+bones/2/rotation = Quaternion(0.0100008, -0.0125431, 0.0292333, 0.999444)
+bones/2/scale = Vector3(0.966519, 0.966519, 0.966519)
+bones/3/rotation = Quaternion(0.00595783, -0.00739111, 0.0345592, 0.999358)
+bones/3/scale = Vector3(0.966519, 0.966519, 0.966519)
+bones/4/rotation = Quaternion(0.0103236, -0.0124353, 0.0399736, 0.99907)
+bones/4/scale = Vector3(0.998788, 0.998788, 0.998788)
+
+[node name="AnimationPlayer" parent="Deco/baumstamm1/piltz" index="1"]
+autoplay = "Idle"
+
 [node name="piltz2" parent="Deco/baumstamm1" instance=ExtResource("3_o07ub")]
 transform = Transform3D(0.480545, 0.0815524, -0.634371, -0.26148, 0.749181, -0.101763, 0.583699, 0.268471, 0.476674, 1.13514, 0.306006, 0.136828)
+
+[node name="Skeleton3D" parent="Deco/baumstamm1/piltz2/Armature" index="0"]
+bones/0/rotation = Quaternion(0.0272638, 0.00175744, 0.0532235, 0.998209)
+bones/0/scale = Vector3(0.998788, 0.998788, 0.998788)
+bones/1/rotation = Quaternion(0.00612736, -0.00733238, 0.044286, 0.998973)
+bones/1/scale = Vector3(0.995378, 0.995378, 0.995378)
+bones/2/rotation = Quaternion(0.0100008, -0.0125431, 0.0292333, 0.999444)
+bones/2/scale = Vector3(0.966519, 0.966519, 0.966519)
+bones/3/rotation = Quaternion(0.00595783, -0.00739111, 0.0345592, 0.999358)
+bones/3/scale = Vector3(0.966519, 0.966519, 0.966519)
+bones/4/rotation = Quaternion(0.0103236, -0.0124353, 0.0399736, 0.99907)
+bones/4/scale = Vector3(0.998788, 0.998788, 0.998788)
+
+[node name="AnimationPlayer" parent="Deco/baumstamm1/piltz2" index="1"]
+autoplay = "Idle"
 
 [node name="piltz3" parent="Deco/baumstamm1" instance=ExtResource("3_o07ub")]
 transform = Transform3D(0.225427, 0.27036, 0.718392, -0.00862743, 0.749578, -0.279389, -0.767534, 0.0709802, 0.214135, 0.296604, 0.306006, 0.110247)
 
+[node name="Skeleton3D" parent="Deco/baumstamm1/piltz3/Armature" index="0"]
+bones/0/rotation = Quaternion(0.0272638, 0.00175744, 0.0532235, 0.998209)
+bones/0/scale = Vector3(0.998788, 0.998788, 0.998788)
+bones/1/rotation = Quaternion(0.00612736, -0.00733238, 0.044286, 0.998973)
+bones/1/scale = Vector3(0.995378, 0.995378, 0.995378)
+bones/2/rotation = Quaternion(0.0100008, -0.0125431, 0.0292333, 0.999444)
+bones/2/scale = Vector3(0.966519, 0.966519, 0.966519)
+bones/3/rotation = Quaternion(0.00595783, -0.00739111, 0.0345592, 0.999358)
+bones/3/scale = Vector3(0.966519, 0.966519, 0.966519)
+bones/4/rotation = Quaternion(0.0103236, -0.0124353, 0.0399736, 0.99907)
+bones/4/scale = Vector3(0.998788, 0.998788, 0.998788)
+
+[node name="AnimationPlayer" parent="Deco/baumstamm1/piltz3" index="1"]
+autoplay = "Idle"
+
 [node name="piltz4" parent="Deco/baumstamm1" instance=ExtResource("3_o07ub")]
 transform = Transform3D(-0.0368902, 0.013399, -0.39807, 0.0884795, 0.39006, 0.00492973, 0.388343, -0.0875979, -0.0389374, 0.73316, 0.46081, -0.147839)
+
+[node name="Skeleton3D" parent="Deco/baumstamm1/piltz4/Armature" index="0"]
+bones/0/rotation = Quaternion(0.0272638, 0.00175744, 0.0532235, 0.998209)
+bones/0/scale = Vector3(0.998788, 0.998788, 0.998788)
+bones/1/rotation = Quaternion(0.00612736, -0.00733238, 0.044286, 0.998973)
+bones/1/scale = Vector3(0.995378, 0.995378, 0.995378)
+bones/2/rotation = Quaternion(0.0100008, -0.0125431, 0.0292333, 0.999444)
+bones/2/scale = Vector3(0.966519, 0.966519, 0.966519)
+bones/3/rotation = Quaternion(0.00595783, -0.00739111, 0.0345592, 0.999358)
+bones/3/scale = Vector3(0.966519, 0.966519, 0.966519)
+bones/4/rotation = Quaternion(0.0103236, -0.0124353, 0.0399736, 0.99907)
+bones/4/scale = Vector3(0.998788, 0.998788, 0.998788)
+
+[node name="AnimationPlayer" parent="Deco/baumstamm1/piltz4" index="1"]
+autoplay = "Idle"
 
 [node name="baumstamm2" parent="Deco" instance=ExtResource("2_0t3xa")]
 transform = Transform3D(0.249709, -0.194428, -0.387096, 0.286811, 0.40905, -0.0204381, 0.32463, -0.211839, 0.315815, 1.491, 0.232612, 1.0177)
@@ -39,14 +115,74 @@ transform = Transform3D(0.249709, -0.194428, -0.387096, 0.286811, 0.40905, -0.02
 [node name="piltz" parent="Deco/baumstamm2" instance=ExtResource("3_o07ub")]
 transform = Transform3D(0.956829, 0, 0.290652, 0, 1, 0, -0.290652, 0, 0.956829, 1.862, 0.306006, 0.11201)
 
+[node name="Skeleton3D" parent="Deco/baumstamm2/piltz/Armature" index="0"]
+bones/0/rotation = Quaternion(0.0272638, 0.00175744, 0.0532235, 0.998209)
+bones/0/scale = Vector3(0.998788, 0.998788, 0.998788)
+bones/1/rotation = Quaternion(0.00612736, -0.00733238, 0.044286, 0.998973)
+bones/1/scale = Vector3(0.995378, 0.995378, 0.995378)
+bones/2/rotation = Quaternion(0.0100008, -0.0125431, 0.0292333, 0.999444)
+bones/2/scale = Vector3(0.966519, 0.966519, 0.966519)
+bones/3/rotation = Quaternion(0.00595783, -0.00739111, 0.0345592, 0.999358)
+bones/3/scale = Vector3(0.966519, 0.966519, 0.966519)
+bones/4/rotation = Quaternion(0.0103236, -0.0124353, 0.0399736, 0.99907)
+bones/4/scale = Vector3(0.998788, 0.998788, 0.998788)
+
+[node name="AnimationPlayer" parent="Deco/baumstamm2/piltz" index="1"]
+autoplay = "Idle"
+
 [node name="piltz2" parent="Deco/baumstamm2" instance=ExtResource("3_o07ub")]
 transform = Transform3D(0.480545, 0.0815524, -0.634371, -0.26148, 0.749181, -0.101763, 0.583699, 0.268471, 0.476674, 1.13514, 0.306006, 0.136828)
+
+[node name="Skeleton3D" parent="Deco/baumstamm2/piltz2/Armature" index="0"]
+bones/0/rotation = Quaternion(0.0272638, 0.00175744, 0.0532235, 0.998209)
+bones/0/scale = Vector3(0.998788, 0.998788, 0.998788)
+bones/1/rotation = Quaternion(0.00612736, -0.00733238, 0.044286, 0.998973)
+bones/1/scale = Vector3(0.995378, 0.995378, 0.995378)
+bones/2/rotation = Quaternion(0.0100008, -0.0125431, 0.0292333, 0.999444)
+bones/2/scale = Vector3(0.966519, 0.966519, 0.966519)
+bones/3/rotation = Quaternion(0.00595783, -0.00739111, 0.0345592, 0.999358)
+bones/3/scale = Vector3(0.966519, 0.966519, 0.966519)
+bones/4/rotation = Quaternion(0.0103236, -0.0124353, 0.0399736, 0.99907)
+bones/4/scale = Vector3(0.998788, 0.998788, 0.998788)
+
+[node name="AnimationPlayer" parent="Deco/baumstamm2/piltz2" index="1"]
+autoplay = "Idle"
 
 [node name="piltz3" parent="Deco/baumstamm2" instance=ExtResource("3_o07ub")]
 transform = Transform3D(0.225427, 0.27036, 0.718392, -0.00862743, 0.749578, -0.279389, -0.767534, 0.0709802, 0.214135, 0.296604, 0.306006, 0.110247)
 
+[node name="Skeleton3D" parent="Deco/baumstamm2/piltz3/Armature" index="0"]
+bones/0/rotation = Quaternion(0.0272638, 0.00175744, 0.0532235, 0.998209)
+bones/0/scale = Vector3(0.998788, 0.998788, 0.998788)
+bones/1/rotation = Quaternion(0.00612736, -0.00733238, 0.044286, 0.998973)
+bones/1/scale = Vector3(0.995378, 0.995378, 0.995378)
+bones/2/rotation = Quaternion(0.0100008, -0.0125431, 0.0292333, 0.999444)
+bones/2/scale = Vector3(0.966519, 0.966519, 0.966519)
+bones/3/rotation = Quaternion(0.00595783, -0.00739111, 0.0345592, 0.999358)
+bones/3/scale = Vector3(0.966519, 0.966519, 0.966519)
+bones/4/rotation = Quaternion(0.0103236, -0.0124353, 0.0399736, 0.99907)
+bones/4/scale = Vector3(0.998788, 0.998788, 0.998788)
+
+[node name="AnimationPlayer" parent="Deco/baumstamm2/piltz3" index="1"]
+autoplay = "Idle"
+
 [node name="piltz4" parent="Deco/baumstamm2" instance=ExtResource("3_o07ub")]
 transform = Transform3D(-0.0368902, 0.013399, -0.39807, 0.0884795, 0.39006, 0.00492973, 0.388343, -0.0875979, -0.0389374, 0.73316, 0.46081, -0.147839)
+
+[node name="Skeleton3D" parent="Deco/baumstamm2/piltz4/Armature" index="0"]
+bones/0/rotation = Quaternion(0.0272638, 0.00175744, 0.0532235, 0.998209)
+bones/0/scale = Vector3(0.998788, 0.998788, 0.998788)
+bones/1/rotation = Quaternion(0.00612736, -0.00733238, 0.044286, 0.998973)
+bones/1/scale = Vector3(0.995378, 0.995378, 0.995378)
+bones/2/rotation = Quaternion(0.0100008, -0.0125431, 0.0292333, 0.999444)
+bones/2/scale = Vector3(0.966519, 0.966519, 0.966519)
+bones/3/rotation = Quaternion(0.00595783, -0.00739111, 0.0345592, 0.999358)
+bones/3/scale = Vector3(0.966519, 0.966519, 0.966519)
+bones/4/rotation = Quaternion(0.0103236, -0.0124353, 0.0399736, 0.99907)
+bones/4/scale = Vector3(0.998788, 0.998788, 0.998788)
+
+[node name="AnimationPlayer" parent="Deco/baumstamm2/piltz4" index="1"]
+autoplay = "Idle"
 
 [node name="baumast" parent="Deco" instance=ExtResource("4_1at25")]
 transform = Transform3D(0.138782, -0.0640881, 0.988247, 0.189859, 0.981115, 0.0369633, -0.971953, 0.182497, 0.148329, -0.165296, 0.414396, -0.807721)
@@ -56,6 +192,22 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.258798, 0.0261045, -
 
 [node name="tree2" parent="Deco" instance=ExtResource("1_02itw")]
 transform = Transform3D(-0.719573, 0, 0.349592, 0, 0.8, 0, -0.349592, 0, -0.719573, 0.974872, 0, 0.166326)
+
+[node name="Skeleton3D" parent="Deco/tree2/Armature" index="0"]
+bones/1/rotation = Quaternion(-0.0532977, -0.0137533, 0.249483, 0.966814)
+bones/2/rotation = Quaternion(-0.444768, -0.020198, -0.272515, 0.852941)
+bones/3/rotation = Quaternion(-0.269663, -0.00606691, -0.121698, 0.955214)
+bones/4/rotation = Quaternion(0.270372, 0.00056273, -0.510099, 0.816516)
+bones/5/rotation = Quaternion(0.221533, 0.022222, 0.0913808, 0.970608)
+bones/6/rotation = Quaternion(0.0141098, 0.00810424, 0.552462, 0.833379)
+bones/7/rotation = Quaternion(-0.307108, -0.152675, -0.174445, 0.923008)
+bones/8/rotation = Quaternion(0.000189039, 9.39975e-05, 0.000972141, 1)
+bones/10/rotation = Quaternion(-0.0107567, 1.62012e-05, -0.342208, 0.939563)
+bones/11/rotation = Quaternion(0.298003, 0.122871, -0.0284283, 0.946197)
+bones/12/rotation = Quaternion(-0.0001076, 0.000214769, 0.00118185, 0.999999)
+
+[node name="AnimationPlayer" parent="Deco/tree2" index="1"]
+autoplay = "Idle"
 
 [node name="RockOne" parent="Deco" instance=ExtResource("6_a1dr2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.486378, 0, 1.02587)
@@ -72,9 +224,55 @@ transform = Transform3D(-0.187418, 0.326089, 0.926575, 0.867001, 0.498306, 0, -0
 [node name="tree3" parent="Deco" instance=ExtResource("1_02itw")]
 transform = Transform3D(-0.131086, 0, 0.482511, 0, 0.5, 0, -0.482511, 0, -0.131086, 0.0755873, 2.38419e-07, 1.55556)
 
+[node name="Skeleton3D" parent="Deco/tree3/Armature" index="0"]
+bones/1/rotation = Quaternion(-0.0532977, -0.0137533, 0.249483, 0.966814)
+bones/2/rotation = Quaternion(-0.444768, -0.020198, -0.272515, 0.852941)
+bones/3/rotation = Quaternion(-0.269663, -0.00606691, -0.121698, 0.955214)
+bones/4/rotation = Quaternion(0.270372, 0.00056273, -0.510099, 0.816516)
+bones/5/rotation = Quaternion(0.221533, 0.022222, 0.0913808, 0.970608)
+bones/6/rotation = Quaternion(0.0141098, 0.00810424, 0.552462, 0.833379)
+bones/7/rotation = Quaternion(-0.307108, -0.152675, -0.174445, 0.923008)
+bones/8/rotation = Quaternion(0.000189039, 9.39975e-05, 0.000972141, 1)
+bones/10/rotation = Quaternion(-0.0107567, 1.62012e-05, -0.342208, 0.939563)
+bones/11/rotation = Quaternion(0.298003, 0.122871, -0.0284283, 0.946197)
+bones/12/rotation = Quaternion(-0.0001076, 0.000214769, 0.00118185, 0.999999)
+
+[node name="AnimationPlayer" parent="Deco/tree3" index="1"]
+autoplay = "Idle"
+
 [node name="tree4" parent="Deco" instance=ExtResource("1_02itw")]
 transform = Transform3D(0.607915, 0, 0.916755, 0, 1.1, 0, -0.916755, 0, 0.607915, -1.36772, 0, 0.205837)
+
+[node name="Skeleton3D" parent="Deco/tree4/Armature" index="0"]
+bones/1/rotation = Quaternion(-0.0532977, -0.0137533, 0.249483, 0.966814)
+bones/2/rotation = Quaternion(-0.444768, -0.020198, -0.272515, 0.852941)
+bones/3/rotation = Quaternion(-0.269663, -0.00606691, -0.121698, 0.955214)
+bones/4/rotation = Quaternion(0.270372, 0.00056273, -0.510099, 0.816516)
+bones/5/rotation = Quaternion(0.221533, 0.022222, 0.0913808, 0.970608)
+bones/6/rotation = Quaternion(0.0141098, 0.00810424, 0.552462, 0.833379)
+bones/7/rotation = Quaternion(-0.307108, -0.152675, -0.174445, 0.923008)
+bones/8/rotation = Quaternion(0.000189039, 9.39975e-05, 0.000972141, 1)
+bones/10/rotation = Quaternion(-0.0107567, 1.62012e-05, -0.342208, 0.939563)
+bones/11/rotation = Quaternion(0.298003, 0.122871, -0.0284283, 0.946197)
+bones/12/rotation = Quaternion(-0.0001076, 0.000214769, 0.00118185, 0.999999)
+
+[node name="AnimationPlayer" parent="Deco/tree4" index="1"]
+autoplay = "Idle"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35437, 1.51025, 0.170166)
 shape = SubResource("BoxShape3D_jykia")
+
+[editable path="Deco/tree"]
+[editable path="Deco/baumstamm1/piltz"]
+[editable path="Deco/baumstamm1/piltz2"]
+[editable path="Deco/baumstamm1/piltz3"]
+[editable path="Deco/baumstamm1/piltz4"]
+[editable path="Deco/baumstamm2/piltz"]
+[editable path="Deco/baumstamm2/piltz2"]
+[editable path="Deco/baumstamm2/piltz3"]
+[editable path="Deco/baumstamm2/piltz4"]
+[editable path="Deco/baumast"]
+[editable path="Deco/tree2"]
+[editable path="Deco/tree3"]
+[editable path="Deco/tree4"]

@@ -12,6 +12,14 @@ size = Vector3(2.24634, 1.79663, 2.26904)
 
 [node name="Baum" parent="." instance=ExtResource("1_fw87w")]
 
+[node name="Skeleton3D" parent="Baum/Armature" index="0"]
+bones/1/rotation = Quaternion(0.0220471, -8.93471e-08, 0.037834, 0.999041)
+bones/2/scale = Vector3(1, 0.999646, 1)
+bones/3/scale = Vector3(1, 0.999632, 1)
+
+[node name="AnimationPlayer" parent="Baum" index="1"]
+autoplay = "Idle"
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0266431, 0)
 shape = SubResource("ConcavePolygonShape3D_3d3e5")
@@ -19,3 +27,5 @@ shape = SubResource("ConcavePolygonShape3D_3d3e5")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.38311, 0.0788574)
 shape = SubResource("BoxShape3D_fw87w")
+
+[editable path="Baum"]

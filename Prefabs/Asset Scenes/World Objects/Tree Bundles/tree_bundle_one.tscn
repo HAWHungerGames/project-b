@@ -16,20 +16,83 @@ mesh = SubResource("PlaneMesh_1cobk")
 [node name="Baum" parent="." instance=ExtResource("1_3l51v")]
 transform = Transform3D(0.0110477, 0, -0.999939, 0, 1, 0, 0.999939, 0, 0.0110477, 1.41005, 1.19209e-07, -0.327864)
 
+[node name="Skeleton3D" parent="Baum/Armature" index="0"]
+bones/1/rotation = Quaternion(0.0220471, -8.93471e-08, 0.037834, 0.999041)
+bones/2/scale = Vector3(1, 0.999646, 1)
+bones/3/scale = Vector3(1, 0.999632, 1)
+
+[node name="AnimationPlayer" parent="Baum" index="1"]
+autoplay = "Idle"
+
 [node name="Baum2" parent="." instance=ExtResource("1_3l51v")]
 transform = Transform3D(0.808298, 0, -0.588773, 0, 1, 0, 0.588773, 0, 0.808298, 1.67062, -1.19209e-07, -1.63624)
+
+[node name="Skeleton3D" parent="Baum2/Armature" index="0"]
+bones/1/rotation = Quaternion(0.0220471, -8.93471e-08, 0.037834, 0.999041)
+bones/2/scale = Vector3(1, 0.999646, 1)
+bones/3/scale = Vector3(1, 0.999632, 1)
+
+[node name="AnimationPlayer" parent="Baum2" index="1"]
+autoplay = "Idle"
 
 [node name="tree" parent="." instance=ExtResource("2_x7obf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.27708, 0.173104, -1.48064)
 
+[node name="Skeleton3D" parent="tree/Armature" index="0"]
+bones/1/rotation = Quaternion(-0.0532977, -0.0137533, 0.249483, 0.966814)
+bones/2/rotation = Quaternion(-0.444768, -0.020198, -0.272515, 0.852941)
+bones/3/rotation = Quaternion(-0.269663, -0.00606691, -0.121698, 0.955214)
+bones/4/rotation = Quaternion(0.270372, 0.00056273, -0.510099, 0.816516)
+bones/5/rotation = Quaternion(0.221533, 0.022222, 0.0913808, 0.970608)
+bones/6/rotation = Quaternion(0.0141098, 0.00810424, 0.552462, 0.833379)
+bones/7/rotation = Quaternion(-0.307108, -0.152675, -0.174445, 0.923008)
+bones/8/rotation = Quaternion(0.000189039, 9.39975e-05, 0.000972141, 1)
+bones/10/rotation = Quaternion(-0.0107567, 1.62012e-05, -0.342208, 0.939563)
+bones/11/rotation = Quaternion(0.298003, 0.122871, -0.0284283, 0.946197)
+bones/12/rotation = Quaternion(-0.0001076, 0.000214769, 0.00118185, 0.999999)
+
+[node name="AnimationPlayer" parent="tree" index="1"]
+autoplay = "Idle"
+
 [node name="Baum3" parent="." instance=ExtResource("1_3l51v")]
 transform = Transform3D(1.88925, 0, -0.656316, 0, 2, 0, 0.656316, 0, 1.88925, -0.0514295, -0.179588, 0.540522)
+
+[node name="Skeleton3D" parent="Baum3/Armature" index="0"]
+bones/1/rotation = Quaternion(0.0220471, -8.93471e-08, 0.037834, 0.999041)
+bones/2/scale = Vector3(1, 0.999646, 1)
+bones/3/scale = Vector3(1, 0.999632, 1)
+
+[node name="AnimationPlayer" parent="Baum3" index="1"]
+autoplay = "Idle"
 
 [node name="Baum4" parent="." instance=ExtResource("1_3l51v")]
 transform = Transform3D(0.698528, 0, 0.715583, 0, 1, 0, -0.715583, 0, 0.698528, -1.72641, 0, 1.10897)
 
+[node name="Skeleton3D" parent="Baum4/Armature" index="0"]
+bones/1/rotation = Quaternion(0.0220471, -8.93471e-08, 0.037834, 0.999041)
+bones/2/scale = Vector3(1, 0.999646, 1)
+bones/3/scale = Vector3(1, 0.999632, 1)
+
+[node name="AnimationPlayer" parent="Baum4" index="1"]
+autoplay = "Idle"
+
 [node name="Baum5" parent="." instance=ExtResource("1_3l51v")]
 transform = Transform3D(0.654198, 0, -0.460461, 0, 0.8, 0, 0.460461, 0, 0.654198, 1.73378, 0, 1.58818)
 
+[node name="Skeleton3D" parent="Baum5/Armature" index="0"]
+bones/1/rotation = Quaternion(0.0220471, -8.93471e-08, 0.037834, 0.999041)
+bones/2/scale = Vector3(1, 0.999646, 1)
+bones/3/scale = Vector3(1, 0.999632, 1)
+
+[node name="AnimationPlayer" parent="Baum5" index="1"]
+autoplay = "Idle"
+
 [node name="MushroomBlue" parent="." instance=ExtResource("3_x7obf")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 1.13131, 0, 0.67587)
+
+[editable path="Baum"]
+[editable path="Baum2"]
+[editable path="tree"]
+[editable path="Baum3"]
+[editable path="Baum4"]
+[editable path="Baum5"]

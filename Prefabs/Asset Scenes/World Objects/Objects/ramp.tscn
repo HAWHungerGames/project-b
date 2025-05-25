@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://fvjvw5eywb2k"]
+[gd_scene load_steps=6 format=3 uid="uid://fvjvw5eywb2k"]
 
 [ext_resource type="PackedScene" uid="uid://c23tylhk38ayv" path="res://Models/Nature/Rocks/Steinhaufen.blend" id="1_uc6ff"]
 
@@ -7,6 +7,12 @@ points = PackedVector3Array(3.50992, 3.49581, 0.897218, -0.136611, -0.67996, -0.
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ydicj"]
 points = PackedVector3Array(-0.495937, -1.09787, -1.82361, 0.673583, 2.87924, 1.87732, 2.00664, 0.962424, 1.04217, 0.492528, 2.96165, -2.1057, -0.224914, -1.99191, 1.76727, 1.85977, 0.76227, -1.39106, -0.823324, 0.775952, -1.42871, -0.777227, -2.6535, -0.298634, -0.83255, 0.691627, 1.65324, -0.0406266, 2.64971, 1.12981, 0.406233, -1.21909, -1.83902, 0.492528, -0.474861, 2.14905, -1.03632, -2.26792, 0.152764, -0.679876, -0.0196729, -2.19155, 1.90664, 1.31032, -0.644036, 0.669999, -0.549067, -2.06972, -0.68805, -0.294142, 2.15312, -0.213889, 2.36983, -1.35025, 0.671358, 2.84693, -2.17549, 1.02683, 2.65487, 0.597629, 0.401476, 3.16816, -1.48564, 0.144789, -1.57548, 1.88689, -0.0373936, 2.28199, -2.14622, -0.58357, 0.698284, 2.21604, 1.83132, 1.1425, -1.54344, -0.498229, -2.45189, -0.656647, 0.492528, 3.1394, 1.23692, 1.82901, 1.14096, 1.31038, -1.0146, -1.69953, -0.468691, 0.0426785, 2.31948, 1.86341, 1.90981, 1.3127, 0.771134, 1.02695, 2.65542, -0.471202)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uc6ff"]
+size = Vector3(2.96191, 1.87866, 0.277344)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gvoca"]
+size = Vector3(1.39209, 1.87866, 0.277344)
 
 [node name="Ramp" type="StaticBody3D"]
 
@@ -19,3 +25,11 @@ transform = Transform3D(0.408578, 0.296216, 0, -0.406169, 0.297972, 0, 0, 0, 0.3
 shape = SubResource("ConvexPolygonShape3D_ydicj")
 
 [node name="Steinhaufen" parent="." instance=ExtResource("1_uc6ff")]
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.854024, 0.259399, 0.7)
+shape = SubResource("BoxShape3D_uc6ff")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0691122, 0.259399, 0.424143)
+shape = SubResource("BoxShape3D_gvoca")

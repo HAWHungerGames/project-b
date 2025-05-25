@@ -9,6 +9,24 @@ data = PackedVector3Array(1.6485, 2.3318, 1.2275, 2.0754, 2.9286, 1.0861, 1.9333
 
 [node name="tree" parent="." instance=ExtResource("1_6y4fj")]
 
+[node name="Skeleton3D" parent="tree/Armature" index="0"]
+bones/1/rotation = Quaternion(-0.0532977, -0.0137533, 0.249483, 0.966814)
+bones/2/rotation = Quaternion(-0.444768, -0.020198, -0.272515, 0.852941)
+bones/3/rotation = Quaternion(-0.269663, -0.00606691, -0.121698, 0.955214)
+bones/4/rotation = Quaternion(0.270372, 0.00056273, -0.510099, 0.816516)
+bones/5/rotation = Quaternion(0.221533, 0.022222, 0.0913808, 0.970608)
+bones/6/rotation = Quaternion(0.0141098, 0.00810424, 0.552462, 0.833379)
+bones/7/rotation = Quaternion(-0.307108, -0.152675, -0.174445, 0.923008)
+bones/8/rotation = Quaternion(0.000189039, 9.39975e-05, 0.000972141, 1)
+bones/10/rotation = Quaternion(-0.0107567, 1.62012e-05, -0.342208, 0.939563)
+bones/11/rotation = Quaternion(0.298003, 0.122871, -0.0284283, 0.946197)
+bones/12/rotation = Quaternion(-0.0001076, 0.000214769, 0.00118185, 0.999999)
+
+[node name="AnimationPlayer" parent="tree" index="1"]
+autoplay = "Idle"
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_biuv2")
+
+[editable path="tree"]

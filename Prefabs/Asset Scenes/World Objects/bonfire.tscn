@@ -1,9 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://bohnf5vipujed"]
+[gd_scene load_steps=15 format=3 uid="uid://bohnf5vipujed"]
 
 [ext_resource type="PackedScene" uid="uid://dtw2u4oyuabae" path="res://Models/Objects/bonfier.blend" id="1_xpi4y"]
 [ext_resource type="Texture2D" uid="uid://m88ddg10ox6m" path="res://Assets/Kenney Particles Transparent Background/flame_01.png" id="2_dyx0f"]
 [ext_resource type="Texture2D" uid="uid://50l6frjxjk3f" path="res://Assets/Kenney Particles Transparent Background/smoke_02.png" id="3_5wrb8"]
-[ext_resource type="AudioStream" uid="uid://pnrde6fpb1ex" path="res://Assets/Sound/SFX/AreaAssets/Fireplace/Fireplace_1.wav" id="4_5wrb8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xpi4y"]
 size = Vector3(2.35571, 1.1463, 2.29785)
@@ -100,11 +99,3 @@ amount = 10
 lifetime = 3.0
 process_material = SubResource("ParticleProcessMaterial_3oyd0")
 draw_pass_1 = SubResource("QuadMesh_572jd")
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("4_5wrb8")
-volume_db = -10.0
-unit_size = 7.5
-autoplay = true
-max_distance = 30.0
-bus = &"SFX"

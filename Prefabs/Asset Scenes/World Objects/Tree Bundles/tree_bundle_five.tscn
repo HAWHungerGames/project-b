@@ -14,20 +14,140 @@ mesh = SubResource("PlaneMesh_yey8x")
 [node name="tree" parent="." instance=ExtResource("1_ph4np")]
 transform = Transform3D(0.902382, 0, 0.430936, 0, 1, 0, -0.430936, 0, 0.902382, -1.3099, 0.114345, -1.26747)
 
+[node name="Skeleton3D" parent="tree/Armature" index="0"]
+bones/1/rotation = Quaternion(-0.0532977, -0.0137533, 0.249483, 0.966814)
+bones/2/rotation = Quaternion(-0.444768, -0.020198, -0.272515, 0.852941)
+bones/3/rotation = Quaternion(-0.269663, -0.00606691, -0.121698, 0.955214)
+bones/4/rotation = Quaternion(0.270372, 0.00056273, -0.510099, 0.816516)
+bones/5/rotation = Quaternion(0.221533, 0.022222, 0.0913808, 0.970608)
+bones/6/rotation = Quaternion(0.0141098, 0.00810424, 0.552462, 0.833379)
+bones/7/rotation = Quaternion(-0.307108, -0.152675, -0.174445, 0.923008)
+bones/8/rotation = Quaternion(0.000189039, 9.39975e-05, 0.000972141, 1)
+bones/10/rotation = Quaternion(-0.0107567, 1.62012e-05, -0.342208, 0.939563)
+bones/11/rotation = Quaternion(0.298003, 0.122871, -0.0284283, 0.946197)
+bones/12/rotation = Quaternion(-0.0001076, 0.000214769, 0.00118185, 0.999999)
+
+[node name="AnimationPlayer" parent="tree" index="1"]
+autoplay = "Idle"
+
 [node name="tree2" parent="." instance=ExtResource("1_ph4np")]
 transform = Transform3D(-0.719573, 0, 0.349592, 0, 0.8, 0, -0.349592, 0, -0.719573, 0.974872, 0.154466, 0.166326)
+
+[node name="Skeleton3D" parent="tree2/Armature" index="0"]
+bones/1/rotation = Quaternion(-0.0532977, -0.0137533, 0.249483, 0.966814)
+bones/2/rotation = Quaternion(-0.444768, -0.020198, -0.272515, 0.852941)
+bones/3/rotation = Quaternion(-0.269663, -0.00606691, -0.121698, 0.955214)
+bones/4/rotation = Quaternion(0.270372, 0.00056273, -0.510099, 0.816516)
+bones/5/rotation = Quaternion(0.221533, 0.022222, 0.0913808, 0.970608)
+bones/6/rotation = Quaternion(0.0141098, 0.00810424, 0.552462, 0.833379)
+bones/7/rotation = Quaternion(-0.307108, -0.152675, -0.174445, 0.923008)
+bones/8/rotation = Quaternion(0.000189039, 9.39975e-05, 0.000972141, 1)
+bones/10/rotation = Quaternion(-0.0107567, 1.62012e-05, -0.342208, 0.939563)
+bones/11/rotation = Quaternion(0.298003, 0.122871, -0.0284283, 0.946197)
+bones/12/rotation = Quaternion(-0.0001076, 0.000214769, 0.00118185, 0.999999)
+
+[node name="AnimationPlayer" parent="tree2" index="1"]
+autoplay = "Idle"
 
 [node name="tree3" parent="." instance=ExtResource("1_ph4np")]
 transform = Transform3D(-0.131086, 0, 0.482511, 0, 0.5, 0, -0.482511, 0, -0.131086, 0.0755873, 2.38419e-07, 1.55556)
 
+[node name="Skeleton3D" parent="tree3/Armature" index="0"]
+bones/1/rotation = Quaternion(-0.0532977, -0.0137533, 0.249483, 0.966814)
+bones/2/rotation = Quaternion(-0.444768, -0.020198, -0.272515, 0.852941)
+bones/3/rotation = Quaternion(-0.269663, -0.00606691, -0.121698, 0.955214)
+bones/4/rotation = Quaternion(0.270372, 0.00056273, -0.510099, 0.816516)
+bones/5/rotation = Quaternion(0.221533, 0.022222, 0.0913808, 0.970608)
+bones/6/rotation = Quaternion(0.0141098, 0.00810424, 0.552462, 0.833379)
+bones/7/rotation = Quaternion(-0.307108, -0.152675, -0.174445, 0.923008)
+bones/8/rotation = Quaternion(0.000189039, 9.39975e-05, 0.000972141, 1)
+bones/10/rotation = Quaternion(-0.0107567, 1.62012e-05, -0.342208, 0.939563)
+bones/11/rotation = Quaternion(0.298003, 0.122871, -0.0284283, 0.946197)
+bones/12/rotation = Quaternion(-0.0001076, 0.000214769, 0.00118185, 0.999999)
+
+[node name="AnimationPlayer" parent="tree3" index="1"]
+autoplay = "Idle"
+
 [node name="tree4" parent="." instance=ExtResource("1_ph4np")]
 transform = Transform3D(0.607915, 0, 0.916755, 0, 1.1, 0, -0.916755, 0, 0.607915, -1.36772, 0, 0.205837)
+
+[node name="Skeleton3D" parent="tree4/Armature" index="0"]
+bones/1/rotation = Quaternion(-0.0532977, -0.0137533, 0.249483, 0.966814)
+bones/2/rotation = Quaternion(-0.444768, -0.020198, -0.272515, 0.852941)
+bones/3/rotation = Quaternion(-0.269663, -0.00606691, -0.121698, 0.955214)
+bones/4/rotation = Quaternion(0.270372, 0.00056273, -0.510099, 0.816516)
+bones/5/rotation = Quaternion(0.221533, 0.022222, 0.0913808, 0.970608)
+bones/6/rotation = Quaternion(0.0141098, 0.00810424, 0.552462, 0.833379)
+bones/7/rotation = Quaternion(-0.307108, -0.152675, -0.174445, 0.923008)
+bones/8/rotation = Quaternion(0.000189039, 9.39975e-05, 0.000972141, 1)
+bones/10/rotation = Quaternion(-0.0107567, 1.62012e-05, -0.342208, 0.939563)
+bones/11/rotation = Quaternion(0.298003, 0.122871, -0.0284283, 0.946197)
+bones/12/rotation = Quaternion(-0.0001076, 0.000214769, 0.00118185, 0.999999)
+
+[node name="AnimationPlayer" parent="tree4" index="1"]
+autoplay = "Idle"
 
 [node name="tree5" parent="." instance=ExtResource("1_ph4np")]
 transform = Transform3D(-0.203547, 0, 1.48613, 0, 1.5, 0, -1.48613, 0, -0.203547, 1.36322, 4.76837e-07, 1.76618)
 
+[node name="Skeleton3D" parent="tree5/Armature" index="0"]
+bones/1/rotation = Quaternion(-0.0532977, -0.0137533, 0.249483, 0.966814)
+bones/2/rotation = Quaternion(-0.444768, -0.020198, -0.272515, 0.852941)
+bones/3/rotation = Quaternion(-0.269663, -0.00606691, -0.121698, 0.955214)
+bones/4/rotation = Quaternion(0.270372, 0.00056273, -0.510099, 0.816516)
+bones/5/rotation = Quaternion(0.221533, 0.022222, 0.0913808, 0.970608)
+bones/6/rotation = Quaternion(0.0141098, 0.00810424, 0.552462, 0.833379)
+bones/7/rotation = Quaternion(-0.307108, -0.152675, -0.174445, 0.923008)
+bones/8/rotation = Quaternion(0.000189039, 9.39975e-05, 0.000972141, 1)
+bones/10/rotation = Quaternion(-0.0107567, 1.62012e-05, -0.342208, 0.939563)
+bones/11/rotation = Quaternion(0.298003, 0.122871, -0.0284283, 0.946197)
+bones/12/rotation = Quaternion(-0.0001076, 0.000214769, 0.00118185, 0.999999)
+
+[node name="AnimationPlayer" parent="tree5" index="1"]
+autoplay = "Idle"
+
 [node name="tree6" parent="." instance=ExtResource("1_ph4np")]
 transform = Transform3D(-0.133675, 0, -1.09185, 0, 1.1, 0, 1.09185, 0, -0.133675, 1.23613, 0, -1.58872)
 
+[node name="Skeleton3D" parent="tree6/Armature" index="0"]
+bones/1/rotation = Quaternion(-0.0532977, -0.0137533, 0.249483, 0.966814)
+bones/2/rotation = Quaternion(-0.444768, -0.020198, -0.272515, 0.852941)
+bones/3/rotation = Quaternion(-0.269663, -0.00606691, -0.121698, 0.955214)
+bones/4/rotation = Quaternion(0.270372, 0.00056273, -0.510099, 0.816516)
+bones/5/rotation = Quaternion(0.221533, 0.022222, 0.0913808, 0.970608)
+bones/6/rotation = Quaternion(0.0141098, 0.00810424, 0.552462, 0.833379)
+bones/7/rotation = Quaternion(-0.307108, -0.152675, -0.174445, 0.923008)
+bones/8/rotation = Quaternion(0.000189039, 9.39975e-05, 0.000972141, 1)
+bones/10/rotation = Quaternion(-0.0107567, 1.62012e-05, -0.342208, 0.939563)
+bones/11/rotation = Quaternion(0.298003, 0.122871, -0.0284283, 0.946197)
+bones/12/rotation = Quaternion(-0.0001076, 0.000214769, 0.00118185, 0.999999)
+
+[node name="AnimationPlayer" parent="tree6" index="1"]
+autoplay = "Idle"
+
 [node name="tree7" parent="." instance=ExtResource("1_ph4np")]
 transform = Transform3D(-0.434861, 0, -0.54854, 0, 0.7, 0, 0.54854, 0, -0.434861, -1.74641, 0, 1.72051)
+
+[node name="Skeleton3D" parent="tree7/Armature" index="0"]
+bones/1/rotation = Quaternion(-0.0532977, -0.0137533, 0.249483, 0.966814)
+bones/2/rotation = Quaternion(-0.444768, -0.020198, -0.272515, 0.852941)
+bones/3/rotation = Quaternion(-0.269663, -0.00606691, -0.121698, 0.955214)
+bones/4/rotation = Quaternion(0.270372, 0.00056273, -0.510099, 0.816516)
+bones/5/rotation = Quaternion(0.221533, 0.022222, 0.0913808, 0.970608)
+bones/6/rotation = Quaternion(0.0141098, 0.00810424, 0.552462, 0.833379)
+bones/7/rotation = Quaternion(-0.307108, -0.152675, -0.174445, 0.923008)
+bones/8/rotation = Quaternion(0.000189039, 9.39975e-05, 0.000972141, 1)
+bones/10/rotation = Quaternion(-0.0107567, 1.62012e-05, -0.342208, 0.939563)
+bones/11/rotation = Quaternion(0.298003, 0.122871, -0.0284283, 0.946197)
+bones/12/rotation = Quaternion(-0.0001076, 0.000214769, 0.00118185, 0.999999)
+
+[node name="AnimationPlayer" parent="tree7" index="1"]
+autoplay = "Idle"
+
+[editable path="tree"]
+[editable path="tree2"]
+[editable path="tree3"]
+[editable path="tree4"]
+[editable path="tree5"]
+[editable path="tree6"]
+[editable path="tree7"]
