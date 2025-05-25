@@ -39,7 +39,9 @@ extends CharacterBody3D
 @onready var animationPlayer = $Mesh/AnimationPlayer
 @onready var sporeParticles = $AreaDamageParticles
 @onready var chargeCollision = $ChargeCollision
-
+@onready var launcherSound1 = $Sounds/LauncherSound1
+@onready var launcherSound2 = $Sounds/LauncherSound2
+@onready var squishSound = $Sounds/SquishSound
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var bulletScene: PackedScene = preload("res://Prefabs/enemies/enemy_bullet.tscn")
@@ -57,7 +59,7 @@ var playerInSporeArea: bool = false
 var rng = RandomNumberGenerator.new()
 var areaAttackCooldown: float = 0
 var isAttacking: bool = false
-var active: bool = false
+var active: bool = true
 var sporeTime: float = 0
 var chargeAttackOnGoing: bool = false
 var inChargeAttackArea: bool = false
@@ -230,9 +232,11 @@ func explosionAttackAction(delta, playerPosition):
 	if abs(actionTime - (100 - 2.11)) <= 1:
 		explosionMiniEnemiesAttack()
 		actionTime = 50
+		launcherSound1.play(0.52)
 	elif abs(actionTime - (50 - 1.55)) <= 1:
 		explosionMiniEnemiesAttack()
 		actionTime = 0.9
+		launcherSound2.play(0.52)
 	elif actionTime <= 0:
 		animationPlayer.stop()
 		actionType = actionTypes.NONE
@@ -246,6 +250,7 @@ func rangedAttackAction(delta, playerPosition):
 		animationPlayer.play("Squish")
 	if abs(actionTime - (100 - 3.5)) <= 1:
 		sporeRangedAttack()
+		squishSound.play()
 		actionTime = 0.65
 	elif actionTime <= 0:
 		animationPlayer.stop()
@@ -257,6 +262,7 @@ func sporeAreaAttackAction(delta):
 		actionTime = 100
 	if abs(actionTime - (100 - 3.5)) <= 1:
 		actionTime = 0.65
+		squishSound.play()
 		sporeParticles.emitting = true
 		sporeTime = 10
 	elif actionTime <= 0:

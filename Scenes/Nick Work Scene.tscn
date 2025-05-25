@@ -37,7 +37,7 @@ size = Vector3(10, 0.1, 10)
 environment = SubResource("Environment_1dgrj")
 
 [node name="Player" parent="." instance=ExtResource("3_r2bbj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5149, 3.91131, 4.51619)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.6752, 3.91131, 20.2829)
 healthType = "Health regeneration"
 cameraAngle = -35.0
 
@@ -214,7 +214,7 @@ hearingRange = 30.0
 visionRange = 30.0
 
 [node name="BossEnemy" parent="." node_paths=PackedStringArray("movePoints") instance=ExtResource("8_pbfqo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.8094, 3.38342, -7.36317)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.3987, 3.38342, -8.85181)
 movePoints = [NodePath("../Boss Target Points/Node3D"), NodePath("../Boss Target Points/Node3D2"), NodePath("../Boss Target Points/Node3D3"), NodePath("../Boss Target Points/Node3D4")]
 
 [node name="Boss Target Points" type="Node3D" parent="."]

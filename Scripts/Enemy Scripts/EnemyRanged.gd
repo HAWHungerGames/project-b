@@ -67,11 +67,10 @@ func _physics_process(delta):
 	if idleTimer >= 0:
 		idleTimer -= delta
 	if detect_player() and deathTimer == 10:
-		if punchTimer <= 0:
-			rotateToPlayer()
 		if idleTimer <= 0:
 			if !inMeleeRange:
 				rangedAttack(delta)
+				rotateToPlayer()
 			else: 
 				meleeAttack(delta)
 	elif deathTimer == 10:
@@ -200,13 +199,42 @@ func rangedAttack(delta):
 		throwTimer -= delta
 		animationPlayer.play("Throw")
 
+func slowRotateToPlayer(delta):
+	var angleVector = player.get_child(0).global_position  - global_position 
+	var angle = atan2(angleVector.x, angleVector.z)  - PI/2
+	var angleInDegrees = angle * 180 / PI
+	var rotationInDegrees = rotation_degrees.y
+	var yRotation = rotation.y
+	if angleInDegrees < -360:
+		angleInDegrees += 360
+		angle += 2*PI
+	if angleInDegrees < 0:
+		angleInDegrees += 360
+		angle += 2*PI
+	if rotationInDegrees < -360:
+		rotationInDegrees += 360
+		yRotation += 2*PI
+	if rotationInDegrees < 0:
+		rotationInDegrees += 360
+		yRotation += 2*PI
+	if angleInDegrees + 180 < rotationInDegrees:
+		rotation.y = lerp(yRotation, angle + 2*PI, 0.2)
+	elif rotationInDegrees + 180 < angleInDegrees:
+		rotation.y = lerp(yRotation + 2*PI, angle, 0.2)
+	elif abs(angleInDegrees - rotationInDegrees) > 5:
+		rotation.y = lerp(yRotation, angle, 0.2)
+	if abs(angleInDegrees - rotationInDegrees) < 5:
+		return true
+	return false
+
 func meleeAttack(delta):
 	if punchTimer <= 0:
-		punchTimer = 12.0833
-		rotateToPlayer()
-	else: 
+		if slowRotateToPlayer(delta):
+			punchTimer = 12.0833
+			animationPlayer.pause()
+	if punchTimer > 0: 
 		punchTimer -= delta
-	animationPlayer.play("Punch")
+		animationPlayer.play("Punch")
 	if punchTimer <= 11.0833 and punchTimer > 10:
 		if inMeleeDamageArea:
 			player.takeDamage(meleeDamage, self, true, 0)

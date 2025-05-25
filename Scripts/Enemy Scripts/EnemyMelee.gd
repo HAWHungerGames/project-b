@@ -15,7 +15,7 @@ extends CharacterBody3D
 
 @export_subgroup("Attack Stats")
 @export var attackDamage: int = 10
-@export var attackSpeed: float = 1/(1.58/2)
+@export var attackSpeed: float = 1/0.7917
 @export var attackDelay: float = -0.1
 @export var attackHeight: float = 1
 @export var attackWidth: float = 1
@@ -61,13 +61,11 @@ func _physics_process(delta):
 		rotateToPlayer()
 		attack(delta)
 		if !isAttacking and !isInAttackArea:
-			animationPlayer.speed_scale = 1
 			animationPlayer.play("Running")
 			move_towards_player(delta)
 		else:
 			velocity = Vector3(0, velocity.y, 0)
 	elif deathTimer == 10:
-		animationPlayer.speed_scale = 1
 		animationPlayer.play("Idle")
 		velocity = Vector3(0, velocity.y, 0)
 	move_and_slide()
@@ -152,22 +150,21 @@ func attack(delta):
 		isAttacking = true
 	if !isAttacking:
 		tempAttackDelay = attackDelay
-		attackCooldown = 1/attackSpeed
+		attackCooldown = (1/attackSpeed) + 5
 	if isAttacking and deathTimer == 10:
-		animationPlayer.speed_scale = 1
 		animationPlayer.play("Bump")
-		if tempAttackDelay > 0:
-			tempAttackDelay -= delta
-		else:
-			if attackCooldown > 0:
-				attackCooldown -= delta
-			else:
-				attackCooldown = 1/attackSpeed
-				isAttacking = false
-				if isInAttackArea:
-					particles.restart()
-					particles.emitting = true
-					player.takeDamage(attackDamage, self, true, 0)
+		if attackCooldown > 0:
+			attackCooldown -= delta
+		if attackCooldown <= 5.42 and attackCooldown > 5:
+			if isInAttackArea:
+				particles.restart()
+				particles.emitting = true
+				player.takeDamage(attackDamage, self, true, 0)
+				attackCooldown -= 5
+		elif attackCooldown <= 0:
+			attackCooldown = (1/attackSpeed) + 5
+			print(attackCooldown)
+			isAttacking = false
 
 func apply_gravity(delta):
 	velocity.y += -gravity * delta
