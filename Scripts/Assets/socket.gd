@@ -15,8 +15,8 @@ class_name Socket
 
 #var sword_name = "Placeholder Sword Hand"
 #var shield_name = "Placeholder Shield Hand"
-var staff_name = "Placeholder Staff Hand"
-var bow_name = "Placeholder Bow Hand"
+#var staff_name = "Placeholder Staff Hand"
+#var bow_name = "Placeholder Bow Hand"
 
 # Models
 @onready var sword = preload("res://Prefabs/Asset Scenes/Weapons/sword.tscn")
@@ -26,8 +26,8 @@ var bow_name = "Placeholder Bow Hand"
 
 var sword_name = "Sword"
 var shield_name = "Shield"
-#var staff_name = "Staff"
-#var bow_name = "Bow"
+var staff_name = "Staff"
+var bow_name = "Bow"
 
 var sword_intance
 var staff_intance
@@ -47,19 +47,20 @@ func _ready() -> void:
 		"sword":
 			attachment.add_child(sword_intance)
 			empty_socket = false
-			current_weapon_in_socket = sword_intance.get_name()
+			#current_weapon_in_socket = sword_intance.get_name()
+			current_weapon_in_socket = sword_name
 		"staff":
 			attachment.add_child(staff_intance)
 			empty_socket = false
-			current_weapon_in_socket = staff_intance.get_name()
+			current_weapon_in_socket = staff_name
 		"bow":
 			attachment.add_child(bow_intance)
 			empty_socket = false
-			current_weapon_in_socket = bow_intance.get_name()
+			current_weapon_in_socket = bow_name
 		"shield":
 			attachment.add_child(shield_intance)
 			empty_socket = false
-			current_weapon_in_socket = shield_intance.get_name()
+			current_weapon_in_socket = shield_name
 
 func _on_interacted(body: Variant) -> void:
 	#$AudioStreamPlayer3D.play()

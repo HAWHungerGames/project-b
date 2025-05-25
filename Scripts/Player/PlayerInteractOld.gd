@@ -7,8 +7,8 @@ extends RayCast3D
 
 # Placeholders
 #@onready var sword = preload("res://Prefabs/Asset Scenes/Placeholders/placeholder_sword2_hand.tscn")
-@onready var staff = preload("res://Prefabs/Asset Scenes/Placeholders/placeholder_staff2_hand.tscn")
-@onready var bow = preload("res://Prefabs/Asset Scenes/Placeholders/placeholder_bow2_hand.tscn")
+#@onready var staff = preload("res://Prefabs/Asset Scenes/Placeholders/placeholder_staff2_hand.tscn")
+#@onready var bow = preload("res://Prefabs/Asset Scenes/Placeholders/placeholder_bow2_hand.tscn")
 #@onready var shield = preload("res://Prefabs/Asset Scenes/Placeholders/placeholder_shield_hand.tscn")
 
 #var sword_name = "Placeholder Sword Hand"
@@ -17,9 +17,13 @@ extends RayCast3D
 # Models
 @onready var sword = preload("res://Prefabs/Asset Scenes/Weapons/sword.tscn")
 @onready var shield = preload("res://Prefabs/Asset Scenes/Weapons/shield.tscn")
+@onready var staff = preload("res://Prefabs/Asset Scenes/Weapons/staff.tscn")
+@onready var bow = preload("res://Prefabs/Asset Scenes/Weapons/bow.tscn")
 
 var sword_name = "Sword"
 var shield_name = "Shield"
+var staff_name = "Staff"
+var bow_name = "Bow"
 
 var controller_input_device = false
 var weapon
@@ -60,10 +64,10 @@ func _physics_process(delta: float) -> void:
 								sword_name:
 									weapon = sword.instantiate()
 									hand.add_child(weapon)
-								"Placeholder Staff Hand":
+								staff_name:
 									weapon = staff.instantiate()
 									hand.add_child(weapon)
-								"Placeholder Bow Hand":
+								bow_name:
 									weapon = bow.instantiate()
 									hand.add_child(weapon)
 								shield_name:
@@ -114,10 +118,10 @@ func _physics_process(delta: float) -> void:
 										sword_name:
 											weapon = sword.instantiate()
 											back.add_child(weapon)
-										"Placeholder Staff Hand":
+										staff_name:
 											weapon = staff.instantiate()
 											back.add_child(weapon)
-										"Placeholder Bow Hand":
+										bow_name:
 											weapon = bow.instantiate()
 											back.add_child(weapon)
 										shield_name:
@@ -164,7 +168,7 @@ func _physics_process(delta: float) -> void:
 								sword_name:
 									weapon = sword.instantiate()
 									hand.add_child(weapon)
-								"Placeholder Staff Hand":
+								staff_name:
 									weapon = staff.instantiate()
 									hand.add_child(weapon)
 								"Placeholder Bow Hand":
@@ -208,10 +212,10 @@ func _physics_process(delta: float) -> void:
 									offhand.remove_child(offhand_weapon)
 									back.add_child(offhand_weapon)
 									match weapon_name:
-										"Placeholder Staff Hand":
+										staff_name:
 											weapon = staff.instantiate()
 											hand.add_child(weapon)
-										"Placeholder Bow Hand":
+										bow_name:
 											weapon = bow.instantiate()
 											hand.add_child(weapon)
 											
@@ -227,10 +231,10 @@ func _physics_process(delta: float) -> void:
 										sword_name:
 											weapon = sword.instantiate()
 											hand.add_child(weapon)
-										"Placeholder Staff Hand":
+										staff_name:
 											weapon = staff.instantiate()
 											hand.add_child(weapon)
-										"Placeholder Bow Hand":
+										bow_name:
 											weapon = bow.instantiate()
 											hand.add_child(weapon)
 										shield_name:

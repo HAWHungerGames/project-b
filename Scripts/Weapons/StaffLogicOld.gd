@@ -1,11 +1,11 @@
-extends Node3D
+extends Area3D
 
 @export var mana_cost_per_attack: int = 60
 
-@onready var ray_position = $"../../../../../AimRayCast3D"
+@onready var ray_position = $RayCast3D
 
 @onready var player: Node3D = GlobalPlayer.getPlayer()
-@onready var world = $"../../../../../../../.."
+@onready var world = $"../../../../.."
 
 var bullet_scene: PackedScene = preload("res://Prefabs/Asset Scenes/Weapons/player_bullet.tscn")
 var bullet_instance
@@ -21,5 +21,5 @@ func spawn_bullet():
 func magicAttack():
 	if player.mana >= mana_cost_per_attack:
 		player.reduce_mana(mana_cost_per_attack)
-		#print("-" + str(mana_cost_per_attack))
+		print("-" + str(mana_cost_per_attack))
 		spawn_bullet()
