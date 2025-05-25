@@ -106,6 +106,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.09546, 0, -0.402142)
 [node name="RockOne2" parent="." instance=ExtResource("9_60wye")]
 transform = Transform3D(1, 0, 0, 0, 1.7441, -0.489413, 0, 0.978826, 0.872052, -0.564543, 0.414642, 0.742551)
 
+[editable path="TreeRound"]
+[editable path="TreeRound/Baum"]
 [editable path="BushTearDrop"]
 [editable path="BushTearDrop/Bush"]
 [editable path="BushTearDrop2"]

@@ -7,7 +7,7 @@ data = PackedVector3Array(-0.2271, 0.0209, -0.2539, -0.0203, 0.2821, -0.2802, -0
 
 [node name="TreeRound" type="StaticBody3D"]
 
-[node name="Baum" parent="." instance=ExtResource("1_0dxpf")]
+[node name="Baum" parent="." groups=["animated_objects"] instance=ExtResource("1_0dxpf")]
 
 [node name="Skeleton3D" parent="Baum/Armature" index="0"]
 bones/1/rotation = Quaternion(0.0220471, -8.93471e-08, 0.037834, 0.999041)

@@ -31,7 +31,7 @@ transform = Transform3D(0.354666, 0, -0.934993, 0, 1, 0, 0.934993, 0, 0.354666, 
 [node name="Baumstumpf2" parent="Deco" instance=ExtResource("2_iumdh")]
 transform = Transform3D(0.163952, 0, -0.78302, 0, 0.8, 0, 0.78302, 0, 0.163952, -3.68284, 0, -5.54199)
 
-[node name="Baum" parent="Deco" instance=ExtResource("3_p0h80")]
+[node name="Baum" parent="Deco" groups=["animated_objects"] instance=ExtResource("3_p0h80")]
 transform = Transform3D(1.95383, 0, -0.427254, 0, 2, 0, 0.427254, 0, 1.95383, -1.86007, 0, -6.71359)
 
 [node name="Skeleton3D" parent="Deco/Baum/Armature" index="0"]
@@ -51,47 +51,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.17394, 0.92731, -3.64432)
 [node name="MushroomMany2" parent="Deco" instance=ExtResource("5_w6bee")]
 transform = Transform3D(-0.478548, 0, -0.641087, 0, 0.8, 0, 0.641087, 0, -0.478548, -1.6537, 0.92731, -3.64432)
 
-[node name="Skeleton3D" parent="Deco/MushroomMany2/piltz/Armature" index="0"]
-bones/0/rotation = Quaternion(0.0273, 0.00105263, 0.0274217, 0.999251)
-bones/0/scale = Vector3(0.975615, 0.975615, 0.975615)
-bones/1/rotation = Quaternion(0.00594872, -0.00748581, 0.0189609, 0.999775)
-bones/1/scale = Vector3(0.97391, 0.97391, 0.97391)
-bones/2/rotation = Quaternion(0.0098364, -0.0127517, 0.00864972, 0.999833)
-bones/2/scale = Vector3(0.95948, 0.95948, 0.95948)
-bones/3/rotation = Quaternion(0.0058612, -0.00751504, 0.0139754, 0.999857)
-bones/3/scale = Vector3(0.95948, 0.95948, 0.95948)
-bones/4/rotation = Quaternion(0.010003, -0.012698, 0.014154, 0.999769)
-bones/4/scale = Vector3(0.975615, 0.975615, 0.975615)
-
 [node name="MushroomMany3" parent="Deco" instance=ExtResource("5_w6bee")]
 transform = Transform3D(-0.34358, 0, 0.204823, 0, 0.4, 0, -0.204823, 0, -0.34358, -1.6537, 1.00953, -4.47985)
 
-[node name="Skeleton3D" parent="Deco/MushroomMany3/piltz/Armature" index="0"]
-bones/0/rotation = Quaternion(0.0273, 0.00105263, 0.0274217, 0.999251)
-bones/0/scale = Vector3(0.975615, 0.975615, 0.975615)
-bones/1/rotation = Quaternion(0.00594872, -0.00748581, 0.0189609, 0.999775)
-bones/1/scale = Vector3(0.97391, 0.97391, 0.97391)
-bones/2/rotation = Quaternion(0.0098364, -0.0127517, 0.00864972, 0.999833)
-bones/2/scale = Vector3(0.95948, 0.95948, 0.95948)
-bones/3/rotation = Quaternion(0.0058612, -0.00751504, 0.0139754, 0.999857)
-bones/3/scale = Vector3(0.95948, 0.95948, 0.95948)
-bones/4/rotation = Quaternion(0.010003, -0.012698, 0.014154, 0.999769)
-bones/4/scale = Vector3(0.975615, 0.975615, 0.975615)
-
 [node name="MushroomMany4" parent="Deco" instance=ExtResource("5_w6bee")]
 transform = Transform3D(-1.03074, -8.76095e-08, 0.61447, -0.267291, 1.08052, -0.448368, -0.553288, -0.521994, -0.928113, -1.07144, 0.768182, -4.81421)
-
-[node name="Skeleton3D" parent="Deco/MushroomMany4/piltz/Armature" index="0"]
-bones/0/rotation = Quaternion(0.0273, 0.00105263, 0.0274217, 0.999251)
-bones/0/scale = Vector3(0.975615, 0.975615, 0.975615)
-bones/1/rotation = Quaternion(0.00594872, -0.00748581, 0.0189609, 0.999775)
-bones/1/scale = Vector3(0.97391, 0.97391, 0.97391)
-bones/2/rotation = Quaternion(0.0098364, -0.0127517, 0.00864972, 0.999833)
-bones/2/scale = Vector3(0.95948, 0.95948, 0.95948)
-bones/3/rotation = Quaternion(0.0058612, -0.00751504, 0.0139754, 0.999857)
-bones/3/scale = Vector3(0.95948, 0.95948, 0.95948)
-bones/4/rotation = Quaternion(0.010003, -0.012698, 0.014154, 0.999769)
-bones/4/scale = Vector3(0.975615, 0.975615, 0.975615)
 
 [node name="MushroomPurple" parent="Deco" instance=ExtResource("6_3wopx")]
 transform = Transform3D(0.8, 0, 0, 0, 1.5, 0, 0, 0, 0.8, -3.86896, 0.597551, -5.76256)

@@ -13,7 +13,7 @@ size = Vector3(5.2926, 4.22798, 1.75061)
 
 [node name="TreeWallWith5Trees" type="StaticBody3D"]
 
-[node name="Baum" parent="." instance=ExtResource("1_6dkop")]
+[node name="Baum" parent="." groups=["animated_objects"] instance=ExtResource("1_6dkop")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, -0.28244, 0)
 
 [node name="Skeleton3D" parent="Baum/Armature" index="0"]
@@ -24,7 +24,7 @@ bones/3/scale = Vector3(1, 0.999632, 1)
 [node name="AnimationPlayer" parent="Baum" index="1"]
 autoplay = "Idle"
 
-[node name="Baum2" parent="." instance=ExtResource("1_6dkop")]
+[node name="Baum2" parent="." groups=["animated_objects"] instance=ExtResource("1_6dkop")]
 transform = Transform3D(-0.0308177, 0, -0.999525, 0, 1, 0, 0.999525, 0, -0.0308177, 0.8068, -0.454787, -0.760313)
 
 [node name="Skeleton3D" parent="Baum2/Armature" index="0"]
@@ -35,7 +35,7 @@ bones/3/scale = Vector3(1, 0.999632, 1)
 [node name="AnimationPlayer" parent="Baum2" index="1"]
 autoplay = "Idle"
 
-[node name="Baum3" parent="." instance=ExtResource("1_6dkop")]
+[node name="Baum3" parent="." groups=["animated_objects"] instance=ExtResource("1_6dkop")]
 transform = Transform3D(-0.505356, 0, 0.862911, 0, 1, 0, -0.862911, 0, -0.505356, 1.72908, 0, 0.362683)
 
 [node name="Skeleton3D" parent="Baum3/Armature" index="0"]
@@ -46,7 +46,7 @@ bones/3/scale = Vector3(1, 0.999632, 1)
 [node name="AnimationPlayer" parent="Baum3" index="1"]
 autoplay = "Idle"
 
-[node name="Baum4" parent="." instance=ExtResource("1_6dkop")]
+[node name="Baum4" parent="." groups=["animated_objects"] instance=ExtResource("1_6dkop")]
 transform = Transform3D(1.13561, 0, -0.387789, 0, 1.2, 0, 0.387789, 0, 1.13561, -1.10096, -0.170615, 0.295182)
 
 [node name="Skeleton3D" parent="Baum4/Armature" index="0"]
@@ -57,7 +57,7 @@ bones/3/scale = Vector3(1, 0.999632, 1)
 [node name="AnimationPlayer" parent="Baum4" index="1"]
 autoplay = "Idle"
 
-[node name="Baum5" parent="." instance=ExtResource("1_6dkop")]
+[node name="Baum5" parent="." groups=["animated_objects"] instance=ExtResource("1_6dkop")]
 transform = Transform3D(0.820531, 0, -0.571602, 0, 1, 0, 0.571602, 0, 0.820531, -2.10915, -0.415591, 0.591073)
 
 [node name="Skeleton3D" parent="Baum5/Armature" index="0"]
@@ -80,13 +80,6 @@ bones/5/rotation = Quaternion(0.709775, -0.0100428, 0.00763123, 0.704316)
 
 [node name="BushSphere2" parent="." instance=ExtResource("2_bsgvw")]
 transform = Transform3D(0.5, 0, 0, 0, 0.25, 0, 0, 0, 0.5, -0.856033, -0.198223, 1.15144)
-
-[node name="Skeleton3D" parent="BushSphere2/Bush2/Armature_001" index="0"]
-bones/1/rotation = Quaternion(0.00160814, 4.53354e-08, 0.000949309, 0.999998)
-bones/2/rotation = Quaternion(0.00317902, -0.000447471, 0.718994, 0.695009)
-bones/3/rotation = Quaternion(-0.00236605, 0.000434068, -0.695005, 0.719001)
-bones/4/rotation = Quaternion(-0.704274, 0.0100811, 0.0134251, 0.70973)
-bones/5/rotation = Quaternion(0.709773, -0.01016, 0.00774747, 0.704315)
 
 [node name="RockTwo" parent="." instance=ExtResource("3_1jb35")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.06779, -0.274765, 0.955278)
@@ -117,3 +110,9 @@ transform = Transform3D(-0.289904, 0, 0.407377, 0, 0.5, 0, -0.407377, 0, -0.2899
 [editable path="BushSphere2"]
 [editable path="BushSphere2/Bush2"]
 [editable path="RockOne"]
+[editable path="Monstera_bush"]
+[editable path="Monstera_bush/Monstera_bush"]
+[editable path="MushroomMany"]
+[editable path="MushroomMany/piltz"]
+[editable path="PlantWithPurple"]
+[editable path="PlantWithPurple/Plant"]

@@ -47,7 +47,7 @@ debug_color = Color(0, 0.647059, 0.196078, 1)
 [node name="ModelMesh" type="Node3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
-[node name="Bush2" parent="ModelMesh" instance=ExtResource("2_vwt8k")]
+[node name="Bush2" parent="ModelMesh" groups=["animated_objects"] instance=ExtResource("2_vwt8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.902509, 0, -0.98293)
 
 [node name="Skeleton3D" parent="ModelMesh/Bush2/Armature_001" index="0"]
@@ -60,7 +60,7 @@ bones/5/rotation = Quaternion(0.709772, -0.0102527, 0.00783952, 0.704314)
 [node name="AnimationPlayer" parent="ModelMesh/Bush2" index="2"]
 autoplay = "Idle"
 
-[node name="Bush4" parent="ModelMesh" instance=ExtResource("2_vwt8k")]
+[node name="Bush4" parent="ModelMesh" groups=["animated_objects"] instance=ExtResource("2_vwt8k")]
 transform = Transform3D(0.0731686, 0, -0.99732, 0, 1, 0, 0.99732, 0, 0.0731686, -0.509336, 0, -0.321686)
 
 [node name="Skeleton3D" parent="ModelMesh/Bush4/Armature_001" index="0"]
@@ -73,7 +73,7 @@ bones/5/rotation = Quaternion(0.709772, -0.0102527, 0.00783952, 0.704314)
 [node name="AnimationPlayer" parent="ModelMesh/Bush4" index="2"]
 autoplay = "Idle"
 
-[node name="Bush6" parent="ModelMesh" instance=ExtResource("2_vwt8k")]
+[node name="Bush6" parent="ModelMesh" groups=["animated_objects"] instance=ExtResource("2_vwt8k")]
 transform = Transform3D(-0.724112, 0, -0.689683, 0, 1, 0, 0.689683, 0, -0.724112, -0.00893551, 0, 0.178714)
 
 [node name="Skeleton3D" parent="ModelMesh/Bush6/Armature_001" index="0"]
@@ -86,7 +86,7 @@ bones/5/rotation = Quaternion(0.709772, -0.0102527, 0.00783952, 0.704314)
 [node name="AnimationPlayer" parent="ModelMesh/Bush6" index="2"]
 autoplay = "Idle"
 
-[node name="Bush8" parent="ModelMesh" instance=ExtResource("2_vwt8k")]
+[node name="Bush8" parent="ModelMesh" groups=["animated_objects"] instance=ExtResource("2_vwt8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.562951, 0, 0.527208)
 
 [node name="Skeleton3D" parent="ModelMesh/Bush8/Armature_001" index="0"]
@@ -99,7 +99,7 @@ bones/5/rotation = Quaternion(0.709772, -0.0102527, 0.00783952, 0.704314)
 [node name="AnimationPlayer" parent="ModelMesh/Bush8" index="2"]
 autoplay = "Idle"
 
-[node name="Bush10" parent="ModelMesh" instance=ExtResource("2_vwt8k")]
+[node name="Bush10" parent="ModelMesh" groups=["animated_objects"] instance=ExtResource("2_vwt8k")]
 transform = Transform3D(-0.760667, 0, 0.649143, 0, 1, 0, -0.649143, 0, -0.760667, 1.03273, 0, 0.491465)
 
 [node name="Skeleton3D" parent="ModelMesh/Bush10/Armature_001" index="0"]

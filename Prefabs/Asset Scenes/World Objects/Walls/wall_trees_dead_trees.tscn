@@ -22,8 +22,6 @@ shape = SubResource("BoxShape3D_1u1x3")
 [node name="TreeRound4" parent="." instance=ExtResource("1_em4lj")]
 transform = Transform3D(-1.97751, 0, -0.299071, 0, 2, 0, 0.299071, 0, -1.97751, -3.37093, -0.319944, 4.69104)
 
-[node name="Baum" parent="TreeRound4" index="0" groups=["animated_objects"]]
-
 [node name="RockTwo" parent="." instance=ExtResource("2_lr1lx")]
 transform = Transform3D(-1.4, 0, 1.22392e-07, 0, 1.4, 0, -1.22392e-07, 0, -1.4, -0.604218, -0.16512, -1.3587)
 
@@ -38,8 +36,6 @@ transform = Transform3D(-0.761131, 0, 0.648598, 0, 1, 0, -0.648598, 0, -0.761131
 
 [node name="TreeRound3" parent="." instance=ExtResource("1_em4lj")]
 transform = Transform3D(0.0759387, 0, 1.99856, 0, 1.5, 0, -1.99856, 0, 0.0759387, -1.52321, -0.361259, 2.69744)
-
-[node name="Baum" parent="TreeRound3" index="0" groups=["animated_objects"]]
 
 [node name="RockOne" parent="." instance=ExtResource("9_ocenp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.509941, 0, 1.81577)
@@ -70,8 +66,6 @@ bones/3/scale = Vector3(0.95948, 0.95948, 0.95948)
 bones/4/rotation = Quaternion(0.010003, -0.012698, 0.014154, 0.999769)
 bones/4/scale = Vector3(0.975615, 0.975615, 0.975615)
 
-[node name="piltz2" parent="TreeStumpWithMushrooms/baumstamm1" index="2" groups=["animated_objects"]]
-
 [node name="Skeleton3D" parent="TreeStumpWithMushrooms/baumstamm1/piltz2/Armature" index="0"]
 bones/0/rotation = Quaternion(0.0273, 0.00105263, 0.0274217, 0.999251)
 bones/0/scale = Vector3(0.975615, 0.975615, 0.975615)
@@ -83,10 +77,6 @@ bones/3/rotation = Quaternion(0.0058612, -0.00751504, 0.0139754, 0.999857)
 bones/3/scale = Vector3(0.95948, 0.95948, 0.95948)
 bones/4/rotation = Quaternion(0.010003, -0.012698, 0.014154, 0.999769)
 bones/4/scale = Vector3(0.975615, 0.975615, 0.975615)
-
-[node name="piltz3" parent="TreeStumpWithMushrooms/baumstamm1" index="3" groups=["animated_objects"]]
-
-[node name="piltz4" parent="TreeStumpWithMushrooms/baumstamm1" index="4" groups=["animated_objects"]]
 
 [node name="Skeleton3D" parent="TreeStumpWithMushrooms/baumstamm1/piltz4/Armature" index="0"]
 bones/0/rotation = Quaternion(0.0273, 0.00105263, 0.0274217, 0.999251)

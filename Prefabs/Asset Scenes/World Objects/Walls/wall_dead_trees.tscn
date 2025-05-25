@@ -23,30 +23,6 @@ transform = Transform3D(0.437022, 0, 0.899451, 0, 1, 0, -0.899451, 0, 0.437022, 
 [node name="TreeDead4" parent="." instance=ExtResource("2_yqr00")]
 transform = Transform3D(0.952932, 0, 0.303185, 0, 1, 0, -0.303185, 0, 0.952932, 2.78226, 0, -0.698955)
 
-[node name="Skeleton3D" parent="TreeDead4/MushroomMany5/piltz/Armature" index="0"]
-bones/0/rotation = Quaternion(0.0273, 0.00105263, 0.0274217, 0.999251)
-bones/0/scale = Vector3(0.975615, 0.975615, 0.975615)
-bones/1/rotation = Quaternion(0.00594872, -0.00748581, 0.0189609, 0.999775)
-bones/1/scale = Vector3(0.97391, 0.97391, 0.97391)
-bones/2/rotation = Quaternion(0.0098364, -0.0127517, 0.00864972, 0.999833)
-bones/2/scale = Vector3(0.95948, 0.95948, 0.95948)
-bones/3/rotation = Quaternion(0.0058612, -0.00751504, 0.0139754, 0.999857)
-bones/3/scale = Vector3(0.95948, 0.95948, 0.95948)
-bones/4/rotation = Quaternion(0.010003, -0.012698, 0.014154, 0.999769)
-bones/4/scale = Vector3(0.975615, 0.975615, 0.975615)
-
-[node name="Skeleton3D" parent="TreeDead4/MushroomMany6/piltz/Armature" index="0"]
-bones/0/rotation = Quaternion(0.0273, 0.00105263, 0.0274217, 0.999251)
-bones/0/scale = Vector3(0.975615, 0.975615, 0.975615)
-bones/1/rotation = Quaternion(0.00594872, -0.00748581, 0.0189609, 0.999775)
-bones/1/scale = Vector3(0.97391, 0.97391, 0.97391)
-bones/2/rotation = Quaternion(0.0098364, -0.0127517, 0.00864972, 0.999833)
-bones/2/scale = Vector3(0.95948, 0.95948, 0.95948)
-bones/3/rotation = Quaternion(0.0058612, -0.00751504, 0.0139754, 0.999857)
-bones/3/scale = Vector3(0.95948, 0.95948, 0.95948)
-bones/4/rotation = Quaternion(0.010003, -0.012698, 0.014154, 0.999769)
-bones/4/scale = Vector3(0.975615, 0.975615, 0.975615)
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0827026, 2.33547, -0.0403152)
 shape = SubResource("BoxShape3D_vn40p")
@@ -60,8 +36,12 @@ transform = Transform3D(0.441154, 0, 0.235337, 0, 0.5, 0, -0.235337, 0, 0.441154
 [node name="RockOne" parent="." instance=ExtResource("5_viap2")]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 1.6945, 0, -0.751429)
 
+[editable path="TreeDead"]
+[editable path="TreeDead/tree"]
 [editable path="TreeDead2"]
 [editable path="TreeDead2/tree"]
+[editable path="TreeDead3"]
+[editable path="TreeDead3/tree"]
 [editable path="TreeDead4"]
 [editable path="TreeDead4/tree"]
 [editable path="TreeDead4/MushroomMany"]

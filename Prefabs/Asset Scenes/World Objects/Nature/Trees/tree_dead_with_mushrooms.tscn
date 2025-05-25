@@ -65,6 +65,7 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.131311, -0.0855528, 
 [node name="MushroomRed" parent="." instance=ExtResource("6_3q3o1")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.922733, -0.0863922, 0.206406)
 
+[editable path="tree"]
 [editable path="MushroomMany"]
 [editable path="MushroomMany/piltz"]
 [editable path="MushroomMany2"]

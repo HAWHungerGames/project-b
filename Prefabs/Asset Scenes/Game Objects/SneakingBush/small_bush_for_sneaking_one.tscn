@@ -32,6 +32,8 @@ debug_color = Color(0, 0.647059, 0.196078, 1)
 [node name="Bush2" parent="." instance=ExtResource("2_7rqrw")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
+[node name="Armature_001" parent="Bush2" index="0" groups=["animated_objects"]]
+
 [node name="Skeleton3D" parent="Bush2/Armature_001" index="0"]
 bones/1/rotation = Quaternion(0.00119438, -0.0002408, 0.000120708, 0.999999)
 bones/2/rotation = Quaternion(0.00317896, -0.000447886, 0.719085, 0.694915)

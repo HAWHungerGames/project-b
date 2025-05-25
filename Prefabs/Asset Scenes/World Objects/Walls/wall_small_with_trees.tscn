@@ -59,6 +59,8 @@ shape = SubResource("BoxShape3D_gkmx0")
 
 [editable path="TreeRound"]
 [editable path="TreeRound/Baum"]
+[editable path="TreeRound2"]
+[editable path="TreeRound2/Baum"]
 [editable path="BushSphere"]
 [editable path="BushSphere/Bush2"]
 [editable path="TreeDead"]
@@ -85,3 +87,5 @@ shape = SubResource("BoxShape3D_gkmx0")
 [editable path="TreeDead/MushroomRed/mushroom1"]
 [editable path="BushTearDrop"]
 [editable path="BushTearDrop/Bush"]
+[editable path="GrassPlant"]
+[editable path="GrassPlant/Grass2"]

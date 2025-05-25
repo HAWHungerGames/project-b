@@ -1,4 +1,4 @@
-[gd_scene load_steps=133 format=3 uid="uid://17sawqr1a5sd"]
+[gd_scene load_steps=134 format=3 uid="uid://17sawqr1a5sd"]
 
 [ext_resource type="Material" uid="uid://41byjnpqi8jl" path="res://Materials/TestBush.tres" id="1_3f6q6"]
 [ext_resource type="PackedScene" uid="uid://bo6t8u3r6w260" path="res://Prefabs/Asset Scenes/World Objects/Nature/Plants/grass_ground.tscn" id="2_5i7v7"]
@@ -117,6 +117,7 @@
 [ext_resource type="Script" uid="uid://binsywba0e010" path="res://Scenes/boss_health.gd" id="108_24wiy"]
 [ext_resource type="Texture2D" uid="uid://cn00nn06sxjus" path="res://UI/Stats/BossHealthbar.png" id="108_tumgl"]
 [ext_resource type="Texture2D" uid="uid://6latdbcv0h2a" path="res://UI/Stats/BossHealthbarUnderneath.png" id="109_snyj6"]
+[ext_resource type="Script" uid="uid://caqii6mj1apmx" path="res://Scenes/fps.gd" id="110_5h6v0"]
 [ext_resource type="Texture2D" uid="uid://dolcijtgdehqs" path="res://UI/Stats/BossHealthbarFrame.png" id="110_24wiy"]
 [ext_resource type="Texture2D" uid="uid://d0xa3l4brovcr" path="res://UI/Stats/BossHealthbarDamage.png" id="111_0l7n2"]
 [ext_resource type="Texture2D" uid="uid://bg74iei8b148" path="res://UI/Stats/BossHealthbarMycelium.png" id="112_snyj6"]
@@ -500,6 +501,11 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -17.6828, 1.17827, -35.771)
 
 [node name="Door" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Tutorial Room/Walls/North" instance=ExtResource("12_1bu8d")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.508897, -34.326)
+
+[node name="Skeleton3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Tutorial Room/Walls/North/Door/Deco/Baum/Armature" index="0"]
+bones/1/rotation = Quaternion(0.0220471, -8.93471e-08, 0.037834, 0.999041)
+bones/2/scale = Vector3(1, 0.999646, 1)
+bones/3/scale = Vector3(1, 0.999632, 1)
 
 [node name="brokenWallWith2Trees" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Tutorial Room/Walls/North" instance=ExtResource("8_qcrt0")]
 transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, 12.0899, 0.8, -34.9749)
@@ -4494,6 +4500,12 @@ texture = ExtResource("112_snyj6")
 expand_mode = 1
 flip_v = true
 
+[node name="fps" type="Label" parent="WorldEnvironment/CanvasLayer/FullUI"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+script = ExtResource("110_5h6v0")
+
 [node name="PauseMenu" parent="WorldEnvironment/CanvasLayer" instance=ExtResource("45_ccm0r")]
 
 [node name="blendScreen" parent="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu" index="0"]
@@ -4554,6 +4566,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102.315, 0, -83.6677)
 [editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Tutorial Room/Nature/Socket Deco/Socket4/PlantWithPurple2"]
 [editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Tutorial Room/Nature/Socket Deco/Socket4/PlantWithPurple2/Plant"]
 [editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/BrokeWallWithStuff"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/BrokeWallWithStuff/TreeRound"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/BrokeWallWithStuff/TreeRound/Baum"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/BrokeWallWithStuff/TreeRound2"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/BrokeWallWithStuff/TreeRound2/Baum"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/BrokeWallWithStuff/PlantWithPurple"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/BrokeWallWithStuff/PlantWithPurple/Plant"]
 [editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/BrokeWallWithStuff/MushroomMany"]
 [editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/BrokeWallWithStuff/MushroomMany/piltz"]
 [editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/BrokeWallWithStuff/BushTearDrop"]
@@ -4575,6 +4593,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102.315, 0, -83.6677)
 [editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/TreeWallWith5Trees3/BushSphere2"]
 [editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/TreeWallWith5Trees3/BushSphere2/Bush2"]
 [editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/TreeWallWith5Trees3/RockOne"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/TreeWallWith5Trees3/Monstera_bush"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/TreeWallWith5Trees3/Monstera_bush/Monstera_bush"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/TreeWallWith5Trees3/MushroomMany"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/TreeWallWith5Trees3/MushroomMany/piltz"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/TreeWallWith5Trees3/PlantWithPurple"]
+[editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 1/Walls/North/TreeWallWith5Trees3/PlantWithPurple/Plant"]
 [editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 4/Walls/East/brokenWallWith2Trees"]
 [editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 4/Walls/East/brokenWallWith2Trees/Deco/Baum"]
 [editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 4/Walls/East/brokenWallWith2Trees/Deco/MushroomMany"]
@@ -4621,6 +4645,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102.315, 0, -83.6677)
 [editable path="WorldEnvironment/World/Nav Exclusion/TreeBundleWall/TreeBundleFour3/baumstamm1/piltz2"]
 [editable path="WorldEnvironment/World/Nav Exclusion/TreeBundleWall/TreeBundleFour3/baumstamm1/piltz3"]
 [editable path="WorldEnvironment/World/Nav Exclusion/TreeBundleWall/TreeBundleFour3/baumstamm1/piltz4"]
+[editable path="WorldEnvironment/World/Nav Exclusion/TreeBundleWall/TreeBundleFour3/baumast"]
 [editable path="WorldEnvironment/World/Nav Exclusion/TreeBundleWall/TreeBundleFour3/MushroomMany"]
 [editable path="WorldEnvironment/World/Nav Exclusion/TreeBundleWall/TreeBundleFour3/MushroomMany/piltz"]
 [editable path="WorldEnvironment/World/Nav Exclusion/TreeBundleWall/TreeBundleFour3/tree2"]

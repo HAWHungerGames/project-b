@@ -17,7 +17,7 @@ size = Vector2(5, 5)
 visible = false
 mesh = SubResource("PlaneMesh_yey8x")
 
-[node name="tree" parent="." instance=ExtResource("1_qg7l0")]
+[node name="tree" parent="." groups=["animated_objects"] instance=ExtResource("1_qg7l0")]
 transform = Transform3D(0.902382, 0, 0.430936, 0, 1, 0, -0.430936, 0, 0.902382, -1.3099, 0.114345, -1.26747)
 
 [node name="baumstamm1" parent="." groups=["animated_objects"] instance=ExtResource("2_75yhx")]
@@ -113,19 +113,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.53442, 0, 1.4134)
 [node name="RockOne2" parent="." instance=ExtResource("6_u5ppp")]
 transform = Transform3D(-0.187418, 0.326089, 0.926575, 0.867001, 0.498306, 0, -0.461718, 0.803341, -0.376111, -0.986597, 0, 2.13355)
 
-[node name="tree3" parent="." instance=ExtResource("1_qg7l0")]
+[node name="tree3" parent="." groups=["animated_objects"] instance=ExtResource("1_qg7l0")]
 transform = Transform3D(-0.131086, 0, 0.482511, 0, 0.5, 0, -0.482511, 0, -0.131086, 0.0755873, 2.38419e-07, 1.55556)
 
-[node name="tree4" parent="." instance=ExtResource("1_qg7l0")]
+[node name="tree4" parent="." groups=["animated_objects"] instance=ExtResource("1_qg7l0")]
 transform = Transform3D(0.607915, 0, 0.916755, 0, 1.1, 0, -0.916755, 0, 0.607915, -1.36772, 0, 0.205837)
 
-[node name="tree5" parent="." instance=ExtResource("1_qg7l0")]
+[node name="tree5" parent="." groups=["animated_objects"] instance=ExtResource("1_qg7l0")]
 transform = Transform3D(-0.203547, 0, 1.48613, 0, 1.5, 0, -1.48613, 0, -0.203547, 1.36322, 4.76837e-07, 1.76618)
 
 [editable path="baumstamm1/piltz"]
 [editable path="baumstamm1/piltz2"]
 [editable path="baumstamm1/piltz3"]
 [editable path="baumstamm1/piltz4"]
+[editable path="baumast"]
 [editable path="MushroomMany"]
 [editable path="MushroomMany/piltz"]
 [editable path="tree2"]
+[editable path="tree3"]
