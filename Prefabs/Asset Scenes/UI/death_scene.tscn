@@ -1,4 +1,25 @@
-[gd_scene format=3 uid="uid://dduhwohr0vah4"]
+[gd_scene load_steps=13 format=3 uid="uid://dduhwohr0vah4"]
+
+[ext_resource type="Script" uid="uid://c3pucjmotufck" path="res://Scripts/UI/menus/death_menu.gd" id="1_kimd1"]
+[ext_resource type="Texture2D" uid="uid://t8xpfim77iam" path="res://UI/Menus/Buttons/ButtonTexture.png" id="2_yikmo"]
+[ext_resource type="FontFile" uid="uid://4l406r67702d" path="res://UI/Fonts/DidactGothic-Regular.ttf" id="3_ckj74"]
+[ext_resource type="Texture2D" uid="uid://ci8xqo4vdx5av" path="res://UI/Menus/Buttons/ButtonTexture2.png" id="4_4gsm0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xm100"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dj1oq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fuvvg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_co1ht"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_favng"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_78dse"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vh4hc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ewcgk"]
 
 [node name="DeathScene" type="Control"]
 layout_mode = 3
@@ -7,3 +28,138 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="deathMenu" type="MarginContainer" parent="."]
+process_mode = 3
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kimd1")
+
+[node name="blendScreen" type="ColorRect" parent="deathMenu"]
+modulate = Color(1, 1, 1, 0)
+z_index = 2
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="death_blackscreen" type="ColorRect" parent="deathMenu"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="deathMenuContainer" type="VBoxContainer" parent="deathMenu"]
+process_mode = 3
+z_index = 3
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="deathMenu/deathMenuContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="deathMenu/deathMenuContainer/MarginContainer"]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="buttonMargin" type="MarginContainer" parent="deathMenu/deathMenuContainer/MarginContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="buttons" type="VBoxContainer" parent="deathMenu/deathMenuContainer/MarginContainer/NinePatchRect/buttonMargin"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="buttonsRetry" type="HBoxContainer" parent="deathMenu/deathMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="buttonSelectLeftResume" type="TextureRect" parent="deathMenu/deathMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsRetry"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_yikmo")
+expand_mode = 1
+
+[node name="retry" type="Button" parent="deathMenu/deathMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsRetry"]
+custom_minimum_size = Vector2(180, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("3_ckj74")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xm100")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dj1oq")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fuvvg")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_co1ht")
+text = "BUTTON_RETRY"
+
+[node name="buttonSelectRightResume" type="TextureRect" parent="deathMenu/deathMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsRetry"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_4gsm0")
+expand_mode = 1
+
+[node name="buttonsExit" type="HBoxContainer" parent="deathMenu/deathMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="buttonSelectLeftExit" type="TextureRect" parent="deathMenu/deathMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_yikmo")
+expand_mode = 1
+
+[node name="exit" type="Button" parent="deathMenu/deathMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("3_ckj74")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_favng")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_78dse")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_vh4hc")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ewcgk")
+text = "BUTTON_EXIT_TO_MENU"
+
+[node name="buttonSelectRightExit" type="TextureRect" parent="deathMenu/deathMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_4gsm0")
+expand_mode = 1
+
+[connection signal="focus_entered" from="deathMenu/deathMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsRetry/retry" to="deathMenu" method="_on_retry_hover_enter"]
+[connection signal="focus_exited" from="deathMenu/deathMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsRetry/retry" to="deathMenu" method="_on_retry_hover_exit"]
+[connection signal="mouse_entered" from="deathMenu/deathMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsRetry/retry" to="deathMenu" method="_on_retry_hover_enter"]
+[connection signal="mouse_exited" from="deathMenu/deathMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsRetry/retry" to="deathMenu" method="_on_retry_hover_exit"]
+[connection signal="pressed" from="deathMenu/deathMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsRetry/retry" to="deathMenu" method="_on_retry_pressed"]
+[connection signal="focus_entered" from="deathMenu/deathMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit/exit" to="deathMenu" method="_on_exit_hover_enter"]
+[connection signal="focus_exited" from="deathMenu/deathMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit/exit" to="deathMenu" method="_on_exit_hover_exit"]
+[connection signal="mouse_entered" from="deathMenu/deathMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit/exit" to="deathMenu" method="_on_exit_hover_enter"]
+[connection signal="mouse_exited" from="deathMenu/deathMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit/exit" to="deathMenu" method="_on_exit_hover_exit"]
+[connection signal="pressed" from="deathMenu/deathMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit/exit" to="deathMenu" method="_on_exit_pressed"]
