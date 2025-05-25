@@ -29,7 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://dc4hcr4p2xbna" path="res://UI/Stats/UnderneathTop.png" id="10_65wlj"]
 [ext_resource type="PackedScene" uid="uid://vj7to5njslw6" path="res://Prefabs/Asset Scenes/Game Objects/Socket.tscn" id="11_1bu8d"]
 [ext_resource type="PackedScene" uid="uid://dl4qm10erpopc" path="res://Prefabs/Asset Scenes/World Objects/Path Stones/path_stone_nine.tscn" id="11_4bywt"]
-[ext_resource type="PackedScene" uid="uid://b2c2eb8nd2fpa" path="res://Prefabs/Asset Scenes/World Objects/Walls/wall_dead_trees.tscn" id="11_ar3t4"]
+[ext_resource type="PackedScene" uid="uid://bv7bn85ey3wrk" path="res://Prefabs/Asset Scenes/World Objects/Walls/wall_dead_trees.tscn" id="11_ar3t4"]
 [ext_resource type="PackedScene" uid="uid://bbunaqymstlo4" path="res://Prefabs/Asset Scenes/World Objects/Nature/Rocks/rock_one.tscn" id="11_ccm0r"]
 [ext_resource type="Texture2D" uid="uid://cvmgiuevaosab" path="res://UI/Stats/DamageTop.png" id="11_toju0"]
 [ext_resource type="PackedScene" uid="uid://dcsqxh8ksn77m" path="res://Prefabs/Asset Scenes/Game Objects/door.tscn" id="12_1bu8d"]
@@ -37,11 +37,11 @@
 [ext_resource type="PackedScene" uid="uid://okc4kycpb5mw" path="res://Prefabs/Asset Scenes/World Objects/Extra Collisions/extra_collision.tscn" id="12_vs2el"]
 [ext_resource type="PackedScene" uid="uid://bboh7j44bhsnd" path="res://Prefabs/Asset Scenes/World Objects/Extra Collisions/extra_collision_middle.tscn" id="12_yexh8"]
 [ext_resource type="Texture2D" uid="uid://crd1yijlsjxdv" path="res://UI/Stats/BarFrameBottom.png" id="13_8rmxw"]
-[ext_resource type="PackedScene" uid="uid://d8oi6hi86e3j" path="res://Prefabs/Asset Scenes/World Objects/Walls/wall_tree_with_dead_trees.tscn" id="13_derlu"]
+[ext_resource type="PackedScene" uid="uid://cuwqxo4ogp4jh" path="res://Prefabs/Asset Scenes/World Objects/Walls/wall_tree_with_dead_trees.tscn" id="13_derlu"]
 [ext_resource type="Script" uid="uid://l471dqs5cmuc" path="res://Scripts/UI/bars.gd" id="13_fwfwu"]
 [ext_resource type="PackedScene" uid="uid://c52kip4noulnc" path="res://Prefabs/Asset Scenes/World Objects/Path Stones/path_stone_eleven.tscn" id="13_u41q7"]
 [ext_resource type="Texture2D" uid="uid://idv5h3wy02ok" path="res://UI/Stats/StaminaBottom.png" id="14_jp8xc"]
-[ext_resource type="PackedScene" uid="uid://b8qqbol8m3f2" path="res://Prefabs/Asset Scenes/World Objects/Walls/wall_small_with_trees.tscn" id="14_qi01s"]
+[ext_resource type="PackedScene" uid="uid://dbclsysglhxj2" path="res://Prefabs/Asset Scenes/World Objects/Walls/wall_small_with_trees.tscn" id="14_qi01s"]
 [ext_resource type="PackedScene" uid="uid://8mfs13ix63n" path="res://Prefabs/Asset Scenes/World Objects/Extra Collisions/extra_collision_big.tscn" id="15_1tgbn"]
 [ext_resource type="Texture2D" uid="uid://c8eq20nuh4yxx" path="res://UI/Stats/UnderneathBottom.png" id="15_5oe8d"]
 [ext_resource type="Texture2D" uid="uid://cur1fsy614172" path="res://UI/Stats/DamageBottom.png" id="16_qsm0h"]
@@ -50,7 +50,7 @@
 [ext_resource type="Shader" uid="uid://bru2whrhk4mlo" path="res://Scripts/Shaders/low_health.gdshader" id="19_jp8xc"]
 [ext_resource type="Texture2D" uid="uid://cjvmlsiwqy7rj" path="res://UI/Stats/UnderneathMiddle.png" id="20_3f6q6"]
 [ext_resource type="Texture2D" uid="uid://dncs81uxppe3f" path="res://UI/Stats/DamageMiddle.png" id="21_2uoa5"]
-[ext_resource type="PackedScene" uid="uid://nc40df5rc7fy" path="res://Prefabs/Asset Scenes/World Objects/Walls/broke_wall_with_stuff.tscn" id="22_lfy4s"]
+[ext_resource type="PackedScene" uid="uid://bubm7bi3hce1i" path="res://Prefabs/Asset Scenes/World Objects/Walls/broke_wall_with_stuff.tscn" id="22_lfy4s"]
 [ext_resource type="Texture2D" uid="uid://dxxqrbfkg137x" path="res://UI/Stats/Mana.png" id="23_e0tq6"]
 [ext_resource type="Texture2D" uid="uid://6m5jcd5pvxrn" path="res://UI/Weapons/WeaponSlotInactive.png" id="25_qcrt0"]
 [ext_resource type="Texture2D" uid="uid://dgvicbxum24vi" path="res://UI/Weapons/WeaponSlotPressed.png" id="26_ar3t4"]
@@ -83,7 +83,7 @@
 [ext_resource type="PackedScene" uid="uid://dqqvcx3rmwu3k" path="res://Prefabs/Asset Scenes/UI/PauseMenu.tscn" id="45_ccm0r"]
 [ext_resource type="PackedScene" uid="uid://b0pgai48uoifv" path="res://Prefabs/Asset Scenes/World Objects/Walls/wall_tree_bundle_four.tscn" id="45_sffgg"]
 [ext_resource type="PackedScene" uid="uid://dcq4em5be8cd" path="res://Prefabs/Asset Scenes/World Objects/Walls/wall_tree_bundle_three.tscn" id="46_l5vnb"]
-[ext_resource type="PackedScene" uid="uid://d3td6jcueuv3v" path="res://Prefabs/Asset Scenes/World Objects/Walls/wall_trees_dead_trees.tscn" id="47_l5vnb"]
+[ext_resource type="PackedScene" uid="uid://3xt38evj5ssm" path="res://Prefabs/Asset Scenes/World Objects/Walls/wall_trees_dead_trees.tscn" id="47_l5vnb"]
 [ext_resource type="PackedScene" uid="uid://b7pa2hcc7huv0" path="res://Prefabs/Asset Scenes/Game Objects/sign.tscn" id="49_lfy4s"]
 [ext_resource type="PackedScene" uid="uid://d4laed6rnr6ds" path="res://Models/Objects/BossAreana.blend" id="49_wiwy5"]
 [ext_resource type="PackedScene" uid="uid://cfubqgne171oq" path="res://Prefabs/Asset Scenes/Game Objects/SneakingBush/curve_bush_for_sneaking.tscn" id="51_4bywt"]
@@ -117,7 +117,7 @@
 [ext_resource type="Script" uid="uid://binsywba0e010" path="res://Scenes/boss_health.gd" id="108_24wiy"]
 [ext_resource type="Texture2D" uid="uid://cn00nn06sxjus" path="res://UI/Stats/BossHealthbar.png" id="108_tumgl"]
 [ext_resource type="Texture2D" uid="uid://6latdbcv0h2a" path="res://UI/Stats/BossHealthbarUnderneath.png" id="109_snyj6"]
-[ext_resource type="Script" uid="uid://caqii6mj1apmx" path="res://Scenes/fps.gd" id="110_5h6v0"]
+[ext_resource type="Script" path="res://Scenes/fps.gd" id="110_5h6v0"]
 [ext_resource type="Texture2D" uid="uid://dolcijtgdehqs" path="res://UI/Stats/BossHealthbarFrame.png" id="110_24wiy"]
 [ext_resource type="Texture2D" uid="uid://d0xa3l4brovcr" path="res://UI/Stats/BossHealthbarDamage.png" id="111_0l7n2"]
 [ext_resource type="Texture2D" uid="uid://bg74iei8b148" path="res://UI/Stats/BossHealthbarMycelium.png" id="112_snyj6"]
@@ -4455,6 +4455,7 @@ layout_mode = 2
 texture = ExtResource("28_vkbj3")
 
 [node name="bossHealthMargin" type="MarginContainer" parent="WorldEnvironment/CanvasLayer/FullUI"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
