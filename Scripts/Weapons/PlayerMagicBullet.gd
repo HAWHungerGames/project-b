@@ -24,7 +24,7 @@ func moving(delta):
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("enemy"):
-		body.takeDamage(dmg)
+		body.takeDamage(dmg, "staff")
 		var dmg_position = body.get_node_or_null("DamageNumbersPosition")
 		DamageNumbers.display_number(dmg, dmg_position.global_position)
 		queue_free()

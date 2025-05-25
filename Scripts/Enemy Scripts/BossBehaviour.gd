@@ -103,7 +103,7 @@ func calculateAggression():
 	var meleeKills: float = PlayerActionTracker.meleeKills
 	var totalKills: float = rangedKills + meleeKills
 	aggression += (rangedKills - meleeKills)/totalKills
-	aggression = clamp(aggression, -0.8, 0.8)
+	aggression = clamp(aggression, -0.7, 0.7)
 
 func calculateBlocksAndDashes():
 	var attacksBlocked: float = PlayerActionTracker.attacksBlocked
@@ -111,6 +111,8 @@ func calculateBlocksAndDashes():
 	var totalDodgedAndBlocked: float = attacksBlocked + attacksDodged
 	attacksBlockedPercentage = attacksBlocked / totalDodgedAndBlocked
 	attacksDodgedPercentage = attacksDodged / totalDodgedAndBlocked
+	attacksBlockedPercentage = clamp(attacksBlockedPercentage, 0.3, 0.7)
+	attacksDodgedPercentage = clamp(attacksDodgedPercentage, 0.3, 0.7)
 
 func activateBoss():
 	calculateAggression()
@@ -398,10 +400,16 @@ func sporeAreaAttack(delta):
 func apply_gravity(delta):
 	velocity.y += -gravity * delta
 
-func takeDamage(damage: int):
+func takeDamage(damage: int, type: String):
 	health -= damage
 	if health <= 0 and deathTimer == 10:
 		deathTimer = 8
+		if type == "bow":
+			PlayerActionTracker.bowKills += 1
+		if type == "staff":
+			PlayerActionTracker.staffKills += 1
+		if type == "sword":
+			PlayerActionTracker.meleeKills += 1
 
 func _on_detection_area_entered(area: Area3D) -> void:
 	if area.is_in_group("Player"):

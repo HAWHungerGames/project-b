@@ -37,7 +37,7 @@ func attack(body):
 			dmg *= extraDmg
 			var dmg_position = body.get_node_or_null("DamageNumbersPosition")
 			DamageNumbers.display_number(dmg, dmg_position.global_position)
-			body.takeDamage(dmg)
+			body.takeDamage(dmg, "bow")
 			queue_free()
 			#print("hit")
 		# Fully Charged Bow Attack
@@ -45,7 +45,7 @@ func attack(body):
 			#print(dmg)
 			var dmg_position = body.get_node_or_null("DamageNumbersPosition")
 			DamageNumbers.display_number(dmg * 4, dmg_position.global_position)
-			body.takeDamage(dmg * 4)
+			body.takeDamage(dmg * 4, "bow")
 			#print("hit")
 			
 	elif body.is_in_group("TargetDummy"):
