@@ -76,16 +76,16 @@ transform = Transform3D(-0.0686074, 0, -0.187864, 0, 0.2, 0, 0.187864, 0, -0.068
 transform = Transform3D(-0.100618, 0.154423, -0.0776506, 0.0349701, 0.106178, 0.165841, 0.169272, 0.0698558, -0.080418, 0.309657, 0.231034, 0.51224)
 
 [node name="Skeleton3D" parent="MushroomMany4/piltz/Armature" index="0"]
-bones/0/rotation = Quaternion(0.0272638, 0.00175744, 0.0532235, 0.998209)
-bones/0/scale = Vector3(0.998788, 0.998788, 0.998788)
-bones/1/rotation = Quaternion(0.00612736, -0.00733238, 0.044286, 0.998973)
-bones/1/scale = Vector3(0.995378, 0.995378, 0.995378)
-bones/2/rotation = Quaternion(0.0100008, -0.0125431, 0.0292333, 0.999444)
-bones/2/scale = Vector3(0.966519, 0.966519, 0.966519)
-bones/3/rotation = Quaternion(0.00595783, -0.00739111, 0.0345592, 0.999358)
-bones/3/scale = Vector3(0.966519, 0.966519, 0.966519)
-bones/4/rotation = Quaternion(0.0103236, -0.0124353, 0.0399736, 0.99907)
-bones/4/scale = Vector3(0.998788, 0.998788, 0.998788)
+bones/0/rotation = Quaternion(0.0273, 0.00105263, 0.0274217, 0.999251)
+bones/0/scale = Vector3(0.975615, 0.975615, 0.975615)
+bones/1/rotation = Quaternion(0.00594872, -0.00748581, 0.0189609, 0.999775)
+bones/1/scale = Vector3(0.97391, 0.97391, 0.97391)
+bones/2/rotation = Quaternion(0.0098364, -0.0127517, 0.00864972, 0.999833)
+bones/2/scale = Vector3(0.95948, 0.95948, 0.95948)
+bones/3/rotation = Quaternion(0.0058612, -0.00751504, 0.0139754, 0.999857)
+bones/3/scale = Vector3(0.95948, 0.95948, 0.95948)
+bones/4/rotation = Quaternion(0.010003, -0.012698, 0.014154, 0.999769)
+bones/4/scale = Vector3(0.975615, 0.975615, 0.975615)
 
 [editable path="MushroomMany"]
 [editable path="MushroomMany/piltz"]

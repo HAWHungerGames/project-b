@@ -6,7 +6,16 @@
 
 [node name="mushroom1" parent="." instance=ExtResource("1_pekiv")]
 
+[node name="Skeleton3D" parent="mushroom1/Armature" index="0"]
+bones/0/scale = Vector3(1, 0.999069, 1)
+bones/1/scale = Vector3(0.9997, 0.9997, 0.9997)
+
+[node name="AnimationPlayer" parent="mushroom1" index="1"]
+autoplay = "Idle"
+
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.403997, 0.63412, 0)
 light_color = Color(0.735712, 0.0225644, 0.19055, 1)
 light_energy = 2.0
+
+[editable path="mushroom1"]

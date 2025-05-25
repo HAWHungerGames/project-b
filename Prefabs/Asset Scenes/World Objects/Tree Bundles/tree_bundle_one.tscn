@@ -90,9 +90,15 @@ autoplay = "Idle"
 [node name="MushroomBlue" parent="." instance=ExtResource("3_x7obf")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 1.13131, 0, 0.67587)
 
+[node name="Skeleton3D" parent="MushroomBlue/mushroomBlue/Armature" index="0"]
+bones/0/scale = Vector3(1, 0.824032, 1)
+bones/1/scale = Vector3(0.919094, 0.919094, 0.919094)
+
 [editable path="Baum"]
 [editable path="Baum2"]
 [editable path="tree"]
 [editable path="Baum3"]
 [editable path="Baum4"]
 [editable path="Baum5"]
+[editable path="MushroomBlue"]
+[editable path="MushroomBlue/mushroomBlue"]

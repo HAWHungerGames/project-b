@@ -31,3 +31,15 @@ debug_color = Color(0, 0.647059, 0.196078, 1)
 
 [node name="Bush2" parent="." instance=ExtResource("2_7rqrw")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Bush2/Armature_001" index="0"]
+bones/1/rotation = Quaternion(0.00119438, -0.0002408, 0.000120708, 0.999999)
+bones/2/rotation = Quaternion(0.00317896, -0.000447886, 0.719085, 0.694915)
+bones/3/rotation = Quaternion(-0.002366, 0.000434377, -0.694911, 0.719092)
+bones/4/rotation = Quaternion(-0.704273, 0.0101731, 0.0135178, 0.709728)
+bones/5/rotation = Quaternion(0.709772, -0.0102527, 0.00783952, 0.704314)
+
+[node name="AnimationPlayer" parent="Bush2" index="2"]
+autoplay = "Idle"
+
+[editable path="Bush2"]

@@ -7,21 +7,21 @@
 [node name="Grass2" parent="." instance=ExtResource("1_56ow2")]
 
 [node name="Skeleton3D" parent="Grass2/Grass" index="0"]
-bones/0/rotation = Quaternion(0.0923653, 0.00514365, 0.0621828, 0.993768)
-bones/1/rotation = Quaternion(-0.0841656, -0.0164314, -0.228429, 0.969776)
-bones/2/rotation = Quaternion(-0.144141, -0.0412645, 0.262751, 0.953144)
-bones/3/rotation = Quaternion(0.0957578, -0.00858176, -0.0884699, 0.991428)
-bones/4/rotation = Quaternion(-0.210101, -0.00554177, 0.210216, 0.954797)
-bones/5/rotation = Quaternion(0.084281, 0.0200468, -0.143102, 0.985909)
-bones/6/rotation = Quaternion(-0.103736, 0.00720131, -0.0681855, 0.992239)
-bones/7/rotation = Quaternion(0.119313, -0.0179309, 0.206643, 0.970949)
-bones/8/rotation = Quaternion(0.105519, -0.0379626, -0.261121, 0.95877)
-bones/9/rotation = Quaternion(-0.0823423, 0.00778963, -0.0922511, 0.992295)
-bones/10/rotation = Quaternion(0.167718, 0.000795608, 0.200096, 0.965314)
-bones/11/rotation = Quaternion(-0.0133249, -0.00642981, -0.0402032, 0.999082)
-bones/12/rotation = Quaternion(0.115166, 0.00375594, 0.0328812, 0.992795)
-bones/13/rotation = Quaternion(-0.153686, -0.0116478, -0.167819, 0.973695)
-bones/14/rotation = Quaternion(-0.0701833, -0.0358804, 0.226026, 0.970927)
+bones/0/rotation = Quaternion(0.104669, 0.0178178, 0.076306, 0.991415)
+bones/1/rotation = Quaternion(-0.0686006, -0.00558033, -0.21634, 0.973889)
+bones/2/rotation = Quaternion(-0.135563, -0.0233706, 0.273752, 0.951912)
+bones/3/rotation = Quaternion(0.109832, 0.00205012, -0.0739574, 0.991193)
+bones/4/rotation = Quaternion(-0.200323, 0.0125586, 0.220058, 0.954614)
+bones/5/rotation = Quaternion(0.100539, 0.0313037, -0.154673, 0.982338)
+bones/6/rotation = Quaternion(-0.0896591, 0.0206995, -0.056682, 0.994143)
+bones/7/rotation = Quaternion(0.129113, -0.00404699, 0.221291, 0.966615)
+bones/8/rotation = Quaternion(0.121059, -0.0301275, -0.246785, 0.961007)
+bones/9/rotation = Quaternion(-0.0679518, 0.0206922, -0.080402, 0.994228)
+bones/10/rotation = Quaternion(0.177761, 0.0138761, 0.215112, 0.960175)
+bones/11/rotation = Quaternion(0.00026744, 0.00640403, -0.0272744, 0.999607)
+bones/12/rotation = Quaternion(0.127821, 0.0157232, 0.0472675, 0.990545)
+bones/13/rotation = Quaternion(-0.13878, 0.000968914, -0.156704, 0.977846)
+bones/14/rotation = Quaternion(-0.060828, -0.0191848, 0.237949, 0.969181)
 
 [node name="AnimationPlayer" parent="Grass2" index="1"]
 autoplay = "im-Wind-wehen"
