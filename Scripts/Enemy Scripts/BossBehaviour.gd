@@ -52,9 +52,9 @@ var teleportSmoke: PackedScene = preload("res://Prefabs/Enemies/Boss_Teleport_Sm
 
 @onready var death_spores = GameManager.get_child_by_name(self, "DeathSpores")
 
-var aggression
-var attacksBlockedPercentage: float
-var attacksDodgedPercentage: float
+var aggression: float = 0
+var attacksBlockedPercentage: float = 0
+var attacksDodgedPercentage: float = 0
 var player
 var detectedPlayer: bool = false
 var playerInSporeArea: bool = false
@@ -148,8 +148,6 @@ func determineNextAction():
 		var randomBlockValue: float = rng.randf_range(0.0, 1.0)
 		var AreaAttackChance: float = rng.randf_range(0.0, 1.0)
 		
-		aggression = rng.randf_range(0.0, 1.0)
-		attacksBlockedPercentage = rng.randf_range(0.0, 1.0)
 		
 		if AreaAttackChance < aggression and sporeTime <= 0:
 			actionType = actionTypes.POISON_CLOUD_ATTACK
