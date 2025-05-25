@@ -1,4 +1,4 @@
-[gd_scene load_steps=121 format=3 uid="uid://17sawqr1a5sd"]
+[gd_scene load_steps=124 format=3 uid="uid://17sawqr1a5sd"]
 
 [ext_resource type="Material" uid="uid://41byjnpqi8jl" path="res://Materials/TestBush.tres" id="1_3f6q6"]
 [ext_resource type="PackedScene" uid="uid://bo6t8u3r6w260" path="res://Prefabs/Asset Scenes/World Objects/Nature/Plants/grass_ground.tscn" id="2_5i7v7"]
@@ -109,8 +109,9 @@
 [ext_resource type="PackedScene" uid="uid://ddb5qsl2pw4p2" path="res://Prefabs/Enemies/enemy_spores.tscn" id="76_lyv0c"]
 [ext_resource type="PackedScene" uid="uid://do1xe3tqii0no" path="res://Prefabs/Enemies/enemy_explosion.tscn" id="77_derlu"]
 [ext_resource type="Script" uid="uid://cud6ytedl0vjp" path="res://Scripts/Sound/music_manager.gd" id="77_sl0tm"]
-[ext_resource type="AudioStream" uid="uid://bfky37dcfo6mm" path="res://Assets/Sound/Music/StartingArea.wav" id="78_tumgl"]
+[ext_resource type="AudioStream" uid="uid://2hl6uhpiuiny" path="res://Assets/Sound/SFX/AreaAssets/StrawPuppet/StrawPuppetHit_1.wav" id="78_snyj6"]
 [ext_resource type="AudioStream" uid="uid://4w1umfo3fwsr" path="res://Assets/Sound/Music/Background (OutOfBattle).wav" id="79_tumgl"]
+[ext_resource type="AudioStream" uid="uid://dt4qfdh0xbfbx" path="res://Assets/Sound/Music/BattleMusic.wav" id="80_24wiy"]
 [ext_resource type="AudioStream" uid="uid://c772vjw0wtmyn" path="res://Assets/Sound/Music/BossFight.wav" id="80_snyj6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lfy4s"]
@@ -128,8 +129,14 @@ sky = SubResource("Sky_qcrt0")
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_oxcgu"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_snyj6"]
+size = Vector3(86.5605, 8.92017, 62.0339)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_sl0tm"]
-size = Vector3(69.9304, 3.36621, 37.0212)
+size = Vector3(134.465, 3.36621, 189.526)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_snyj6"]
+radius = 27.8467
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qsm0h"]
 shader = ExtResource("19_jp8xc")
@@ -224,7 +231,7 @@ transform = Transform3D(0.683032, 0, 0.730389, 0, 1, 0, -0.730389, 0, 0.683032, 
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -17.6828, 1.17827, -35.771)
 
 [node name="Door" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Tutorial Room/Walls/North" instance=ExtResource("12_1bu8d")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.472297, -34.3258)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 16.472, -34.3258)
 
 [node name="brokenWallWith2Trees" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Tutorial Room/Walls/North" instance=ExtResource("8_qcrt0")]
 transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, 12.0899, 0.8, -34.9749)
@@ -1668,7 +1675,7 @@ transform = Transform3D(0.999826, 0, 0.0186739, 0, 1, 0, -0.0186739, 0, 0.999826
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.27612, 0.534815, 1.37947)
 
 [node name="PathStoneThree" parent="WorldEnvironment/World/Nav Exclusion/Room 1/Ground/PathBackToDoor" instance=ExtResource("5_p74uf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.875389, 0.534815, 1.48032)
+transform = Transform3D(1, 0, -1.86265e-09, 0, 1, 0, 1.86265e-09, 0, 1, 0.875389, 0.534815, 1.48032)
 
 [node name="PathStoneTen" parent="WorldEnvironment/World/Nav Exclusion/Room 1/Ground/PathBackToDoor" instance=ExtResource("12_u212g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23398, 0.534815, -0.704803)
@@ -3400,7 +3407,7 @@ transform = Transform3D(-0.896884, 0.128859, -0.423077, 0.142214, 0.989836, 0, 0
 script = ExtResource("77_sl0tm")
 
 [node name="StartingArea(Track0)" type="AudioStreamPlayer" parent="WorldEnvironment/World/MusicManager"]
-stream = ExtResource("78_tumgl")
+stream = ExtResource("78_snyj6")
 bus = &"Music"
 
 [node name="BGMusic(Track1)" type="AudioStreamPlayer" parent="WorldEnvironment/World/MusicManager"]
@@ -3408,22 +3415,35 @@ stream = ExtResource("79_tumgl")
 bus = &"Music"
 
 [node name="BattelMusic(Track2)" type="AudioStreamPlayer" parent="WorldEnvironment/World/MusicManager"]
+stream = ExtResource("80_24wiy")
+bus = &"Music"
 
 [node name="BossFight(Track3)" type="AudioStreamPlayer" parent="WorldEnvironment/World/MusicManager"]
 stream = ExtResource("80_snyj6")
+bus = &"Music"
 
 [node name="Fade_Track0" type="Area3D" parent="WorldEnvironment/World/MusicManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30.3717)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/World/MusicManager/Fade_Track0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.20361, 25.2436)
+shape = SubResource("BoxShape3D_snyj6")
 
 [node name="Fade_Track1" type="Area3D" parent="WorldEnvironment/World/MusicManager"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7865, -39.5976)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/World/MusicManager/Fade_Track1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.23181, 0, -16.5668)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.23181, 0, -95.6548)
 shape = SubResource("BoxShape3D_sl0tm")
 
 [node name="Fade_Track2" type="Area3D" parent="WorldEnvironment/World/MusicManager"]
 
 [node name="Fade_Track3" type="Area3D" parent="WorldEnvironment/World/MusicManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.20296, 2.40812, -252.717)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/World/MusicManager/Fade_Track3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.75513)
+shape = SubResource("CylinderShape3D_snyj6")
 
 [node name="Grey Box World" type="Node3D" parent="WorldEnvironment"]
 
@@ -3562,8 +3582,11 @@ script = ExtResource("5_24xrm")
 
 [node name="Player" parent="WorldEnvironment" instance=ExtResource("6_0ctdn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-speed = 8.0
+speed = 5.5
+staminaCostPerDash = 25
 dashMaxCooldown = 0.5
+sneakSpeedModifier = 2.25
+healthPerSecond = 25.0
 manaPerSecond = 40.0
 
 [node name="InteractRayCast" parent="WorldEnvironment/Player/Controller/Model" index="2" instance=ExtResource("4_1ee8w")]

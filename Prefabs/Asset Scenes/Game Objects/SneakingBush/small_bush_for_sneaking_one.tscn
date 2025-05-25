@@ -21,13 +21,11 @@ skeleton = NodePath("../..")
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bush1/StaticBody3D" groups=["World"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_1267e")
 
 [node name="Bush3" type="Area3D" parent="Bush1" groups=["Bush"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bush1/Bush3" groups=["Bush"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_5ramj")
 debug_color = Color(0, 0.647059, 0.196078, 1)
 

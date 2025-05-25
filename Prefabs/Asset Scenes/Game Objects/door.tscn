@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dcsqxh8ksn77m"]
+[gd_scene load_steps=23 format=3 uid="uid://dcsqxh8ksn77m"]
 
 [ext_resource type="Script" uid="uid://bqwde0hhdtnbd" path="res://Scripts/Assets/Door.gd" id="1_urwcp"]
 [ext_resource type="PackedScene" uid="uid://uis0puhqo5yl" path="res://Prefabs/Asset Scenes/World Objects/Nature/Trees/tree_round.tscn" id="2_vets3"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bbunaqymstlo4" path="res://Prefabs/Asset Scenes/World Objects/Nature/Rocks/rock_one.tscn" id="9_351bd"]
 [ext_resource type="PackedScene" uid="uid://bpog55qglxd8s" path="res://Prefabs/Asset Scenes/World Objects/Nature/Mushrooms/mushroom_red.tscn" id="10_351bd"]
 [ext_resource type="Texture2D" uid="uid://cfuxi6d678l45" path="res://Assets/Kenney Particles Transparent Background/smoke_04.png" id="11_hh1ye"]
+[ext_resource type="AudioStream" uid="uid://cngmak0u3gkq8" path="res://Assets/Sound/SFX/Battle/MagicWand/MagicWandAttack/MagicWandAttack_3.wav" id="12_nvalq"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_dy4fv"]
 
@@ -334,6 +335,13 @@ preprocess = 2.49
 randomness = 0.1
 process_material = SubResource("ParticleProcessMaterial_ak1ux")
 draw_pass_1 = SubResource("QuadMesh_06482")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("12_nvalq")
+volume_db = -7.5
+unit_size = 30.0
+pitch_scale = 1.4
+bus = &"SFX"
 
 [editable path="Deco/Baum"]
 [editable path="Deco/Baum2"]
