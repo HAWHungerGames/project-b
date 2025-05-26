@@ -283,6 +283,7 @@ script = ExtResource("7_ghq20")
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = SubResource("AudioStreamRandomizer_qj41e")
 volume_db = -20.0
+bus = &"SFX"
 
 [connection signal="area_entered" from="HearingArea" to="." method="_on_hearing_area_entered"]
 [connection signal="area_exited" from="HearingArea" to="." method="_on_hearing_area_exited"]

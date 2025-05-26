@@ -350,15 +350,17 @@ shape = SubResource("CapsuleShape3D_k711p")
 [node name="RollingAudio" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("8_cpecf")
 volume_db = -10.0
-unit_size = 2.5
+unit_size = 5.0
 pitch_scale = 1.5
 autoplay = true
 max_distance = 30.0
+bus = &"SFX"
 
 [node name="ExplosionAudio" type="AudioStreamPlayer3D" parent="."]
 stream = SubResource("AudioStreamRandomizer_rpsj5")
 volume_db = -20.0
 pitch_scale = 1.2
+bus = &"SFX"
 
 [connection signal="area_entered" from="HearingArea" to="." method="_on_hearing_area_entered"]
 [connection signal="area_exited" from="HearingArea" to="." method="_on_hearing_area_exited"]

@@ -377,7 +377,9 @@ shape = SubResource("BoxShape3D_2kxcm")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = SubResource("AudioStreamRandomizer_sxqqx")
+volume_db = -15.0
 pitch_scale = 2.0
+bus = &"SFX"
 
 [connection signal="area_entered" from="HearingArea" to="." method="_on_hearing_area_entered"]
 [connection signal="area_exited" from="HearingArea" to="." method="_on_hearing_area_exited"]
