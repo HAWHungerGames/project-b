@@ -1019,9 +1019,9 @@ transform = Transform3D(0.449731, -0.115792, 0.560079, 0.159119, 0.709701, 0.018
 [node name="BossAreana" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D" instance=ExtResource("49_wiwy5")]
 transform = Transform3D(-0.70461, 0, 6.1599e-08, 0, 0.70461, 0, -6.1599e-08, 0, -0.70461, 9.26647, -2.7374, -254.024)
 
-[node name="@StaticBody3D@21986" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/BossAreana" index="1" groups=["World"]]
+[node name="@StaticBody3D@23203" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/BossAreana" index="1" groups=["World"]]
 
-[node name="CollisionShape3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/BossAreana/@StaticBody3D@21986" index="0" groups=["World"]]
+[node name="CollisionShape3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/BossAreana/@StaticBody3D@23203" index="0" groups=["World"]]
 
 [node name="ExtraCollision2" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/BossAreana" groups=["World"] instance=ExtResource("15_1tgbn")]
 transform = Transform3D(1.86109e-07, 0, -2.38503, 0, 1.41922, 0, 1.41922, 0, 3.1276e-07, 30.1211, 16.3037, 2.62225)
