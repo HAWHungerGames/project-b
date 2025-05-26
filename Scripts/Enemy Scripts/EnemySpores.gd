@@ -139,6 +139,7 @@ func rotateToPlayer():
 
 func takeDamage(damage: int, type: String):
 	health -= damage
+	$AudioStreamPlayer3D.play()
 	if health <= 0 and deathTimer == 10:
 		deathTimer = 8
 		if type == "bow":

@@ -153,6 +153,7 @@ func attack(delta):
 func explode():
 	paricles.emitting = true
 	mesh.visible = false
+	$ExplosionAudio.play()
 	if isInDamageArea:
 		player.takeDamage(attackDamage, self, false, 0)
 		isInDamageArea = false

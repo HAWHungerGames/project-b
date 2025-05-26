@@ -3797,17 +3797,17 @@ bus = &"SFX"
 
 [node name="DashSFX" type="AudioStreamPlayer3D" parent="WorldEnvironment/Player/Controller/PlayerAudio"]
 stream = SubResource("AudioStreamRandomizer_bull7")
-volume_db = -10.0
+volume_db = -25.0
 bus = &"SFX"
 
 [node name="NoStaminaSFX" type="AudioStreamPlayer3D" parent="WorldEnvironment/Player/Controller/PlayerAudio"]
 stream = SubResource("AudioStreamRandomizer_3ulng")
-volume_db = -3.0
+volume_db = -10.0
 bus = &"SFX"
 
 [node name="BushEntedSFX" type="AudioStreamPlayer3D" parent="WorldEnvironment/Player/Controller/PlayerAudio"]
 stream = SubResource("AudioStreamRandomizer_4vflu")
-volume_db = -5.0
+volume_db = -10.0
 bus = &"SFX"
 
 [node name="DebugUI" parent="WorldEnvironment/Player" index="1"]

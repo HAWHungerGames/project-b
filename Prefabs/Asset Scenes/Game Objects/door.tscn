@@ -339,7 +339,7 @@ draw_pass_1 = SubResource("QuadMesh_06482")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("12_nvalq")
-volume_db = -7.5
+volume_db = -25.0
 unit_size = 30.0
 pitch_scale = 1.4
 bus = &"SFX"
