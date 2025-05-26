@@ -59,11 +59,11 @@ var can_toggle_display = true
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	if timer != null:
-		timer = text_field.get_child(1)
+	if text_field != null:
+		timer = text_field.find_child("timer")
 		timer.timeout.connect(_on_timer_finished)
 	print(get_tree().current_scene)
-	
+	print(text_field)
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") && get_tree().paused:
 		toggle_display_text("None", false)
@@ -88,16 +88,22 @@ func get_controller_input_key(action: String, controller_connected: bool) -> Str
 	return button_mappings[current_controller.to_lower()][action.to_lower()]
 
 func toggle_display_text(sign_name: String, text_displayed: bool):
+	text_field = get_tree().current_scene.find_child("textField")
+	stats = get_tree().current_scene.find_child("stats")
+	timer = text_field.find_child("timer")
+	timer.timeout.connect(_on_timer_finished)
+	print(text_field)
 	if !can_toggle_display:
 		return
 	can_toggle_display = false
-	var text: String = "INTERACT_TOOLTIP_" + sign_name.to_upper().split("_")[-1]
+	var text: String = tr("INTERACT_TOOLTIP_" + sign_name.to_upper().split("_")[-1])
 	var display_text: TextEdit = text_field.get_child(0).get_child(0)
 	text_field.visible = text_displayed
 	display_text.text = text
 	stats.visible = !text_displayed
 	get_tree().paused = text_displayed
-	timer.start()
+	if timer != null:
+		timer.start()
 
 func _on_timer_finished():
 	can_toggle_display = true

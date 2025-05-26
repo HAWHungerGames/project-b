@@ -1,0 +1,178 @@
+[gd_scene load_steps=13 format=3 uid="uid://ds6gmifu8e6ru"]
+
+[ext_resource type="Script" uid="uid://bhg08x8jrhnd8" path="res://Prefabs/Asset Scenes/UI/win_menu.gd" id="1_0rs4q"]
+[ext_resource type="Texture2D" uid="uid://t8xpfim77iam" path="res://UI/Menus/Buttons/ButtonTexture.png" id="2_mvhwa"]
+[ext_resource type="FontFile" uid="uid://4l406r67702d" path="res://UI/Fonts/DidactGothic-Regular.ttf" id="3_oo5rr"]
+[ext_resource type="Texture2D" uid="uid://ci8xqo4vdx5av" path="res://UI/Menus/Buttons/ButtonTexture2.png" id="4_u3n5p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_68exk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_878x1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mhamm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_von7n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d0702"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m5o25"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b83yc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v5oox"]
+
+[node name="Win" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="winMenu" type="MarginContainer" parent="."]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0rs4q")
+
+[node name="win_blackscreen" type="ColorRect" parent="winMenu"]
+process_mode = 3
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="blendScreen" type="ColorRect" parent="winMenu"]
+process_mode = 3
+modulate = Color(1, 1, 1, 0)
+z_index = 6
+layout_mode = 2
+color = Color(0, 0, 0, 0)
+
+[node name="winMenuContainer" type="VBoxContainer" parent="winMenu"]
+process_mode = 3
+z_index = 5
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer2" type="MarginContainer" parent="winMenu/winMenuContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = -200
+
+[node name="danke" type="Label" parent="winMenu/winMenuContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_oo5rr")
+theme_override_font_sizes/font_size = 50
+text = "INTERACT_WIN"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="winMenu/winMenuContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="winMenu/winMenuContainer/MarginContainer"]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="buttonMargin" type="MarginContainer" parent="winMenu/winMenuContainer/MarginContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="buttons" type="VBoxContainer" parent="winMenu/winMenuContainer/MarginContainer/NinePatchRect/buttonMargin"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="buttonsRetry" type="HBoxContainer" parent="winMenu/winMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="buttonSelectLeftResume" type="TextureRect" parent="winMenu/winMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsRetry"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_mvhwa")
+expand_mode = 1
+
+[node name="main_menu" type="Button" parent="winMenu/winMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsRetry"]
+custom_minimum_size = Vector2(180, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("3_oo5rr")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_68exk")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_878x1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_mhamm")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_von7n")
+text = "BUTTON_EXIT_TO_MENU"
+
+[node name="buttonSelectRightResume" type="TextureRect" parent="winMenu/winMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsRetry"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_u3n5p")
+expand_mode = 1
+
+[node name="buttonsExit" type="HBoxContainer" parent="winMenu/winMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="buttonSelectLeftExit" type="TextureRect" parent="winMenu/winMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_mvhwa")
+expand_mode = 1
+
+[node name="exit" type="Button" parent="winMenu/winMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("3_oo5rr")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d0702")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_m5o25")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_b83yc")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_v5oox")
+text = "BUTTON_EXIT_GAME"
+
+[node name="buttonSelectRightExit" type="TextureRect" parent="winMenu/winMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_u3n5p")
+expand_mode = 1
+
+[connection signal="focus_entered" from="winMenu/winMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsRetry/main_menu" to="winMenu" method="_on_retry_hover_enter"]
+[connection signal="focus_exited" from="winMenu/winMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsRetry/main_menu" to="winMenu" method="_on_retry_hover_exit"]
+[connection signal="mouse_entered" from="winMenu/winMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsRetry/main_menu" to="winMenu" method="_on_retry_hover_enter"]
+[connection signal="mouse_exited" from="winMenu/winMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsRetry/main_menu" to="winMenu" method="_on_retry_hover_exit"]
+[connection signal="pressed" from="winMenu/winMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsRetry/main_menu" to="winMenu" method="_on_retry_pressed"]
+[connection signal="focus_entered" from="winMenu/winMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit/exit" to="winMenu" method="_on_exit_hover_enter"]
+[connection signal="focus_exited" from="winMenu/winMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit/exit" to="winMenu" method="_on_exit_hover_exit"]
+[connection signal="mouse_entered" from="winMenu/winMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit/exit" to="winMenu" method="_on_exit_hover_enter"]
+[connection signal="mouse_exited" from="winMenu/winMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit/exit" to="winMenu" method="_on_exit_hover_exit"]
+[connection signal="pressed" from="winMenu/winMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit/exit" to="winMenu" method="_on_exit_pressed"]

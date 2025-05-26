@@ -9,5 +9,5 @@ func activate_particles_to_boss():
 	material.direction = direction
 	material.gravity = direction
 	self.emitting = true
-	await get_tree().create_timer(10).timeout
+	await get_tree().create_timer(15).timeout
 	queue_free()

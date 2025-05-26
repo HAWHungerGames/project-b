@@ -269,9 +269,10 @@ draw_pass_1 = SubResource("QuadMesh_mdglc")
 script = ExtResource("5_qq2hi")
 
 [node name="EnemyToBoss" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.2)
 emitting = false
 amount = 40
-lifetime = 8.0
+lifetime = 12.0
 one_shot = true
 explosiveness = 1.0
 visibility_aabb = AABB(0, 0, 0, 0.01, 0.01, 0.01)

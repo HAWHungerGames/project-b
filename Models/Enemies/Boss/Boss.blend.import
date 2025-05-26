@@ -3,12 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dpvom7f6ll5un"
-valid=false
+uid="uid://tlo6yqcgkttg"
+path="res://.godot/imported/Boss.blend-e9f0769b6da5a1705054b5c2512a2899.scn"
 
 [deps]
 
 source_file="res://Models/Enemies/Boss/Boss.blend"
+dest_files=["res://.godot/imported/Boss.blend-e9f0769b6da5a1705054b5c2512a2899.scn"]
 
 [params]
 

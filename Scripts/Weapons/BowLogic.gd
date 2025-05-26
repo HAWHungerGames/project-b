@@ -18,5 +18,5 @@ func spawn_bullet():
 	var mouse_position = GameManager.get_mouse_ground_position_fixed(self)
 	bullet_intance.position = ray_position.global_position
 	var direction_bullet = (mouse_position - bullet_intance.position)
-	bullet_intance.transform.basis = Basis.looking_at(direction_bullet, Vector3.UP)
+	bullet_intance.transform.basis = direction.transform.basis
 	world.add_child(bullet_intance)

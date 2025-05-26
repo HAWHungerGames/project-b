@@ -1,25 +1,27 @@
 extends MarginContainer
 
-@onready var death_menu = $deathMenuContainer
-@onready var buttonsRetry = $deathMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsRetry
-@onready var buttonsExit = $deathMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit
+@onready var boss = get_tree().current_scene.find_child("BossEnemy")
+
+@onready var win_menu = $winMenuContainer
+@onready var buttonsRetry = $winMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsRetry
+@onready var buttonsExit = $winMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsExit
 
 @onready var blendScreen = $blendScreen
-@onready var death_black_screen = $death_blackscreen
+@onready var win_black_screen = $win_blackscreen
 
 @onready var player = GlobalPlayer.getPlayer()
 func _ready() -> void:
-	player.healthChanged.connect(fade_in_death_screen)
-func fade_in_death_screen():
-	print(player.health)
-	if player.health > 0:
-		return
-	death_menu.visible = true
-	death_menu.z_index = 0
+	print(boss)
+	fade_in_win_screen()
+func fade_in_win_screen():
+	print("boss dead")
+	await get_tree().create_timer(3).timeout
+	win_menu.visible = true
+	win_menu.z_index = 4
 	buttonsRetry.grab_focus()
 	get_tree().paused = true
 	var tween = create_tween()
-	tween.tween_property(death_black_screen, "modulate:a", 1.0, 1.0)
+	tween.tween_property(win_black_screen, "modulate:a", 1.0, 1.0)
 	
 func _on_retry_hover_enter() -> void:
 	print("hovered")
@@ -51,22 +53,22 @@ func _on_retry_pressed() -> void:
 	print("presed")
 	blendScreen.process_mode = Node.PROCESS_MODE_ALWAYS
 	blendScreen.z_index = 5
-	death_menu.z_index = -1
+	win_menu.z_index = -1
 	var tween = create_tween()
 	tween.tween_property(blendScreen, "modulate:a", 1.0, 1.0)
 	tween.play()
 	await get_tree().create_timer(2).timeout
 	SceneManager.game_scene.emit()
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://Scenes/Main Game Scene.tscn")
+	get_tree().change_scene_to_file("res://Prefabs/Asset Scenes/UI/TitleScreen.tscn")
 
 	
 func _on_exit_pressed() -> void:
 	SceneManager.main_scene.emit()
+	win_menu.z_index = -1
 	blendScreen.z_index = 2
 	var tween = create_tween()
 	tween.tween_property(blendScreen, "modulate:a", 1.0, 1.0)
 	tween.play()
 	await get_tree().create_timer(2).timeout
-	get_tree().paused = false
-	get_tree().change_scene_to_file("res://Prefabs/Asset Scenes/UI/TitleScreen.tscn")
+	get_tree().quit()

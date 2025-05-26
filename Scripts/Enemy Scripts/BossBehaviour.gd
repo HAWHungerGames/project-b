@@ -7,7 +7,7 @@ extends CharacterBody3D
 @export var movePoints: Array[Node3D]
 
 @export_subgroup("Enemy Stats")
-@export var health: float = 2000
+@export var health: float = 1000
 @export var speed: float = 4
 @export var acceleration: float = 3
 
@@ -51,6 +51,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var bulletScene: PackedScene = preload("res://Prefabs/enemies/enemy_bullet.tscn")
 var explosionEnemy: PackedScene = preload("res://Prefabs/enemies/enemy_explosion.tscn")
 var teleportSmoke: PackedScene = preload("res://Prefabs/Enemies/Boss_Teleport_Smoke.tscn")
+var win: PackedScene = preload("res://Prefabs/Asset Scenes/UI/win.tscn")
 
 @onready var death_spores = GameManager.get_child_by_name(self, "DeathSpores")
 
@@ -83,6 +84,7 @@ var actionType = actionTypes.NONE
 var actionTime: float = 0
 
 signal health_changed
+signal boss_died
 
 func _ready():
 	calculateAggression()
@@ -122,7 +124,7 @@ func activateBoss():
 	calculateAggression()
 	calculateBlocksAndDashes()
 	active = true
-	#health_bar.visible = true
+	health_bar.visible = true
 
 func actionManager(delta):
 	var playerPosition = player.get_child(0).global_position
@@ -302,9 +304,12 @@ func die(delta):
 	if deathTimer < 10:
 		deathTimer -= delta
 	if deathTimer >= 5 and deathTimer <= 9:
+		var win_scene = win.instantiate()
+		get_tree().current_scene.find_child("CanvasLayer").add_child(win_scene)
 		animationPlayer.stop()
 		animationPlayer.play("Die")
 		deathTimer = 3.9167
+		
 
 
 func spearAttackAction(delta, playerPosition):

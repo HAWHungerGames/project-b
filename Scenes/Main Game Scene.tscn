@@ -1,4 +1,4 @@
-[gd_scene load_steps=162 format=3 uid="uid://17sawqr1a5sd"]
+[gd_scene load_steps=168 format=3 uid="uid://17sawqr1a5sd"]
 
 [ext_resource type="Material" uid="uid://41byjnpqi8jl" path="res://Materials/TestBush.tres" id="1_3f6q6"]
 [ext_resource type="PackedScene" uid="uid://bo6t8u3r6w260" path="res://Prefabs/Asset Scenes/World Objects/Nature/Plants/grass_ground.tscn" id="2_5i7v7"]
@@ -113,6 +113,7 @@
 [ext_resource type="AudioStream" uid="uid://clf37jshdxs2f" path="res://Assets/Sound/SFX/Ambience/Ambience_Forest.wav" id="82_74x1l"]
 [ext_resource type="PackedScene" uid="uid://drdm7buu34xes" path="res://Prefabs/Asset Scenes/UI/text.tscn" id="84_4qm2b"]
 [ext_resource type="PackedScene" uid="uid://djdcvh5h1c6bq" path="res://Prefabs/Enemies/enemy_explosion_placeable.tscn" id="86_1sds5"]
+[ext_resource type="PackedScene" uid="uid://baa5sq5o22o5g" path="res://Prefabs/indicator.tscn" id="87_wowqq"]
 [ext_resource type="AudioStream" uid="uid://dlv0u36m0qafj" path="res://Assets/Sound/SFX/Player/Damage_Taken/Damage_Taken_1.wav" id="90_kmopm"]
 [ext_resource type="AudioStream" uid="uid://bbot8a4pf5yu1" path="res://Assets/Sound/SFX/Player/Damage_Taken/Damage_Taken_2.wav" id="91_hm154"]
 [ext_resource type="AudioStream" uid="uid://dvgiqgcq1o8f2" path="res://Assets/Sound/SFX/Player/Damage_Taken/Damage_Taken_3.wav" id="92_y505b"]
@@ -321,9 +322,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.679
 
 [node name="Sign_weapons" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Tutorial Room/GameObjects" instance=ExtResource("49_lfy4s")]
 transform = Transform3D(0.683032, 0, 0.730389, 0, 1, 0, -0.730389, 0, 0.683032, -6.85491, 0.500962, -9.82267)
-
-[node name="Sign2" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Tutorial Room/GameObjects" instance=ExtResource("49_lfy4s")]
-transform = Transform3D(0.683032, 0, 0.730389, 0, 1, 0, -0.730389, 0, 0.683032, -6.2459, 0.500962, -30.2364)
 
 [node name="Walls" type="Node3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Tutorial Room"]
 
@@ -1022,9 +1020,9 @@ transform = Transform3D(0.449731, -0.115792, 0.560079, 0.159119, 0.709701, 0.018
 [node name="BossAreana" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D" instance=ExtResource("49_wiwy5")]
 transform = Transform3D(-0.70461, 0, 6.1599e-08, 0, 0.70461, 0, -6.1599e-08, 0, -0.70461, 9.26647, -2.7374, -254.024)
 
-[node name="@StaticBody3D@21970" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/BossAreana" index="1" groups=["World"]]
+[node name="@StaticBody3D@23203" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/BossAreana" index="1" groups=["World"]]
 
-[node name="CollisionShape3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/BossAreana/@StaticBody3D@21970" index="0" groups=["World"]]
+[node name="CollisionShape3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/BossAreana/@StaticBody3D@23203" index="0" groups=["World"]]
 
 [node name="ExtraCollision2" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/BossAreana" groups=["World"] instance=ExtResource("15_1tgbn")]
 transform = Transform3D(1.86109e-07, 0, -2.38503, 0, 1.41922, 0, 1.41922, 0, 3.1276e-07, 30.1211, 16.3037, 2.62225)
@@ -1074,14 +1072,13 @@ transform = Transform3D(-1.16778, 0, -0.806527, 0, 1.41922, 0, 0.806527, 0, -1.1
 collision_layer = 4
 
 [node name="Area3D" type="Area3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/BossAreana"]
-transform = Transform3D(-1.41922, 0, -1.24073e-07, 0, 1.41922, 0, 1.24073e-07, 0, -1.41922, -2.0152, 3.88499, -2.08911)
+transform = Transform3D(-1.41922, 0, -1.24073e-07, 0, 1.41922, 0, 1.24073e-07, 0, -1.41922, -1.99246, 3.91521, -2.04382)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/BossAreana/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.39969, -4.60628)
 shape = SubResource("CylinderShape3D_3ulng")
 
 [node name="BossDoor" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/BossAreana" instance=ExtResource("51_k5bpt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.147423, 0.823159, -33.8091)
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/BossAreana" groups=["World"]]
 
@@ -3652,6 +3649,48 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.7486, 0, -135.172)
 [node name="SporeEnemy" parent="WorldEnvironment/Enemies/Room 3" groups=["enemy"] instance=ExtResource("76_lyv0c")]
 transform = Transform3D(-0.274647, 0, -0.961545, 0, 1, 0, 0.961545, 0, -0.274647, 3.7037, 1.53342, 6.36601)
 
+[node name="Burt_head" parent="WorldEnvironment/Enemies/Room 3/SporeEnemy/Mesh/Armature/Skeleton3D" index="0"]
+transform = Transform3D(1, 5.62733e-17, 0, -5.62733e-17, 1, -7.4535e-10, 0, 7.4535e-10, 1, 0.0270495, 1.48622, 7.31088e-08)
+
+[node name="Eys" parent="WorldEnvironment/Enemies/Room 3/SporeEnemy/Mesh/Armature/Skeleton3D" index="1"]
+transform = Transform3D(1, 5.62733e-17, 0, -5.62733e-17, 1, -7.4535e-10, 0, 7.4535e-10, 1, 0.650254, 1.73279, 0.00731646)
+
+[node name="Hat" parent="WorldEnvironment/Enemies/Room 3/SporeEnemy/Mesh/Armature/Skeleton3D" index="2"]
+transform = Transform3D(1, 5.62733e-17, 0, -5.62733e-17, 1, -7.4535e-10, 0, 7.4535e-10, 1, 0.130813, 1.48119, 7.31051e-08)
+
+[node name="BafallHut" parent="WorldEnvironment/Enemies/Room 3/SporeEnemy/Mesh/Armature/Skeleton3D" index="3"]
+transform = Transform3D(1, 5.62733e-17, 0, -5.62733e-17, 1, -7.4535e-10, 0, 7.4535e-10, 1, -0.0107317, 1.99549, 0.109385)
+
+[node name="Burt_Leg_R" parent="WorldEnvironment/Enemies/Room 3/SporeEnemy/Mesh/Armature/Skeleton3D" index="4"]
+transform = Transform3D(0.993175, 0.00285345, -0.116597, 0.0055699, 0.9974, 0.0718535, 0.116499, -0.0720126, 0.990577, -0.0664261, -0.0230662, -0.418582)
+
+[node name="Burt_Leg_L" parent="WorldEnvironment/Enemies/Room 3/SporeEnemy/Mesh/Armature/Skeleton3D" index="5"]
+transform = Transform3D(0.999598, -0.00390977, 0.0280679, 0.00778942, 0.990194, -0.139478, -0.0272474, 0.13964, 0.989827, -0.0664262, -0.0230668, 0.418582)
+
+[node name="Burt_Leg_L_Beffal" parent="WorldEnvironment/Enemies/Room 3/SporeEnemy/Mesh/Armature/Skeleton3D" index="6"]
+transform = Transform3D(0.999598, -0.00390977, 0.0280679, 0.00778942, 0.990194, -0.139478, -0.0272474, 0.13964, 0.989827, 0.126875, -0.318313, 0.544358)
+
+[node name="Burt_Arm_L" parent="WorldEnvironment/Enemies/Room 3/SporeEnemy/Mesh/Armature/Skeleton3D" index="7"]
+transform = Transform3D(1, -3.2299e-08, -6.11781e-08, -3.76086e-08, 0.488427, -0.872605, 5.80654e-08, 0.872605, 0.488427, -0.127849, 1.23617, 0.573658)
+
+[node name="Burt_Beffal_Arm_L" parent="WorldEnvironment/Enemies/Room 3/SporeEnemy/Mesh/Armature/Skeleton3D" index="8"]
+transform = Transform3D(1, -3.2299e-08, -6.11781e-08, -3.76086e-08, 0.488427, -0.872605, 5.80654e-08, 0.872605, 0.488427, -0.0646546, 0.613476, 1.03281)
+
+[node name="Burt_Arm_R" parent="WorldEnvironment/Enemies/Room 3/SporeEnemy/Mesh/Armature/Skeleton3D" index="9"]
+transform = Transform3D(1, -8.75057e-08, -6.13998e-08, 9.84176e-08, 0.529443, 0.848345, -4.17273e-08, -0.848345, 0.529443, -0.127849, 1.22982, -0.56892)
+
+[node name="Burt_Beffal_Arm_R" parent="WorldEnvironment/Enemies/Room 3/SporeEnemy/Mesh/Armature/Skeleton3D" index="10"]
+transform = Transform3D(1, -8.75057e-08, -6.13998e-08, 9.84176e-08, 0.529443, 0.848345, -4.17273e-08, -0.848345, 0.529443, -0.204667, 0.557059, -1.09776)
+
+[node name="Burt_Body" parent="WorldEnvironment/Enemies/Room 3/SporeEnemy/Mesh/Armature/Skeleton3D" index="11"]
+transform = Transform3D(1, -1.12546e-16, 0, 1.12546e-16, 1, 6.21725e-15, 0, -6.21725e-15, 1, 7.45058e-09, 0.494698, 7.91624e-09)
+
+[node name="BeffalKörper" parent="WorldEnvironment/Enemies/Room 3/SporeEnemy/Mesh/Armature/Skeleton3D" index="12"]
+transform = Transform3D(1, -1.12546e-16, 0, 1.12546e-16, 1, 6.21725e-15, 0, -6.21725e-15, 1, -0.202008, 0.439904, 0.195547)
+
+[node name="attackIndicator" parent="WorldEnvironment/Enemies/Room 3/SporeEnemy" instance=ExtResource("87_wowqq")]
+visible = false
+
 [node name="MeleeEnemy" parent="WorldEnvironment/Enemies/Room 3" groups=["enemy"] instance=ExtResource("10_1ee8w")]
 transform = Transform3D(-0.272532, 0, -0.962147, 0, 1, 0, 0.962147, 0, -0.272532, -7.11553, 1.5, -3.50668)
 
@@ -3759,8 +3798,6 @@ transform = Transform3D(-0.165291, 0.879337, -0.446592, -0.932135, -0.287216, -0
 transform = Transform3D(1, 0, 0, 0, 0.949272, -0.314457, 1.42109e-14, 0.314457, 0.949272, 3.55271e-15, 1, 0.194046)
 
 [node name="AnimationTree" parent="WorldEnvironment/Player/Controller/Model/Player" index="2"]
-parameters/StateMachine/Dashing3/blend_position = Vector2(0, 0)
-parameters/StateMachine/Dashing4/blend_position = Vector2(0, 0)
 parameters/Sword/blend_amount = 1.0
 parameters/Sword2/blend_amount = 0
 parameters/WalkBlockBlend/blend_amount = 0
@@ -4127,18 +4164,8 @@ script = ExtResource("141_qw7hm")
 [node name="blendScreen" parent="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu" index="0"]
 z_index = 0
 
-[node name="DeathScene" parent="WorldEnvironment/CanvasLayer" instance=ExtResource("141_3ulng")]
-
-[node name="death_blackscreen" parent="WorldEnvironment/CanvasLayer/DeathScene/deathMenu" index="0"]
-z_index = -1
-
-[node name="blendScreen" parent="WorldEnvironment/CanvasLayer/DeathScene/deathMenu" index="1"]
-color = Color(0, 0, 0, 0)
-
-[node name="deathMenuContainer" parent="WorldEnvironment/CanvasLayer/DeathScene/deathMenu" index="2"]
-visible = false
-
 [node name="bossHealthMargin" type="MarginContainer" parent="WorldEnvironment/CanvasLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -4190,6 +4217,18 @@ texture = ExtResource("112_snyj6")
 expand_mode = 1
 flip_v = true
 
+[node name="DeathScene" parent="WorldEnvironment/CanvasLayer" instance=ExtResource("141_3ulng")]
+
+[node name="death_blackscreen" parent="WorldEnvironment/CanvasLayer/DeathScene/deathMenu" index="0"]
+z_index = -1
+
+[node name="blendScreen" parent="WorldEnvironment/CanvasLayer/DeathScene/deathMenu" index="1"]
+color = Color(0, 0, 0, 0)
+
+[node name="deathMenuContainer" parent="WorldEnvironment/CanvasLayer/DeathScene/deathMenu" index="2"]
+visible = false
+
+[connection signal="area_entered" from="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/BossAreana/Area3D" to="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/BossAreana/BossDoor" method="_on_area_3d_area_entered"]
 [connection signal="area_entered" from="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/BossAreana/Area3D" to="WorldEnvironment/Enemies/Room Boss/BossEnemy" method="_on_boss_erea_entered"]
 [connection signal="area_entered" from="WorldEnvironment/World/Nav Exclusion/Music/MusicManager/Fade_Track0" to="WorldEnvironment/World/Nav Exclusion/Music/MusicManager" method="fade_to_Track0"]
 [connection signal="area_entered" from="WorldEnvironment/World/Nav Exclusion/Music/MusicManager/Fade_Track1" to="WorldEnvironment/World/Nav Exclusion/Music/MusicManager" method="fade_to_Track1"]
@@ -4204,6 +4243,8 @@ flip_v = true
 [editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/Room 5/Wall/West/WallTreeWithDeadTree"]
 [editable path="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/BossAreana"]
 [editable path="WorldEnvironment/World/Nav Exclusion/TreeBundleWall/TreeBundleFour3"]
+[editable path="WorldEnvironment/Enemies/Room 3/SporeEnemy"]
+[editable path="WorldEnvironment/Enemies/Room 3/SporeEnemy/Mesh"]
 [editable path="WorldEnvironment/Player"]
 [editable path="WorldEnvironment/Player/Controller/Model/Player"]
 [editable path="WorldEnvironment/Player/Controller/Model/Player/Armature/Skeleton3D/RightWeaponHand/Sword"]
