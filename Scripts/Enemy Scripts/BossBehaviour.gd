@@ -45,6 +45,8 @@ extends CharacterBody3D
 @onready var spearSound = $Sounds/SpearSound
 @onready var walkingSound = $Sounds/WalkingSound
 
+@onready var health_bar = get_tree().current_scene.find_child("bossHealthMargin")
+
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var bulletScene: PackedScene = preload("res://Prefabs/enemies/enemy_bullet.tscn")
 var explosionEnemy: PackedScene = preload("res://Prefabs/enemies/enemy_explosion.tscn")
@@ -79,6 +81,8 @@ var deathTimer: float = 10
 enum actionTypes {NONE, EXPLOSION_ATTACK, RANGED_ATTACK, CHARGE_ATTACK, POISON_CLOUD_ATTACK, SPEAR_ATTACK}
 var actionType = actionTypes.NONE
 var actionTime: float = 0
+
+signal health_changed
 
 func _ready():
 	calculateAggression()
@@ -118,6 +122,7 @@ func activateBoss():
 	calculateAggression()
 	calculateBlocksAndDashes()
 	active = true
+	#health_bar.visible = true
 
 func actionManager(delta):
 	var playerPosition = player.get_child(0).global_position
@@ -404,12 +409,8 @@ func takeDamage(damage: int, type: String):
 	health -= damage
 	if health <= 0 and deathTimer == 10:
 		deathTimer = 8
-		if type == "bow":
-			PlayerActionTracker.bowKills += 1
-		if type == "staff":
-			PlayerActionTracker.staffKills += 1
-		if type == "sword":
-			PlayerActionTracker.meleeKills += 1
+	health_changed.emit()
+		
 
 func _on_detection_area_entered(area: Area3D) -> void:
 	if area.is_in_group("Player"):
