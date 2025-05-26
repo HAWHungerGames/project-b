@@ -121,10 +121,10 @@ func attack(delta):
 func explode():
 	paricles.emitting = true
 	mesh.visible = false
+	velocity = Vector3(0, 0, 0)
 	if isInDamageArea:
 		player.takeDamage(attackDamage, self, false, 0)
 		isInDamageArea = false
-
 
 func apply_gravity(delta):
 	velocity.y += -gravity * delta

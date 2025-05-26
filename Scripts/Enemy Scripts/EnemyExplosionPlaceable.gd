@@ -158,6 +158,7 @@ func explode():
 	paricles.emitting = true
 	mesh.visible = false
 	$ExplosionAudio.play()
+	velocity = Vector3(0, 0, 0)
 	if isInDamageArea:
 		player.takeDamage(attackDamage, self, false, 0)
 		isInDamageArea = false

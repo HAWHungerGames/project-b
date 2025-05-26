@@ -186,6 +186,8 @@ func takeDamage(damage: int, attacker: Node3D, isBlockable, blockCostModifier):
 			$Controller/PlayerAudio/BlockedSFX.play()
 		else: 
 			breakBlock()
+			$Controller/PlayerAudio/HitSFX.play()
+			health -= damage
 	else:
 		health -= damage
 		$Controller/PlayerAudio/HitSFX.play()
