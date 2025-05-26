@@ -1,0 +1,86 @@
+[gd_scene load_steps=7 format=3 uid="uid://dcswdakjvwamu"]
+
+[ext_resource type="Script" uid="uid://pla0dycpralu" path="res://Scripts/Assets/boss_door.gd" id="1_o7pln"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_83mrc"]
+size = Vector3(8, 10, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k5bpt"]
+size = Vector3(7.99634, 11.219, 1)
+
+[sub_resource type="Animation" id="Animation_4n0ck"]
+resource_name = "Closing"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.147423, 1.42802, -33.8091), Vector3(-0.147423, 8.76237, -33.8091)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8hps8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.147423, 0.823159, -33.8091)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wowqq"]
+_data = {
+&"Closing": SubResource("Animation_4n0ck"),
+&"RESET": SubResource("Animation_8hps8")
+}
+
+[node name="BossDoor" type="StaticBody3D" groups=["World"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.147423, 0.823159, -33.8091)
+script = ExtResource("1_o7pln")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("BoxMesh_83mrc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_k5bpt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_wowqq")
+}

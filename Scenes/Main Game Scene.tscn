@@ -1,4 +1,4 @@
-[gd_scene load_steps=160 format=3 uid="uid://17sawqr1a5sd"]
+[gd_scene load_steps=165 format=3 uid="uid://17sawqr1a5sd"]
 
 [ext_resource type="Material" uid="uid://41byjnpqi8jl" path="res://Materials/TestBush.tres" id="1_3f6q6"]
 [ext_resource type="PackedScene" uid="uid://bo6t8u3r6w260" path="res://Prefabs/Asset Scenes/World Objects/Nature/Plants/grass_ground.tscn" id="2_5i7v7"]
@@ -87,6 +87,7 @@
 [ext_resource type="PackedScene" uid="uid://coit2nip4rw5k" path="res://Models/Objects/BossAreana.blend" id="49_wiwy5"]
 [ext_resource type="PackedScene" uid="uid://dqu4ynl3lwx2t" path="res://Prefabs/Enemies/enemy_boss.tscn" id="51_3ulng"]
 [ext_resource type="PackedScene" uid="uid://cfubqgne171oq" path="res://Prefabs/Asset Scenes/Game Objects/SneakingBush/curve_bush_for_sneaking.tscn" id="51_4bywt"]
+[ext_resource type="PackedScene" uid="uid://dcswdakjvwamu" path="res://Prefabs/Asset Scenes/Game Objects/boss_door.tscn" id="51_k5bpt"]
 [ext_resource type="PackedScene" uid="uid://b4ushremwkeg6" path="res://Prefabs/Asset Scenes/World Objects/Nature/Trees/tree_stump_with_mushrooms.tscn" id="51_pueoc"]
 [ext_resource type="PackedScene" uid="uid://cgjm04fx7b74y" path="res://Prefabs/Asset Scenes/World Objects/Nature/Trees/tree_branch.tscn" id="52_1ud1s"]
 [ext_resource type="PackedScene" uid="uid://by6i1emt5b34n" path="res://Prefabs/Asset Scenes/Game Objects/SneakingBush/small_bush_for_sneaking_one.tscn" id="52_u41q7"]
@@ -167,6 +168,18 @@ size = Vector3(9.72498, 8.74646, 1)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_3ulng"]
 radius = 25.1504
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k5bpt"]
+size = Vector3(6.01733, 4.69434, 9.65991)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4n0ck"]
+size = Vector3(6.01733, 4.69434, 9.65991)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8hps8"]
+size = Vector3(4.62476, 4.69434, 9.65991)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wowqq"]
+size = Vector3(4.62476, 4.69434, 9.65991)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_snyj6"]
 size = Vector3(86.5605, 8.92017, 62.0339)
@@ -256,7 +269,7 @@ environment = SubResource("Environment_1ee8w")
 navigation_mesh = SubResource("NavigationMesh_oxcgu")
 metadata/_edit_lock_ = true
 
-[node name="Ground" type="CSGBox3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D"]
+[node name="Ground" type="CSGBox3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D" groups=["World"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -102.607)
 use_collision = true
 size = Vector3(320, 1, 300)
@@ -1007,6 +1020,10 @@ transform = Transform3D(0.449731, -0.115792, 0.560079, 0.159119, 0.709701, 0.018
 [node name="BossAreana" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D" instance=ExtResource("49_wiwy5")]
 transform = Transform3D(-0.70461, 0, 6.1599e-08, 0, 0.70461, 0, -6.1599e-08, 0, -0.70461, 9.26647, -2.7374, -254.024)
 
+[node name="@StaticBody3D@21970" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/BossAreana" index="1" groups=["World"]]
+
+[node name="CollisionShape3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/BossAreana/@StaticBody3D@21970" index="0" groups=["World"]]
+
 [node name="ExtraCollision2" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/BossAreana" groups=["World"] instance=ExtResource("15_1tgbn")]
 transform = Transform3D(1.86109e-07, 0, -2.38503, 0, 1.41922, 0, 1.41922, 0, 3.1276e-07, 30.1211, 16.3037, 2.62225)
 collision_layer = 4
@@ -1060,6 +1077,27 @@ transform = Transform3D(-1.41922, 0, -1.24073e-07, 0, 1.41922, 0, 1.24073e-07, 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/BossAreana/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.39969, -4.60628)
 shape = SubResource("CylinderShape3D_3ulng")
+
+[node name="BossDoor" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/BossAreana" instance=ExtResource("51_k5bpt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.147423, 0.823159, -33.8091)
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/BossAreana" groups=["World"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/BossAreana/StaticBody3D2" groups=["World"]]
+transform = Transform3D(0.952273, 0, 0.305247, 0, 1, 0, -0.305247, 0, 0.952273, -7.86492, 8.60006, -26.1444)
+shape = SubResource("BoxShape3D_k5bpt")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/BossAreana/StaticBody3D2" groups=["World"]]
+transform = Transform3D(-0.621708, 0, 0.783248, 0, 1, 0, -0.783248, 0, -0.621708, -22.9784, 8.60006, 18.8328)
+shape = SubResource("BoxShape3D_4n0ck")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/BossAreana/StaticBody3D2" groups=["World"]]
+transform = Transform3D(-0.999204, 0, 0.0398874, 0, 1, 0, -0.0398874, 0, -0.999204, -2.45968, 8.60006, 26.2388)
+shape = SubResource("BoxShape3D_8hps8")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/BossAreana/StaticBody3D2" groups=["World"]]
+transform = Transform3D(-0.264395, 0, -0.964414, 0, 1, 0, 0.964414, 0, -0.264395, 25.6817, 8.60006, 2.37106)
+shape = SubResource("BoxShape3D_wowqq")
 
 [node name="Nav Exclusion" type="Node3D" parent="WorldEnvironment/World"]
 
@@ -3496,15 +3534,6 @@ transform = Transform3D(0.860016, -0.182132, -0.0937058, 0.29031, 0.927329, 0.03
 [node name="GrassPlant12" parent="WorldEnvironment/World/Nav Exclusion/Boss Room/Nature" instance=ExtResource("37_ve7h7")]
 transform = Transform3D(0.943991, 0, -0.019636, 0, 1.23218, 0, 0.329971, 0, 0.0561754, 4.47624, 2.20785, -23.1218)
 
-[node name="GrassPlant13" parent="WorldEnvironment/World/Nav Exclusion/Boss Room/Nature" instance=ExtResource("37_ve7h7")]
-transform = Transform3D(-0.667534, 0, -0.0768848, 0, 2.17025, 0, 0.74458, 0, -0.068929, 13.6215, 2.03645, -16.4154)
-
-[node name="GrassPlant14" parent="WorldEnvironment/World/Nav Exclusion/Boss Room/Nature" instance=ExtResource("37_ve7h7")]
-transform = Transform3D(-0.651777, 0.309667, -0.135967, 0.29031, 0.927329, 0.0309573, 0.700647, -0.0961661, -0.139311, 12.9575, 1.94159, -15.6954)
-
-[node name="GrassPlant15" parent="WorldEnvironment/World/Nav Exclusion/Boss Room/Nature" instance=ExtResource("37_ve7h7")]
-transform = Transform3D(-0.590437, 0, -0.0480283, 0, 1.23218, 0, 0.807084, 0, -0.035136, 13.9382, 2.20785, -16.7997)
-
 [node name="RockOne" parent="WorldEnvironment/World/Nav Exclusion/Boss Room/Nature" instance=ExtResource("11_ccm0r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.6278, 1.93619, 8.80098)
 collision_layer = 0
@@ -3710,13 +3739,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1742, 3.33731, -265.881)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2282, 1.90735e-06, -251.807)
 
 [node name="Player" parent="WorldEnvironment" instance=ExtResource("6_0ctdn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.44575, 3.61796, -8.93757)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.44575, 2.37684, -8.93757)
 speed = 5.5
 dashMaxCooldown = 0.5
 sneakSpeedModifier = 2.25
 healthPerSecond = 25.0
 staminaPerSecond = 80.0
 manaPerSecond = 50.0
+
+[node name="RightWeaponHand" parent="WorldEnvironment/Player/Controller/Model/Player/Armature/Skeleton3D" index="1"]
+transform = Transform3D(-0.165291, -0.879337, 0.446592, 0.932135, -0.287216, -0.220528, 0.322187, 0.379832, 0.867135, -2.84966, 1.51509, 0.564782)
+
+[node name="LeftWeaponHand" parent="WorldEnvironment/Player/Controller/Model/Player/Armature/Skeleton3D" index="2"]
+transform = Transform3D(-0.165291, 0.879337, -0.446592, -0.932135, -0.287216, -0.220528, -0.322187, 0.379832, 0.867135, 2.84966, 1.51509, 0.564782)
+
+[node name="BackWeapon" parent="WorldEnvironment/Player/Controller/Model/Player/Armature/Skeleton3D" index="3"]
+transform = Transform3D(1, 0, 0, 0, 0.949272, -0.314457, 1.42109e-14, 0.314457, 0.949272, 3.55271e-15, 1, 0.194046)
 
 [node name="AnimationTree" parent="WorldEnvironment/Player/Controller/Model/Player" index="2"]
 parameters/StateMachine/Dashing3/blend_position = Vector2(0, 0)
@@ -4127,6 +4165,7 @@ flip_v = true
 [node name="blendScreen" parent="WorldEnvironment/CanvasLayer/PauseMenu/pauseMenu" index="0"]
 z_index = 0
 
+[connection signal="area_entered" from="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/BossAreana/Area3D" to="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/BossAreana/BossDoor" method="_on_area_3d_area_entered"]
 [connection signal="area_entered" from="WorldEnvironment/World/Nav Inclusion/NavigationRegion3D/BossAreana/Area3D" to="WorldEnvironment/Enemies/Room Boss/BossEnemy" method="_on_boss_erea_entered"]
 [connection signal="area_entered" from="WorldEnvironment/World/Nav Exclusion/Music/MusicManager/Fade_Track0" to="WorldEnvironment/World/Nav Exclusion/Music/MusicManager" method="fade_to_Track0"]
 [connection signal="area_entered" from="WorldEnvironment/World/Nav Exclusion/Music/MusicManager/Fade_Track1" to="WorldEnvironment/World/Nav Exclusion/Music/MusicManager" method="fade_to_Track1"]
