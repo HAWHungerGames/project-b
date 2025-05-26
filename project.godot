@@ -151,7 +151,7 @@ block={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://UI/Localization/mycofall.de.translation", "res://UI/Localization/mycofall.en.translation")
+locale/translations=PackedStringArray("res://UI/Localization/mycofall_translation.de.translation", "res://UI/Localization/mycofall_translation.en.translation")
 locale/translations_pot_files=PackedStringArray("res://Scenes/Konrad Work Scene.tscn")
 
 [rendering]

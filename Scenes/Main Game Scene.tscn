@@ -4153,7 +4153,6 @@ texture = ExtResource("134_qw7hm")
 
 [node name="gameBlend" type="ColorRect" parent="WorldEnvironment/CanvasLayer/FullUI"]
 process_mode = 3
-visible = false
 layout_mode = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("141_qw7hm")

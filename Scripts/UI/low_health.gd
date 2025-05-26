@@ -20,7 +20,7 @@ func _process(delta):
 	if player.health < ((player.maxHealth / 10) * 2) && player.health > 0:
 		redTint.visible = true
 		myceliumFrame.visible = true
-		target_opacity = player.maxHealth * 10.0 / (player.health * 255.0)
+		target_opacity = player.maxHealth * 7.0 / (player.health * 255.0)
 		health.material.set_shader_parameter("low_health", true)
 	else:
 		health.material.set_shader_parameter("low_health", false)

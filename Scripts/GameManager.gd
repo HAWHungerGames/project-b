@@ -103,3 +103,9 @@ func get_mouse_ground_position_fixed(object) -> Vector3:
 		return world_pos
 	
 	return object.global_position
+
+func reset_player_items():
+	weapon_in_hand = false
+	weapon_on_back = false
+	set_first_weapon("")
+	set_second_weapon("")

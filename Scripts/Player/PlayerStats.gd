@@ -80,6 +80,7 @@ func _ready():
 	get_child(2).rotation.x = cameraAngle * PI / 180
 	get_child(0).get_child(1).transform.origin.y = cameraHeight
 	get_child(0).get_child(1).spring_length = cameraDistanceFromPlayer
+	GameManager.reset_player_items()
 
 func _physics_process(delta):
 	resource_system(delta)
@@ -188,6 +189,9 @@ func takeDamage(damage: int, attacker: Node3D, isBlockable, blockCostModifier):
 			breakBlock()
 			$Controller/PlayerAudio/HitSFX.play()
 			health -= damage
+			stamina -= blockingStaminaCost * (1-blockCostModifier)
+			staminaChanged.emit()
+			healthChanged.emit()
 	else:
 		health -= damage
 		$Controller/PlayerAudio/HitSFX.play()

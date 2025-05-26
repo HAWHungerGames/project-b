@@ -10,12 +10,9 @@ extends Control
 @onready var display_menu = $Display
 
 @onready var timer = $AspectRatioContainer/VideoStreamPlayer/Timer
-#@onready var buttonSelectRightStart = $MarginContainer/MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/buttonSelectRight
 @onready var buttonsStart = $main_menu/MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/buttonsStart
 @onready var buttonsOptions = $main_menu/MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/buttonsOptions
-#@onready var buttonSelectLeftOptions = $MarginContainer/MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer3/buttonSelectLeft
 @onready var buttonsExit = $main_menu/MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/buttonsExit
-#@onready var buttonSelectLeftExit = $MarginContainer/MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer2/buttonSelectLeft
 
 @onready var buttonsDisplay = $Options/optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsDisplay
 @onready var buttonsControls = $Options/optionsMenuContainer/MarginContainer/NinePatchRect/buttonMargin/buttons/buttonsControls
@@ -25,9 +22,6 @@ extends Control
 @onready var controls = buttonsControls.get_child(1)
 @onready var back = buttonsBack.get_child(1)
 @onready var display_back = display_menu.find_child("buttonsBack").get_child(1)
-#@onready var display_res = display_menu.find_child("back")
-#@onready var display_mode = display_menu.find_child("back")
-#@onready var display_lang = display_menu.find_child("back")
 @onready var controls_back = controls_menu.find_child("buttonsBack").get_child(1)
 @onready var controls_left = controls_menu.find_child("buttonLeft")
 @onready var controls_right = controls_menu.find_child("buttonRight")
@@ -87,6 +81,9 @@ func fadeIn():
 	tween.tween_property(background, "modulate:a", 1.0, 1.0)
 	tween.play()
 	color_rect.process_mode = Node.PROCESS_MODE_DISABLED
+	await get_tree().create_timer(2).timeout
+	print("timer out")
+	vbox.process_mode = Node.PROCESS_MODE_INHERIT
 
 func _on_timer_timeout() -> void:
 	fadeIn()
