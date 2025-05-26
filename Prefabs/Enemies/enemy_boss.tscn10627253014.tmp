@@ -1,0 +1,216 @@
+[gd_scene load_steps=25 format=3 uid="uid://dqu4ynl3lwx2t"]
+
+[ext_resource type="Script" uid="uid://emldon8urap5" path="res://Scripts/Enemy Scripts/BossBehaviour.gd" id="1_1bxol"]
+[ext_resource type="PackedScene" uid="uid://chv8mgyab8s4l" path="res://Models/Enemies/Boss/Boss.blend" id="3_4onus"]
+[ext_resource type="Texture2D" uid="uid://cbu02u0njv72o" path="res://Assets/Kenney Particles Transparent Background/smoke_07.png" id="4_2ws8c"]
+[ext_resource type="Texture2D" uid="uid://bg8x4uebiyet0" path="res://Models/Enemies/Boss/arms_texture.png" id="4_gorya"]
+[ext_resource type="Texture2D" uid="uid://c5krytwmbam1p" path="res://Models/Enemies/Boss/boss_head_texture.png" id="4_rviuc"]
+[ext_resource type="Texture2D" uid="uid://n0brov4exmcs" path="res://Models/Enemies/Boss/legs_texture.png" id="5_gorya"]
+[ext_resource type="Texture2D" uid="uid://b3ujg62unudtg" path="res://Models/Enemies/Boss/boss_body_texture.png" id="5_tbb04"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dp8bq"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k711p"]
+radius = 1.08206
+height = 2.16412
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gorya"]
+radius = 1.08206
+height = 2.16412
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a0bld"]
+size = Vector3(4.33313, 3.10356, 3.29971)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1bxol"]
+radius = 4.85375
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fopvl"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("4_2ws8c")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="Curve" id="Curve_nv5gi"]
+_data = [Vector2(0.534351, 0.438202), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_jmuxb"]
+curve = SubResource("Curve_nv5gi")
+
+[sub_resource type="Curve" id="Curve_8s7lv"]
+_data = [Vector2(0.0076336, 0.449438), 0.0, 0.0, 0, 0, Vector2(0.450382, 1), 0.0, 0.0, 0, 0, Vector2(0.99999, 0.539326), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_k6aqa"]
+curve = SubResource("Curve_8s7lv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ti2x5"]
+emission_shape = 2
+emission_sphere_radius = 4.0
+angle_min = -92.9
+angle_max = 45.7
+gravity = Vector3(0, 0, 0)
+scale_min = 5.0
+scale_max = 6.0
+scale_curve = SubResource("CurveTexture_k6aqa")
+color = Color(0.730783, 0.163364, 0.999999, 1)
+alpha_curve = SubResource("CurveTexture_jmuxb")
+hue_variation_min = -0.1
+hue_variation_max = 0.1
+
+[sub_resource type="QuadMesh" id="QuadMesh_3twt1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6alni"]
+albedo_texture = ExtResource("4_gorya")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ivjtr"]
+albedo_texture = ExtResource("5_tbb04")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gbk7o"]
+albedo_texture = ExtResource("4_rviuc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_otkrd"]
+albedo_texture = ExtResource("5_gorya")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ylx7"]
+albedo_texture = ExtResource("5_gorya")
+
+[node name="BossEnemy" type="CharacterBody3D" groups=["Enemy"]]
+script = ExtResource("1_1bxol")
+
+[node name="DetectionArea" type="Area3D" parent="." groups=["Enemy"]]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea" groups=["Enemy"]]
+shape = SubResource("SphereShape3D_dp8bq")
+debug_color = Color(0.138961, 0.599429, 0.670183, 1)
+
+[node name="MiniEnemySpawnPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.544362, 0.573799, 0)
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.279818, -0.162291, 0)
+shape = SubResource("CapsuleShape3D_k711p")
+
+[node name="ChargeCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.48743, 0.253642, 0)
+shape = SubResource("CapsuleShape3D_gorya")
+disabled = true
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="ChargeAttackArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.14378, -0.150951, -0.0858476)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ChargeAttackArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.62396, 1.73942, 0.0785065)
+shape = SubResource("BoxShape3D_a0bld")
+
+[node name="SporeSpawnPoints" type="Node3D" parent="."]
+
+[node name="Node3D" type="Node3D" parent="SporeSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93757, 2.08735, 0.522021)
+
+[node name="Node3D2" type="Node3D" parent="SporeSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.65561, 2.36815, 0.884214)
+
+[node name="Node3D3" type="Node3D" parent="SporeSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.18235, 3.06044, -0.509569)
+
+[node name="Node3D4" type="Node3D" parent="SporeSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.05311, 2.67174, 1.4505)
+
+[node name="Node3D5" type="Node3D" parent="SporeSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.07846, 2.89913, -1.39102)
+
+[node name="Node3D6" type="Node3D" parent="SporeSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.66663, 3.47142, 0.129515)
+
+[node name="Node3D7" type="Node3D" parent="SporeSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.70214, 0.564325, 0.00163567)
+
+[node name="SporeDamageArea" type="Area3D" parent="."]
+
+[node name="SporeCollisionShape" type="CollisionShape3D" parent="SporeDamageArea"]
+shape = SubResource("SphereShape3D_1bxol")
+
+[node name="AreaDamageParticles" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00632338, 0, -0.00598049)
+material_override = SubResource("StandardMaterial3D_fopvl")
+emitting = false
+amount = 50
+lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_ti2x5")
+draw_pass_1 = SubResource("QuadMesh_3twt1")
+
+[node name="ExplosionEnemySpawnPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24533, 1.48503, 0)
+
+[node name="Mesh" parent="." instance=ExtResource("3_4onus")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -1.15582, 0)
+
+[node name="Skeleton3D" parent="Mesh/Armature" index="0"]
+bones/0/position = Vector3(0, -0.00308638, 0)
+bones/0/rotation = Quaternion(0, -1.52568e-09, 0.0111906, 0.999937)
+bones/1/rotation = Quaternion(-0.091568, 0.00832534, 0.0679414, 0.993443)
+bones/2/rotation = Quaternion(3.64744e-09, -1.99663e-11, -5.18345e-23, 1)
+bones/3/position = Vector3(0.563852, 0.149675, -0.0648608)
+bones/3/rotation = Quaternion(0.0540043, -0.050092, 0.902891, -0.423512)
+bones/4/rotation = Quaternion(0.245598, 0.0115369, -0.0551546, 0.967733)
+bones/5/rotation = Quaternion(-0.0372394, -0.00292339, -0.0506706, 0.998017)
+bones/6/rotation = Quaternion(0.132116, -0.069062, -0.482004, 0.863394)
+bones/7/rotation = Quaternion(0.208653, 0.0703961, -0.584766, 0.780741)
+bones/9/rotation = Quaternion(0.208394, 0.186046, -0.48614, 0.828026)
+bones/10/position = Vector3(-0.563852, 0.149675, -0.0648611)
+bones/10/rotation = Quaternion(-0.053424, -0.04982, 0.902926, 0.423543)
+bones/11/rotation = Quaternion(0.160598, -0.0949637, 0.0758242, 0.979511)
+bones/12/rotation = Quaternion(-0.0590722, 0.0207868, 0.158028, 0.985447)
+bones/13/position = Vector3(0.334227, 0.13648, 0.0379802)
+bones/13/rotation = Quaternion(0.0161065, 0.0135608, 0.999765, -0.00509539)
+bones/14/rotation = Quaternion(-0.00432282, 0.000182725, -0.00118507, 0.99999)
+bones/15/position = Vector3(-0.334227, 0.13648, 0.0379802)
+bones/15/rotation = Quaternion(-0.00725933, 0.168824, 0.983468, 0.0650929)
+bones/16/rotation = Quaternion(-0.246363, -0.000176671, 0.0675421, 0.966821)
+bones/17/position = Vector3(-0.345621, -0.322861, 0.0479643)
+bones/17/rotation = Quaternion(0.000303981, 0.666784, 0.745251, 0.000271975)
+bones/18/rotation = Quaternion(-0.011647, 4.34986e-11, 9.50128e-06, 0.999932)
+bones/19/position = Vector3(0.345594, -0.321986, 0.0479468)
+bones/19/rotation = Quaternion(-0.000303981, 0.666784, 0.745251, -0.000271975)
+bones/20/rotation = Quaternion(-0.011647, -4.34986e-11, -9.50128e-06, 0.999932)
+bones/21/position = Vector3(0.345621, -0.322861, 0.0479641)
+bones/21/rotation = Quaternion(0.000261053, 0.768368, -0.640008, -0.00031341)
+bones/22/position = Vector3(0.345621, -0.11419, 0.269977)
+bones/22/rotation = Quaternion(-0.0161465, 0.706922, 0.706922, -0.0161465)
+bones/23/position = Vector3(-0.345621, -0.322861, 0.0479641)
+bones/23/rotation = Quaternion(-0.000261053, 0.768368, -0.640008, 0.00031341)
+bones/24/position = Vector3(-0.345621, -0.11419, 0.269977)
+bones/24/rotation = Quaternion(0.0161465, 0.706922, 0.706922, 0.0161465)
+
+[node name="Arm_L" parent="Mesh/Armature/Skeleton3D" index="0"]
+material_override = SubResource("StandardMaterial3D_6alni")
+
+[node name="Body" parent="Mesh/Armature/Skeleton3D" index="2"]
+material_override = SubResource("StandardMaterial3D_ivjtr")
+
+[node name="Head" parent="Mesh/Armature/Skeleton3D" index="3"]
+material_override = SubResource("StandardMaterial3D_gbk7o")
+
+[node name="Leg_R" parent="Mesh/Armature/Skeleton3D" index="4"]
+material_override = SubResource("StandardMaterial3D_otkrd")
+
+[node name="Leg_R_001" parent="Mesh/Armature/Skeleton3D" index="5"]
+material_override = SubResource("StandardMaterial3D_2ylx7")
+
+[node name="DamageNumbersPosition" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.57163, 3.40632, 0)
+
+[connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_entered"]
+[connection signal="area_exited" from="DetectionArea" to="." method="_on_detection_area_exited"]
+[connection signal="area_entered" from="ChargeAttackArea" to="." method="_on_charge_attack_area_entered"]
+[connection signal="body_entered" from="ChargeAttackArea" to="." method="_on_charge_attack_body_entered"]
+[connection signal="area_entered" from="SporeDamageArea" to="." method="_on_spore_damage_area_entered"]
+[connection signal="area_exited" from="SporeDamageArea" to="." method="_on_spore_damage_area_exited"]
+
+[editable path="Mesh"]
