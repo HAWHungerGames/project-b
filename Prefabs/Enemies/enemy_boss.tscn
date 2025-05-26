@@ -1,7 +1,7 @@
 [gd_scene load_steps=49 format=3 uid="uid://dqu4ynl3lwx2t"]
 
 [ext_resource type="Script" uid="uid://emldon8urap5" path="res://Scripts/Enemy Scripts/BossBehaviour.gd" id="1_1bxol"]
-[ext_resource type="PackedScene" uid="uid://dpvom7f6ll5un" path="res://Models/Enemies/Boss/Boss.blend" id="3_4onus"]
+[ext_resource type="PackedScene" uid="uid://b1ahooi32tg0o" path="res://Models/Enemies/Boss/Boss.glb" id="3_4onus"]
 [ext_resource type="Texture2D" uid="uid://cbu02u0njv72o" path="res://Assets/Kenney Particles Transparent Background/smoke_07.png" id="4_2ws8c"]
 [ext_resource type="AudioStream" uid="uid://dhtjj3be1be7a" path="res://Assets/Sound/SFX/Enemy/BossSound/GrenadeLauncher/Boss_GrenadeLauncher_1.wav" id="5_rviuc"]
 [ext_resource type="Script" uid="uid://cq485d4lp3x4t" path="res://Scripts/UI/death_spores.gd" id="5_tbb04"]
