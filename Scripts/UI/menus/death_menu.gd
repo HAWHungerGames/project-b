@@ -15,7 +15,7 @@ func fade_in_death_screen():
 	if player.health > 0:
 		return
 	death_menu.visible = true
-	death_menu.z_index = 0
+	death_menu.z_index = 5
 	buttonsRetry.grab_focus()
 	get_tree().paused = true
 	var tween = create_tween()

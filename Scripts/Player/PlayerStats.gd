@@ -50,6 +50,8 @@ extends Node3D
 @export var cameraHeight: float = 6
 @export var cameraDistanceFromPlayer: float = 8
 
+var death: PackedScene = preload("res://Prefabs/Asset Scenes/UI/death_scene.tscn")
+
 var stamina: float = maxStamina
 var staminaRegenCooldown: float = 0
 var health: float = maxHealth
@@ -187,6 +189,10 @@ func takeDamage(damage: int, attacker: Node3D, isBlockable, blockCostModifier):
 	else:
 		health -= damage
 		$Controller/PlayerAudio/HitSFX.play()
+		healthChanged.emit()
+	if health <= 0:
+		var death_scene = death.instantiate()
+		get_tree().current_scene.find_child("CanvasLayer").add_child(death_scene)
 		healthChanged.emit()
 
 func getBlockingDamageReduction():
